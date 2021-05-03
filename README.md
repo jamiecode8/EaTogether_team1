@@ -1,13 +1,2 @@
-# 組別
-
-# sass變數
-
-
-# html結構
-```html
-<header class="header">
-    <ul>
-        <li>選單<li>
-    </ul>
-<header>
-``` 
+說明文件:
+https://www.notion.so/coding-3d7b0d293e8346508b9eae0a249be4b7
