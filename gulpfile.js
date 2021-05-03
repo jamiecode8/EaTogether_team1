@@ -85,4 +85,4 @@ exports.default =  function browser() {
 }
 
 //先清除舊檔案，再同時執行其他的、再壓縮圖檔
-exports.prod = series(clear, parallel(includeHTML, sassStyle), imgs_prod);
+exports.prod = series(clear, parallel(includeHTML, sassStyle, babel5), imgs_prod);
