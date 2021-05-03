@@ -40,7 +40,7 @@ function imgs_dev(){
  } 
 
 // 壓圖
-exports.img = function imgs_prod(){
+function imgs_prod(){
    return src(['dev/img/*.*' ,'dev/img/**/*.*'])
    .pipe(imagemin())  // 壓圖
    .pipe(dest('dist/img'))
