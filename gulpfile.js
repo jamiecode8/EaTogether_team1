@@ -46,6 +46,15 @@ exports.img = function imgs_prod(){
    .pipe(dest('dist/img'))
 } 
 
+const clean = require('gulp-clean');
+
+function clear() {
+    return src('dist', { read: false, allowEmpty: true })
+        .pipe(clean({ force: true }));
+}
+
+
+//同步瀏覽器
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 
@@ -60,7 +69,8 @@ exports.default =  function browser() {
     });
     watch(['dev/*.html' , 'dev/**/*.html'], includeHTML).on('change' , reload);
     watch(['dev/sass/*.scss' ,'dev/sass/**/*.scss'] , sassStyle).on('change' , reload);
-    watch(['dev/img/*.*' ,'dev/img/**/*.*']s , imgs_dev).on('change' , reload);
+    watch(['dev/img/*.*' ,'dev/img/**/*.*'] , imgs_dev).on('change' , reload);
 }
 
-
+//先清除舊檔案，再同時執行其他的、再壓縮圖檔
+exports.prod = series(clear, parallel(includeHTML, sassStyle), imgs_prod);
