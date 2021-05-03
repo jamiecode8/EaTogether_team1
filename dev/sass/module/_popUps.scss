@@ -5,7 +5,7 @@
     padding: 50px;
     @include shadow;
     @include border_r;
-    @include btn_close('close');
+    @include btn_close('.btn_close');
     h1{
       text-align: center;
       font-size: $fontSize_Title;
@@ -29,6 +29,9 @@
     .btn, .buttonArea{
       margin-left:50%;
       transform: translateX(-50%);
+    }
+    .btn{
+      width: max-content;
     }
     // 2個按鈕
     .btn_d{

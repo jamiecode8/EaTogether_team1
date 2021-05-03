@@ -31,6 +31,21 @@ function includeHTML() {
         .pipe(dest('dist'));
 }
 
+// 打包圖片  // 路徑  dev/images/*.*
+const imagemin = require('gulp-imagemin');
+
+function imgs_dev(){
+    return src(['dev/img/*.*' ,'dev/img/**/*.*'])
+    .pipe(dest('dist/img'))
+ } 
+
+// 壓圖
+exports.img = function imgs_prod(){
+   return src(['dev/img/*.*' ,'dev/img/**/*.*'])
+   .pipe(imagemin())  // 壓圖
+   .pipe(dest('dist/img'))
+} 
+
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 
@@ -45,6 +60,7 @@ exports.default =  function browser() {
     });
     watch(['dev/*.html' , 'dev/**/*.html'], includeHTML).on('change' , reload);
     watch(['dev/sass/*.scss' ,'dev/sass/**/*.scss'] , sassStyle).on('change' , reload);
+    watch(['dev/img/*.*' ,'dev/img/**/*.*']s , imgs_dev).on('change' , reload);
 }
 
 
