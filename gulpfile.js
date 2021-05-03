@@ -70,7 +70,7 @@ const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 
 
-exports.default =  function browser() {
+function browser() {
     browserSync.init({
         server: {
             baseDir: "./dist",
@@ -78,11 +78,15 @@ exports.default =  function browser() {
         },
         port: 3000
     });
-    watch(['dev/*.html' , 'dev/**/*.html'], includeHTML).on('change' , reload);
-    watch(['dev/sass/*.scss' ,'dev/sass/**/*.scss'] , sassStyle).on('change' , reload);
-    watch(['dev/img/*.*' ,'dev/img/**/*.*'] , imgs_dev).on('change' , reload);
+    watch(['dev/*.html', 'dev/**/*.html'], includeHTML).on('change', reload);
+    watch(['dev/sass/*.scss', 'dev/sass/**/*.scss'], sassStyle).on('change', reload);
+    watch(['dev/images/*.*', 'dev/images/**/*.*'], imgs_dev).on('change', reload);
     watch('dev/js/*.js', babel5).on('change', reload);
 }
+
+
+// 開發用
+exports.default = series(imgs_dev ,includeHTML , sassStyle  , babel5 , browser)
 
 //先清除舊檔案，再同時執行其他的、再壓縮圖檔
 exports.prod = series(clear, parallel(includeHTML, sassStyle, babel5), imgs_prod);
