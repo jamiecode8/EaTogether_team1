@@ -5,16 +5,7 @@
     padding: 50px;
     @include shadow;
     @include border_r;
-     
     @include btn_close('close');
-    // .close{
-    //   border: none;
-    //   background-color: $tp;
-    //   position: absolute;
-    //   top: 20px;
-    //   right: 20px; 
-    // }
-
     h1{
       text-align: center;
       font-size: $fontSize_Title;

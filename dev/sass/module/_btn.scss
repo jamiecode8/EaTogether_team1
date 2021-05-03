@@ -8,20 +8,19 @@
 @include btn('cancel', $tp, $yellow);
 
 //上一步
-@include btn('pre', $tp, $yellow);
+@include btn('btn_pre', $tp, $yellow);
 
 //下一步
-@include btn('next', $tp, $yellow);
+@include btn('btn_next', $tp, $yellow);
 
 //再測一次
-@include btn('again',$yellow , $tp);
+@include btn('btn_again',$yellow , $tp);
 
 //領取 
-@include btn('receive', $tp, $yellow);
-
+@include btn('btn_receive', $tp, $yellow);
 
 //關閉彈窗
-@include btn_close('close');
+@include btn_close('btn_close');
 
 
 
