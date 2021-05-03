@@ -46,7 +46,7 @@
 }
 
 //關閉那個XX
-@mixin btn_close{
+@mixin btn_close($class){
   #{$class}{
   border: none;
   background-color: $tp;
