@@ -1,0 +1,18 @@
+// Jamie 
+header{
+   position: relative;
+   height: 150px;
+   width: 100vw;
+   border: 1px solid $lightgreen;
+   .logo{
+     position: absolute;
+     top: 20px;
+     left: 80px ;
+   }
+   .ham{
+      position: absolute;
+      top: 40px;
+      right: 80px ;
+   }
+  }
+

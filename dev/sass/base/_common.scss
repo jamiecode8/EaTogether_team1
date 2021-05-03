@@ -1,0 +1,63 @@
+//全域用的，改了要註記!!
+body {
+  color: $color;
+  font-size: $fontSize;
+  line-height: 30px;
+  font-family: Arial ;
+}
+
+.wrapper{
+position: relative;
+min-height: 100%;
+}
+
+a{
+  font-size: $fontSizeLink; 
+  cursor: pointer;
+  transition: 0.5 ease-in-out;
+  text-decoration: none;
+	color: $color;
+	text-align: center;
+	margin: 0 auto;
+}
+
+p{
+  line-height: 30px;
+  color: $color;
+}
+
+h1{
+  font-size: $fontSize_Title;
+  color: $color;
+}
+
+img{
+	max-width: 100%;
+}
+
+//毛玻璃
+.blur{
+  filter: blur(3px);
+	transition: 3s;
+}
+
+ul{
+  margin: 0;
+}
+
+li{
+  list-style: none;
+}
+
+//輸入框
+.input{
+  line-height: 36px;
+  font-size: $fontSizeLink;
+  background-color: $lightgreen;
+}
+
+//close 按鈕
+.close{
+  width: 35px;
+  margin: 20px; 
+}

@@ -1,0 +1,27 @@
+//jamie的
+//@include btn('按鈕的class', 背景色, 外框色);
+
+//確認、送出按鈕
+@include btn('submit', $yellow, $tp);
+
+//取消按鈕
+@include btn('cancel', $tp, $yellow);
+
+//上一步
+@include btn('pre', $tp, $yellow);
+
+//下一步
+@include btn('next', $tp, $yellow);
+
+//再測一次
+@include btn('again',$yellow , $tp);
+
+//領取 
+@include btn('receive', $tp, $yellow);
+
+
+//關閉彈窗
+@include btn_close('close');
+
+
+

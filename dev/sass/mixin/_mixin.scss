@@ -1,0 +1,115 @@
+//這個勿改
+//宣告組合功能,像JavaScript 裡的function; 
+//用法: @include 名稱(); 呼叫
+
+//物件水平垂直置中
+@mixin marginCenter(){
+  margin: 0 auto;
+}
+
+//區塊置中
+@mixin block_center {
+  margin-left:50%;
+  transform: translateX(-50%);
+}
+
+// 外框圓弧
+@mixin border_r(){
+  border-radius: 5px;
+}
+
+// 陰影
+@mixin shadow{
+  box-shadow: -2px 2px 5px #6C584C;
+}
+
+//方形按鈕
+@mixin btn($class, $bgc, $borderColor){
+  #{$class}{
+    width: 100px;
+    height: 36px;
+    margin: 20px; 
+    font-size: $fontSizeLink;
+    line-height: 36px;
+    color: $color;
+    text-align: center;
+    transition: 0.5s ease-in-out; 
+    background: $bgc;
+    border: 1px solid $borderColor; 
+    border-radius: 10px;
+    @include border_r(); 
+    &:hover {
+      cursor: pointer; 
+      background: darken($bgc, 20);
+    }
+  }
+}
+
+//關閉那個XX
+@mixin btn_close{
+  #{$class}{
+  border: none;
+  background-color: $tp;
+  position: absolute;
+  top: 20px;
+  right: 20px; 
+  }
+}
+
+//滿版或1200
+@mixin layout($w) {
+  @if $w == 100{
+    width: 100vw;
+    height: 100vh;
+  }@else{
+    width: $w;
+    margin: 0 auto;
+  }
+}
+
+//grid
+@mixin grid($num) {
+  @for $i from 1 through $num {
+    .col-#{$i}{
+      width: ($i/$num) * 100%;
+      display: inline-block;
+      @content;  //可擴增屬性
+    }
+  }
+}
+
+
+//RWD
+@mixin rwd($breakpoint) {
+  @if $breakpoint == 'desktop'{
+    @media all and (min-width: 992px) {
+      max-width: 1200px;
+      width:100%;
+      @content;
+    }
+  }
+  @else if $breakpoint == 'pad'{
+    @media all and(max-width: 991px) and (min-width: 768px) {
+      max-width: 720px;
+      width:100%;
+      @content;
+    }
+  }
+  @else if $breakpoint == 'largeMobile'{
+    @media all and(max-width: 767px) and (min-width: 576px) {
+      width: 540px; 
+      width:100%;
+      @content;
+    }
+  }
+  @else if $breakpoint == 'mobile'{
+    @media all and (min-width: 575px) {
+      max-width: 300px;
+      @content;
+    }
+  }
+}
+
+
+
+
