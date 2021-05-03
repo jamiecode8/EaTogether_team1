@@ -53,6 +53,17 @@ function clear() {
         .pipe(clean({ force: true }));
 }
 
+// js es6 -> es5
+const babel = require('gulp-babel');
+
+function babel5() {
+    return src('dev/js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(dest('dist/js'));
+}
+
 
 //同步瀏覽器
 const browserSync = require('browser-sync');
@@ -70,6 +81,7 @@ exports.default =  function browser() {
     watch(['dev/*.html' , 'dev/**/*.html'], includeHTML).on('change' , reload);
     watch(['dev/sass/*.scss' ,'dev/sass/**/*.scss'] , sassStyle).on('change' , reload);
     watch(['dev/img/*.*' ,'dev/img/**/*.*'] , imgs_dev).on('change' , reload);
+    watch('dev/js/*.js', babel5).on('change', reload);
 }
 
 //先清除舊檔案，再同時執行其他的、再壓縮圖檔
