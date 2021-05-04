@@ -1,32 +1,25 @@
-@import 'base/var';
-@import 'mixin/mixin';
-@import 'base/reset';
-@import 'base/color';
-@import 'base/common';
+@import "base/var";
+@import "mixin/mixin";
+@import "base/reset";
+@import "base/color";
+@import "base/common";
 
 // module
-@import 'module/form';//目前是空的
-@import 'module/popUps';
-@import 'module/btn';
+@import "module/form"; //目前是空的
+@import "module/popUps";
+@import "module/btn";
 
 // layout
-@import 'layout/footer';
-@import 'layout/header';
-@import 'layout/login';//可以有底線嗎？ 目前是空的
-@import 'layout/search';//目前是空的
+@import "layout/footer";
+@import "layout/header";
+@import "layout/login"; //可以有底線嗎？ 目前是空的
+@import "layout/search"; //目前是空的
 
 // page
-@import 'page/backend';
-@import 'page/develope';
-@import 'page/index';
-@import 'page/store';
-@import 'page/myUFO';
+@import "page/backend";
+@import "page/develope";
+@import "page/index";
+@import "page/store";
+@import "page/myUFO";
 
 // 新增一隻scss時, 要把檔案import到這裡，往下加
-
-
-
-
-
-
-

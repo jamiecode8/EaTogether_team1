@@ -1,5 +1,5 @@
 //jamie的
-  form{
+form {
     position: relative;
     // width: 600px;
     // width: 400px;
@@ -7,32 +7,32 @@
     padding: 50px;
     @include shadow;
     @include border_r;
-    @include btn_close('.btn_close');
-    h1{
-      text-align: center;
-      font-size: $fontSize_Title;
+    @include btn_close(".btn_close");
+    h1 {
+        text-align: center;
+        font-size: $fontSize_Title;
     }
-    h2{
-      font-size: $fontSize_SubTitle; 
+    h2 {
+        font-size: $fontSize_SubTitle;
     }
 
-    input{
-      width: 100%;
-      border: none;
-      background-color: #FBFFE8;
-      /* background-color: $lightgreen; */
-      line-height: 36px;
-      padding-left: 10px;
-      margin-bottom: 20px;
-      &:focus{outline:none;}
+    input {
+        width: 100%;
+        border: none;
+        background-color: #fbffe8;
+        /* background-color: $lightgreen; */
+        line-height: 36px;
+        padding-left: 10px;
+        margin-bottom: 20px;
+        &:focus {
+            outline: none;
+        }
     }
 
     // 按扭區域
-    .btn, .buttonArea{
-     @include block_center();
-     width: max-content;
+    .btn,
+    .buttonArea {
+        @include block_center();
+        width: max-content;
     }
-  }
-
-
-  
+}

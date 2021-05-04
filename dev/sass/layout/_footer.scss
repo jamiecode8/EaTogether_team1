@@ -1,73 +1,69 @@
-footer{
-   position: relative;
-   height: 100px;
-   border: 1px solid $lightgreen;
-   font-size: 12px;
-   letter-spacing: 1.05;
-   height: fit-content;
-   padding: 20px;
-   bottom: 0;
+footer {
+    position: relative;
+    height: 100px;
+    border: 1px solid $lightgreen;
+    font-size: 12px;
+    letter-spacing: 1.05;
+    height: fit-content;
+    padding: 20px;
+    bottom: 0;
 
-  //  上面那行
-   .footer_nav{
-     /* border: 1px solid lightsalmon; */
-     margin-left:50%;
-     width: fit-content;
-     height: inherit;
-     text-align: center;
-     transform: translateX(-50%);
-     display: flex;
-     padding-left: 0;
-     li{
-       margin: 0 25px;
-     }
-   }
+    //  上面那行
+    .footer_nav {
+        /* border: 1px solid lightsalmon; */
+        margin-left: 50%;
+        width: fit-content;
+        height: inherit;
+        text-align: center;
+        transform: translateX(-50%);
+        display: flex;
+        padding-left: 0;
+        li {
+            margin: 0 25px;
+        }
+    }
 
-  //  中間那行
-   .ourInfo{
-     width: max-content;
-     margin-left:50%;
-     transform: translateX(-50%);
-     display: flex;
-     padding-left: 20px;
-     li{
-       img{
-         position: absolute;
-         display: inline-block;
-       }
-       p{
-         display: inline-block;
-       }
-       margin: 0 20px;
-       position: relative;
-       opacity: 0.5;
-       &:hover{
-        opacity: 1;
-      }
-      .tel{
-        top: 10px;
-        left:-23px;
-      }
-      
-      .mail{
-        top: 13px;
-        left:-23px;
-      }
-      
-      .add{
-        top: 12px;
-        left:-17px;
-      }
-     }
-   }
-   .copyright{
-     text-align: center;
-     p{
-       margin: 0;
-     }
-   }
-  }
+    //  中間那行
+    .ourInfo {
+        width: max-content;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        padding-left: 20px;
+        li {
+            img {
+                position: absolute;
+                display: inline-block;
+            }
+            p {
+                display: inline-block;
+            }
+            margin: 0 20px;
+            position: relative;
+            opacity: 0.5;
+            &:hover {
+                opacity: 1;
+            }
+            .tel {
+                top: 10px;
+                left: -23px;
+            }
 
+            .mail {
+                top: 13px;
+                left: -23px;
+            }
 
-
-
+            .add {
+                top: 12px;
+                left: -17px;
+            }
+        }
+    }
+    .copyright {
+        text-align: center;
+        p {
+            margin: 0;
+        }
+    }
+}

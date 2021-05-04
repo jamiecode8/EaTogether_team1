@@ -2,25 +2,22 @@
 //@include btn('按鈕的class', 背景色, 外框色);
 
 //確認、送出按鈕
-@include btn('.btn_submit', $yellow, $tp);
+@include btn(".btn_submit", $yellow, $tp);
 
 //取消按鈕
-@include btn('.btn_cancel', $tp, $yellow);
+@include btn(".btn_cancel", $tp, $yellow);
 
 //上一步
-@include btn('.btn_pre', $tp, $yellow);
+@include btn(".btn_pre", $tp, $yellow);
 
 //下一步
-@include btn('.btn_next', $tp, $yellow);
+@include btn(".btn_next", $tp, $yellow);
 
 //再測一次
-@include btn('.btn_again',$yellow , $tp);
+@include btn(".btn_again", $yellow, $tp);
 
-//領取 
-@include btn('.btn_receive', $tp, $yellow);
+//領取
+@include btn(".btn_receive", $tp, $yellow);
 
 //關閉彈窗
-@include btn_close('.btn_close');
-
-
-
+@include btn_close(".btn_close");
