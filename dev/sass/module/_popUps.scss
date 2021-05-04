@@ -1,7 +1,9 @@
 //jamie的
   form{
     position: relative;
-    width: 600px;
+    // width: 600px;
+    // width: 400px;
+    width: 500px;
     padding: 50px;
     @include shadow;
     @include border_r;
@@ -27,17 +29,9 @@
 
     // 按扭區域
     .btn, .buttonArea{
-      margin-left:50%;
-      transform: translateX(-50%);
+     @include block_center();
+     width: max-content;
     }
-    .btn{
-      width: max-content;
-    }
-    // 2個按鈕
-    .btn_d{
-      display: inline-block;
-    }
-    
   }
 
 
