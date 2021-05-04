@@ -1,5 +1,159 @@
 //米米的
-.wrapper{
-    color: $green;
 
-}
+body {
+    background: #FFFED0;
+  }
+
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-height: 100%;
+  }
+  
+  main {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  
+  .figure {
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    position: center center;
+  }
+  
+  .figure2{
+    width: 100%;
+  }
+
+  .figure3{
+      width: 100%;
+  }
+  
+
+  .window2 {
+    position: absolute;
+    top: 5%;
+    margin: 20px 10px;
+    width: 30%;
+    z-index: 10;
+  }
+  
+  .Points {
+    position: absolute;
+    z-index: 10;
+    margin: 10px 30px;
+    bottom: -25%;
+    width: 50px;
+  }
+  
+  .Carousel {
+    position: absolute;
+    top: 5%;
+    margin: 0 38%;
+    width: 25%;
+    z-index: 10;
+  }
+  
+  .favorites {
+    position: absolute;
+    top: 20%;
+    right: 14%;
+    width: 10%;
+    z-index: 10;
+  }
+  
+  .cabinet {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 18%;
+    z-index: 10;
+  }
+  
+  .character {
+    position: absolute;
+    width: 20%;
+    top: 60%;
+    right: 40%;
+    z-index: 10;
+  }
+  
+  .searchicon {
+    position: fixed;
+    width: 8%;
+    bottom: 8%;
+    right: 8%;
+    z-index: 80;
+  }
+  
+  .problemicon {
+    position: fixed;
+    width: 8%;
+    bottom: 8%;
+    right: 19%;
+    z-index: 80;
+  }
+  
+  .containerTV {
+    width: 23%;
+    height: 46%;
+    overflow: hidden;
+    position: absolute;
+    top: 7%;
+    margin: 0 0 61% 38.9%;
+    z-index: 10;
+    border-radius: 2%;
+  }
+  
+  .photo {
+    position: absolute;
+    -webkit-animation: round 16s infinite;
+            animation: round 16s infinite;
+    opacity: 0;
+    background-size: cover;
+  }
+  
+  @-webkit-keyframes round {
+    25% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes round {
+    25% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+  }
+  
+  img:nth-child(1) {
+    -webkit-animation-delay: 12s;
+            animation-delay: 12s;
+  }
+  
+  img:nth-child(2) {
+    -webkit-animation-delay: 8s;
+            animation-delay: 8s;
+  }
+  
+  img:nth-child(3) {
+    -webkit-animation-delay: 4s;
+            animation-delay: 4s;
+  }
+  
+  img:nth-child(4) {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+  }
