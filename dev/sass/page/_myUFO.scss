@@ -39,31 +39,34 @@ body {
 
   .window2 {
     position: absolute;
-    top: 5%;
+    top: -20%;
     margin: 20px 10px;
     width: 30%;
+    height: 100%;
     z-index: 10;
   }
   
   .Points {
     position: absolute;
     z-index: 10;
-    margin: 10px 30px;
-    bottom: -25%;
-    width: 50px;
+    margin: 0px 50px;
+    bottom: 2%;
+    width: 5%;
+    left: 0%;
   }
   
   .Carousel {
     position: absolute;
     top: 5%;
-    margin: 0 38%;
-    width: 25%;
+    margin: 0 30%;
+    width: 30%;
     z-index: 10;
+    right: 5%;
   }
   
   .favorites {
     position: absolute;
-    top: 20%;
+    top: 15%;
     right: 14%;
     width: 10%;
     z-index: 10;
@@ -71,7 +74,7 @@ body {
   
   .cabinet {
     position: absolute;
-    top: 50%;
+    top: 38%;
     right: 10%;
     width: 18%;
     z-index: 10;
@@ -80,7 +83,7 @@ body {
   .character {
     position: absolute;
     width: 20%;
-    top: 60%;
+    top: 55%;
     right: 40%;
     z-index: 10;
   }
@@ -118,7 +121,11 @@ body {
             animation: round 16s infinite;
     opacity: 0;
     background-size: cover;
+    width: 180%;
+    height: 95%;
+    bottom: 8%;
   }
+
   
   @-webkit-keyframes round {
     25% {
