@@ -15,11 +15,12 @@
 @import "layout/login"; //可以有底線嗎？ 目前是空的
 @import "layout/search"; //目前是空的
 
-// page
+// page; 這邊的scss會影響到所有人，不要寫標籤名<tag>、用自己的class或ID
+@import "page/myUFO";
+@import "page/myPhoto";
 @import "page/backend";
-@import "page/develope";
 @import "page/index";
 @import "page/store";
-@import "page/myUFO";
+@import "page/develope";
 
 // 新增一隻scss時, 要把檔案import到這裡，往下加
