@@ -18,6 +18,16 @@
     border-radius: 5px;
 }
 
+//外框線(預設是品牌黃)
+@mixin border($bdColor:$yellow) {
+    border: 1px solid $bdColor;
+}
+
+//測試用的紅色外框線
+@mixin borderTest() {
+    border: 1px solid red;
+}
+
 // 陰影
 @mixin shadow {
     box-shadow: -2px 2px 5px #6c584c;

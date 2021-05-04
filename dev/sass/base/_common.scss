@@ -1,9 +1,13 @@
 //全域用的，改了要註記!!
-body {
+*{
+    box-sizing: border-box; //外框大小
     color: $color;
     font-size: $fontSize;
     line-height: 30px;
     font-family: Arial;
+}
+
+body {
     position: relative;
 }
 
@@ -22,13 +26,9 @@ a {
     margin: 0 auto;
 }
 
-p {
-    line-height: 30px;
-    color: $color;
-}
-
 h1 {
     font-size: $fontSize_Title;
+    font-weight: bold;
     color: $color;
 }
 
@@ -57,3 +57,4 @@ li {
     font-size: $fontSizeLink;
     background-color: $lightgreen;
 }
+
