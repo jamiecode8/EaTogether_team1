@@ -11,6 +11,30 @@
     @@include('layout/header.html')
     <div class="wrapper">
        <!-- 靜瑩在這裡編輯  -->
+       <div class="index_map">
+           <img src="./img/map.png" alt="">
+       </div>
+       <form action="">
+            <h1>Search</h1>
+            <button type="button" class="btn_close">
+                <img src="./img/icon_close.png" alt="">
+              </button>
+            <h2>搜尋美食</h2>
+            <input type="text" placeholder="找食物eat起來">
+
+            <h2>捷運路線</h2>
+            <input type="text">
+            <ul>
+                <li>板南線</li>
+                <li>松山新店線</li>
+                <li>文湖線</li>
+                <li>淡水信義線</li>
+                <li>中和新蘆線</li>
+            </ul>
+            <h2> 關鍵字查詢</h2>
+            <input type="text"  placeholder="請選擇Tag" >
+            <input type="submit"  value="出發探索" class="btn_submit">
+       </form>
     </div>
     @@include('layout/footer.html')
 </body>
