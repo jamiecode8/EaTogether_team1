@@ -19,7 +19,8 @@
         "page/_develope.scss",
         "page/_index.scss",
         "page/_store.scss",
-        "page/_myUFO.scss"
+        "page/_myUFO.scss",
+        "page/__myUFO_category.scss"
     ],
     "names": [],
     "file": "style.css"
