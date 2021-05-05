@@ -1,25 +1,25 @@
 //米米的
 
-body {
-    background: #FFFED0;
-  }
+// body {
+//     background: #FFFED0;
+//   }
 
-  .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    min-height: 100%;
-  }
+  // .container {
+  //   display: -webkit-box;
+  //   display: -ms-flexbox;
+  //   display: flex;
+  //   -webkit-box-orient: vertical;
+  //   -webkit-box-direction: normal;
+  //       -ms-flex-direction: column;
+  //           flex-direction: column;
+  //   min-height: 100%;
+  // }
   
-  main {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
+  // main {
+  //   -webkit-box-flex: 1;
+  //       -ms-flex: 1;
+  //           flex: 1;
+  // }
   
   .figure {
     width: 100%;
@@ -82,8 +82,8 @@ body {
   
   .character {
     position: absolute;
-    width: 20%;
-    top: 55%;
+    width: 15%;
+    top: 60%;
     right: 40%;
     z-index: 10;
   }
@@ -102,6 +102,14 @@ body {
     bottom: 8%;
     right: 19%;
     z-index: 80;
+  }
+
+  .light{
+    position: absolute;
+    top: 2%;
+    right: 15%;
+    width: 8%;
+    z-index: 10;
   }
   
   .containerTV {
