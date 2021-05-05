@@ -1,2 +1,92 @@
 <!-- Jamie -->
-//登入註冊彈窗
+<!-- 登入註冊彈窗 -->
+
+<div class="popUps login">
+    <form action="#資料傳送送的網址" method="post" class="form login">
+        <!-- close button -->
+        <button type="button" class="btn_close">
+            <img src="./img/icon/icon_close.png" alt="" />
+        </button>
+
+        <!-- 會員頭像 -->
+        <div class="loginMemberPic">
+            <img src="./img/test_login_memberPic.png" alt="">
+        </div>
+
+
+        <div class="loginInner">
+            <!-- 登入註冊切換區 -->
+            <div class="loginSwitch">
+                <ul class="">
+                    <li class="loginSwitchItem" id="btn_login">
+                        <div class="loginSwitchlink" onclick="opennumber('login_block', this)" id="defaultOpen">
+                            <h2>登入</h2>
+                        </div>  
+                    </li>
+                    
+                    <li class="loginSwitchItem" id="btn_signup">
+                        <div class="loginSwitchlink" onclick="opennumber('signup_block', this)">
+                            <h2>註冊</h2>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 內容區域 -->
+            <div class="mid_block mid">
+                <!-- 放登入的東西 -->
+                <div class="inner_block_area" id="login_block"> 
+                    <!-- 輸入框欄位 -->
+                    <input type="text" placeholder="E-mail" />
+                    <input type="text" placeholder="密碼" />
+                    
+                    <!-- 單顆按鈕用這裡 -->
+                    <div class="btn">
+                        <input type="submit" value="送出" class="btn_submit" />
+                    </div>
+                    
+                    <!-- 無法登入 -->
+                    <div class="forgetPassword">
+                        <a href="">忘記密碼? </a>
+                    </div>
+                </div>
+        
+                <!-- 放註冊的東西 -->
+                <div class="inner_block_area" id="signup_block"> 
+                    <!-- 輸入框欄位 -->
+                    <input type="text" placeholder="E-mail" />
+                    <input type="text" placeholder="密碼" />
+                    <input type="text" placeholder="再次輸入密碼" />
+                    <input type="text" placeholder="捷運站點(改下拉?)" />
+                    <input type="text" placeholder="喜好(最多選3個)(下拉)" />
+                    
+                    <!-- 單顆按鈕用這裡 -->
+                    <div class="btn">
+                        <input type="submit" value="送出" class="btn_submit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+
+      <script>
+        // 登入註冊切換選單
+        function opennumber(name, element){
+        // Hide all elements with class="tabcontent" by default */
+        var i, inner_block;
+        inner_block = document.getElementsByClassName("inner_block_area");
+        for (i = 0; i < inner_block.length; i++) {
+            inner_block[i].style.display = "none";
+        }
+
+        // Show the specific tab content
+        document.getElementById(name).style.display = "block";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+      </script>

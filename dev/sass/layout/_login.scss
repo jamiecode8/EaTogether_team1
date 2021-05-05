@@ -1,0 +1,35 @@
+.login{
+    @include block_center();
+
+    // 頭像區塊
+    .loginMemberPic{
+        @include borderTest();
+        width: 50%;
+        @include block_center();
+    }
+
+    // 登入註冊切換區
+    .loginSwitch{
+        margin-bottom: 30px;
+        margin-top: 30px;
+        @include borderTest();
+        ul{
+            display: flex;
+            margin: 0 auto;
+            li{
+                @include borderTest(blue);
+                flex-grow: 1;
+                text-align: center;
+                line-height: 30px;
+            }
+        }
+    }
+
+    .forgetPassword{
+        font-size: $fontSizeSmall;
+        text-align: right;
+    }
+    // 送出按鈕
+    @include btn(".btn_submit", $yellow, $tp);
+}
+
