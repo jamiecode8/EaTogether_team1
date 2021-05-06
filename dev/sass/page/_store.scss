@@ -1,68 +1,79 @@
 //jamie的
 .store_storeBody{
     background-color: $bgc;
-
-    // 本業內容
-    .store_wrap{
-        @include rwd(desktop);
-        @include rwd(pad);
-        @include rwd(largeMobile);
-        @include rwd(mobile);
-        // 商家資訊區
-        .store_storeInfoArea{
-            @include rwd(desktop){
-                display: flex
-            };
-            //左邊照片區
-            .store_photoArea{
-                @include borderTest();
-                @include rwd(desktop){
-                    max-width: 500px;
-                    // width: 45%;
-                };
-                // width: 100%; 
-            }
-        
-            // 右邊文字區
-            .store_storeInfo{
-                @include borderTest();
-                @include rwd(desktop){
-                    max-width: 600px;
-                    // width: 55%;
-                };
-                // 商家資訊內文區
-                .store_storeInfoDetail{
-                    li{
-                        display: flex;
-                    }
-                }
-                .store_infoTel{
-                    // width: 30px;
-                    // height: 30px;
-                    // 背景圖無效
-                    // background-image: url(./img/icon/icon_tel.png);
-                }
-            }
-        
-        }
-    }
-    
 }
 
+// 本頁內容
+.store_wrap{
+    @include layout(1200px);
+    
+    // 商家資訊區塊
+    .store_storeInfoArea{
+        width: 100%;
+        display: flex;
+    }
+}
 
+// 商家照片區塊
+.store_photoArea{
+    padding: 35px;
+    @include borderTest();
+    width: 45%;
+    &_big{
+        width: 350px;
+        height: 350px;
+        margin-left: calc(100% - 350px);
+        @include borderTest();
+    }
+}
 
+.store_photoArea_small{
+    ul{
+        display: flex;
+    }
+}
 
-// @include rwd(desktop){
-// }
+// 商家文字區塊
+.store_storeInfo{
+    @include borderTest();
+    padding: 30px;
+    width: 55%;
+    // 店名
+    &_Name{
+        height: 30px;
+        margin-bottom: 20px;
+        h1{
+            display: inline-block;
+        }
+    }
+    // 下方資訊
+    &_Detail{
+        padding-left: 10px;
+        li{
+            display: flex;
+            height: 45px;
+        }
+        div{
+            width: 25px;
+        }
+        img{
+            width: 20px;
+            position: absolute;
+            top:10px;
+        }
+        p{
+            padding-left: 5px;
+            line-height: 45px;
+        }
+        .store_tagList{
+            width: 100%;
+            padding-left: 5px;
+            line-height: 45px;
+        }
+        .store_icon{
+            position: relative;
 
-// @include rwd(pad){
+        }
+    }
+}
 
-// }
-
-// @include rwd(largeMobile){
-
-// }
-
-// @include rwd(mobile){
-
-// }
