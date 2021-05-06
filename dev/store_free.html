@@ -7,17 +7,59 @@
         @@include('layout/style.html')
         <title>商家專區</title>
     </head>
-    <body>
+    <body class="store_storeBody">
         @@include('layout/header.html')
 
-        <!-- test area -->
-
-
-        @@include('layout/login_member.html')
-
-
-
+        <!-- 登入註冊測試 -->
+        <!-- @@include('layout/login_member.html') -->
+        <!-- 模板彈窗測試 -->
         <!-- @@include('layout/pop_ups.html')  -->
+
+        <!-- 本頁內容 -->
+        <div class="store_wrap">
+            <!-- 商家資訊區塊 -->
+            <section class="store_storeInfoArea">
+                <!-- 左邊照片區 -->
+                <section class="store_photoArea"></section>
+                <!-- 右邊文字區 -->
+                <section class="store_storeInfo">
+                    <div class="store_storeName">
+                        <h1>吳留手串燒居酒屋-麗水店</h1>
+                        <button>放那隻筆</button>
+                    </div>
+                    <div class="store_storeInfoDetail">
+                        <ul>
+                            <li>
+                                <div class="store_infoTel">
+                                    <img src="./img/icon/icon_tel.png">
+                                </div>
+                                <p>0900-000-000</p>
+                            </li>
+                            <li>
+                                <div>放icon</div>
+                                <p>南京東路某段某巷某號某樓</p>
+                            </li>
+                            <li>
+                                <div>放icon</div>
+                                <p>500~1000</p>
+                            </li>
+                            <li>
+                                <div>放icon</div>
+                                <p>東門站</p>
+                            </li>
+                            <li>
+                                <div>放icon</div>
+                                <div>放標籤 #日式料理 #居酒屋</div>
+                            </li>
+                            <li>
+                                <div>放icon</div>
+                                <p>資料審核中</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+        </div>
         
         @@include('layout/footer.html')
     </body>

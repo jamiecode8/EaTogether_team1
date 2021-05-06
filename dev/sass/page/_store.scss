@@ -1,2 +1,68 @@
 //jamie的
+.store_storeBody{
+    background-color: $bgc;
 
+    // 本業內容
+    .store_wrap{
+        @include rwd(desktop);
+        @include rwd(pad);
+        @include rwd(largeMobile);
+        @include rwd(mobile);
+        // 商家資訊區
+        .store_storeInfoArea{
+            @include rwd(desktop){
+                display: flex
+            };
+            //左邊照片區
+            .store_photoArea{
+                @include borderTest();
+                @include rwd(desktop){
+                    max-width: 500px;
+                    // width: 45%;
+                };
+                // width: 100%; 
+            }
+        
+            // 右邊文字區
+            .store_storeInfo{
+                @include borderTest();
+                @include rwd(desktop){
+                    max-width: 600px;
+                    // width: 55%;
+                };
+                // 商家資訊內文區
+                .store_storeInfoDetail{
+                    li{
+                        display: flex;
+                    }
+                }
+                .store_infoTel{
+                    // width: 30px;
+                    // height: 30px;
+                    // 背景圖無效
+                    // background-image: url(./img/icon/icon_tel.png);
+                }
+            }
+        
+        }
+    }
+    
+}
+
+
+
+
+// @include rwd(desktop){
+// }
+
+// @include rwd(pad){
+
+// }
+
+// @include rwd(largeMobile){
+
+// }
+
+// @include rwd(mobile){
+
+// }
