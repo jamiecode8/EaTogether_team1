@@ -9,9 +9,7 @@
     //     }
 
     position: relative;
-    // width: 600px;
     width: 400px;
-    // width: 500px;
     padding: 50px;
     @include shadow;
     @include border_r;
@@ -28,12 +26,6 @@
     }
 
     input {
-        width: 100%;
-        border: none;
-        background-color: #fbffe8;
-        /* background-color: $lightgreen; */
-        line-height: 36px;
-        padding-left: 10px;
         margin-bottom: 20px;
         &:focus {
             outline: none;
