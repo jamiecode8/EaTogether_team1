@@ -21,6 +21,7 @@
         "page/_store.scss",
         "page/_myUFO.scss",
         "page/__myUFO_category.scss"
+        "page/__myUFO_Q&A.scss"
     ],
     "names": [],
     "file": "style.css"
