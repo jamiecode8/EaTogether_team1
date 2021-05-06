@@ -1,1 +1,145 @@
 // 靜瑩的
+.test_header{
+    position:sticky;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: white;
+    height: 100px;
+    width: 100%;
+    img{
+        width: 110px;
+        margin-left:20px;
+        margin-top: 10px;
+    }
+}
+//map背景
+.index_map{
+    padding-top: 20px;
+    width:1200px;
+    // border: 1px solid;
+    @include marginCenter();
+    
+    .map_slogan{
+        position: absolute;
+        right:120px;
+    }
+    .map{
+        width: 55%;
+          @include block_center();
+    }
+}
+.et{
+    width: 200px;
+    position: absolute;
+    bottom:30%;
+    right:3%;
+    transform: rotate(-30deg);
+}
+//end----------
+//搜尋按鈕
+.index_searchbtn{
+    position:fixed;
+    right: 10%;
+    bottom: 14%;
+    z-index: 98;
+    display: flex;
+    width: 300px;
+    li{ 
+        box-shadow:  -12px 10px 10px #D6D5AE;
+        margin-left: 20px;
+        width: 110px;
+        height:110px;
+        background-color:$yellow;
+        border-radius: 50%;
+        img{
+            margin-top: 20px;
+            @include block_center();
+            width: 65px;
+            height:65px;          
+        }
+        p{
+            text-align: center;
+            padding-top:30px ;
+            font-weight: bold;
+        }
+    }
+}
+@mixin search_btn_hover{
+    transform: translateY(-30px);
+    background-color: $mrtBrown;
+    transition: all 0.3s;
+}
+.search_btn_whatToEat:hover{
+    @include search_btn_hover;
+}
+.search_btn_Search:hover{
+    @include search_btn_hover;
+}
+//end----------
+//whatToEat彈窗
+.index_whatToEae_popup{
+    display: none;
+    .btn_close{
+        z-index: 10;
+        &:focus{
+            outline:0;
+        }
+    }
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    h1{
+        color: $yellow;
+    }
+    input{
+        border-radius: 5px;
+        margin-top:30px;
+    }
+    .whatToEae_q1{
+        background-color: white;
+        img{
+            position: absolute;
+            right:60px;
+            top:170px;
+        }
+        
+        .select_mrtLine{
+            margin-top: -20px;   
+            border: 2px solid $lightgreen;
+            display: none;
+            li{
+                padding-left: 10px;
+                line-height:36px;
+            }
+            li:hover{
+                background-color: $lightgreen;
+            }
+            //  mrt color
+            .b{
+                color:$mrtBlue;
+            }
+            .r{
+                color:$mrtRed;
+            }
+            .br{
+                color: $mrtBrown;
+            }
+            .g{
+                color: $mrtGreen;
+            }
+            .y{
+                color: $mrtYellow;
+            }
+        }
+        .select_mrtLine.on{
+            display: block;
+        }
+     
+    }
+
+   
+
+}
+
+
