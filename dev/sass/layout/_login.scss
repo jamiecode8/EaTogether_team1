@@ -34,71 +34,56 @@
     @include btn(".btn_submit", $yellow, $tp);
 }
 
-
-// 喜好下拉選擇
-.login_station {
+  // 常去站點
+  .login_station{
     position: relative;
-    font-family: Arial;
-    width: 100%;
     margin-bottom: 20px;
-    select {
-        display: none; /*hide original SELECT element:*/
+    &_arrow{
+      position: absolute;
+      top: 13px;
+      right: 10px;
     }
-  }
-  
-//   login_station
 
-  .select-selected {
-    background-color: $lightgreen;
-  }
-  
-  /*向下的箭頭*/
-  .select-selected:after {
+    &_select{
+      margin-top: -20px;   
+      border: 2px solid $lightgreen;
+      display: none;
+      li{
+          padding-left: 10px;
+          line-height:36px;
+      }
+      li:hover{
+          background-color: $lightgreen;
+      }
+      .b{
+          color:$mrtBlue;
+      }
+      .r{
+          color:$mrtRed;
+      }
+      .br{
+          color: $mrtBrown;
+      }
+      .g{
+          color: $mrtGreen;
+      }
+      .y{
+          color: $mrtYellow;
+      }
+    }
+}
+
+.login_station_select.on{
+  display: block;
+}
+
+// 美食標籤
+.login_tag{
+  position: relative;
+  margin-top: -20px; 
+  &_add{
     position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: $color;
-    background-image: url(../img/icon_pre_line);
-  }
-  
-  /*向上的箭頭*/
-  .select-selected.select-arrow-active:after {
-    border-color: transparent transparent $colorTp transparent;
     top: 7px;
+    right: 9.8px;
   }
-  
-  /*style the items (options), including the selected item:*/
-  .select-items div,.select-selected {
-    // color: #ffffff;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    // border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    border-color: transparent transparent $colorTp transparent;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  /*style items (options):*/
-  .select-items {
-    position: absolute;
-    background-color: $lightgreen;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-  }
-  
-  /*hide the items when the select box is closed:*/
-  .select-hide {
-    display: none;
-  }
-  
-  .select-items div:hover, .same-as-selected {
-    background-color: darken($lightgreen, 20);
-  }
-
-//   下2周的會議時間
+}

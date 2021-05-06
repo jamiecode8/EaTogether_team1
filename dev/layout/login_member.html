@@ -57,26 +57,56 @@
                     <input type="text" placeholder="E-mail" />
                     <input type="text" placeholder="密碼" />
                     <input type="text" placeholder="再次輸入密碼" />
-                    <!-- <input type="text" placeholder="捷運站點(改下拉?)" /> -->
 
-                    <div class="login_station" >
-                        <select>
-                          <option value="0">選擇站點</option>
-                          <option value="1">Audi</option>
-                          <option value="2">BMW</option>
-                          <option value="3">Citroen</option>
-                          <option value="4">Ford</option>
-                          <option value="5">Honda</option>
-                          <option value="6">Jaguar</option>
-                          <option value="7">Land Rover</option>
-                          <option value="8">Mercedes</option>
-                          <option value="9">Mini</option>
-                          <option value="10">Nissan</option>
-                          <option value="11">Toyota</option>
-                          <option value="12">Volvo</option>
-                        </select>
-                      </div>
-                    <input type="text" placeholder="喜好(最多選3個)(下拉)" />
+                    <!-- 常去站點 -->
+                    <div class="login_station">
+                      <input type="text" id="login_station_choice" placeholder="我最常去的捷運站" class="input">
+                      <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
+                      <ul class="login_station_select" id="login_station_options">
+                          <li  class="b">市政府</li>
+                          <li  class="b">忠孝敦化</li>
+                          <li  class="b">國父紀念館</li>
+                          <li  class="b">板橋</li>
+                          <li  class="b">新埔</li>
+                          <li  class="b">府中</li>
+                          <li  class="b">龍山寺</li>
+                          <li  class="r">淡水</li>
+                          <li  class="r">劍潭</li>
+                          <li  class="r">圓山</li>
+                          <li  class="r">台北車站</li>
+                          <li  class="r">東門</li>
+                          <li  class="r">大安森林公園</li>
+                          <li  class="r">信義安和</li>
+                          <li  class="r">台北101</li>
+                          <li  class="g">松山</li>
+                          <li  class="g">南京三民</li>
+                          <li  class="g">南京復興</li>
+                          <li  class="g">中山</li>
+                          <li  class="g">中正紀念堂</li>
+                          <li  class="g">台電大樓</li>
+                          <li  class="g">公館</li>
+                          <li  class="g">景美</li>
+                          <li  class="br">東湖</li>
+                          <li  class="br">西湖</li>
+                          <li  class="br">港墘</li>
+                          <li  class="br">大直</li>
+                          <li  class="br">中山國中</li>
+                          <li  class="br">六張犁</li>
+                          <li  class="br">萬芳社區</li>
+                          <li  class="y">頂溪</li>
+                          <li  class="y">南京松江</li>
+                          <li  class="y">忠孝新生</li>
+                          <li  class="y">台北橋</li>
+                          <li  class="y">徐匯中學</li>
+                          <li  class="y">新莊</li>
+                      </ul>
+                    </div>
+
+                    <!-- 美食標籤 -->
+                    <div class="login_tag">
+                      <input type="text" placeholder="美食喜好(最多選3個)"  class="input"/>
+                      <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="">
+                    </div>
                     
                     <!-- 單顆按鈕用這裡 -->
                     <div class="btn">
@@ -89,52 +119,26 @@
     </form>
 </div>
 
-<!-- <div class="login_station">
-    <select name="station" multiple>
-        <optgroup label="淡水信義線">
-        <option value="1">台北101</option>
-        <option value="2">淡水</option>
-        </optgroup>
-        <optgroup label="中和新蘆線">
-        <option value="3">頂溪</option>
-        <option value="4">台北橋</option>
-        <option value="5">南京松江</option>
-        </optgroup>
-        <optgroup label="松山新店線">
-            <option value="6">松山</option>
-            <option value="7">景美</option>
-            <option value="8">公館</option>
-        </optgroup>
-        <optgroup label="板南線">
-            <option value="9">國父紀念館</option>
-            <option value="10">龍山寺</option>
-            <option value="11">板橋</option>
-        </optgroup>
-        <optgroup label="文湖線">
-            <option value="12">六張犁</option>
-            <option value="13">西湖</option>
-            <option value="14">大直</option>
-        </optgroup>
-    </select>
-</div> -->
-<!-- 第二種寫法 -->
-<!-- <div class="login_station" style="width:200px;">
-    <select>
-      <option value="0">選擇站點</option>
-      <option value="1">Audi</option>
-      <option value="2">BMW</option>
-      <option value="3">Citroen</option>
-      <option value="4">Ford</option>
-      <option value="5">Honda</option>
-      <option value="6">Jaguar</option>
-      <option value="7">Land Rover</option>
-      <option value="8">Mercedes</option>
-      <option value="9">Mini</option>
-      <option value="10">Nissan</option>
-      <option value="11">Toyota</option>
-      <option value="12">Volvo</option>
-    </select>
-  </div> -->
+
+
+<script>
+  //whatToEat
+
+  //選擇顏色
+  $('.login_station_arrow').click(function (e) {
+      // e.preventDefault();
+      $('.login_station_select').toggleClass('on');
+  });
+
+  //選顏色
+  $('#login_station_options li').click(function(){
+      let inputColor=document.getElementById('login_station_choice');
+      inputColor.value=$(this).text();
+      $('.login_station_select').toggleClass('on');
+
+  })
+
+</script>    
 
 
 <!-- 之後要移到js -->
@@ -166,85 +170,4 @@
         });
       </script> -->
 
-
-    <!--下拉的js  -->
-      <script>
-        var x, i, j, l, ll, selElmnt, a, b, c;
-        /*look for any elements with the class "custom-select":*/
-        x = document.getElementsByClassName("login_station");
-        l = x.length;
-        for (i = 0; i < l; i++) {
-          selElmnt = x[i].getElementsByTagName("select")[0];
-          ll = selElmnt.length;
-          /*for each element, create a new DIV that will act as the selected item:*/
-          a = document.createElement("DIV");
-          a.setAttribute("class", "select-selected");
-          a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-          x[i].appendChild(a);
-          /*for each element, create a new DIV that will contain the option list:*/
-          b = document.createElement("DIV");
-          b.setAttribute("class", "select-items select-hide");
-          for (j = 1; j < ll; j++) {
-            /*for each option in the original select element,
-            create a new DIV that will act as an option item:*/
-            c = document.createElement("DIV");
-            c.innerHTML = selElmnt.options[j].innerHTML;
-            c.addEventListener("click", function(e) {
-                /*when an item is clicked, update the original select box,
-                and the selected item:*/
-                var y, i, k, s, h, sl, yl;
-                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                sl = s.length;
-                h = this.parentNode.previousSibling;
-                for (i = 0; i < sl; i++) {
-                  if (s.options[i].innerHTML == this.innerHTML) {
-                    s.selectedIndex = i;
-                    h.innerHTML = this.innerHTML;
-                    y = this.parentNode.getElementsByClassName("same-as-selected");
-                    yl = y.length;
-                    for (k = 0; k < yl; k++) {
-                      y[k].removeAttribute("class");
-                    }
-                    this.setAttribute("class", "same-as-selected");
-                    break;
-                  }
-                }
-                h.click();
-            });
-            b.appendChild(c);
-          }
-          x[i].appendChild(b);
-          a.addEventListener("click", function(e) {
-              /*when the select box is clicked, close any other select boxes,
-              and open/close the current select box:*/
-              e.stopPropagation();
-              closeAllSelect(this);
-              this.nextSibling.classList.toggle("select-hide");
-              this.classList.toggle("select-arrow-active");
-            });
-        }
-        function closeAllSelect(elmnt) {
-          /*a function that will close all select boxes in the document,
-          except the current select box:*/
-          var x, y, i, xl, yl, arrNo = [];
-          x = document.getElementsByClassName("select-items");
-          y = document.getElementsByClassName("select-selected");
-          xl = x.length;
-          yl = y.length;
-          for (i = 0; i < yl; i++) {
-            if (elmnt == y[i]) {
-              arrNo.push(i)
-            } else {
-              y[i].classList.remove("select-arrow-active");
-            }
-          }
-          for (i = 0; i < xl; i++) {
-            if (arrNo.indexOf(i)) {
-              x[i].classList.add("select-hide");
-            }
-          }
-        }
-        /*if the user clicks anywhere outside the select box,
-        then close all select boxes:*/
-        document.addEventListener("click", closeAllSelect);
-        </script>
+    
