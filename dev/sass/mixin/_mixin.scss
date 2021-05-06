@@ -24,8 +24,8 @@
 }
 
 //測試用的紅色外框線
-@mixin borderTest() {
-    border: 1px solid red;
+@mixin borderTest($bdColor:red) {
+    border: 1px solid $bdColor;
 }
 
 // 陰影
@@ -94,23 +94,27 @@
         @media all and (min-width: 992px) {
             max-width: 1200px;
             width: 100%;
+            margin: 0 auto;
             @content;
         }
     } @else if $breakpoint == "pad" {
         @media all and(max-width: 991px) and (min-width: 768px) {
             max-width: 720px;
             width: 100%;
+            margin: 0 auto;
             @content;
         }
     } @else if $breakpoint == "largeMobile" {
         @media all and(max-width: 767px) and (min-width: 576px) {
             width: 540px;
             width: 100%;
+            margin: 0 auto;
             @content;
         }
     } @else if $breakpoint == "mobile" {
         @media all and (min-width: 575px) {
             max-width: 300px;
+            margin: 0 auto;
             @content;
         }
     }
