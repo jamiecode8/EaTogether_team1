@@ -66,16 +66,6 @@
     }
 }
 
-//滿版或1200
-@mixin layout($w) {
-    @if $w == 100 {
-        width: 100vw;
-        height: 100vh;
-    } @else {
-        width: $w;
-        margin: 0 auto;
-    }
-}
 
 //grid
 @mixin grid($num) {
@@ -92,30 +82,55 @@
 @mixin rwd($breakpoint) {
     @if $breakpoint == "desktop" {
         @media all and (min-width: 992px) {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
             @content;
         }
     } @else if $breakpoint == "pad" {
         @media all and(max-width: 991px) and (min-width: 768px) {
-            max-width: 720px;
-            width: 100%;
-            margin: 0 auto;
             @content;
         }
     } @else if $breakpoint == "largeMobile" {
         @media all and(max-width: 767px) and (min-width: 576px) {
-            width: 540px;
-            width: 100%;
-            margin: 0 auto;
             @content;
         }
     } @else if $breakpoint == "mobile" {
         @media all and (min-width: 575px) {
-            max-width: 300px;
-            margin: 0 auto;
             @content;
         }
+    }
+}
+
+// 最外層
+@mixin desktop {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin pad {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin largeMobile {
+    width: 540px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin mobile {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+
+//滿版或1200
+@mixin layout($w) {
+    @if $w == 100 {
+        width: 100vw;
+        height: 100vh;
+    } @else {
+        max-width: $w;
+        margin: 0 auto;
     }
 }
