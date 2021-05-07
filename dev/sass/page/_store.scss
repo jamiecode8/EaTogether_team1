@@ -1,4 +1,105 @@
 //jamie的
-// h1{
-//   color: aqua;
-// }
+.store_storeBody{
+    background-color: $bgc;
+}
+
+// 本頁內容
+.store_wrap{
+    @include layout(1200px);
+    .store_storeInfoArea, .store_levelUpArea, .store_promotionArea{
+        padding: 35px;
+        width: 100%;
+        position: relative;
+        &::after{
+            content: " ";
+            width: 80%;
+            height: 1px;
+            background-color: $colorTp;
+            position: absolute;
+            bottom: 0;
+            display: block;
+        }
+    }
+
+    // 商家資訊區塊
+    .store_storeInfoArea{
+        display: flex;
+    }
+}
+
+// 商家照片區塊
+.store_photoArea{
+    // @include borderTest();
+    width: 45%;
+    padding: 35px;
+    &_big{
+        width: 300px;
+        height: 300px;
+        margin-left: calc(100% - 350px);
+        // @include borderTest();
+    }
+}
+
+.store_photoArea_small{
+    ul{
+        display: flex;
+        margin-left: calc(100% - 350px);
+        // @include borderTest();
+        width: 300px;
+        padding-top: 20px;
+        li{
+            // @include borderTest();
+            width: 80px;
+            margin-left: 15px;
+            // overflow: hidden;
+        }
+    }
+}
+
+// 商家文字區塊
+.store_storeInfo{
+    // @include borderTest();
+    padding: 30px;
+    width: 55%;
+    // 店名
+    &_Name{
+        height: 30px;
+        margin-bottom: 20px;
+        h1{
+            display: inline-block;
+        }
+    }
+    // 下方資訊
+    &_Detail{
+        padding-left: 10px;
+        li{
+            display: flex;
+            height: 45px;
+            // background-image: url(../img/icon/icon_edit.png);
+        }
+        div{
+            width: 25px;
+        }
+        img{
+            width: 20px;
+            position: absolute;
+            top:10px;
+        }
+        p{
+            padding-left: 5px;
+            line-height: 45px;
+        }
+        .store_tagList{
+            width: 100%;
+            padding-left: 5px;
+            line-height: 45px;
+        }
+        .store_icon{
+            position: relative;
+
+        }
+    }
+}
+
+
+

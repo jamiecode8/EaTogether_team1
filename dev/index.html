@@ -1,17 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @@include('layout/style.html')
-    <title>首頁</title>
-</head>
-<body>
-    @@include('layout/header.html')
-    <div class="wrapper">
-       <!-- 靜瑩在這裡編輯  -->
-    </div>
-    @@include('layout/footer.html')
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        
+        @@include('layout/style.html')
+        <title>首頁</title>
+    </head>
+    <body>
+        <!-- @@include('layout/header.html') -->
+        <header class="test_header">
+            <img src="./img/logo.png" alt="">
+        </header>
+        <div class="wrapper">
+            <!--地圖-->
+            <div class="index_map">
+                <img class="map_slogan" src="./img/index/slogan.png" alt="">
+                <img class="map" src="./img/index/map.png" alt="" />
+            </div>
+
+            <!-- 搜尋按鈕 -->
+            <ul class="index_searchbtn">
+                <li class="search_btn_whatToEat">
+                    <img src="./img/index/What to eat.png" alt="">
+                    <p>今天吃什麼</p>
+                </li>
+                <li class="search_btn_Search">
+                    <img src="./img/index/search.png" alt="">
+                    <p>美食搜尋</p>
+                </li>
+            </ul>
+
+            <!-- 裝飾外星人 -->
+            <img class="et" src="./img/index/et.png" alt="">
+
+            <!-- whatToEat彈窗 -->
+            <div class="index_whatToEae_popup popUps">
+                <button type="button" class="btn_close">
+                    <img src="./img/icon/icon_close_20.png" alt="">
+                  </button>
+                <form class="whatToEae_q1" action="">
+                    <h1>今天吃什麼</h1>
+                    <h2>Q1:請選擇符合你心情的顏色</h2>
+                    <input type="text" id="lineColor">
+                    <img class="whatToEae_q1_arrow" src="./img/icon/icon_next_line.png" alt="">
+                    <ul class="select_mrtLine" id="colors">
+                        <li  class="b">藍色</li>
+                        <li  class="r">紅色</li>
+                        <li  class="g">綠色</li>
+                        <li  class="br">棕色</li>
+                        <li  class="y">黃色</li>
+                    </ul>
+                    <button class="btn_pre">重新選擇</button>
+                    <button class="btn_submit">下一題</button>
+                 </form>
+            </div>
+
+        </div>
+        @@include('layout/footer.html')
+
+    <script>
+        //whatToEat
+
+        //打開
+        $('.search_btn_whatToEat').click(function (){
+            $('.index_whatToEae_popup').fadeIn(200);
+        });
+
+        //關閉w彈窗
+        $('.btn_close').click(function (){
+            $('.index_whatToEae_popup').fadeOut(200);
+        });
+    
+        //選擇顏色
+        $('.whatToEae_q1_arrow').click(function (e) {
+            // e.preventDefault();
+            $('.select_mrtLine').toggleClass('on');
+        });
+
+        //選顏色
+        $('#colors li').click(function(){
+            let inputColor=document.getElementById('lineColor');
+            inputColor.value=$(this).text();
+            $('.select_mrtLine').toggleClass('on');
+
+        })
+     
+    </script>    
+    </body>
+
 </html>
+

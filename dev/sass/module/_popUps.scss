@@ -1,42 +1,41 @@
 //jamie的
-  form{
+.popUps form {
+    @include block_center(); //區塊置中
+
+    // 桌機要靠左的可以加到自己的彈窗sass裡
+    // @include rwd(desktop){
+    //     margin-left: 20%;
+    //     transform: translateX(-50%);        
+    //     }
+
     position: relative;
-    width: 600px;
+    width: 400px;
     padding: 50px;
     @include shadow;
     @include border_r;
-    @include btn_close('.btn_close');
-    h1{
-      text-align: center;
-      font-size: $fontSize_Title;
+    @include btn_close(".btn_close");
+    h1 {
+        text-align: center;
+        font-size: $fontSize_Title;
+        margin-bottom: 40px;    
+        font-weight: bold;
     }
-    h2{
-      font-size: $fontSize_SubTitle; 
+    h2 {
+        font-size: $fontSize_SubTitle;
+        font-weight: bold;
     }
 
-    input{
-      width: 100%;
-      border: none;
-      background-color: #FBFFE8;
-      /* background-color: $lightgreen; */
-      line-height: 36px;
-      padding-left: 10px;
-      margin-bottom: 20px;
-      &:focus{outline:none;}
+    input {
+        margin-bottom: 20px;
+        &:focus {
+            outline: none;
+        }
     }
 
     // 按扭區域
-    .btn, .buttonArea{
-      margin-left:50%;
-      transform: translateX(-50%);
+    .btn,
+    .buttonArea {
+        @include block_center();
+        width: max-content;
     }
-    .btn{
-      width: max-content;
-    }
-    // 2個按鈕
-    .btn_d{
-      display: inline-block;
-    }
-    
-  }
-  
+}

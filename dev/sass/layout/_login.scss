@@ -1,0 +1,98 @@
+.login{
+    @include block_center();
+
+    // 頭像區塊
+    .loginMemberPic{
+        @include borderTest();
+        width: 50%;
+        @include block_center();
+    }
+
+    // 登入註冊切換區
+    .loginSwitch{
+        margin-bottom: 30px;
+        margin-top: 30px;
+        cursor: pointer;
+        @include borderTest();
+        ul{
+            display: flex;
+            margin: 0 auto;
+            li{
+                @include borderTest(blue);
+                flex-grow: 1;
+                text-align: center;
+                line-height: 30px;
+            }
+        }
+    }
+
+    .forgetPassword{
+        font-size: $fontSizeSmall;
+        text-align: right;
+    }
+    // 送出按鈕
+    @include btn(".btn_submit", $yellow, $tp);
+}
+
+  // 常去站點
+  .login_station{
+    position: relative;
+    margin-bottom: 20px;
+    &_arrow{
+      position: absolute;
+      top: 13px;
+      right: 10px;
+    }
+
+    &_select{
+      margin-top: -20px;   
+      border: 2px solid $lightgreen;
+      display: none;
+      li{
+          padding-left: 10px;
+          line-height:36px;
+      }
+      li:hover{
+          background-color: $lightgreen;
+      }
+      .b{
+          color:$mrtBlue;
+      }
+      .r{
+          color:$mrtRed;
+      }
+      .br{
+          color: $mrtBrown;
+      }
+      .g{
+          color: $mrtGreen;
+      }
+      .y{
+          color: $mrtYellow;
+      }
+    }
+}
+
+.login_station_select.on{
+  display: block;
+}
+
+// 美食標籤
+.login_tag{
+  position: relative;
+  margin-top: -20px; 
+  &_add{
+    position: absolute;
+    top: 7px;
+    right: 9.8px;
+  }
+}
+
+
+// 認證彈窗verification
+.verification{
+    &_logo{
+        @include block_center();
+        margin-bottom: 20px;
+    }
+}

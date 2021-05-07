@@ -1,60 +1,82 @@
 //全域用的，改了要註記!!
+*{
+    box-sizing: border-box; //外框大小
+    color: $color;
+    font-size: $fontSize;
+    line-height: 30px;
+    font-family: Arial !important; 
+}
+
 body {
-  color: $color;
-  font-size: $fontSize;
-  line-height: 30px;
-  font-family: Arial ;
-  position: relative;
+    position: relative;
 }
 
-.wrapper{
-position: relative;
-min-height: 100%;
+.wrapper {
+    position: relative;
+    min-height: 100%;
 }
 
-a{
-  font-size: $fontSizeLink; 
-  cursor: pointer;
-  transition: 0.5 ease-in-out;
-  text-decoration: none;
-	color: $color;
-	text-align: center;
-	margin: 0 auto;
+a {
+    font-size: $fontSizeLink;
+    cursor: pointer;
+    transition: 0.5 ease-in-out;
+    text-decoration: none;
+    color: $color;
+    text-align: center;
+    margin: 0 auto;    
+    font-family: Arial;
 }
 
-p{
-  line-height: 30px;
-  color: $color;
+h1 {
+    font-size: $fontSize_Title;
+    font-weight: bold;
+    color: $color;
 }
 
-h1{
-  font-size: $fontSize_Title;
-  color: $color;
-}
-
-img{
-	max-width: 100%;
+img {
+    max-width: 100%;
+    display: block;
 }
 
 //毛玻璃
-.blur{
-  filter: blur(3px);
-	transition: 3s;
+.blur {
+    filter: blur(3px);
+    transition: 3s;
 }
 
-ul{
-  margin: 0;
-  padding-left: 0px;
+ul {
+    margin: 0;
+    padding-left: 0px;
 }
 
-li{
-  list-style: none;
+li {
+    list-style: none;
 }
 
 //輸入框
-.input{
-  line-height: 36px;
-  font-size: $fontSizeLink;
-  background-color: $lightgreen;
+.input {
+    line-height: 36px;
+    font-size: $fontSizeLink;
+    background-color: $lightgreen;
+    border-radius: 5px;
 }
 
+button{
+    background-color: $tp;
+    cursor: pointer;
+    border: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+input{
+    width: 100%;
+    border: none;
+    background-color: $lightgreen;
+    line-height: 36px;
+    padding-left: 10px;
+    &:focus {
+        outline: none;
+    }
+}
