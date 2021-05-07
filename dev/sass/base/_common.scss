@@ -80,3 +80,21 @@ input{
         outline: none;
     }
 }
+
+// 標籤用的按鈕
+.btn_tag{
+    height: 36px;
+    margin: 5px;
+    padding: 0 20px;
+    font-size: $fontSizeLink;
+    line-height: 36px;
+    color: $color;
+    text-align: center;
+    transition: 0.5s ease-in-out;
+    background-color: $lightgreen;
+    border-radius: 10px;
+    @include border_r();
+    &:hover {
+        cursor: pointer;
+    }
+}
