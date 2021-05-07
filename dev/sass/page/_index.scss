@@ -1,18 +1,10 @@
 // 靜瑩的
-.test_header{
-    position:sticky;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    background-color: white;
-    height: 100px;
-    width: 100%;
-    img{
-        width: 110px;
-        margin-left:20px;
-        margin-top: 10px;
-    }
+.wrapper.index{
+    background-color: $bgc;
+    min-width: 1200px;
+    margin: 0 auto;
 }
+
 //map背景
 .index_map{
     padding-top: 20px;
@@ -46,6 +38,7 @@
     display: flex;
     width: 300px;
     li{ 
+        // @include shadow();
         box-shadow:  -12px 10px 10px #D6D5AE;
         margin-left: 20px;
         width: 110px;
@@ -78,13 +71,10 @@
 }
 //end----------
 //whatToEat彈窗
-.index_whatToEae_popup{
+.index_whatToEat_popup{
     display: none;
     .btn_close{
         z-index: 10;
-        &:focus{
-            outline:0;
-        }
     }
     position: absolute;
     top: 5%;
@@ -96,14 +86,20 @@
         border-radius: 5px;
         margin-top:30px;
     }
-    .whatToEae_q1{
+    .whatToEat_q{
         background-color: white;
-        img{
+      
+        .whatToEat_q_arrow{
             position: absolute;
             right:60px;
             top:170px;
         }
-        
+        .whatToEat_q_arrow.on{
+            transform: rotate(180deg);
+        }
+        .select_mrtLine.on{
+            display: block;
+        }
         .select_mrtLine{
             margin-top: -20px;   
             border: 2px solid $lightgreen;
@@ -132,14 +128,7 @@
                 color: $mrtYellow;
             }
         }
-        .select_mrtLine.on{
-            display: block;
-        }
-     
     }
-
-   
-
 }
 
 
