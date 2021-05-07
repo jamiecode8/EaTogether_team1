@@ -65,6 +65,9 @@ button{
     background-color: $tp;
     cursor: pointer;
     border: none;
+    &:focus {
+        outline: none;
+    }
 }
 
 input{
