@@ -87,3 +87,12 @@
     right: 9.8px;
   }
 }
+
+
+// 認證彈窗verification
+.verification{
+    &_logo{
+        @include block_center();
+        margin-bottom: 20px;
+    }
+}
