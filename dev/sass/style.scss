@@ -1,7 +1,7 @@
 @import "base/var";
-@import "mixin/mixin";
-@import "base/reset";
 @import "base/color";
+@import "base/reset";
+@import "mixin/mixin";
 @import "base/common";
 
 // module
@@ -19,15 +19,11 @@
 @import 'page/myUFO_category';
 @import 'page/myUFO_Q&A';
 @import "page/myUFO";
-@import "page/myPhoto";
 @import "page/backend";
+@import "page/myPhoto";
+@import "page/develope";
 @import "page/index";
 @import "page/store";
-@import "page/develope";
-@import 'layout/footer';
-@import 'layout/header';
-@import 'layout/login';
-@import 'layout/search';
 
 
 // 新增一隻scss時, 要把檔案import到這裡，加在page的第一個
