@@ -6,37 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         @@include('layout/style.html')
         <title>團隊介紹</title>
-        <style>
-            .bg{
-                position: relative;
-            }
-            .et{
-                position: relative;
-                bottom: 690px;
-                left: 130px;
-            }
-            .form{
-                /* border: 1px red solid; */
-                width: 300px;
-                margin: 0 auto;
-                position: relative;
-                top: 400px;
-                z-index: 10;
-                /* margin-left: 640px; */
-            }
-            /* p{
-                text-align: center;
-            } */
-            .btn_submit{
-                margin-left: 100px;
-            }
-        </style>
     </head>
-    <body>
+    <body class="background">
         @@include('layout/header.html')
         <div class="wrapper">
-            <!-- 大家從這裡開始編輯 -->
-            <div class="form">
+            <!-- 背景圖 -->
+            <div class="bg">
+                @@include('img/chris/wab.svg')
+            </div>
+            <div>
+                <img src="/dist/img/chris/ET.svg" alt="" class="develope_ET">
+            </div>
+            
+
+
+
+            <!-- <div class="form">
                 <h1>楊書旻</h1>
                 <br>
                 <p>負責：團隊開發頁面</p>
@@ -44,16 +29,10 @@
                 <a href="">
                     <button class=btn_submit>個人網站</button>
                 </a>
-            </div>
-            <div class="bg">
-                @@include('img/chris/Wap會動.svg')
-            </div>
-            <div class="et">
-                @@include('img/chris/ET_wap.svg')
-            </div>
+            </div> -->
         </div>
         @@include('layout/footer.html')
-        <script>
+        <!-- <script>
             var et_7 = document.getElementById('ET7');
             // console.log(et_7);
             et_7.addEventListener('click', personal);
@@ -74,6 +53,6 @@
             a.appendChild(c);
 
             document.rootElement.appendChild(a);
-        </script>
+        </script> -->
     </body>
 </html>
