@@ -1,1 +1,33 @@
 //棠棠的
+*{
+    outline:1px black solid;
+}
+.background{
+    background-image: url(../img/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:0 auto;
+    width:100%;
+}
+
+.background main{
+    width:62%;
+    height:100vh;
+    margin:0 auto;
+}
+
+.menu{
+    display:flex;
+    justify-content: space-between;
+    
+}
+
+.top_content h2{
+    display:inline-block;
+}
+
+.line{
+    height:0.5px;
+    width:80%;
+    margin:0 auto;
+}
