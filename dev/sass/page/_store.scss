@@ -6,36 +6,59 @@
 // 本頁內容
 .store_wrap{
     @include layout(1200px);
-    
+    .store_storeInfoArea, .store_levelUpArea, .store_promotionArea{
+        padding: 35px;
+        width: 100%;
+        position: relative;
+        &::after{
+            content: " ";
+            width: 80%;
+            height: 1px;
+            background-color: $colorTp;
+            position: absolute;
+            bottom: 0;
+            display: block;
+        }
+    }
+
     // 商家資訊區塊
     .store_storeInfoArea{
-        width: 100%;
         display: flex;
     }
 }
 
 // 商家照片區塊
 .store_photoArea{
-    padding: 35px;
-    @include borderTest();
+    // @include borderTest();
     width: 45%;
+    padding: 35px;
     &_big{
-        width: 350px;
-        height: 350px;
+        width: 300px;
+        height: 300px;
         margin-left: calc(100% - 350px);
-        @include borderTest();
+        // @include borderTest();
     }
 }
 
 .store_photoArea_small{
     ul{
         display: flex;
+        margin-left: calc(100% - 350px);
+        // @include borderTest();
+        width: 300px;
+        padding-top: 20px;
+        li{
+            // @include borderTest();
+            width: 80px;
+            margin-left: 15px;
+            // overflow: hidden;
+        }
     }
 }
 
 // 商家文字區塊
 .store_storeInfo{
-    @include borderTest();
+    // @include borderTest();
     padding: 30px;
     width: 55%;
     // 店名
@@ -52,6 +75,7 @@
         li{
             display: flex;
             height: 45px;
+            // background-image: url(../img/icon/icon_edit.png);
         }
         div{
             width: 25px;
@@ -76,4 +100,6 @@
         }
     }
 }
+
+
 
