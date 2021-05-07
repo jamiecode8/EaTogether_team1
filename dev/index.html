@@ -10,10 +10,8 @@
         <title>首頁</title>
     </head>
     <body>
-        <!-- @@include('layout/header.html') -->
-        <header class="test_header">
-            <img src="./img/logo.png" alt="">
-        </header>
+        @@include('layout/header.html')
+    
         <div class="wrapper index">
             <!--地圖-->
             <div class="index_map">
@@ -37,15 +35,15 @@
             <img class="et" src="./img/index/et.png" alt="">
 
             <!-- whatToEat彈窗 -->
-            <div class="popUps index_whatToEae_popup">
-                <form class="form whatToEae_q1" action="">
+            <div class="popUps index_whatToEat_popup">
+                <form class="form whatToEat_q" action="">
                     <button type="button" class="btn_close">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>今天吃什麼</h1>
                     <h2>Q1:請選擇符合你心情的顏色</h2>
                     <input type="text" id="lineColor">
-                    <img class="whatToEae_q1_arrow" src="./img/icon/icon_next_line.png" alt="">
+                    <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
                     <ul class="select_mrtLine" id="colors">
                         <li  class="b">藍色</li>
                         <li  class="r">紅色</li>
@@ -69,18 +67,18 @@
 
         //打開
         $('.search_btn_whatToEat').click(function (){
-            $('.index_whatToEae_popup').fadeIn(200);
+            $('.index_whatToEat_popup').fadeIn(200);
         });
 
         //關閉whatToEat彈窗
         $('.btn_close').click(function (){
-            $('.index_whatToEae_popup').fadeOut(200);
+            $('.index_whatToEat_popup').fadeOut(200);
         });
     
         //按下拉按鈕選顏色
-        $('.whatToEae_q1_arrow').click(function (e) {
+        $('.whatToEat_q_arrow').click(function (e) {
             // e.preventDefault();
-            $('.whatToEae_q1_arrow').toggleClass('on');
+            $('.whatToEat_q_arrow').toggleClass('on');
             $('.select_mrtLine').toggleClass('on');
         });
 
@@ -89,7 +87,7 @@
             let inputColor=document.getElementById('lineColor');
             inputColor.value=$(this).text();
             $('.select_mrtLine').toggleClass('on');
-            $('.whatToEae_q1_arrow').toggleClass('on');
+            $('.whatToEat_q_arrow').toggleClass('on');
         })
      
     </script>    
