@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        @@include('layout/style.html')
-        <title>會員管理</title>
-    </head>
-    <body>
-        @@include('layout/header.html')
-        <div class="wrapper">
-            <!-- 這裡面編輯 -->
-            <h1>123</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @@include('layout/style.html')
+    <title>會員管理</title>
+</head>
+    
+<body>
+    @@include('layout/header.html')
+    <div class="backend_wrapper">
+       
+        <div class="backend_search">
+           <input type="text" class="backend_search_text">
         </div>
-        @@include('layout/footer.html')
-    </body>
+
+        <div class="member">
+       <table>
+           <tr>會員編號</tr>
+           <tr>會員名稱</tr>
+           <tr>最近上站時間</tr>
+           <tr>會員狀態</tr>
+           <tr>管理</tr>
+       </table>
+      </div> 
+    </div>
+  
+    @@include('layout/footer.html')
+</body>
 </html>

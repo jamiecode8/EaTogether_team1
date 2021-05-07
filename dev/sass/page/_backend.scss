@@ -1,1 +1,27 @@
 //宏鈞的
+
+// body{
+//     background-color: #FEFDF2;
+// }
+
+.wrapper{
+    margin: 0 auto; 
+    width: 1200px;
+}
+
+.search{
+    display: flex;
+    align-self: flex-end;
+}
+
+.search_text{
+    margin: 20px 0;
+    border: 3px solid #FFE066;
+}
+
+.member{
+    background-color: #E2D295;
+    text-align: center;
+}
+
+
