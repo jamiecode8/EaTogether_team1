@@ -12,7 +12,7 @@
 // layout
 @import "layout/footer";
 @import "layout/header";
-@import "layout/login"; //可以有底線嗎？ 目前是空的
+@import "layout/login"; 
 @import "layout/search"; //目前是空的
 
 // page; 這邊的scss會影響到所有人，不要寫標籤名<tag>、用自己的class或ID
