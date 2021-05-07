@@ -1,43 +1,76 @@
 //jamie的
+// 背景滿版
 .store_storeBody{
     background-color: $bgc;
 }
 
-// 本頁內容
-.store_wrap{
-    @include layout(1200px);
-    .store_storeInfoArea, .store_levelUpArea, .store_promotionArea{
-        padding: 35px;
-        width: 100%;
-        position: relative;
-        &::after{
-            content: " ";
-            width: 80%;
-            height: 1px;
-            background-color: $colorTp;
-            position: absolute;
-            bottom: 0;
-            display: block;
-        }
-    }
-
-    // 商家資訊區塊
-    .store_storeInfoArea{
-        display: flex;
+// wrap 包在1200以內
+@include rwd(desktop){
+    .store_wrap{
+        @include desktop();
     }
 }
+
+@include rwd(pad){
+    .store_wrap{
+        @include pad();
+    }
+}
+
+@include rwd(largeMobile){
+    .store_wrap{
+        @include largeMobile();
+    }
+}
+
+@include rwd(mobile){
+    .store_wrap{
+        @include mobile();
+    }
+}
+
+// 頁面主架構
+.store_levelUpArea, .store_promotionArea{
+    padding: 35px;
+    @include rwd(mobile){
+        padding: inherit;
+    }
+    width: 100%;
+
+}
+
+.store_levelUpArea{
+    &::after{
+        @include lightLine();
+    }
+}
+
+
+// 商家資訊區塊
+.store_storeInfoArea{
+    @include rwd(desktop){
+        display: flex;
+    }
+    position: relative;
+    &::after{
+        @include lightLine();
+    }
+}
+
 
 // 商家照片區塊
 .store_photoArea{
     // @include borderTest();
-    width: 45%;
-    padding: 35px;
-    &_big{
-        width: 300px;
-        height: 300px;
-        margin-left: calc(100% - 350px);
-        // @include borderTest();
+    @include rwd(desktop){
+        width: 45%;
+        &_big{
+            width: 300px;
+            height: 300px;
+            margin-left: calc(100% - 350px);
+            // @include borderTest();
+        }
     }
+    padding: 35px;
 }
 
 .store_photoArea_small{
@@ -60,7 +93,9 @@
 .store_storeInfo{
     // @include borderTest();
     padding: 30px;
-    width: 55%;
+    @include rwd(desktop){
+        width: 55%;
+    }
     // 店名
     &_Name{
         height: 30px;
@@ -102,4 +137,41 @@
 }
 
 
+// 商家等級介紹區 
+.store_levelUpArea{
+    // @include borderTest(blue);
+    padding-left: 150px; 
+    h1{
+        line-height: 60px;
+    }
+    position: relative;
+    &::after{
+        @include lightLine();
+        left: 10px; 
+    }
+}
+
+// 升級說明區
+.store_levelArea{
+    // @include borderTest();
+    display: flex;
+    margin-bottom: 50px;
+    img{
+        width: 100px;
+        // @include borderTest();
+    }
+}
+
+// 升級文字說明區(右邊)
+.store_level_text{
+    padding-left: 50px;
+    h2{
+        font-weight: bold;
+        line-height: 30px;
+        // @include borderTest();
+    }
+    p{
+        line-height: 35px;
+    }
+}
 
