@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         @@include('layout/style.html')
         <title>團隊介紹</title>
-        <style>
+        <!-- <style>
             .bg{
                 position: relative;
             }
@@ -30,13 +30,28 @@
             .btn_submit{
                 margin-left: 100px;
             }
-        </style>
+        </style> -->
     </head>
-    <body>
+    <body class="develope_body">
         @@include('layout/header.html')
         <div class="wrapper">
             <!-- 大家從這裡開始編輯 -->
-            <div class="form">
+        <!-- 背景圖片     -->
+        <div><img src="./img/chris/wab.svg" alt="" class="develope_bg"></div>
+        <!-- 背景白色星球 -->
+        <div><img src="./img/chris/White_planet.svg" alt="" class="White_planet"></div>
+        <!-- ET -->
+        <div><img src="./img/chris/ET.svg" alt="" class="develope_et1"></div>
+        <div><img src="./img/chris/ET.svg" alt="" class="develope_et2"></div>
+        <div><img src="./img/chris/ET.svg" alt="" class="develope_et3"></div>
+        <div><img src="./img/chris/ET.svg" alt="" class="develope_et4"></div>
+        <div><img src="./img/chris/ET.svg" alt="" class="develope_et5"></div>
+        <div><img src="./img/chris/ET.svg" alt="" class="develope_et6"></div>
+        <!--中間的ET-->
+        <div><img src="./img/chris/ET.svg" alt="" class="develope_et7"></div>
+
+        
+            <!-- <div class="form">
                 <h1>楊書旻</h1>
                 <br>
                 <p>負責：團隊開發頁面</p>
@@ -44,16 +59,11 @@
                 <a href="">
                     <button class=btn_submit>個人網站</button>
                 </a>
-            </div>
-            <div class="bg">
-            
-            </div>
-            <div class="et">
-               
-            </div>
+            </div> -->
+
         </div>
         @@include('layout/footer.html')
-        <script>
+        <!-- <script>
             var et_7 = document.getElementById('ET7');
             // console.log(et_7);
             et_7.addEventListener('click', personal);
@@ -74,6 +84,6 @@
             a.appendChild(c);
 
             document.rootElement.appendChild(a);
-        </script>
+        </script> -->
     </body>
 </html>
