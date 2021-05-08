@@ -1,19 +1,53 @@
 // Jamie
-header {
-    position: relative;
+@include rwd(desktop){
+    .headerInner{
+        @include desktop ();
+    }
+}
+
+@include rwd(pad){
+    .headerInner{
+        @include pad ();
+    }
+}
+
+@include rwd(largeMobile){
+    .headerInner{
+        @include largeMobile();
+    }
+}
+
+@include rwd(mobile){
+    .headerInner{
+        @include mobile();
+    }
+}
+
+header{
     height: 100px;
+}
+
+.headerInner {
+    // height: 100px;
     width: 100%;
-    border: 1px solid $lightgreen;
-    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
     .logo {
         position: absolute;
         top: 10px;
-        left: 80px;
         width: 110px;
+        left: 5%;
+        @include rwd(mobile){
+            left: 2%;
+            width: 80px;
+            top: 15px;
+            }
     }
     .ham {
         position: absolute;
         top: 40px;
-        right: 80px;
+        right: 5%;
+
     }
 }
