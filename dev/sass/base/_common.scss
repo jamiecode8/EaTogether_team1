@@ -29,6 +29,14 @@ a {
 
 h1 {
     font-size: $fontSize_Title;
+    line-height: 25px;
+    font-weight: bold;
+    color: $color;
+}
+
+h2 {
+    font-size: $fontSize_SubTitle;
+    line-height: 20px;
     font-weight: bold;
     color: $color;
 }
