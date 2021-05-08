@@ -1,3 +1,28 @@
+@include rwd(desktop){
+    footer{
+        @include desktop ();
+    }
+}
+
+@include rwd(pad){
+    footer{
+        @include pad ();
+    }
+}
+
+@include rwd(largeMobile){
+    footer{
+        @include largeMobile();
+    }
+}
+
+@include rwd(mobile){
+    footer{
+        @include mobile();
+    }
+}
+
+
 footer {
     position: relative;
     height: 100px;
@@ -7,22 +32,28 @@ footer {
     height: fit-content;
     padding: 20px;
     bottom: 0;
+    color: $colorTp;
+    ul{
+        height: 30px;
+        margin-bottom: 5px;
+        // @include borderTest();
+        li{
+            height: 40px;
+        }
+    }
 
     //  上面那行
     .footer_nav {
-        /* border: 1px solid lightsalmon; */
         margin-left: 50%;
         width: fit-content;
         height: inherit;
-        text-align: center;
         transform: translateX(-50%);
         display: flex;
-        padding-left: 0;
         li {
             margin: 0 25px;
-            height: 20px;
+            height: 30px;
             p{
-                line-height: 20px;
+                line-height: 30px;
             }
         }
     }
@@ -34,6 +65,8 @@ footer {
         transform: translateX(-50%);
         display: flex;
         padding-left: 20px;
+        margin-bottom: 15px;
+
         li {
             img {
                 position: absolute;
@@ -42,12 +75,11 @@ footer {
             }
             p {
                 display: inline-block;
-                line-height: 20px;
+                line-height: 30px;
             }
             margin: 0 20px;
             position: relative;
             opacity: 0.5;
-            height: 20px;
             &:hover {
                 opacity: 1;
             }
@@ -74,6 +106,7 @@ footer {
             margin: 0;
             height: 20px;
             line-height: 20px;
+            font-size: 10px;
         }
     }
 }

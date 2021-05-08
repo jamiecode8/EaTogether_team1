@@ -8,34 +8,41 @@
         @include block_center();
     }
 
-    // 登入註冊切換區
-    .loginSwitch{
-        margin-bottom: 30px;
-        margin-top: 30px;
-        cursor: pointer;
-        @include borderTest();
-        ul{
-            display: flex;
-            margin: 0 auto;
-            li{
-                @include borderTest(blue);
-                flex-grow: 1;
-                text-align: center;
-                line-height: 30px;
-            }
-        }
-    }
-
-    .forgetPassword{
-        font-size: $fontSizeSmall;
-        text-align: right;
-    }
     // 送出按鈕
     @include btn(".btn_submit", $yellow, $tp);
 }
 
+.forgetPassword{
+    font-size: $fontSizeSmall;
+    text-align: right;
+}
+
+ // 登入註冊切換區
+ .loginSwitch{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    cursor: pointer;
+    position: relative;
+    @include borderTest();
+    ul{
+        display: flex;
+        margin: 0 auto;
+        li{
+            @include borderTest(blue);
+            flex-grow: 1;
+            text-align: center;
+            line-height: 30px;
+        }
+    }
+}
+
+.mid_block{
+    overflow: hidden;
+}
+
+
   // 常去站點
-  .login_station{
+.login_station{
     position: relative;
     margin-bottom: 20px;
     &_arrow{

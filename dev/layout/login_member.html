@@ -17,7 +17,10 @@
         <div class="loginInner">
             <!-- 登入註冊切換區 -->
             <div class="loginSwitch">
-                <ul class="">
+                <div id="loginSwitch_btn"></div>
+                <button type="button" class="toggolebtn" onclick="login()"> 登入 </button>
+                <button type="button" class="toggolebtn" onclick="register()"> 註冊 </button>
+                <!-- <ul class="">
                     <li class="loginSwitchItem" id="btn_login">
                         <div class="loginSwitchlink" onclick="opennumber('login_block', this)" id="defaultOpen">
                             <h2>登入</h2>
@@ -29,7 +32,7 @@
                             <h2>註冊</h2>
                         </div>
                     </li>
-                </ul>
+                </ul> -->
             </div>
             
             <!-- 內容區域 -->
@@ -52,7 +55,7 @@
                 </div>
         
                 <!-- 放註冊的東西 -->
-                <div class="inner_block_area" id="signup_block"> 
+                <div class="inner_block_area" id="signUp_block"> 
                     <!-- 輸入框欄位 -->
                     <input type="text" placeholder="E-mail" />
                     <input type="text" placeholder="密碼" />
@@ -132,13 +135,60 @@
         <div class="verification_logo">
             <img src="./img/logo.png">
         </div>
-        <div class=""> 
+        <h1>我們需要驗證您的身份</h1>
+        <div> 
             <!-- 輸入框欄位 -->
             <input type="text" placeholder="輸入原註冊E-mail" />
             
             <!-- 單顆按鈕用這裡 -->
             <div class="btn">
                 <input type="submit" value="寄送認證" class="btn_submit" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- 美食喜好彈窗 -->
+<div class="popUps loginMemberTag">
+    <form action="#資料傳送送的網址" method="post" class="form">
+        <!-- close button -->
+        <button type="button" class="btn_close">
+            <img src="./img/icon/icon_close.png" alt="" />
+        </button>
+        <h1>選擇三個你最喜歡的美食標籤</h1>
+        <div> 
+           <!-- 廣大標籤區 -->
+            <div class="loginMemberTag_tagArea">
+                <button type="button" class="btn_tag">#銅板美食</button>
+                <button type="button" class="btn_tag">#日式</button>
+                <button type="button" class="btn_tag">#韓式</button>
+                <button type="button" class="btn_tag">#美式</button>
+                <button type="button" class="btn_tag">#義式</button>
+                <button type="button" class="btn_tag">#台式</button>
+                <button type="button" class="btn_tag">#法式</button>
+                <button type="button" class="btn_tag">#中式</button>
+                <button type="button" class="btn_tag">#聚餐</button>
+                <button type="button" class="btn_tag">#簡餐</button>
+                <button type="button" class="btn_tag">#下午茶</button>
+                <button type="button" class="btn_tag">#早午餐</button>
+                <button type="button" class="btn_tag">#商業午餐</button>
+                <button type="button" class="btn_tag">#夜市</button>
+                <button type="button" class="btn_tag">#雞排</button>
+                <button type="button" class="btn_tag">#咖哩</button>
+                <button type="button" class="btn_tag">#火鍋</button>
+                <button type="button" class="btn_tag">#牛排</button>
+                <button type="button" class="btn_tag">#咖啡</button>
+                <button type="button" class="btn_tag">#甜點</button>
+                <button type="button" class="btn_tag">#鐵板燒</button>
+                <button type="button" class="btn_tag">#麵食</button>
+                <button type="button" class="btn_tag">#鹽酥雞</button>
+                <button type="button" class="btn_tag">#手搖飲</button>
+                <button type="button" class="btn_tag">#餐酒館</button>
+                <button type="button" class="btn_tag">#拉麵</button>
+            </div>
+            <!-- 單顆按鈕用這裡 -->
+            <div class="btn">
+                <input type="submit" value="送出" class="btn_submit" />
             </div>
         </div>
     </form>
@@ -165,6 +215,26 @@
 
 </script>    
 
+
+<!-- test -->
+<script>
+    var logIn = document.getElementById("login_block");
+    var signUp = document.getElementById("signUp_block");
+
+    var Switch = document.getElementById("loginSwitch_btn");
+
+    function register(){
+        logIn.style.left ="-400px";
+        signUp.style.left ="50px";
+        Switch.style.left ="110px";
+    }
+
+    function login(){
+        logIn.style.left ="50px";
+        signUp.style.left ="450px";
+        Switch.style.left ="0px";
+    }
+</script>
 
 <!-- 之後要移到js -->
       <script>

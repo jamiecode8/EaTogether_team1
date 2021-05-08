@@ -11,22 +11,24 @@
 <body>
     @@include('layout/header.html')
     <div class="backend_wrapper">
-       
-        <div class="backend_search">
+            
+        <form class="backend_search"  action="#" method="post">
            <input type="text" class="backend_search_text">
-        </div>
-
-        <div class="member">
-       <table>
-           <tr>會員編號</tr>
-           <tr>會員名稱</tr>
-           <tr>最近上站時間</tr>
-           <tr>會員狀態</tr>
-           <tr>管理</tr>
-       </table>
+           <img class="backend_search_btn" src="./img/icon/icon_search.png" alt="">
+        </form>
+        
+        <div class="backend_member">
+          <table class="backend_member_table">
+              <tr>
+              <th>會員編號</th>
+              <th>會員名稱</th>
+              <th>最近上站時間</th>
+              <th>會員狀態</th>
+              <th>會員管理</th>
+            </tr>
+          </table>
       </div> 
     </div>
-  
     @@include('layout/footer.html')
 </body>
 </html>
