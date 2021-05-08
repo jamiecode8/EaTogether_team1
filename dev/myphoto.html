@@ -1,17 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        @@include('layout/style.html')
-        <title>美食拍立得</title>
-    </head>
-    <body>
-        @@include('layout/header.html')
-        <div class="wrapper">
-            <!-- 這裡面編輯 -->
-        </div>
-        @@include('layout/footer.html')
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--@@include('layout/style.html')-->
+            <!-- 有要連的CDN放這裡，記得寫註解! -->
+            <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+            <link rel="stylesheet" href="./sass/style.css">
+
+            <!-- 新增的js檔放這裡，記得寫註解! -->
+            <!-- jQuery CDN -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+            <!-- 共用的js -->
+            <script src="js/style.js" async></script>
+
+
+    <title>美食拍立得</title>
+</head>
+<body>
+    
+    <!-- @@include('layout/header.html') -->
+            <header>
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <img src="./img/logo.png" alt="" />
+                </a>
+                <!-- 漢堡選單 -->
+                <a href="#" class="ham">
+                    <img src="./img/icon/icon_hamburger.png" alt="" />
+                </a>
+            </header>
+
+<!-- ==================================下方開始編輯========================================== -->
+    
+
+<div class="pho_wrapper">
+    <!-- 背景圖 -->
+    <div class="pho_background">
+        <main>
+            <div class="pho_top_wrapper">
+                <!-- 使用者ET頭像 -->
+                <img src="././img/tang/ET_photo.png" alt="">
+            
+                <div class="pho_top_content">
+
+                    <!-- 使用者ID -->
+                    <h2>訪客</h2>
+                    
+                    <!-- 搜尋框 -->
+                    <input class="pho_search_bar" type="text" id="pho_search">
+                    <label for="pho_search"><img src="././img/icon/icon_search.png" alt=""></label>
+                    
+                    <!-- 分隔線 -->
+                    <div class="line"></div>
+                    
+                    <!-- 選單 -->
+                    <ul class="pho_menu">
+                        <li><a href="#">推薦拍立得</a></li>
+                        <li><a href="#">我的拍立得</a></li>
+                        <li><a href="#">製作拍立得</a></li>
+                        <li><a href="#">我的追蹤</a></li>
+                    </ul>
+                   
+                </div>
+            </div>
+
+            <!-- 拍立得 -->
+            <div class="pho_cards_wrapper">
+                <ul class="pho_store_cards_lists">
+                    <li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img src="./img/tang/store_pic.png " alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@梯八咪雞肉飯</a>
+
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>#南京復興</p></a>
+                            <a href="#"><p>#小吃</p></a>
+                            <a href="#"><p>#銅板</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div>
+                            <a href="#">
+                                <img src="" alt="">
+                                <article>
+                                    <p>tina888</p>
+                                    <p>追蹤</p><!-- 追蹤按鈕 -->
+                                </article>
+                            </a>
+                        <!-- 發文日期 -->
+                        <P>2021/04/17</P>
+                        </div>
+                        
+                    </li>
+
+                    <li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img src="./img/tang/store_pic.png " alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@梯八咪雞肉飯</a>
+
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>#南京復興</p></a>
+                            <a href="#"><p>#小吃</p></a>
+                            <a href="#"><p>#銅板</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div>
+                            <a href="#">
+                                <img src="" alt="">
+                                <article>
+                                    <p>tina888</p>
+                                    <p>追蹤</p><!-- 追蹤按鈕 -->
+                                </article>
+                            </a>
+                        <!-- 發文日期 -->
+                        <P>2021/04/17</P>
+                        </div>
+                        
+                    </li>
+
+                    <li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img src="./img/tang/store_pic.png " alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@梯八咪雞肉飯</a>
+
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>#南京復興</p></a>
+                            <a href="#"><p>#小吃</p></a>
+                            <a href="#"><p>#銅板</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div>
+                            <a href="#">
+                                <img src="" alt="">
+                                <article>
+                                    <p>tina888</p>
+                                    <p>追蹤</p><!-- 追蹤按鈕 -->
+                                </article>
+                            </a>
+                        <!-- 發文日期 -->
+                        <P>2021/04/17</P>
+                        </div>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+        </main>
+    </div>
+</div>
+
+
+<!-- ==================================上方開始編輯========================================== -->
+    <!-- @@include('layout/footer.html') -->
+            <footer>
+                <div>
+                    <ul class="footer_nav">
+                        <li>
+                            <a href="#">加入地圖</a>
+                        </li>
+                        <li>
+                            <a href="#">團隊介紹</a>
+                        </li>
+                        <li>
+                            <a href="#">常見問題</a>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div>
+                    <ul class="ourInfo">
+                        <li>
+                            <img src="./img/icon/icon_tel.png" alt="" class="tel" />
+                            <p>02-2888-888</p>
+                        </li>
+                        <li>
+                            <img src="./img/icon/icon_mail.png" alt="" class="mail" />
+                            <p>tibame@gmail.com</p>
+                        </li>
+                        <li>
+                            <img src="./img/icon/icon_location.png" alt="" class="add" />
+                            <p>南京東路三段219號</p>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="copyright">
+                    <p>tiabame@copyright</p>
+                </div>
+            </footer>
+</body>
 </html>
