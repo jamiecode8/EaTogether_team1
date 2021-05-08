@@ -26,7 +26,6 @@
 @import "page/develope";
 @import 'layout/footer';
 @import 'layout/header';
-<<<<<<< HEAD
 @import 'layout/login';//可以有底線嗎？ 目前是空的
 @import 'layout/search';//目前是空的
 
@@ -35,7 +34,7 @@
 @import 'page/develope';
 @import 'page/index';
 @import 'page/store';
-@import 'page/myPhoto'
+
 
 // 新增一隻scss時, 要把檔案import到這裡，往下加
 
@@ -43,10 +42,8 @@
 
 
 
-=======
-@import 'layout/login';
-@import 'layout/search';
->>>>>>> dev
+//@import 'layout/login';
+//@import 'layout/search';
 
 
 // 新增一隻scss時, 要把檔案import到這裡，加在page的第一個
