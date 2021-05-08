@@ -1,26 +1,72 @@
 //宏鈞的
 
-// body{
-//     background-color: #FEFDF2;
-// }
 
-.wrapper{
-    margin: 0 auto; 
+.backend_wrapper{
     width: 1200px;
+    height: 720px;
+    margin: 0 auto; 
+    background-color: $bgc;
 }
 
-.search{
+.backend_search{
     display: flex;
-    align-self: flex-end;
 }
 
-.search_text{
+.backend_search_text{
     margin: 20px 0;
-    border: 3px solid #FFE066;
+    border: 3px solid $lightgreen;
+    width: 200px;
+    height: 26px; 
 }
 
-.member{
+
+.backend_search_btn{
+    margin: 20px 0 20px 15px;
+    height: 100%;
+    cursor: pointer;
+}
+
+// -----------------------會員管理-----------------------
+
+.backend_member{
     background-color: #E2D295;
+    padding: 25px;  
+
+}
+
+.backend_member_table{
+    font-size: $fontSize_Title;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+// -----------------------商家管理-----------------------
+
+.backend_store{
+    background-color: #E2D295;
+    padding: 25px;  
+
+}
+
+.backend_store_table{
+    font-size: $fontSize_Title;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+// -----------------------拍立得管理-----------------------
+
+.backend_photo{
+    background-color: #E2D295;
+    padding: 25px;  
+}
+
+.backend_photo_table{
+    font-size: $fontSize_Title;
+    font-weight: bold;
+    width: 100%;
     text-align: center;
 }
 

@@ -9,9 +9,25 @@
     </head>
     <body>
         @@include('layout/header.html')
-        <div class="wrapper">
-            <!-- 這裡面編輯 -->
-        </div>
+        <div class="backend_wrapper">
+            <form class="backend_search"  action="#" method="post">
+                <input type="text" class="backend_search_text">
+                <img class="backend_search_btn" src="./img/icon/icon_search.png" alt="">
+             </form>
+     
+             <div class="backend_photo">
+            <table class="backend_photo_table">
+              <tr>
+                <th>拍立得編號</th>
+                <th>檢舉編號</th>
+                <th>留言編號</th>
+                <th>會員編號</th>
+                <th>拍立得狀態</th>
+                <th>拍立得管理</th>
+              </tr>
+            </table>
+           </div> 
+         </div>
         @@include('layout/footer.html')
     </body>
 </html>
