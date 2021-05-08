@@ -50,10 +50,11 @@
         @include border_r();
         &:hover {
             cursor: pointer;
-            background: darken($bgc, 20);
+            color: darken($bgc, 20);
         }
     }
 }
+
 
 //關閉那個XX
 @mixin btn_close($class) {
@@ -66,7 +67,6 @@
     }
 }
 
-
 //grid
 @mixin grid($num) {
     @for $i from 1 through $num {
@@ -78,13 +78,18 @@
     }
 }
 
+
 //RWD
 @mixin rwd($breakpoint) {
     @if $breakpoint == "desktop" {
-        @media all and (min-width: 992px) {
+        @media all and (min-width: 1200px) {
             @content;
         }
-    } @else if $breakpoint == "pad" {
+    } @else if $breakpoint == "desktopSmall" {
+        @media all and(max-width: 1199px) and (min-width: 992px) {
+            @content;
+        }
+    }@else if $breakpoint == "pad" {
         @media all and(max-width: 991px) and (min-width: 768px) {
             @content;
         }
@@ -93,15 +98,25 @@
             @content;
         }
     } @else if $breakpoint == "mobile" {
-        @media all and (min-width: 575px) {
+        @media all and (max-width: 575px) {
             @content;
         }
     }
 }
 
+
+// >1200 1140
+// 992~1199 >>960
+
 // 最外層
 @mixin desktop {
-    max-width: 1200px;
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin desktopSmall {
+    max-width: 960px;
     width: 100%;
     margin: 0 auto;
 }
@@ -113,13 +128,14 @@
 }
 
 @mixin largeMobile {
-    width: 540px;
+    max-width: 540px;
     width: 100%;
     margin: 0 auto;
 }
 
 @mixin mobile {
     max-width: 300px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -133,4 +149,15 @@
         max-width: $w;
         margin: 0 auto;
     }
+}
+
+// 氣質線
+@mixin lightLine ($w:100%, $h:1px, $c:$colorTp){
+    content: " ";
+    width: $w;
+    height: $h;
+    background-color: $c;
+    position: absolute;
+    bottom: 0;
+    display: block;
 }
