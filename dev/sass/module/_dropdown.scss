@@ -1,0 +1,27 @@
+.dropdown{
+    width: 320px;
+    position: relative;
+    margin-bottom: 20px;
+    &_arrow{
+        position: absolute;
+        top: 13px;
+        right: 10px;
+    }
+    
+    &_select{
+        margin-top: 0px;   //在彈窗裡要改-20px
+        border: 2px solid $lightgreen;
+        display: none;
+        li{
+            padding-left: 10px;
+            line-height:36px;
+        }
+        li:hover{
+            background-color: $lightgreen;
+        }
+    }
+}
+
+.dropdown_select.on{
+    display: block;
+}
