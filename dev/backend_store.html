@@ -9,8 +9,23 @@
     </head>
     <body>
         @@include('layout/header.html')
-        <div class="wrapper">
-            <!-- 這裡面編輯 -->
+        <div class="backend_wrapper">
+       
+            <form class="backend_search"  action="#" method="post">
+               <input type="text" class="backend_search_text">
+               <img class="backend_search_btn" src="./img/icon/icon_search.png" alt="">
+            </form>
+    
+            <div class="backend_store">
+           <table class="backend_store_table">
+             <tr>
+               <th>商家編號</th>
+               <th>商家名稱</th>
+               <th>商家等級</th>
+               <th>商家管理</th>
+             </tr>
+           </table>
+          </div> 
         </div>
         @@include('layout/footer.html')
     </body>
