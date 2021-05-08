@@ -17,7 +17,10 @@
         <div class="loginInner">
             <!-- 登入註冊切換區 -->
             <div class="loginSwitch">
-                <ul class="">
+                <div id="loginSwitch_btn"></div>
+                <button type="button" class="toggolebtn" onclick="login()"> 登入 </button>
+                <button type="button" class="toggolebtn" onclick="register()"> 註冊 </button>
+                <!-- <ul class="">
                     <li class="loginSwitchItem" id="btn_login">
                         <div class="loginSwitchlink" onclick="opennumber('login_block', this)" id="defaultOpen">
                             <h2>登入</h2>
@@ -29,7 +32,7 @@
                             <h2>註冊</h2>
                         </div>
                     </li>
-                </ul>
+                </ul> -->
             </div>
             
             <!-- 內容區域 -->
@@ -234,7 +237,7 @@
 </script>
 
 <!-- 之後要移到js -->
-      <!-- <script>
+      <script>
         // 登入註冊切換選單
         function opennumber(name, element){
         // Hide all elements with class="tabcontent" by default */
@@ -250,7 +253,7 @@
 
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
-      </script> -->
+      </script>
 
       <!-- 之後可以用vue 參考vue5-->
       <!-- <script>
