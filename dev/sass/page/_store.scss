@@ -11,6 +11,12 @@
     }
 }
 
+@include rwd(desktopSmall){
+    .store_wrap{
+        @include desktopSmall();
+    }
+}
+
 @include rwd(pad){
     .store_wrap{
         @include pad();
@@ -160,6 +166,7 @@
         width: 100px;
         // @include borderTest();
     }
+    position: relative; //寫給升級按鈕的
 }
 
 // 升級文字說明區(右邊)
@@ -175,3 +182,35 @@
     }
 }
 
+// 升級按鈕
+.btn-levelUp{
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    margin: initial;
+}
+
+// 廣告成效區
+.store_promotionArea{
+    padding-left: 150px; 
+    h1{
+        line-height: 60px;
+    }
+    &_inner{
+        @include rwd(desktop){
+            display: flex;
+            }
+    }
+    &_like{
+        // width: 300px;
+        height: 300px;
+        @include border();
+        flex-grow: 1;
+    }
+    &_click{
+        // width: 300px;
+        height: 300px;
+        @include border();
+        flex-grow: 1;
+    }
+}
