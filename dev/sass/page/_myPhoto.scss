@@ -1,13 +1,21 @@
 //棠棠的
 *{
-    outline:1px black solid;
+    outline:1px  solid  black;
 }
-.background{
-    background-image: url(../img/background.png);
+
+.pho_wrapper{
+    //background-color: yellow;
+    background-image: url(../../img/tang/background.png);
+}
+
+.pho_background{
+    background-image: url(../../img/tang/ET_photo.png);
+    background-image: url(../../img/tang/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     margin:0 auto;
     width:100%;
+    height: 600px;
 }
 
 .background main{
@@ -16,13 +24,13 @@
     margin:0 auto;
 }
 
-.menu{
+.pho_menu{
     display:flex;
     justify-content: space-between;
     
 }
 
-.top_content h2{
+.pho_top_content h2{
     display:inline-block;
 }
 
@@ -30,4 +38,27 @@
     height:0.5px;
     width:80%;
     margin:0 auto;
+    
 }
+
+.m_po{
+    background-color: red;
+}
+
+.pho_store_cards_lists{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    li{
+        padding: 20px;
+        background-color:  lighten(yellow,20%);
+    }
+
+    .pho_vender_thumb_message{
+        display: flex;
+    }
+    .pho_vender_feat_tag{
+        display: flex;
+        justify-content: flex-start;
+    }
+}   
