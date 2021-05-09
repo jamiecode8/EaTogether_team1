@@ -1,8 +1,6 @@
 // 靜瑩的
-.wrapper.index{
-    background-color: $bgc;
-    min-width: 1200px;
-    margin: 0 auto;
+body.index{
+    background-color:$bgc;
 }
 
 //map背景
@@ -97,10 +95,10 @@
         .whatToEat_q_arrow.on{
             transform: rotate(180deg);
         }
-        .select_mrtLine.on{
+        .select_options.on{
             display: block;
         }
-        .select_mrtLine{
+        .select_options{
             margin-top: -20px;   
             border: 2px solid $lightgreen;
             display: none;
