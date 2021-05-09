@@ -3,7 +3,7 @@ body.index{
     background-color:$bgc;
 }
 
-//map背景
+//----------map背景----------
 .index_map{
     padding-top: 20px;
     width:1200px;
@@ -26,8 +26,8 @@ body.index{
     right:3%;
     transform: rotate(-30deg);
 }
-//end----------
-//搜尋按鈕
+//----------map背景end----------
+//----------搜尋按鈕----------
 .index_searchbtn{
     position:fixed;
     right: 10%;
@@ -67,13 +67,10 @@ body.index{
 .search_btn_Search:hover{
     @include search_btn_hover;
 }
-//end----------
-//whatToEat彈窗
+//----------搜尋按鈕end----------
+//----------whatToEat彈窗----------
 .index_whatToEat_popup{
     display: none;
-    .btn_close{
-        z-index: 10;
-    }
     position: absolute;
     top: 5%;
     left: 10%;
@@ -90,7 +87,7 @@ body.index{
         .whatToEat_q_arrow{
             position: absolute;
             right:60px;
-            top:170px;
+            top:165px;
         }
         .whatToEat_q_arrow.on{
             transform: rotate(180deg);
@@ -128,5 +125,111 @@ body.index{
         }
     }
 }
+//----------whatToEat彈窗end----------
+//----------search彈窗end----------
+.index_search_popup{
+    display: none;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    h1{
+        color: $green;
+    }
+    h2{
+        text-align: center;
+        padding-top: 10px;
+    }
+    input{
+        border-radius: 5px;
+        margin-top:30px;
+    }
+    .getSearch{
+        background-color: white;
+        .searchFood {
+            position: relative;
+            img{
+                position: absolute;
+                right:10px;
+                top: 65px;
+            }
+            .mrtLines.on{
+                display: block;
+            }
+            .mrtLines{
+                display: none;
+                margin-top: -20px;   
+                border: 2px solid $lightgreen;
+                li{
+                    padding-left: 10px;
+                    line-height:36px;
+                }
+                li:hover{
+                    background-color: $lightgreen;
+                }
+                //  mrt color
+                .b{
+                    color:$mrtBlue;
+                }
+                .r{
+                    color:$mrtRed;
+                }
+                .br{
+                    color: $mrtBrown;
+                }
+                .g{
+                    color: $mrtGreen;
+                }
+                .y{
+                    color: $mrtYellow;
+                }
+            }
+            .searchTags.on{
+                display: block;
+            }
+            .searchTags{
+                margin-top: -20px;
+                background-color: white;
+                border: 2px solid $lightgreen;
+                display: none;
 
+                span{
+                    background-color: $lightgreen;
+                    margin: 5px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+                span:hover{
+                    background-color: $yellow;
+                }
+            }
+        }
 
+    }
+}
+//----------search彈窗end----------
+//----------food彈窗----------
+.index_store_popup{
+    // display: none;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    input{
+        border-radius: 5px;
+    }
+    .getStore{
+        background-color: white;
+        .searchFood{
+            img{
+                position: absolute;
+                right:60px;
+                top:115px;
+            }
+        } 
+        .getStoreInf{
+                
+            border: 1px solid lightgrey;
+        }
+    }
+  
+};
