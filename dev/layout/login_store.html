@@ -1,2 +1,244 @@
 <!-- Jamie -->
-//登入註冊彈窗
+<!-- 商家登入 -->
+<div class="popUps login">
+    <form action="#資料傳送送的網址" method="post" class="form login">
+        <!-- close button -->
+        <button type="button" class="btn_close">
+            <img src="./img/icon/icon_close.png" alt="" />
+        </button>
+
+        <!-- 商家頭像 -->
+        <div class="loginMemberPic">
+            <img src="./img/test_login_memberPic.png" alt="">
+        </div>
+
+        <h1 class="login_store_welcome">歡迎加入外||食商家</h1>
+
+        <div class="loginInner">
+            <!-- 登入註冊切換區 -->
+            <div class="loginSwitch">
+                <button type="button" class="toggolebtn areaShow"  id="btn_login"> 登入 </button>
+                <button type="button" class="toggolebtn" id="btn_signup"> 註冊 </button>
+
+            </div>
+            <!-- 內容區域 -->
+            <div>
+                <!-- 放登入的東西 -->
+                <div class="inner_block_area" id="login_block"> 
+                    <!-- 輸入框欄位 -->
+                    <input type="text" placeholder="E-mail" />
+                    <input type="text" placeholder="密碼" />
+                    
+                    <!-- 無法登入 -->
+                    <div class="forgetPassword">
+                        <a href="">忘記密碼? </a>
+                    </div>
+                </div> 
+                    <!-- 單顆按鈕用這裡 -->
+                    <div class="btn">
+                        <input type="submit" value="送出" class="btn_submit" />
+                    </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<!-- 商家註冊 -->
+<div class="popUps login store_signUp">
+    <form action="#資料傳送送的網址" method="post" class="form login">
+        <!-- close button -->
+        <button type="button" class="btn_close">
+            <img src="./img/icon/icon_close.png" alt="" />
+        </button>
+
+        <h1 class="login_store_welcome">商家資訊</h1>
+
+        <div class="loginInner">
+            <!-- 內容區域 -->
+            <div>
+                <!-- 基本資料 -->
+                <section class="store_signUp_basicInfo">
+                    <div class="store_signUp_title">
+                        <h2>基本資料</h2>
+                        <button class="store_signUp_editIcon">
+                        </button>
+                    </div>
+                    <input type="text" placeholder="輸入餐廳名稱" />
+                    <input type="text" placeholder="輸入餐廳電話" />
+                    <input type="text" placeholder="輸入餐廳地址" />
+                </section>
+                <!-- 進階資料 -->
+                <section class="store_signUp_basicInfo">
+                    <div class="store_signUp_title">
+                        <h2>進階資料</h2>
+                        <button class="store_signUp_editIcon">
+                        </button>
+                    </div>
+                    <p>客單價</p>
+                    <div class="login_station">
+                        <input type="text" id="login_station_choice" placeholder="選擇價格區間
+                        " class="input">
+                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
+                        <ul class="login_station_select" id="login_station_options">
+                            <li  class="b"> <$150 </li>
+                            <li  class="b"> $151~$500</li>
+                            <li  class="b"> $501~$1000</li>
+                        </ul>
+                    </div>
+
+                    <p>鄰近捷運站</p>
+                    <div class="login_store_station">
+                        <input type="text" id="login_station_choice_store" placeholder="選擇鄰近站點" class="input">
+                        <img class="login_store_station_arrow" src="./img/icon/icon_next_line.png" alt="">
+                        <ul class="login_store_station_select" id="login_station_options_store">
+                            <li  class="b">市政府</li>
+                            <li  class="b">忠孝敦化</li>
+                            <li  class="b">國父紀念館</li>
+                            <li  class="b">板橋</li>
+                            <li  class="b">新埔</li>
+                            <li  class="b">府中</li>
+                            <li  class="b">龍山寺</li>
+                            <li  class="r">淡水</li>
+                            <li  class="r">劍潭</li>
+                            <li  class="r">圓山</li>
+                            <li  class="r">台北車站</li>
+                            <li  class="r">東門</li>
+                            <li  class="r">大安森林公園</li>
+                            <li  class="r">信義安和</li>
+                            <li  class="r">台北101</li>
+                            <li  class="g">松山</li>
+                            <li  class="g">南京三民</li>
+                            <li  class="g">南京復興</li>
+                            <li  class="g">中山</li>
+                            <li  class="g">中正紀念堂</li>
+                            <li  class="g">台電大樓</li>
+                            <li  class="g">公館</li>
+                            <li  class="g">景美</li>
+                            <li  class="br">東湖</li>
+                            <li  class="br">西湖</li>
+                            <li  class="br">港墘</li>
+                            <li  class="br">大直</li>
+                            <li  class="br">中山國中</li>
+                            <li  class="br">六張犁</li>
+                            <li  class="br">萬芳社區</li>
+                            <li  class="y">頂溪</li>
+                            <li  class="y">南京松江</li>
+                            <li  class="y">忠孝新生</li>
+                            <li  class="y">台北橋</li>
+                            <li  class="y">徐匯中學</li>
+                            <li  class="y">新莊</li>
+                        </ul>
+                    </div>
+
+                    <p>選擇關鍵字(最多三個)</p>
+                    <div class="loginMemberTag_tagArea">
+                        <button type="button" class="btn_tag">#銅板美食</button>
+                        <button type="button" class="btn_tag">#日式</button>
+                        <button type="button" class="btn_tag">#韓式</button>
+                        <button type="button" class="btn_tag">#美式</button>
+                        <button type="button" class="btn_tag">#義式</button>
+                        <button type="button" class="btn_tag">#台式</button>
+                        <button type="button" class="btn_tag">#法式</button>
+                        <button type="button" class="btn_tag">#中式</button>
+                        <button type="button" class="btn_tag">#聚餐</button>
+                        <button type="button" class="btn_tag">#簡餐</button>
+                        <button type="button" class="btn_tag">#下午茶</button>
+                        <button type="button" class="btn_tag">#早午餐</button>
+                        <button type="button" class="btn_tag">#商業午餐</button>
+                        <button type="button" class="btn_tag">#夜市</button>
+                        <button type="button" class="btn_tag">#雞排</button>
+                        <button type="button" class="btn_tag">#咖哩</button>
+                        <button type="button" class="btn_tag">#火鍋</button>
+                        <button type="button" class="btn_tag">#牛排</button>
+                        <button type="button" class="btn_tag">#咖啡</button>
+                        <button type="button" class="btn_tag">#甜點</button>
+                        <button type="button" class="btn_tag">#鐵板燒</button>
+                        <button type="button" class="btn_tag">#麵食</button>
+                        <button type="button" class="btn_tag">#鹽酥雞</button>
+                        <button type="button" class="btn_tag">#手搖飲</button>
+                        <button type="button" class="btn_tag">#餐酒館</button>
+                        <button type="button" class="btn_tag">#拉麵</button>
+                    </div>
+                </section>
+                
+                <!-- 商家照片 -->
+                <section class="store_signUp_basicInfo">
+                    <div class="store_signUp_title">
+                        <h2>商家照片</h2>
+                        <button class="store_signUp_editIcon">
+                        </button>
+                    </div>
+                    <div class="store_imgArea">
+                        <!-- 廣告照 -->
+                        <div id="store_signUp_dropZone_big" class="store_signUp_dropZone_big">
+                            <img id="store_image_big">
+                        </div>
+                        <div class="store_imgArea_s">
+                            <div id="store_signUp_dropZone_menu" class="store_signUp_dropZone_mid">
+                                <img id="store_image_menu">
+                            </div>
+                            <!-- 環境照 -->
+                            <div id="store_signUp_dropZone_look" class="store_signUp_dropZone_mid">
+                                <img id="store_image_look">
+                            </div>
+                            <!-- 餐點照1 -->
+                            <div id="store_signUp_dropZone_food1" class="store_signUp_dropZone_mid">
+                                <img id="store_image_food1">
+                            </div>
+                            <!-- 餐點照2 -->
+                            <div id="store_signUp_dropZone_food2" class="store_signUp_dropZone_mid">
+                                <img id="store_image_food2">
+                            </div>
+                            <!-- 餐點照3 -->    
+                            <div id="store_signUp_dropZone_food3" class="store_signUp_dropZone_mid">
+                                <img id="store_image_food3">
+                            </div>
+                        </div>
+                        <!-- 菜單照 -->
+
+                    </div>
+                    <!-- <h2 id="fileName"></h2> -->
+                </section>
+                <!-- 聯絡資訊 -->
+                <section class="store_signUp_basicInfo">
+                    <div class="store_signUp_title">
+                        <h2>聯絡資訊</h2>
+                        <button class="store_signUp_editIcon">
+                        </button>
+                    </div>
+                    <input type="text" placeholder="聯絡人" />
+                    <input type="text" placeholder="連絡電話" />
+                    <input type="text" placeholder="E-mail" />
+                </section>
+                <!-- 同意遵守商家守則 -->
+                <label class="checkboxArea">
+                    <input type="checkbox" value="confirm"  class="checkbox"/>
+                    <span class="checkboxArea_read">已閱讀商家守則，並同意遵守</span>
+                </label>
+                <!-- 2顆按鈕用這個 -->
+                <div class="buttonArea">
+                    <input type="submit" value="取消" class="btn_d btn_cancel" />
+                    <input type="submit" value="送出" class="btn_d btn_submit" />
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    // 下拉選單
+    $('.login_store_station_arrow').click(function (e) {
+        // e.preventDefault();
+        $('.login_store_station_select').toggleClass('on');
+    });
+
+
+    $('#login_station_options_store li').click(function(){
+        let inputColor=document.getElementById('login_station_choice_store');
+        inputColor.value=$(this).text();
+        $('.login_store_station_select').toggleClass('on');
+
+    })
+</script>
