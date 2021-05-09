@@ -207,5 +207,29 @@ body.index{
 
     }
 }
-
-
+//----------search彈窗end----------
+//----------food彈窗----------
+.index_store_popup{
+    // display: none;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    input{
+        border-radius: 5px;
+    }
+    .getStore{
+        background-color: white;
+        .searchFood{
+            img{
+                position: absolute;
+                right:60px;
+                top:115px;
+            }
+        } 
+        .getStoreInf{
+                
+            border: 1px solid lightgrey;
+        }
+    }
+  
+};
