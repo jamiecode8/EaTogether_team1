@@ -43,7 +43,8 @@
                     </button>
                     <h1>今天吃什麼</h1>
                     <h2>Q1:請選擇符合你心情的顏色</h2>
-                    <input type="text" id="myOption" class="myOptions" disabled="disabled">
+                    <input type="text" 
+                     class="myOptions" disabled="disabled">
                     <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
                     <ul class="select_options" id="options">
                         <li class="b">藍色</li>
@@ -67,7 +68,7 @@
                     </button>
                     <h1>今天吃什麼</h1>
                     <h2>Q2:請選擇你的口味偏好</h2>
-                    <input type="text" id="myOption" class="myOptions" disabled="disabled">
+                    <input type="text"  class="myOptions" disabled="disabled">
                     <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
                     <ul class="select_options" id="options">
                         <li>我吃重鹹</li>
@@ -91,7 +92,7 @@
                     </button>
                     <h1>今天吃什麼</h1>
                     <h2>Q3:你現在想去的國家</h2>
-                    <input type="text" id="myOption" class="myOptions" disabled="disabled">
+                    <input type="text"  class="myOptions" disabled="disabled">
                     <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
                     <ul class="select_options" id="options">
                         <li>日本</li>
@@ -115,7 +116,7 @@
                         </button>
                         <h1>今天吃什麼</h1>
                         <h2>Q4:你的感情狀態</h2>
-                        <input type="text" id="myOption" class="myOptions" disabled="disabled">
+                        <input type="text"  class="myOptions" disabled="disabled">
                         <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
                         <ul class="select_options" id="options">
                             <li>曖昧讓我委屈</li>
@@ -139,11 +140,11 @@
                         </button>
                         <h1>今天吃什麼</h1>
                         <h2>適合你的食物是</h2>
-                        <input type="text" id="myOption" class="myOptions" disabled="disabled">    
+                        <input type="text"  class="myOptions" disabled="disabled">    
 
                         <div class="buttonArea">
                             <input  value="再一次" class="whatBtnAgain btn_d btn_submit" />
-                            <input  value="哪裡有" class="whatBtnNext btn_d btn_submit" />
+                            <input  type="submit" value="哪裡有" class="whatBtnNext btn_d btn_submit" />
                         </div>
                      </form>
                 </div> 
@@ -177,15 +178,14 @@
             let options=document.getElementsByClassName('myOptions');
             let questionNumber=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;
             options[questionNumber].value=$(this).text();
-            console.log(options[questionNumber].value);
             $('.select_options').toggleClass('on');
             // $('.whatToEat_q_arrow').toggleClass('on');
         });
 
-        //按下一題
+        //按下一題 回答問題菜可繼續目前只有第一題
         $('.whatBtnNext').click(function(){
-            if($(".myOptions").val() ==""){
-                $(".myOptions").css({"outline": "5px solid #f98072" }); 
+            if($(".myOptions").val() == "" ){
+                alert('請選擇');
             }else{
                 $(this.parentNode.parentNode.parentNode).fadeOut(100);
                 $(this.parentNode.parentNode.parentNode).next().fadeIn(50);
@@ -198,10 +198,12 @@
             $(this.parentNode.parentNode.parentNode).prev().fadeIn(50);
         });
 
-        //按再一次
+        //按再一次 表單清空
         $('.whatBtnAgain').click(function (){
             $(this.parentNode.parentNode.parentNode).fadeOut(100);
+            $('.myOptions').val('');
             $('.index_whatToEat_popup.1').fadeIn(50);
+           
         });
          //whatToEat表單end------
 
