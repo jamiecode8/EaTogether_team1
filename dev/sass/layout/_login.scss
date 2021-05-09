@@ -41,7 +41,6 @@
 // 常去站點
 .login_station{
     position: relative;
-    margin-bottom: 20px;
     &_arrow{
         position: absolute;
         top: 13px;
@@ -78,6 +77,7 @@
 }
 
 .login_station_select.on{
+    margin-bottom: 20px;
     display: block;
 }
 
@@ -91,8 +91,6 @@
         right: 9.8px;
     }
 }
-
-
 
 // 認證彈窗verification
 .verification{
