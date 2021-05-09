@@ -5,6 +5,12 @@
     }
 }
 
+@include rwd(desktopSmall){
+    .headerInner{
+        @include desktopSmall ();
+    }
+}
+
 @include rwd(pad){
     .headerInner{
         @include pad ();
@@ -28,7 +34,6 @@ header{
 }
 
 .headerInner {
-    // height: 100px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -44,10 +49,133 @@ header{
             top: 15px;
             }
     }
-    .ham {
-        position: absolute;
-        top: 40px;
-        right: 5%;
+}
 
+// 漢堡
+.ham {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    height: 27px;
+    width: 35px;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity 0.25s ease;
+    z-index: 999;
+    &:hover {
+        opacity: 0.7;
+      }
+  }
+
+// 漢堡原始樣式
+.ham span {
+    background: $color;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include border_r();
+    transition: all 0.35s ease;
+    &:nth-of-type(2) {
+        top: 11px;
+      }
+    &:nth-of-type(3) {
+        top: 22px;
+      }
+}
+
+// 漢堡按下去改成 X
+.ham.active{
+    .ham_top{
+        transform: translateY(11px) translateX(0) rotate(45deg);
+    }
+    .ham_middle {
+        opacity: 0;
+    }
+    .ham_bottom {
+        transform: translateY(-11px) translateX(0) rotate(-45deg);
+      }
+}
+
+// 展開滿版選單-選單區
+.header_overlay {
+    position: fixed;
+    /* 改$lightgreen */
+    background: $lightgreen;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    transition: opacity 0.35s, height 0.35s;
+    &_menu{
+        position: relative;
+        height: 70%;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: $fontSize_Title; 
+        text-align: center;
+    }
+    ul{
+        @include borderTest(blue);
+        position: relative;
+        height: 100%;
+        width: 100%;
     }
 }
+
+// 選單展開後-選單區
+.header_overlay.open {
+    z-index: 900;
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+    
+    // 出現的動畫
+    .header_list{
+        @include borderTest();
+        display: block;
+        width: 100%;
+        height: calc(100% / 5);
+        position: relative;
+        opacity: 0;
+        animation: fadeInRight 0.5s ease forwards;
+        animation-delay: 0.35s;
+        &:nth-of-type(2) {
+            animation-delay: 0.4s;
+            }
+        &:nth-of-type(3) {
+            animation-delay: 0.45s;
+            }
+        &:nth-of-type(4) {
+            animation-delay: 0.5s;
+            }
+        &:nth-of-type(5) {
+            animation-delay: 0.55s;
+            }
+        a{
+            @include borderTest(green);
+            height: 100%;
+            // line-height: calc(100% / 5);
+            display: block;
+            position: relative;
+            color: $colorTp; 
+            overflow: hidden;
+            &:hover{
+                color: $color;
+            }
+        }
+    }
+}
+  
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      left: 20%;
+    }
+    100% {
+      opacity: 1;
+      left: 0;
+    }
+  }
