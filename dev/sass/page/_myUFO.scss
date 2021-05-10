@@ -30,9 +30,16 @@
     z-index: 10;
     margin: 0px 50px;
     bottom: 2%;
-    width: 5%;
+    width: 2%;
     left: 0%;
     top: 75%;
+}
+
+.Points_font p{
+    position: absolute;
+    font-size: 25px;
+    top: 90%;
+    left:13%;
 }
 
 .Carousel {
@@ -113,43 +120,6 @@
     bottom: 8%;
 }
 
-@-webkit-keyframes round {
-    25% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 0;
-    }
-}
-
-@keyframes round {
-    25% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 0;
-    }
-}
-
-img:nth-child(1) {
-    -webkit-animation-delay: 12s;
-    animation-delay: 12s;
-}
-
-img:nth-child(2) {
-    -webkit-animation-delay: 8s;
-    animation-delay: 8s;
-}
-
-img:nth-child(3) {
-    -webkit-animation-delay: 4s;
-    animation-delay: 4s;
-}
-
-img:nth-child(4) {
-    -webkit-animation-delay: 0s;
-    animation-delay: 0s;
-}
 
 @media all and (min-width: 1200px) {
     .myUFO_bg .figure{
@@ -234,6 +204,36 @@ img:nth-child(4) {
         width: 35%;
         z-index: 10;
         right: 34%;
+        
+    }
+    .light{
+        position: absolute;
+        top: 5%;
+        right: 15%;
+        width: 8%;
+        z-index: 10;
+      }
+      .favorites {
+        position: absolute;
+        top: 18%;
+        right: 14%;
+        width: 10%;
+        z-index: 10;
+    }
+    .Points {
+        position: absolute;
+        z-index: 10;
+        margin: 0px 50px;
+        bottom: 2%;
+        width: 3%;
+        left: 6%;
+        top: 88%;
+    }  
+    .Points_font p{
+        position: absolute;
+        font-size: 25px;
+        top: 90%;
+        left:13%;
     }
 }
 
@@ -259,15 +259,22 @@ img:nth-child(4) {
         z-index: 10;
         margin: 0px 50px;
         bottom: 2%;
-        width: 5%;
-        left: 0%;
-        top: 70%;
+        width: 3%;
+        left: 5%;
+        top: 89%;
+    }
+    .Points_font p{
+        position: absolute;
+        font-size: 25px;
+        top: 90%;
+        left:15%;
     }
     .favorites {
         position: absolute;
         right: 14%;
         width: 10%;
         z-index: 10;
+        top: 18%;
     }
     .cabinet {
         position: absolute;
@@ -285,7 +292,7 @@ img:nth-child(4) {
     }
     .light{
         position: absolute;
-        top: 10%;
+        top: 0%;
         right: 15%;
         width: 8%;
         z-index: 10;
@@ -330,9 +337,15 @@ img:nth-child(4) {
         z-index: 10;
         margin: 0px 50px;
         bottom: 2%;
-        width: 8%;
+        width: 6%;
         left: 0%;
-        top: 80%;
+        top: 90%;
+    }
+    .Points_font p{
+        position: absolute;
+        font-size: 30px;
+        top: 91%;
+        left:13%;
     }
     .favorites {
         position: absolute;
@@ -383,7 +396,7 @@ img:nth-child(4) {
 @include rwd(largeMobile){
     .Carousel {
         position: absolute;
-        top: 10%;
+        top: 0%;
         width: 50%;
         z-index: 10;
         right: 25%;
@@ -404,7 +417,13 @@ img:nth-child(4) {
         bottom: 2%;
         width: 8%;
         left: 0%;
-        top: 78%;
+        top: 88%;
+    }
+    .Points_font p{
+        position: absolute;
+        font-size: 25px;
+        top: 90%;
+        left:20%;
     }
     .favorites {
         position: absolute;
@@ -455,7 +474,7 @@ img:nth-child(4) {
 @include rwd(mobile){
     .Carousel {
         position: absolute;
-        top: 10%;
+        top: 0%;
         width: 70%;
         z-index: 10;
         right: 15%;
@@ -476,14 +495,20 @@ img:nth-child(4) {
         bottom: 2%;
         width: 10%;
         left: 0%;
-        top: 80%;
+        top: 90%;
+    }
+    .Points_font p{
+        position: absolute;
+        font-size: 25px;
+        top: 91%;
+        left:25%;
     }
     .favorites {
         position: absolute;
         right: 12%;
         width: 20%;
         z-index: 10;
-        top: 34%;
+        top: 28%;
     }
     .cabinet {
         position: absolute;

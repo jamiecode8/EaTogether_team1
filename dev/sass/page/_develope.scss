@@ -10,6 +10,20 @@
     z-index: -10;
 }
 
+.develope_bg2{
+    
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+}
+
+.develope_bg3{
+    
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+}
+
 .White_planet{
     position: absolute;
     width: 50%;
@@ -75,27 +89,273 @@
     z-index: 2;
 }
 
-.bg{
-    position: relative;
+@media all and (min-width: 1200px) {
+    .develope_bg{
+        display: block;
+        
+    }
+    .develope_bg2{
+        display: none;
+        
+    }
+    .develope_bg3{
+        display: none;
+       
+    }
 }
-.et{
-    position: relative;
-    bottom: 690px;
-    left: 130px;
+
+@media all and(max-width: 1199px) and (min-width: 992px) {
+    .develope_bg{
+        height: 100vh;
+        display: block;
+        
+    }
+    .develope_bg2{
+        display: none;
+        
+    }
+    .develope_bg3{
+        display: none;
+       
+    }
 }
-.develope_form{
-    /* border: 1px red solid; */
-    width: 300px;
-    margin: 0 auto;
-    position: absolute;
-    bottom: 38%;
-    z-index: 10;
-    left: 46%;
-    /* margin-left: 640px; */
+
+@media all and(max-width: 991px) and (min-width: 768px) {
+    .develope_bg{
+        display: none;
+    }
+    .develope_bg2{
+        height: 100vh;
+        display: block;
+    }
+    .develope_bg3{
+        display: none;
+    }
 }
-// *{
-//     outline: none;      
-// }
-.btn_submit{
-    margin-left: 150px;
+
+@media all and(max-width: 767px) and (min-width: 576px) {
+    .develope_bg{
+        display: none;
+        
+    }
+    .develope_bg2{
+        height: 100vh;
+        display: block;
+        
+    }
+    .develope_bg3{
+        display: none;
+       
+    }
+}
+
+@media all and (max-width: 575px) {
+    .develope_bg{
+       
+        display: none;
+        
+    }
+    .develope_bg2{
+        
+        display: none;
+        
+    }
+    .develope_bg3{
+        height: 100vh;
+        display: block;
+        margin: 0 auto;
+       
+    }
+}
+
+// ----------------------
+
+@include rwd(desktop){
+    .White_planet{
+        width: 50%;
+    }
+}
+
+@include rwd(desktopSmall){
+    .White_planet{
+        width: 60%;
+        margin: 0% 0% 0% -6%;   
+    }
+    .develope_et7{
+        width: 10%;
+        left: 32%;
+        top: 30%;
+    }
+    .etGroup{
+        width: 60%;
+    }
+}
+
+@include rwd(pad){
+    .White_planet{
+        width: 70%;
+        margin: 0% 0% 0% -10%;
+    }
+    .develope_et1{
+        position: absolute;
+        width: 10%;
+        top: 53%;
+        left: 10%;
+        z-index: 2;
+    }
+    .develope_et2{
+        position: absolute;
+        width: 10%;
+        top: 67%;
+        left: 15%;
+        z-index: 2;
+    }
+    
+    .develope_et3{
+        position: absolute;
+        width: 10%;
+        top: 79%;
+        left: 23%;
+        z-index: 2;
+    }
+    
+    .develope_et4{
+        position: absolute;
+        width: 10%;
+        top: 63%;
+        left: 30%;
+        z-index: 2;
+    }
+    
+    .develope_et5{
+        position: absolute;
+        width: 10%;
+        top: 75%;
+        left: 40%;
+        z-index: 2;
+    }
+    
+    .develope_et6{
+        position: absolute;
+        width: 10%;
+        top: 79%;
+        left: 55%;
+        z-index: 2;
+    }
+}
+
+@include rwd(largeMobile){
+    .White_planet{
+        width: 70%;
+        margin: 10% 0% 0% -10%;
+    }
+    .develope_et1{
+        position: absolute;
+        width: 10%;
+        top: 58%;
+        left: 5%;
+        z-index: 2;
+    }
+    .develope_et2{
+        position: absolute;
+        width: 10%;
+        top: 70%;
+        left: 15%;
+        z-index: 2;
+    }
+    
+    .develope_et3{
+        position: absolute;
+        width: 10%;
+        top: 78%;
+        left: 29%;
+        z-index: 2;
+    }
+    
+    .develope_et4{
+        position: absolute;
+        width: 10%;
+        top: 58%;
+        left: 25%;
+        z-index: 2;
+    }
+    
+    .develope_et5{
+        position: absolute;
+        width: 10%;
+        top: 70%;
+        left: 40%;
+        z-index: 2;
+    }
+    
+    .develope_et6{
+        position: absolute;
+        width: 10%;
+        top: 79%;
+        left: 54%;
+        z-index: 2;
+    }
+    .develope_et7{
+        width: 10%;
+        left: 32%;
+        top: 33%;
+    }
+}
+
+@include rwd(mobile){
+    .White_planet{
+        width: 90%;
+        margin: 50% 0% 0% -20%;
+    }
+    .develope_et1{
+        position: absolute;
+        width: 20%;
+        top: 55%;
+        left: 5%;
+        z-index: 2;
+    }
+    .develope_et2{
+        position: absolute;
+        width: 20%;
+        top: 70%;
+        left: 50%;
+        z-index: 2;
+    }
+    
+    .develope_et3{
+        position: absolute;
+        width: 20%;
+        top: 60%;
+        left: 30%;
+        z-index: 2;
+    }
+    
+    .develope_et4{
+        position: absolute;
+        width: 20%;
+        top: 80%;
+        left: 15%;
+        z-index: 2;
+    }
+    
+    .develope_et5{
+        position: absolute;
+        width: 20%;
+        top: 84%;
+        left: 45%;
+        z-index: 2;
+    }
+    
+    .develope_et6{
+        position: absolute;
+        width: 20%;
+        top:78%;
+        left: 70%;
+        z-index: 2;
+    }
+    .develope_et7{
+        width: 15%;
+        left: 22%;
+        top: 38%;
+    }
 }
