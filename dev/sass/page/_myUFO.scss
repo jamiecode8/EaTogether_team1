@@ -1,27 +1,7 @@
 //米米的
 
-// body {
-//     background: #FFFED0;
-//   }
 
-  // .container {
-  //   display: -webkit-box;
-  //   display: -ms-flexbox;
-  //   display: flex;
-  //   -webkit-box-orient: vertical;
-  //   -webkit-box-direction: normal;
-  //       -ms-flex-direction: column;
-  //           flex-direction: column;
-  //   min-height: 100%;
-  // }
-  
-  // main {
-  //   -webkit-box-flex: 1;
-  //       -ms-flex: 1;
-  //           flex: 1;
-  // }
-  
-  .figure {
+.figure {
     width: 100%;
     height: 100%;
     z-index: -10;
@@ -38,9 +18,9 @@
 
 .window2 {
     position: absolute;
-    top: -20%;
-    margin: 20px 10px;
-    width: 30%;
+    top: -10%;
+    margin: 20px 30px;
+    width: 20%;
     height: 100%;
     z-index: 10;
 }
@@ -52,20 +32,20 @@
     bottom: 2%;
     width: 5%;
     left: 0%;
+    top: 75%;
 }
 
 .Carousel {
     position: absolute;
-    top: 5%;
-    margin: 0 30%;
-    width: 30%;
+    top: 0%;
+    width: 35%;
     z-index: 10;
-    right: 5%;
+    right: 34%;
 }
 
 .favorites {
     position: absolute;
-    top: 15%;
+    top: 22%;
     right: 14%;
     width: 10%;
     z-index: 10;
@@ -81,8 +61,8 @@
 
 .character {
     position: absolute;
-    width: 15%;
-    top: 60%;
+    width: 20%;
+    top: 48%;
     right: 40%;
     z-index: 10;
 }
@@ -105,7 +85,7 @@
 
   .light{
     position: absolute;
-    top: 2%;
+    top: 10%;
     right: 15%;
     width: 8%;
     z-index: 10;
@@ -169,4 +149,374 @@ img:nth-child(3) {
 img:nth-child(4) {
     -webkit-animation-delay: 0s;
     animation-delay: 0s;
+}
+
+@media all and (min-width: 1200px) {
+    .myUFO_bg .figure{
+        display: block;
+        
+    }
+    .myUFO_bg .figure2{
+        display: none;
+        
+    }
+    .myUFO_bg .figure3{
+        display: none;
+       
+    }
+}
+
+@media all and(max-width: 1199px) and (min-width: 992px) {
+    .myUFO_bg .figure{
+        display: block;
+        
+    }
+    .myUFO_bg .figure2{
+        display: none;
+        
+    }
+    .myUFO_bg .figure3{
+        display: none;
+       
+    }
+}
+
+@media all and(max-width: 991px) and (min-width: 768px) {
+    .myUFO_bg .figure{
+        display: none;
+        
+    }
+    .myUFO_bg .figure2{
+        display: block;
+        
+    }
+    .myUFO_bg .figure3{
+        display: none;
+       
+    }
+}
+
+@media all and(max-width: 767px) and (min-width: 576px) {
+    .myUFO_bg .figure{
+        display: none;
+        
+    }
+    .myUFO_bg .figure2{
+        display: block;
+        
+    }
+    .myUFO_bg .figure3{
+        display: none;
+       
+    }
+}
+
+@media all and (max-width: 575px) {
+    .myUFO_bg .figure{
+        display: none;
+        
+    }
+    .myUFO_bg .figure2{
+        display: none;
+        
+    }
+    .myUFO_bg .figure3{
+        display: block;
+        margin: 0 auto;
+       
+    }
+}
+
+@include rwd(desktop){
+    .Carousel {
+        position: absolute;
+        top: 0%;
+        width: 35%;
+        z-index: 10;
+        right: 34%;
+    }
+}
+
+@include rwd(desktopSmall){
+    .Carousel {
+        position: absolute;
+        top: 0%;
+        width: 36%;
+        z-index: 10;
+        right: 32%;
+    }
+
+    .window2 {
+        position: absolute;
+        top: -10%;
+        margin: 20px 30px;
+        width: 20%;
+        height: 100%;
+        z-index: 10;
+    }
+    .Points {
+        position: absolute;
+        z-index: 10;
+        margin: 0px 50px;
+        bottom: 2%;
+        width: 5%;
+        left: 0%;
+        top: 70%;
+    }
+    .favorites {
+        position: absolute;
+        right: 14%;
+        width: 10%;
+        z-index: 10;
+    }
+    .cabinet {
+        position: absolute;
+        top: 38%;
+        right: 10%;
+        width: 18%;
+        z-index: 10;
+    }
+    .character {
+        position: absolute;
+        width: 20%;
+        top: 48%;
+        right: 40%;
+        z-index: 10;
+    }
+    .light{
+        position: absolute;
+        top: 10%;
+        right: 15%;
+        width: 8%;
+        z-index: 10;
+      }
+      .searchicon {
+        position: fixed;
+        width: 10%;
+        bottom: 8%;
+        right: 8%;
+        z-index: 80;
+    }
+    
+    .problemicon {
+        position: fixed;
+        width: 10%;
+        bottom: 8%;
+        right: 19%;
+        z-index: 80;
+      }  
+    
+}
+
+@include rwd(pad){
+    .Carousel {
+        position: absolute;
+        top: 7%;
+        width: 50%;
+        z-index: 10;
+        right: 28%;
+    }
+    .window2 {
+        position: absolute;
+        top: -5%;
+        margin: 20px 30px;
+        width: 40%;
+        height: 100%;
+        z-index: 10;
+        right:70%;
+    }
+    .Points {
+        position: absolute;
+        z-index: 10;
+        margin: 0px 50px;
+        bottom: 2%;
+        width: 8%;
+        left: 0%;
+        top: 80%;
+    }
+    .favorites {
+        position: absolute;
+        right: 10%;
+        width: 16%;
+        z-index: 10;
+        top: 35%;
+    }
+    .cabinet {
+        position: absolute;
+        top: 48%;
+        right: 4%;
+        width: 28%;
+        z-index: 10;
+    }
+    .character {
+        position: absolute;
+        width: 40%;
+        top: 48%;
+        right: 34%;
+        z-index: 10;
+    }
+    .light{
+        position: absolute;
+        top: 26%;
+        right: 13%;
+        width: 10%;
+        z-index: 10;
+      }
+      .searchicon {
+        position: fixed;
+        width: 14%;
+        bottom: 8%;
+        right: 8%;
+        z-index: 80;
+    }
+    
+    .problemicon {
+        position: fixed;
+        width: 14%;
+        bottom: 8%;
+        right: 19%;
+        z-index: 80;
+        margin: 0 30px;
+      } 
+}
+
+@include rwd(largeMobile){
+    .Carousel {
+        position: absolute;
+        top: 10%;
+        width: 50%;
+        z-index: 10;
+        right: 25%;
+    }
+    .window2 {
+        position: absolute;
+        top: -5%;
+        margin: 20px 30px;
+        width: 40%;
+        height: 100%;
+        z-index: 10;
+        right:70%;
+    }
+    .Points {
+        position: absolute;
+        z-index: 10;
+        margin: 0px 50px;
+        bottom: 2%;
+        width: 8%;
+        left: 0%;
+        top: 78%;
+    }
+    .favorites {
+        position: absolute;
+        right: 10%;
+        width: 16%;
+        z-index: 10;
+        top: 35%;
+    }
+    .cabinet {
+        position: absolute;
+        top: 48%;
+        right: 4%;
+        width: 28%;
+        z-index: 10;
+    }
+    .character {
+        position: absolute;
+        width: 40%;
+        top: 48%;
+        right: 34%;
+        z-index: 10;
+    }
+    .light{
+        position: absolute;
+        top: 26%;
+        right: 13%;
+        width: 10%;
+        z-index: 10;
+      }
+      .searchicon {
+        position: fixed;
+        width: 15%;
+        bottom: 8%;
+        right: 8%;
+        z-index: 80;
+    }
+    
+    .problemicon {
+        position: fixed;
+        width: 15%;
+        bottom: 8%;
+        right: 19%;
+        z-index: 80;
+        margin: 0 30px;
+      }   
+}
+
+@include rwd(mobile){
+    .Carousel {
+        position: absolute;
+        top: 10%;
+        width: 70%;
+        z-index: 10;
+        right: 15%;
+    }
+    .window2 {
+        position: absolute;
+        top: -10%;
+        margin: 20px 30px;
+        width: 60%;
+        height: 100%;
+        z-index: 10;
+        right:50%;
+    }
+    .Points {
+        position: absolute;
+        z-index: 10;
+        margin: 0px 50px;
+        bottom: 2%;
+        width: 10%;
+        left: 0%;
+        top: 80%;
+    }
+    .favorites {
+        position: absolute;
+        right: 12%;
+        width: 20%;
+        z-index: 10;
+        top: 34%;
+    }
+    .cabinet {
+        position: absolute;
+        top: 43%;
+        right: 4%;
+        width: 38%;
+        z-index: 10;
+    }
+    .character {
+        position: absolute;
+        width: 40%;
+        top: 61%;
+        right: 34%;
+        z-index: 10;
+    }
+    .light{
+      display: none;
+      }
+
+      .searchicon {
+        position: fixed;
+        width: 24%;
+        bottom: 4%;
+        right: 8%;
+        z-index: 80;
+    }
+    
+    .problemicon {
+        position: fixed;
+        width: 24%;
+        bottom: 4%;
+        right: 19%;
+        z-index: 80;
+        margin: 0 60px;
+      } 
 }
