@@ -5,14 +5,17 @@
 @import "base/common";
 
 // module
+@import "module/btn";
+@import "module/star";
+@import "module/dropdown";
 @import "module/form"; //目前是空的
 @import "module/popUps";
-@import "module/btn";
 
 // layout
 @import "layout/footer";
 @import "layout/header";
 @import "layout/login"; 
+@import "layout/loginStore"; 
 @import "layout/search"; //目前是空的
 
 

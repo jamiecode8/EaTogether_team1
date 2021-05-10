@@ -15,28 +15,17 @@
 
 
         <div class="loginInner">
+
             <!-- 登入註冊切換區 -->
             <div class="loginSwitch">
-                <div id="loginSwitch_btn"></div>
-                <button type="button" class="toggolebtn" onclick="login()"> 登入 </button>
-                <button type="button" class="toggolebtn" onclick="register()"> 註冊 </button>
-                <!-- <ul class="">
-                    <li class="loginSwitchItem" id="btn_login">
-                        <div class="loginSwitchlink" onclick="opennumber('login_block', this)" id="defaultOpen">
-                            <h2>登入</h2>
-                        </div>  
-                    </li>
-                    
-                    <li class="loginSwitchItem" id="btn_signup">
-                        <div class="loginSwitchlink" onclick="opennumber('signup_block', this)">
-                            <h2>註冊</h2>
-                        </div>
-                    </li>
-                </ul> -->
+
+                <button type="button" class="toggolebtn areaShow"  id="btn_login"> 登入 </button>
+                <button type="button" class="toggolebtn" id="btn_signup"> 註冊 </button>
+
             </div>
             
             <!-- 內容區域 -->
-            <div class="mid_block mid">
+            <div>
                 <!-- 放登入的東西 -->
                 <div class="inner_block_area" id="login_block"> 
                     <!-- 輸入框欄位 -->
@@ -55,7 +44,7 @@
                 </div>
         
                 <!-- 放註冊的東西 -->
-                <div class="inner_block_area" id="signUp_block"> 
+                <div class="inner_block_area areaHide" id="signUp_block"> 
                     <!-- 輸入框欄位 -->
                     <input type="text" placeholder="E-mail" />
                     <input type="text" placeholder="密碼" />
@@ -122,9 +111,8 @@
     </form>
 </div>
 
-
 <!-- 認證彈窗verification -->
-<div class="popUps verification">
+<div class="popUps verification areaHide">
     <form action="#資料傳送送的網址" method="post" class="form">
         <!-- close button -->
         <button type="button" class="btn_close">
@@ -142,7 +130,7 @@
             
             <!-- 單顆按鈕用這裡 -->
             <div class="btn">
-                <input type="submit" value="寄送認證" class="btn_submit" />
+                <input type="submit" value="寄送認證" class="btn_submit ver_submit" />
             </div>
         </div>
     </form>
@@ -194,75 +182,58 @@
     </form>
 </div>
 
-
-
+    
 <script>
-  //whatToEat
+    //認證彈窗開關(目前無效)
+    $('.forgetPassword').click(function(){
+        $('.verification').removeClass('areaHide').addClass('verifiShow');
+        $('.ver_submit').click(function(){
+        $('.verification').removeClass('verifiShow').addClass('areaHide');
+        });
+    });
 
-  //選擇顏色
-  $('.login_station_arrow').click(function (e) {
-      // e.preventDefault();
-      $('.login_station_select').toggleClass('on');
-  });
+    // 登入註冊切換
+    $('#btn_signup').click(function(){
+        $(this).addClass('areaShow');
+        $('#btn_login').removeClass('areaShow');
+        $('#login_block').addClass('areaHide');
+        $('#signUp_block').removeClass('areaHide');
+        $('.wrapper').addClass('blur'); //背景毛玻璃
+    });
 
-  //選顏色
-  $('#login_station_options li').click(function(){
-      let inputColor=document.getElementById('login_station_choice');
-      inputColor.value=$(this).text();
-      $('.login_station_select').toggleClass('on');
+    $('#btn_login').click(function(){
+        $(this).addClass('areaShow');
+        $('#btn_signup').removeClass('areaShow');
+        $('#signUp_block').addClass('areaHide');
+        $('#login_block').removeClass('areaHide');
+    });
 
-  })
+    // 下拉選單
+    $('.login_station_arrow').click(function (e) {
+        // e.preventDefault();
+        $('.login_station_select').toggleClass('on');
+    });
 
-</script>    
 
+    $('#login_station_options li').click(function(){
+        let inputColor=document.getElementById('login_station_choice');
+        inputColor.value=$(this).text();
+        $('.login_station_select').toggleClass('on');
 
-<!-- test -->
-<script>
-    var logIn = document.getElementById("login_block");
-    var signUp = document.getElementById("signUp_block");
+    })
 
-    var Switch = document.getElementById("loginSwitch_btn");
-
-    function register(){
-        logIn.style.left ="-400px";
-        signUp.style.left ="50px";
-        Switch.style.left ="110px";
-    }
-
-    function login(){
-        logIn.style.left ="50px";
-        signUp.style.left ="450px";
-        Switch.style.left ="0px";
-    }
+    //關閉彈窗, 移除毛玻璃
+    $('.btn_close').click(function(){
+        $('.wrapper').removeClass('blur');  
+    })
 </script>
-
-<!-- 之後要移到js -->
-      <script>
-        // 登入註冊切換選單
-        function opennumber(name, element){
-        // Hide all elements with class="tabcontent" by default */
-        var i, inner_block;
-        inner_block = document.getElementsByClassName("inner_block_area");
-        for (i = 0; i < inner_block.length; i++) {
-            inner_block[i].style.display = "none";
-        }
-
-        // Show the specific tab content
-        document.getElementById(name).style.display = "block";
-        }
-
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-      </script>
 
       <!-- 之後可以用vue 參考vue5-->
       <!-- <script>
-        new Vue({
-          el: '#login_station', 
-          data: { //變數放這裡
-            stations: ['red','orange','yellow','green','blue','indigo','violet'],
-          },
+          new Vue({
+              el: '#login_station', 
+              data: { //變數放這裡
+                stations: ['red','orange','yellow','green','blue','indigo','violet'],
+            },
         });
-      </script> -->
-
-    
+    </script> -->
