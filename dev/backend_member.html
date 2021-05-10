@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    
     @@include('layout/style.html')
     <title>會員管理</title>
 </head>
@@ -11,24 +13,95 @@
 <body>
     @@include('layout/header.html')
     <div class="backend_wrapper">
-            
-        <form class="backend_search"  action="#" method="post">
+
+      <div class="backend_header">
+
+       <div class="backend_header_right1">
+        <form class="backend_search"  action="#" method="post"> 
            <input type="text" class="backend_search_text">
            <img class="backend_search_btn" src="./img/icon/icon_search.png" alt="">
         </form>
-        
+       </div>
+      </div>    
+
         <div class="backend_member">
           <table class="backend_member_table">
               <tr>
               <th>會員編號</th>
-              <th>會員名稱</th>
+              <th>會員帳號</th>
               <th>最近上站時間</th>
               <th>會員狀態</th>
               <th>會員管理</th>
             </tr>
+
+            <!-- <tr>
+              <td>user0001</td>
+              <td>123</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td>//</td>
+            </tr> -->
           </table>
       </div> 
+
+      <div class="backend_member_popUps">
+        <form action="#" method="post" class="form">
+          <!-- close button -->
+          <button type="button" class="btn_close">
+            <img src="./img/icon/icon_close.png" alt="">
+          </button>
+        
+          <!-- 主標題 -->
+          <h1>會員管理</h1>
+        
+          <!-- 輸入框欄位 -->
+          <div class="pop_block">
+            <div class="pop_title">會員</div>
+            <!-- <div class="pop_data">user0001</div> -->
+          </div>
+          <div class="pop_block">
+            <div class="pop_title">帳號</div>
+            <!-- <div class="pop_data">test123@gmail.com</div> -->
+          </div>
+          <div class="pop_block">
+            <div class="pop_title">地區</div>
+            <!-- <div class="pop_data">永和</div> -->
+          </div>
+          <div class="pop_block">
+            <div class="pop_title">美食喜好</div>
+            <!-- <div class="pop_data">火鍋</div> -->
+          </div>
+
+          <!-- 分隔線 -->
+          <div class="pop_line"></div>
+          
+          <!-- 點擊動作 -->
+          <h1>權限編輯</h1>
+          <h2>會員狀態</h2>
+          <div class="dropdown">
+            <input type="text" id="dropdown_choice"  class="input">
+            <img class="dropdown_arrow" src="./img/icon/icon_next_line.png" alt="">
+            <ul class="dropdown_select" id="dropdown_options">
+                <li>啟用</li>
+                <li>停權</li>
+            </ul>
+        </div>
+          
+          <!-- 單顆按鈕用這裡 -->
+          <div class="buttonArea">
+            <input type="submit" value="送出" class=" btn_submit">
+          </div>
+          <br>
+      </div>
+
     </div>
     @@include('layout/footer.html')
+
+    <script>
+      
+      $('.btn_close').click(function (){
+            $('.backend_member_popUps').fadeOut(200);
+        });
+    </script>
 </body>
 </html>
