@@ -74,3 +74,28 @@
     left: 38%;
     z-index: 2;
 }
+
+.bg{
+    position: relative;
+}
+.et{
+    position: relative;
+    bottom: 690px;
+    left: 130px;
+}
+.develope_form{
+    /* border: 1px red solid; */
+    width: 300px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 38%;
+    z-index: 10;
+    left: 46%;
+    /* margin-left: 640px; */
+}
+// *{
+//     outline: none;      
+// }
+.btn_submit{
+    margin-left: 150px;
+}
