@@ -1,7 +1,7 @@
 <!-- Jamie -->
 <!-- 登入註冊彈窗 -->
 
-<div class="popUps login">
+<div class="popUps login wrapper"> <!--Chris-->
     <form action="#資料傳送送的網址" method="post" class="form login">
         <!-- close button -->
         <button type="button" class="btn_close">
@@ -39,7 +39,8 @@
                     
                     <!-- 無法登入 -->
                     <div class="forgetPassword">
-                        <a href="">忘記密碼? </a>
+                        <!-- <a href="">忘記密碼?</a> -->
+                        <span>忘記密碼?</span>
                     </div>
                 </div>
         
@@ -63,7 +64,7 @@
                           <li  class="b">府中</li>
                           <li  class="b">龍山寺</li>
                           <li  class="r">淡水</li>
-                          <li  class="r">劍潭</li>
+                          <li  class="r">劍潭</li> 
                           <li  class="r">圓山</li>
                           <li  class="r">台北車站</li>
                           <li  class="r">東門</li>
@@ -115,7 +116,8 @@
 <!-- 認證彈窗verification -->
 .
 <div class="popUps verification areaHide">
-    <form action="#資料傳送送的網址" method="post" class="form">
+    <!-- <form action="#資料傳送送的網址" method="post" class="form"> -->
+    <form action="#資料傳送送的網址" class="form">  <!--Chris-->
         <!-- close button -->
         <button type="button" class="btn_close">
             <img src="./img/icon/icon_close.png" alt="" />
@@ -186,21 +188,29 @@
 
     
 <script>
-    //認證彈窗開關(目前無效)
+    //認證彈窗開關(目前無效) Chris
     $('.forgetPassword').click(function(){
-        $('.verification').removeClass('areaHide').addClass('verifiShow');
+        // $('.wrapper').addClass('blur');
+        $(".wrapper:not(.verification)").addClass('blur');  
+        $('.verification').removeClass('areaHide').addClass('verifiShow').removeClass('blur');
         $('.ver_submit').click(function(){
         $('.verification').removeClass('verifiShow').addClass('areaHide');
+        $('.wrapper').removeClass('blur');
         });
     });
+    //關閉認證彈窗 Chris
+    $('.btn_close').click(function(){
+        $('.verification').addClass('areaHide');  
+    })
 
     // 登入註冊切換
     $('#btn_signup').click(function(){
+        $('.wrapper:not(.login)').addClass('blur');
         $(this).addClass('areaShow');
         $('#btn_login').removeClass('areaShow');
         $('#login_block').addClass('areaHide');
         $('#signUp_block').removeClass('areaHide');
-        $('.wrapper').addClass('blur'); //背景毛玻璃
+        // $('.wrapper').addClass('blur'); //背景毛玻璃
     });
 
     $('#btn_login').click(function(){
