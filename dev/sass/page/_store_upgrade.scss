@@ -1,0 +1,51 @@
+.wrapper_upgrade{
+    @include borderTest(blue);
+    padding: 0 150px;
+}
+
+
+.upgradeHeader{
+    @include borderTest();
+    display: flex;
+    text-align: center;
+    &_option1{
+        flex-grow: 1;
+    }
+    &_option2{
+        flex-grow: 1;
+    }
+    &_option3{
+        flex-grow: 1;
+    }
+}
+// 先放背景圖
+// 放數字
+// 再用圖片高度，決定標題的line-hight
+
+.upgradeInfo{
+    display: flex;
+    position: relative;
+    padding-bottom: 50px;
+    &_text{
+        flex-grow: 3;
+        padding: 0 50px;
+        &_title{
+            margin-left: -30px;
+            line-height: 50px;
+        }
+    }
+    &_btnArea{
+        flex-grow: 1;
+    }
+    &::after{
+        @include lightLine();
+    }
+    p{
+        line-height: 40px;
+    }
+    
+}
+
+// .upgradeInfo_btnArea_option{
+
+// }
