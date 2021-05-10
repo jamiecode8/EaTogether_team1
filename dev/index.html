@@ -9,17 +9,17 @@
         @@include('layout/style.html')
         <title>首頁</title>
     </head>
-    <body>
+    <body class="index">
         @@include('layout/header.html')
     
-        <div class="wrapper index">
-            <!--地圖-->
+        <div class="wrapper">
+            <!------------地圖------------>
             <div class="index_map">
                 <img class="map_slogan" src="./img/index/slogan.png" alt="">
                 <img class="map" src="./img/index/map.png" alt="" />
             </div>
 
-            <!-- 搜尋按鈕 -->
+            <!-- ----------搜尋按鈕---------- -->
             <ul class="index_searchbtn">
                 <li class="search_btn_whatToEat">
                     <img src="./img/index/What to eat.png" alt="">
@@ -31,67 +31,468 @@
                 </li>
             </ul>
 
-            <!-- 裝飾外星人 -->
+            <!-- ----------裝飾外星人---------- -->
             <img class="et" src="./img/index/et.png" alt="">
 
-            <!-- whatToEat彈窗 -->
-            <div class="popUps index_whatToEat_popup">
+            <!-- ----------whatToEat彈窗---------- -->
+            <!-- q1 -->
+            <div class="popUps index_whatToEat_popup 1">
                 <form class="form whatToEat_q" action="">
-                    <button type="button" class="btn_close">
+                    <button type="button" class="whatToEatClose btn_close">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>今天吃什麼</h1>
                     <h2>Q1:請選擇符合你心情的顏色</h2>
-                    <input type="text" id="lineColor">
+                    <input type="text" 
+                     class="myOptions" disabled="disabled">
                     <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
-                    <ul class="select_mrtLine" id="colors">
-                        <li  class="b">藍色</li>
-                        <li  class="r">紅色</li>
-                        <li  class="g">綠色</li>
-                        <li  class="br">棕色</li>
-                        <li  class="y">黃色</li>
+                    <ul class="select_options" id="options">
+                        <li class="b">藍色</li>
+                        <li class="r">紅色</li>
+                        <li class="g">綠色</li>
+                        <li class="br">棕色</li>
+                        <li class="y">黃色</li>
                     </ul>
+                    
                     <div class="btn">
-                        <button class="btn_submit">下一題</button>
+                        <input  value="下一題" class="whatBtnNext btn_submit" />
                     </div>
               
-                 </form>
+                </form>
             </div>
+            <!-- q2 -->
+            <div class="popUps index_whatToEat_popup 2">
+                <form class="form whatToEat_q" action="">
+                    <button type="button" class="whatToEatClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h1>今天吃什麼</h1>
+                    <h2>Q2:請選擇你的口味偏好</h2>
+                    <input type="text"  class="myOptions" disabled="disabled">
+                    <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
+                    <ul class="select_options" id="options">
+                        <li>我吃重鹹</li>
+                        <li>無辣不歡</li>
+                        <li>健康路線</li>
+                        <li>甜食殺手</li>
+                    </ul>
+
+                    <div class="buttonArea">
+                        <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
+                        <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
+                    </div>
+              
+                </form>
+            </div>
+            <!-- q3 -->
+            <div class="popUps index_whatToEat_popup 3">
+                <form class="form whatToEat_q" action="">
+                    <button type="button" class="whatToEatClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h1>今天吃什麼</h1>
+                    <h2>Q3:你現在想去的國家</h2>
+                    <input type="text"  class="myOptions" disabled="disabled">
+                    <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
+                    <ul class="select_options" id="options">
+                        <li>日本</li>
+                        <li>義大利</li>
+                        <li>美國</li>
+                        <li>留在台灣</li>
+                    </ul>
+
+                    <div class="buttonArea">
+                        <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
+                        <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
+                    </div>
+              
+                </form>
+            </div>
+            <!-- q4 -->
+            <div class="popUps index_whatToEat_popup 4">
+                <form class="form whatToEat_q" action="">
+                    <button type="button" class="whatToEatClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h1>今天吃什麼</h1>
+                    <h2>Q4:你的感情狀態</h2>
+                    <input type="text"  class="myOptions" disabled="disabled">
+                    <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
+                    <ul class="select_options" id="options">
+                        <li>曖昧讓我委屈</li>
+                        <li>單身狗狗</li>
+                        <li>失戀無罪</li>
+                        <li>幸福美滿</li>
+                    </ul>
+
+                    <div class="buttonArea">
+                        <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
+                        <input  value="看結果" class="whatBtnNext btn_d btn_submit" />
+                    </div>
+                
+                </form>
+            </div>
+            <!-- q5 -->
+            <div class="popUps index_whatToEat_popup 5">
+            <form class="form whatToEat_q" action="">
+                <button type="button" class="whatToEatClose btn_close">
+                    <img src="./img/icon/icon_close_20.png" alt="">
+                </button>
+                <h1>今天吃什麼</h1>
+                <h2>適合你的食物是</h2>
+                <input type="text"  class="myOptions" disabled="disabled">    
+
+                <div class="buttonArea">
+                    <input  value="再一次" class="whatBtnAgain btn_d btn_submit" />
+                    <input  type="submit" value="哪裡有" class="whatBtnNext AnswerBtn btn_d btn_submit" />
+                </div>
+                </form>
+            </div> 
+            <!-- ----------whatToEat彈窗end---------- -->
+            <!-- ----------search彈窗end---------- -->
+            <!-- 搜尋彈窗 -->
+            <div class="popUps index_search_popup">
+                <form class="form getSearch" action="">
+                    <button type="button" class="getSearchClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h1>Search</h1>
+                    <div class="searchFood text_search">
+                        <h2>搜尋美食</h2>
+                        <input type="text">
+                        <img src="./img/icon/icon_search.png" alt="">
+                    </div>
+                    <div class="searchFood mrt_search"> 
+                        <h2>捷運路線</h2>
+                        <input type="text" disabled="disabled">
+                        <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="">
+                        <ul class="mrtLines">
+                            <li class="b">板南線</li>
+                            <li class="r">淡水信義線</li>
+                            <li class="g">松山新店線</li>
+                            <li class="br">文湖線</li>
+                            <li class="y">中和新蘆線</li>
+                        </ul>
+                    </div>
+                    <div class="searchFood  keyword_search">
+                        <h2>關鍵字搜索</h2>
+                        <input type="text" disabled="disabled"> 
+                        <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="">
+                        <div class="searchTags">
+                            <span>#日式</span><span>#韓式</span><span>#美式</span><span>#台式</span>
+                            <span>#法式</span><span>#中式</span><span>#聚餐</span><span>#簡餐</span>
+                            <span>#銅板美食</span><span>#下午茶</span><span>#早午餐</span><span>#商業午餐</span>
+                            <span>#夜市</span><span>#咖哩</span><span>#火鍋</span><span>#牛排</span>
+                            <span>#咖啡店</span><span>#餐酒館</span><span>#鐵板燒</span><span>#拉麵</span>
+                            <span>#甜點</span><span>#麵食</span><span>#雞排</span><span>#鹽酥雞</span> 
+                        </div>
+                    </div>
+            
+                    <div class="btn">
+                        <input  value="出發探索" class="getSearchBtn btn_submit" />
+                    </div>
+              
+                </form>
+            </div>
+            <!-- 搜尋結果彈窗 -->
+            <div class="popUps index_store_popup">
+                <form class="form getStore" action="">
+                    <button type="button" class="getSearchClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <div class="searchFood text_search">
+                        <h1 class="text_search_title">搜尋美食</h1>
+                        <input type="text">
+                        <img src="./img/icon/icon_search.png" alt="">
+                    </div>
+                    <!-- 店家名單 -->
+                    <div class="getStoreInf_search">
+                        <div class="getStoreInf">
+                            <ul class="getStoreInf_digital">
+                                <li class="getStoreInf_name">
+                                    <h2>提八米咖啡廳</h2>
+                                </li>
+                                <li class="getStoreInf_star"> 
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star_default.png" alt="">
+                                </li>
+                                <li class="getStoreInf_station">
+                                    <p>捷運站:</p>
+                                    <span class="station_color">南京復興</span>
+                                </li>
+                                <li class="getStoreInf_tag">
+                                    <span>#下午茶</span>
+                                    <span>#咖啡店</span>
+                                    <span>#甜點</span>
+                                </li>
+                            </ul>
+                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
+                        </div>
+                        <div class="getStoreInf">
+                            <ul class="getStoreInf_digital">
+                                <li class="getStoreInf_name">
+                                    <h2>提八米咖啡廳</h2>
+                                </li>
+                                <li class="getStoreInf_star"> 
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star_default.png" alt="">
+                                </li>
+                                <li class="getStoreInf_station">
+                                    <p>捷運站:</p>
+                                    <span class="station_color">南京復興</span>
+                                </li>
+                                <li class="getStoreInf_tag">
+                                    <span>#下午茶</span>
+                                    <span>#咖啡店</span>
+                                    <span>#甜點</span>
+                                </li>
+                            </ul>
+                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
+                        </div>
+                        <div class="getStoreInf">
+                            <ul class="getStoreInf_digital">
+                                <li class="getStoreInf_name">
+                                    <h2>提八米咖啡廳</h2>
+                                </li>
+                                <li class="getStoreInf_star"> 
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star_default.png" alt="">
+                                </li>
+                                <li class="getStoreInf_station">
+                                    <p>捷運站:</p>
+                                    <span class="station_color">南京復興</span>
+                                </li>
+                                <li class="getStoreInf_tag">
+                                    <span>#下午茶</span>
+                                    <span>#咖啡店</span>
+                                    <span>#甜點</span>
+                                </li>
+                            </ul>
+                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
+                        </div>
+                        <div class="getStoreInf">
+                            <ul class="getStoreInf_digital">
+                                <li class="getStoreInf_name">
+                                    <h2>提八米咖啡廳</h2>
+                                </li>
+                                <li class="getStoreInf_star"> 
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star_default.png" alt="">
+                                </li>
+                                <li class="getStoreInf_station">
+                                    <p>捷運站:</p>
+                                    <span class="station_color">南京復興</span>
+                                </li>
+                                <li class="getStoreInf_tag">
+                                    <span>#下午茶</span>
+                                    <span>#咖啡店</span>
+                                    <span>#甜點</span>
+                                </li>
+                            </ul>
+                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
+                        </div>
+                        <div class="getStoreInf">
+                            <ul class="getStoreInf_digital">
+                                <li class="getStoreInf_name">
+                                    <h2>提八米咖啡廳</h2>
+                                </li>
+                                <li class="getStoreInf_star"> 
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star.png" alt="">
+                                  <img src="./img/icon/icon_star_default.png" alt="">
+                                </li>
+                                <li class="getStoreInf_station">
+                                    <p>捷運站:</p>
+                                    <span class="station_color">南京復興</span>
+                                </li>
+                                <li class="getStoreInf_tag">
+                                    <span>#下午茶</span>
+                                    <span>#咖啡店</span>
+                                    <span>#甜點</span>
+                                </li>
+                            </ul>
+                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
+                        </div>
+                    </div>
+                    <p class="searchTotal">共 <span>5</span> 筆</p>    
+                </form>
+            </div>
+            <!-- 店家詳細資訊 -->
+            <div class="popUps index_inf_popup">
+                <form class="form getStoreInf" action="">
+                    <button type="button" class="getSearchClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <div class="searchFood text_search">
+                        <h1 class="text_search_title">搜尋美食</h1>
+                        <input type="text">
+                        <img src="./img/icon/icon_search.png" alt="">
+                    </div>
+                    <!-- 店家基本資訊 -->
+                    <div class="storeInf">
+                        <div class="storeInf_title">
+                            <img class="storeInf_title_like" src="./img/icon/icon_heart_default.png" alt="">
+                            <div>
+                                <h2 class="storeInf_title_name">提八米咖啡廳</h2>
+                                <div class="getStoreInf_star"> 
+                                    <img src="./img/icon/icon_star.png" alt="">
+                                    <img src="./img/icon/icon_star.png" alt="">
+                                    <img src="./img/icon/icon_star.png" alt="">
+                                    <img src="./img/icon/icon_star.png" alt="">
+                                    <img src="./img/icon/icon_star_default.png" alt="">
+                                </div>
+                           </div>
+                           <ul class="storeInf_title_warn">
+                                <li>
+                                    <img src="./img/icon/icon_warn.png" alt="">
+                                </li>
+                                <li class="getStoreInf_tag">
+                                    <span>#下午茶</span>
+                                    <span>#咖啡店</span>
+                                    <span>#甜點</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="storeInf_section">
+                        <ul class="storeInf_sectioniconIcon">
+                            <li class="sectioniconIcon_location"><img src="./img/icon/icon_location.png" alt=""></li>
+                            <li class="sectioniconIcon_mrt"><img src="./img/icon/icon_mrt.png" alt=""></li>
+                            <li class="sectioniconIcon_tel"><img src="./img/icon/icon_tel.png" alt=""></li>
+                            <li class="sectioniconIcon_time"><img src="./img/icon/icon_time.png" alt=""></li>
+                            <li class="sectioniconIcon_price"><img src="./img/icon/icon_price.png" alt=""></li>
+                        </ul>
+                        <ul class="storeInf_sectioniconIconInf">
+                            <li class="sectioniconIconInf_location">復興北路你家巷口200號</li>
+                            <li class="sectioniconIconInf_mrt">南京復興站</li>
+                            <li class="sectioniconIconInf_tel">02 1234567</li>
+                            <li class="sectioniconIconInf_time">10:00-20:00</li>
+                            <li class="sectioniconIconInf_price">150</li>
+                        </ul>
+                    
+                        
+                    </div>
+                
+                </form>
+            </div>
+            
+
             
 
         </div>
         @@include('layout/footer.html')
 
     <script>
-        //whatToEat
 
-        //打開
+        //-----whatToEat彈窗------
+        //打開彈窗
         $('.search_btn_whatToEat').click(function (){
-            $('.index_whatToEat_popup').fadeIn(200);
+            $('.index_search_popup').fadeOut(100);
+            $('.index_whatToEat_popup.1').fadeIn(50);
         });
 
-        //關閉whatToEat彈窗
-        $('.btn_close').click(function (){
+        //關閉彈窗
+        $('.whatToEatClose').click(function (){
             $('.index_whatToEat_popup').fadeOut(200);
         });
     
-        //按下拉按鈕選顏色
+        //下拉箭頭打開
         $('.whatToEat_q_arrow').click(function (e) {
             // e.preventDefault();
-            $('.whatToEat_q_arrow').toggleClass('on');
-            $('.select_mrtLine').toggleClass('on');
+            // $(this).toggleClass('on');
+            $('.select_options').toggleClass('on');
         });
 
-        //選顏色
-        $('#colors li').click(function(){
-            let inputColor=document.getElementById('lineColor');
-            inputColor.value=$(this).text();
-            $('.select_mrtLine').toggleClass('on');
-            $('.whatToEat_q_arrow').toggleClass('on');
-        })
+        //選擇答案 (取選到的值)
+        $('#options li').click(function(){
+            let options=document.getElementsByClassName('myOptions');
+            let questionNumber=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;
+            options[questionNumber].value=$(this).text();
+            $('.select_options').toggleClass('on');
+            // $('.whatToEat_q_arrow').toggleClass('on');
+        });
+
+        //按下一題並回答問題才可繼續
+        $('.whatBtnNext').click(function(){
+            let options=document.getElementsByClassName('myOptions');
+            let questionNumber=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;
+            if( options[questionNumber].value == "" ){
+                alert('請完成作答');
+            }else{
+                $(this.parentNode.parentNode.parentNode).fadeOut(100);
+                $(this.parentNode.parentNode.parentNode).next().fadeIn(50);
+            }
+        });
+        $('.AnswerBtn').click(function(){
+            if($(".myOptions").prevAll().val() == "" ){
+                alert('請選擇');
+            }else{
+                $(this.parentNode.parentNode.parentNode).fadeOut(100);
+                $(this.parentNode.parentNode.parentNode).next().fadeIn(50);
+            }
+        });
+
+        //按上一題
+        $('.whatBtnPre').click(function(){
+            $(this.parentNode.parentNode.parentNode).fadeOut(100);
+            $(this.parentNode.parentNode.parentNode).prev().fadeIn(50);
+        });
+
+        //按再一次 表單清空
+        $('.whatBtnAgain').click(function (){
+            $(this.parentNode.parentNode.parentNode).fadeOut(100);
+            $('.myOptions').val('');
+            $('.index_whatToEat_popup.1').fadeIn(50);
+           
+        });
+        //-----whatToEat彈窗end------
+
+        //-----search彈窗------
+        //打開彈窗
+        $('.search_btn_Search').click(function(){
+            $('.index_search_popup').fadeIn(50);
+            $('.index_whatToEat_popup').fadeOut(100);
+        });
+        //關閉彈窗
+        $('.getSearchClose').click(function (){
+            $(this.parentNode).fadeOut(200);
+        });
+        //顯示下拉選單
+        $('.mrt_search_icon').click(function (){
+            $('.mrtLines').toggleClass('on');
+        });
+        $('.keyword_search_icon').click(function (){
+            $('.searchTags').toggleClass('on');
+        });
+        //出發探索
+        $('.getSearchBtn').click(function (){
+            $('.index_search_popup').fadeOut(100);
+            $('.index_store_popup').fadeIn(50);
+            
+            
+        });
+        //-----search表單彈窗end------
+   
+
+        
+
      
     </script>    
     </body>
 
 </html>
-
