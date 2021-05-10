@@ -19,82 +19,78 @@
 
  // 登入註冊切換區
  .loginSwitch{
-    margin-bottom: 30px;
-    margin-top: 30px;
-    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
     position: relative;
-    @include borderTest();
-    ul{
-        display: flex;
-        margin: 0 auto;
+    @include border();
+    border-radius: 50px;
+    display: flex;
+}
+.toggolebtn{
+        flex-grow: 1;
+        text-align: center;
+    }
+
+.areaShow{
+    background-color: $yellow;
+    border-radius: 50px;
+    transition: 1, ease-in-out;
+}
+
+
+// 常去站點
+.login_station{
+    position: relative;
+    &_arrow{
+        position: absolute;
+        top: 13px;
+        right: 10px;
+    }
+    
+    &_select{
+        margin-top: -20px;   
+        border: 2px solid $lightgreen;
+        display: none;
         li{
-            @include borderTest(blue);
-            flex-grow: 1;
-            text-align: center;
-            line-height: 30px;
+            padding-left: 10px;
+            line-height:36px;
+        }
+        li:hover{
+            background-color: $lightgreen;
+        }
+        .b{
+            color:$mrtBlue;
+        }
+        .r{
+            color:$mrtRed;
+        }
+        .br{
+            color: $mrtBrown;
+        }
+        .g{
+            color: $mrtGreen;
+        }
+        .y{
+            color: $mrtYellow;
         }
     }
 }
 
-.mid_block{
-    overflow: hidden;
-}
-
-
-  // 常去站點
-.login_station{
-    position: relative;
-    margin-bottom: 20px;
-    &_arrow{
-      position: absolute;
-      top: 13px;
-      right: 10px;
-    }
-
-    &_select{
-      margin-top: -20px;   
-      border: 2px solid $lightgreen;
-      display: none;
-      li{
-          padding-left: 10px;
-          line-height:36px;
-      }
-      li:hover{
-          background-color: $lightgreen;
-      }
-      .b{
-          color:$mrtBlue;
-      }
-      .r{
-          color:$mrtRed;
-      }
-      .br{
-          color: $mrtBrown;
-      }
-      .g{
-          color: $mrtGreen;
-      }
-      .y{
-          color: $mrtYellow;
-      }
-    }
-}
-
 .login_station_select.on{
-  display: block;
+    margin-bottom: 20px;
+    display: block;
 }
 
 // 美食標籤
 .login_tag{
-  position: relative;
-  margin-top: -20px; 
-  &_add{
-    position: absolute;
-    top: 7px;
-    right: 9.8px;
-  }
+    position: relative;
+    margin-top: -20px; 
+    &_add{
+        position: absolute;
+        top: 7px;
+        right: 9.8px;
+    }
 }
-
 
 // 認證彈窗verification
 .verification{
@@ -102,4 +98,14 @@
         @include block_center();
         margin-bottom: 20px;
     }
+}
+
+.verifiShow{
+    display: block;
+}
+
+// 所有要藏起來的區塊都可以用
+.areaHide{
+    display: none;
+    transition: 1, ease-in-out;
 }

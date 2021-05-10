@@ -5,9 +5,32 @@
         <a href="#" class="logo">
             <img src="./img/logo.png" alt="" />
         </a>
-        <!-- 漢堡選單 -->
-        <a href="#" class="ham">
-            <img src="./img/icon/icon_hamburger.png" alt="" />
-        </a>
+
+        <div class="ham" id="ham_icon">
+            <span class="ham_top"></span>
+            <span class="ham_middle"></span>
+            <span class="ham_bottom"></span>
+        </div>
+
+        <div class="header_overlay" id="header_overlay">
+            <nav class="header_overlay_menu">
+              <ul>
+                <li class="header_list"><a href="#">Logo</a></li>
+                <li class="header_list"><a href="#">登入會員</a></li>
+                <li class="header_list"><a href="#">我的飛碟</a></li>
+                <li class="header_list"><a href="#">美食拍立得</a></li>
+                <li class="header_list"><a href="#">外食故事</a></li>
+              </ul>
+            </nav>
+          </div>
+
+
     </div>
 </header>
+
+<script>
+   $('#ham_icon').click(function() {
+   $(this).toggleClass('active');
+   $('#header_overlay').toggleClass('open');
+  });
+</script>

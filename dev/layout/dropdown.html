@@ -1,0 +1,31 @@
+<!-- 複製到要用的地方 -->
+<!-- 重要!! ID裡的"dropdown" 改成你的頁面_功能 -->
+<!-- 範例: 商家專區的喜好選擇要使用，原本 id="dropdown_choice", 都改成 "store_like_choice" -->
+
+<!-- html跟 js 都要改唷! -->
+<!-- html + js 共有 4 個地方要改唷! -->
+
+<div class="dropdown">
+    <input type="text" id="dropdown_choice" placeholder="我最常去的捷運站" class="input">
+    <img class="dropdown_arrow" src="./img/icon/icon_next_line.png" alt="">
+    <ul class="dropdown_select" id="dropdown_options">
+        <li>選項</li>
+        <li>選項</li>
+        <li>選項</li>
+    </ul>
+</div>
+
+<script>
+     $('.dropdown_arrow').click(function (e) {
+        // e.preventDefault();
+        $('.dropdown_select').toggleClass('on');
+    });
+
+
+    $('#dropdown_options li').click(function(){
+        let inputColor=document.getElementById('dropdown_choice');
+        inputColor.value=$(this).text();
+        $('.dropdown_select').toggleClass('on');
+
+    })
+</script>

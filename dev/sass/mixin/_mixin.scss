@@ -104,10 +104,6 @@
     }
 }
 
-
-// >1200 1140
-// 992~1199 >>960
-
 // 最外層
 @mixin desktop {
     max-width: 1140px;
@@ -139,6 +135,16 @@
     margin: 0 auto;
 }
 
+// 氣質線
+@mixin lightLine ($w:100%, $h:1px, $c:$colorTp){
+    content: " ";
+    width: $w;
+    height: $h;
+    background-color: $c;
+    position: absolute;
+    bottom: 0;
+    display: block;
+}
 
 //滿版或1200
 @mixin layout($w) {
@@ -151,13 +157,3 @@
     }
 }
 
-// 氣質線
-@mixin lightLine ($w:100%, $h:1px, $c:$colorTp){
-    content: " ";
-    width: $w;
-    height: $h;
-    background-color: $c;
-    position: absolute;
-    bottom: 0;
-    display: block;
-}
