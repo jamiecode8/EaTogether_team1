@@ -7,9 +7,58 @@
         @@include('layout/style.html')
         <title>升級方案</title>
     </head>
-    <body>
+    <body class="storeUpgrade_body">
         @@include('layout/header.html')
-        <div class="wrapper"></div>
+        <div class="wrapper wrapper_storeUpgrade">
+            <!-- 標題區域 -->
+            <header class="upgradeHeader">
+                <div class="upgradeHeader_option1">
+                    <p>
+                        選擇方案
+                    </p>
+                </div>
+                <div class="upgradeHeader_option2">
+                    <p>
+                        資料確認
+                    </p>
+                </div>
+                <div class="upgradeHeader_option3">
+                    <p>
+                        升級完成
+                    </p>
+                </div>
+            </header>
+            <section class="upgradeInfo">
+                <!-- 文字說明區 -->
+                <div class="upgradeInfo_text">
+                    <h1 class="upgradeInfo_text_title">松茸級</h1>
+                    <p>升級第一個月享有 #推薦標籤</p>
+                    <p>查看點擊次數</p>
+                    <p>查看收藏次數</p>
+                    <p>關鍵字搜尋較佳</p>
+                </div>
+                <!-- 右邊按扭區
+                 -->
+                <div class="upgradeInfo_btnArea">
+                    <div class="upgradeInfo_btnArea_option">
+                        <!-- 月繳$399 -->
+                        <label class="checkboxArea">
+                            <input type="checkbox" value="confirm"  class="checkbox"/>
+                            <span class="checkboxArea_read">月費$399</span>
+                        </label>
+                        <!-- 年繳$399 -->
+                        <label class="checkboxArea">
+                            <input type="checkbox" value="confirm"  class="checkbox"/>
+                            <span class="checkboxArea_read">年費$4599</span>
+                        </label>
+                    </div>
+                    <div class="buttonArea upgradeInfo_btnArea_submit">
+                        <input type="submit" value="返回" class="btn_d btn_pre" />
+                        <input type="submit" value="下一步" class="btn_d btn_submit" />
+                    </div>
+                </div>
+            </section>
+        </div>
         @@include('layout/footer.html')
     </body>
 </html>
