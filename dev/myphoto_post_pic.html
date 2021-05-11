@@ -49,15 +49,36 @@
                 </section>
                 <section  class="pho_edit_s2">
                     <h4>選擇背景圖片 </h4>
-                    <div>
-                        <h5>請將檔案拖放置此</h5>
-                        <h5>或</h5>
-                        <button type="button" class="btn_submit">選擇檔案+</button>
-                        <article>
-                            <p>檔案格式：JPG、JPEG、PNG</p>
-                            <p>檔案容量：3MB以下</p>
-                            <p>建議圖片尺寸：640px × 640px</p>
-                        </article>
+                    <div class="pho_edit_fullcontent">
+                        <div class="pho_plug_in_area">
+                            <h5>請將檔案拖放置此</br>或</h5>
+                            <button type="button" class="btn_submit">選擇檔案+</button>
+                            <article>
+                                <p>檔案格式：JPG、JPEG、PNG</p>
+                                <p>檔案容量：3MB以下</p>
+                                <p>建議圖片尺寸：640px × 640px</p>
+                            </article>
+                        </div>
+                        
+                        <section>
+                            <h5>商家名稱</h5>
+                            <input type="text" placeholder="輸入餐廳名稱">
+                        </section>
+
+                        <div>
+                            <h5>推薦指數</h5>
+                            <div class="pho_star">@@include('layout/star.html')</div>
+                        </div>
+
+                        <section>
+                            <h5>我想說</h5>
+                            <textarea name="" id="" cols="30" rows="10" >這間餐廳很好吃...</textarea>
+                        </section>
+
+                        <div>
+                            <h5>新增標籤</h5>
+                            <div class="pho_searchTags">@@include('layout/searchTags.html')</div>
+                        </div>
                     </div>
                     <button type="button" class="btn_submit">新增角色</button>
                 </section> 
