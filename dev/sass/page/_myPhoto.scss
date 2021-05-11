@@ -1,26 +1,21 @@
 //棠棠的
-// *{
-//     outline: 1px  solid  black;
-// }
+//============================= myPhoto =============================//
+
+*{
+    outline: 1px  solid  orange;
+}
 
 .pho_wrapper{
     background-image: url(../../img/tang/background.png);
     background-size: cover;
+    background-repeat: repeat;
     //background-repeat: no-repeat;
 }
 
-// .pho_background{
-//     background-image: url(../../img/tang/ET_photo.png);
-//     background-image: url(../../img/tang/background.png);
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     margin:0 auto;
-//     width:100%;
-// }
 
 .pho_main{
-    width:62%;
-    height:100vh;
+    width:1200px;
+    //height:100vh;
     margin:0 auto;
 }
 
@@ -54,7 +49,8 @@
     justify-content: space-between;
     
 }
-// 拍立得
+
+//================================拍立得
 .pho_store_cards_lists{
     display: flex;
     flex-wrap: wrap;
@@ -65,14 +61,58 @@
         padding: 20px;
         background-color:  lighten(rgb(255, 255, 255),20%);
         @include shadow();
+        margin-bottom: 20px;
+    }
+    img{
+        width: 100%;
     }
 
-    .pho_vender_thumb_message{
-        display: flex;
-    }
-
-    .pho_vender_feat_tag{
-        display: flex;
-        justify-content: flex-start;
-    }
 }   
+
+.pho_vender_thumb_message{
+    display: flex;
+}
+
+.pho_vender_feat_tag{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.pho_vender_profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    img{
+        width: 100%;
+
+    }
+    a{
+        flex-basis: 0;
+        flex-grow: 2;
+    }
+    article{
+        flex-basis: 0;
+        flex-grow: 5;
+    }
+    &>p{
+        flex-basis: 0;
+        flex-grow: 5; 
+        text-align: right;
+    }
+}
+
+//============================= myphoto_post_pic =============================//
+
+.pho_edit_s1{
+    ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    li{
+        //background-color: orange;
+        //background-image: url(../../../dist/img/tang/);
+        width: 200px;
+        height: 200px;
+    }
+}

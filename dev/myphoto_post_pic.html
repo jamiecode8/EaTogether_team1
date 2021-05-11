@@ -9,8 +9,56 @@
     </head>
     <body>
         @@include('layout/header.html')
-        <div class="wrapper">
-            <!-- 這裡面編輯 -->
+        <div class="pho_wrapper">
+            <main class="pho_main">
+                <section class="pho_edit_s1">
+                    <ul>
+                        <li >
+                            <h6>1</h6>
+                            <div>
+                                <p>選擇背景</p>
+                                <img src="./img/tang/Icon feather-file.png" alt="">
+                            </div>
+                            <div class="pho_edit_step_bg"></div>  
+                        </li>
+                        <li >
+                            <h6>2</h6>
+                            <div>
+                                <p>新增角色</p>
+                                <img src="./img/tang/Icon et.png" alt="">
+                            </div>
+                            <div class="pho_edit_step_bg"></div>  
+                        </li>
+                        <li >
+                            <h6>3</h6>
+                            <div>
+                                <p>編輯文章</p>
+                                <img src="./img/tang/Icon pic.png" alt="">
+                            </div>
+                            <div class="pho_edit_step_bg"></div>  
+                        </li>
+                    </ul>
+                </section>
+                <section  class="pho_edit_s2">
+                    <h4>選擇背景圖片 </h4>
+                    <div>
+                        <h5>請將檔案拖放置此</h5>
+                        <h5>或</h5>
+                        <button type="button" class="btn_submit">選擇檔案+</button>
+                        <article>
+                            <p>檔案格式：JPG、JPEG、PNG</p>
+                            <p>檔案容量：3MB以下</p>
+                            <p>建議圖片尺寸：640px × 640px</p>
+                        </article>
+                    </div>
+                    <button type="button" class="btn_submit">新增角色</button>
+                </section> 
+                <section  class="pho_edit_s3">
+                    <button type="button" class="btn_cancel">取消</button>
+                    <button type="button" class="btn_submit">下一步</button>
+                </section>
+            </main>
+              
         </div>
         @@include('layout/footer.html')
     </body>
