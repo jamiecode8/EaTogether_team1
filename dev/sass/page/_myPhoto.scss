@@ -1,9 +1,9 @@
 //棠棠的
 //============================= myPhoto =============================//
 
-// *{
-//     outline: 1px  solid  orange;
-// }
+*{
+    outline: 1px  solid  orange;
+}
 
 .pho_wrapper{
     background-image: url(../../img/tang/background.png);
@@ -15,8 +15,8 @@
 
 .pho_main{
     width:1200px;
-    //height:100vh;
     margin:0 auto;
+    padding: 30px 0;
 }
 
 .pho_top_wrapper{
@@ -111,8 +111,59 @@
     }
     li{
         //background-color: orange;
-        //background-image: url(../../../dist/img/tang/);
-        width: 200px;
-        height: 200px;
+        background-image: url(../../img/tang/steps_bg_style.png);
+        background-position:center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 17%;
+        height: 0;
+        padding-bottom: 17% ;
+
+        position: relative;
     }
+    
+}
+
+.pho_edit_step{
+    margin-top: 30%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding-left:12%;
+
+    h6{
+        flex-basis: 0;
+        flex-grow: 0.2;
+
+        font-size: 100px;
+    }
+    div{
+        flex-basis: 0;
+        flex-grow: 0.5;
+        p{
+            text-align: center;
+        }
+
+        img{
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+
+.pho_edit_step_bg{
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%;
+    background-color: $green;
+    opacity: .2;
+    border-radius: 50%;
+
+    position: absolute;
+    right: -3.5%;
+    bottom: -3.5%;
+    z-index: 1;
 }
