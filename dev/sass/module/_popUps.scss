@@ -9,6 +9,8 @@
     //     }
     background-color: #fff;
     position: relative;
+    // position: fixed;
+    z-index: 888;
     width: 400px;
     padding: 50px;
     @include shadow;
@@ -18,7 +20,6 @@
         text-align: center;
         font-size: $fontSize_Title;
         margin-bottom: 40px;    
-        // font-weight: bold;
     }
     h2 {
         font-size: $fontSize_SubTitle;

@@ -1,3 +1,33 @@
+// 這邊之後貼到會員登入註冊
+// 編輯會員資料
+.memberInfo_edit{
+    &_area{
+        position: relative;
+    }
+    &_editIcon{
+        position: absolute;
+        right: 5px;
+        top: 8px;
+        width: 20px;
+        height: 20px;
+        background-image: url('../img/icon/icon_edit.png');
+        background-repeat: no-repeat;
+        // background-position: 0 2px;
+        background-size: contain;
+    }
+    &_inner{
+        @include rwd(desktop){
+        display: flex;
+        }
+        display: block;
+    }
+    &_imgArea{
+        width: 400px;
+        height: 400xp;
+        background-image: url('../img/test_login_memberPic.png');
+    }
+}
+
 // 商家專區
 // 繼承會員登入註冊部分scss
 .login_store_welcome{
@@ -61,6 +91,7 @@
         background-size: contain;
     }
 }
+
 
 
 
