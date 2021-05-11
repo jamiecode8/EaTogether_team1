@@ -1,7 +1,7 @@
 <!-- Jamie -->
 <!-- 會員資料編輯 -->
 <div class="popUps memberInfo_edit">
-    <form action="#資料傳送送的網址" method="post" class="form memberInfo_edit_form">
+    <form action="#資料傳送送的網址" method="" class="form memberInfo_edit_form">
         <!-- close button -->
         <button type="button" class="btn_close">
             <img src="./img/icon/icon_close.png" alt="" />
@@ -13,36 +13,106 @@
             <!-- 右邊文字區 -->
             <div class="memberInfo_edit_textArea">
                 <div class="memberInfo_edit_area">
-                    <input type="text" placeholder="南京林志玲" />
+                    <input type="text" placeholder="南京林志玲" value="南京林志玲"/>
                     <button class="memberInfo_edit_editIcon">
                     </button>
                 </div>
                 <div class="memberInfo_edit_area">
                     <input type="text" placeholder="喜好標籤" />
-                    <button class="memberInfo_edit_editIcon">
+                    <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_tag">
                     </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="南京松江" />
-                    <button class="memberInfo_edit_editIcon">
+                    <div class="memberInfo_edit_area_tag" id="memberInfo_edit_area_tag">
+                        <span>#日式</span>
+                        <span>#韓式</span>
+                        <span>#美式</span>
+                        <span>#台式</span>
+                        <span>#法式</span>
+                        <span>#中式</span>
+                        <span>#聚餐</span>
+                        <span>#簡餐</span>
+                        <span>#銅板美食</span>
+                        <span>#下午茶</span>
+                        <span>#早午餐</span>
+                        <span>#商業午餐</span>
+                        <span>#夜市</span>
+                        <span>#咖哩</span>
+                        <span>#火鍋</span>
+                        <span>#牛排</span>
+                        <span>#咖啡店</span>
+                        <span>#餐酒館</span>
+                        <span>#鐵板燒</span>
+                        <span>#拉麵</span>
+                        <span>#甜點</span>
+                        <span>#麵食</span>
+                        <span>#雞排</span>
+                        <span>#鹽酥雞</span> 
+                    </div>
+                </div>
+
+                <div class="memberInfo_edit_area">
+                    <input type="text" placeholder="" id="memberInfo_station_input"/>
+                    <button class="memberInfo_edit_editIcon" id="memberInfo_editIcon_station">
                     </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="tibame@gmail.com" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="1234566" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="南京林志玲" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="南京林志玲" />
+                    <ul class="memberInfo_edit_area_stationSelect" id="memberInfo_edit_area_stationSelect">
+                        <li  class="b">市政府</li>
+                        <li  class="b">忠孝敦化</li>
+                        <li  class="b">國父紀念館</li>
+                        <li  class="b">板橋</li>
+                        <li  class="b">新埔</li>
+                        <li  class="b">府中</li>
+                        <li  class="b">龍山寺</li>
+                        <li  class="r">淡水</li>
+                        <li  class="r">劍潭</li>
+                        <li  class="r">圓山</li>
+                        <li  class="r">台北車站</li>
+                        <li  class="r">東門</li>
+                        <li  class="r">大安森林公園</li>
+                        <li  class="r">信義安和</li>
+                        <li  class="r">台北101</li>
+                        <li  class="g">松山</li>
+                        <li  class="g">南京三民</li>
+                        <li  class="g">南京復興</li>
+                        <li  class="g">中山</li>
+                        <li  class="g">中正紀念堂</li>
+                        <li  class="g">台電大樓</li>
+                        <li  class="g">公館</li>
+                        <li  class="g">景美</li>
+                        <li  class="br">東湖</li>
+                        <li  class="br">西湖</li>
+                        <li  class="br">港墘</li>
+                        <li  class="br">大直</li>
+                        <li  class="br">中山國中</li>
+                        <li  class="br">六張犁</li>
+                        <li  class="br">萬芳社區</li>
+                        <li  class="y">頂溪</li>
+                        <li  class="y">南京松江</li>
+                        <li  class="y">忠孝新生</li>
+                        <li  class="y">台北橋</li>
+                        <li  class="y">徐匯中學</li>
+                        <li  class="y">新莊</li>
+                    </ul>
+
+                </div>
+                <div class="memberInfo_edit_area">
+                    <input type="email" placeholder="tibame@gmail.com" value="tibame@gmail.com" />
                     <button class="memberInfo_edit_editIcon">
                     </button>
                 </div>
-
+                <div class="memberInfo_edit_area">
+                    <input type="password" placeholder="1234566"  value="1234566" id="myPassword"/>
+                    <!-- 查看密碼按鈕 scss寫在_btn -->
+                    <button class="showPassword"></button>
+                    <button class="memberInfo_edit_editIcon"></button>
+                </div>
+                <div class="memberInfo_edit_area">
+                    <input type="text" placeholder="生日(YYYY/MM/DD)" />
+                    <button class="memberInfo_edit_editIcon"></button>
+                </div>
+                <div class="memberInfo_edit_area">
+                    <input type="tel" placeholder="電話" />
+                    <button class="memberInfo_edit_editIcon">
+                    </button>
+                </div>
             </div>
         </div>
         <!-- 主標題 -->
@@ -283,6 +353,26 @@
 </div>
 
 <script>
+    // 會員資料區，要移到會員那邊
+    // 下拉選單、喜好標籤
+    $('.memberInfo_edit_editIcon_tag').click(function (){
+    $('.memberInfo_edit_area_tag').toggleClass('on');
+    });
+
+    // 下拉選單、鄰近站點
+    $('#memberInfo_editIcon_station').click(function (){
+    $('.memberInfo_edit_area_stationSelect').toggleClass('on');
+    });
+
+    $('#memberInfo_edit_area_stationSelect li').click(function(){
+        let inputColor=document.getElementById('memberInfo_station_input');
+        inputColor.value=$(this).text();
+        $('.memberInfo_edit_area_stationSelect').toggleClass('on');
+
+    })
+</script>
+
+<script>
     // 登入註冊切換
     $('#btn_signup').click(function(){
         $(this).addClass('areaShow');
@@ -301,7 +391,6 @@
 
     // 下拉選單-客單價
     $('.login_station_arrow').click(function (e) {
-        // e.preventDefault();
         $('.login_station_select').toggleClass('on');
     });
 
@@ -313,10 +402,12 @@
 
     })
 
+
+
     // 下拉選單-鄰近站點
     $('.login_store_station_arrow').click(function (e) {
         // e.preventDefault();
-        $('.login_store_station_select').toggleClass('on');
+    $('.login_store_station_select').toggleClass('on');
     });
 
 
@@ -325,5 +416,15 @@
         inputColor.value=$(this).text();
         $('.login_store_station_select').toggleClass('on');
 
+    })
+
+    // 那顆眼睛按下去，密碼會出現
+    $('.showPassword').click(function(){
+        let myPassword = document.getElementById('myPassword')
+        if( myPassword.type === "password"){
+            myPassword.type = "text";
+        }else{
+            myPassword.type = "password";
+        }
     })
 </script>
