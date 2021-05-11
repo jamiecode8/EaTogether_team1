@@ -33,6 +33,13 @@
     z-index: 1;
 }
 
+.develope_form{
+    position: absolute;
+    top:38%;
+    left: 45%;
+    z-index: 10;
+}
+
 .develope_et1{
     position: absolute;
     width: 10%;
@@ -84,8 +91,8 @@
 .develope_et7{
     position: absolute;
     width: 8%;
-    top: 25%;
-    left: 38%;
+    top: 38%;
+    left: 35%;
     z-index: 2;
 }
 
@@ -101,6 +108,9 @@
     .develope_bg3{
         display: none;
        
+    }
+    .develope_blank{
+        display: none;
     }
 }
 
@@ -118,6 +128,9 @@
         display: none;
        
     }
+    .develope_blank{
+        display: none;
+    }
 }
 
 @media all and(max-width: 991px) and (min-width: 768px) {
@@ -131,6 +144,9 @@
     .develope_bg3{
         display: none;
     }
+    .develope_blank{
+        display: none;
+    }
 }
 
 @media all and(max-width: 767px) and (min-width: 576px) {
@@ -139,7 +155,7 @@
         
     }
     .develope_bg2{
-        height: 100vh;
+        height: 80vh;
         display: block;
         
     }
@@ -161,7 +177,7 @@
         
     }
     .develope_bg3{
-        height: 100vh;
+        height: 70vh;
         display: block;
         margin: 0 auto;
        
@@ -178,22 +194,28 @@
 
 @include rwd(desktopSmall){
     .White_planet{
-        width: 60%;
+        width: 658px;
         margin: 0% 0% 0% -6%;   
     }
     .develope_et7{
         width: 10%;
-        left: 32%;
-        top: 30%;
+        left: 31%;
+        top: 36%;
     }
     .etGroup{
         width: 60%;
+    }
+    .develope_form{
+        position: absolute;
+        top:36%;
+        left: 42%;
+        z-index: 10;
     }
 }
 
 @include rwd(pad){
     .White_planet{
-        width: 70%;
+        width: 658px;
         margin: 0% 0% 0% -10%;
     }
     .develope_et1{
@@ -242,12 +264,25 @@
         left: 55%;
         z-index: 2;
     }
+    .develope_et7{
+        width: 10%;
+        left: 30%;
+        top: 36%;
+    }
+    .develope_form{
+        position: absolute;
+        top:33%;
+        left: 42%;
+        z-index: 10;
+    }
 }
 
 @include rwd(largeMobile){
     .White_planet{
-        width: 70%;
-        margin: 10% 0% 0% -10%;
+        width: 90%;
+        margin: 0% 0% 50% 0%;
+        left: 5%;
+        top: 0%;
     }
     .develope_et1{
         position: absolute;
@@ -290,34 +325,42 @@
     
     .develope_et6{
         position: absolute;
-        width: 10%;
-        top: 79%;
-        left: 54%;
+        width: 12%;
+        top: 76%;
+        left: 51%;
         z-index: 2;
     }
     .develope_et7{
         width: 10%;
-        left: 32%;
-        top: 33%;
+        left: 27%;
+        top: 30%;
     }
-}
+    .develope_form{
+        position: absolute;
+        top:29%;
+        left: 39%;
+        z-index: 10;
+    }
+}    
 
 @include rwd(mobile){
     .White_planet{
-        width: 90%;
-        margin: 50% 0% 0% -20%;
+        width: 95%;
+        margin: 0% 0% 0% 0%;
+        top: 0%;
+        left: 5%;
     }
     .develope_et1{
         position: absolute;
         width: 20%;
-        top: 55%;
+        top: 35%;
         left: 5%;
         z-index: 2;
     }
     .develope_et2{
         position: absolute;
         width: 20%;
-        top: 70%;
+        top: 50%;
         left: 50%;
         z-index: 2;
     }
@@ -325,7 +368,7 @@
     .develope_et3{
         position: absolute;
         width: 20%;
-        top: 60%;
+        top: 40%;
         left: 30%;
         z-index: 2;
     }
@@ -333,7 +376,7 @@
     .develope_et4{
         position: absolute;
         width: 20%;
-        top: 80%;
+        top: 60%;
         left: 15%;
         z-index: 2;
     }
@@ -341,7 +384,7 @@
     .develope_et5{
         position: absolute;
         width: 20%;
-        top: 84%;
+        top: 64%;
         left: 45%;
         z-index: 2;
     }
@@ -349,13 +392,19 @@
     .develope_et6{
         position: absolute;
         width: 20%;
-        top:78%;
+        top:58%;
         left: 70%;
         z-index: 2;
     }
     .develope_et7{
         width: 15%;
         left: 22%;
-        top: 38%;
+        top: 19%;
+    }
+    .develope_form{
+        position: absolute;
+        top:15%;
+        left: 42%;
+        z-index: 10;
     }
 }
