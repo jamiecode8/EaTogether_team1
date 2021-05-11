@@ -38,6 +38,7 @@ header{
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 900;
     .logo {
         position: absolute;
         top: 10px;
@@ -49,6 +50,20 @@ header{
             top: 15px;
             }
     }
+}
+
+
+// 會員頭像
+.headerInner_login_memberPic{
+    position: fixed;
+    top: 5%;
+    right: 10%;
+    cursor: pointer;
+    transition: opacity 0.25s ease;
+    // 這邊照片出不來
+    background-image: url(../img/test_login_memberPic.png);
+    width: 30px;
+    height: 30px;
 }
 
 // 漢堡
@@ -131,13 +146,12 @@ header{
     opacity: 1;
     visibility: visible;
     height: 100%;
-    
     // 出現的動畫
     .header_list{
-        @include borderTest();
+        // @include borderTest();
         display: block;
         width: 100%;
-        height: calc(100% / 5);
+        height: calc(100% / 4);
         position: relative;
         opacity: 0;
         animation: fadeInRight 0.5s ease forwards;
@@ -151,13 +165,9 @@ header{
         &:nth-of-type(4) {
             animation-delay: 0.5s;
             }
-        &:nth-of-type(5) {
-            animation-delay: 0.55s;
-            }
         a{
             @include borderTest(green);
             height: 100%;
-            // line-height: calc(100% / 5);
             display: block;
             position: relative;
             color: $colorTp; 
