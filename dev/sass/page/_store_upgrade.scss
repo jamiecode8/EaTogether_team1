@@ -1,8 +1,10 @@
+.upgrade_body{
+    background-color: $bgc;
+}
 .wrapper_upgrade{
     @include borderTest(blue);
     padding: 0 150px;
 }
-
 
 .upgradeHeader{
     @include borderTest();
@@ -22,7 +24,7 @@
 // 放數字
 // 再用圖片高度，決定標題的line-hight
 
-.upgradeInfo{
+.upgradeOption{
     display: flex;
     position: relative;
     padding-bottom: 50px;
@@ -46,6 +48,90 @@
     
 }
 
-// .upgradeInfo_btnArea_option{
+// 資料確認頁面
+.upgradeInfoConfirm{
+    &_basic_menu{
+        display: flex;
+    }
+    &_payment_menu{
+        display: flex;
+    }
 
-// }
+}
+
+// 企業個人選單切換
+.upgradeInfoConfirm{
+    &_areaHide{
+        display: none;
+    }
+    &_areaShow{
+        display: block;
+    }
+}
+
+// 企業個人切換選單css
+.upgradeInfoConfirm_basic{
+    &_menu_item{
+        width: 100px;
+        text-align: center;
+        line-height: 40px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        cursor: pointer;
+    }
+    &_menu_co{
+        background-color: $yellow;
+    }
+    &_menu_personal{
+        background-color: $green;
+    }
+}
+
+// 信用卡傳障切換選單css
+.upgradeInfoConfirm_payment{
+    &_menu_item{
+        width: 100px;
+        text-align: center;
+        line-height: 40px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        cursor: pointer;
+    }
+    &_menu_card{
+        background-color: $yellow;
+    }
+    &_menu_acc{
+        background-color: $green;
+    }
+}
+
+
+.upgradeInfoConfirm_basic, .upgradeInfoConfirm_payment{
+    width: 100%;
+}
+
+.upgradeInfoConfirm{
+    &_basic_co{
+        width: 100%;
+    }
+    &_formC{
+        border: 3px solid $yellow;
+        width: 100%;
+    }
+    &_formP{
+        border: 3px solid $green;
+        width: 100%;
+    }
+    &_buttonArea_outer{
+        position: relative;
+        width: 100%;
+        height: 77px;
+    }
+    &_buttonArea{
+        position: absolute;
+        right: 0px;
+        bottom: 00px;
+        margin: initial;
+        transform: initial;
+    }
+}

@@ -1,5 +1,5 @@
 //jamie的
-.popUps form{
+.form{
     @include block_center(); //區塊置中
 
     // 桌機要靠左的可以加到自己的彈窗sass裡
@@ -33,9 +33,10 @@
     }
 
     // 按扭區域
-    .btn,
-    .buttonArea {
-        @include block_center();
-        width: max-content;
-    }
+}
+
+.btn,
+.buttonArea {
+    @include block_center();
+    width: max-content;
 }

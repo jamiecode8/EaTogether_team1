@@ -7,9 +7,171 @@
         @@include('layout/style.html')
         <title>資料確認</title>
     </head>
-    <body>
+    <body class="upgrade_body">
         @@include('layout/header.html')
-        <div class="wrapper"></div>
+        <div class="wrapper wrapper_upgrade">
+            <!-- 步驟數字區，之後用貼的 -->
+            <header class="upgradeHeader">
+                <div class="upgradeHeader_option1">
+                    <p>
+                        選擇方案
+                    </p>
+                </div>
+                <div class="upgradeHeader_option2">
+                    <p>
+                        資料確認
+                    </p>
+                </div>
+                <div class="upgradeHeader_option3">
+                    <p>
+                        升級完成
+                    </p>
+                </div>
+            </header>
+            <!-- 資料確認區 -->
+            <section class="upgradeInfoConfirm">
+                <!-- 企業或個人 -->
+                <div class="upgradeInfoConfirm_basic">
+                    <!-- 選單 -->
+                    <div class="upgradeInfoConfirm_basic_menu">
+                        <h1 class="upgradeInfoConfirm_basic_menu_item upgradeInfoConfirm_basic_menu_co" id="upgradeInfoConfirm_co">企業
+                        </h1>
+                        <h1 class="upgradeInfoConfirm_basic_menu_item upgradeInfoConfirm_basic_menu_personal" id="upgradeInfoConfirm_personal">個人</h1>
+                    </div>
+                    <!-- 企業 -->
+                    <div class="upgradeInfoConfirm_basic_co upgradeInfoConfirm_areaShow">
+                        <form action="#資料傳送送的網址" method="post" class="form upgradeInfoConfirm_formC">
+                            <!-- 輸入框欄位 -->
+                            <input type="text" placeholder="公司抬頭" />
+                            <input type="text" placeholder="統一編號" />
+                            <input type="text" placeholder="登記地址" />
+                            <input type="text" placeholder="聯絡人" />
+                            <input type="text" placeholder="聯絡電話" />
+                            <p>月繳$399</p>
+                            
+                            <!-- 2顆按鈕用這個 -->
+                            <div class="upgradeInfoConfirm_buttonArea_outer">
+                                <div class="buttonArea upgradeInfoConfirm_buttonArea">
+                                    <input type="submit" value="返回" class="btn_d btn_cancel" />
+                                    <input type="submit" value="下一步" class="btn_d btn_next" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- 個人 -->
+                    <div class="upgradeInfoConfirm_basic_personal upgradeInfoConfirm_areaHide">
+                        <form action="#資料傳送送的網址" method="post" class="form upgradeInfoConfirm_formP">
+                            <!-- 輸入框欄位 -->
+                            <input type="text" placeholder="姓名" />
+                            <input type="text" placeholder="地址" />
+                            <input type="text" placeholder="聯絡電話" />
+                            <p>月繳$399</p>
+                            
+                            <!-- 2顆按鈕用這個 -->
+                            <div class="upgradeInfoConfirm_buttonArea_outer">
+                                <div class="buttonArea upgradeInfoConfirm_buttonArea">
+                                    <input type="submit" value="返回" class="btn_d btn_cancel" />
+                                    <input type="submit" value="下一步" class="btn_d btn_next" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- 付款方式 -->
+                <div class="upgradeInfoConfirm_payment">
+                     <!-- 選單 -->
+                     <div class="upgradeInfoConfirm_payment_menu">
+                        <h1 class="upgradeInfoConfirm_payment_menu_item upgradeInfoConfirm_payment_menu_card" id="upgradeInfoConfirm_card">信用卡
+                        </h1>
+                        <h1 class="upgradeInfoConfirm_payment_menu_item upgradeInfoConfirm_payment_menu_acc" id="upgradeInfoConfirm_acc">轉帳</h1>
+                     </div>
+                     <!-- 信用卡 -->
+                     <div class="upgradeInfoConfirm_payment_card upgradeInfoConfirm_areaShow">
+                        <form action="#資料傳送送的網址" method="post" class="form upgradeInfoConfirm_formC">
+                            <!-- 輸入框欄位 -->
+                            <label for="creditCard">信用卡號碼</label>
+                            <input type="text" id="creditCard"/>
+                            <label for="validDate">有效日期</label>
+                            <input type="text" id="validDate" />
+                            <label for="cvv">安全碼</label>
+                            <input type="text" id="cvv" />
+                            <p>月繳$399</p>
+                            
+                            <!-- 2顆按鈕用這個 -->
+                            <div class="upgradeInfoConfirm_buttonArea_outer">
+                                <div class="buttonArea upgradeInfoConfirm_buttonArea">
+                                    <input type="submit" value="返回" class="btn_d btn_cancel" />
+                                    <input type="submit" value="下一步" class="btn_d btn_next" />
+                                </div>
+                            </div>
+                        </form>
+                     </div>
+                     <!-- 轉帳 -->
+                     <div class="upgradeInfoConfirm_payment_acc upgradeInfoConfirm_areaHide">
+                        <form action="#資料傳送送的網址" method="post" class="form upgradeInfoConfirm_formP">
+                            <!-- 輸入框欄位 -->
+                            <label for="bank">銀行</label>
+                            <input type="text" value="台新銀行敦南分行" id="bank"/>
+                            <label for="bankAcc">銀行帳戶</label>
+                            <input type="text" value="1010203040405" id="bankAcc"/>
+                            <label for="accName">戶名</label>
+                            <input type="text" value="外食一起來有限公司"  id="accName"/>
+                            <p>月繳$399</p>
+                            
+                            <!-- 2顆按鈕用這個 -->
+                            <div class="upgradeInfoConfirm_buttonArea_outer">
+                                <div class="buttonArea upgradeInfoConfirm_buttonArea">
+                                    <input type="submit" value="返回" class="btn_d btn_cancel" />
+                                    <input type="submit" value="下一步" class="btn_d btn_next" />
+                                </div>
+                            </div>
+                        </form>
+                     </div>
+                </div>
+            </section>
+
+        </div>
         @@include('layout/footer.html')
     </body>
+    <script>
+        // 轉帳被click時
+        $('#upgradeInfoConfirm_acc').click(function(){
+            $('.upgradeInfoConfirm_payment_acc')
+            .removeClass('upgradeInfoConfirm_areaHide')
+            .addClass('upgradeInfoConfirm_areaShow');
+            $('.upgradeInfoConfirm_payment_card')
+            .removeClass('upgradeInfoConfirm_areaShow')
+            .addClass('upgradeInfoConfirm_areaHide');
+
+        })
+        // 信用卡被click時
+        $('#upgradeInfoConfirm_card').click(function(){
+            $('.upgradeInfoConfirm_payment_acc')
+            .removeClass('upgradeInfoConfirm_areaShow')
+            .addClass('upgradeInfoConfirm_areaHide');
+            $('.upgradeInfoConfirm_payment_card')
+            .removeClass('upgradeInfoConfirm_areaHide')
+            .addClass('upgradeInfoConfirm_areaShow');;
+        })
+
+        // 企業個人切換
+        // 個人 onclick 時
+        $('#upgradeInfoConfirm_personal').click(function(){
+            $('.upgradeInfoConfirm_basic_personal')
+            .removeClass('upgradeInfoConfirm_areaHide')
+            .addClass('upgradeInfoConfirm_areaShow');
+            $('.upgradeInfoConfirm_basic_co')
+            .removeClass('upgradeInfoConfirm_areaShow')
+            .addClass('upgradeInfoConfirm_areaHide');
+
+        })
+        $('#upgradeInfoConfirm_co').click(function(){
+            $('.upgradeInfoConfirm_basic_personal')
+            .removeClass('upgradeInfoConfirm_areaShow')
+            .addClass('upgradeInfoConfirm_areaHide');
+            $('.upgradeInfoConfirm_basic_co')
+            .removeClass('upgradeInfoConfirm_areaHide')
+            .addClass('upgradeInfoConfirm_areaShow');
+        })
+    </script>
 </html>
