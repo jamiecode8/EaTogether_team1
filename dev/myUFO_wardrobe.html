@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @@include('layout/style.html')
+    <title>衣櫃</title>
+</head>
+<body class="wardrobeu_body">
+  
+    @@include('layout/header.html')
+    <div class="wrapper myUFO_wardrobeu">
+      <img src="./img/mimi/wardrobeu_bg.png" alt="" class="wardrobeu_bg">
+      
+      
+        <!-- 右邊區塊 -->
+        <div>
+            <div class="wardrobeuname"><p>我的衣櫃</p></div>
+            <section class="tabs_wardrobeu">
+ 
+                <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
+                <label for="tab-1" class="tab-label-1">頭飾</label>
+            
+                <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
+                <label for="tab-2" class="tab-label-2">服飾</label>
+            
+                <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3"/>
+                <label for="tab-3" class="tab-label-3">配件</label>
+            
+            
+                <div class="content_wardrobeu">
+                  <div class="content_wardrobeu1">
+                     <h2>頭飾</h2>
+                    <img src="" alt="">
+                  </div>
+                  <div class="content_wardrobeu2">
+                    <a href="#"><img src="./img/mimi/clothes1.svg" alt="" class="wardrobeu_clothes"></a><br>
+                    <a href="#"><img src="./img/mimi/clothes2.svg" alt="" class="wardrobeu_clothes"></a><br>
+                    <a href="#"><img src="./img/mimi/clothes3.svg" alt="" class="wardrobeu_clothes"></a><br>
+                    <a href="#"><img src="./img/mimi/clothes4.svg" alt="" class="wardrobeu_clothes"></a><br>
+                    <a href="#"><img src="./img/mimi/clothes5.svg" alt="" class="wardrobeu_clothes"></a><br>
+                  </div>
+                  <div class="content_wardrobeu3">
+                    <h2>配件</h2>
+                    <img src="#" alt="">
+                  </div>
+                </div>
+            </section>
+
+          <div><img src="./img/mimi/Bigwardrobe.svg" alt="" class="Bigwardrobe"></div>
+        </div>  
+        
+        <!-- 左邊區塊 -->
+        <div> 
+          <div><img src="./img/mimi/window.svg" alt="" class="wardrobe_window"></div>
+          <div><img src="./img/mimi/wardrobe_light.svg" alt="" class="wardrobe_light"></div>
+          <div><img src="./img/mimi/wardrobe_character.svg" alt="" class="wardrobe_character">
+               <button class="btn_submit wardrobe_btn">確定更換</button>
+               <div class="wardrobeu_Points">
+                <img src="./img/mimi/Points.svg" alt="" class="Points" />
+                <div class="Points_font"><p>8888</p>
+              </div>
+             </div>
+          </div>
+        </div>    
+    </div>
+    @@include('layout/footer.html')
+</body>
+</html>
