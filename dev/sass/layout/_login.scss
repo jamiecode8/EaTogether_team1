@@ -1,10 +1,24 @@
+// 會員登入註冊彈窗
+#memberLogin_popups{
+    position: absolute;
+    display: none;
+    z-index: 999;
+}
+.login{
+    padding-bottom: 20px;
+}
+
+// 美食喜好彈窗
+#loginMemberTag{
+    display: none; 
+}
+
 .login{
     @include block_center();
-
     // 頭像區塊
     .loginMemberPic{
-        @include borderTest();
-        width: 50%;
+        // @include borderTest();
+        width: 25%;
         @include block_center();
     }
 
@@ -15,6 +29,7 @@
 .forgetPassword{
     font-size: $fontSizeSmall;
     text-align: right;
+    cursor: pointer;
 }
 
  // 登入註冊切換區
@@ -84,13 +99,33 @@
 // 美食標籤
 .login_tag{
     position: relative;
-    margin-top: -20px; 
     &_add{
         position: absolute;
         top: 7px;
         right: 9.8px;
     }
+    &_select{
+        display: none;
+        border: 2px solid $lightgreen;
+        span{
+            background-color: $lightgreen;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        span:hover{
+            background-color: $yellow;
+        }
+    }
 }
+
+.login_tag_select.on{
+    margin-top: -40px;
+    margin-bottom: 20px;
+    display: block;
+}
+
 
 // 認證彈窗verification
 .verification{
@@ -98,6 +133,7 @@
         @include block_center();
         margin-bottom: 20px;
     }
+    z-index: 999;
 }
 
 .verifiShow{
@@ -110,39 +146,57 @@
     transition: 1, ease-in-out;
 }
 
+
+
+
 // 編輯會員資料
+#memberInfo_edit{
+    display: none; 
+    position: absolute;
+    top: 20px;
+    z-index: 999;
+    left: calc((100vw - 400px)/2);
+    @include rwd(desktop){
+        left: calc((100vw - 1000px)/2);
+        position: fixed;
+    }
+}
+
 .memberInfo_edit{
     &_form{
         // 電腦時，彈窗寬度1000
         @include rwd(desktop){
             width: 1000px;
             }
-            @include rwd(desktopSmall){
-            width: 1000px;
-            }
+            padding: 30px 50px;
+            margin-left: initial;
+            transform: initial;
     }
     // 內容區塊，
     &_inner{
         @include rwd(desktop){
         display: flex;
         }
-        @include rwd(desktopSmall){
-        display: flex;
-        }
-        // display: block;
     }
     // 左邊圖片區塊
     &_imgArea{
-        width: 400px;
-        height: 400px;
+        width: 200px;
+        height: 150px;
         background-image: url('../img/test_login_memberPic.png');
         background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: 100% 20%;
+        @include rwd(desktop){
+            width: 400px;
+            height: 400px;
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-position: 20% 20%;
+        }
+
     }
     &_textArea{
         @include rwd(desktop){
-            width: 600px;
-            }
-            @include rwd(desktopSmall){
             width: 600px;
             }
     }
@@ -160,6 +214,12 @@
         background-repeat: no-repeat;
         // background-position: 0 2px;
         background-size: contain;
+    }
+    .memberInfo_edit_submit{
+        margin: initial;
+    }
+    .memberInfo_edit_title{
+        margin: 15px;
     }
 }
 

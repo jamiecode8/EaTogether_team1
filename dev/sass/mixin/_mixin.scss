@@ -2,7 +2,7 @@
 //宣告組合功能,像JavaScript 裡的function;
 //用法: @include 名稱(); 呼叫
 
-//物件水平垂直置中
+//物件水平置中
 @mixin marginCenter() {
     margin: 0 auto;
 }

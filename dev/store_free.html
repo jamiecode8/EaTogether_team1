@@ -10,9 +10,11 @@
     <body class="store_storeBody">
         @@include('layout/header.html')
 
-        <!-- 登入註冊測試 -->
-        <!-- @@include('layout/login_member.html') -->
-        @@include('layout/login_store.html')
+        <!-- 登入註冊測試-會員 -->
+        @@include('layout/login_member.html')
+
+        <!-- 登入註冊測試-商家 -->
+        <!-- @@include('layout/login_store.html') -->
 
         <!-- test Area -->
 
@@ -125,7 +127,9 @@
                                 <p>查看收藏次數</p>
                                 <p>關鍵字搜尋較佳</p>
                             </div>
-                            <input type="submit" value="升級" class="btn_submit btn-levelUp" />
+                            <a href="/store_upgrade_option.html">
+                                <input type="submit" value="升級" class="btn_submit btn-levelUp" />
+                            </a>
                         </div>
                     </div>
                 </div>
