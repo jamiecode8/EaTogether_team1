@@ -2,16 +2,14 @@
 <header>
     <div class="headerInner">
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="/index.html" class="logo">
             <img src="./img/logo.png" alt="" />
         </a>
         <!-- 會員頭像 -->
-        <div class="headerInner_login">
-          <div class="headerInner_login_memberPic">
-            <img src="./img/test_login_memberPic.png" alt="">
-          </div>
+        <div class="headerInner_login" id="headerInner_login">
         </div>
 
+        <!-- 漢堡圖 -->
         <div class="ham" id="ham_icon">
             <span class="ham_top"></span>
             <span class="ham_middle"></span>
@@ -21,10 +19,10 @@
         <div class="header_overlay" id="header_overlay">
             <nav class="header_overlay_menu">
               <ul>
-                <li class="header_list"><a href="#">Logo</a></li>
-                <li class="header_list"><a href="#">我的飛碟</a></li>
-                <li class="header_list"><a href="#">美食拍立得</a></li>
-                <li class="header_list"><a href="#">外食故事</a></li>
+                <li class="header_list header_inner_logo"><a href="/index.html"></a></li>
+                <li class="header_list header_inner_myUFO"><a href="/myUFO.html">我的飛碟</a></li>
+                <li class="header_list header_inner_myPhoto"><a href="/myphoto.html">美食拍立得</a></li>
+                <li class="header_list header_inner_aboutUs"><a href="#">外食故事</a></li>
               </ul>
             </nav>
           </div>
@@ -34,6 +32,13 @@
 </header>
 
 <script>
+  // 點擊肥肥後，會員登入彈窗會出現
+  $('#headerInner_login').click(function(){
+    $('#memberLogin_popups').css('display' , 'block').fadeIn(100);
+    $('.wrapper:not(#memberLogin_popups)').addClass('blur');
+  });
+
+  // 打開漢堡
    $('#ham_icon').click(function() {
    $(this).toggleClass('active');
    $('#header_overlay').toggleClass('open');
