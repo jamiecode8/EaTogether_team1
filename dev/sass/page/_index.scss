@@ -164,7 +164,7 @@ body.index{
                     line-height:36px;
                 }
                 li:hover{
-                    // background-color: $lightgreen;
+                    background-color: $lightgreen;
                 }
                 //  mrt color
                 .b{
@@ -216,6 +216,7 @@ body.index{
     left: 10%;
    
     .getStore{
+
         input{
             border-radius: 5px;
             margin-top:0px;
@@ -256,6 +257,11 @@ body.index{
                         }
                         display: flex;
                     }
+                    .getStoreInf_tag{
+                        span{
+                            color: $mrtBlue;
+                        }
+                    }
                     .getStoreInf_station{
                         display: flex;
                         .station_color{
@@ -268,9 +274,9 @@ body.index{
                     height: 90px;
                     border-radius: 50%;
                     margin:25px 0 20px;
-                }
+                }     
             }
-        }   
+        }
         .searchTotal{
             padding-top: 20px;
             text-align: center;
@@ -280,11 +286,14 @@ body.index{
 //----------搜尋結果彈窗end----------
 //----------店家資訊彈窗----------
 .index_inf_popup{
-    // display: none;
+    display:none;
+    // overflow:auto;
+    // height: 700px;
     position: absolute;
     top: 5%;
     left: 10%;
     .getStoreInf{
+        padding-bottom: 20px;
         background-color: white;
         input{
             border-radius: 5px;
@@ -302,39 +311,183 @@ body.index{
            } 
     }
     .storeInf{
-        border:1px solid lightsteelblue;
+        //店家名稱 收藏 檢舉
         .storeInf_title{
-          display: flex;
-          justify-content: space-between;
-          .storeInf_title_like{
+            padding-bottom:10px;
+            border-bottom:2px solid $color;
+            display: flex;
+            justify-content: space-between;
+            .storeInf_title_like.on{
+                filter: grayscale(0);
+            }
+            .storeInf_title_like{
                   width: 30px;
                   height: 30px;
                   align-self: center;
                   margin-left: 8px;
+                  filter: grayscale(1);
+                  
           }
-          .getStoreInf_star{
-              display: flex;
-              img{
-                  width:20px;
-              }
-          }
-          .storeInf_title_warn{ 
+            .getStoreInf_star{
+                display: flex;
+                img{
+                    width:20px;
+                }
+            }
+            .storeInf_title_warn{ 
               padding: 5px;
-            img{
+            .storeInf_warnIcon{
+                width: 20px;
                 float: right;
                 margin-bottom: 5px;
+                filter: opacity(0.5);
+            }
+            .storeInf_warnIcon.on{
+                filter: opacity(1);
             }  
             .getStoreInf_tag{
-              
                 font-size: 12px;
                 float: right;
+                span{
+                    color:$mrtBlue;
+                }
             }
           }
         }
+        //店家資訊按鈕
         .storeInf_section{
-            .storeInf_sectioniconIcon{
+            border-bottom:2px solid $color;
+            .storeInf_sectionIcon{
                 display: flex;
+                justify-content: space-around;
+                padding:15px 0 10px;
+                .sectionIcon{
+                    filter: opacity(0.5);
+                }
+                .sectionIcon.on{
+                    filter: opacity(1);
+                }
+            }
+            .sectionIconInf{
+                text-align: center;
+                padding-bottom:5px;
+                font-weight: bold;
+            }
+        }
+        //店家照片
+        .storeInf_pic{
+            border-bottom: 2px solid $color;
+            .storeInf_picMain{
+                margin-top:10px;
+                width: 300px;
+            }
+            .storeInf_picSection{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                img{
+                    width:70px;
+                }
+            }
+           
+        }
+        //店家評論
+        .storeInf_comment{
+            height: 160px;
+            overflow:auto;
+            border-bottom: 2px solid $color;
+
+
+            h2{
+                padding:10px 5px 5px;
+            }
+            .storeInf_comments{
+                .storeInf_commentMain{
+                    background-color: $lightgreen;
+                    border-radius: 5px;
+                    padding:10px;
+                    margin-bottom: 10px;
+                }
+                .commentMain_account{
+                    display: flex;
+                    align-items: center;
+                    img{
+                        padding-right: 10px;
+                        width: 50px;
+                    }
+                    p{
+                        font-size: 14px;
+                    }
+                   
+                }
+                .commentMain_star{
+                    padding: 5px;
+                    display: flex;
+                    img{
+                        width:20px;
+                    }
+                }
+                .commentMain_comment{
+                    padding: 5px;
+                }
+            }
+        }
+    }
+    .storeInf_btn{
+        margin-top:50px;
+    }
+}
+//----------搜尋結果彈窗end----------
+//----------檢舉店家彈窗----------
+.index_searcReport_popup{
+    display: none;
+    position: absolute;
+    top: 5%;
+    left:40%;
+    .getReport{
+        h1{
+            color: $yellow;
+        }
+        padding-bottom: 20px;
+        .reportTitle{
+            margin-bottom: 20px;
+            display: flex;
+            img{
+                margin-right: 5px;
+                width: 20px;
+            }
+        }
+        .reportStore{
+            margin-bottom: 10px;
+            .reportStore_name{
+                padding-bottom: 10px;
+                font-weight: bold;
+                color: $green;
+            }
+            .reportStore_tags{
+                padding-bottom: 10px;
+                span{
+                    color: $mrtBlue;
+                    font-size: 14px;
+                }
+            }
+        }
+        .reportReason{
+            h2{
+                color: $mrtRed;
+                padding-bottom: 5px;
+            }
+            .reportReason_text{
+                background-color: $lightgreen;
+                border: none;
+                border-radius:10px;
+                margin-bottom: 10px;
+                padding: 5px;
             }
         }
     }
 }
+
+//----------檢舉店家彈窗end----------
+
