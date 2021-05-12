@@ -21,6 +21,9 @@
 
 //關閉彈窗
 @include btn_close(".btn_close");
+.btn_close{
+    cursor: pointer;
+}
 
 //查看密碼那顆眼睛
 .showPassword{
