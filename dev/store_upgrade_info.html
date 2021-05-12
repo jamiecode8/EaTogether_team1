@@ -7,27 +7,40 @@
         @@include('layout/style.html')
         <title>資料確認</title>
     </head>
-    <body class="upgrade_body">
+    <body class="body_upgrade">
         @@include('layout/header.html')
         <div class="wrapper wrapper_upgrade">
-            <!-- 步驟數字區，之後用貼的 -->
-            <header class="upgradeHeader">
-                <div class="upgradeHeader_option1">
-                    <p>
-                        選擇方案
-                    </p>
-                </div>
-                <div class="upgradeHeader_option2">
-                    <p>
-                        資料確認
-                    </p>
-                </div>
-                <div class="upgradeHeader_option3">
-                    <p>
-                        升級完成
-                    </p>
-                </div>
-            </header>
+            <!-- 標題區域 -->
+            <section class="upgradeHeader">
+                <ul class="upgradeHeader_area">
+                    <li class="upgradeHeader_areaList">
+                        <div class="upgradeHeader_step">
+                            <h6 class="upgradeHeader_stepNo">1</h6>
+                            <div class="upgradeHeader_text">選擇方案
+                            </div>
+                        </div>
+                        <div class="upgradeHeader_bg"></div>  
+                    </li>
+
+                    <li class="upgradeHeader_areaList" >
+                        <div class="upgradeHeader_step">
+                            <h6 class="upgradeHeader_stepNo">2</h6>
+                            <div class="upgradeHeader_text">資料確認
+                            </div>
+                        </div>
+                        <div class="upgradeHeader_bg"></div>  
+                    </li>
+
+                    <li class="upgradeHeader_areaList" >
+                        <div class="upgradeHeader_step">
+                            <h6 class="upgradeHeader_stepNo">3</h6>
+                            <div class="upgradeHeader_text">資料確認
+                            </div>
+                        </div>
+                        <div class="upgradeHeader_bg"></div>  
+                    </li>
+                </ul>
+            </section>
             <!-- 資料確認區 -->
             <section class="upgradeInfoConfirm">
                 <!-- 企業或個人 -->
@@ -40,14 +53,16 @@
                     </div>
                     <!-- 企業 -->
                     <div class="upgradeInfoConfirm_basic_co upgradeInfoConfirm_areaShow">
-                        <form action="#資料傳送送的網址" method="post" class="form upgradeInfoConfirm_formC">
+                        <form action="#資料傳送送的網址" method=" " class="form upgradeInfoConfirm_formC">
                             <!-- 輸入框欄位 -->
                             <input type="text" placeholder="公司抬頭" />
                             <input type="text" placeholder="統一編號" />
                             <input type="text" placeholder="登記地址" />
                             <input type="text" placeholder="聯絡人" />
                             <input type="text" placeholder="聯絡電話" />
-                            <p>月繳$399</p>
+                            <div class="priceChoice">
+                                <p>月繳$399</p>
+                            </div>
                             
                             <!-- 2顆按鈕用這個 -->
                             <div class="upgradeInfoConfirm_buttonArea_outer">
@@ -60,12 +75,14 @@
                     </div>
                     <!-- 個人 -->
                     <div class="upgradeInfoConfirm_basic_personal upgradeInfoConfirm_areaHide">
-                        <form action="#資料傳送送的網址" method="post" class="form upgradeInfoConfirm_formP">
+                        <form action="#資料傳送送的網址" method=" " class="form upgradeInfoConfirm_formP">
                             <!-- 輸入框欄位 -->
                             <input type="text" placeholder="姓名" />
                             <input type="text" placeholder="地址" />
                             <input type="text" placeholder="聯絡電話" />
-                            <p>月繳$399</p>
+                            <div class="priceChoice">
+                                <p>月繳$399</p>
+                            </div>
                             
                             <!-- 2顆按鈕用這個 -->
                             <div class="upgradeInfoConfirm_buttonArea_outer">
@@ -87,42 +104,63 @@
                      </div>
                      <!-- 信用卡 -->
                      <div class="upgradeInfoConfirm_payment_card upgradeInfoConfirm_areaShow">
-                        <form action="#資料傳送送的網址" method="post" class="form upgradeInfoConfirm_formC">
+                        <form action="#資料傳送送的網址" method=" " class="form upgradeInfoConfirm_formC">
                             <!-- 輸入框欄位 -->
-                            <label for="creditCard">信用卡號碼</label>
-                            <input type="text" id="creditCard"/>
-                            <label for="validDate">有效日期</label>
-                            <input type="text" id="validDate" />
-                            <label for="cvv">安全碼</label>
-                            <input type="text" id="cvv" />
-                            <p>月繳$399</p>
+                            <label for="card-number" class="card_label">信用卡號碼</label>
+                            <input type="num" id="card-number" class="input-cart-number" maxlength="4" />
+                            <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
+                            <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
+                            <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
+                            <br>
+
+                            <label for="validDate" class="card_label">有效日期</label>
+                            <input type="text" id="validDate" /><br>
+                            <label for="cvv" class="card_label">安全碼</label>
+                            <input type="text" maxlength="3" id="ccv" />
+                            <div class="priceChoice">
+                                <p>月繳$399</p>
+                            </div>
                             
-                            <!-- 2顆按鈕用這個 -->
+                            <!-- 2顆按鈕 -->
                             <div class="upgradeInfoConfirm_buttonArea_outer">
                                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                                    <input type="submit" value="返回" class="btn_d btn_cancel" />
-                                    <input type="submit" value="下一步" class="btn_d btn_next" />
+                                    
+                                    <button class="btn_pre btn_btn" class="upgradeInfoConfirm_backTodetail" >返回</button>
+
+                                    <a href="/store_upgrade_complete.html" class="upgradeInfoConfirm_finishpayment" >
+                                        <button class="btn_next btn_btn">
+                                            下一步
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </form>
                      </div>
                      <!-- 轉帳 -->
                      <div class="upgradeInfoConfirm_payment_acc upgradeInfoConfirm_areaHide">
-                        <form action="#資料傳送送的網址" method="post" class="form upgradeInfoConfirm_formP">
+                        <form action="#資料傳送送的網址" method="" class="form upgradeInfoConfirm_formP">
                             <!-- 輸入框欄位 -->
                             <label for="bank">銀行</label>
-                            <input type="text" value="台新銀行敦南分行" id="bank"/>
+                            <input type="text" value="台新銀行敦南分行" id="bank" class="trans_iput trans_iput_s"/><br>
                             <label for="bankAcc">銀行帳戶</label>
-                            <input type="text" value="1010203040405" id="bankAcc"/>
+                            <input type="text" value="1010203040405" id="bankAcc" class="trans_iput"/><br>
                             <label for="accName">戶名</label>
-                            <input type="text" value="外食一起來有限公司"  id="accName"/>
-                            <p>月繳$399</p>
+                            <input type="text" value="外食一起來有限公司"  id="accName" class="trans_iput trans_iput_s"/><br>
+                            <div class="priceChoice">
+                                <p>月繳$399</p>
+                            </div>
                             
-                            <!-- 2顆按鈕用這個 -->
+                            <!-- 2顆按鈕 -->
                             <div class="upgradeInfoConfirm_buttonArea_outer">
                                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                                    <input type="submit" value="返回" class="btn_d btn_cancel" />
-                                    <input type="submit" value="下一步" class="btn_d btn_next" />
+                                    
+                                    <button class="btn_pre btn_btn" class="upgradeInfoConfirm_backTodetail" >返回</button>
+
+                                    <a href="/store_upgrade_complete.html" class="upgradeInfoConfirm_finishpayment" >
+                                        <button class="btn_next btn_btn">
+                                            下一步
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </form>
@@ -134,6 +172,13 @@
         @@include('layout/footer.html')
     </body>
     <script>
+        // 信用卡轉帳區，按返回回企業或個人
+        $('.upgradeInfoConfirm_backTodetail').click(function(){
+            $('.upgradeInfoConfirm_payment').css('display','none');
+            $('.upgradeInfoConfirm_basic').css('display','block');
+        })
+
+        // 信用卡跟轉帳的切換
         // 轉帳被click時
         $('#upgradeInfoConfirm_acc').click(function(){
             $('.upgradeInfoConfirm_payment_acc')

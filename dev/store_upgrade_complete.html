@@ -7,27 +7,40 @@
         @@include('layout/style.html')
         <title>升級完成</title>
     </head>
-    <body>
+    <body class="body_upgrade">
         @@include('layout/header.html')
         <div class="wrapper wrapper_upgrade">
-            <!-- 步驟數字區，之後用貼的 -->
-            <header class="upgradeHeader">
-                <div class="upgradeHeader_option1">
-                    <p>
-                        選擇方案
-                    </p>
-                </div>
-                <div class="upgradeHeader_option2">
-                    <p>
-                        資料確認
-                    </p>
-                </div>
-                <div class="upgradeHeader_option3">
-                    <p>
-                        升級完成
-                    </p>
-                </div>
-            </header>
+            <!-- 標題區域 -->
+            <section class="upgradeHeader">
+                    <ul class="upgradeHeader_area">
+                        <li class="upgradeHeader_areaList">
+                            <div class="upgradeHeader_step">
+                                <h6 class="upgradeHeader_stepNo">1</h6>
+                                <div class="upgradeHeader_text">選擇方案
+                                </div>
+                            </div>
+                            <div class="upgradeHeader_bg"></div>  
+                        </li>
+    
+                        <li class="upgradeHeader_areaList" >
+                            <div class="upgradeHeader_step">
+                                <h6 class="upgradeHeader_stepNo">2</h6>
+                                <div class="upgradeHeader_text">資料確認
+                                </div>
+                            </div>
+                            <div class="upgradeHeader_bg"></div>  
+                        </li>
+    
+                        <li class="upgradeHeader_areaList" >
+                            <div class="upgradeHeader_step">
+                                <h6 class="upgradeHeader_stepNo">3</h6>
+                                <div class="upgradeHeader_text">資料確認
+                                </div>
+                            </div>
+                            <div class="upgradeHeader_bg"></div>  
+                        </li>
+                    </ul>
+            </section>
 
             <!-- 中間內容 -->
             <div class="upgradeComplete_inner">
@@ -42,8 +55,12 @@
                 <!-- 放button -->
                 <div class="upgradeInfoConfirm_buttonArea_outer">
                     <div class="buttonArea ">
-                        <input type="submit" value="美食探索" class="btn_d btn_cancel" />
-                        <input type="submit" value="商家專區" class="btn_d btn_next" />
+                        <a href="./store_paid.html">
+                            <button class="btn_cancel btn_btn" >商家專區</button>
+                        </a>
+                        <a href="index.html">
+                            <button class="btn_next btn_btn" >美食探索</button>
+                        </a>
                     </div>
                 </div>
             </div>
