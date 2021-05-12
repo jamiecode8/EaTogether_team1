@@ -3,9 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />        
         @@include('layout/style.html')
         <title>首頁</title>
     </head>
@@ -142,9 +140,9 @@
                 <h2>適合你的食物是</h2>
                 <input type="text"  class="myOptions" disabled="disabled">    
 
-                <div class="buttonArea">
+                <div class="whatBtn buttonArea">
                     <input  value="再一次" class="whatBtnAgain btn_d btn_submit" />
-                    <input  type="submit" value="哪裡有" class="whatBtnNext AnswerBtn btn_d btn_submit" />
+                    <input  value="哪裡有" class=" getWhatBtn btn_d btn_submit" />
                 </div>
                 </form>
             </div> 
@@ -188,7 +186,7 @@
                         </div>
                     </div>
             
-                    <div class="btn">
+                    <div class="SearchBtn btn">
                         <input  value="出發探索" class="getSearchBtn btn_submit" />
                     </div>
               
@@ -345,7 +343,7 @@
                     <!-- 店家基本資訊 -->
                     <div class="storeInf">
                         <div class="storeInf_title">
-                            <img class="storeInf_title_like" src="./img/icon/icon_heart_default.png" alt="">
+                            <img class="storeInf_title_like" src="./img/icon/icon_heart.png" alt="">
                             <div>
                                 <h2 class="storeInf_title_name">提八米咖啡廳</h2>
                                 <div class="getStoreInf_star"> 
@@ -358,7 +356,7 @@
                            </div>
                            <ul class="storeInf_title_warn">
                                 <li>
-                                    <img src="./img/icon/icon_warn.png" alt="">
+                                    <img class="storeInf_warnIcon" src="./img/icon/icon_warn.png" alt="">
                                 </li>
                                 <li class="getStoreInf_tag">
                                     <span>#下午茶</span>
@@ -368,26 +366,168 @@
 
                             </ul>
                         </div>
+                        <!-- 基本資訊icon     -->
+                        <div class="storeInf_section">
+                            <ul class="storeInf_sectionIcon">
+                                <li class="sectionIcon sectionIcon_location"><img src="./img/icon/icon_location.png" alt=""></li>
+                                <li class="sectionIcon sectionIcon_mrt"><img src="./img/icon/icon_mrt.png" alt=""></li>
+                                <li class="sectionIcon sectionIcon_tel"><img src="./img/icon/icon_tel.png" alt=""></li>
+                                <li class="sectionIcon sectionIcon_time"><img src="./img/icon/icon_time.png" alt=""></li>
+                                <li class="sectionIcon sectionIcon_price"><img src="./img/icon/icon_price.png" alt=""></li>
+                            </ul>
+                            <p class="sectionIconInf"></p>
+                        </div>
+                        <!-- 店家照片 -->
+                        <div class="storeInf_pic">
+                            <img class="storeInf_picMain" src="./img/index/storeMainPic.jpeg" alt="">
+                            <div class="storeInf_picSection">
+                                <img src="./img/index/storePic2.jpeg" alt="">
+                                <img src="./img/index/storePic2.jpeg" alt="">
+                                <img src="./img/index/storePic3.jpeg" alt="">
+                                <img src="./img/index/storePic3.jpeg" alt="">
+                            </div>
+    
+                        </div>
+                        <!-- 評論 -->
+                        <div class="storeInf_comment">
+                            <h2>評論</h2>
+
+                            <div class="storeInf_comments">
+                                <ul class="storeInf_commentMain">
+                                    <li class="commentMain_account">
+                                        <img src="./img/index/account.png" alt="">
+                                        <p>MrRight</p>
+                                    </li>
+                                    
+                                    <li class="commentMain_star">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star_default.png" alt="">
+                                    </li>
+
+                                    <li class="commentMain_comment">
+                                        <p>東西好吃 想跟老闆結婚</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="storeInf_comments">
+                                <ul class="storeInf_commentMain">
+                                    <li class="commentMain_account">
+                                        <img src="./img/index/account.png" alt="">
+                                        <p>handsomeMan</p>
+                                    </li>
+                                    
+                                    <li class="commentMain_star">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star_default.png" alt="">
+                                    </li>
+
+                                    <li class="commentMain_comment">
+                                        <p>ＣＰ值高 重點是老闆娘票釀</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="storeInf_comments">
+                                <ul class="storeInf_commentMain">
+                                    <li class="commentMain_account">
+                                        <img src="./img/index/account.png" alt="">
+                                        <p>LittlePrincess</p>
+                                    </li>
+                                    
+                                    <li class="commentMain_star">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                    </li>
+
+                                    <li class="commentMain_comment">
+                                        <p>本公主覺得好吃極了</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="storeInf_comments">
+                                <ul class="storeInf_commentMain">
+                                    <li class="commentMain_account">
+                                        <img src="./img/index/account.png" alt="">
+                                        <p>hahaMan</p>
+                                    </li>
+                                    
+                                    <li class="commentMain_star">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star_default.png" alt="">
+                                        <img src="./img/icon/icon_star_default.png" alt="">
+                                        <img src="./img/icon/icon_star_default.png" alt="">
+                                    </li>
+
+                                    <li class="commentMain_comment">
+                                        <p>我覺得哈哈 普普通通</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="storeInf_comments">
+                                <ul class="storeInf_commentMain">
+                                    <li class="commentMain_account">
+                                        <img src="./img/index/account.png" alt="">
+                                        <p>SexFat</p>
+                                    </li>
+                                    
+                                    <li class="commentMain_star">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star.png" alt="">
+                                        <img src="./img/icon/icon_star_default.png" alt="">
+                                    </li>
+
+                                    <li class="commentMain_comment">
+                                        <p>我覺得很棒很好吃</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="storeInf_section">
-                        <ul class="storeInf_sectioniconIcon">
-                            <li class="sectioniconIcon_location"><img src="./img/icon/icon_location.png" alt=""></li>
-                            <li class="sectioniconIcon_mrt"><img src="./img/icon/icon_mrt.png" alt=""></li>
-                            <li class="sectioniconIcon_tel"><img src="./img/icon/icon_tel.png" alt=""></li>
-                            <li class="sectioniconIcon_time"><img src="./img/icon/icon_time.png" alt=""></li>
-                            <li class="sectioniconIcon_price"><img src="./img/icon/icon_price.png" alt=""></li>
-                        </ul>
-                        <ul class="storeInf_sectioniconIconInf">
-                            <li class="sectioniconIconInf_location">復興北路你家巷口200號</li>
-                            <li class="sectioniconIconInf_mrt">南京復興站</li>
-                            <li class="sectioniconIconInf_tel">02 1234567</li>
-                            <li class="sectioniconIconInf_time">10:00-20:00</li>
-                            <li class="sectioniconIconInf_price">150</li>
-                        </ul>
-                    
-                        
+                    <!-- 優惠券 -->
+                    <div class="btn storeInf_btn">
+                        <input  value="領取優惠券" class="getCouponBtn btn_submit" />
                     </div>
-                
+                    <br />
+                </form>
+            </div>
+            <!-- 檢舉店家彈窗 -->
+            <div class="popUps index_searcReport_popup">
+                <form class="form getReport" action="">
+                    <button type="button" class="getReportClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h1>我要檢舉</h1>
+                    <div class="reportTitle">
+                        <img src="./img/icon/icon_warn.png" alt="">
+                        <h2>被檢舉店家:</h2>
+                    </div>
+                    <div class="reportStore">
+                        <p class="reportStore_name">提八米咖啡廳</p>
+                        <div class="reportStore_tags">
+                            <span>#下午茶</span>
+                            <span>#咖啡店</span>
+                            <span>#甜點</span>
+                        </div>
+                    </div>
+                    <div class="reportReason">
+                        <h2>檢舉原因:</h2>
+                        <textarea class="reportReason_text" name="" id="" cols="35" rows="5"></textarea>
+                    </div>
+                    <div class="reportBtn btn">
+                        <input  type="submit" value="檢舉" class="getReportBtn btn_submit" />
+                    </div>
+              
                 </form>
             </div>
             
@@ -418,11 +558,12 @@
             $('.select_options').toggleClass('on');
         });
 
-        //選擇答案 (取選到的值)
+        //選擇答案 (取選到的值) 那每題的input變成陣列
         $('#options li').click(function(){
-            let options=document.getElementsByClassName('myOptions');
-            let questionNumber=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;
-            options[questionNumber].value=$(this).text();
+            let options=document.getElementsByClassName('myOptions');  
+            let questionIndex=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;   //為了取索引位置-1 questionNumber=questionIndex
+            options[questionIndex].value=$(this).text();//options[0]拿第一題
+            console.log(questionIndex);
             $('.select_options').toggleClass('on');
             // $('.whatToEat_q_arrow').toggleClass('on');
         });
@@ -430,23 +571,14 @@
         //按下一題並回答問題才可繼續
         $('.whatBtnNext').click(function(){
             let options=document.getElementsByClassName('myOptions');
-            let questionNumber=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;
-            if( options[questionNumber].value == "" ){
+            let questionIndex=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;
+            if( options[questionIndex].value == "" ){
                 alert('請完成作答');
             }else{
                 $(this.parentNode.parentNode.parentNode).fadeOut(100);
                 $(this.parentNode.parentNode.parentNode).next().fadeIn(50);
             }
         });
-        $('.AnswerBtn').click(function(){
-            if($(".myOptions").prevAll().val() == "" ){
-                alert('請選擇');
-            }else{
-                $(this.parentNode.parentNode.parentNode).fadeOut(100);
-                $(this.parentNode.parentNode.parentNode).next().fadeIn(50);
-            }
-        });
-
         //按上一題
         $('.whatBtnPre').click(function(){
             $(this.parentNode.parentNode.parentNode).fadeOut(100);
@@ -458,8 +590,11 @@
             $(this.parentNode.parentNode.parentNode).fadeOut(100);
             $('.myOptions').val('');
             $('.index_whatToEat_popup.1').fadeIn(50);
-           
         });
+        //哪裡有
+        $('.getWhatBtn').click(function(){
+            $('.index_store_popup').fadeIn(50);
+        }); 
         //-----whatToEat彈窗end------
 
         //-----search彈窗------
@@ -479,15 +614,64 @@
         $('.keyword_search_icon').click(function (){
             $('.searchTags').toggleClass('on');
         });
-        //出發探索
+        //出發探索 搜尋結果彈窗出現
         $('.getSearchBtn').click(function (){
             $('.index_search_popup').fadeOut(100);
             $('.index_store_popup').fadeIn(50);
-            
-            
         });
-        //-----search表單彈窗end------
-   
+        //搜尋結果彈窗 點擊跳店家資訊
+        $('.getStoreInf').click(function (){
+            $('.index_store_popup').fadeOut(100);
+            $('.index_inf_popup').fadeIn(50);
+        });
+        //收藏
+        $('.storeInf_title_like').click(function (){
+            $(this).toggleClass('on');
+        });
+        //店家資訊
+        $('.sectionIcon').click(function (){
+            $('.sectionIcon').removeClass('on');
+            $(this).toggleClass('on');
+            let myClassName =this.className.split(' ')[1];
+            $('.sectionIconInf').css('color','#6c584c');
+           
+            if(myClassName=='sectionIcon_location'){
+                $('.sectionIconInf').html('地址｜復興北路你家巷口200號');
+            }else if(myClassName=='sectionIcon_mrt'){
+                $('.sectionIconInf').html('捷運站｜南京復興');
+                $('.sectionIconInf').css('color','#7baa85');
+            }else if(myClassName=='sectionIcon_tel'){
+                $('.sectionIconInf').html('電話｜02 1234567');
+            }else if(myClassName=='sectionIcon_time'){
+                $('.sectionIconInf').html('營業時間｜10:00-20:00');
+            }else if(myClassName=='sectionIcon_price'){
+                $('.sectionIconInf').html('平均客單｜150 元');
+            }
+        });
+        //領取優惠
+        $('.getCouponBtn').click(function(){
+            $(this).val('領取過了');
+        });
+
+
+
+         //檢舉店家  
+         $('.storeInf_warnIcon').click(function (){
+            $(this).addClass('on');
+            $('.index_searcReport_popup').fadeIn(100);
+
+        });
+        //關閉彈窗
+        $('.storeInf_warnIcon.on').click(function (){
+            $(this).removeClass('on');
+            $('.index_searcReport_popup').fadeOut(100);
+        });
+      
+        $('.getReportClose').click(function (){
+            $('.storeInf_warnIcon').toggleClass('on');
+            $(this.parentNode.parentNode).fadeOut(100);
+        });
+      
 
         
 
