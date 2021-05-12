@@ -72,7 +72,7 @@ body.index{
 .index_whatToEat_popup{
     display: none;
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 10%;
     h1{
         color: $yellow;
@@ -130,7 +130,7 @@ body.index{
 .index_search_popup{
     display: none;
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 10%;
     h1{
         color: $green;
@@ -212,7 +212,7 @@ body.index{
 .index_store_popup{
     display: none;
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 10%;
    
     .getStore{
@@ -290,9 +290,9 @@ body.index{
     overflow:auto;
     height: 700px;
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 10%;
-    .getStoreInf{
+    .getStoreDigitalInf{
         padding-bottom: 20px;
         background-color: white;
         input{
@@ -443,7 +443,7 @@ body.index{
 .index_searcReport_popup{
     display: none;
     position: absolute;
-    top: 5%;
+    top: 10%;
     left:40%;
     .getReport{
         h1{

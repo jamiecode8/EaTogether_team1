@@ -331,7 +331,7 @@
             </div>
             <!-- 店家詳細資訊 -->
             <div class="popUps index_inf_popup">
-                <form class="form getStoreInf" action="">
+                <form class="form getStoreDigitaInf" action="">
                     <button type="button" class="getSearchClose btn_close">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
@@ -536,7 +536,6 @@
 
         </div>
         @@include('layout/footer.html')
-
     <script>
 
         //-----whatToEat彈窗------
@@ -605,7 +604,7 @@
         });
         //關閉彈窗
         $('.getSearchClose').click(function (){
-            $(this.parentNode).fadeOut(200);
+            $(this.parentNode.parentNode).fadeOut(200);
         });
         //顯示下拉選單
         $('.mrt_search_icon').click(function (){
@@ -620,8 +619,8 @@
             $('.index_store_popup').fadeIn(50);
         });
         //搜尋結果彈窗 點擊跳店家資訊
-        $('.getStoreInf').click(function (){
-            $('.index_store_popup').fadeOut(100);
+        $('.getStoreInf').click(function (e){
+            $(this.parentNode.parentNode.parentNode).fadeOut(100);
             $('.index_inf_popup').fadeIn(50);
         });
         //收藏
@@ -652,9 +651,6 @@
         $('.getCouponBtn').click(function(){
             $(this).val('領取過了');
         });
-
-
-
          //檢舉店家  
          $('.storeInf_warnIcon').click(function (){
             $(this).addClass('on');
