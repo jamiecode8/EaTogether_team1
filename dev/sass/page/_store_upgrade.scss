@@ -1,34 +1,18 @@
-.upgrade_body{
+.body_upgrade{
     background-color: $bgc;
+    padding-top: 100px;
 }
 .wrapper_upgrade{
-    @include borderTest(blue);
-    padding: 0 150px;
+    // @include borderTest(blue);
+    padding: 0 150px 100px;
 }
-
-.upgradeHeader{
-    @include borderTest();
-    display: flex;
-    text-align: center;
-    &_option1{
-        flex-grow: 1;
-    }
-    &_option2{
-        flex-grow: 1;
-    }
-    &_option3{
-        flex-grow: 1;
-    }
-}
-// 先放背景圖
-// 放數字
-// 再用圖片高度，決定標題的line-hight
 
 .upgradeOption{
     display: flex;
     position: relative;
-    padding-bottom: 50px;
+    padding: 50px;
     &_text{
+        // @include borderTest(blue);
         flex-grow: 3;
         padding: 0 50px;
         &_title{
@@ -37,6 +21,7 @@
         }
     }
     &_btnArea{
+        // @include borderTest(green);
         flex-grow: 1;
     }
     &::after{
@@ -45,18 +30,33 @@
     p{
         line-height: 40px;
     }
-    
 }
+
+// 費用選擇頁面的按鈕區
+.upgradeOption_btnArea{
+    padding-top: 50px;
+    &_option{
+        width: 120px;
+        margin-left: calc(100% - 120px);
+        margin-bottom: 30px;
+    }
+    &_submit{
+        margin:initial;
+        transform: initial;
+        margin-left: calc(100% - 285px);
+    }
+}
+
 
 // 資料確認頁面
 .upgradeInfoConfirm{
+    padding-top: 20px;
     &_basic_menu{
         display: flex;
     }
     &_payment_menu{
         display: flex;
     }
-
 }
 
 // 企業個人選單切換
@@ -67,6 +67,14 @@
     &_areaShow{
         display: block;
     }
+}
+//月繳前面那顆 
+.priceChoice{
+    background-image: url('../img/icon/icon_choice.png');
+    background-repeat: no-repeat;
+    background-position: 5px 0;
+    background-size: 15px;
+    padding-left: 25px;
 }
 
 // 企業個人切換選單css
@@ -105,9 +113,51 @@
     }
 }
 
+// 信用卡號碼
+.input-cart-number {
+    width: 82px;
+    display: inline-block;
+    margin-right: 8px;
 
-.upgradeInfoConfirm_basic, .upgradeInfoConfirm_payment{
+    &:last-child {
+      margin-right: 0;
+    }
+}
+// 有效日期、安全碼
+#validDate, #ccv{
+    width: 82px;
+}
+#validDate{
+    margin-left: 15px;
+}
+#ccv{
+    margin-left: 30px;
+}
+
+// 轉帳
+.trans_iput{
+   width: 80%; 
+   &_s{
+       margin-left: 32px;
+   }
+}
+
+// 完成表單按鈕,a連結的大小，目前沒用
+// .upgradeInfoConfirm{
+//     &_finishpayment{
+//         width: 100px;
+//         height: 50px;
+//     }
+// }
+
+.upgradeInfoConfirm_basic{
     width: 100%;
+    display: none;
+}
+
+.upgradeInfoConfirm_payment{
+    width: 100%;
+    display: block;
 }
 
 .upgradeInfoConfirm{
@@ -149,3 +199,62 @@
         }
     }
 }
+
+// 以下上面那區
+.upgradeHeader{
+    // @include borderTest();
+    
+    &_area{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100px;
+    }
+    &_areaList{
+        // @include borderTest(blue);
+        background-image: url(../img/tang/steps_bg_style.png);
+        background-position:center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100px;
+        height: 100px;
+        padding-bottom: 12% ;
+        position: relative;
+    }
+    &_step{
+        margin-top: 30%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        padding-left:12%;
+    }
+    &_stepNo{
+        font-size: 50px;
+        display: inline-block;
+    }
+    &_text{
+        // flex-basis: 0;
+        // flex-grow: 0.5;
+        text-align: center;
+        width: 40px;
+    }
+    
+}
+
+.upgradeHeader
+.upgradeHeader_bg{
+    width: 50px;
+    height: 0;
+    padding-bottom: 50%;
+    background-color: $green;
+    opacity: .2;
+    border-radius: 50%;
+
+    position: absolute;
+    right: -2%;
+    bottom: 18%;
+    z-index: 1;
+}
+
+// 以上上面那區
