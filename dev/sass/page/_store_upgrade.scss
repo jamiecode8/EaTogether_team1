@@ -135,3 +135,17 @@
         transform: initial;
     }
 }
+
+
+// 升級完成頁面
+.upgradeComplete_inner{
+    height: 200px;
+    &_text{
+        padding: 30px 0;
+        text-align: center;
+        margin-bottom: 30px;
+        h1{
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -9,7 +9,45 @@
     </head>
     <body>
         @@include('layout/header.html')
-        <div class="wrapper"></div>
+        <div class="wrapper wrapper_upgrade">
+            <!-- 步驟數字區，之後用貼的 -->
+            <header class="upgradeHeader">
+                <div class="upgradeHeader_option1">
+                    <p>
+                        選擇方案
+                    </p>
+                </div>
+                <div class="upgradeHeader_option2">
+                    <p>
+                        資料確認
+                    </p>
+                </div>
+                <div class="upgradeHeader_option3">
+                    <p>
+                        升級完成
+                    </p>
+                </div>
+            </header>
+
+            <!-- 中間內容 -->
+            <div class="upgradeComplete_inner">
+               <div class="upgradeComplete_inner_check"> 
+                   <!-- 放打勾那個icon -->
+               </div> 
+               <div class="upgradeComplete_inner_text">
+                   <!-- 放文字 -->
+                   <h1>感謝您！ 已收到您的申請!</h1>
+                   <p>請等待1~2個工作天，系統會另行通知</p>
+               </div>
+                <!-- 放button -->
+                <div class="upgradeInfoConfirm_buttonArea_outer">
+                    <div class="buttonArea ">
+                        <input type="submit" value="美食探索" class="btn_d btn_cancel" />
+                        <input type="submit" value="商家專區" class="btn_d btn_next" />
+                    </div>
+                </div>
+            </div>
+        </div>
         @@include('layout/footer.html')
     </body>
 </html>
