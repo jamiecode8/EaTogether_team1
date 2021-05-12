@@ -1,9 +1,9 @@
 //棠棠的
 //============================= myPhoto =============================//
 
-//  *{
-//      outline: 1px  solid  orange;
-//  }
+ *{
+     outline: 1px  solid  orange;
+ }
 
 .pho_wrapper{
     background-image: url(../../img/tang/background.png);
@@ -103,7 +103,7 @@
 
 //============================= myphoto_post_pic =============================//
 
-// 上方step圖示
+// 上方step圖示 s1
 .pho_edit_s1{
     ul{
         display: flex;
@@ -170,18 +170,19 @@
 }
 
 
-//選擇背景圖片
+//編輯區 s2
 .pho_edit_s2{
     
 
-    h4{
+    &>h2{
         margin: 5% 0 2%;
+        text-align: center;
        
     }
     .pho_edit_fullcontent{
         width: 82%;
         margin: 0 auto;
-        padding: 20px;
+        padding: 30px;
         background-color: white;
         @include shadow();
     }
@@ -194,8 +195,6 @@
         margin:0 auto;
         background-color: lighten(#ccc, 15%) ;
         border: 1px solid $green;
-
-        //position:relative;
         
         @include btn('.btn_submit', $green, $tp);
 
@@ -203,19 +202,11 @@
             color:$color;
             font-size: $fontSize;
             text-align: left;
-            //position:absolute;
-            //right:3%;
-            //bottom: 3%;
             opacity: 0.5;
             padding-left: 74%;
             padding-top: 8%;
         }
     }
-
-    h5{
-        padding-left: 20px;
-    }
-
     >div{
         padding-left: 20px;
     }
@@ -223,12 +214,11 @@
     section{
         padding: 0 20px;
         h5{
-            padding-left: 0px;
+            padding: 3% 0 1% 0;
+            font-size: $fontSize_SubTitle;
+            font-weight: bold;
+            color: $color;
         }
-    }
-
-    .pho_star{
-        padding-left: 20px;
     }
 
     input{
@@ -247,13 +237,13 @@
 
     .pho_searchTags{
         padding: 15px 200px 15px 20px;
+        border:2px solid $lightgreen;
         
     }
 
     .searchTags{
         
         background-color: white;
-        border: 2px solid $lightgreen;
         
 
         span{
@@ -269,4 +259,27 @@
         }
         
     }
+
 }
+
+// s3
+.pho_edit_s3{
+    padding:1% 8%;
+     @include btn('.btn_submit', $green, $tp);
+     
+     .circleBtn_submit{
+         width: 4%;
+         height: 0;
+         padding-bottom: 4%;
+         background-color: $green;
+         border-radius: 20px;
+
+         img{
+             width: 30px;
+             height:30px;
+         }
+         
+         
+     }
+    } 
+
