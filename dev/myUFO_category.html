@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @@include('layout/style.html')
     <title> 我的飛碟_類別</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 </head>
 
 <body class="mimicategory">
     @@include('layout/header.html')
     <div class="wrapper">  
+
         <!-- 米米在這裡面編輯 -->
         <!-- 背景抽屜 -->
         <div><img src="./img/mimi/category.svg" alt="" class="category"></div>
@@ -19,14 +21,107 @@
         <!-- 衣櫃 -->
         <div><a href="#"><img src="./img/mimi/wardrobe.svg" alt="" class="wardrobe"></a></div>
         <!-- 優惠券 -->
-        <div><a href="#"><img src="./img/mimi/coupon.svg" alt="" class="coupon" ></a></div>
+        <div><a href="#" id="coupon_wardrobe"><img src="./img/mimi/coupon.svg" alt="" class="coupon" ></a></div>
         <!-- 小遊戲 -->
         <div><a href="#"><img src="./img/mimi/game.svg" alt="" class="game"></a></div>
         <!-- 照片 -->
         <div><a href="#"><img src="./img/mimi/Smallphoto.svg" alt="" class="Smallphoto"></a></div>
         <!-- 任務 -->
-        <div><a href="#"><img src="./img/mimi/task.svg" alt="" class="Smalltask"></a></div>
+        <div><a href="#" id="Smalltask_wardrobe"><img src="./img/mimi/task.svg" alt="" class="Smalltask"></a></div>
+        <!-- -----------------------優惠券彈窗------------------------------------- -->  
+        <div class="popUps" id="wardrobe_coupon">
+            <form action="#資料傳送送的網址" method="post" class="form">
+              <!-- close button -->
+              <button type="button" class="close_coupon">
+                <img src="./img/icon/icon_close.png" alt="" >
+              </button>
+               <h1>每日優惠卷一張</h1>
+              <!-- 主標題 -->
+              <div><img src="./img/mimi/couponicon.svg" alt="" class="couponicon"></div>
+              <!-- 單顆按鈕用這裡 -->
+              <div class="buttonArea">
+                <input type="submit" value="兌換" class=" btn_submit">
+              </div>
+            </form>
+          </div>
+          <script>
+              $('#coupon_wardrobe').click(function(){
+              $('#wardrobe_coupon').css('display' , 'block').fadeIn(100);
+              console.log('click ok');
+              })
+          </script>
+          <!-- -----------------------每日任務彈窗----------------------------- -->
+          <div class="popUps" id="wardrobe_Smalltask">
+            <form action="#資料傳送送的網址" method="post" class="form">
+              <!-- close button -->
+              <button type="button" class="close_coupon">
+                <img src="./img/icon/icon_close.png" alt="">
+              </button>
+            
+              <!-- 主標題 -->
+              <h1>
+                每日任務 
+              </h1>
+              <div>
+                  <div class="Smalltaskbox">
+                      <!-- --1-- -->
+                      <img src="./img/mimi/Littleman.svg" alt="" class="Littleman">
+                      <!-- --2---- -->
+                      <div class="progress-wrap progress" data-progress-percent="5">
+                        <div class="progress-bar progress"></div>
+                      </div>
+                      <script>
+                              moveProgressBar();
 
+                             $(window).resize(function() {
+                              moveProgressBar();
+                              });
+
+                             function moveProgressBar() {
+                             console.log("moveProgressBar");
+                             var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
+                             var getProgressWrapWidth = $('.progress-wrap').width();
+                             var progressTotal = getPercent * getProgressWrapWidth;
+                             var animationLength = 2500;
+    
+                             $('.progress-bar').stop().animate({
+                             left: progressTotal
+                             }, animationLength);
+}
+                      </script>
+                      <!-- --3-- -->
+                      <div class="buttonArea_Smalltask">
+                        <button>送出</button>
+                      </div>
+                  </div>
+              </div>   
+ 
+            </form>
+          </div>
+          <script>
+            $('#Smalltask_wardrobe').click(function(){
+            $('#wardrobe_Smalltask').css('display' , 'block').fadeIn(100);
+            console.log('click ok');
+            })
+
+            moveProgressBar();
+
+             $(window).resize(function() {
+             moveProgressBar();
+             });
+
+            function moveProgressBar() {
+              console.log("moveProgressBar");
+              var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
+              var getProgressWrapWidth = $('.progress-wrap').width();
+              var progressTotal = getPercent * getProgressWrapWidth;
+              var animationLength = 2500;
+
+            $('.progress-bar').stop().animate({
+                left: progressTotal
+                }, animationLength);
+            }
+        </script>
     </div>
     @@include('layout/footer.html')
 </body>
