@@ -52,18 +52,18 @@ header{
     }
 }
 
-
-// 會員頭像
-.headerInner_login_memberPic{
+// 會員登入頭像
+.headerInner_login{
     position: fixed;
     top: 5%;
     right: 10%;
     cursor: pointer;
     transition: opacity 0.25s ease;
-    // 這邊照片出不來
-    background-image: url(../img/test_login_memberPic.png);
+    background-image: url('../img/test_login_memberPic.png');
     width: 30px;
     height: 30px;
+    z-index: 900;
+    background-size: cover;
 }
 
 // 漢堡
@@ -116,7 +116,6 @@ header{
 // 展開滿版選單-選單區
 .header_overlay {
     position: fixed;
-    /* 改$lightgreen */
     background: $lightgreen;
     top: 0;
     left: 0;
@@ -133,7 +132,6 @@ header{
         text-align: center;
     }
     ul{
-        @include borderTest(blue);
         position: relative;
         height: 100%;
         width: 100%;
@@ -166,7 +164,6 @@ header{
             animation-delay: 0.5s;
             }
         a{
-            @include borderTest(green);
             height: 100%;
             display: block;
             position: relative;
@@ -188,4 +185,13 @@ header{
       opacity: 1;
       left: 0;
     }
+  }
+
+  .header_inner{
+      &_logo{
+          background-image: url('../img/logo.png');
+          background-repeat: no-repeat;
+          background-position: 50% 0;
+      }
+      
   }
