@@ -1,124 +1,299 @@
 //米米的
-
-
-.figure {
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-    position: center center;
+.myUFO_wrapper{
+width: 100%;
+background: $bgc;
+height: 100vh;
 }
 
-.figure2 {
-    width: 100%;
+
+.myUFO_bg{
+
+    .figure{
+        width: 100%;
+        background-size: cover;
+    }   
+    .figure2{
+        width: 100%;
+        background-size: cover;
+        
+    }
+    .figure3{
+        width: 100%;
+        background-size: cover;
+    }
 }
 
-.figure3 {
-    width: 100%;
-}
-
-.window2 {
+.window1{
     position: absolute;
-    top: -10%;
-    margin: 20px 30px;
+    width: 30%;
+    top: 30%;
+    @include rwd(pad){
+        position: absolute;
+        width: 35%;
+        height: 50%;
+        top: 50%;
+        }
+        @include rwd(largeMobile){
+            position: absolute;
+            width: 55%;
+            height: 40%;
+            top: 40%;
+        }
+        @include rwd(mobile){
+            position: absolute;
+            width: 55%;
+            height: 40%;
+            top: 40%;
+        }
+    .window2{
+        width: 60%;
+        margin:  0 10%;
+        @include rwd(pad){
+            width: 90%;
+            margin:  30% 0%;
+            }
+            @include rwd(largeMobile){
+            width: 70%;
+            margin:  0% 0%;
+            }
+            @include rwd(mobile){
+                width: 70%;
+                margin:  0% 0%;
+            }
+        
+    }
+}
+
+.Points1{
+    position: absolute;
     width: 20%;
-    height: 100%;
-    z-index: 10;
-}
-
-.Points {
-    position: absolute;
-    z-index: 10;
-    margin: 0px 50px;
-    bottom: 2%;
-    width: 2%;
-    left: 0%;
-    top: 75%;
-}
-
-.Points_font p{
-    position: absolute;
-    font-size: 25px;
+    height: 10%;
+    left: 5%;
     top: 90%;
-    left:13%;
+    display: flex;
+    align-items: center;
+    @include rwd(pad){
+        top: 130%;
+        left: 10%;
+        }
+        @include rwd(largeMobile){
+        
+        left: 10%;
+        }
+        @include rwd(mobile){
+            left: 25%;
+            top: 87%;
+        }
+    
+    img{
+      width: 15%;
+      @include rwd(pad){
+        width: 25%;
+        }
+        @include rwd(largeMobile){
+        width: 35%;
+        }
+        @include rwd(mobile){
+            width: 45%;
+        }
+    }
+    p{
+      font-size: $fontSize_Title;
+      margin: 10px;
+      @include rwd(pad){
+        margin: 12px;
+        }
+        @include rwd(largeMobile){
+        margin: 15px;
+        }
+        @include rwd(mobile){
+            margin: 10px;
+        }
+    }
 }
 
-.Carousel {
+.laftmyufo{
     position: absolute;
-    top: 0%;
-    width: 35%;
-    z-index: 10;
-    right: 34%;
+    width: 30%;
+    height: 100%;
+    bottom: 0%;
+    right: 0;
+    @include rwd(pad){
+        top: 20%;
+        }
+        @include rwd(largeMobile){
+        width: 35%;
+        top: 20%;
+        height: 80%;
+        }
+        @include rwd(mobile){
+            width: 35%;
+            top: 0%;
+            height: 80%;
+        }
+    .light{
+        width: 35%;
+        margin: 0 20%;
+        z-index: 99;
+        @include rwd(pad){
+            width: 60%;
+            margin: 0% 20%;
+            z-index: 99;
+            }
+            @include rwd(largeMobile){
+            display: none;
+            }
+            @include rwd(mobile){
+                display: none;
+            }
+    }
+    .favorites{
+        position: absolute;
+        top: 23%;
+        width: 35%;
+        margin: 0 20%;
+        z-index: 40;
+        @include rwd(desktopSmall){
+            position: absolute;
+            top: 18%;
+            width: 37%;
+            margin: 0 20%;
+            z-index: 40;
+        }
+        @include rwd(pad){
+            position: absolute;
+            top: 25%;
+            width: 55%;
+            margin: 0 20%;
+            z-index: 40;
+        }
+        @include rwd(largeMobile){
+            top: 18%;
+            width: 50%;
+            margin: 0 20%;
+            z-index: 40;
+        }
+        @include rwd(mobile){
+            top: 38%;
+            width: 80%;
+            margin: 0 10%;
+            z-index: 40;
+        }
+    }
+    .cabinet{
+        width: 53%;
+        margin:25% 12%;
+        z-index: 40;
+        @include rwd(pad){
+            width: 90%;
+            margin:75% 4% 0% 4%;
+            z-index: 40;
+            }
+            @include rwd(largeMobile){
+            width: 90%;
+            margin:100% 5%;
+            z-index: 40;
+            }
+            @include rwd(mobile){
+                width: 90%;
+                margin:300% 0% 0% 0%;
+                z-index: 40;
+            }
+    }
 }
 
-.favorites {
+.intermediate{
     position: absolute;
-    top: 22%;
-    right: 14%;
-    width: 10%;
-    z-index: 10;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    left: 35%;
+    display: inline-grid;
+    @include rwd(pad){
+        width: 50%;
+        top: 0;
+        height: 100%;
+        display: inline-grid;
+        left: 25%;
+        }
+        @include rwd(largeMobile){
+            width: 50%;
+            top: 0;
+            height: 100%;
+            display: inline-grid;
+            left: 25%;
+        }
+        @include rwd(mobile){
+            width: 70%;
+            top: 0;
+            height: 100%;
+            display: inline-grid;
+            left: 15%;
+        }
+    .Carousel{
+        
+    }
+    .character{
+        @include rwd(pad){
+            margin: 80% 0% 0% 0%;
+            }
+            @include rwd(largeMobile){
+            margin: 0% 0% 0% 0%;
+            }
+            @include rwd(mobile){
+            width: 70%;
+            margin: 70% 0% 0% 0%;
+            }
+        
+    }
 }
-
-.cabinet {
-    position: absolute;
-    top: 38%;
-    right: 10%;
-    width: 18%;
-    z-index: 10;
-}
-
-.character {
+.myufo_search{
     position: absolute;
     width: 20%;
-    top: 48%;
-    right: 40%;
-    z-index: 10;
+    bottom: 0%;
+    right: 10%;
+    
+    display: flex;
+    @include rwd(pad){
+        width: 30%;
+        right: 5%;
+        top: 70%;
+        }
+        @include rwd(largeMobile){
+            width: 30%;
+            right: 5%;
+            
+        }
+        @include rwd(mobile){
+            width: 30%;
+            right: 5%;
+        }
+    .problemicon{
+        @include rwd(pad){
+            margin: 290% 0% 0% 0%;
+            }
+            @include rwd(largeMobile){
+            
+            }
+            @include rwd(mobile){
+                margin: 0% 0% 40% 0%;
+            }
+        
+    }
+    .searchicon{
+        @include rwd(pad){
+            margin: 290% 0% 0% 0%;
+            }
+            @include rwd(largeMobile){
+                
+            }
+            @include rwd(mobile){
+                margin: 0% 0% 40% 0%;
+            }
+        
+    }    
 }
 
-.searchicon {
-    position: fixed;
-    width: 8%;
-    bottom: 8%;
-    right: 8%;
-    z-index: 80;
-}
-
-.problemicon {
-    position: fixed;
-    width: 8%;
-    bottom: 8%;
-    right: 19%;
-    z-index: 80;
-  }
-
-  .light{
-    position: absolute;
-    top: 10%;
-    right: 15%;
-    width: 8%;
-    z-index: 10;
-  }
-  
-  .containerTV {
-    width: 23%;
-    height: 46%;
-    overflow: hidden;
-    position: absolute;
-    top: 7%;
-    margin: 0 0 61% 38.9%;
-    z-index: 10;
-    border-radius: 2%;
-}
-
-.photo {
-    position: absolute;
-    -webkit-animation: round 16s infinite;
-    animation: round 16s infinite;
-    opacity: 0;
-    background-size: cover;
-    width: 180%;
-    height: 95%;
-    bottom: 8%;
-}
 
 
 @media all and (min-width: 1200px) {
@@ -197,351 +372,3 @@
     }
 }
 
-@include rwd(desktop){
-    .Carousel {
-        position: absolute;
-        top: 0%;
-        width: 35%;
-        z-index: 10;
-        right: 34%;
-        
-    }
-    .light{
-        position: absolute;
-        top: 5%;
-        right: 15%;
-        width: 8%;
-        z-index: 10;
-      }
-      .favorites {
-        position: absolute;
-        top: 18%;
-        right: 14%;
-        width: 10%;
-        z-index: 10;
-    }
-    .Points {
-        position: absolute;
-        z-index: 10;
-        margin: 0px 50px;
-        bottom: 2%;
-        width: 3%;
-        left: 6%;
-        top: 88%;
-    }  
-    .Points_font p{
-        position: absolute;
-        font-size: 25px;
-        top: 90%;
-        left:13%;
-    }
-}
-
-@include rwd(desktopSmall){
-    .Carousel {
-        position: absolute;
-        top: 0%;
-        width: 36%;
-        z-index: 10;
-        right: 32%;
-    }
-
-    .window2 {
-        position: absolute;
-        top: -10%;
-        margin: 20px 30px;
-        width: 20%;
-        height: 100%;
-        z-index: 10;
-    }
-    .Points {
-        position: absolute;
-        z-index: 10;
-        margin: 0px 50px;
-        bottom: 2%;
-        width: 3%;
-        left: 5%;
-        top: 89%;
-    }
-    .Points_font p{
-        position: absolute;
-        font-size: 25px;
-        top: 90%;
-        left:15%;
-    }
-    .favorites {
-        position: absolute;
-        right: 14%;
-        width: 10%;
-        z-index: 10;
-        top: 18%;
-    }
-    .cabinet {
-        position: absolute;
-        top: 38%;
-        right: 10%;
-        width: 18%;
-        z-index: 10;
-    }
-    .character {
-        position: absolute;
-        width: 20%;
-        top: 48%;
-        right: 40%;
-        z-index: 10;
-    }
-    .light{
-        position: absolute;
-        top: 0%;
-        right: 15%;
-        width: 8%;
-        z-index: 10;
-      }
-      .searchicon {
-        position: fixed;
-        width: 10%;
-        bottom: 8%;
-        right: 8%;
-        z-index: 80;
-    }
-    
-    .problemicon {
-        position: fixed;
-        width: 10%;
-        bottom: 8%;
-        right: 19%;
-        z-index: 80;
-      }  
-    
-}
-
-@include rwd(pad){
-    .Carousel {
-        position: absolute;
-        top: 7%;
-        width: 50%;
-        z-index: 10;
-        right: 28%;
-    }
-    .window2 {
-        position: absolute;
-        top: -5%;
-        margin: 20px 30px;
-        width: 40%;
-        height: 100%;
-        z-index: 10;
-        right:70%;
-    }
-    .Points {
-        position: absolute;
-        z-index: 10;
-        margin: 0px 50px;
-        bottom: 2%;
-        width: 6%;
-        left: 0%;
-        top: 90%;
-    }
-    .Points_font p{
-        position: absolute;
-        font-size: 30px;
-        top: 91%;
-        left:13%;
-    }
-    .favorites {
-        position: absolute;
-        right: 10%;
-        width: 16%;
-        z-index: 10;
-        top: 35%;
-    }
-    .cabinet {
-        position: absolute;
-        top: 48%;
-        right: 4%;
-        width: 28%;
-        z-index: 10;
-    }
-    .character {
-        position: absolute;
-        width: 40%;
-        top: 48%;
-        right: 34%;
-        z-index: 10;
-    }
-    .light{
-        position: absolute;
-        top: 26%;
-        right: 13%;
-        width: 10%;
-        z-index: 10;
-      }
-      .searchicon {
-        position: fixed;
-        width: 14%;
-        bottom: 8%;
-        right: 8%;
-        z-index: 80;
-    }
-    
-    .problemicon {
-        position: fixed;
-        width: 14%;
-        bottom: 8%;
-        right: 19%;
-        z-index: 80;
-        margin: 0 30px;
-      } 
-}
-
-@include rwd(largeMobile){
-    .Carousel {
-        position: absolute;
-        top: 0%;
-        width: 50%;
-        z-index: 10;
-        right: 25%;
-    }
-    .window2 {
-        position: absolute;
-        top: -5%;
-        margin: 20px 30px;
-        width: 40%;
-        height: 100%;
-        z-index: 10;
-        right:70%;
-    }
-    .Points {
-        position: absolute;
-        z-index: 10;
-        margin: 0px 50px;
-        bottom: 2%;
-        width: 8%;
-        left: 0%;
-        top: 88%;
-    }
-    .Points_font p{
-        position: absolute;
-        font-size: 25px;
-        top: 90%;
-        left:20%;
-    }
-    .favorites {
-        position: absolute;
-        right: 10%;
-        width: 16%;
-        z-index: 10;
-        top: 35%;
-    }
-    .cabinet {
-        position: absolute;
-        top: 48%;
-        right: 4%;
-        width: 28%;
-        z-index: 10;
-    }
-    .character {
-        position: absolute;
-        width: 40%;
-        top: 48%;
-        right: 34%;
-        z-index: 10;
-    }
-    .light{
-        position: absolute;
-        top: 26%;
-        right: 13%;
-        width: 10%;
-        z-index: 10;
-      }
-      .searchicon {
-        position: fixed;
-        width: 15%;
-        bottom: 8%;
-        right: 8%;
-        z-index: 80;
-    }
-    
-    .problemicon {
-        position: fixed;
-        width: 15%;
-        bottom: 8%;
-        right: 19%;
-        z-index: 80;
-        margin: 0 30px;
-      }   
-}
-
-@include rwd(mobile){
-    .Carousel {
-        position: absolute;
-        top: 0%;
-        width: 70%;
-        z-index: 10;
-        right: 15%;
-    }
-    .window2 {
-        position: absolute;
-        top: -10%;
-        margin: 20px 30px;
-        width: 60%;
-        height: 100%;
-        z-index: 10;
-        right:50%;
-    }
-    .Points {
-        position: absolute;
-        z-index: 10;
-        margin: 0px 50px;
-        bottom: 2%;
-        width: 10%;
-        left: 0%;
-        top: 90%;
-    }
-    .Points_font p{
-        position: absolute;
-        font-size: 25px;
-        top: 91%;
-        left:25%;
-    }
-    .favorites {
-        position: absolute;
-        right: 12%;
-        width: 20%;
-        z-index: 10;
-        top: 28%;
-    }
-    .cabinet {
-        position: absolute;
-        top: 43%;
-        right: 4%;
-        width: 38%;
-        z-index: 10;
-    }
-    .character {
-        position: absolute;
-        width: 40%;
-        top: 61%;
-        right: 34%;
-        z-index: 10;
-    }
-    .light{
-      display: none;
-      }
-
-      .searchicon {
-        position: fixed;
-        width: 24%;
-        bottom: 4%;
-        right: 8%;
-        z-index: 80;
-    }
-    
-    .problemicon {
-        position: fixed;
-        width: 24%;
-        bottom: 4%;
-        right: 19%;
-        z-index: 80;
-        margin: 0 60px;
-      } 
-}
