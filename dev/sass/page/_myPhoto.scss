@@ -4,7 +4,7 @@
 //  *{
 //      outline: 1px  solid  orange;
 //  }
-
+// 背景圖
 .pho_wrapper{
     background-image: url(../../img/tang/background.png);
     background-size: cover;
@@ -12,45 +12,88 @@
     //background-repeat: no-repeat;
 }
 
-
+//公用
 .pho_main{
     width:1200px;
     margin:0 auto;
     padding: 30px 0;
 }
 
-.pho_top_wrapper{
-    display: flex;
-
-}
-
-
-
+//使用者頭像
 .pho_user_pic{
     width:20%;
     padding: 2%;
 }
 
-
-.pho_top_content h2{
-    display:inline-block;
+//
+.pho_top_wrapper{
+    display: flex;
 }
 
-.pho_line{
-    height: 0.5px;
-    width:80%;
-    margin:0 auto;
-    color: $green;
+.pho_top_content{
+    width:95%;
+    display:flex;
     
+    img{
+        flex-basis: 0;
+        flex-grow: 2;
+    }
+
+    div{
+        flex-basis: 0;
+        flex:8;
+    }
 }
 
+// 上方 s1
+.pho_top_s1{
+    display:flex;
+    margin: 4% 0 3%;
+
+    h1{
+        width:9%;
+        padding: 4% 0 2%;
+    }
+    
+    .pho_search_bar{
+        height:40px;
+        width:100%;
+        margin-top: 3%;
+        
+    }
+    img{
+        margin-top: 35px;
+        position: relative;
+        left: -30px;
+    }
+}
+
+// 上方 s2
+.pho_top_s2{
+    display: flex;
+    flex-wrap: wrap;
+
+    .pho_line{
+        height: 5px;
+        width:100%;
+        background-color: $green;
+        margin:2% auto;
+        display:block;
+        border:1px solid $green;
+    }
+
+    a{
+        font-size: 16px;
+    }
+}
 .pho_menu{
     display:flex;
     justify-content: space-between;
+    width:100%;
     
 }
 
-//================================拍立得
+//下方拍立得
 .pho_store_cards_lists{
     display: flex;
     flex-wrap: wrap;
@@ -58,10 +101,10 @@
     
     li{
         flex-basis: 30%;
-        padding: 20px;
+        padding: 2%;
         background-color:  lighten(rgb(255, 255, 255),20%);
         @include shadow();
-        margin-bottom: 20px;
+        margin-bottom: 5%;
     }
     img{
         width: 100%;
@@ -69,15 +112,28 @@
 
 }   
 
+//商家連結、按讚、留言
 .pho_vender_thumb_message{
     display: flex;
+    
+    a:nth-child(1){
+        padding-right: 45%;
+    }
+
+    img{
+        margin-top: 8px;
+        
+    }
 }
 
+//標籤連結
 .pho_vender_feat_tag{
     display: flex;
     justify-content: flex-start;
+    padding-right: 45%;
 }
 
+//作者ET頭像 他人拍立得頁面連結
 .pho_vender_profile{
     display: flex;
     justify-content: space-between;
@@ -88,18 +144,25 @@
     }
     a{
         flex-basis: 0;
-        flex-grow: 2;
+        flex-grow: 3.5;
     }
     article{
         flex-basis: 0;
         flex-grow: 5;
+        padding-bottom: 4%;
+
+        
     }
     &>p{
         flex-basis: 0;
         flex-grow: 5; 
         text-align: right;
+        margin-bottom: 4%;
     }
 }
+
+
+
 
 //============================= myphoto_post_pic =============================//
 
@@ -267,19 +330,22 @@
     padding:1% 8%;
      @include btn('.btn_submit', $green, $tp);
      
-     .circleBtn_submit{
-         width: 4%;
-         height: 0;
-         padding-bottom: 4%;
-         background-color: $green;
-         border-radius: 20px;
-
-         img{
-             width: 30px;
-             height:30px;
-         }
-         
-         
-     }
     } 
+    
+.pho_circleBtn_submit{
+    width: 4%;
+    height: 0;
+    padding: 2% 0;
+    background-color: $green;
+    border-radius: 50%;  
 
+    img{
+        width:80%;
+        height: 80%;
+    }
+}
+
+// s4
+.pho_edit_s4{
+    text-align: center;
+}
