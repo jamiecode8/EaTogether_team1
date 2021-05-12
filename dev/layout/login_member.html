@@ -1,8 +1,8 @@
 <!-- Jamie -->
 
 <!-- 登入註冊彈窗 -->
-<div class="popUps login wrapper"> <!--Chris-->
-    <form action="#資料傳送送的網址" method="post" class="form login">
+<div class="popUps login wrapper" id="memberLogin_popups"> <!--Chris-->
+    <form action="#資料傳送送的網址" method="" class="form login">
         <!-- close button -->
         <button type="button" class="btn_close">
             <img src="./img/icon/icon_close.png" alt="" />
@@ -34,7 +34,7 @@
                     
                     <!-- 單顆按鈕用這裡 -->
                     <div class="btn">
-                        <input type="submit" value="送出" class="btn_submit" />
+                        <input type="submit" value="送出" class="btn_submit" id="memberLogin_submit"/>
                     </div>
                     
                     <!-- 無法登入 -->
@@ -95,10 +95,38 @@
                       </ul>
                     </div>
 
-                    <!-- 美食標籤 -->
+                    <!-- 喜好標籤 -->
                     <div class="login_tag">
-                      <input type="text" placeholder="美食喜好(最多選3個)"  class="input"/>
-                      <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="">
+                        <input type="text" placeholder="喜好標籤"/>
+                        <button class="signUp_tag_area ">
+                        <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="">
+                        </button>
+                        <div class="login_tag_select" id="login_tag_select">
+                            <span>#日式</span>
+                            <span>#韓式</span>
+                            <span>#美式</span>
+                            <span>#台式</span>
+                            <span>#法式</span>
+                            <span>#中式</span>
+                            <span>#聚餐</span>
+                            <span>#簡餐</span>
+                            <span>#銅板美食</span>
+                            <span>#下午茶</span>
+                            <span>#早午餐</span>
+                            <span>#商業午餐</span>
+                            <span>#夜市</span>
+                            <span>#咖哩</span>
+                            <span>#火鍋</span>
+                            <span>#牛排</span>
+                            <span>#咖啡店</span>
+                            <span>#餐酒館</span>
+                            <span>#鐵板燒</span>
+                            <span>#拉麵</span>
+                            <span>#甜點</span>
+                            <span>#麵食</span>
+                            <span>#雞排</span>
+                            <span>#鹽酥雞</span> 
+                        </div>
                     </div>
                     
                     <!-- 單顆按鈕用這裡 -->
@@ -139,7 +167,7 @@
 </div>
 
 <!-- 美食喜好彈窗 -->
-<div class="popUps loginMemberTag">
+<div class="popUps loginMemberTag" id="loginMemberTag">
     <form action="#資料傳送送的網址" method="post" class="form">
         <!-- close button -->
         <button type="button" class="btn_close">
@@ -185,13 +213,13 @@
 </div>
 
 <!-- 會員資料編輯 -->
-<div class="popUps memberInfo_edit">
+<div class="popUps memberInfo_edit" id="memberInfo_edit">
     <form action="#資料傳送送的網址" method="" class="form memberInfo_edit_form">
         <!-- close button -->
         <button type="button" class="btn_close">
             <img src="./img/icon/icon_close.png" alt="" />
         </button>
-        <h1>會員資料 </h1>
+        <h1 class="memberInfo_edit_title">會員資料 </h1>
         <div class="memberInfo_edit_inner">
             <!-- 左邊圖片區 -->
             <div class="memberInfo_edit_imgArea"></div>
@@ -202,8 +230,9 @@
                     <button class="memberInfo_edit_editIcon">
                     </button>
                 </div>
+                <!-- 喜好標籤 -->
                 <div class="memberInfo_edit_area">
-                    <input type="text" placeholder="喜好標籤" />
+                    <input type="text" placeholder="喜好標籤" value="鹽酥雞" />
                     <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_tag">
                     </button>
                     <div class="memberInfo_edit_area_tag" id="memberInfo_edit_area_tag">
@@ -233,9 +262,9 @@
                         <span>#鹽酥雞</span> 
                     </div>
                 </div>
-
+                <!-- 站點 -->
                 <div class="memberInfo_edit_area">
-                    <input type="text" placeholder="" id="memberInfo_station_input"/>
+                    <input type="text" placeholder="" value="南京復興" id="memberInfo_station_input"/>
                     <button class="memberInfo_edit_editIcon" id="memberInfo_editIcon_station">
                     </button>
                     <ul class="memberInfo_edit_area_stationSelect" id="memberInfo_edit_area_stationSelect">
@@ -303,13 +332,61 @@
         <!-- 主標題 -->
         <!-- 單顆按鈕用這裡 -->
         <div class="btn">
-            <input type="submit" value="送出" class="btn_submit" />
+            <input type="submit" value="送出" class="btn_submit memberInfo_edit_submit" />
         </div>
     </form>
 </div>
 
 
 <script>
+    // 以下會員編輯彈窗
+    // 下拉選單、喜好標籤
+    $('.memberInfo_edit_editIcon_tag').click(function (){
+    $('.memberInfo_edit_area_tag').toggleClass('on');
+    });
+
+    // 下拉選單、鄰近站點
+    $('#memberInfo_editIcon_station').click(function (){
+    $('.memberInfo_edit_area_stationSelect').toggleClass('on');
+    });
+
+    $('#memberInfo_edit_area_stationSelect li').click(function(){
+        let inputColor=document.getElementById('memberInfo_station_input');
+        inputColor.value=$(this).text();
+        $('.memberInfo_edit_area_stationSelect').toggleClass('on');
+    });
+
+    // 那顆眼睛按下去，密碼會出現
+    $('.showPassword').click(function(){
+        let myPassword = document.getElementById('myPassword')
+        if( myPassword.type === "password"){
+            myPassword.type = "text";
+        }else{
+            myPassword.type = "password";
+        }
+    })
+
+    // 串料庫後要修改；按送出也是關閉彈窗
+    $('.memberInfo_edit_submit').click(function(){
+    $(this.parentNode.parentNode).fadeOut(100);
+    });
+
+    // 以上會員編輯彈窗
+
+
+    // 以下登入註冊彈窗
+    // 關閉登入註冊彈窗
+    $('.btn_close').click(function(){
+    $(this.parentNode.parentNode).fadeOut(100);
+    });
+
+    //串料庫後要修改；目前是按送出，會跳出會員編輯 
+    $('#memberLogin_submit').click(function(){
+    $(this.parentNode.parentNode).fadeOut(100);   
+    $('#memberInfo_edit').css('display', 'block').fadeIn(300); 
+    });
+
+
     //認證彈窗開關(目前無效) Chris
     $('.forgetPassword').click(function(){
         // $('.wrapper').addClass('blur');
@@ -326,6 +403,7 @@
         $('.verification').addClass('areaHide');  
     })
 
+    // 開啟登入註冊寫在header裡
     // 登入註冊切換
     $('#btn_signup').click(function(){
         $('.wrapper:not(.login)').addClass('blur');
@@ -354,8 +432,12 @@
         let inputColor=document.getElementById('login_station_choice');
         inputColor.value=$(this).text();
         $('.login_station_select').toggleClass('on');
+    });
 
-    })
+    // 會員註冊-喜好選單開關
+    $('.signUp_tag_area').click(function (){
+    $('.login_tag_select').toggleClass('on');
+    });
 
     //關閉彈窗, 移除毛玻璃
     $('.btn_close').click(function(){
