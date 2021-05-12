@@ -228,26 +228,6 @@
 </div>
 
 <script>
-    // 會員資料區，要移到會員那邊
-    // 下拉選單、喜好標籤
-    $('.memberInfo_edit_editIcon_tag').click(function (){
-    $('.memberInfo_edit_area_tag').toggleClass('on');
-    });
-
-    // 下拉選單、鄰近站點
-    $('#memberInfo_editIcon_station').click(function (){
-    $('.memberInfo_edit_area_stationSelect').toggleClass('on');
-    });
-
-    $('#memberInfo_edit_area_stationSelect li').click(function(){
-        let inputColor=document.getElementById('memberInfo_station_input');
-        inputColor.value=$(this).text();
-        $('.memberInfo_edit_area_stationSelect').toggleClass('on');
-
-    })
-</script>
-
-<script>
     // 登入註冊切換
     $('#btn_signup').click(function(){
         $(this).addClass('areaShow');
