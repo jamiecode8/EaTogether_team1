@@ -287,8 +287,8 @@ body.index{
 //----------店家資訊彈窗----------
 .index_inf_popup{
     display:none;
-    // overflow:auto;
-    // height: 700px;
+    overflow:auto;
+    height: 700px;
     position: absolute;
     top: 5%;
     left: 10%;
@@ -394,8 +394,8 @@ body.index{
         }
         //店家評論
         .storeInf_comment{
-            height: 160px;
-            overflow:auto;
+            // height: 160px;
+            // overflow:auto;
             border-bottom: 2px solid $color;
 
 
