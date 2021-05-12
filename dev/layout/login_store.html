@@ -1,59 +1,4 @@
 <!-- Jamie -->
-<!-- 會員資料編輯 -->
-<div class="popUps memberInfo_edit">
-    <form action="#資料傳送送的網址" method="post" class="form memberInfo_edit_form">
-        <!-- close button -->
-        <button type="button" class="btn_close">
-            <img src="./img/icon/icon_close.png" alt="" />
-        </button>
-        <h1>會員資料 </h1>
-        <div class="memberInfo_edit_inner">
-            <!-- 左邊圖片區 -->
-            <div class="memberInfo_edit_imgArea"></div>
-            <!-- 右邊文字區 -->
-            <div class="memberInfo_edit_textArea">
-                <div class="memberInfo_edit_area">
-                    <input type="text" placeholder="南京林志玲" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div>
-                <div class="memberInfo_edit_area">
-                    <input type="text" placeholder="喜好標籤" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="南京松江" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="tibame@gmail.com" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="1234566" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="南京林志玲" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div><div class="memberInfo_edit_area">
-                    <input type="text" placeholder="南京林志玲" />
-                    <button class="memberInfo_edit_editIcon">
-                    </button>
-                </div>
-
-            </div>
-        </div>
-        <!-- 主標題 -->
-        <!-- 單顆按鈕用這裡 -->
-        <div class="btn">
-            <input type="submit" value="送出" class="btn_submit" />
-        </div>
-    </form>
-</div>
-
-
 <!-- 商家登入 -->
 <div class="popUps login">
     <form action="#資料傳送送的網址" method="post" class="form login">
@@ -283,6 +228,26 @@
 </div>
 
 <script>
+    // 會員資料區，要移到會員那邊
+    // 下拉選單、喜好標籤
+    $('.memberInfo_edit_editIcon_tag').click(function (){
+    $('.memberInfo_edit_area_tag').toggleClass('on');
+    });
+
+    // 下拉選單、鄰近站點
+    $('#memberInfo_editIcon_station').click(function (){
+    $('.memberInfo_edit_area_stationSelect').toggleClass('on');
+    });
+
+    $('#memberInfo_edit_area_stationSelect li').click(function(){
+        let inputColor=document.getElementById('memberInfo_station_input');
+        inputColor.value=$(this).text();
+        $('.memberInfo_edit_area_stationSelect').toggleClass('on');
+
+    })
+</script>
+
+<script>
     // 登入註冊切換
     $('#btn_signup').click(function(){
         $(this).addClass('areaShow');
@@ -301,7 +266,6 @@
 
     // 下拉選單-客單價
     $('.login_station_arrow').click(function (e) {
-        // e.preventDefault();
         $('.login_station_select').toggleClass('on');
     });
 
@@ -313,10 +277,12 @@
 
     })
 
+
+
     // 下拉選單-鄰近站點
     $('.login_store_station_arrow').click(function (e) {
         // e.preventDefault();
-        $('.login_store_station_select').toggleClass('on');
+    $('.login_store_station_select').toggleClass('on');
     });
 
 
@@ -325,5 +291,15 @@
         inputColor.value=$(this).text();
         $('.login_store_station_select').toggleClass('on');
 
+    })
+
+    // 那顆眼睛按下去，密碼會出現
+    $('.showPassword').click(function(){
+        let myPassword = document.getElementById('myPassword')
+        if( myPassword.type === "password"){
+            myPassword.type = "text";
+        }else{
+            myPassword.type = "password";
+        }
     })
 </script>
