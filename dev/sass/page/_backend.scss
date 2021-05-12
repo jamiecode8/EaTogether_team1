@@ -1,23 +1,25 @@
 //宏鈞的
 
     .backend_wrapper{
-        width: 1200px;
-        height: 790px;
+        max-width: 1200px;
+        height: 1030px;
         margin: 0 auto; 
         background-color: #FEFDF2;
     }
 
-
     .backend_header{
-
         display: flex;
-        padding: 10px 0;
-    
+        justify-content: space-between;
+        padding: 25px 0;
+
     .backend_header_left{
-        
         padding: 11px 0;
         font-weight: bold;
         
+        input[type="radio"] {
+            position: initial;
+        }
+
         .backend_store_1{
              width: 25px;
         }
@@ -37,150 +39,166 @@
         .backend_photo_2{ 
              width: 25px;
         }
-
     }
 
-        .backend_header_right1{
-            // justify-content: flex-end;
-            margin-left: 74%;
-    }
+        .backend_header_right{
 
-        .backend_header_right2{
-            justify-content: flex-end;
-            margin-left: 39%;
-    }
-
-        .backend_header_right3{
-            justify-content: flex-end;
-            margin-left: 49%;
-    }
-
-        .backend_search_text{
+         .backend_search_text{
             background-color: $lightgreen;
             border: 3px solid #FFE066;
             width: 300px;
             height: 38px; 
-    }
+         }
 
-        .backend_search_btn{
+         .backend_search_btn{
             position: absolute;
-            right: 370px;
-            top: 117px;
+            right: 360px;
+            top: 130px;
             cursor: pointer;
+         }
     }
-  
 }
+
 
 // -----------------------會員管理-----------------------
 
-    .backend_member{
-        background-color: #E2D295;
-        padding: 25px;  
-    }
+    // .backend_member{
+    //     background-color: #E2D295;
+    //     padding: 25px;  
+    // }
 
-    .backend_member_table{
-        font-size: $fontSize_Title;
-        font-weight: bold;
-        width: 100%;
-        text-align: center;
-    }
+        .backend_member_table{
+            font-size: $fontSize_Title;
+            font-weight: bold;
+            width: 100%;
+            text-align: center; 
+        }
+
+        tr{
+            border: 1px solid gray;
+        }
+
+        th{
+            background-color: #E2D295;
+            padding: 29px;
+        }
+
+        td{ 
+            padding: 25px; 
+            border-bottom: 1px solid $green ;     
+        } 
+ 
+        .Edit_action{
+            margin: auto;
+            cursor: pointer;
+        }
+    
+        .odd{
+            background-color: #fff;
+        }
 
 // -----------------------商家管理-----------------------
 
-    .backend_store{
-        background-color: #E2D295;
-        padding: 25px;  
-    }
+        // .backend_store{
+        //     background-color: #E2D295;
+        //     padding: 25px;  
+        // }
 
-    .backend_store_table{
-        font-size: $fontSize_Title;
-        font-weight: bold;
-        width: 100%;
-        text-align: center;
-    }
+        .backend_store_table{
+            font-size: $fontSize_Title;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+        }
 
-    // tr{
-    //     border:1px solid #000;
-    //     padding:5px;
-    // }
-
-    // th{
-    //     background-color: #E2D295;
-    //     padding:5px;
-    // }
-
-    // td { 
-        
-    //   } 
 
 // -----------------------拍立得管理-----------------------
 
-    .backend_photo{
-        background-color: #E2D295;
-        padding: 25px;  
-    }
+        // .backend_photo{
+        //     background-color: #E2D295;
+        //     padding: 25px;  
+        // }
 
-    .backend_photo_table{
-        font-size: $fontSize_Title;
-        font-weight: bold;
-        width: 100%;
-        text-align: center;
-    }
+        .backend_photo_table{
+            font-size: $fontSize_Title;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+        }
 
 //---------------------------彈窗-----------------------------
 
 
-    .backend_member_popUps {
-        @include block_center(); //區塊置中
+        .backend_member_popUps {
 
-        position: relative;
-        width: 400px;
-        padding: 50px;
-        @include shadow;
-        @include border_r;
-        @include btn_close(".btn_close");
+            display: none;
+            position: absolute;
+            top: -780px;
+            left: 10px;
 
-        h1{
-            text-align: center;
-            font-size: $fontSize_Title;
-            margin-bottom: 20px;    
-            font-weight: bold;
-        }
+            @include block_center(); //區塊置中
+            
+            background-color: #fff;
+            position: relative;
+            width: 400px;
+            padding: 50px;
+            @include shadow;
+            @include border_r;
+            @include btn_close(".btn_close");
 
-        // h2{
+            h1{
+                text-align: center;
+                font-size: $fontSize_Title;
+                margin-bottom: 20px;    
+                font-weight: bold;
+            }
 
-        // }
+            h2{
+                font-size: $fontSize_SubTitle;
+                margin: 20px 0;
+            }
 
-        .pop_title{
-            padding: 10px 0;
-            background-color: $lightgreen;
-        }
-        
-        .pop_line{
-            width: 100%;
-            border-top: solid 1px $green ;
-            margin: 30px 0;
-        }
+            .pop_block{
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 0;
+                line-height: 2;
+                
+            .pop_title {
+                font-size: $fontSize_SubTitle;
+                background-color: $lightgreen;
+                font-weight: bold;
+               }
+            // .pop_data{
+                                
+            //    }
+            
+            }
 
-        // 下拉式選單
-         
+            
+            .pop_line{
+                width: 100%;
+                border-top: solid 1px $green ;
+                margin: 30px 0;
+            }
+
+            // 下拉式選單
+            
+            // -------------------
 
 
+            // // 按扭區域
 
+            // input {
 
-
-
-        input {
-            margin-bottom: 20px;
-            &:focus {
-                outline: none;
+            //     &:focus {
+            //         outline: none;
+            //     }
+            // }
+            
+            .btn,
+            .buttonArea {
+                @include block_center();
+                width: max-content;
             }
         }
-        
-        // 按扭區域
-        .btn,
-        .buttonArea {
-            @include block_center();
-            width: max-content;
-        }
-    }
