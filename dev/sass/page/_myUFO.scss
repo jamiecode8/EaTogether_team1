@@ -545,3 +545,85 @@
         margin: 0 60px;
       } 
 }
+
+
+
+//----------靜瑩角色彈窗----------
+.MyCharacter{
+    display: none;
+    position: absolute;
+    top:2%;
+    left:50%;
+    right: 50%;
+    h1{
+        color: $yellow;
+    }
+    .getCharacter{
+        padding-bottom:20px;
+        z-index: 11;
+        .getCharacter_alien{
+            padding: 20px;
+        }
+        .getCharacter_choiceList{
+           display: flex;
+           .choiceList_body{
+               p{
+                   color:$green;
+               }
+           }
+           .choiceList_body.off{
+               p{
+                   color:$color;
+               }
+           }
+           .choiceList_eye.on, .choiceList_mouth.on{
+                p{
+                    color: $green;
+                }
+           }   
+           p{
+               margin-left: 5px;
+               padding: 10px;
+               background-color:$lightgreen;
+               border-radius: 5px;
+               font-weight: bold;
+           }
+        }
+        .getCharacter_choice{
+            .choiceOrgan{
+                background-color: $lightgreen;
+                border-radius: 5px;
+                height: 300px;
+                .alienBody{
+                    padding:20px 0;
+                    display: flex;
+                    justify-content: space-around;
+                    img{
+                        height: 90px;
+                    }
+                }
+                .alienEye{
+                    padding:20px 0;
+                    display: flex;
+                    justify-content: space-around;
+                    img{
+                        height:40px;
+                    }
+                }
+                .alienMouth{
+                    padding:20px 0;
+                    display: flex;
+                    justify-content: space-around;
+                    img{
+                        height:30px;
+                    }
+                }
+            }
+            .myEye, .myMouth{
+                display: none;
+            }
+        }
+        
+    }
+    
+}

@@ -10,13 +10,18 @@
     <title>會員管理</title>
 </head>
     
-<body>
+<body class="backend_member_body">
+  
     @@include('layout/header.html')
-    <div class="backend_wrapper">
+    <div  class="backend_wrapper">
 
       <div class="backend_header">
 
-       <div class="backend_header_right1">
+        <div class="backend_header_left">
+         
+        </div>
+
+       <div class="backend_header_right">
         <form class="backend_search"  action="#" method="post"> 
            <input type="text" class="backend_search_text">
            <img class="backend_search_btn" src="./img/icon/icon_search.png" alt="">
@@ -34,48 +39,121 @@
               <th>會員管理</th>
             </tr>
 
-            <!-- <tr>
+              <tr class="odd">
               <td>user0001</td>
-              <td>123</td>
+              <td>OOO</td>
               <td>2021/05/10</td>
               <td>啟用</td>
-              <td>//</td>
-            </tr> -->
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
+            
+            <tr>
+              <td>user0002</td>
+              <td>OOO</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
+
+              <tr class="odd">
+              <td>user0003</td>
+              <td>OOO</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
+
+            <tr>
+              <td>user0004</td>
+              <td>OOO</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
+
+            <tr class="odd">
+              <td>user0005</td>
+              <td>OOO</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
+
+            <tr>
+              <td>user0006</td>
+              <td>OOO</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
+
+            <tr class="odd">
+              <td>user0007</td>
+              <td>OOO</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
+
+            <tr>
+              <td>user0008</td>
+              <td>OOO</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
+
+            <tr class="odd">
+              <td>user0009</td>
+              <td>OOO</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
+
+            <tr>
+              <td>user0010</td>
+              <td>OOO</td>
+              <td>2021/05/10</td>
+              <td>啟用</td>
+              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+            </tr>
           </table>
       </div> 
-
       <div class="backend_member_popUps">
         <form action="#" method="post" class="form">
+
           <!-- close button -->
           <button type="button" class="btn_close">
             <img src="./img/icon/icon_close.png" alt="">
           </button>
-        
+          
+
           <!-- 主標題 -->
           <h1>會員管理</h1>
         
           <!-- 輸入框欄位 -->
           <div class="pop_block">
             <div class="pop_title">會員</div>
-            <!-- <div class="pop_data">user0001</div> -->
+            <div class="pop_data">user0001</div>
           </div>
           <div class="pop_block">
             <div class="pop_title">帳號</div>
-            <!-- <div class="pop_data">test123@gmail.com</div> -->
+            <div class="pop_data">test123@gmail.com</div>
           </div>
           <div class="pop_block">
             <div class="pop_title">地區</div>
-            <!-- <div class="pop_data">永和</div> -->
+            <div class="pop_data">永和</div>
           </div>
           <div class="pop_block">
             <div class="pop_title">美食喜好</div>
-            <!-- <div class="pop_data">火鍋</div> -->
+            <div class="pop_data">火鍋,牛排</div>
           </div>
 
           <!-- 分隔線 -->
           <div class="pop_line"></div>
           
-          <!-- 點擊動作 -->
+          <!-- 編輯動作 -->
           <h1>權限編輯</h1>
           <h2>會員狀態</h2>
           <div class="dropdown">
@@ -93,14 +171,33 @@
           </div>
           <br>
       </div>
-
     </div>
     @@include('layout/footer.html')
 
     <script>
-      
-      $('.btn_close').click(function (){
-            $('.backend_member_popUps').fadeOut(200);
+       
+       //-----會員編輯彈窗------
+
+       //顯示下拉選單
+        $('.dropdown_arrow').click(function(e) {
+        //  e.preventDefault();
+         $('.dropdown_select').toggleClass('on');
+        });
+       
+        $('#dropdown_options li').click(function(){
+        let inputColor=document.getElementById('dropdown_choice');
+        inputColor.value=$(this).text();
+         $('.dropdown_select').toggleClass('on');
+        });
+  
+       //打開彈窗
+        $('.Edit_action').click(function(){
+         $('.backend_member_popUps').fadeIn(100);
+        });
+  
+       // 關閉彈窗
+        $('.btn_close').click(function(){
+         $('.backend_member_popUps').fadeOut(200);
         });
     </script>
 </body>
