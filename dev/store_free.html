@@ -104,8 +104,10 @@
                         <div class="store_level_text">
                             <h2>菇菇級</h2>
                             <div class="store_level_text_text">
-                                <p>加入第一個月享有 #新上加標籤</p>
-                                <p>享有平台折扣</p>
+                                <p>不需任何費用</p>
+                                <p>享有 #新加入店家 專屬標籤</p>
+                                <p>不定期行銷活動</p>
+                                <p>提升知名度</p>
                             </div>
                         </div>
                     </div>
@@ -133,16 +135,20 @@
             <section class="store_promotionArea">
                 <h1>數據分析</h1>
                 <div class="store_promotionArea_inner">
-                    <div class="store_promotionArea_like">
+                    <div class="store_promotionArea_like chart">
                         <!-- 書旻圖表放這邊_收藏次數 -->
+                        <canvas id="myChart_like" width="6" height="4"></canvas>
                     </div>
-                    <div class="store_promotionArea_click">
+                    <div class="store_promotionArea_click chart">
                         <!-- 書旻圖表放這邊_點擊次數 -->
-                    </div>
+                        <canvas id="myChart_click" width="6" height="4"></canvas>
+                    </div> 
                 </div>
             </section>
         </div> 
-        
         @@include('layout/footer.html')
+        <script>
+        @@include('js/store_free.js')
+        </script>
     </body>
 </html>
