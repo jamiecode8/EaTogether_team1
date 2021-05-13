@@ -1,7 +1,7 @@
 <!-- Jamie -->
 
 <!-- 登入註冊彈窗 -->
-<div class="popUps login wrapper" id="memberLogin_popups"> <!--Chris-->
+<div class="popUps login wrapper app" id="memberLogin_popups" > <!--Chris-->
     <form action="#資料傳送送的網址" method="" class="form login">
         <!-- close button -->
         <button type="button" class="btn_close">
@@ -53,10 +53,16 @@
 
                     <!-- 常去站點 -->
                     <div class="login_station">
-                      <input type="text" id="login_station_choice" placeholder="我最常去的捷運站" class="input">
+                      <!-- <input type="text" id="login_station_choice" placeholder="我最常去的捷運站" class="input"> -->
+                      <input type="text" id="login_station_choice" class="input" v-model="selectedStation">
                       <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
                       <ul class="login_station_select" id="login_station_options">
-                          <li  class="b">市政府</li>
+                        <li v-for="station in blueStations" class="b">{{station}}</li> 
+                        <li v-for="station in redStation" class="r">{{station}}</li> 
+                        <li v-for="station in greenStation" class="g">{{station}}</li> 
+                        <li v-for="station in brownStation" class="br">{{station}}</li> 
+                        <li v-for="station in yellowStation" class="y">{{station}}</li> 
+                        <!-- <li  class="b">市政府</li>
                           <li  class="b">忠孝敦化</li>
                           <li  class="b">國父紀念館</li>
                           <li  class="b">板橋</li>
@@ -91,7 +97,7 @@
                           <li  class="y">忠孝新生</li>
                           <li  class="y">台北橋</li>
                           <li  class="y">徐匯中學</li>
-                          <li  class="y">新莊</li>
+                          <li  class="y">新莊</li> -->
                       </ul>
                     </div>
 
@@ -336,6 +342,32 @@
         </div>
     </form>
 </div>
+
+<script>
+
+    new Vue({
+        el: '.app',
+        data:{
+            blueStations: ['市政府','忠孝敦化','國父紀念館','板橋','新埔','府中','龍山寺'],
+            redStation: ['淡水','劍潭','圓山','台北車站','東門','大安森林公園','信義安和','台北101'],
+            greenStation: ['松山','南京三民','南京復興','中山','中正紀念堂','台電大樓','公館','景美'],
+            brownStation: ['東湖','西湖','港墘','大直','中山國中','六張犁','萬芳社區'],
+            yellowStation: ['頂溪','南京松江','忠孝新生','台北橋','徐匯中學','新莊'],
+            selectedStation:'最愛捷運站點',
+            selectedBlueStation: '藍線'
+        },
+        methods: {
+            
+        },
+        computed:{
+
+        },
+    })
+
+</script>
+
+
+
 
 
 <script>
