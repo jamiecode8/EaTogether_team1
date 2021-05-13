@@ -46,11 +46,12 @@
 
 }
 
-.store_levelUpArea{
-    &::after{
-        @include lightLine();
-    }
-}
+// .store_levelUpArea{
+//     &::after{
+//         @include lightLine();
+//         left: ;
+//     }
+// }
 
 
 // 商家資訊區塊
@@ -71,7 +72,7 @@
 .store_photoArea{
     // @include borderTest();
     @include rwd(desktop){
-        width: 45%;
+        width: 50%;
         &_big{
             width: 300px;
             height: 300px;
@@ -80,7 +81,7 @@
         }
     }
     @include rwd(desktopSmall){
-        width: 45%;
+        width: 50%;
         &_big{
             width: 300px;
             height: 300px;
@@ -111,6 +112,12 @@
 .store_storeInfo{
     @include borderTest();
     padding: 30px;
+    @include rwd(desktop){
+        padding: 30px 0;
+        }
+        @include rwd(desktopSmall){
+        padding: 30px 0;
+        }
     @include rwd(desktop){
         width: 55%;
     }
@@ -164,11 +171,6 @@
     h1{
         line-height: 60px;
     }
-    // position: relative;
-    // &::after{
-    //     @include lightLine();
-    //     left: 10px; 
-    // }
 }
 
 // 升級說明區
@@ -267,3 +269,9 @@
     border: none;
 }
 
+// =========================Jamie的模組scss=========================
+.btn_mobile{
+    @include rwd(mobile){
+        margin: 10px;
+        }
+}
