@@ -1,9 +1,10 @@
 //棠棠的
 //============================= myPhoto =============================//
 
-//  *{
+// *{
 //      outline: 1px  solid  orange;
-//  }
+//  }  
+
 // 背景圖
 .pho_wrapper{
     background-image: url(../../img/tang/background.png);
@@ -161,6 +162,107 @@
     }
 }
 
+
+//-------------------------拍立得內文彈窗-------------------------//
+.pho_popUps div{
+    display: flex;
+}
+
+// s1 pic
+// .pho_poppus_s1{
+//     width:100%;
+//     height:0;
+//     padding: 25% 0 33%;
+//     outline: 1px solid red;
+// }
+
+// s2 content
+.pho_article_a1{
+    padding-bottom: 3%;
+
+    img:first-child{
+        width:20%;
+    }
+
+    h2{
+        display:inline-block;
+        padding-right: 4%;
+        padding-top: 2%;
+    }
+
+    h2 a{
+        font-size: 18px;
+    }
+}
+
+.pho_article_a2{
+    span:nth-child(1){
+        padding-right: 5%;
+    }
+
+    span a:nth-child(1){
+        font-size:16px;
+    }
+
+    span{
+        padding-right: 2%;
+    }
+}
+
+.pho_article_a3{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div{
+        padding-top: 4%;
+    }
+
+    .pho_star{
+        padding-bottom: 4%;
+    }
+}
+
+.pho_article_a4{
+    padding: 2%;
+    margin: 1% 0 5%;
+    width:100%;
+    background-color:$lightgreen;
+    @include border_r();
+}
+
+.pho_article_a5{
+    img:nth-child(1){
+        width:20%;
+        padding:3% 2% 3% 0;
+    }
+
+    &>span{
+        padding:5% 3%;
+    }
+}
+
+.pho_article_a6{
+    position: relative;
+
+    textarea{
+        width: 100%;
+        height: 70px;
+        resize:none;
+        background-color: white;
+        border: 2px solid $green;
+        @include border_r();
+    }
+
+    button{
+        color:$green;
+        font-weight: bold;
+        position: absolute;
+        right:5px;
+        bottom: 20px;
+    }
+}
+    
 
 
 
