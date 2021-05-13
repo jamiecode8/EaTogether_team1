@@ -1,11 +1,11 @@
 <!-- Jamie -->
 <!-- 商家登入 -->
 <div class="popUps login" id="storeLogin_popups">
-    <form action="#資料傳送送的網址" method="post" class="form login">
+    <form action="#資料傳送送的網址" method="" class="form login">
         <!-- close button -->
-        <button type="button" class="btn_close">
+        <!-- <button type="button" class="btn_close">
             <img src="./img/icon/icon_close.png" alt="" />
-        </button>
+        </button> -->
 
         <!-- 商家頭像 -->
         <div class="loginMemberPic">
@@ -46,11 +46,11 @@
 
 <!-- 商家註冊 -->
 <div class="popUps login store_signUp "  id="store_signUp">
-    <form action="#資料傳送送的網址" method="" class="form login">
+    <form action="#資料傳送送的網址" method="" class="form login storeLogin_signup">
         <!-- close button -->
-        <button type="button" class="btn_close">
+        <!-- <button type="button" class="btn_close">
             <img src="./img/icon/icon_close.png" alt="" />
-        </button>
+        </button> -->
 
         <h1 class="login_store_welcome">商家資訊</h1>
 
@@ -61,7 +61,7 @@
                 <section class="store_signUp_basicInfo">
                     <div class="store_signUp_title">
                         <h2>基本資料</h2>
-                        <button class="store_signUp_editIcon">
+                        <!-- <button class="store_signUp_editIcon"> -->
                         </button>
                     </div>
                     <input type="text" placeholder="輸入餐廳名稱" />
@@ -72,7 +72,7 @@
                 <section class="store_signUp_basicInfo">
                     <div class="store_signUp_title">
                         <h2>進階資料</h2>
-                        <button class="store_signUp_editIcon">
+                        <!-- <button class="store_signUp_editIcon"> -->
                         </button>
                     </div>
                     <p>客單價</p>
@@ -166,8 +166,7 @@
                 <section class="store_signUp_basicInfo">
                     <div class="store_signUp_title">
                         <h2>商家照片</h2>
-                        <button class="store_signUp_editIcon">
-                        </button>
+                        <!-- <button class="store_signUp_editIcon"></button> -->
                     </div>
                     <div class="store_imgArea">
                         <!-- 廣告照 -->
@@ -204,8 +203,7 @@
                 <section class="store_signUp_basicInfo">
                     <div class="store_signUp_title">
                         <h2>聯絡資訊</h2>
-                        <button class="store_signUp_editIcon">
-                        </button>
+                        <!-- <button class="store_signUp_editIcon"></button> -->
                     </div>
                     <input type="text" placeholder="聯絡人" />
                     <input type="text" placeholder="連絡電話" />
@@ -234,7 +232,6 @@
         $('#btn_login').removeClass('areaShow');
         $('#login_block').addClass('areaHide');
         $('#signUp_block').removeClass('areaHide');
-        $('.wrapper').addClass('blur'); //背景毛玻璃
     });
 
     $('#btn_login').click(function(){
