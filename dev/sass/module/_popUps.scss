@@ -10,7 +10,7 @@
     background-color: #fff;
     position: relative;
     // position: fixed;
-    z-index: 888;
+    // z-index: 1000;
     width: 400px;
     padding: 50px;
     @include shadow;
@@ -43,4 +43,7 @@
 
 .btn_btn{
     margin-bottom: 20px;  
+}
+.pop_ups{
+    z-index: 1000;
 }
