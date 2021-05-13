@@ -11,10 +11,6 @@
     z-index: 999;
 }
 
-// 美食喜好彈窗
-#loginMemberTag{
-    display: none; 
-}
 
 .login{
     @include block_center();

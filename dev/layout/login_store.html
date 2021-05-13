@@ -75,7 +75,7 @@
                         <!-- <button class="store_signUp_editIcon"> -->
                         </button>
                     </div>
-                    <p>客單價</p>
+                    <h2>客單價</h2>
                     <div class="login_station">
                         <input type="text" id="login_station_choice" placeholder="選擇價格區間
                         " class="input">
@@ -87,7 +87,7 @@
                         </ul>
                     </div>
 
-                    <p>鄰近捷運站</p>
+                    <h2>鄰近捷運站</h2>
                     <div class="login_store_station">
                         <input type="text" id="login_station_choice_store" placeholder="選擇鄰近站點" class="input">
                         <img class="login_store_station_arrow" src="./img/icon/icon_next_line.png" alt="">
@@ -131,7 +131,7 @@
                         </ul>
                     </div>
 
-                    <p>選擇關鍵字(最多三個)</p>
+                    <h2>選擇關鍵字(最多三個)</h2>
                     <div class="loginMemberTag_tagArea">
                         <button type="button" class="btn_tag">#銅板美食</button>
                         <button type="button" class="btn_tag">#日式</button>
@@ -168,36 +168,49 @@
                         <h2>商家照片</h2>
                         <!-- <button class="store_signUp_editIcon"></button> -->
                     </div>
+                    <!-- 照片區
+                     -->
                     <div class="store_imgArea">
-                        <!-- 廣告照 -->
-                        <div id="store_signUp_dropZone_big" class="store_signUp_dropZone_big">
-                            <img id="store_image_big">
-                        </div>
-                        <div class="store_imgArea_s">
-                            <div id="store_signUp_dropZone_menu" class="store_signUp_dropZone_mid">
-                                <img id="store_image_menu">
+                        <!-- 主標題 -->
+                        <p>檔案格式：JPG、JPEG、PNG</p>
+                        <p>檔案容量：3MB以下</p>
+                        <p>建議圖片尺寸：640px × 640px</p>
+              
+                        <div class="pho_edit_top store_imgArea_dropArea">
+                            <div>
+                                <h3>形象海報</h3>
+                                <div class="pho_edit store_imgArea_pic">
+                                    <p>請將檔案拖放置此</br>或</p>
+                                    <button type="button" class="btn_submit">選擇檔案+</button>
+                                </div>
                             </div>
-                            <!-- 環境照 -->
-                            <div id="store_signUp_dropZone_look" class="store_signUp_dropZone_mid">
-                                <img id="store_image_look">
+                            <div>
+                                <h3>店景</h3>
+                                <div class="pho_edit"></div>
                             </div>
-                            <!-- 餐點照1 -->
-                            <div id="store_signUp_dropZone_food1" class="store_signUp_dropZone_mid">
-                                <img id="store_image_food1">
-                            </div>
-                            <!-- 餐點照2 -->
-                            <div id="store_signUp_dropZone_food2" class="store_signUp_dropZone_mid">
-                                <img id="store_image_food2">
-                            </div>
-                            <!-- 餐點照3 -->    
-                            <div id="store_signUp_dropZone_food3" class="store_signUp_dropZone_mid">
-                                <img id="store_image_food3">
+                            <div>
+                                <h3>菜單</h3>
+                                <div class="pho_edit"></div>
                             </div>
                         </div>
-                        <!-- 菜單照 -->
 
+                        <!-- <div class="pho_edit_line"></div> -->
+
+                        <div class="pho_edit_top">
+                        <div>
+                            <h3>餐點照</h3>
+                            <div class="pho_edit"></div>
+                        </div>
+                        <div>
+                            <h3>餐點照</h3>
+                            <div class="pho_edit"></div>
+                        </div>
+                        <div>
+                            <h3>餐點照</h3>
+                            <div class="pho_edit"></div>
+                        </div>
+                        </div>
                     </div>
-                    <!-- <h2 id="fileName"></h2> -->
                 </section>
                 <!-- 聯絡資訊 -->
                 <section class="store_signUp_basicInfo">
@@ -224,59 +237,3 @@
 
     </form>
 </div>
-
-<script>
-    // 登入註冊切換
-    $('#btn_signup').click(function(){
-        $(this).addClass('areaShow');
-        $('#btn_login').removeClass('areaShow');
-        $('#login_block').addClass('areaHide');
-        $('#signUp_block').removeClass('areaHide');
-    });
-
-    $('#btn_login').click(function(){
-        $(this).addClass('areaShow');
-        $('#btn_signup').removeClass('areaShow');
-        $('#signUp_block').addClass('areaHide');
-        $('#login_block').removeClass('areaHide');
-    });
-
-    // 下拉選單-客單價
-    $('.login_station_arrow').click(function (e) {
-        $('.login_station_select').toggleClass('on');
-    });
-
-
-    $('#login_station_options li').click(function(){
-        let inputColor=document.getElementById('login_station_choice');
-        inputColor.value=$(this).text();
-        $('.login_station_select').toggleClass('on');
-
-    })
-
-
-
-    // 下拉選單-鄰近站點
-    $('.login_store_station_arrow').click(function (e) {
-        // e.preventDefault();
-    $('.login_store_station_select').toggleClass('on');
-    });
-
-
-    $('#login_station_options_store li').click(function(){
-        let inputColor=document.getElementById('login_station_choice_store');
-        inputColor.value=$(this).text();
-        $('.login_store_station_select').toggleClass('on');
-
-    })
-
-    // 那顆眼睛按下去，密碼會出現
-    $('.showPassword').click(function(){
-        let myPassword = document.getElementById('myPassword')
-        if( myPassword.type === "password"){
-            myPassword.type = "text";
-        }else{
-            myPassword.type = "password";
-        }
-    })
-</script>
