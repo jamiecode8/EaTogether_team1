@@ -1,37 +1,41 @@
 // 靜瑩的
+
 body.index{
     background-color:$bgc;
 }
-
+.index_wrapper{
+    position: relative;
+    // overflow:hidden;
+}
 //----------map背景----------
 .index_map{
     padding-top: 20px;
-    width:1200px;
     // border: 1px solid;
     @include marginCenter();
-    
     .map_slogan{
+        width: 20vw;
         position: absolute;
-        right:120px;
+        right:5vw;
+        top:10vw;
     }
     .map{
-        width: 55%;
+        width: 48%;
           @include block_center();
     }
 }
 .et{
-    width: 200px;
+    width:15vw;
     position: absolute;
-    bottom:30%;
-    right:3%;
+    bottom:16vw;
+    right:5vw;
     transform: rotate(-30deg);
 }
 //----------map背景end----------
 //----------搜尋按鈕----------
 .index_searchbtn{
     position:fixed;
-    right: 10%;
-    bottom: 14%;
+    right:160px;
+    bottom:160px;
     z-index: 98;
     display: flex;
     width: 300px;
@@ -491,3 +495,73 @@ body.index{
 
 //----------檢舉店家彈窗end----------
 
+//rwd
+
+@include rwd(desktopSmall){
+    .index_searchbtn{
+        right: 100px;
+        bottom:240px;
+    }
+}
+@include rwd(pad){
+    .index_searchbtn{
+        right:120px;
+        bottom:310px;
+        width: 240px;
+        li{ 
+            width: 95px;
+            height:95px;
+            img{
+                width:55px;
+                height:55px;          
+            }
+            p{
+                padding-top:24px ;
+            }
+        }
+    }
+}
+
+@include rwd(largeMobile){
+    .index_searchbtn{
+        right:60px;
+        bottom:380px;
+        width: 220px;
+        li{ 
+            width: 80px;
+            height:80px;
+            img{
+                margin-top:15px;
+                width:50px;
+                height:50px;          
+            }
+            p{
+                display: none;
+            }
+        }
+    }
+}
+
+@include rwd(mobile){
+    .map_slogan{
+        padding-top:15px;
+    }
+  
+    .index_searchbtn{
+        right:10px;
+        bottom:450px;
+        width:200px;
+        li{ 
+            width: 55px;
+            height:55px;
+            img{
+                margin-top:10px;
+                width:30px;
+                height:30px;          
+            }
+            p{
+                display: none;
+            }
+        }
+    }
+}
