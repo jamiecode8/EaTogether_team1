@@ -24,22 +24,6 @@
     z-index: -10;
 }
 
-.White_planet{
-    position: absolute;
-    width: 50%;
-    top: 5%;
-    left:25%;
-    margin: 0 auto;
-    z-index: 1;
-}
-
-.develope_form{
-    position: absolute;
-    top:38%;
-    left: 45%;
-    z-index: 10;
-}
-
 .develope_et1{
     position: absolute;
     width: 10%;
@@ -91,10 +75,59 @@
 .develope_et7{
     position: absolute;
     width: 8%;
-    top: 38%;
-    left: 35%;
-    z-index: 2;
+    top: 50%;
+    left: 53%;
+    z-index: 11;
 }
+
+.White_planet{
+    background-image: url('../img/chris/White_planet.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -7%;
+    left:25%;
+    margin: 0 auto;
+    z-index: 1;
+    // outline: 1px red solid;
+}
+
+//develope_form
+
+.develope_form{
+    // @include block_center();
+    @include marginCenter();
+    // outline: 1px red solid;
+    width: 33%;
+    position: absolute;
+    top:30%;
+    left: 34%;
+    z-index: 10;
+    text-align: center;
+    // @include border_r();
+    // background-color: pink;
+}
+
+.h1_develope{
+    font-size: 48px;   
+    margin: 20px 0;
+}
+
+.develope_form li{
+    margin: 10px 0;
+}
+
+.et_small{
+    cursor: pointer;
+}
+
+.develope_form .btn_submit_develope{
+    margin: -20px;
+}
+
 
 @media all and (min-width: 1200px) {
     .develope_bg{
@@ -131,6 +164,19 @@
     .develope_blank{
         display: none;
     }
+
+    //Chris
+    .develope_form{
+        margin: 0 auto;
+        // outline: 1px red solid;
+        width: 33%;
+        position: absolute;
+        top:33%;
+        left: 33%;
+        z-index: 10;
+        text-align: center;
+        // background-color: pink;
+    }
 }
 
 @media all and(max-width: 991px) and (min-width: 768px) {
@@ -147,40 +193,43 @@
     .develope_blank{
         display: none;
     }
+    .develope_form{
+        margin: 0 auto;
+        // outline: 1px red solid;
+        width: 33%;
+        position: absolute;
+        top:33%;
+        left: 32%;
+        z-index: 10;
+        text-align: center;
+        // background-color: pink;
+    }
 }
 
 @media all and(max-width: 767px) and (min-width: 576px) {
     .develope_bg{
         display: none;
-        
     }
     .develope_bg2{
         height: 80vh;
         display: block;
-        
     }
     .develope_bg3{
         display: none;
-       
     }
 }
 
 @media all and (max-width: 575px) {
     .develope_bg{
-       
-        display: none;
-        
+        display: none;     
     }
-    .develope_bg2{
-        
+    .develope_bg2{    
         display: none;
-        
     }
     .develope_bg3{
         height: 70vh;
         display: block;
         margin: 0 auto;
-       
     }
 }
 
@@ -190,6 +239,7 @@
     .White_planet{
         width: 50%;
     }
+    
 }
 
 @include rwd(desktopSmall){
@@ -205,12 +255,7 @@
     .etGroup{
         width: 60%;
     }
-    .develope_form{
-        position: absolute;
-        top:36%;
-        left: 42%;
-        z-index: 10;
-    }
+    
 }
 
 @include rwd(pad){
@@ -244,8 +289,8 @@
     .develope_et4{
         position: absolute;
         width: 10%;
-        top: 63%;
-        left: 30%;
+        top: 65%;
+        left: 25%;
         z-index: 2;
     }
     
@@ -269,12 +314,12 @@
         left: 30%;
         top: 36%;
     }
-    .develope_form{
-        position: absolute;
-        top:33%;
-        left: 42%;
-        z-index: 10;
-    }
+    // .develope_form{
+    //     position: absolute;
+    //     top:33%;
+    //     left: 42%;
+    //     z-index: 10;
+    // }
 }
 
 @include rwd(largeMobile){
@@ -310,24 +355,24 @@
     .develope_et4{
         position: absolute;
         width: 10%;
-        top: 58%;
-        left: 25%;
+        top: 83%;
+        left: 10%;
         z-index: 2;
     }
     
     .develope_et5{
         position: absolute;
         width: 10%;
-        top: 70%;
-        left: 40%;
+        top: 85%;
+        left: 42%;
         z-index: 2;
     }
     
     .develope_et6{
         position: absolute;
-        width: 12%;
-        top: 76%;
-        left: 51%;
+        width: 11%;
+        top: 86%;
+        left: 56%;
         z-index: 2;
     }
     .develope_et7{
@@ -335,12 +380,13 @@
         left: 27%;
         top: 30%;
     }
-    .develope_form{
-        position: absolute;
-        top:29%;
-        left: 39%;
-        z-index: 10;
-    }
+    // .develope_form{
+    //     position: absolute;
+    //     top:29%;
+    //     left: 39%;
+    //     z-index: 10;
+    // }
+    
 }    
 
 @include rwd(mobile){
@@ -352,48 +398,48 @@
     }
     .develope_et1{
         position: absolute;
-        width: 20%;
-        top: 35%;
+        width: 13%;
+        top: 69%;
         left: 5%;
         z-index: 2;
     }
     .develope_et2{
         position: absolute;
-        width: 20%;
-        top: 50%;
-        left: 50%;
+        width: 13%;
+        top: 87%;
+        left: 45%;
         z-index: 2;
     }
     
     .develope_et3{
         position: absolute;
-        width: 20%;
-        top: 40%;
+        width: 13%;
+        top: 81%;
         left: 30%;
         z-index: 2;
     }
     
     .develope_et4{
         position: absolute;
-        width: 20%;
-        top: 60%;
-        left: 15%;
+        width: 13%;
+        top: 76%;
+        left: 17%;
         z-index: 2;
     }
     
     .develope_et5{
         position: absolute;
-        width: 20%;
-        top: 64%;
-        left: 45%;
+        width: 13%;
+        top: 87%;
+        left: 62%;
         z-index: 2;
     }
     
     .develope_et6{
         position: absolute;
-        width: 20%;
-        top:58%;
-        left: 70%;
+        width: 13%;
+        top:87%;
+        left: 78%;
         z-index: 2;
     }
     .develope_et7{
@@ -401,10 +447,11 @@
         left: 22%;
         top: 19%;
     }
-    .develope_form{
-        position: absolute;
-        top:15%;
-        left: 42%;
-        z-index: 10;
-    }
+    // .develope_form{
+    //     position: absolute;
+    //     top:15%;
+    //     left: 42%;
+    //     z-index: 10;
+    // }
+   
 }
