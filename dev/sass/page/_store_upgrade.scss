@@ -4,46 +4,67 @@
 }
 .wrapper_upgrade{
     // @include borderTest(blue);
-    padding: 0 150px 100px;
+    padding: 0px 100px 100px;
+    @include rwd(mobile){
+        padding: 0 0 100px;
+    }
+    &_Option{
+        padding: initial;
+    }
 }
 
 .upgradeOption{
     display: flex;
+    @include rwd(mobile){
+        display: block;
+        padding: 0 50px;
+        }
     position: relative;
     padding: 50px;
-    &_text{
-        // @include borderTest(blue);
-        flex-grow: 3;
-        padding: 0 50px;
-        &_title{
-            margin-left: -30px;
-            line-height: 50px;
-        }
-    }
-    &_btnArea{
-        // @include borderTest(green);
-        flex-grow: 1;
-    }
     &::after{
         @include lightLine();
+        left: -50px;
     }
     p{
         line-height: 40px;
     }
+    &_text{
+        // @include borderTest(blue);
+        flex-grow: 3;
+        padding: 0 50px;
+        @include rwd(mobile){
+            padding: 0;
+        }
+        &_title{
+            margin-left: -30px;
+            line-height: 50px;
+            @include rwd(mobile){
+                margin: initial;
+            }
+        }
+    }
+    
 }
 
 // 費用選擇頁面的按鈕區
 .upgradeOption_btnArea{
+    flex-grow: 1;
     padding-top: 50px;
     &_option{
         width: 120px;
         margin-left: calc(100% - 120px);
         margin-bottom: 30px;
+        @include rwd(mobile){
+            margin: 0;
+        }
     }
     &_submit{
         margin:initial;
         transform: initial;
         margin-left: calc(100% - 285px);
+    }
+    @include rwd(mobile){
+        padding-top: 0;
     }
 }
 
@@ -118,7 +139,9 @@
     width: 82px;
     display: inline-block;
     margin-right: 8px;
-
+    @include rwd(mobile){
+        width: 70px;
+        }
     &:last-child {
       margin-right: 0;
     }
@@ -126,38 +149,44 @@
 // 有效日期、安全碼
 #validDate, #ccv{
     width: 82px;
+    @include rwd(mobile){
+        width: 70px;
+        }
 }
 #validDate{
     margin-left: 15px;
+    @include rwd(mobile){
+        margin-left: 0;
+        }
 }
 #ccv{
     margin-left: 30px;
+    @include rwd(mobile){
+        margin-left: 0;
+        }
 }
 
 // 轉帳
-.trans_iput{
+form .trans_iput{
    width: 80%; 
    &_s{
        margin-left: 32px;
+       @include rwd(mobile){
+        margin-left: 0;
+        }
    }
 }
 
-// 完成表單按鈕,a連結的大小，目前沒用
-// .upgradeInfoConfirm{
-//     &_finishpayment{
-//         width: 100px;
-//         height: 50px;
-//     }
-// }
-
 .upgradeInfoConfirm_basic{
     width: 100%;
-    display: none;
+    display: block; //預設
+    // display: none;
 }
 
 .upgradeInfoConfirm_payment{
     width: 100%;
-    display: block;
+    // display: block;
+    display: none; //預設
 }
 
 .upgradeInfoConfirm{
@@ -167,10 +196,19 @@
     &_formC{
         border: 3px solid $yellow;
         width: 100%;
+        @include rwd(pad){
+            padding: 40px;
+            }
+        @include rwd(mobile){
+            padding: 30px 15px;
+            }
     }
     &_formP{
         border: 3px solid $green;
         width: 100%;
+        @include rwd(mobile){
+            padding: 30px;
+            }
     }
     &_buttonArea_outer{
         position: relative;
@@ -186,10 +224,16 @@
     }
 }
 
+.card_label{
+    @include rwd(mobile){
+        display: block;
+        line-height: 25px;
+        }
+}
 
 // 升級完成頁面
 .upgradeComplete_inner{
-    height: 200px;
+    // height: 200px;
     &_text{
         padding: 30px 0;
         text-align: center;
@@ -198,12 +242,28 @@
             margin-bottom: 20px;
         }
     }
+    &_br{
+        display: none;
+        @include rwd(mobile){
+            display: block;
+            }
+    }
 }
+
 
 // 以下上面那區
 .upgradeHeader{
     // @include borderTest();
-    
+    padding: 10px 150px;
+    @include rwd(pad){
+        padding: 10px 50px;
+        }
+        @include rwd(largeMobile){
+            padding: 10px 50px;
+        }
+        @include rwd(mobile){
+            padding: 10px 0px;
+        }
     &_area{
         display: flex;
         justify-content: space-around;
@@ -220,6 +280,11 @@
         height: 100px;
         padding-bottom: 12% ;
         position: relative;
+        @include rwd(mobile){
+            background-size: 70%;
+            background-position: 11px 13px;
+            }
+
     }
     &_step{
         margin-top: 30%;
@@ -232,6 +297,9 @@
     &_stepNo{
         font-size: 50px;
         display: inline-block;
+        @include rwd(mobile){
+            font-size: 30px;
+            }
     }
     &_text{
         // flex-basis: 0;

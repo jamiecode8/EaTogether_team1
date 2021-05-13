@@ -140,11 +140,11 @@
                      <div class="upgradeInfoConfirm_payment_acc upgradeInfoConfirm_areaHide">
                         <form action="#資料傳送送的網址" method="" class="form upgradeInfoConfirm_formP">
                             <!-- 輸入框欄位 -->
-                            <label for="bank">銀行</label>
+                            <label for="bank" class="card_label">銀行</label>
                             <input type="text" value="台新銀行敦南分行" id="bank" class="trans_iput trans_iput_s"/><br>
-                            <label for="bankAcc">銀行帳戶</label>
+                            <label for="bankAcc" class="card_label">銀行帳戶</label>
                             <input type="text" value="1010203040405" id="bankAcc" class="trans_iput"/><br>
-                            <label for="accName">戶名</label>
+                            <label for="accName" class="card_label">戶名</label>
                             <input type="text" value="外食一起來有限公司"  id="accName" class="trans_iput trans_iput_s"/><br>
                             <div class="priceChoice">
                                 <p>月繳$399</p>
@@ -170,53 +170,8 @@
 
         </div>
         @@include('layout/footer.html')
+        <script>
+            @@include('js/store_upgrade.js')
+        </script>
     </body>
-    <script>
-        // 信用卡轉帳區，按返回回企業或個人
-        $('.upgradeInfoConfirm_backTodetail').click(function(){
-            $('.upgradeInfoConfirm_payment').css('display','none');
-            $('.upgradeInfoConfirm_basic').css('display','block');
-        })
-
-        // 信用卡跟轉帳的切換
-        // 轉帳被click時
-        $('#upgradeInfoConfirm_acc').click(function(){
-            $('.upgradeInfoConfirm_payment_acc')
-            .removeClass('upgradeInfoConfirm_areaHide')
-            .addClass('upgradeInfoConfirm_areaShow');
-            $('.upgradeInfoConfirm_payment_card')
-            .removeClass('upgradeInfoConfirm_areaShow')
-            .addClass('upgradeInfoConfirm_areaHide');
-
-        })
-        // 信用卡被click時
-        $('#upgradeInfoConfirm_card').click(function(){
-            $('.upgradeInfoConfirm_payment_acc')
-            .removeClass('upgradeInfoConfirm_areaShow')
-            .addClass('upgradeInfoConfirm_areaHide');
-            $('.upgradeInfoConfirm_payment_card')
-            .removeClass('upgradeInfoConfirm_areaHide')
-            .addClass('upgradeInfoConfirm_areaShow');;
-        })
-
-        // 企業個人切換
-        // 個人 onclick 時
-        $('#upgradeInfoConfirm_personal').click(function(){
-            $('.upgradeInfoConfirm_basic_personal')
-            .removeClass('upgradeInfoConfirm_areaHide')
-            .addClass('upgradeInfoConfirm_areaShow');
-            $('.upgradeInfoConfirm_basic_co')
-            .removeClass('upgradeInfoConfirm_areaShow')
-            .addClass('upgradeInfoConfirm_areaHide');
-
-        })
-        $('#upgradeInfoConfirm_co').click(function(){
-            $('.upgradeInfoConfirm_basic_personal')
-            .removeClass('upgradeInfoConfirm_areaShow')
-            .addClass('upgradeInfoConfirm_areaHide');
-            $('.upgradeInfoConfirm_basic_co')
-            .removeClass('upgradeInfoConfirm_areaHide')
-            .addClass('upgradeInfoConfirm_areaShow');
-        })
-    </script>
 </html>
