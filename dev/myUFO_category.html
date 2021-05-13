@@ -9,25 +9,26 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 </head>
 
-<body class="mimicategory">
-    @@include('layout/header.html')
-    <div class="wrapper">  
+<body class="wrapper mimicategory">
+    @@include('layout/header.html') 
 
         <!-- 米米在這裡面編輯 -->
         <!-- 背景抽屜 -->
+      <div>
         <div><img src="./img/mimi/category.svg" alt="" class="category"></div>
         <div><img src="./img/mimi/category2.svg" alt="" class="category2"></div>
         <div><img src="./img/mimi/category3.svg" alt="" class="category3"></div>
+      </div>
         <!-- 衣櫃 -->
-        <div><a href="#"><img src="./img/mimi/wardrobe.svg" alt="" class="wardrobe"></a></div>
+        <div class="wardrobe"><a href="#"><img src="./img/mimi/wardrobe.svg" alt="" ></a></div>
         <!-- 優惠券 -->
-        <div><a href="#" id="coupon_wardrobe"><img src="./img/mimi/coupon.svg" alt="" class="coupon" ></a></div>
+        <div class="coupon"><a href="#" id="coupon_wardrobe" ><img src="./img/mimi/coupon.svg" alt=""  ></a></div>
         <!-- 小遊戲 -->
-        <div><a href="#"><img src="./img/mimi/game.svg" alt="" class="game"></a></div>
+        <div class="game"><a href="#"><img src="./img/mimi/game.svg" alt="" ></a></div>
         <!-- 照片 -->
-        <div><a href="#"><img src="./img/mimi/Smallphoto.svg" alt="" class="Smallphoto"></a></div>
+        <div class="Smallphoto"><a href="#"><img src="./img/mimi/Smallphoto.svg" alt="" ></a></div>
         <!-- 任務 -->
-        <div><a href="#" id="Smalltask_wardrobe"><img src="./img/mimi/task.svg" alt="" class="Smalltask"></a></div>
+        <div class="Smalltask"><a href="#" id="Smalltask_wardrobe"><img src="./img/mimi/task.svg" alt="" ></a></div>
         <!-- -----------------------優惠券彈窗------------------------------------- -->  
         <div class="popUps" id="wardrobe_coupon">
             <form action="#資料傳送送的網址" method="post" class="form">
@@ -37,7 +38,7 @@
               </button>
                <h1>每日優惠卷一張</h1>
               <!-- 主標題 -->
-              <div><img src="./img/mimi/couponicon.svg" alt="" class="couponicon"></div>
+              <div class="couponicon"><img src="./img/mimi/couponicon.svg" alt="" ></div>
               <!-- 單顆按鈕用這裡 -->
               <div class="buttonArea">
                 <input type="submit" value="兌換" class=" btn_submit">
@@ -52,7 +53,7 @@
           </script>
           <!-- -----------------------每日任務彈窗----------------------------- -->
           <div class="popUps" id="wardrobe_Smalltask">
-            <form action="#資料傳送送的網址" method="post" class="form">
+            <form action="#資料傳送送的網址" method="post" class="form formSmalltask"> 
               <!-- close button -->
               <button type="button" class="close_coupon">
                 <img src="./img/icon/icon_close.png" alt="">
@@ -65,39 +66,229 @@
               <div>
                   <div class="Smalltaskbox">
                       <!-- --1-- -->
-                      <img src="./img/mimi/Littleman.svg" alt="" class="Littleman">
+                      <div class="Littleman"><img src="./img/mimi/Littleman.svg" alt="" ></div>
                       <!-- --2---- -->
-                      <div class="progress-wrap progress" data-progress-percent="5">
+                    <div class="progressmimi">
+                      <p>1/2</p>
+                      <div class="progress-wrap progress" data-progress-percent="50">
                         <div class="progress-bar progress"></div>
                       </div>
-                      <script>
-                              moveProgressBar();
-
-                             $(window).resize(function() {
-                              moveProgressBar();
-                              });
-
-                             function moveProgressBar() {
-                             console.log("moveProgressBar");
-                             var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
-                             var getProgressWrapWidth = $('.progress-wrap').width();
-                             var progressTotal = getPercent * getProgressWrapWidth;
-                             var animationLength = 2500;
-    
-                             $('.progress-bar').stop().animate({
-                             left: progressTotal
-                             }, animationLength);
-}
-                      </script>
+                    </div>
                       <!-- --3-- -->
                       <div class="buttonArea_Smalltask">
                         <button>送出</button>
                       </div>
                   </div>
+                  <div class="Smalltaskbox2">
+                    <!-- --1-- -->
+                    <div class="mrtSmalltask"><img src="./img/icon/icon_mrt.png" alt="" ></div>
+                    <!-- --2---- -->
+                  <div class="progressmimi">
+                    <p>1/2</p>
+                    <div class="progress-wrap progress" data-progress-percent="0">
+                      <div class="progress-bar progress"></div>
+                    </div>
+                  </div>
+                    <!-- --3-- -->
+                    <div class="buttonArea_Smalltask">
+                      <button>送出</button>
+                    </div>
+                </div>
+                <div class="Smalltaskbox3">
+                  <!-- --1-- -->
+                  <div class="mrtSmalltask"><img src="./img/icon/icon_mrt_dfault.png" alt="" ></div>
+                  <!-- --2---- -->
+                <div class="progressmimi">
+                  <p>1/2</p>
+                  <div class="progress-wrap progress" data-progress-percent="100">
+                    <div class="progress-bar progress"></div>
+                  </div>
+                </div>
+                  <!-- --3-- -->
+                  <div class="buttonArea_Smalltask">
+                    <button>送出</button>
+                  </div>
+              </div>
+              <div class="Smalltaskbox4">
+                <!-- --1-- -->
+                <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBlue.png" alt="" ></div>
+                <!-- --2---- -->
+              <div class="progressmimi">
+                <p>1/2</p>
+                <div class="progress-wrap progress" data-progress-percent="100">
+                  <div class="progress-bar progress"></div>
+                </div>
+              </div>
+                <!-- --3-- -->
+                <div class="buttonArea_Smalltask">
+                  <button>送出</button>
+                </div>
+            </div>
+            <div class="Smalltaskbox5">
+              <!-- --1-- -->
+              <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBrown.png" alt="" ></div>
+              <!-- --2---- -->
+            <div class="progressmimi">
+              <p>1/2</p>
+              <div class="progress-wrap progress" data-progress-percent="100">
+                <div class="progress-bar progress"></div>
+              </div>
+            </div>
+              <!-- --3-- -->
+              <div class="buttonArea_Smalltask">
+                <button>送出</button>
+              </div>
+          </div>
+          <div class="Smalltaskbox6">
+            <!-- --1-- -->
+            <div class="mrtSmalltask"><img src="./img/icon/icon_mrtGreen.png" alt="" ></div>
+            <!-- --2---- -->
+          <div class="progressmimi">
+            <p>1/2</p>
+            <div class="progress-wrap progress" data-progress-percent="100">
+              <div class="progress-bar progress"></div>
+            </div>
+          </div>
+            <!-- --3-- -->
+            <div class="buttonArea_Smalltask">
+              <button>送出</button>
+            </div>
+        </div>
+        <div class="Smalltaskbox7">
+          <!-- --1-- -->
+          <div class="mrtSmalltask"><img src="./img/icon/icon_mrtRed.png" alt="" ></div>
+          <!-- --2---- -->
+        <div class="progressmimi">
+          <p>1/2</p>
+          <div class="progress-wrap progress" data-progress-percent="100">
+            <div class="progress-bar progress"></div>
+          </div>
+        </div>
+          <!-- --3-- -->
+          <div class="buttonArea_Smalltask">
+            <button>送出</button>
+          </div>
+      </div>
+      <div class="Smalltaskbox8">
+        <!-- --1-- -->
+        <div class="mrtSmalltask"><img src="./img/icon/icon_mrtYellow.png" alt="" ></div>
+        <!-- --2---- -->
+      <div class="progressmimi">
+        <p>1/2</p>
+        <div class="progress-wrap progress" data-progress-percent="100">
+          <div class="progress-bar progress"></div>
+        </div>
+      </div>
+        <!-- --3-- -->
+        <div class="buttonArea_Smalltask">
+          <button>送出</button>
+        </div>
+    </div>
               </div>   
  
             </form>
           </div>
+   <!-- --------更衣室--------- -->
+   <div class="popUps Mywardrobe">
+    <form action="#資料傳送送的網址"  class="form getCharacter_mi">
+
+        <button type="button" class="getCharacterClose btn_close">
+            <img src="./img/icon/icon_close.png" alt="" />
+        </button>
+
+        <h1>更衣室</h1>
+        <div class="getCharacter_alien_mi">
+            <!-- 所選的角色身體顯示 -->
+            <img src="./img/MyUFO_Alien/alienTest.png" alt="">
+        </div>
+        <div class="getCharacter_choiceList_mi">
+            <div class="choiceList_body_mi"><p>頭飾</p></div>
+            <div class="choiceList_eye_mi"><p>衣服</p></div>
+            <div class="choiceList_mouth_mi"><p>配件</p></div>
+        </div>
+        <div class="getCharacter_choice_mi">
+            <div class="choiceOrgan_mi myBody_mi">
+                <ul class="alienBody_mi">   
+                  <!-- 頭飾 -->
+                    <!-- <li><img src="./img/MyUFO_Alien/body1.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/body2.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/body3.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/body4.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/body5.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/body6.png" alt=""></li> -->
+                </ul>
+            </div>
+            <div class="choiceOrgan_mi myEye_mi">
+                <ul class="alienEye_mi">
+                  <!-- 衣服 -->
+                    <!-- <li><img src="./img/MyUFO_Alien/eye1.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/eye2.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/eye3.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/eye4.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/eye7.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/eye6.png" alt=""></li> -->
+                </ul>
+            </div>
+            <div class="choiceOrgan_mi myMouth_mi">
+                <ul class="alienMouth_mi">
+                  <!-- 配件 -->
+                    <!-- <li><img src="./img/MyUFO_Alien/mouth1.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/mouth2.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/mouth3.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/mouth4.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/mouth5.png" alt=""></li>
+                    <li><img src="./img/MyUFO_Alien/mouth6.png" alt=""></li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="getCharacter_choiceList_mi">
+          <div class="choiceList_body"><p>頭飾</p></div>
+          <div class="choiceList_eye"><p>衣服</p></div>
+          <div class="choiceList_mouth"><p>配件</p></div>
+      </div>
+      <div class="getCharacter_choice_mimi">
+          <div class="choiceOrgan_mimi myBody_mimi">
+              <ul class="alienBody_mimi">   
+                <!-- 頭飾 -->
+                  <!-- <li><img src="./img/MyUFO_Alien/body1.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/body2.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/body3.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/body4.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/body5.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/body6.png" alt=""></li> -->
+              </ul>
+          </div>
+          <div class="choiceOrgan_mimi myEye_mimi">
+              <ul class="alienEye_mimi">
+                <!-- 衣服 -->
+                  <!-- <li><img src="./img/MyUFO_Alien/eye1.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/eye2.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/eye3.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/eye4.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/eye7.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/eye6.png" alt=""></li> -->
+              </ul>
+          </div>
+          <div class="choiceOrgan_mimi myMouth_mimi">
+              <ul class="alienMouth_mimi">
+                <!-- 配件 -->
+                  <!-- <li><img src="./img/MyUFO_Alien/mouth1.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/mouth2.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/mouth3.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/mouth4.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/mouth5.png" alt=""></li>
+                  <li><img src="./img/MyUFO_Alien/mouth6.png" alt=""></li> -->
+              </ul>
+          </div>
+      </div>
+       
+        <div class="btn getCharacterBtn">
+            <input type="submit" value="送出" class="btn_submit getMyCharacter" />
+        </div>
+        <br />
+    </form>
+</div>
+
           <script>
             $('#Smalltask_wardrobe').click(function(){
             $('#wardrobe_Smalltask').css('display' , 'block').fadeIn(100);
@@ -121,8 +312,90 @@
                 left: progressTotal
                 }, animationLength);
             }
+
+         
+            moveProgressBar();
+
+            $(window).resize(function() {
+             moveProgressBar();
+             });
+
+            function moveProgressBar() {
+            console.log("moveProgressBar");
+            var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
+            var getProgressWrapWidth = $('.progress-wrap').width();
+            var progressTotal = getPercent * getProgressWrapWidth;
+            var animationLength = 2500;
+
+            $('.progress-bar').stop().animate({
+            left: progressTotal
+            }, animationLength);
+            }
+
+          // ---------------------------------
+            
+            //打開角色彈窗
+            $('.wardrobe').click(function (){
+                $('.Mywardrobe').fadeIn(50);
+            });
+            //關閉角色彈窗
+            $('.btn_close').click(function (){
+                $(this.parentNode.parentNode).fadeOut(200);
+            });
+            //點選其他部位
+            //眼睛
+            $('.choiceList_eye_mi').click(function (){
+                $('.choiceList_eye_mi').addClass('on');
+                $('.choiceList_body_mi').addClass('off');
+                $('.choiceList_mouth_mi').removeClass('on');
+                $('.choiceOrgan_mi').fadeOut(100);
+                $('.myEye_mi').fadeIn(50);
+            });
+            //嘴巴
+            $('.choiceList_mouth_mi').click(function (){
+                $('.choiceList_mouth_mi').addClass('on');
+                $('.choiceList_eye_mi').removeClass('on');
+                $('.choiceList_body_mi').addClass('off');
+                $('.choiceOrgan_mi').fadeOut(100);
+                $('.myMouth_mi').fadeIn(50);
+            });
+            //身體
+            $('.choiceList_body_mi').click(function (){
+                $('.choiceList_mouth_mi').removeClass('on');
+                $('.choiceList_eye_mi').removeClass('on');
+                $('.choiceList_body_mi').removeClass('off');
+                $('.choiceOrgan_mi').fadeOut(100);
+                $('.myBody_mi').fadeIn(50);
+            });
+
+//----------第二個更衣室彈窗------------
+            //點選其他部位
+            //眼睛
+            $('.choiceList_eye_mimi').click(function (){
+                $('.choiceList_eye_mimi').addClass('on');
+                $('.choiceList_body_mimi').addClass('off');
+                $('.choiceList_mouth_mimi').removeClass('on');
+                $('.choiceOrgan_mimi').fadeOut(100);
+                $('.myEye_mimi').fadeIn(50);
+            });
+            //嘴巴
+            $('.choiceList_mouth_mimi').click(function (){
+                $('.choiceList_mouth_mimi').addClass('on');
+                $('.choiceList_eye_mimi').removeClass('on');
+                $('.choiceList_body_mimi').addClass('off');
+                $('.choiceOrgan_mimi').fadeOut(100);
+                $('.myMouth_mimi').fadeIn(50);
+            });
+            //身體
+            $('.choiceList_body_mimi').click(function (){
+                $('.choiceList_mouth_mimi').removeClass('on');
+                $('.choiceList_eye_mimi').removeClass('on');
+                $('.choiceList_body_mimi').removeClass('off');
+                $('.choiceOrgan_mimi').fadeOut(100);
+                $('.myBody_mimi').fadeIn(50);
+            });
+                      
         </script>
-    </div>
     @@include('layout/footer.html')
 </body>
 </html>        
