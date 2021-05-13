@@ -147,32 +147,32 @@ header{
     }
     
         .header_inner_myUFO{
-            background-image: url(../../img/header_myUFO_hover.png);
+            background-image: url(../img/header_myUFO_hover.png);
             background-repeat: no-repeat;
             background-size: 125px;
             background-position: 50% 35%;
             &:hover{
-                background-image: url(../../img/header_myUFO.png);   
+                background-image: url(../img/header_myUFO.png);   
             }
     }
             
         .header_inner_myPhoto{
-            background-image: url(../../img/header_myPhoto_hover.png);
+            background-image: url(../img/header_myPhoto_hover.png);
             background-repeat: no-repeat;
             background-size: 110px;
             background-position: 50% 45%;
             &:hover{
-                background-image: url(../../img/header_myPhoto.png);   
+                background-image: url(../img/header_myPhoto.png);   
             }
     }
 
         .header_inner_aboutUs{
-            background-image: url(../../img/header_story_hover.png.png);
+            background-image: url(../img/header_story_hover.png.png);
             background-repeat: no-repeat;
             background-size: 110px;
             background-position: 50% 70%;
             &:hover{
-                background-image: url(../../img/header_story.png);   
+                background-image: url(../img/header_story.png);   
             }
     }
 
