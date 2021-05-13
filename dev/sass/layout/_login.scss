@@ -1,11 +1,14 @@
+// 抓回上面的100px
+.loginMemberPage_Body{
+    padding-top: 100px;
+    background-color: $bgc;
+}
+
 // 會員登入註冊彈窗
 #memberLogin_popups{
     position: absolute;
-    display: none;
+    // display: none;
     z-index: 999;
-}
-.login{
-    padding-bottom: 20px;
 }
 
 // 美食喜好彈窗
@@ -15,6 +18,9 @@
 
 .login{
     @include block_center();
+    padding-bottom: 20px;
+    box-shadow: initial;
+    width: 600px;
     // 頭像區塊
     .loginMemberPic{
         // @include borderTest();
@@ -145,9 +151,6 @@
     display: none;
     transition: 1, ease-in-out;
 }
-
-
-
 
 // 編輯會員資料
 #memberInfo_edit{

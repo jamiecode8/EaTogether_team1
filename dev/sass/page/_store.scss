@@ -58,12 +58,14 @@
     @include rwd(desktop){
         display: flex;
     }
+    @include rwd(desktopSmall){
+        display: flex;
+        }
     position: relative;
     &::after{
         @include lightLine();
     }
 }
-
 
 // 商家照片區塊
 .store_photoArea{
@@ -77,6 +79,15 @@
             // @include borderTest();
         }
     }
+    @include rwd(desktopSmall){
+        width: 45%;
+        &_big{
+            width: 300px;
+            height: 300px;
+            margin-left: calc(100% - 350px);
+            // @include borderTest();
+        }
+        }
     padding: 35px;
 }
 
@@ -98,7 +109,7 @@
 
 // 商家文字區塊
 .store_storeInfo{
-    // @include borderTest();
+    @include borderTest();
     padding: 30px;
     @include rwd(desktop){
         width: 55%;
@@ -147,39 +158,65 @@
 // 商家等級介紹區 
 .store_levelUpArea{
     // @include borderTest(blue);
-    padding-left: 150px; 
+    @include rwd(desktop){
+        padding-left: 150px; 
+        }
     h1{
         line-height: 60px;
     }
-    position: relative;
-    &::after{
-        @include lightLine();
-        left: 10px; 
-    }
+    // position: relative;
+    // &::after{
+    //     @include lightLine();
+    //     left: 10px; 
+    // }
 }
 
 // 升級說明區
 .store_levelArea{
     // @include borderTest();
     display: flex;
+    @include rwd(mobile){
+        display: block;
+        }
     margin-bottom: 50px;
     img{
         width: 100px;
         // @include borderTest();
     }
-    position: relative; //寫給升級按鈕的
+    // &_free{
+    // }
+    padding-bottom: 50px;
+    position: relative;
+    &::after{
+    @include lightLine();
+    }
 }
 
 // 升級文字說明區(右邊)
-.store_level_text{
-    padding-left: 50px;
-    h2{
-        font-weight: bold;
-        line-height: 30px;
-        // @include borderTest();
+.store_level{
+    &_text{
+        padding-left: 50px;
+        flex-grow: 3;
+        h2{
+            font-weight: bold;
+            line-height: 30px;
+            // @include borderTest();
+        }
+        p{
+            line-height: 35px;
+        }
     }
-    p{
-        line-height: 35px;
+    &_btn{
+        width: 100px;
+        position: relative; //寫給升級按鈕的
+        @include rwd(mobile){
+            @include block_center();
+            }
+    }
+    &_imgArea{
+        @include rwd(mobile){
+            @include block_center();
+            }
     }
 }
 
@@ -189,27 +226,31 @@
     right: 10%;
     bottom: 0;
     margin: initial;
+    @include rwd(mobile){
+        position: inherit;
+        }
 }
 
 // 廣告成效區
 .store_promotionArea{
-    padding-left: 150px;
     h1{
         line-height: 60px;
     }
     &_inner{
         @include rwd(desktop){
             display: flex;
+
+            }
+        @include rwd(desktopSmall){
+            // display: flex;
             }
     }
     &_like{
-        // width: 300px;
         height: 300px;
         @include border();
         flex-grow: 1;
     }
     &_click{
-        // width: 300px;
         height: 300px;
         @include border();
         flex-grow: 1;

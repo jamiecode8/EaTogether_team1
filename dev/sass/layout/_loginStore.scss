@@ -1,15 +1,27 @@
 // 商家專區
 // 繼承會員登入註冊部分scss
+
+// 抓回上面的100px
+.loginStorePage_Body{
+    padding-top: 100px;
+    background-color: $bgc;
+}
+
 #storeLogin_popups{
-    position: absolute;
     display: none;
-    z-index: 999;
+    // display: block;
+    // z-index: 999;
 }
 
 #store_signUp{
-    position: absolute;
-    display: none;
-    z-index: 999;
+    // position: absolute; 
+    // 先關起來 才不會擋住登入彈窗
+    // display: none;
+    display: block;
+    // z-index: 999;
+}
+.storeLogin_signup{
+    width: 1000px;
 }
 
 .login_store_welcome{
