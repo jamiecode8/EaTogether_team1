@@ -103,12 +103,13 @@
 
                     <!-- 喜好標籤 -->
                     <div class="login_tag">
-                        <input type="text" placeholder="喜好標籤"/>
+                        <input type="text" id="login_tag_input" v-model="selectedTag"/>
                         <button class="signUp_tag_area ">
                         <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="">
                         </button>
-                        <div class="login_tag_select" id="login_tag_select">
-                            <span>#日式</span>
+                        <div  class="login_tag_select" id="login_tag_select">
+                        <span v-for="tag in tags">{{tag}}</span>
+                            <!-- <span>#日式</span>
                             <span>#韓式</span>
                             <span>#美式</span>
                             <span>#台式</span>
@@ -131,10 +132,10 @@
                             <span>#甜點</span>
                             <span>#麵食</span>
                             <span>#雞排</span>
-                            <span>#鹽酥雞</span> 
+                            <span>#鹽酥雞</span>  -->
                         </div>
                     </div>
-                    
+                </div>
                     <!-- 單顆按鈕用這裡 -->
                     <div class="btn">
                         <input type="submit" value="送出" class="btn_submit" />
@@ -348,16 +349,20 @@
     new Vue({
         el: '.app',
         data:{
+            selectedStation:'最愛捷運站點',
             blueStations: ['市政府','忠孝敦化','國父紀念館','板橋','新埔','府中','龍山寺'],
             redStation: ['淡水','劍潭','圓山','台北車站','東門','大安森林公園','信義安和','台北101'],
             greenStation: ['松山','南京三民','南京復興','中山','中正紀念堂','台電大樓','公館','景美'],
             brownStation: ['東湖','西湖','港墘','大直','中山國中','六張犁','萬芳社區'],
             yellowStation: ['頂溪','南京松江','忠孝新生','台北橋','徐匯中學','新莊'],
-            selectedStation:'最愛捷運站點',
-            selectedBlueStation: '藍線'
+            
+            selectedTag: '喜好標籤',
+            tags:['#日式','#韓式','#美式','#台式','#中式','#法式','#聚餐','#簡餐','#銅板美食','#下午茶','#早午餐','#商業午餐',
+            '#夜市','#咖哩','#火鍋','#牛排','#咖啡店','#餐酒館','#鐵板燒','#拉麵','#甜點','#麵食','#雞排','#鹽酥雞'],  
+            
         },
         methods: {
-            
+          
         },
         computed:{
 
@@ -366,15 +371,17 @@
 
 </script>
 
-
-
-
-
 <script>
     // 以下會員編輯彈窗
     // 下拉選單、喜好標籤
     $('.memberInfo_edit_editIcon_tag').click(function (){
     $('.memberInfo_edit_area_tag').toggleClass('on');
+    });
+
+    $('.login_tag_select span').click(function(){
+        let inputColor=document.getElementById('login_tag_input');
+        inputColor.value=$(this).text();
+        // $('.memberInfo_edit_area_tag').toggleClass('on');
     });
 
     // 下拉選單、鄰近站點
