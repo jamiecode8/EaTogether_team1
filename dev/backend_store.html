@@ -104,7 +104,67 @@
 
            </table>
           </div> 
-        </div>
-        @@include('layout/footer.html')
+
+            <!-- 商家照片彈窗 -->
+            <div class="backend_store_popUps">
+
+              <!-- close button -->
+              <button type="button" class="btn_close">
+                <img src="./img/icon/icon_close.png" alt="">
+              </button>
+              
+              <!-- 主標題 -->
+              <h1>商家管理</h1>
+              <h2>檔案格式：JPG、JPEG、PNG</h2><br>
+              <h2>檔案容量：3MB以下</h2><br>
+              <h2>建議圖片尺寸：640px × 640px</h2>
+
+              
+                <div class="pho_edit_top">
+                  <div>
+                    <h3>照片上傳</h3>
+                    <div class="pho_edit_t1">
+                      <h5>請將檔案拖放置此</br>或</h5>
+                      <button type="button" class="btn_submit">選擇檔案+</button>
+                    </div>
+                  </div>
+                  <div>
+                    <h3>形象海報</h3>
+                    <div class="pho_edit_t2"></div>
+                  </div>
+                  <div>
+                    <h3>店景</h3>
+                    <div class="pho_edit_t3"></div>
+                  </div>
+                </div>
+
+                <div class="pho_edit_line"></div>
+
+                <div class="pho_edit_bottom">
+                  <div>
+                    <h3>餐點1</h3>
+                    <div class="pho_edit_b1"></div>
+                  </div>
+                  <div>
+                    <h3>餐點2</h3>
+                    <div class="pho_edit_b2"></div>
+                  </div>
+                  <div>
+                    <h3>餐點3</h3>
+                    <div class="pho_edit_b3"></div>
+                  </div>
+                </div>
+
+                <!-- 單顆按鈕用這裡 -->
+                  <div class="buttonArea">
+                    <input type="submit" value="送出審核" class=" btn_submit">
+                  </div>
+
+    </div>
+    @@include('layout/footer.html')
+
+    <script>
+      @@include('js/backend.js')
+   </script>
     </body>
 </html>
