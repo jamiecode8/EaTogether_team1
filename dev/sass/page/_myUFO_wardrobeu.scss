@@ -2,251 +2,131 @@
 
 .wardrobeu_body{
     background: $bgc;
-    height: 100vh;
-  }
+    height: 100vh-100;
+  .myUFO_wardrobeu{
+    
+    .myUFO_wardrobeu_bg{
+      width: 100%;
+      height: 100%;
+      height: 100vh-100;
+      
+    }
+    .wardrobeu_window{
+      top: 10%;
+      left: 0%;
+      .wardrobeuwindow{
+        width: 20%;
+      }
+    }
 
-  .Bigwardrobe{
-    position: absolute;
-    width: 50%;
-    top: 0%;
-    right: 10%;
   }  
+}
+
+
   
-  .wardrobe_light{
-    position: absolute;
-    width: 10%;
-    top: -14%;
-    left: 15%;
+@media all and (min-width: 1200px) {
+  .myUFO_wardrobeu_bg .wardrobe_webbg{
+      display: block;
+      
   }
-.wardrobe_character{
-  position: absolute;
-  width: 20%;
-  top: 23%;
-  left: 10%;
-}
-
-.wardrobe_window{
-  position: absolute;
-  top: 10%;
-  width: 16%;
-  left: 10%;
-}
-
-.wardrobe_btn{
-  position: absolute;
-  top: 65%;
-  left: 16%;
-}
-
-.wardrobeu_bg{
-  position: absolute;
-  bottom: -20%;
-  z-index: -10;
-}
-
-// -------???-------
-.wardrobeu_Points{
-  top: 80%;
-  left: 20%;
-}
-
-// -----衣櫃標籤------
-.wardrobeuname{
-  position: absolute;
-  background: #CEA45E;
-  padding: 0 20px;
-  height: 8%;
-  right: 15%;
-  top: -7%;
-  z-index: 10;
-}
-
-.wardrobeuname  p{
-  margin: 0;
-  font-size: 15px;
-  color: #FFF;
-  line-height: 50px;
-  font-weight: 700;
-}
-
-.wardrobeu_clothes{
-  width: 60%;
-  height: 100%;
-  margin: 0% 0% 0% 20% ;
-}
-
-.tabs_wardrobeu {
-  position: absolute;
-  width: 1000px;
-  max-width: 100%;
-  left:40%;
-  top: -7%;
-}
-.tabs_wardrobeu input {
-  position: absolute;
-  z-index: 50;
-  width: 25%;
-  height: 50px;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  cursor: pointer;
-  margin: 0;
-}
-.tabs_wardrobeu input#tab-2 {
-  left: 25%;
-}
-.tabs_wardrobeu input#tab-3 {
-  left: 50%;
-}
-
-.tabs_wardrobeu label {
-  background: #FFED80;
-  color: #fefefe;
-  font-size: 15px;
-  line-height: 50px;
-  height: 60px;
-  position: relative;
-  top: 0;
-  padding: 0 20px;
-  float: left;
-  display: block;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.1), -2px 0 2px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  -webkit-transition: all 150ms ease 0s;
-  transition: all 150ms ease 0s;
-}
-.tabs_wardrobeu label:hover {
-  cursor: pointer;
-}
-
-.tabs_wardrobeu label:after {
-  content: "";
-  // background: #fefefe;
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  display: block;
-}
-
-.tabs_wardrobeu input:hover + label {
-  background: #e08f24;
-}
-
-.tabs_wardrobeu input:checked + label {
-  background: #A58D64;
-  color: #FFF;
-}
-
-.clear-shadow {
-  clear: both;
-}
-
-.content_wardrobeu {
-  height: auto;
-  width: 46%;
-  float:inherit;
-  position: relative;
-  z-index: 5;
-  top: -10px;
-  box-sizing: border-box;
-}
-.content_wardrobeu div {
-  position: relative;
-  float: left;
-  width: 0;
-  height: 0;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  opacity: 0;
+  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
+      display: none;
+      
+  }
+  .myUFO_wardrobeu_bg .wardrobe_phonebg{
+      display: none;
+     
+  }
   
 }
-.content_wardrobeu div h2 {
-  margin-top: 0;
+
+@media all and(max-width: 1199px) and (min-width: 992px) {
+  .myUFO_wardrobeu_bg.wardrobe_webbg{
+      display: block;
+      
+  }
+  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
+      display: none;
+      
+  }
+  .myUFO_wardrobeu_bg .wardrobe_phonebg{
+      display: none;
+     
+  }
 }
 
-.tabs_wardrobeu .tab-selector-1:checked ~ .content_wardrobeu .content_wardrobeu1,
-.tabs_wardrobeu .tab-selector-2:checked ~ .content_wardrobeu .content_wardrobeu2,
-.tabs_wardrobeu .tab-selector-3:checked ~ .content_wardrobeu .content_wardrobeu3{
-  z-index: 30;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: alpha(opacity=100);
-  opacity: 1;
-  width: 100%;
-  height: auto;
-  width: 100%;
-  height: auto;
-  padding: 5%;
+@media all and(max-width: 991px) and (min-width: 768px) {
+  .myUFO_wardrobeu_bg .wardrobe_webbg{
+      display: none;
+      
+  }
+  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
+      display: block;
+      
+  }
+  .myUFO_wardrobeu_bg .wardrobe_phonebg{
+      display: none;
+     
+  }
 }
 
-.content_wardrobeu div h2 {
-  color: #A58D64;
+@media all and(max-width: 767px) and (min-width: 576px) {
+  .myUFO_wardrobeu_bg .wardrobe_webbg{
+      display: none;
+      
+  }
+  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
+      display: block;
+      
+  }
+  .myUFO_wardrobeu_bg .wardrobe_phonebg{
+      display: none;
+     
+  }
 }
 
-.content_wardrobeu div p {
-  font-size: 14px;
-  line-height: 22px;
-  font-style: italic;
-  text-align: left;
-  margin: 0;
-  color: #777;
-  padding-left: 15px;
+@media all and (max-width: 575px) {
+  .myUFO_wardrobeu_bg .wardrobe_webbg{
+      display: none;
+      
+  }
+  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
+      display: none;
+      
+  }
+  .myUFO_wardrobeu_bg .wardrobe_phonebg{
+      display: block;
+      margin: 0 auto;
+     
+  }
 }
 
-@media screen and (min-width: 768px) {
-  .tabs_wardrobeu input:checked + label {
-    top: -5px;
+@include rwd(desktop){
+    .wardrobeu_body {
+      @include desktop ();
+    }
+}
+
+@include rwd(desktopSmall){
+  .wardrobeu_body{
+      @include desktopSmall();
   }
 }
-@media screen and (max-width: 767px) {
-  .tabs_wardrobeu {
-    height: auto;
-    background: #fefefe;
-    padding-bottom: 200px;
-    width: 95%;
+
+@include rwd(pad){
+  .wardrobeu_body{
+      @include pad ();
   }
-  .tabs_wardrobeu label {
-    text-align: left;
+}
+
+@include rwd(largeMobile){
+  .wardrobeu_body{
+      @include largeMobile();
   }
-  .tabs_wardrobeu input:checked + label {
-    padding-left: 30px;
-  }
-  .tabs_wardrobeu label, .tabs input {
-    width: 100%;
-    position: absolute;
-  }
-  .tabs_wardrobeu label.tab-label-1, .tabs label#tab-1, .tabs input.tab-label-1, .tabs input#tab-1 {
-    width: 88%;
-    top: 150px;
-    left: 0;
-    height: 50px;
-    z-index: 4 !important;
-  }
-  .tabs_wardrobeu label.tab-label-2, .tabs label#tab-2, .tabs input.tab-label-2, .tabs input#tab-2 {
-    width: 92%;
-    top: 100px;
-    left: 0;
-    height: 100px;
-    z-index: 3 !important;
-  }
-  .tabs_wardrobeu label.tab-label-3, .tabs label#tab-3, .tabs input.tab-label-3, .tabs input#tab-3 {
-    width: 96%;
-    top: 50px;
-    left: 0;
-    height: 150px;
-    z-index: 2 !important;
-  }
-  .tabs_wardrobeu .content_wardrobeu {
-    top: 200px;
+}
+
+@include rwd(mobile){
+  .wardrobeu_body{
+      @include mobile();
   }
 }
