@@ -37,22 +37,22 @@
 }
 
 // 頁面主架構
-.store_levelUpArea, .store_promotionArea{
-    padding: 35px;
+.store_storeInfoArea, .store_promotionArea, .store_levelUpArea{
+    width: 100%;
+    padding: 35px 150px;
+    @include rwd(largeMobile){
+        padding: 35px 10px;
+        }
     @include rwd(mobile){
         padding: inherit;
     }
-    width: 100%;
-
+    position: relative;
+    &::after{
+        @include lightLine(){
+            width: 80% ;    
+        }
+    }
 }
-
-// .store_levelUpArea{
-//     &::after{
-//         @include lightLine();
-//         left: ;
-//     }
-// }
-
 
 // 商家資訊區塊
 .store_storeInfoArea{
@@ -62,22 +62,17 @@
     @include rwd(desktopSmall){
         display: flex;
         }
-    position: relative;
-    &::after{
-        @include lightLine();
-    }
 }
 
 // 商家照片區塊
 .store_photoArea{
-    // @include borderTest();
+    padding: 0 35px;
     @include rwd(desktop){
         width: 50%;
         &_big{
             width: 300px;
             height: 300px;
             margin-left: calc(100% - 350px);
-            // @include borderTest();
         }
     }
     @include rwd(desktopSmall){
@@ -86,45 +81,48 @@
             width: 300px;
             height: 300px;
             margin-left: calc(100% - 350px);
-            // @include borderTest();
         }
-        }
-    padding: 35px;
+    }
 }
 
 .store_photoArea_small{
     ul{
         display: flex;
         margin-left: calc(100% - 350px);
-        // @include borderTest();
         width: 300px;
         padding-top: 20px;
         li{
-            // @include borderTest();
             width: 80px;
             margin-left: 15px;
-            // overflow: hidden;
         }
     }
 }
 
 // 商家文字區塊
 .store_storeInfo{
-    @include borderTest();
     padding: 30px;
     @include rwd(desktop){
-        padding: 30px 0;
+        padding: 0;
         }
-        @include rwd(desktopSmall){
-        padding: 30px 0;
+    @include rwd(desktopSmall){
+        padding: 0;
         }
-    @include rwd(desktop){
-        width: 55%;
+    @include rwd(mobile){
+        padding: inherit;
     }
     // 店名
     &_Name{
         height: 30px;
         margin-bottom: 20px;
+        @include rwd(pad){
+            text-align: center;
+            }
+        @include rwd(largeMobile){
+            text-align: center;
+            }
+        @include rwd(mobile){
+            text-align: center;
+            }
         h1{
             display: inline-block;
         }
@@ -132,11 +130,6 @@
     // 下方資訊
     &_Detail{
         padding-left: 10px;
-        li{
-            display: flex;
-            height: 45px;
-            // background-image: url(../img/icon/icon_edit.png);
-        }
         div{
             width: 25px;
         }
@@ -154,17 +147,47 @@
             padding-left: 5px;
             line-height: 45px;
         }
-        .store_icon{
-            position: relative;
-
-        }
     }
+}
+// 商家資訊的文字敘述區
+.store{
+    &_infoList{
+        height: 45px;
+        padding-left: 40px;
+        background-repeat: no-repeat;
+        // text-align: center;
+        @include rwd(desktop){
+            text-align: left;
+            }
+        @include rwd(desktopSmall){
+            text-align: left;
+            }
+        
+    }
+    &_infoTel{
+        background-image: url('../img/icon/icon_tel.png');
+    }
+    &_infoMail{
+        background-image: url('../img/icon/icon_mail.png');
+    }
+    &_infoPrice{
+        background-image: url('../img/icon/icon_price.png');
+    }
+    &_infomrt{
+        background-image: url('../img/icon/icon_mrt.png');
+    }
+    &_infoTag{
+        background-image: url('../img/icon/icon_tag.png');
+    }
+    &_infoWarn{
+        background-image: url('../img/icon/icon_warn.png');
+    }
+
 }
 
 
 // 商家等級介紹區 
 .store_levelUpArea{
-    // @include borderTest(blue);
     @include rwd(desktop){
         padding-left: 150px; 
         }
@@ -175,7 +198,6 @@
 
 // 升級說明區
 .store_levelArea{
-    // @include borderTest();
     display: flex;
     @include rwd(mobile){
         display: block;
@@ -183,14 +205,13 @@
     margin-bottom: 50px;
     img{
         width: 100px;
-        // @include borderTest();
     }
-    // &_free{
-    // }
     padding-bottom: 50px;
-    position: relative;
-    &::after{
-    @include lightLine();
+    &_free{
+        position: relative;
+        &::after{
+        @include lightLine();
+        }
     }
 }
 
@@ -202,7 +223,6 @@
         h2{
             font-weight: bold;
             line-height: 30px;
-            // @include borderTest();
         }
         p{
             line-height: 35px;
@@ -249,12 +269,10 @@
     }
     &_like{
         height: 300px;
-        @include border();
         flex-grow: 1;
     }
     &_click{
         height: 300px;
-        @include border();
         flex-grow: 1;
     }
 }
