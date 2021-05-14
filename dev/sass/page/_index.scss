@@ -5,11 +5,11 @@ body.index{
 }
 .index_wrapper{
     position: relative;
-    // overflow:hidden;
+    // overflow-x: hidden;
 }
 //----------map背景----------
 .index_map{
-    padding-top: 20px;
+    padding-top:2vw;
     // border: 1px solid;
     @include marginCenter();
     .map_slogan{
@@ -34,28 +34,27 @@ body.index{
 //----------搜尋按鈕----------
 .index_searchbtn{
     position:fixed;
-    right:160px;
-    bottom:160px;
+    right:10vw;
+    bottom:10vw;
     z-index: 98;
-    display: flex;
-    width: 300px;
+    display: flex;    
     li{ 
         // @include shadow();
         box-shadow:  -12px 10px 10px #D6D5AE;
-        margin-left: 20px;
-        width: 110px;
-        height:110px;
+        margin-left:3vw;
+        width:8vw;
+        height:8vw;
         background-color:$yellow;
         border-radius: 50%;
         img{
-            margin-top: 20px;
+            margin-top:1.5vw;
             @include block_center();
-            width: 65px;
-            height:65px;          
+            width: 5vw;
+            height:5vw;          
         }
         p{
             text-align: center;
-            padding-top:30px ;
+            padding-top:2vw ;
             font-weight: bold;
         }
     }
@@ -293,6 +292,7 @@ body.index{
 //----------搜尋結果彈窗end----------
 //----------店家資訊彈窗----------
 .index_inf_popup{
+    z-index: 1000;
     display:none;
     overflow:auto;
     height: 700px;
@@ -502,70 +502,132 @@ body.index{
 //rwd
 
 @include rwd(desktopSmall){
-    .index_searchbtn{
-        right: 100px;
-        bottom:240px;
-    }
-}
-@include rwd(pad){
-    .index_searchbtn{
-        right:120px;
-        bottom:310px;
-        width: 240px;
-        li{ 
-            width: 95px;
-            height:95px;
-            img{
-                width:55px;
-                height:55px;          
+    .index_wrapper{
+        border: 1px solid yellow;
+        .index_map{
+            margin:5vw 0;
+            .map_slogan{
+                width: 40vw;
+                right:5vw;
+                top:5vw;
             }
-            p{
-                padding-top:24px ;
+            .map{
+                width: 65vw;
             }
         }
-    }
-}
-
-@include rwd(largeMobile){
-    .index_searchbtn{
-        right:60px;
-        bottom:380px;
-        width: 220px;
-        li{ 
-            width: 80px;
-            height:80px;
-            img{
-                margin-top:15px;
-                width:50px;
-                height:50px;          
-            }
+        .et{
+            right:5vw;
+            bottom:25vw;
+        }
+      
+        .index_searchbtn{
+            right:10vw;
+            bottom:5vw;
             p{
                 display: none;
             }
         }
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+            right: 50%;
+            left: 50%;
+        } 
+    }
+}
+@include rwd(pad){
+    .index_wrapper{
+        border: 1px solid blue;
+        .index_map{
+            margin:10vw 0;
+            .map_slogan{
+                width: 40vw;
+                right:5vw;
+                top:10vw;
+            }
+            .map{
+                width:70vw;
+            }
+        }
+        .et{
+            right:5vw;
+            bottom:30vw;
+        }
+      
+        .index_searchbtn{
+            right:10vw;
+            bottom:10vw;
+            p{
+                display: none;
+            }
+        }
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+            right: 50%;
+            left: 50%;
+        } 
+    }
+}
+    
+@include rwd(largeMobile){
+    .index_wrapper{
+        border: 1px solid red;
+        .index_map{
+            margin:20vw 0;
+            .map_slogan{
+            width: 40vw;
+            right:10vw;
+            top:20vw;
+            }
+            .map{
+                width: 70vw;
+            }
+        }
+        .et{
+            right:5vw;
+            bottom:30vw;
+        }
+      
+        .index_searchbtn{
+            right:10vw;
+            bottom:10vw;
+            p{
+                display: none;
+            }
+        }
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+            right: 50%;
+            left: 50%;
+        } 
     }
 }
 
 @include rwd(mobile){
-    .map_slogan{
-        padding-top:15px;
-    }
-  
-    .index_searchbtn{
-        right:10px;
-        bottom:450px;
-        width:200px;
-        li{ 
-            width: 55px;
-            height:55px;
-            img{
-                margin-top:10px;
-                width:30px;
-                height:30px;          
+    .index_wrapper{
+        border: 1px solid green;
+        .index_map{
+            margin:20vw 0;
+            .map_slogan{
+                width: 40vw;
+                right:10vw;
+                top:20vw;
             }
+            .map{
+                width: 90vw;
+            }
+        }
+        .et{
+            right:5vw;
+            bottom:30vw;
+        }
+      
+        .index_searchbtn{
+            right:10vw;
+            bottom:10vw;
             p{
                 display: none;
             }
         }
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+            right: 50%;
+            left: 50%;
+        } 
     }
 }
