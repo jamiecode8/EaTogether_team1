@@ -1,67 +1,177 @@
+
 .story{
     background-color:$lightgreen;
 }
 .story_wrapper{
-    border: 1px solid;
-    width: 1200px;
     margin: 0 auto;
     position: relative;
     .story_Alien2{
         z-index: 2;
-        width: 350px;
+        width: 300px;
         position: absolute;
-        right:10%;
-        top:-15%;
+        right:10vw;
+        top:-15vw;
         transform: rotate(180deg);
     }
     .mrtAlien{
-        z-index: 2;
+        z-index:2;
         width: 350px;
         position: absolute;
-        left: 0;
-        top: 15%;
+        left:0vw;
+        top: 25vw;
     }
     .story_map{
         z-index: 2;
-        width:350px;
+        width:300px;
         position: absolute;
-        top:50%;
-        right:2%;
+        top:50vw;
+        right:2vw;
     }
     .story_Alien{
         z-index: 2;
-        width:350px;
+        width:300px;
         position: absolute;
-        bottom:0%;
-        left:2%;
+        left:0vw;
+        bottom:0vw;
     }
     .storyTitle{
         width:15vw;
-        padding:30px 0;
-        margin: 0 auto;
+        padding-top: 5vw;
+        margin:0 auto;
     }
     .storySection{
-        width: 600px;
-        margin: 80px auto;
+        width:60vw;
+        margin:5vw auto;
         .sectionPart{
-            height:350px;
+            padding-bottom:5vw;
             background-color: white;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content:center;
             .paragraph{
-                padding: 0 80px;
+                padding: 0 10vw;
                 // border: 1px solid;
                 h1{
                     text-align:center;
-                    padding-bottom: 20px;
+                    padding: 5vw 0 0 ;
                     color: $yellow;
                 }
                 p{
                     line-height: 36px;
                 }
             }
+            img{
+                display: none;
+            }
         }       
+    }
+    .storyAliens_rwd{
+        display: none;
+    }
+}
+
+
+//rwd
+@include rwd(desktop){
+    .story_wrapper{
+        @include desktop ();
+        // border: 1px solid black;
+
+    }
+}    
+@include rwd(desktopSmall){
+    .story_wrapper{
+    //    border: 1px solid blue;
+       .story_Alien{
+           width: 280px;
+           left: 1vw;
+       }
+       .story_Alien2{
+            width: 280px;
+        }
+        .mrtAlien{
+            width: 300px;
+            top:30vw;
+        }
+        .story_map{
+            top: 65vw;
+        }
+    }
+}
+@include rwd(pad){
+    .story_wrapper{
+        border: 1px solid orangered;
+        .story_Alien{
+            width: 240px;
+            left: 0vw;
+        }
+        .story_Alien2{
+             width: 240px;
+             top: -15vw;
+             right:5vw;
+         }
+         .mrtAlien{
+             width:250px;
+             top:40vw;
+         }
+         .story_map{
+             width: 250px;
+             top: 80vw;
+             right: 0;
+         }
+    }
+}
+@include rwd(largeMobile){
+    .story_wrapper{
+        // border: 1px solid green;
+        .mrtAlien, .story_map, .story_Alien, .story_Alien2{
+            display: none;
+        }
+        .storySection{
+            .sectionPart{
+                .paragraph{
+                    img{
+                        display: block;
+                    }
+                }
+            }
+        }
+        .storyAliens_rwd{
+            display:block;
+            display: flex;
+            justify-content:center;
+            margin: 0 auto;
+            img{
+                width:100px;
+            }
+        }
+    }
+}
+
+@include rwd(mobile){
+    .story_wrapper{
+        // border: 1px solid pink;
+        .mrtAlien, .story_map, .story_Alien, .story_Alien2{
+            display: none;
+        }
+        .storySection{
+            .sectionPart{
+                .paragraph{
+                    img{
+                        display: block;
+                    }
+                }
+            }
+        }
+        .storyAliens_rwd{
+            display:block;
+            display: flex;
+            justify-content:center;
+            margin: 0 auto;
+            img{
+                width:80px;
+            }
+        }
     }
 }
