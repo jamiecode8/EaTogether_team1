@@ -4,26 +4,25 @@
     background-color: $bgc;
 }
 
-// 會員登入註冊彈窗
-#memberLogin_popups{
-    position: absolute;
-    // display: none;
-    z-index: 999;
-}
-
-
 .login{
     @include block_center();
     padding-bottom: 20px;
     box-shadow: initial;
     width: 600px;
+    @include rwd(largeMobile){
+        width: 300px;
+        padding: 25px;
+        }
+    @include rwd(mobile){
+        width: 300px;
+        padding: 25px;
+        }
     // 頭像區塊
     .loginMemberPic{
         // @include borderTest();
         width: 25%;
         @include block_center();
     }
-
     // 送出按鈕
     @include btn(".btn_submit", $yellow, $tp);
 }
@@ -32,6 +31,16 @@
     font-size: $fontSizeSmall;
     text-align: right;
     cursor: pointer;
+}
+
+ // 登入成功送出按鈕
+ .loginMember_link, .signUpMember_link{
+    display: block;
+    height: 36px;
+    width: 100px;
+ } 
+#memberLogin_submit, #memberSignUp_submit{
+    margin: initial;
 }
 
  // 登入註冊切換區
@@ -148,16 +157,11 @@
     transition: 1, ease-in-out;
 }
 
-// 編輯會員資料
+// 編輯會員資料--------------------------
 #memberInfo_edit{
-    display: none; 
-    position: absolute;
-    top: 20px;
-    z-index: 999;
-    left: calc((100vw - 400px)/2);
+    margin-left: calc((100vw - 400px)/2);
     @include rwd(desktop){
-        left: calc((100vw - 1000px)/2);
-        position: fixed;
+        margin-left: calc((100vw - 1000px)/2);
     }
 }
 
