@@ -74,6 +74,7 @@ body.index{
 //----------搜尋按鈕end----------
 //----------whatToEat彈窗----------
 .index_whatToEat_popup{
+    z-index: 1000;
     display: none;
     position: absolute;
     top: 10%;
@@ -132,6 +133,7 @@ body.index{
 //----------whatToEat彈窗end----------
 //----------search彈窗end----------
 .index_search_popup{
+    z-index: 1000;
     display: none;
     position: absolute;
     top: 10%;
@@ -214,6 +216,7 @@ body.index{
 //----------search彈窗end----------
 //----------搜尋結果彈窗----------
 .index_store_popup{
+    z-index: 1000;
     display: none;
     position: absolute;
     top: 10%;
@@ -445,6 +448,7 @@ body.index{
 //----------搜尋結果彈窗end----------
 //----------檢舉店家彈窗----------
 .index_searcReport_popup{
+    z-index: 1000;
     display: none;
     position: absolute;
     top: 10%;
