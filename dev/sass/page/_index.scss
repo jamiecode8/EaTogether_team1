@@ -503,13 +503,13 @@ body.index{
 
 @include rwd(desktopSmall){
     .index_wrapper{
-        border: 1px solid yellow;
+        // border: 1px solid yellow;
         .index_map{
             margin:5vw 0;
             .map_slogan{
                 width: 35vw;
                 right:5vw;
-                top:10vw;
+                top:7vw;
             }
             .map{
                 width: 65vw;
@@ -535,13 +535,13 @@ body.index{
 }
 @include rwd(pad){
     .index_wrapper{
-        border: 1px solid blue;
+        // border: 1px solid blue;
         .index_map{
             margin:10vw 0;
             .map_slogan{
                 width: 40vw;
                 right:5vw;
-                top:10vw;
+                top:5vw;
             }
             .map{
                 width:75vw;
@@ -568,13 +568,13 @@ body.index{
     
 @include rwd(largeMobile){
     .index_wrapper{
-        border: 1px solid red;
+        // border: 1px solid red;
         .index_map{
             margin:20vw 0;
             .map_slogan{
-            width: 40vw;
-            right:10vw;
-            top:20vw;
+                width: 40vw;
+                right:10vw;
+                top:5vw;
             }
             .map{
                 width: 80vw;
@@ -601,13 +601,13 @@ body.index{
 
 @include rwd(mobile){
     .index_wrapper{
-        border: 1px solid green;
+        // border: 1px solid green;
         .index_map{
             margin:20vw 0;
             .map_slogan{
                 width: 40vw;
                 right:10vw;
-                top:20vw;
+                top:10vw;
             }
             .map{
                 width: 90vw;
