@@ -1,6 +1,6 @@
 <!-- Jamie -->
 <!-- 商家登入 -->
-<div class="popUps login" id="storeLogin_popups">
+<div class="popUps login blockBlock" id="storeLogin_popups">
     <form action="#資料傳送送的網址" method="" class="form login">
         <!-- close button -->
         <!-- <button type="button" class="btn_close">
@@ -17,8 +17,8 @@
         <div class="loginInner">
             <!-- 登入註冊切換區 -->
             <div class="loginSwitch">
-                <button type="button" class="toggolebtn areaShow"  id="btn_login"> 登入 </button>
-                <button type="button" class="toggolebtn" id="btn_signup"> 註冊 </button>
+                <button type="button" class="toggolebtn areaShow"  id="btn_loginStore"> 登入 </button>
+                <button type="button" class="toggolebtn" id="btn_signupStore"> 註冊 </button>
 
             </div>
             <!-- 內容區域 -->
@@ -36,7 +36,9 @@
                 </div> 
                     <!-- 單顆按鈕用這裡 -->
                     <div class="btn">
-                        <input type="submit" value="送出" class="btn_submit" />
+                        <a href="/store_free.html" class="loginStore_link">
+                            <input type="submit" value="送出" class="btn_submit signUpStore_link" id="storeSignUp_submit"/>
+                        </a>
                     </div>
             </div>
         </div>
@@ -45,12 +47,12 @@
 </div>
 
 <!-- 商家註冊 -->
-<div class="popUps login store_signUp "  id="store_signUp">
+<div class="popUps login store_signUp blockNone"  id="store_signUp">
     <form action="#資料傳送送的網址" method="" class="form login storeLogin_signup">
         <!-- close button -->
-        <!-- <button type="button" class="btn_close">
+        <button type="button" class="btn_close" id="store_signUp_close">
             <img src="./img/icon/icon_close.png" alt="" />
-        </button> -->
+        </button>
 
         <h1 class="login_store_welcome">商家資訊</h1>
 
@@ -67,6 +69,16 @@
                     <input type="text" placeholder="輸入餐廳名稱" />
                     <input type="text" placeholder="輸入餐廳電話" />
                     <input type="text" placeholder="輸入餐廳地址" />
+                </section>
+                <!-- 聯絡資訊 -->
+                <section class="store_signUp_basicInfo">
+                    <div class="store_signUp_title">
+                        <h2>聯絡資訊</h2>
+                        <!-- <button class="store_signUp_editIcon"></button> -->
+                    </div>
+                    <input type="text" placeholder="聯絡人" />
+                    <input type="text" placeholder="連絡電話" />
+                    <input type="text" placeholder="E-mail" />
                 </section>
                 <!-- 進階資料 -->
                 <section class="store_signUp_basicInfo">
@@ -169,13 +181,13 @@
                         <!-- <button class="store_signUp_editIcon"></button> -->
                     </div>
                     <!-- 照片區
-                     -->
+                    -->
                     <div class="store_imgArea">
                         <!-- 主標題 -->
                         <p>檔案格式：JPG、JPEG、PNG</p>
                         <p>檔案容量：3MB以下</p>
                         <p>建議圖片尺寸：640px × 640px</p>
-              
+            
                         <div class="pho_edit_top store_imgArea_dropArea">
                             <div>
                                 <h3>形象海報</h3>
@@ -186,11 +198,17 @@
                             </div>
                             <div>
                                 <h3>店景</h3>
-                                <div class="pho_edit"></div>
+                                <div class="pho_edit">
+                                    <p>請將檔案拖放置此</br>或</p>
+                                    <button type="button" class="btn_submit">選擇檔案+</button>
+                                </div>
                             </div>
                             <div>
                                 <h3>菜單</h3>
-                                <div class="pho_edit"></div>
+                                <div class="pho_edit">
+                                    <p>請將檔案拖放置此</br>或</p>
+                                    <button type="button" class="btn_submit">選擇檔案+</button>
+                                </div>
                             </div>
                         </div>
 
@@ -199,29 +217,29 @@
                         <div class="pho_edit_top">
                         <div>
                             <h3>餐點照</h3>
-                            <div class="pho_edit"></div>
+                            <div class="pho_edit">
+                                <p>請將檔案拖放置此</br>或</p>
+                                    <button type="button" class="btn_submit">選擇檔案+</button>
+                            </div>
                         </div>
                         <div>
                             <h3>餐點照</h3>
-                            <div class="pho_edit"></div>
+                            <div class="pho_edit">
+                                <p>請將檔案拖放置此</br>或</p>
+                                <button type="button" class="btn_submit">選擇檔案+</button>
+                            </div>
                         </div>
                         <div>
                             <h3>餐點照</h3>
-                            <div class="pho_edit"></div>
+                            <div class="pho_edit">
+                                <p>請將檔案拖放置此</br>或</p>
+                                <button type="button" class="btn_submit">選擇檔案+</button>
+                            </div>
                         </div>
                         </div>
                     </div>
                 </section>
-                <!-- 聯絡資訊 -->
-                <section class="store_signUp_basicInfo">
-                    <div class="store_signUp_title">
-                        <h2>聯絡資訊</h2>
-                        <!-- <button class="store_signUp_editIcon"></button> -->
-                    </div>
-                    <input type="text" placeholder="聯絡人" />
-                    <input type="text" placeholder="連絡電話" />
-                    <input type="text" placeholder="E-mail" />
-                </section>
+
                 <!-- 同意遵守商家守則 -->
                 <label class="checkboxArea">
                     <input type="checkbox" value="confirm"  class="checkbox"/>
@@ -229,8 +247,10 @@
                 </label>
                 <!-- 2顆按鈕用這個 -->
                 <div class="buttonArea">
-                    <input type="submit" value="取消" class="btn_d btn_cancel" />
-                    <input type="submit" value="送出" class="btn_d btn_submit" />
+                    <input type="" value="取消" class="btn_d btn_cancel" id="store_signUp_back"/>
+                    <a href="/store_free.html">
+                        <input type="" value="送出" class="btn_submit" />
+                    </a>
                 </div>
             </div>
         </div>
