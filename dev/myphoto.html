@@ -37,9 +37,6 @@
                     
                         <section class="pho_top_s2">
 
-                            <!-- 分隔線 -->
-                            <div class="pho_line"></div>
-
                             <!-- 選單 -->
                             <ul class="pho_menu">
                                 <li><a href="#">推薦拍立得</a></li>
@@ -237,7 +234,7 @@
                     <!-- 6 -->
                     <li>
                         <!-- 照片連結 -->
-                        <a href="#"><img class="pho_cards_pic"src="./img/tang/store_pic.png " alt=""></a>
+                        <a href="#"><img class="pho_cards_pic" src="./img/tang/store_pic.png " alt=""></a>
 
                         <div class="pho_vender_thumb_message">
                             <!-- 商家連結 -->
@@ -272,12 +269,12 @@
                 </ul>
             </div>
 
-            <!-- 拍立得內文彈窗 -->
-            <div class="pho_popUps">
-                <form action="#資料傳送送的網址" method="post" class="form">
+            <!------------- 拍立得內文彈窗 -------------->
+            <div class="pho_popUps pho_disappear">
+                <form action="#資料傳送送的網址" method="post" class="pho_popUps_form">
                     
                     <!-- close button -->
-                    <button type="button" class="btn_close">
+                    <button type="button" class="btn_close" id="pho_popup_closebtn">
                         <img src="./img/icon/icon_close.png" alt="" />
                     </button>
                     
@@ -286,7 +283,7 @@
                         <!-- s1 pic-->
                         <section class="pho_poppus_s1">
                             <div>
-                                <img src="../dev/img/tang/food-1.jpg" alt="">
+                                <img src="./img/tang/food-1.jpg" alt="">
                             </div>
                         </section>
                         
@@ -294,10 +291,10 @@
                         <section class="pho_poppus_s2">
                             <article>
                                 <div class="pho_article_a1">
-                                    <img src="../dev/img/tang/ET_photo.png" alt="">
+                                    <img src="./img/tang/ET_photo.png" alt="">
                                     <h2><a href="#">tina888</a></h2>
                                     <span><a href="#">追蹤</a></span>
-                                    <img src="../dev/img/tang/Icon more.png" alt="">
+                                    <img src="./img/tang/Icon more.png" alt="">
                                 </div>
             
                                 <div class="pho_article_a2">
@@ -321,28 +318,28 @@
                             
                             <article>
                                 <div class="pho_article_a5">
-                                    <img src="../dev/img/tang/ET_photo.png" alt="">
+                                    <img src="./img/tang/ET_photo.png" alt="">   
                                     <span><a href="#">tina888</a></span>
                                     <span>看起來很好吃!!</span>
-                                    <img src="../dev/img/tang/Icon material.png" alt="">
+                                    <img src="./img/tang/Icon material.png" alt="">
                                 </div>
     
                                 <div class="pho_article_a5">
-                                    <img src="../dev/img/tang/ET_photo.png" alt="">
+                                    <img src="./img/tang/ET_photo.png" alt="">
                                     <span><a href="#">tina888</a></span>
                                     <span>看起來很好吃!!</span>
-                                    <img src="../dev/img/tang/Icon material.png" alt="">
+                                    <img src="./img/tang/Icon material.png" alt="">
                                 </div>
     
                                 <div class="pho_article_a5">
-                                    <img src="../dev/img/tang/ET_photo.png" alt="">
+                                    <img src="./img/tang/ET_photo.png" alt="">
                                     <span><a href="#">tina888</a></span>
                                     <span>看起來很好吃!!</span>
-                                    <img src="../dev/img/tang/Icon material.png" alt="">
+                                    <img src="./img/tang/Icon material.png" alt="">
                                 </div>
     
                                 <div class="pho_article_a6">
-                                    <textarea name="" id="" cols="30" rows="10">留言回應...</textarea>
+                                    <textarea name="" id="" cols="30" rows="10" placeholder="留言回應..."></textarea>
                                     <button type="submit" class="">發佈</button>
                                 </div>
                             </article>
@@ -360,5 +357,23 @@
 
 <!-- ==================================上方開始編輯========================================== -->
     @@include('layout/footer.html')
+<script>
+    let pho_popup_closebtn_js = document.getElementById('pho_popup_closebtn');
+    let pho_cards_pic_js = document.querySelectorAll('img.pho_cards_pic');
+
+    for(let i = 0 ; i<pho_cards_pic_js.length ;i++){
+        pho_cards_pic_js[i].addEventListener("click",function(){  //this
+            pho_popup_closebtn_js.closest('div.pho_popUps').classList.remove('pho_disappear');
+        });
+    }
+
+        pho_popup_closebtn_js.addEventListener("click",function(){
+            this.closest('div.pho_popUps').classList.add('pho_disappear');
+        });
+
+
+
+</script>
+
 </body>
 </html>

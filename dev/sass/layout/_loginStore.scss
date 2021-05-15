@@ -7,19 +7,25 @@
     background-color: $bgc;
 }
 
-#storeLogin_popups{
-    display: none;
-    // display: block;
-    // z-index: 999;
-}
+// #storeLogin_popups{
+//     // display: none;
+//     display: block;
+// }
 
-#store_signUp{
-    // position: absolute; 
-    // 先關起來 才不會擋住登入彈窗
-    // display: none;
-    display: block;
-    // z-index: 999;
-}
+// #storeLogin_popups.on{
+//     // display: none;
+//     // display: block;
+// }
+
+// #store_signUp{
+//     // display: none;
+//     display: block;
+// }
+
+// #store_signUp.on{
+//     display: block;
+// }
+
 .storeLogin_signup{
     width: 1000px;
 }
@@ -60,7 +66,6 @@
   }
 
   .checkboxArea_read{
-   
     font-size: $fontSizeSmall;
     line-height: 20px;
   }
@@ -81,7 +86,6 @@
         background-size: contain;
     }
 }
-
 
 // 商家鄰近捷運站
 .login_store_station{
@@ -125,63 +129,42 @@
     display: block;
 }
 
-// 商家照片
-// .store_imgArea{
-//     display: flex;
-//     padding-bottom: 10px;
-//     &_s{
-//         display: flex;
-//         flex-wrap: wrap;  
-//     }
-// }
-// .store_signUp_dropZone{
-//     &_big{
-//         @include border($colorTp);
-//         width: 100px;
-//         height: 100px;
-//         flex-shrink: 0;
-//         margin-right: 20px;
-//     }
-//     &_mid{
-//         @include border($colorTp);
-//         width: 45px;
-//         height: 45px;
-//         margin-right: 15px;
-//         margin-bottom: 10px;
-//     }
-// }        
-// 為了斷行         
-// #store_signUp_dropZone_look{
-//     margin-right: 20px;
-// }
 
 
-//---------------------------商家管理彈窗-----------------------------
+//照片上傳區
 
 .store_imgArea {
     @include block_center(); //區塊置中
     width: 1000px;
     padding: 0 40px 20px;
     text-align: center;
-        .pho_edit_top{
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
-            
-            h3{
-                line-height: 25px;
-             }
-            
-            // 照片上傳
-            .pho_edit{
-                width:420px;
-                width: 300px;
-                height:260px;
-                background-color: $colorTp;
-                // border: 1px solid $green;
-                text-align: center;
-                padding-top: 20%;
+    .pho_edit_top{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        
+        h3{
+            line-height: 25px;
             }
+        
+        // 照片上傳
+        .pho_edit{
+            width:420px;
+            width: 300px;
+            height:260px;
+            background-color: $colorTp;
+            // border: 1px solid $green;
+            text-align: center;
+            padding-top: 20%;
         }
     }
+    }
+
+.blockBlock{
+    display: block;
+}
+
+.blockNone{
+    display: none;
+}
 
