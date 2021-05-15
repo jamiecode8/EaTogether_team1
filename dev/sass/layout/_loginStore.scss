@@ -7,27 +7,23 @@
     background-color: $bgc;
 }
 
-// #storeLogin_popups{
-//     // display: none;
-//     display: block;
-// }
-
-// #storeLogin_popups.on{
-//     // display: none;
-//     // display: block;
-// }
-
-// #store_signUp{
-//     // display: none;
-//     display: block;
-// }
-
-// #store_signUp.on{
-//     display: block;
-// }
-
 .storeLogin_signup{
+	@include rwd(desktop){
+    // display: none;
     width: 1000px;
+	}
+	@include rwd(desktopSmall){
+        width: 1000px;
+	}
+	@include rwd(pad){
+        width: 600px;
+	}
+	@include rwd(largeMobile){
+        width: 540px;
+	}
+	@include rwd(mobile){
+        width: 300px;
+	}
 }
 
 .login_store_welcome{
@@ -138,27 +134,62 @@
     width: 1000px;
     padding: 0 40px 20px;
     text-align: center;
+    @include rwd(pad){
+        width: 600px;
+        }
+    @include rwd(largeMobile){
+        width: 540px;
+        }
+    @include rwd(mobile){
+        width: 300px;
+        }
     .pho_edit_top{
-        display: flex;
         justify-content: space-between;
         margin: 20px 0;
-        
-        h3{
-            line-height: 25px;
+        display: flex;
+        @include rwd(pad){
+            display: block;
+            @include block_center(); 
             }
-        
+        @include rwd(largeMobile){
+            display: block;
+            @include block_center(); 
+            }
+        @include rwd(mobile){
+            display: block;
+            @include block_center(); 
+            }
         // 照片上傳
         .pho_edit{
-            width:420px;
             width: 300px;
             height:260px;
             background-color: $colorTp;
-            // border: 1px solid $green;
             text-align: center;
             padding-top: 20%;
+            @include rwd(mobile){
+                width: 280px;
+                @include block_center(); 
+                }
+            
         }
     }
+    &_subtitle{
+        line-height: 25px;
+        @include rwd(pad){
+            text-align: initial;
+            margin-top: 10px;
+            }
+        @include rwd(largeMobile){
+            text-align: initial;
+            margin-top: 10px;
+            }
+        @include rwd(mobile){
+            text-align: initial;
+            margin-top: 10px;
+            }
     }
+
+}
 
 .blockBlock{
     display: block;
