@@ -13,8 +13,85 @@
       width: 40%;
       top: 5%;
       left: 10%;
+        @include rwd(desktop){
+          
+        }
+        @include rwd(desktopSmall){
+          
+        }
+        @include rwd(pad){
+          position: absolute;
+          width: 60%;
+          top: 20%;
+          left: 10%;
+        }
+        @include rwd(largeMobile){
+          position: absolute;
+          width: 60%;
+          top: 16%;
+          left: 10%;
+        }
+        @include rwd(mobile){
+          position: absolute;
+          width: 100%;
+          top: 15%;
+          left: 5%;
+        }
+      
       .wardrobeuwindow{
         width: 40%;
+      }
+    }
+    .wardrobeipadphone{
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      top: 5%;
+      right: 0;
+      z-index: 10;
+      @include rwd(desktop){
+        display:none;
+          
+      }
+      @include rwd(desktopSmall){
+        position: absolute;
+        width: 45%;
+        height: 40%;
+        top: 0%;
+        right: 0;
+        z-index: 10;
+        display: block;
+      }
+      @include rwd(pad){
+        position: absolute;
+        width: 40%;
+        height: 40%;
+        top: 14%;
+        right: 0;
+        z-index: 10;
+        display: block;
+      }
+      @include rwd(largeMobile){
+        position: absolute;
+        width: 40%;
+        height: 40%;
+        top: 4%;
+        right: 0;
+        z-index: 10;
+        display: block;
+      }
+      @include rwd(mobile){
+        position: absolute;
+        width: 40%;
+        height: 40%;
+        top: 6%;
+        right: 0;
+        z-index: 10;
+        display: block;
+      }
+      img{
+        width: 100%;
+        height: 100%;
       }
     }
     .wardrobeweb{
@@ -24,6 +101,21 @@
       top: 5%;
       right: 0;
       z-index: 10;
+      @include rwd(desktop){
+          display: block;
+      }
+      @include rwd(desktopSmall){
+          display: none;
+      }
+      @include rwd(pad){
+        display: none;
+      }
+      @include rwd(largeMobile){
+        display: none;
+      }
+      @include rwd(mobile){
+        display: none;
+      }
       img{
         width: 100%;
         height: 100%;
@@ -35,6 +127,38 @@
       height: 10%;
       top: 0%;
       left: 20%;
+      @include rwd(desktop){
+          
+      }
+      @include rwd(desktopSmall){
+        position: absolute;
+        width: 10%;
+        height: 10%;
+        top: -1%;
+        left: 20%;
+      }
+      @include rwd(pad){
+        position: absolute;
+        width: 15%;
+        height: 10%;
+        top: -2%;
+        left: 20%;
+      }
+      @include rwd(largeMobile){
+        position: absolute;
+        width: 15%;
+        height: 10%;
+        top: -2%;
+        left: 20%;
+      }
+      @include rwd(mobile){
+        position: absolute;
+        width: 50%;
+        height: 10%;
+        top: 0%;
+        left: 25%;
+        right: 25%;
+      }
       img{
         width: 100%;
         height: 100%;
@@ -47,6 +171,33 @@
       top: 0%;
       right: 20%;
       z-index: 20;
+      @include rwd(desktop){
+          
+      }
+      @include rwd(desktopSmall){
+        position: absolute;
+        width: 10%;
+        height: 10%;
+        top: -1%;
+        right:  20%;
+      }
+      @include rwd(pad){
+        position: absolute;
+        width: 15%;
+        height: 10%;
+        top: -2%;
+        right:  20%;
+      }
+      @include rwd(largeMobile){
+        position: absolute;
+        width: 15%;
+        height: 10%;
+        top: -2%;
+        right:  20%;
+      }
+      @include rwd(mobile){
+        display: none;
+      }
       img{
         width: 100%;
         height: 100%;
@@ -58,10 +209,74 @@
       top: 10%;
       left: 25%;
       right: 25%;
+      z-index: 99;
+      @include rwd(desktop){
+        position: absolute;
+        width: 50%;
+        top: 10%;
+        left: 25%;
+        right: 25%;
+        z-index: 99;
+      }
+      @include rwd(desktopSmall){
+        position: absolute;
+        width: 60%;
+        top: 10%;
+        left: 20%;
+        right: 20%;
+        z-index: 99;
+      }
+      @include rwd(pad){
+        position: absolute;
+        width: 60%;
+        top: 25%;
+        left: 20%;
+        right: 20%;
+        z-index: 99;
+      }
+      @include rwd(largeMobile){
+        position: absolute;
+        width: 60%;
+        top: 20%;
+        left: 20%;
+        right: 20%;
+        z-index: 99;
+      }
+      @include rwd(mobile){
+        position: absolute;
+        width: 80%;
+        top: 20%;
+        left: 10%;
+        right: 10%;
+        z-index: 99;
+      }
+      img{
+        width: 100%;
+      }
 
       .wardrobeu_character{
         width: 30%;
         margin: 0 auto;
+        @include rwd(desktop){
+          width: 30%;
+          margin: 0 auto;
+        }
+        @include rwd(desktopSmall){
+          width: 40%;
+          margin: 0 auto;
+        }
+        @include rwd(pad){
+          width: 40%;
+          margin: 0 auto;
+        }
+        @include rwd(largeMobile){
+          width: 48%;
+          margin: 0 auto;
+        }
+        @include rwd(mobile){
+          width: 60%;
+          margin: 0 auto;
+        }
         img{
           width: 100%;
         }
@@ -146,6 +361,107 @@
             width: 100%;
             height:130px;
             margin: 5px auto;
+            .container3{
+              align-items: center;
+              position: absolute;
+              margin: 0% 0 0 0;
+              width: 100%;
+            }
+            .container2{
+              position: absolute;
+              margin: 2% 0 0 0;
+              width: 100%;
+
+            }
+            .container1{
+              width: 100%;
+            }
+            .col-centered {
+                float: none;
+                margin: 0 auto;
+            }
+            
+            .carousel-control { 
+                width: 8%;
+                width: 0px;
+            }
+            .carousel-control.left,
+            .carousel-control.right { 
+                margin-right: 40px;
+                margin-left: 32px; 
+                // background-image:;
+                opacity: 1;
+            }
+            .carousel-control > a > span {
+                color: white;
+                font-size: 29px !important;
+            }
+            
+            .carousel-col { 
+                position: relative; 
+                /* min-height: 1px;  */
+                padding: 5px; 
+                float: left;
+             }
+             .carousel-col img{ 
+                width: 50%; 
+                height: 50%;
+                padding: 5px; 
+                 
+                
+            }
+            
+             .active > div { display:none; }
+             .active > div:first-child { display:block; }
+            
+            /*xs*/
+            @media (max-width: 767px) {
+              .carousel-inner .active.left { left: -50%; }
+              .carousel-inner .active.right { left: 50%; }
+              .carousel-inner .next        { left:  50%; }
+              .carousel-inner .prev		     { left: -50%; }
+              .carousel-col                { width: 50%; }
+              .active > div:first-child + div { display:block; }
+            }
+            
+            /*sm*/
+            @media (min-width: 768px) and (max-width: 991px) {
+              .carousel-inner .active.left { left: -50%; }
+              .carousel-inner .active.right { left: 50%; }
+              .carousel-inner .next        { left:  50%; }
+              .carousel-inner .prev		     { left: -50%; }
+              .carousel-col                { width: 50%; }
+              .active > div:first-child + div { display:block; }
+            }
+            
+            /*md*/
+            @media (min-width: 992px) and (max-width: 1199px) {
+              .carousel-inner .active.left { left: -33%; }
+              .carousel-inner .active.right { left: 33%; }
+              .carousel-inner .next        { left:  33%; }
+              .carousel-inner .prev		     { left: -33%; }
+              .carousel-col                { width: 33%; }
+              .active > div:first-child + div { display:block; }
+              .active > div:first-child + div + div { display:block; }
+            }
+            
+            /*lg*/
+            @media (min-width: 1200px) {
+              .carousel-inner .active.left { left: -25%; }
+              .carousel-inner .active.right{ left:  25%; }
+              .carousel-inner .next        { left:  25%; }
+              .carousel-inner .prev		     { left: -25%; }
+              .carousel-col                { width: 25%; }
+              .active > div:first-child + div { display:block; }
+              .active > div:first-child + div + div { display:block; }
+              .active > div:first-child + div + div + div { display:block; }
+            }
+            
+            .block {
+              width: 100px;
+              height: 50px;
+            }
+            
               
           }
 
@@ -179,6 +495,7 @@
 
 @media all and(max-width: 1199px) and (min-width: 992px) {
   .myUFO_wardrobeu_bg.wardrobe_webbg{
+
       display: block;
       
   }
@@ -198,6 +515,7 @@
       
   }
   .myUFO_wardrobeu_bg .wardrobe_ipadbg{
+      width: 100%;
       display: block;
       
   }
@@ -236,4 +554,49 @@
       margin: 0 auto;
      
   }
+ }
+
+ @media all and(max-width: 1199px) and (min-width: 992px) {
+  .wardrobeweb{
+
+      display: block;
+      
+  }
+  .wardrobeipadphone{
+      display: none;
+  }
+}
+
+@media all and(max-width: 991px) and (min-width: 768px) {
+    .wardrobeweb{
+      display: none;
+  }
+  .wardrobeipadphone{
+      display: block;
+      
+  }
+}
+
+@media all and(max-width: 767px) and (min-width: 576px) {
+  .wardrobeweb{
+
+    display: none;
+    
+}
+.wardrobeipadphone{
+    display: block;
+    
+}
+}
+
+@media all and (max-width: 575px) {
+  .wardrobeweb{
+
+    display: none;
+    
+}
+.wardrobeipadphone{
+    display: block;
+    
+}
  }
