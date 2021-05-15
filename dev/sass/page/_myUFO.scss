@@ -375,9 +375,10 @@ height: 100vh;
 
 //----------靜瑩角色彈窗----------
 .MyCharacter{
+    z-index: 1000;
     display: none;
     position: absolute;
-    top:2%;
+    top:10%;
     left:50%;
     right: 50%;
     h1{
