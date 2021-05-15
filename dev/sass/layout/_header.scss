@@ -63,11 +63,11 @@ header{
     top: 5%;
     right: 10%;
     cursor: pointer;
-    transition: opacity 0.25s ease;
-    background-image: url('../img/test_login_memberPic.png');
+    transition: opacity 1s ease;
+    background-image: url('../img/header_story_hover.png.png');
     width: 30px;
     height: 30px;
-    // z-index: 900;
+    z-index: 900;
     background-size: cover;
     @include rwd(pad){
         right: 12%;
@@ -77,6 +77,14 @@ header{
     }
     @include rwd(mobile){
     right: 17%;
+    }
+    &_link{
+        display: block;
+        width: 30px;
+        height: 30px;
+    }
+    &:hover{
+        background-image: url('../img/header_story.png');
     }
 }
 

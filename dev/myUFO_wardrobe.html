@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @@include('layout/style.html')
     <title>衣櫃</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css'>
 </head>
 <body class="wrapper wardrobeu_body">
     @@include('layout/header.html')
@@ -15,14 +17,67 @@
         <img src="./img/mimi/wardrobe_ipadbg.svg" alt="" class="wardrobe_ipadbg">
         <img src="./img/mimi/wardrobe_phonebg.svg" alt="" class="wardrobe_phonebg">
       </div>
+
       <div class="wardrobeu_window">
         <img src="./img/mimi/window.svg" alt="" class="wardrobeuwindow">
       </div>
+      <div class="wardrolight">
+        <img src="./img/mimi/wardrolight.svg" alt="">
+      </div>
+      <div class="wardrolight2">
+        <img src="./img/mimi/wardrolight.svg" alt="">
+      </div>
+
+    <div class="wardrobeweb">
+      <img src="./img/mimi/wardrobeweb.svg" alt="">
+    </div>  
 
       <div class="wardrobeu_intermediate">
-        <div class="wardrobeu_character"><img src="./img/mimi/character.svg" alt=""></div>
-        <div>
- 
+
+        <div class="wardrobeu_character">
+          <img src="./img/mimi/character.svg" alt="">
+        </div>
+        
+        <div class="tab_container">
+  
+          <div class="tab_list_block">
+            <ul class="tab_list">
+              <li><a href="#" data-target="tab1" class="tab -on">頁籤一</a></li>
+              <li><a href="#" data-target="tab2" class="tab">頁籤二</a></li>
+              <li><a href="#" data-target="tab3" class="tab">頁籤三</a></li>
+            </ul>
+          </div>
+          
+          <div class="tab_contents">
+            
+            <div class="tab tab1 -on">
+              <div class="tabbox1">
+
+              </div> 
+              <div class="tabbox1">
+
+              </div>
+            </div>
+            
+            <div class="tab tab2">
+              <div class="tabbox1">
+
+              </div>
+              <div class="tabbox1">
+
+              </div>
+            </div>
+            
+            <div class="tab tab3">
+              <div class="tabbox1">
+
+              </div>
+              <div class="tabbox1">
+
+              </div>
+            </div>
+          </div>
+          
         </div>
 
       </div>
@@ -31,5 +86,9 @@
       
     </div>
     @@include('layout/footer.html')
+    <script>
+     @@include('js/myUFO_wardrobeu.js')
+    </script>
+
 </body>
 </html>
