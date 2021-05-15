@@ -79,12 +79,10 @@ $('.btn_close').click(function(){
 
 // 登入註冊切換
 $('#btn_signup').click(function(){
-    // $('.wrapper:not(.login)').addClass('blur');
     $(this).addClass('areaShow');
     $('#btn_login').removeClass('areaShow');
     $('#login_block').addClass('areaHide');
     $('#signUp_block').removeClass('areaHide');
-    // $('.wrapper').addClass('blur'); //背景毛玻璃
 });
 
 $('#btn_login').click(function(){
@@ -96,7 +94,6 @@ $('#btn_login').click(function(){
 
 // 下拉選單
 $('.login_station_arrow').click(function (e) {
-    // e.preventDefault();
     $('.login_station_select').toggleClass('on');
 });
 
