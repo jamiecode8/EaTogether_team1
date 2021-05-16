@@ -1,7 +1,33 @@
- // 信用卡轉帳區，按返回回企業或個人
- $('.upgradeInfoConfirm_backTodetail').click(function(){
-    $('.upgradeInfoConfirm_payment').css('display','none');
-    $('.upgradeInfoConfirm_basic').css('display','block');
+ // 企業個人切換
+// 個人 onclick 時
+$('#upgradeInfoConfirm_personal').click(function(){
+    $('.upgradeInfoConfirm_basic_personal')
+    .removeClass('upgradeInfoConfirm_areaHide')
+    .addClass('upgradeInfoConfirm_areaShow');
+    $('.upgradeInfoConfirm_basic_co')
+    .removeClass('upgradeInfoConfirm_areaShow')
+    .addClass('upgradeInfoConfirm_areaHide');
+
+})
+$('#upgradeInfoConfirm_co').click(function(){
+    $('.upgradeInfoConfirm_basic_personal')
+    .removeClass('upgradeInfoConfirm_areaShow')
+    .addClass('upgradeInfoConfirm_areaHide');
+    $('.upgradeInfoConfirm_basic_co')
+    .removeClass('upgradeInfoConfirm_areaHide')
+    .addClass('upgradeInfoConfirm_areaShow');
+})
+
+// 企業個人表，下一步切換到付款方式
+$('.btn_next_upgradeInfoConfirm_basic').click(function(){    
+    $('.upgradeInfoConfirm_basic').removeClass('blockBlock').addClass('blockNone');
+    $('.upgradeInfoConfirm_payment').removeClass('blockNone').addClass('blockBlock');
+})
+
+// 企業個人表，上一步切換到企業個人表
+$('.upgradeInfoConfirm_backTodetail').click(function(){    
+    $('.upgradeInfoConfirm_payment').removeClass('blockBlock').addClass('blockNone');
+    $('.upgradeInfoConfirm_basic').removeClass('blockNone').addClass('blockBlock');
 })
 
 // 信用卡跟轉帳的切換
@@ -25,22 +51,3 @@ $('#upgradeInfoConfirm_card').click(function(){
     .addClass('upgradeInfoConfirm_areaShow');;
 })
 
-// 企業個人切換
-// 個人 onclick 時
-$('#upgradeInfoConfirm_personal').click(function(){
-    $('.upgradeInfoConfirm_basic_personal')
-    .removeClass('upgradeInfoConfirm_areaHide')
-    .addClass('upgradeInfoConfirm_areaShow');
-    $('.upgradeInfoConfirm_basic_co')
-    .removeClass('upgradeInfoConfirm_areaShow')
-    .addClass('upgradeInfoConfirm_areaHide');
-
-})
-$('#upgradeInfoConfirm_co').click(function(){
-    $('.upgradeInfoConfirm_basic_personal')
-    .removeClass('upgradeInfoConfirm_areaShow')
-    .addClass('upgradeInfoConfirm_areaHide');
-    $('.upgradeInfoConfirm_basic_co')
-    .removeClass('upgradeInfoConfirm_areaHide')
-    .addClass('upgradeInfoConfirm_areaShow');
-})

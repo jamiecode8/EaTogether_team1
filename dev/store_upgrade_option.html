@@ -11,36 +11,7 @@
         @@include('layout/header.html')
         <div class="wrapper wrapper_upgrade wrapper_upgrade_Option">
             <!-- 標題區域 -->
-            <section class="upgradeHeader">
-                <ul class="upgradeHeader_area">
-                    <li class="upgradeHeader_areaList">
-                        <div class="upgradeHeader_step">
-                            <h6 class="upgradeHeader_stepNo">1</h6>
-                            <div class="upgradeHeader_text">選擇方案
-                            </div>
-                        </div>
-                        <div class="upgradeHeader_bg"></div>  
-                    </li>
-
-                    <li class="upgradeHeader_areaList" >
-                        <div class="upgradeHeader_step">
-                            <h6 class="upgradeHeader_stepNo">2</h6>
-                            <div class="upgradeHeader_text">資料確認
-                            </div>
-                        </div>
-                        <div class="upgradeHeader_bg"></div>  
-                    </li>
-
-                    <li class="upgradeHeader_areaList" >
-                        <div class="upgradeHeader_step">
-                            <h6 class="upgradeHeader_stepNo">3</h6>
-                            <div class="upgradeHeader_text">資料確認
-                            </div>
-                        </div>
-                        <div class="upgradeHeader_bg"></div>  
-                    </li>
-                </ul>
-            </section>
+            @@include('layout/upgradeHeader.html')
             <section class="upgradeOption">
                 <!-- 文字說明區 -->
                 <div class="upgradeOption_text">
@@ -66,8 +37,12 @@
                         </label>
                     </div>
                     <div class="buttonArea upgradeOption_btnArea_submit">
-                        <input type="submit" value="返回" class="   btn_pre" />
-                        <input type="submit" value="下一步" class="   btn_submit" />
+                        <a href="/store_free.html">
+                            <input type="" value="返回" class="btn_pre" />
+                        </a>
+                        <a href="/store_upgrade_info.html">
+                            <input type="" value="下一步" class="   btn_submit" />
+                        </a>
                     </div>
                 </div>
             </section>
