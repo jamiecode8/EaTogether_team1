@@ -1,0 +1,104 @@
+.landing_page_wrapper{
+    background: $bgc;
+    width: 1200%;
+    height: 100vh;
+
+.landing_pageicon{
+    margin: 0% auto;
+    width: 90%;
+    height: 100%;
+    @include rwd(mobile){
+        margin: 0% auto;
+        width: 100%;
+        height: 100%;
+    }
+    img{
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    @include rwd(mobile){
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
+
+.landing_page_but{
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    right: 65%;
+    bottom: 20%;
+    width: 20%;
+        @include rwd(desktop){
+        
+        }
+        @include rwd(desktopSmall){
+        
+        }
+        @include rwd(pad){
+        
+        }
+        @include rwd(largeMobile){
+        
+        }
+        @include rwd(mobile){
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            right: 30%;
+            bottom: 20%;
+            width: 40%;
+        }
+}
+
+
+.landing_page_but2{
+    position: absolute;
+    top: 40%;
+    left: 78%;
+    right: 0%;
+    bottom: 20%;
+    width: 20%;
+    @include rwd(mobile){
+        position: absolute;
+        top: 70%;
+        left: 30%;
+        right: 30%;
+        bottom: 10%;
+        width: 40%;
+    }
+}
+
+}
+
+@include rwd(desktop){
+    .landing_page_wrapper{
+        @include desktop ();
+    }
+}
+
+@include rwd(desktopSmall){
+    .landing_page_wrapper{
+        @include desktopSmall();
+    }
+}
+
+@include rwd(pad){
+    .landing_page_wrapper{
+        @include pad ();
+    }
+}
+
+@include rwd(largeMobile){
+    .landing_page_wrapper{
+        @include largeMobile();
+    }
+}
+
+@include rwd(mobile){
+    .landing_page_wrapper{
+        @include mobile();
+    }
+}
