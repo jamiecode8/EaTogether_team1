@@ -402,8 +402,8 @@ body.index{
         }
         //店家評論
         .storeInf_comment{
-            height: 160px;
-            overflow:auto;
+            // height: 160px;
+            // overflow:auto;
             border-bottom: 2px solid $color;
 
 
@@ -585,7 +585,7 @@ body.index{
       
         .index_searchbtn{
             right:10vw;
-            bottom:10vw;
+            bottom:20vw;
             p{
                 display: none;
             }
