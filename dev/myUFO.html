@@ -8,20 +8,18 @@
         <title>我的飛碟</title>
     </head>
 
-    <body>
+    <body class="myUFO_wrapper">
         @@include('layout/header.html')
-        <div class="wrapper myUFO_wrapper">
+        <div class="wrapper ">
            <div class="myUFO_bg">
-            <img src="./img/mimi/Backgroundimage.png" alt="#" class="figure" />
-            <img src="./img/mimi/Backgroundimage_pad.svg" alt="#" class="figure2">
-            <img src="./img/mimi/Backgroundimage_phone.svg" alt="#" class="figure3">
+            <div class="figure"><img src="./img/mimi/Backgroundimage.png" alt="#"  /></div>
+            <div class="figure2"><img src="./img/mimi/Backgroundimage2.png" alt="#"  /></div>
+            <div class="figure3"><img src="./img/mimi/Backgroundimaipad.png" alt="#" ></div>
+            <div class="figure4"><img src="./img/mimi/Backgroundimage_phone.svg" alt="#" ></div>
             </div>  
             <!--窗戶-->
             <div class="window1">
                 <img src="./img/mimi/window.svg" alt="" class="window2" />
-                <div class="mimi_arrow2">
-                <a href="./myUFO_wardrobe.html"><img src="./img/mimi/mimi_arrow2.svg" alt=""></a>
-                </div>
             </div>
             <!--點數-->
             <div class="Points1">
@@ -34,9 +32,9 @@
             <!-- 燈 -->
             <img src="./img/mimi/light.svg" alt="" class="light">   
             <!-- 收藏店家   -->
-            <a href="#" ><img src="./img/mimi/favorites.svg" alt="" class="favorites"/></a>
+            <a href="#" ><img src="./img/mimi/favorites.svg" alt="" class="favorites hover-button"/></a>
             <!-- 櫃子 -->
-            <a href="#"><img src="./img/mimi/cabinet.svg" alt="" class="cabinet"/></a>
+            <a href="./myUFO_category.html" ><img src="./img/mimi/cabinet.svg" alt="" class="cabinet hover-button"/></a>
         </div> 
 
         <div class="intermediate">  
@@ -44,7 +42,7 @@
             <img src="./img/mimi/Carousel.svg" alt="" class="Carousel" />
             <!-- 外星人   -->
             <a href="#"
-                ><img src="./img/mimi/character.svg" alt="" class="character"
+                ><img src="./img/mimi/character.svg" alt="" class="character hover-button"
             /></a>
         </div>  
         <!-- --------收藏餐廳彈窗-------- -->
@@ -115,6 +113,7 @@
                     </div>
                 </div>
                
+                
                 <div class="btn getCharacterBtn">
                     <input type="submit" value="送出" class="btn_submit getMyCharacter" />
                 </div>
@@ -122,13 +121,13 @@
             </form>
         </div>
 
-        <div class="myufo_search">
-            <!-- 問題   -->
-            <a href="./myUFO_Q&A.html"><img src="./img/mimi/problemicon.svg" alt="" class="problemicon" /></a>
-            <!-- 搜尋   -->
-            <a href="./index.html"><img src="./img/mimi/searchicon.svg" alt="" class="searchicon" /></a>
-          </div>
-        </div>      
+
+        <!-- <href href="./index.html"><ul class="index_searchbtn myuFOsearchbut">
+            <li class="search_btn_Search">
+                <img src="./img/index/search.png" alt="">
+                <p>美食搜尋</p>
+            </li> -->
+        </ul></href>
   
         @@include('layout/footer.html')
 
