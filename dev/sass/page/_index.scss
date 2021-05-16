@@ -294,12 +294,12 @@ body.index{
 .index_inf_popup{
     z-index: 1000;
     display:none;
-    overflow:auto;
+    // overflow:auto;
     height: 700px;
     position: absolute;
     top: 10%;
     left: 10%;
-    .getStoreDigitaInf{
+    .getStoreDigitalInf{
         padding-bottom: 20px;
         background-color: white;
         input{
@@ -402,8 +402,8 @@ body.index{
         }
         //店家評論
         .storeInf_comment{
-            // height: 160px;
-            // overflow:auto;
+            height: 160px;
+            overflow:auto;
             border-bottom: 2px solid $color;
 
 
