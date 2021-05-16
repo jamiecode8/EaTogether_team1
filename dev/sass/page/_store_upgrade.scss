@@ -2,8 +2,38 @@
     background-color: $bgc;
     padding-top: 100px;
 }
+
+// wrap 包在1200以內
+@include rwd(desktop){
+    .wrapper_upgrade{
+        @include desktop();
+    }
+}
+
+@include rwd(desktopSmall){
+    .wrapper_upgrade{
+        @include desktopSmall();
+    }
+}
+
+@include rwd(pad){
+    .wrapper_upgrade{
+        @include pad();
+    }
+}
+
+@include rwd(largeMobile){
+    .wrapper_upgrade{
+        @include largeMobile();
+    }
+}
+
+@include rwd(mobile){
+    .wrapper_upgrade{
+        @include mobile();
+    }
+}
 .wrapper_upgrade{
-    // @include borderTest(blue);
     padding: 0px 100px 100px;
     @include rwd(mobile){
         padding: 0 0 100px;
@@ -179,14 +209,14 @@ form .trans_iput{
 
 .upgradeInfoConfirm_basic{
     width: 100%;
-    display: block; //預設
+    // display: block; //預設
     // display: none;
 }
 
 .upgradeInfoConfirm_payment{
     width: 100%;
     // display: block;
-    display: none; //預設
+    // display: none; //預設
 }
 
 .upgradeInfoConfirm{

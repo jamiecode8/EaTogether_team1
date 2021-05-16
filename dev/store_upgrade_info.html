@@ -11,40 +11,11 @@
         @@include('layout/header.html')
         <div class="wrapper wrapper_upgrade">
             <!-- 標題區域 -->
-            <section class="upgradeHeader">
-                <ul class="upgradeHeader_area">
-                    <li class="upgradeHeader_areaList">
-                        <div class="upgradeHeader_step">
-                            <h6 class="upgradeHeader_stepNo">1</h6>
-                            <div class="upgradeHeader_text">選擇方案
-                            </div>
-                        </div>
-                        <div class="upgradeHeader_bg"></div>  
-                    </li>
-
-                    <li class="upgradeHeader_areaList" >
-                        <div class="upgradeHeader_step">
-                            <h6 class="upgradeHeader_stepNo">2</h6>
-                            <div class="upgradeHeader_text">資料確認
-                            </div>
-                        </div>
-                        <div class="upgradeHeader_bg"></div>  
-                    </li>
-
-                    <li class="upgradeHeader_areaList" >
-                        <div class="upgradeHeader_step">
-                            <h6 class="upgradeHeader_stepNo">3</h6>
-                            <div class="upgradeHeader_text">資料確認
-                            </div>
-                        </div>
-                        <div class="upgradeHeader_bg"></div>  
-                    </li>
-                </ul>
-            </section>
+            @@include('layout/upgradeHeader.html')
             <!-- 資料確認區 -->
             <section class="upgradeInfoConfirm">
                 <!-- 企業或個人 -->
-                <div class="upgradeInfoConfirm_basic">
+                <div class="upgradeInfoConfirm_basic blockBlock">
                     <!-- 選單 -->
                     <div class="upgradeInfoConfirm_basic_menu">
                         <h1 class="upgradeInfoConfirm_basic_menu_item upgradeInfoConfirm_basic_menu_co" id="upgradeInfoConfirm_co">企業
@@ -67,8 +38,10 @@
                             <!-- 2顆按鈕用這個 -->
                             <div class="upgradeInfoConfirm_buttonArea_outer">
                                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                                    <input type="submit" value="返回" class="  btn_cancel" />
-                                    <input type="submit" value="下一步" class="  btn_next" />
+                                    <a href="/store_upgrade_option.html">
+                                        <input type="" value="返回" class="btn_cancel" />
+                                    </a>
+                                    <input type="submit" value="下一步" class="btn_next btn_next_upgradeInfoConfirm_basic"/>
                                 </div>
                             </div>
                         </form>
@@ -87,15 +60,17 @@
                             <!-- 2顆按鈕用這個 -->
                             <div class="upgradeInfoConfirm_buttonArea_outer">
                                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                                    <input type="submit" value="返回" class="  btn_cancel" />
-                                    <input type="submit" value="下一步" class="  btn_next" />
+                                    <a href="/store_upgrade_option.html">
+                                        <input type="" value="返回" class="btn_cancel" />
+                                    </a>
+                                    <input type="submit" value="下一步" class="btn_next btn_next_upgradeInfoConfirm_basic"/>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
                 <!-- 付款方式 -->
-                <div class="upgradeInfoConfirm_payment">
+                <div class="upgradeInfoConfirm_payment blockNone">
                      <!-- 選單 -->
                      <div class="upgradeInfoConfirm_payment_menu">
                         <h1 class="upgradeInfoConfirm_payment_menu_item upgradeInfoConfirm_payment_menu_card" id="upgradeInfoConfirm_card">信用卡
@@ -125,12 +100,9 @@
                             <div class="upgradeInfoConfirm_buttonArea_outer">
                                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
                                     
-                                    <button class="btn_pre btn_btn" class="upgradeInfoConfirm_backTodetail" >返回</button>
-
-                                    <a href="/store_upgrade_complete.html" class="upgradeInfoConfirm_finishpayment" >
-                                        <button class="btn_next btn_btn">
-                                            下一步
-                                        </button>
+                                    <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
+                                    <a href="/store_upgrade_complete.html">
+                                        <input type="" value="下一步" class="btn_next" />
                                     </a>
                                 </div>
                             </div>
@@ -154,12 +126,9 @@
                             <div class="upgradeInfoConfirm_buttonArea_outer">
                                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
                                     
-                                    <button class="btn_pre btn_btn" class="upgradeInfoConfirm_backTodetail" >返回</button>
-
-                                    <a href="/store_upgrade_complete.html" class="upgradeInfoConfirm_finishpayment" >
-                                        <button class="btn_next btn_btn">
-                                            下一步
-                                        </button>
+                                    <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
+                                    <a href="/store_upgrade_complete.html">
+                                        <input type="" value="下一步" class="btn_next" />
                                     </a>
                                 </div>
                             </div>
