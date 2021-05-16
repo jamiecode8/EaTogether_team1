@@ -9,24 +9,24 @@ body.index{
 }
 //----------map背景----------
 .index_map{
-    padding-top:5vw;
+    padding:2vw 0;
     // border: 1px solid;
     @include marginCenter();
     .map_slogan{
-        width: 30vw;
+        width: 25vw;
         position: absolute;
         right:5vw;
         top:5vw;
     }
     .map{
-        width: 48%;
+        width: 46%;
           @include block_center();
     }
 }
 .et{
     width:15vw;
     position: absolute;
-    bottom:20vw;
+    bottom:15vw;
     right:5vw;
     transform: rotate(-30deg);
 }
@@ -294,7 +294,7 @@ body.index{
 .index_inf_popup{
     z-index: 1000;
     display:none;
-    overflow:auto;
+    // overflow:auto;
     height: 700px;
     position: absolute;
     top: 10%;
@@ -307,10 +307,11 @@ body.index{
             margin-top:0px;
         }
         .searchFood{
+            position: relative;
             img{
                 position: absolute;
-                right:60px;
-                top:100px;
+                right:10px;
+                top:50px;
             }
         }
         h1{
@@ -401,8 +402,8 @@ body.index{
         }
         //店家評論
         .storeInf_comment{
-            // height: 160px;
-            // overflow:auto;
+            height: 160px;
+            overflow:auto;
             border-bottom: 2px solid $color;
 
 
@@ -507,7 +508,7 @@ body.index{
         .index_map{
             margin:5vw 0;
             .map_slogan{
-                width: 35vw;
+                width: 30vw;
                 right:5vw;
                 top:7vw;
             }
@@ -527,7 +528,7 @@ body.index{
                 display: none;
             }
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
             left: 50%;
         } 
@@ -539,9 +540,7 @@ body.index{
         .index_map{
             margin:10vw 0;
             .map_slogan{
-                width: 40vw;
-                right:5vw;
-                top:5vw;
+                display: none;
             }
             .map{
                 width:75vw;
@@ -549,7 +548,7 @@ body.index{
         }
         .et{
             right:5vw;
-            bottom:30vw;
+            top:10vw;
         }
       
         .index_searchbtn{
@@ -559,7 +558,7 @@ body.index{
                 display: none;
             }
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
             left: 50%;
         } 
@@ -572,9 +571,8 @@ body.index{
         .index_map{
             margin:20vw 0;
             .map_slogan{
-                width: 40vw;
-                right:10vw;
-                top:5vw;
+                display: none;
+
             }
             .map{
                 width: 80vw;
@@ -582,7 +580,7 @@ body.index{
         }
         .et{
             right:5vw;
-            bottom:30vw;
+            top:10vw;
         }
       
         .index_searchbtn{
@@ -592,7 +590,7 @@ body.index{
                 display: none;
             }
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
             left: 50%;
         } 
@@ -605,9 +603,8 @@ body.index{
         .index_map{
             margin:20vw 0;
             .map_slogan{
-                width: 40vw;
-                right:10vw;
-                top:10vw;
+                display: none;
+
             }
             .map{
                 width: 90vw;
@@ -615,17 +612,17 @@ body.index{
         }
         .et{
             right:5vw;
-            bottom:30vw;
+            top:10vw;
         }
       
         .index_searchbtn{
             right:10vw;
-            bottom:10vw;
+            bottom:40vw;
             p{
                 display: none;
             }
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
             left: 50%;
         } 
