@@ -168,34 +168,60 @@ header{
         .header_inner_myUFO{
             background-image: url(../img/header_myUFO_hover.png);
             background-repeat: no-repeat;
-            background-size: 125px;
-            background-position: 50% 35%;
-            &:hover{
-                background-image: url(../img/header_myUFO.png);   
+            background-size: 120px;
+            background-position: 50% 70%;
+                &:hover{
+                    background-image: url(../img/header_myUFO.png);   
+                }
+                @include rwd(pad){
+                    background-image: url(../img/header_myUFO.png); 
+                }
+                @include rwd(largeMobile){
+                    background-image: url(../img/header_myUFO.png); 
+                }
+                @include rwd(mobile){
+                    background-image: url(../img/header_myUFO.png);
+                }
             }
-    }
-            
+           
         .header_inner_myPhoto{
             background-image: url(../img/header_myPhoto_hover.png);
             background-repeat: no-repeat;
-            background-size: 110px;
-            background-position: 50% 45%;
-            &:hover{
-                background-image: url(../img/header_myPhoto.png);   
+            background-size: 85px;
+            background-position: 50% 70%;
+                &:hover{
+                    background-image: url(../img/header_myPhoto.png);   
+                }
+                @include rwd(pad){
+                    background-image: url(../img/header_myPhoto.png);   
+                }
+                @include rwd(largeMobile){
+                    background-image: url(../img/header_myPhoto.png);   
+                }
+                @include rwd(mobile){
+                    background-image: url(../img/header_myPhoto.png);   
+                }
             }
-    }
 
         .header_inner_aboutUs{
             background-image: url(../img/header_story_hover.png.png);
             background-repeat: no-repeat;
-            background-size: 110px;
-            background-position: 50% 70%;
-            &:hover{
-                background-image: url(../img/header_story.png);   
-            }
-    }
-
-}
+            background-size: 85px;
+            background-position: 50% 100%;
+                &:hover{
+                    background-image: url(../img/header_story.png);   
+                }
+                @include rwd(pad){
+                    background-image: url(../img/header_story.png);   
+                }
+                @include rwd(largeMobile){
+                    background-image: url(../img/header_story.png);     
+                }
+                @include rwd(mobile){
+                    background-image: url(../img/header_story.png);     
+                }
+            } 
+        }
 
 // 選單展開後-選單區
 .header_overlay.open {
@@ -209,10 +235,20 @@ header{
         display: block;
         width: 100%;
         height: calc(100% / 4);
+            @include rwd(pad){
+                height: calc(100% / 4);
+            }
+            @include rwd(largeMobile){
+                height: calc(100% / 4);   
+            }
+            @include rwd(mobile){
+                height: calc(100% / 4);   
+            }
         position: relative;
         opacity: 0;
         animation: fadeInRight 0.5s ease forwards;
         animation-delay: 0.35s;
+
         &:nth-of-type(2) {
             animation-delay: 0.4s;
             }
@@ -231,6 +267,15 @@ header{
             &:hover{
                 color: $color;
             }
+            @include rwd(pad){
+                color: $color;
+             }
+             @include rwd(largeMobile){
+                color: $color;  
+             }
+             @include rwd(mobile){
+                color: $color;
+             }
         }
     }
 }

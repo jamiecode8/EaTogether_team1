@@ -1,29 +1,20 @@
 //宏鈞的
      
-    .backend_member_body{
-        background-color:#FEFDF2;
-    }
-
-    .backend_store_body{
-        background-color:#FEFDF2;
-    }
-
-    .backend_my_photo_body{
+    .backend_body{
         background-color:#FEFDF2;
     }
 
     .backend_wrapper{
-        max-width: 1200px;
-        height: 1030px;
+        width: 1200px;
         margin: 0 auto; 
     }
 
-    .backend_header{
+    .backend_top{
         display: flex;
         justify-content: space-between;
-        padding: 25px 0;
+        padding: 100px 0 25px;
 
-    .backend_header_left{
+    .backend_top_left{
         padding: 11px 0;
         font-weight: bold;
         
@@ -52,7 +43,7 @@
         }
     }
 
-        .backend_header_right{
+        .backend_top_right{
 
          .backend_search_text{
             background-color: $lightgreen;
@@ -63,8 +54,8 @@
 
          .backend_search_btn{
             position: absolute;
-            right: 360px;
-            top: 130px;
+            right: 10px;
+            top: 106px;
             cursor: pointer;
          }
     }
@@ -228,7 +219,6 @@
     background-color: #fff;
     position: relative;
     width: 1400px;
-    height: 920px;
     padding: 40px;
     @include shadow;
     @include border_r;
