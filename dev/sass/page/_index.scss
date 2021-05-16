@@ -299,7 +299,7 @@ body.index{
     position: absolute;
     top: 10%;
     left: 10%;
-    .getStoreDigitalInf{
+    .getStoreDigitaInf{
         padding-bottom: 20px;
         background-color: white;
         input{
@@ -307,10 +307,11 @@ body.index{
             margin-top:0px;
         }
         .searchFood{
+            position: relative;
             img{
                 position: absolute;
-                right:60px;
-                top:100px;
+                right:10px;
+                top:50px;
             }
         }
         h1{
@@ -527,7 +528,7 @@ body.index{
                 display: none;
             }
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
             left: 50%;
         } 
@@ -559,7 +560,7 @@ body.index{
                 display: none;
             }
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
             left: 50%;
         } 
@@ -592,7 +593,7 @@ body.index{
                 display: none;
             }
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
             left: 50%;
         } 
@@ -625,7 +626,7 @@ body.index{
                 display: none;
             }
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup{
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
             left: 50%;
         } 
