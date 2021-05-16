@@ -1,7 +1,10 @@
 .landing_page_wrapper{
     background: $bgc;
     width: 1200%;
-    height: 100vh;
+    overflow: hidden;
+.landing_page_wrapperwrapper{
+    height: 78vh;
+}    
 
 .landing_pageicon{
     margin: 0% auto;
@@ -27,10 +30,10 @@
 .landing_page_but{
     position: absolute;
     top: 40%;
-    left: 0%;
-    right: 65%;
+    left: 15%;
+    right: 0%;
     bottom: 20%;
-    width: 20%;
+    width: 30%;
         @include rwd(desktop){
         
         }
@@ -45,7 +48,7 @@
         }
         @include rwd(mobile){
             position: absolute;
-            top: 20%;
+            top: 40%;
             left: 30%;
             right: 30%;
             bottom: 20%;
@@ -57,13 +60,13 @@
 .landing_page_but2{
     position: absolute;
     top: 40%;
-    left: 78%;
+    left: 55%;
     right: 0%;
     bottom: 20%;
-    width: 20%;
+    width: 30%;
     @include rwd(mobile){
         position: absolute;
-        top: 70%;
+        top: 60%;
         left: 30%;
         right: 30%;
         bottom: 10%;
