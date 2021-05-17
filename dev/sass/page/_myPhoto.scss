@@ -1,12 +1,12 @@
 //棠棠的
 //============================= myPhoto =============================//
 
-// *{
-//      outline: 1px  solid  orange;
-//  }  
+*{
+     outline: 1px  solid  orange;
+ }  
 
 // 背景圖
-.pho_wrapper{
+.pho_body{
     background-image: url(../../img/tang/background.png);
     background-size: cover;
     background-repeat: repeat;
@@ -160,6 +160,164 @@
     }
 }
 
+// -----------------myphoto rwd----------------- //
+
+@include rwd(desktop){
+    .pho_main{
+        width:1150px;
+    }
+}
+
+@include rwd(desktopSmall){
+    .pho_main{
+        width:88%;
+    }
+
+    .pho_top_s1 img {
+        margin-top: 27px;
+    }
+    
+    .pho_store_cards_lists{
+        li{
+            flex-basis:31%;
+            margin-bottom: 3%;
+        }
+    }
+    
+    .pho_vender_thumb_message a:nth-child(1){
+        padding-right: 20%;
+    }
+
+    .pho_vender_feat_tag{
+        padding-right: 15%;
+    }
+
+    .pho_vender_profile{
+        a img{
+            padding-bottom: 10px;
+        }
+    }
+}
+
+@include rwd(pad){
+    .pho_main{
+        width:90%;
+    }
+    .pho_top_s1 h1{
+        width:13%;
+        padding: 5% 0 2%;
+    }
+
+    .pho_top_s1 img{
+        margin-top: 24px;
+    }
+
+    .pho_store_cards_lists{
+        padding-top:20px;
+
+        li{
+            flex-basis:31%;
+            margin-bottom: 3%;
+        }
+    }
+    
+    .pho_vender_thumb_message a:nth-child(1){
+        padding-right: 20%;
+    }
+
+    .pho_vender_feat_tag{
+        padding-right: 15%;
+    }
+
+    .pho_vender_profile{
+        a img{
+            padding-bottom: 10px;
+        }
+    }
+}
+
+@include rwd(largeMobile){
+    .pho_main{
+        width:90%;
+    }
+
+    .pho_top_content img {
+        flex-basis: 0;
+        flex-grow: 3;
+    }
+    .pho_top_s1 h1 {
+        width: 60px;
+        padding: 5% 0 2%;
+    }
+    
+    .pho_user_pic {
+        width: 27%;
+        padding: 0;
+    }
+
+    .pho_store_cards_lists {
+        padding-top: 20px;
+    }
+
+    .pho_store_cards_lists{
+        flex-direction: column;
+    }
+
+    .pho_store_cards_lists li {
+        padding: 5%;
+        margin: 3% auto;
+    }
+
+    .pho_top_s1 img {
+        margin-top: 20px;
+    }
+}
+
+@include rwd(mobile){
+    .pho_main{
+        width:90%;
+    }
+    .pho_top_wrapper {
+        justify-content: center;
+    }
+
+    .pho_top_s2 a {
+        font-size: 12px;
+    }
+
+    .pho_top_content img {
+        flex-basis: 0;
+        flex-grow: 3;
+    }
+    .pho_top_s1 h1 {
+        width: 70px;
+        padding: 6% 0 2%;
+    }
+    
+    .pho_user_pic {
+        width: 27%;
+        padding: 2% 0;
+        height: 0x;
+    }
+
+    .pho_store_cards_lists {
+        padding-top: 20px;
+    }
+
+    .pho_store_cards_lists{
+        flex-direction: column;
+    }
+
+    .pho_store_cards_lists li {
+        padding: 5%;
+        margin: 3% auto;
+    }
+
+    .pho_top_s1 img {
+        margin-top: 20px;
+    }
+}
+
 
 //-------------------------拍立得內文彈窗-------------------------//
 .pho_disappear{
@@ -266,9 +424,14 @@
         font-size:16px;
     }
 
+
     span{
         padding-right: 2%;
     }
+}
+
+.pho_article_a2 span a:nth-child(1) {
+    font-size: 14px;
 }
 
 .pho_line_p1{
@@ -342,6 +505,180 @@
         right:5px;
         bottom: 20px;
     }
+}
+
+
+
+// -------------------拍立得內文彈窗 RWD ------------------- //
+@include rwd(desktop){
+    .pho_popUps {
+        width: 70%;
+    }
+}
+
+@include rwd(desktopSmall){
+    .pho_popUps {
+        width: 80%;
+    }
+
+    .pho_popUps_form .btn_close {
+        width: 27px;
+        height: 27px;
+        top: 3px;
+        right: 4px;
+    }
+
+    .pho_article_a2 span a:nth-child(1) {
+        font-size: 12px;
+    }
+
+    .pho_article_a2 span {
+        padding-right: 1%;
+    }
+}
+
+@include rwd(pad){
+    .pho_popUps {
+        width: 88%;
+    }
+
+    .pho_popUps_form .btn_close {
+        width: 27px;
+        height: 27px;
+        top: 3px;
+        right: 4px;
+    }
+
+    .pho_article_a2 span a:nth-child(1) {
+        font-size: 12px;
+    }
+
+    .pho_article_a2 span {
+        padding-right: 1%;
+    }
+
+    .pho_article_a4 {
+        font-size: small;
+    }
+
+    .pho_article_a5>span {
+        font-size: small;
+    }
+}
+    
+@include rwd(largeMobile){
+    .pho_popUps div{
+        flex-direction: column;
+    }
+
+    .pho_poppus_s2{
+        .pho_article_a1{
+            flex-direction: row;
+        }
+
+        .pho_article_a2{
+            flex-direction: row;
+        }
+
+        .pho_article_a3{
+            flex-direction: row;
+        }
+
+        .pho_star{
+            display: none;
+        }
+
+        .pho_article_a5{
+            flex-direction: row;
+        }
+    }
+    
+    .pho_article_a1 {
+        padding-bottom: 0%;
+    }
+
+    .pho_article_a1 img:first-child {
+        width: 15%;
+    }
+
+    .pho_article_a4 {
+        margin: 2% 0;
+    }
+
+    .pho_article_a5 img:first-child {
+        width: 13%;
+        padding: 0;
+    }
+
+    .pho_article_a5>span {
+        padding: 1% 3%;
+    }
+
+    .pho_article_a1 img:last-child {
+        width: 6%;
+    }
+
+    .pho_article_a5 img:last-child {
+        width: 4%;
+    }
+}
+
+@include rwd(mobile){
+    .pho_popUps div{
+        flex-direction: column;
+    }
+
+    .pho_poppus_s2{
+        .pho_article_a1{
+            flex-direction: row;
+        }
+
+        .pho_article_a2{
+            flex-direction: row;
+        }
+
+        .pho_article_a3{
+            flex-direction: row;
+        }
+
+        .pho_star{
+            display: none;
+        }
+
+        .pho_article_a5{
+            flex-direction: row;
+        }
+    }
+    
+    .pho_article_a1 {
+        padding-bottom: 0%;
+    }
+
+    .pho_article_a1 img:first-child {
+        width: 15%;
+    }
+
+    .pho_article_a4 {
+        margin: 2% 0;
+    }
+
+    .pho_article_a5 img:first-child {
+        width: 13%;
+        padding: 0;
+    }
+
+    .pho_article_a5>span {
+        padding: 1% 3%;
+    }
+
+    .pho_article_a1 img:last-child {
+        width: 6%;
+    }
+
+    .pho_article_a5 img:last-child {
+        width: 4%;
+    }
+
 }
     
 
@@ -532,3 +869,4 @@
 .pho_edit_s4{
     text-align: center;
 }
+
