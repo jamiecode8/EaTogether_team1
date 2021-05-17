@@ -277,15 +277,42 @@
     }
 }
 
+// =========================Chris 編輯開始=========================
+
 //Chart.js 
 .chart{
     position: relative;
-    // bottom: 300px;
     margin: 0 60px;
     width: 100%;
     height: 100%;
     border: none;
+    overflow: auto;
+    @include rwd(desktopSmall){
+            @include marginCenter();
+            margin-top: 20px;
+            width: 50%;
+            height: 40%;
+        }
+    @include rwd(pad){
+            @include marginCenter();
+            margin-top: 20px;
+            width: 80%;
+            height: 20%;
+        }
+    @include rwd(largeMobile){
+            @include marginCenter();
+            margin-top: 20px;
+            width: 70%;
+            height: 70%;
+        }
+    @include rwd(mobile){
+            @include marginCenter();
+            margin-top: 20px;
+            bottom: 20px;
+        }
 }
+
+// =========================Chris 編輯結束=========================
 
 // =========================Jamie的模組scss=========================
 .btn_mobile{
