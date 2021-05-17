@@ -1,7 +1,7 @@
 // 會員登入會員註冊彈窗、會員資料修改彈窗、忘記密碼彈窗
 
 new Vue({
-    el: '.app',
+    el: '#app',
     data:{
         blueStations: ['市政府','忠孝敦化','國父紀念館','板橋','新埔','府中','龍山寺'],
         redStation: ['淡水','劍潭','圓山','台北車站','東門','大安森林公園','信義安和','台北101'],
@@ -19,7 +19,22 @@ new Vue({
     },
 })
 
-  // 以下會員資料修改彈窗------------------------
+// 以下會員資料修改彈窗------------------------
+// 先暫時停止送出資料，不然會一直刷新頁面，之後要傳資料再來處理。
+$('button').click(function(e){
+    e.preventDefault();
+});
+// 名字，按下icon才可以修改內容
+$('.memberInfo_edit_editIcon').click(function (){
+    let memberInfo = $(this).siblings(':text');
+    $(memberInfo).removeAttr('disabled').focus(function(){
+        $(this).css("background-color","#fffdd0").attr('placeholder','')
+        .blur(function(){
+        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','南京林志玲');;
+        })  
+    })
+});
+
 // 下拉選單、喜好標籤
 $('.memberInfo_edit_editIcon_tag').click(function (){
     $('.memberInfo_edit_area_tag').toggleClass('on');
@@ -34,6 +49,50 @@ $('#memberInfo_edit_area_stationSelect li').click(function(){
     let inputColor=document.getElementById('memberInfo_station_input');
     inputColor.value=$(this).text();
     $('.memberInfo_edit_area_stationSelect').toggleClass('on');
+});
+
+// Email，按下icon才可以修改內容
+$('.memberInfo_edit_editIcon_email').click(function (){
+    let memberInfo = $(this).siblings('input[type="email"]');
+    $(memberInfo).removeAttr('disabled').focus(function(){
+        $(this).css("background-color","#fffdd0").attr('placeholder','')
+        .blur(function(){
+        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','南京林志玲');;
+        })  
+    })
+});
+
+// 密碼，按下icon才可以修改內容
+$('.memberInfo_edit_editIcon_password').click(function (){
+    let memberInfo = $(this).siblings('input[type="password"]');
+    $(memberInfo).removeAttr('disabled').focus(function(){
+        $(this).css("background-color","#fffdd0").attr('placeholder','')
+        .blur(function(){
+        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled');
+        })  
+    })
+});
+
+// 生日，按下icon才可以修改內容
+$('.memberInfo_edit_editIcon_birthday').click(function (){
+    let memberInfo = $(this).siblings(':text');
+    $(memberInfo).removeAttr('disabled').focus(function(){
+        $(this).css("background-color","#fffdd0").attr('placeholder','')
+        .blur(function(){
+        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','1999/09/09');;
+        })  
+    })
+});
+
+// 電話，按下icon才可以修改內容
+$('.memberInfo_edit_editIcon_tel').click(function (){
+    let memberInfo = $(this).siblings('input[type="tel"]');
+    $(memberInfo).removeAttr('disabled').focus(function(){
+        $(this).css("background-color","#fffdd0").attr('placeholder','')
+        .blur(function(){
+        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','0912345678');;
+        })  
+    })
 });
 
 // 那顆眼睛按下去，密碼會出現
@@ -74,8 +133,13 @@ $('.forgetPassword').click(function(){
 
 //關閉認證彈窗 Chris  (這樣寫會讓所有XX )
 $('.btn_close').click(function(){
+    $('.memberInfo_edit').addClass('areaHide');  
+})
+
+$('.btn_close').click(function(){
     $('.verification').addClass('areaHide');  
 })
+
 
 // 登入註冊切換
 $('#btn_signup').click(function(){
