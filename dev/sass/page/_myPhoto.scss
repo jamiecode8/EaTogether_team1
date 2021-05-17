@@ -681,6 +681,22 @@
 
 }
     
+// jamie加的
+.pho_popUps{
+    @include rwd(pad){
+        // overflow: auto;
+        // height: 90vh;
+        // display: flex;
+        }
+    @include rwd(largeMobile){
+        overflow: auto;
+        height: 90vh;
+    }
+    @include rwd(mobile){
+        overflow: auto;
+        height: 90vh;
+    }
+    }
 
 
 
@@ -771,6 +787,8 @@
     }
 
     .pho_plug_in_area{
+        position: relative;
+        // jamie加上面
         text-align: center;
         width:100%;
         height:0;
@@ -782,12 +800,27 @@
         @include btn('.btn_submit', $green, $tp);
 
         article{
-            color:$color;
-            font-size: $fontSize;
-            text-align: left;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            // jamie加上面
+            // color:$color;
+            // font-size: $fontSize;
+            // text-align: left;
             opacity: 0.5;
-            padding-left: 74%;
-            padding-top: 8%;
+            // padding-left: 74%;
+            // padding-top: 8%;
+            @include rwd(pad){
+                padding-left: 64%;
+                }
+            @include rwd(largeMobile){
+                font-size: $fontSizeSmall;
+                padding-left: 40%;
+                }
+            @include rwd(mobile){
+                font-size: $fontSizeSmall;
+                padding-left: 40%;
+                }
         }
     }
     >div{
@@ -821,6 +854,19 @@
     .pho_searchTags{
         padding: 15px 200px 15px 20px;
         border:2px solid $lightgreen;
+        // jamie加在下面
+        @include rwd(desktopSmall){
+            padding: 15px 20px;
+            }
+        @include rwd(pad){
+            padding: 15px;
+            }
+        @include rwd(largeMobile){
+            padding: 15px;
+            }
+        @include rwd(mobile){
+            padding: 10px;
+            }
         
     }
 
@@ -858,8 +904,11 @@
 }
 
 .pho_circleBtn_submit{
-    width: 4%;
-    height: 0;
+    width: 40px;
+    height: 40px;
+    // jamie改了這個
+    // width: 4%;
+    // height: 0;
     padding: 2% 0;
     background-color: $green;
     border-radius: 50%;  
