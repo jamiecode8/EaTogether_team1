@@ -31,7 +31,7 @@
         <div class="popUps" id="wardrobe_coupon">
             <form action="#資料傳送送的網址" method="post" class="form">
               <!-- close button -->
-              <button type="button" class="close_coupon">
+              <button type="button" class="close_coupon btn_close">
                 <img src="./img/icon/icon_close.png" alt="" >
               </button>
                <h1>每日優惠卷一張</h1>
@@ -48,12 +48,18 @@
               $('#wardrobe_coupon').css('display' , 'block').fadeIn(100);
               console.log('click ok');
               })
+
+                                 // 關閉彈窗
+            $('.btn_close').click(function(){
+            $('#wardrobe_coupon').fadeOut(200);
+            });
+
           </script>
           <!-- -----------------------每日任務彈窗----------------------------- -->
           <div class="popUps" id="wardrobe_Smalltask">
             <form action="#資料傳送送的網址" method="post" class="form formSmalltask"> 
               <!-- close button -->
-              <button type="button" class="close_coupon">
+              <button type="button" class="close_coupon btn_close">
                 <img src="./img/icon/icon_close.png" alt="">
               </button>
             
@@ -162,6 +168,10 @@
             $('#wardrobe_Smalltask').css('display' , 'block').fadeIn(100);
             console.log('click ok');
             })
+                   // 關閉彈窗
+            $('.btn_close').click(function(){
+            $('#wardrobe_Smalltask').fadeOut(200);
+            });
 
             moveProgressBar();
 
