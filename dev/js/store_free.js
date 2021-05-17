@@ -70,3 +70,17 @@
             }
         }
     });
+
+// 商家資訊
+    new Vue({
+        el: '#store_storeInfo',
+        data: {    
+            storeName: '吳留手串燒居酒屋-麗水店',
+            storeTel: '0900-000-000',
+            storeAdd: '南京東路三段2號5樓',
+            storePrice: '500~1000',
+            storeStation: '東門站',
+            storeTag: '#日式料理 #居酒屋',
+            storeState: '資料審核中',
+        },
+    });

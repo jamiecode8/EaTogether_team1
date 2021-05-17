@@ -34,9 +34,10 @@
                     </div>
                 </section>
                 <!-- 右邊文字區 -->
-                <section class="store_storeInfo">
+                <section class="store_storeInfo" id="store_storeInfo">
                     <div class="store_storeInfo_Name">
-                        <h1>吳留手串燒居酒屋-麗水店</h1>
+                            {{storeName}}
+                        </h1>
                         <button>
                             <img src="./img/icon/icon_edit.png" alt="">
                         </button>
@@ -44,22 +45,23 @@
                     <div class="store_storeInfo_Detail">
                         <ul>
                             <li class="store_infoList store_infoTel">
-                                0900-000-000
+                                {{storeTel}}
                             </li>
                             <li  class="store_infoList store_infoMail">
-                                南京東路某段某巷某號某樓
+                                {{storeAdd}}
                             </li >
                             <li class="store_infoList store_infoPrice">
-                                500~1000
+                                {{storePrice}}
                             </li >
                             <li  class="store_infoList store_infomrt">
-                                東門站
+                                {{storeStation}}
                             </li>
                             <li  class="store_infoList store_infoTag">
-                                #日式料理 #居酒屋
+                                {{storeTag}}
                             </li>
                             <li class="store_infoList store_infoWarn">
-                                資料審核中
+                                {{storeState}}
+                                <!-- 資料審核中 -->
                             </li>
                         </ul>
                     </div>
