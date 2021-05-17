@@ -84,3 +84,27 @@
             storeState: '資料審核中',
         },
     });
+
+
+// 照片的輪播 slick
+// $(document).ready(function(){
+//     $('.store_photoArea_small').slick({
+//       setting-name: setting-value
+//     });
+//   });
+
+// $('.slider-for').slick({
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     arrows: false,
+//     fade: true,
+//     asNavFor: '.slider-nav'
+//   });
+//   $('.slider-nav').slick({
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     asNavFor: '.slider-for',
+//     dots: true,
+//     centerMode: true,
+//     focusOnSelect: true
+//   });

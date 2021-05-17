@@ -4,6 +4,9 @@
     padding-top: 100px;
     background-color: $bgc;
 }
+.store_wrap{
+    padding-bottom: 20px;
+}
 
 // wrap 包在1200以內
 @include rwd(desktop){
