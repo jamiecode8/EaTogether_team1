@@ -6,13 +6,14 @@
 
     .backend_wrapper{
         width: 1200px;
+        height: 930px;
         margin: 0 auto; 
     }
 
     .backend_top{
         display: flex;
         justify-content: space-between;
-        padding: 100px 0 25px;
+        padding-bottom: 25px;
 
     .backend_top_left{
         padding: 11px 0;
@@ -55,7 +56,7 @@
          .backend_search_btn{
             position: absolute;
             right: 10px;
-            top: 106px;
+            top: 6px;
             cursor: pointer;
          }
     }
@@ -131,11 +132,11 @@
 //---------------------------會員管理彈窗-----------------------------
 
 
-        .backend_member_popUps {
+        .backend_member_popUps{
 
             display: none;
             position: absolute;
-            top: -780px;
+            top: -900px;
             left: 10px;
 
             @include block_center(); //區塊置中
@@ -147,59 +148,48 @@
             @include shadow;
             @include border_r;
             @include btn_close(".btn_close");
-
-            h1{
+             
+            //h1
+            .backend_Audit{
                 text-align: center;
-                font-size: $fontSize_Title;
-                margin-bottom: 20px;    
+                margin-bottom: 30px;    
                 font-weight: bold;
             }
 
-            h2{
+            //h2
+            .backend_status{
                 font-size: $fontSize_SubTitle;
                 margin: 20px 0;
             }
 
-            .pop_block{
+            .backend_member_block{
                 display: flex;
                 justify-content: space-between;
                 margin: 20px 0;
                 line-height: 2;
                 
-            .pop_title {
+            .backend_subtitle{
                 font-size: $fontSize_SubTitle;
                 background-color: $lightgreen;
                 font-weight: bold;
                }
-            // .pop_data{
-                                
-            //    }
             
             }
-
-            
-            .pop_line{
+            .backend_line{
                 width: 100%;
                 border-top: solid 1px $green ;
                 margin: 30px 0;
             }
 
-            // 下拉式選單
-            
-            // -------------------
+             // 按扭區域
+            input {
+                &:focus {
+                    outline: none;
+                }
+            }
 
-
-            // // 按扭區域
-
-            // input {
-
-            //     &:focus {
-            //         outline: none;
-            //     }
-            // }
-            
             .btn,
-            .buttonArea {
+            .backend_buttonArea{
                 @include block_center();
                 width: max-content;
             }
@@ -207,110 +197,127 @@
 
 //---------------------------商家管理彈窗-----------------------------
 
-.backend_store_popUps {
+        .backend_store_popUps{
+            display: none;
+            position: absolute;
+            top: -920px;
+            left: 10px;
+            text-align: center;
+            @include block_center(); //區塊置中
+            
+            background-color: #fff;
+            position: relative;
+            width: 1000px;
+            padding: 0 40px 20px;
+            @include shadow;
+            @include border_r;
+            @include btn_close(".btn_close");
+
+             //h1
+            .backend_Audit{
+             text-align: center;
+             padding: 20px 0;
+        }
+
+            .backend_store_pho_Audit{
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 0;
+
+                // 照片上傳
+                .pho_Audit{
+                    width:300px;
+                    height:260px;
+                    background-color: lighten(#ccc, 15%) ;
+                    border: 1px solid $green;
+                    text-align: center;
+                    padding-top: 20%;
+                    @include btn('.btn_submit', $green, $tp);
+                }
+                .backend_subtitle{
+                    padding-bottom: 10px;
+                }
+                .Audit_img{
+                    width:300px;
+                    height:260px;
+                }
+        }  
+
+             .btn,
+            .backend_buttonArea{
+                @include block_center();
+                width: max-content;
+            }
+        }
+
+//---------------------------留言管理彈窗-----------------------------
+
+.backend_my_photo_popUps{
 
     display: none;
-    position: relative;
-    top: -1020px;
+    position: absolute;
+    top: -900px;
     left: 10px;
 
     @include block_center(); //區塊置中
     
     background-color: #fff;
     position: relative;
-    width: 1400px;
-    padding: 40px;
+    width: 400px;
+    padding: 50px;
     @include shadow;
     @include border_r;
     @include btn_close(".btn_close");
 
-    h1{
-        text-align: center;
-        margin-bottom: 20px; 
-        font-size: 22px;  
-    }
+        //h1
+        .backend_Audit{
+            text-align: center;
+            margin-bottom: 30px;    
+            font-weight: bold;
+        }
 
-    h2{
-        text-align: center;
-        font-weight: normal;
-    }
+        //h2
+        .backend_status{
+            font-size: $fontSize_SubTitle;
+            margin: 20px 0;
+        }
 
-    h3{
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-        .pho_edit_top{
-    
+        .backend_pho_block{
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            margin: 20px 0;
+            line-height: 2;
             
-            // 照片上傳
-            .pho_edit_t1{
-                width:420px;
-                height:260px;
-                background-color: lighten(#ccc, 15%) ;
-                border: 1px solid $green;
-                text-align: center;
-                padding-top: 20%;
-                @include btn('.btn_submit', $green, $tp);
-            }
-            
-            // 形象海報
-            .pho_edit_t2{
-                width:420px;
-                height:260px;
-                background-color: lighten(#ccc, 15%) ;
-                border: 1px solid $green;
-            }
-             
-            // 店景
-            .pho_edit_t3{
-                width:420px;
-                height:260px;
-                background-color: lighten(#ccc, 15%) ;
-                border: 1px solid $green;
-            }
+        .backend_subtitle{
+            font-size: $fontSize_SubTitle;
+            background-color: $lightgreen;
+            font-weight: bold;
         }
-        
-        // 分隔線
-        .pho_edit_line{
-            border: 1px solid $green;
-            margin: 20px auto;
+    }
+        .backend_msg{
+            width: 300px;
+            height: 180px;
+            background-color: #fbffe8;
         }
-        
-        .pho_edit_bottom{
-        
-            display: flex;
-            justify-content: space-between;
-            
-            // 餐點
-            .pho_edit_b1{
-                width:420px;
-                height:260px;
-                background-color: lighten(#ccc, 15%) ;
-                border: 1px solid $green;
-            }
 
-            .pho_edit_b2{
-                width:420px;
-                height:260px;
-                background-color: lighten(#ccc, 15%) ;
-                border: 1px solid $green;
-            }
+        .backend_line{
+            width: 100%;
+            border-top: solid 1px $green ;
+            margin: 30px 0;
+        }
 
-            .pho_edit_b3{
-                width:420px;
-                height:260px;
-                background-color: lighten(#ccc, 15%) ;
-                border: 1px solid $green;
+        // 按扭區域
+
+        input {
+            &:focus {
+                outline: none;
             }
         }
         
-            .btn,
-            .buttonArea {
-                @include block_center();
-                width: max-content;
+        .btn,
+        .backend_buttonArea{
+            @include block_center();
+            width: max-content;
         }
-}
+
+    }
