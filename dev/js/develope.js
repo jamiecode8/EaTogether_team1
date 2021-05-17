@@ -1,7 +1,7 @@
         Vue.component('jamie',{
             template: `
                 <div class="develope_form jamie">
-                    <h2>職稱 | 組長</h2>
+                    <h2>組長</h2>
                     <br>
                     <h1>邱博英</h1>
                     <br>
@@ -21,7 +21,7 @@
         Vue.component('chris',{
             template: `
                 <div class="develope_form chris">
-                    <h2>職稱 | 組員</h2>
+                    <h2>組員</h2>
                     <br>
                     <h1>楊書旻</h1>
                     <br>
@@ -41,7 +41,7 @@
         Vue.component('mimi',{
             template: `
                 <div class="develope_form mimi">
-                    <h2>職稱 | 組員</h2>
+                    <h2>組員</h2>
                     <br>
                     <h1>賴彥勳</h1>
                     <br>
@@ -61,7 +61,7 @@
         Vue.component('levis',{
             template: `
                 <div class="develope_form levis">
-                    <h2>職稱 | 組員</h2>
+                    <h2>組員</h2>
                     <br>
                     <h1>顏宏鈞</h1>
                     <br>
@@ -81,7 +81,7 @@
         Vue.component('bobo',{
             template: `
                 <div class="develope_form bobo">
-                    <h2>職稱 | 組員</h2>
+                    <h2>組員</h2>
                     <br>
                     <h1>蕭洛棠</h1>
                     <br>
@@ -101,7 +101,7 @@
         Vue.component('pamela',{
             template: `
                 <div class="develope_form pamela">
-                    <h2>職稱 | 組員</h2>
+                    <h2>組員</h2>
                     <br>
                     <h1>李靜瑩</h1>
                     <br>
@@ -124,9 +124,42 @@
                 content: 'jamie',
             },
             methods: {
-                
+      
             },
             computed: {
 
             },
         })
+
+
+        //Vue animation
+        // new Vue({
+        //     el: '#app',
+        //     data: {
+        //         content: 'jamie',
+        //         show: true
+        //     },
+        //     mounted: function () {
+        //         var self = this;
+        //         setInterval(function () {
+        //             self.show = !self.show;
+        //         }, 1000);
+        //     },
+        //     methods: {
+                
+        //     },
+        //     computed: {
+
+        //     },
+        // })
+
+        // css
+        // .fade-enter-active, 
+        // .fade-leave-active {
+        // transition: opacity 1s;
+        // }
+
+        // .fade-enter, 
+        // .fade-leave-to {
+        // opacity: 0;
+        // }

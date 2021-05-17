@@ -1,15 +1,16 @@
+
 //Chris的
 .develope_body{
     background: $bgc;
-    overflow: hidden;  //加這一行
+    // overflow: hidden;  //加這一行
 }
 
 .develope_wrapper{
-    height: 78vh;  //加這一行
+    height: 92vh;  //加這一行
 }
 
-.develope_bg_container{   //新增class
-    width: 93%;        
+.develope_bg_container{   //新增一個div放背景圖
+    width: 87%;        
     margin: 0 auto;
 }
 
@@ -35,15 +36,15 @@
 .develope_et1{
     position: absolute;
     width: 6%;
-    top: 55%;
+    top: 62%;
     left: 27%;
     z-index: 2;
-    cursor: pointer;
+    cursor: pointer;  
 }
 .develope_et2{
     position: absolute;
     width: 6%;
-    top: 68%;
+    top: 70%;
     left: 35%;
     z-index: 2;
     cursor: pointer;
@@ -52,7 +53,7 @@
 .develope_et3{
     position: absolute;
     width: 6%;
-    top: 81%;
+    top: 80%;
     left: 43%;
     z-index: 2;
     cursor: pointer;
@@ -61,7 +62,7 @@
 .develope_et4{
     position: absolute;
     width: 6%;
-    top: 81%;
+    top: 80%;
     left: 52%;
     z-index: 2;
     cursor: pointer;
@@ -70,7 +71,7 @@
 .develope_et5{
     position: absolute;
     width: 6%;
-    top: 68%;
+    top: 70%;
     left: 59%;
     z-index: 2;
     cursor: pointer;
@@ -79,13 +80,14 @@
 .develope_et6{
     position: absolute;
     width: 6%;
-    top: 55%;
+    top: 62%;
     left: 67%;
     z-index: 2;
     cursor: pointer;
 }
 
 .White_planet{
+    @include block_center();
     background-image: url('../img/chris/White_planet.svg');
     background-position: center;
     background-size: contain;
@@ -94,8 +96,6 @@
     width: 70%;
     height: 70%;
     top: 10%;
-    left:25%;
-    margin: 0 auto;
     z-index: 1;
     // outline: 1px red solid;
 }
@@ -103,13 +103,13 @@
 //develope_form
 
 .develope_form{
-    @include marginCenter();
+    @include block_center();
     width: 33%;
     position: absolute;
-    top:27%;
-    left: 34%;
+    top:35%;
     z-index: 10;
     text-align: center;
+    // outline: 1px red solid;
     h1{
         font-size: 48px;   
         margin: 10px 0;
@@ -159,18 +159,6 @@
         display: none;
     }
 
-    //Chris
-    .develope_form{
-        margin: 0 auto;
-        // outline: 1px red solid;
-        width: 33%;
-        position: absolute;
-        top:33%;
-        left: 33%;
-        z-index: 10;
-        text-align: center;
-        // background-color: pink;
-    }
 }
 
 @media all and(max-width: 991px) and (min-width: 768px) {
@@ -186,17 +174,6 @@
     }
     .develope_blank{
         display: none;
-    }
-    .develope_form{
-        margin: 0 auto;
-        // outline: 1px red solid;
-        width: 33%;
-        position: absolute;
-        top:33%;
-        left: 32%;
-        z-index: 10;
-        text-align: center;
-        // background-color: pink;
     }
 }
 
@@ -230,17 +207,16 @@
 // ----------------------
 
 @include rwd(desktop){
-    .White_planet{
-        width: 50%;
-    }
-    
+    // .White_planet{
+    //     width: 50%;
+    // }
 }
 
 @include rwd(desktopSmall){
-    .White_planet{
-        width: 658px;
-        margin: 0% 0% 0% -6%;   
-    }
+    // .White_planet{
+    //     width: 658px;
+    //     margin: 0% 0% 0% -6%;   
+    // }
     .develope_et7{
         width: 10%;
         left: 31%;
@@ -253,10 +229,10 @@
 }
 
 @include rwd(pad){
-    .White_planet{
-        width: 658px;
-        margin: 0% 0% 0% -10%;
-    }
+    // .White_planet{
+    //     width: 658px;
+    //     margin: 0% 0% 0% -10%;
+    // }
     .develope_et1{
         position: absolute;
         width: 10%;
@@ -308,21 +284,15 @@
         left: 30%;
         top: 36%;
     }
-    // .develope_form{
-    //     position: absolute;
-    //     top:33%;
-    //     left: 42%;
-    //     z-index: 10;
-    // }
 }
 
 @include rwd(largeMobile){
-    .White_planet{
-        width: 90%;
-        margin: 0% 0% 50% 0%;
-        left: 5%;
-        top: 0%;
-    }
+    // .White_planet{
+    //     width: 90%;
+    //     margin: 0% 0% 50% 0%;
+    //     left: 5%;
+    //     top: 0%;
+    // }
     .develope_et1{
         position: absolute;
         width: 10%;
@@ -373,23 +343,16 @@
         width: 10%;
         left: 27%;
         top: 30%;
-    }
-    // .develope_form{
-    //     position: absolute;
-    //     top:29%;
-    //     left: 39%;
-    //     z-index: 10;
-    // }
-    
+    }    
 }    
 
 @include rwd(mobile){
-    .White_planet{
-        width: 95%;
-        margin: 0% 0% 0% 0%;
-        top: 0%;
-        left: 5%;
-    }
+    // .White_planet{
+    //     width: 95%;
+    //     margin: 0% 0% 0% 0%;
+    //     top: 0%;
+    //     left: 5%;
+    // }
     .develope_et1{
         position: absolute;
         width: 13%;
@@ -441,11 +404,4 @@
         left: 22%;
         top: 19%;
     }
-    // .develope_form{
-    //     position: absolute;
-    //     top:15%;
-    //     left: 42%;
-    //     z-index: 10;
-    // }
-   
 }
