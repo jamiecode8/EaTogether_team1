@@ -16,65 +16,64 @@
     <!-- --------------- -->
    <div class="wrapper_QA">
     <div class="fontmm"><h1>常見問題Q&A</h1></div>
-<ul class="ulmm">
-  <li class="limm">
-    <div class="question">
-      <p>問題一</p>
-    </div>
-    <div class="answer">
-      <p>答:</p>
-    </div>
-  </li>
-  
-    <li class="limm">
-    <div class="question">
-      <p>問題二</p>
-    </div>
-    <div class="answer">
-      <p>答:</p>
-    </div>
-  </li>
+      <ul class="ulmm">
+        <li class="limm">
+          <div class="question">
+            <p>問題一</p>
+          </div>
+          <div class="answer">
+            <p>答:</p>
+          </div>
+        </li>
+        
+          <li class="limm">
+          <div class="question">
+            <p>問題二</p>
+          </div>
+          <div class="answer">
+            <p>答:</p>
+          </div>
+        </li>
 
-  
-    <li class="limm">
-    <div class="question">
-      <p>問題三</p>
-    </div>
-    <div class="answer">
-      <p>答:</p>
-    </div>
-  </li>
+        
+          <li class="limm">
+          <div class="question">
+            <p>問題三</p>
+          </div>
+          <div class="answer">
+            <p>答:</p>
+          </div>
+        </li>
 
-    <li class="limm">
-    <div class="question">
-      <p>問題三</p>
-    </div>
-    <div class="answer">
-      <p>答:</p>
-    </div>
-  </li>
+          <li class="limm">
+          <div class="question">
+            <p>問題三</p>
+          </div>
+          <div class="answer">
+            <p>答:</p>
+          </div>
+        </li>
 
-</ul>
-
-  <script>
-    jQuery(function ($) {
-  $(".answer").css("display", "none");
- 
-  $(".question").click(function () {
-    
-    $(".question").not(this).removeClass("open");
- 
-    $(".question").not(this).next().slideUp(300);
- 
-    $(this).toggleClass("open");
-
-    $(this).next().slideToggle(300);
-
-  });
-});
-  </script>
- </div>  
-</div>
+      </ul>
+    </div>  
+  </div>
     @@include('layout/footer.html')
+<script>
+      jQuery(function ($) {
+    $(".answer").css("display", "none");
+   
+    $(".question").click(function () {
+      
+      $(".question").not(this).removeClass("open");
+   
+      $(".question").not(this).next().slideUp(300);
+   
+      $(this).toggleClass("open");
+  
+      $(this).next().slideToggle(300);
+  
+    });
+  });
+</script>
 </body>
 </html>

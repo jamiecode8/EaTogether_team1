@@ -3,6 +3,7 @@
 width: 100%;
 background: $bgc;
 overflow: hidden;
+// overflow: auto;
 }
 
 
@@ -494,8 +495,11 @@ overflow: hidden;
     right: 50%;
     h1{
         color: $yellow;
+        margin: initial;
     }
     .getCharacter{
+        overflow: auto;
+        height: 95vh;
         padding-bottom:20px;
         z-index: 11;
         .getCharacter_alien{
