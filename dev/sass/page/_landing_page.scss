@@ -1,9 +1,9 @@
 .landing_page_wrapper{
     background: $bgc;
-    width: 1200%;
     overflow: hidden;
 .landing_page_wrapperwrapper{
-    height: 78vh;
+    width: 100%;
+    height: 92vh;
 }    
 
 .landing_pageicon{
@@ -30,10 +30,10 @@
 .landing_page_but{
     position: absolute;
     top: 40%;
-    left: 15%;
+    left: 24%;
     right: 0%;
     bottom: 20%;
-    width: 30%;
+    width: 20%;
         @include rwd(desktop){
         
         }
@@ -48,7 +48,7 @@
         }
         @include rwd(mobile){
             position: absolute;
-            top: 40%;
+            top: 30%;
             left: 30%;
             right: 30%;
             bottom: 20%;
@@ -63,10 +63,10 @@
     left: 55%;
     right: 0%;
     bottom: 20%;
-    width: 30%;
+    width: 20%;
     @include rwd(mobile){
         position: absolute;
-        top: 60%;
+        top: 50%;
         left: 30%;
         right: 30%;
         bottom: 10%;
@@ -78,30 +78,30 @@
 
 @include rwd(desktop){
     .landing_page_wrapper{
-        @include desktop ();
+        
     }
 }
 
 @include rwd(desktopSmall){
     .landing_page_wrapper{
-        @include desktopSmall();
+        
     }
 }
 
 @include rwd(pad){
     .landing_page_wrapper{
-        @include pad ();
+        
     }
 }
 
 @include rwd(largeMobile){
     .landing_page_wrapper{
-        @include largeMobile();
+       
     }
 }
 
 @include rwd(mobile){
     .landing_page_wrapper{
-        @include mobile();
+        
     }
 }

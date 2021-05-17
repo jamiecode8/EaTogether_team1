@@ -1,547 +1,553 @@
+.myUFO_wardrobe_body{
+  width: 100%;
+background: $bgc;
+overflow: hidden;
+  .myUFO_wardrobe_wrapper{
 
-.wardrobeu_body{
-    background: $bgc;
-  .myUFO_wardrobeu{
-    
-    .myUFO_wardrobeu_bg{
-      width: 100%;
-      height: 100vh;
-      
-    }
-    .wardrobeu_window{
-      position: absolute;
-      width: 40%;
-      top: 5%;
-      right: 0%;
-        @include rwd(desktop){
-          
-        }
-        @include rwd(desktopSmall){
-          
-        }
-        @include rwd(pad){
-          display:none;
-        }
-        @include rwd(largeMobile){
-          display:none;
-        }
-        @include rwd(mobile){
-          display:none ;
-        }
-      
-      .wardrobeuwindow{
-        width: 40%;
-      }
-    }
-    
-    .wardrobeipadphone{
-      position: absolute;
-      width: 40%;
-      height: 40%;
-      top: 5%;
-      left: 0;
-      z-index: 10;
-      @include rwd(desktop){
-       display: none;
-      }
-      @include rwd(desktopSmall){
-       display: none;
-      }
-      @include rwd(pad){
-        position: absolute;
-        width: 40%;
-        height: 40%;
-        top: 10%;
-        left: 0;
-        z-index: 10;
-        display: block;
-      }
-      @include rwd(largeMobile){
-        position: absolute;
-        width: 40%;
-        height: 40%;
-        top: 4%;
-        left: 0;
-        z-index: 10;
-        display: block;
-      }
-      @include rwd(mobile){
-        position: absolute;
-        width: 40%;
-        height: 40%;
-        top: 6%;
-        left: 0;
-        z-index: 10;
-        display: block;
-      }
-      img{
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .wardrolight{
-      position: absolute;
-      width: 10%;
-      height: 10%;
-      top: 0%;
-      left: 20%;
-      z-index: 20;
-      @include rwd(desktop){
-          
-      }
-      @include rwd(desktopSmall){
-        position: absolute;
-        width: 10%;
-        height: 10%;
-        top: -1%;
-        left: 20%;
-      }
-      @include rwd(pad){
-        position: absolute;
-        width: 15%;
-        height: 10%;
-        top: -2%;
-        left: 20%;
-      }
-      @include rwd(largeMobile){
-        position: absolute;
-        width: 15%;
-        height: 10%;
-        top: -2%;
-        left: 20%;
-      }
-      @include rwd(mobile){
-        position: absolute;
-        width: 50%;
-        height: 10%;
-        top: 0%;
-        left: 25%;
-        right: 25%;
-      }
-      img{
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .wardrolight2{
-      position: absolute;
-      width: 10%;
-      height: 10%;
-      top: 0%;
-      right: 20%;
-      z-index: 20;
-      @include rwd(desktop){
-          
-      }
-      @include rwd(desktopSmall){
-        position: absolute;
-        width: 10%;
-        height: 10%;
-        top: -1%;
-        right:  20%;
-      }
-      @include rwd(pad){
-        position: absolute;
-        width: 15%;
-        height: 10%;
-        top: -2%;
-        right:  20%;
-      }
-      @include rwd(largeMobile){
-        position: absolute;
-        width: 15%;
-        height: 10%;
-        top: -2%;
-        right:  20%;
-      }
-      @include rwd(mobile){
-        display: none;
-      }
-      img{
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .wardrobeu_intermediate{
-      position: absolute;
-      width: 50%;
-      top: 10%;
-      left: 25%;
-      right: 25%;
-      z-index: 99;
-      @include rwd(desktop){
-        position: absolute;
-        width: 50%;
-        top: 10%;
-        left: 25%;
-        right: 25%;
-        z-index: 99;
-      }
-      @include rwd(desktopSmall){
-        position: absolute;
-        width: 60%;
-        top: 10%;
-        left: 20%;
-        right: 20%;
-        z-index: 99;
-      }
-      @include rwd(pad){
-        position: absolute;
-        width: 80%;
-        top: 25%;
-        left: 10%;
-        right: 10%;
-        z-index: 99;
-      }
-      @include rwd(largeMobile){
-        position: absolute;
-        width: 80%;
-        top: 20%;
-        left: 10%;
-        right: 10%;
-        z-index: 99;
-      }
-      @include rwd(mobile){
-        position: absolute;
-        width: 80%;
-        top: 23%;
-        left: 10%;
-        right: 10%;
-        z-index: 99;
-      }
-      img{
-        width: 100%;
-      }
+    .myUFO_wardrobe_bg{
 
-      .wardrobeu_character{
-        width: 30%;
+      .myUFO_wardrobe_bg1{
+        width: 100%;
         margin: 0 auto;
-        @include rwd(desktop){
-          width: 30%;
-          margin: 0 auto;
-        }
-        @include rwd(desktopSmall){
-          width: 40%;
-          margin: 0 auto;
-        }
-        @include rwd(pad){
-          width: 30%;
-          margin: 0 auto;
-        }
-        @include rwd(largeMobile){
-          width: 38%;
-          margin: 0 auto;
-        }
-        @include rwd(mobile){
-          width: 60%;
-          margin: 0 auto;
-        }
-        img{
-          width: 100%;
-        }
-      }
-
-      // -----頁籤------
-      div.tab_container{
-        position: absolute;
-        width: 100%;
-        top: 96%;
-        z-index: 50;
-        @include rwd(desktop){
-          position: absolute;
-          width: 100%;
-          top: 96%;
-          z-index: 50;
-        }
-        @include rwd(desktopSmall){
-          position: absolute;
-          width: 100%;
-          top: 96%;
-          z-index: 50;
-        }
-        @include rwd(pad){
-          position: absolute;
-          width: 100%;
-          top: 73%;
-          z-index: 50;
-        }
-        @include rwd(largeMobile){
-          position: absolute;
-          width: 100%;
-          top: 75%;
-          z-index: 50;
-        }
-        @include rwd(mobile){
-          position: absolute;
-          width: 100%;
-          top: 96%;
-          z-index: 50;
-        }
-
-        div.tab_list_block{
-          padding-left: 20px;
-
-          ul.tab_list{
-            list-style: none;
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-            li{
-              display: inline-block;
-              a{
-                text-decoration: none;
-                display: inline-block;
-                border: 3px solid #BC977E;
-                border-bottom: 1px solid #BC977E;
-                background: #FFF;
-                padding: 10px 20px;
-                border-radius: 5px 5px 0 0;
-                cursor: pointer;
-                color: #BC977E;
-                position: relative;
-                font-size: $fontSize_SubTitle;
-                top: 1px;
-              }
-
-              a::after{
-                content: "";
-                position: absolute;
-                width: calc(100% + 2px);
-                height: 1px;
-                background-color: #BC977E;
-                bottom:-1px;
-                left: -1px;
-                z-index: 1;
-              }
-
-              a.-on{
-                border: 1px solid #BC977E;
-                border-bottom: 1px solid white;
-                background: #BC977E;
-                color: #FFF;
-              }
-              
-              a.-on::after{
-                background-color: #BC977E;
-                width: 100%;
-                left: 0;
-              }
-
-            }
-          }
-        }
-        div.tab_contents{
-          border: 1px solid #BC977E;
-          background: #BC977E;
-          width: 100%;
-        /*   margin-top: 30px; */
-
-        div.tab{
-          padding: 10px;
-          display: none;
-        }
-        div.tab.-on{
-          display: block;
-          width: 100%;
-          height: 300px;
-
-          .tabbox1{
-            background: #EBDBBD;
-            width: 100%;
-            height:130px;
-            margin: 5px auto;
-            .container3{
-              align-items: center;
-              position: absolute;
-              margin: 0% 0 0 0;
-              width: 100%;
-            }
-            .container2{
-              position: absolute;
-              margin: 2% 0 0 0;
-              width: 100%;
-
-            }
-            .container1{
-              width: 100%;
-            }
-            .col-centered {
-                float: none;
-                margin: 0 auto;
-            }
-            
-            .carousel-control { 
-                width: 8%;
-                width: 0px;
-            }
-            .carousel-control.left,
-            .carousel-control.right { 
-                margin-right: 40px;
-                margin-left: 32px; 
-                // background-image:;
-                opacity: 1;
-            }
-            .carousel-control > a > span {
-                color: white;
-                font-size: 29px !important;
-            }
-            
-            .carousel-col { 
-                position: relative; 
-                /* min-height: 1px;  */
-                padding: 5px; 
-                float: left;
-             }
-             .carousel-col img{ 
-                width: 50%; 
-                height: 50%;
-                padding: 5px; 
-                 
-                
-            }
-            
-             .active > div { display:none; }
-             .active > div:first-child { display:block; }
-            
-            /*xs*/
-            @media (max-width: 767px) {
-              .carousel-inner .active.left { left: -50%; }
-              .carousel-inner .active.right { left: 50%; }
-              .carousel-inner .next        { left:  50%; }
-              .carousel-inner .prev		     { left: -50%; }
-              .carousel-col                { width: 50%; }
-              .active > div:first-child + div { display:block; }
-            }
-            
-            /*sm*/
-            @media (min-width: 768px) and (max-width: 991px) {
-              .carousel-inner .active.left { left: -50%; }
-              .carousel-inner .active.right { left: 50%; }
-              .carousel-inner .next        { left:  50%; }
-              .carousel-inner .prev		     { left: -50%; }
-              .carousel-col                { width: 50%; }
-              .active > div:first-child + div { display:block; }
-            }
-            
-            /*md*/
-            @media (min-width: 992px) and (max-width: 1199px) {
-              .carousel-inner .active.left { left: -33%; }
-              .carousel-inner .active.right { left: 33%; }
-              .carousel-inner .next        { left:  33%; }
-              .carousel-inner .prev		     { left: -33%; }
-              .carousel-col                { width: 33%; }
-              .active > div:first-child + div { display:block; }
-              .active > div:first-child + div + div { display:block; }
-            }
-            
-            /*lg*/
-            @media (min-width: 1200px) {
-              .carousel-inner .active.left { left: -25%; }
-              .carousel-inner .active.right{ left:  25%; }
-              .carousel-inner .next        { left:  25%; }
-              .carousel-inner .prev		     { left: -25%; }
-              .carousel-col                { width: 25%; }
-              .active > div:first-child + div { display:block; }
-              .active > div:first-child + div + div { display:block; }
-              .active > div:first-child + div + div + div { display:block; }
-            }
-            
-            .block {
-              width: 100px;
-              height: 50px;
-            }
-            
-              
-          }
-
-        }
+        height: 93vh;
       }
       
+      .myUFO_wardrobe_bg2{
+        width: 100%;
+        margin: 0 auto;
+        height: 87vh;
+      }
+    }
+  }
+  .wardrobe_wall{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top: 0%;
+    display: flex;
+
+    .wall_wardrobe{
+      position: absolute;
+      left: 20%;
+      top:10%;
+      width: 10%;
+      @include rwd(desktop){
+        position: absolute;
+        left: 20%;
+        top:10%;
+        width: 10%;
+      }
+      @include rwd(desktopSmall){
+        position: absolute;
+        left: 20%;
+        top:10%;
+        width: 10%;
+      }
+      @include rwd(pad){
+        position: absolute;
+        left: 20%;
+        top:10%;
+        width: 10%;
+      }
+      @include rwd(largeMobile){
+        position: absolute;
+        left: 20%;
+        top:10%;
+        width: 10%;
+      }
+      @include rwd(mobile){
+        position: absolute;
+        left: 10%;
+        top:17%;
+        width: 30%;
+      }
+      .wardrobe_wardrobe{
+      width: 100%;
+      }
     }
 
-  }  
- }
+    .wall_character{
+      position: absolute;
+      left: 40%;
+      right: 40%;
+      top: 35%;
+      width: 20%;
+      z-index: 20;
+      @include rwd(desktop){
+        position: absolute;
+        left: 40%;
+        right: 40%;
+        top: 40%;
+        width: 20%;
+        z-index: 20;
+      }
+      @include rwd(desktopSmall){
+        position: absolute;
+        left: 35%;
+        right: 35%;
+        top: 50%;
+        width: 30%;
+        z-index: 20;
+      }
+      @include rwd(pad){
+        position: absolute;
+        left: 35%;
+        right: 35%;
+        top: 55%;
+        width: 30%;
+        z-index: 20;
+      }
+      @include rwd(largeMobile){
+        position: absolute;
+        left: 25%;
+        right: 25%;
+        top: 35%;
+        width: 50%;
+        z-index: 20;
+      }
+      @include rwd(mobile){
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        top: 40%;
+        width: 80%;
+        z-index: 20;
+      }
+      .wardrobe_character{
+      width: 100%;
+      }
+    }
+    .wall_window{
+      position: absolute;
+      right: 10%;
+      top:10%;
+      width: 20%;
+      z-index: 19;
+      @include rwd(desktop){
+        position: absolute;
+        right: 10%;
+        top:10%;
+        width: 20%;
+        z-index: 19;
+      }
+      @include rwd(desktopSmall){
+        position: absolute;
+        right: 10%;
+        top:10%;
+        width: 18%;
+        z-index: 19;
+      }
+      @include rwd(pad){
+        position: absolute;
+        right: 15%;
+        top:10%;
+        width: 18%;
+        z-index: 19;
+      }
+      @include rwd(largeMobile){
+        position: absolute;
+        right: 20%;
+        top:10%;
+        width: 17%;
+        z-index: 19;
+      }
+      @include rwd(mobile){
+        position: absolute;
+        right: 2%;
+        top:40%;
+        width: 40%;
+        z-index: 19;
+      }
+      .wardrobe_window{
+        width: 100%;
+
+      }
+    }
+  }
+  .wardrobe_floor{
+    position: absolute;
+    width: 100%;
+    height: 58%;
+    bottom: 0%;
+    @include rwd(desktop){
+      position: absolute;
+      width: 100%;
+      height: 60%;
+      bottom: 0%;
+    }
+    @include rwd(desktopSmall){
+      position: absolute;
+      width: 100%;
+      height: 58%;
+      bottom: 0%;
+    }
+    @include rwd(pad){
+      position: absolute;
+      width: 100%;
+      height: 60%;
+      bottom: 0%;
+    }
+    @include rwd(largeMobile){
+      position: absolute;
+      width: 100%;
+      height: 60%;
+      bottom: 0%;
+    }
+    @include rwd(mobile){
+      position: absolute;
+      width: 100%;
+      height: 60%;
+      bottom: 0%;
+    }
+    
+    .floor_border{
+      margin: 0 auto;
+      width:20%;
+      z-index: 10;
+        @include rwd(desktop){
+          margin: 0 auto;
+          width:30%;
+          z-index: 10;
+        }
+        @include rwd(desktopSmall){
+          margin: 0 auto;
+          width:40%;
+          z-index: 10;
+        }
+        @include rwd(pad){
+          margin: 0 auto;
+          width:40%;
+          z-index: 10;
+        }
+        @include rwd(largeMobile){
+          margin: 0 auto;
+          width: 60%;
+          z-index: 10;
+        }
+        @include rwd(mobile){
+          margin: 0 auto;
+          width:80%;
+          z-index: 10;
+        }
+      .floor_border{
+        width: 100%;
+        @include rwd(desktop){
+          width: 100%;
+        }
+        @include rwd(desktopSmall){
+          width: 100%;
+        }
+        @include rwd(pad){
+          width: 100%;
+        }
+        @include rwd(largeMobile){
+          width: 100%;
+        }
+        @include rwd(mobile){
+          width: 100%;
+        }
+      }
+    }
+
+  }
+}
+// ---------選擇區-------------
+.Choose_cabinet{
+  position: absolute;
+  bottom: 14%;
+  height: 40%;
+  width: 50%;
+  right: 25%;
+  left: 25%;
+  z-index: 50;
+    @include rwd(desktop){
+      position: absolute;
+      bottom: 14%;
+      height: 35%;
+      width: 50%;
+      right: 25%;
+      left: 25%;
+      z-index: 50;
+    }
+    @include rwd(desktopSmall){
+      position: absolute;
+      bottom: 14%;
+      height: 35%;
+      width: 70%;
+      right: 15%;
+      left: 15%;
+      z-index: 50;
+    }
+    @include rwd(pad){
+      position: absolute;
+      bottom: 14%;
+      height: 40%;
+      width: 80%;
+      right: 10%;
+      left: 10%;
+      z-index: 50;
+    }
+    @include rwd(largeMobile){
+      position: absolute;
+      bottom: -10%;
+      height: 60%;
+      width: 80%;
+      right: 10%;
+      left: 10%;
+      z-index: 50;
+    }
+    @include rwd(mobile){
+      position: absolute;
+      bottom: -2%;
+      height: 60%;
+      width: 80%;
+      right: 10%;
+      left: 10%;
+      z-index: 50;
+    }
+  
+    .tab-content {
+      transition: all .3s;
+      opacity: 0;
+    }
+    .tab-content.is_show {
+      opacity: 1;
+    }
+    .Choose_tabs {
+      margin: 30px 0 0;
+      padding: 0 20px;
+    }
+    .Choose_tabs li {
+      display: inline-block;
+      list-style: none;
+      padding: 0;
+    }
+    .Choose_tabs li + li a {
+      margin-left: -5px;
+    }
+    .Choose_tabs a {
+      background-color: $mrtGreen;
+      border-radius: 6px 6px 0 0;
+      // box-shadow: inset 0 -6px 10px 0px #bbb;
+      color: #FFF;
+      display: block;
+      font-size: $fontSize_SubTitle;
+      padding: 7px 30px;
+      position: relative;
+      text-decoration: none;
+      transition: all .3s;
+      transform-origin: 50% 90%;
+      @include rwd(desktop){
+        background-color: $mrtGreen;
+        border-radius: 6px 6px 0 0;
+        // box-shadow: inset 0 -6px 10px 0px #bbb;
+        color: #FFF;
+        display: block;
+        font-size: $fontSize_SubTitle;
+        padding: 7px 30px;
+        position: relative;
+        text-decoration: none;
+        transition: all .3s;
+        transform-origin: 50% 90%;
+      }
+      @include rwd(desktopSmall){
+        background-color: $mrtGreen;
+        border-radius: 6px 6px 0 0;
+        // box-shadow: inset 0 -6px 10px 0px #bbb;
+        color: #FFF;
+        display: block;
+        font-size: $fontSize_SubTitle;
+        padding: 7px 30px;
+        position: relative;
+        text-decoration: none;
+        transition: all .3s;
+        transform-origin: 50% 90%;
+      }
+      @include rwd(pad){
+        background-color: $mrtGreen;
+        border-radius: 6px 6px 0 0;
+        // box-shadow: inset 0 -6px 10px 0px #bbb;
+        color: #FFF;
+        display: block;
+        font-size: $fontSize_SubTitle;
+        padding: 7px 30px;
+        position: relative;
+        text-decoration: none;
+        transition: all .3s;
+        transform-origin: 50% 90%;
+      }
+      @include rwd(largeMobile){
+        background-color: $mrtGreen;
+        border-radius: 6px 6px 0 0;
+        // box-shadow: inset 0 -6px 10px 0px #bbb;
+        color: #FFF;
+        display: block;
+        font-size: $fontSize_SubTitle;
+        padding: 7px 30px;
+        position: relative;
+        text-decoration: none;
+        transition: all .3s;
+        transform-origin: 50% 90%;
+      }
+      @include rwd(mobile){
+        background-color: $mrtGreen;
+      border-radius: 6px 6px 0 0;
+      // box-shadow: inset 0 -6px 10px 0px #bbb;
+      color: #FFF;
+      display: block;
+      font-size: $fontSize_SubTitle;
+      padding: 7px 10px;
+      position: relative;
+      text-decoration: none;
+      transition: all .3s;
+      transform-origin: 50% 90%;
+      }
+    }
+    .Choose_tabs .is_active {
+      background-color: $green;
+      box-shadow: none;
+      font-weight: bold;
+      z-index: 1;
+      transform: scale(1.2);
+    }
+    
+    .tab-content {
+      background-color: #fff;
+      border: 20px solid $green;
+      // box-shadow: 0 3px 0 0 #ccc;
+      // padding: 30px 20px;
+      position: absolute;
+      width: 100%;
+      box-sizing: border-box;
+      .content1{
+        border-bottom:3px $green solid;
+        ul{
+          display: flex;
+          li{
+            img{
+              width: 80px;
+              height: 90px;
+              margin: 8px;
+              @include rwd(desktop){
+                width: 80px;
+                height: 90px;
+                margin: 8px;
+              }
+              @include rwd(desktopSmall){
+                width: 80px;
+                height: 90px;
+                margin: 8px;
+              }
+              @include rwd(pad){
+                width: 80px;
+                height: 90px;
+                margin: 8px;
+              }
+              @include rwd(largeMobile){
+                width: 80px;
+                height: 90px;
+                margin: 8px;
+              }
+              @include rwd(mobile){
+                width: 50px;
+                height: 60px;
+                margin: 8px;
+              }
+            }
+          }
+        }
+      }
+      .content2{
+        ul{
+        display: flex;
+          li{
+            img{
+              width: 80px;
+              height: 90px;
+              margin: 8px;
+              @include rwd(desktop){
+                width: 80px;
+                height: 90px;
+                margin: 8px;
+              }
+              @include rwd(desktopSmall){
+                width: 80px;
+                height: 90px;
+                margin: 8px;
+              }
+              @include rwd(pad){
+                width: 80px;
+                height: 90px;
+                margin: 8px;
+              }
+              @include rwd(largeMobile){
+                width: 80px;
+                height: 90px;
+                margin: 8px;
+              }
+              @include rwd(mobile){
+                width: 50px;
+                height: 60px;
+                margin: 8px;
+              }
+            }
+          }
+          }
+      }
+    }
+
 }
 
 @media all and (min-width: 1200px) {
-  .myUFO_wardrobeu_bg .wardrobe_webbg{
+  .myUFO_wardrobe_bg .myUFO_wardrobe_bg1 .wardrobe_bg1{
       display: block;
       
   }
-  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
+  .myUFO_wardrobe_bg .myUFO_wardrobe_bg2 .wardrobe_bg2{
       display: none;
-      
   }
-  .myUFO_wardrobeu_bg .wardrobe_phonebg{
-      display: none;
-     
-  }
-  
+
 }
 
 @media all and(max-width: 1199px) and (min-width: 992px) {
-  .myUFO_wardrobeu_bg.wardrobe_webbg{
+  .myUFO_wardrobe_bg .myUFO_wardrobe_bg1 .wardrobe_bg1{
+     display: block; 
+      
+  }
+  .myUFO_wardrobe_bg .myUFO_wardrobe_bg2 .wardrobe_bg2{
+    display:none;
+  }
 
-      display: block;
-      
-  }
-  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
-      display: none;
-      
-  }
-  .myUFO_wardrobeu_bg .wardrobe_phonebg{
-      display: none;
-     
-  }
 }
 
 @media all and(max-width: 991px) and (min-width: 768px) {
-  .myUFO_wardrobeu_bg .wardrobe_webbg{
-      display: none;
+  .myUFO_wardrobe_bg .myUFO_wardrobe_bg1 .wardrobe_bg1{
+     display: block;
       
   }
-  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
-      width: 100%;
-      display: block;
-      
-  }
-  .myUFO_wardrobeu_bg .wardrobe_phonebg{
-      display: none;
-     
+  .myUFO_wardrobe_bg .myUFO_wardrobe_bg2 .wardrobe_bg2{
+    display:none;
   }
 }
 
 @media all and(max-width: 767px) and (min-width: 576px) {
-  .myUFO_wardrobeu_bg .wardrobe_webbg{
-      display: none;
+  .myUFO_wardrobe_bg .myUFO_wardrobe_bg1 .wardrobe_bg1{
+     display: block; 
       
   }
-  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
-      display: block;
-      
+  .myUFO_wardrobe_bg .myUFO_wardrobe_bg .wardrobe_bg2{
+      display:none;
   }
-  .myUFO_wardrobeu_bg .wardrobe_phonebg{
-      display: none;
-     
-  }
+
 }
 
 @media all and (max-width: 575px) {
-  .myUFO_wardrobeu_bg .wardrobe_webbg{
+  .myUFO_wardrobe_bg.myUFO_wardrobe_bg1 .wardrobe_bg1{
       display: none;
       
   }
-  .myUFO_wardrobeu_bg .wardrobe_ipadbg{
-      display: none;
-      
+  .myUFO_wardrobe_bg .myUFO_wardrobe_bg2 .wardrobe_bg2{
+    display: block;
   }
-  .myUFO_wardrobeu_bg .wardrobe_phonebg{
-      display: block;
-      margin: 0 auto;
-     
-  }
- }
 
-
-
- 
+}
