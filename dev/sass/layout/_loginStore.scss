@@ -6,7 +6,35 @@
     padding-top: 100px;
     background-color: $bgc;
 }
+.loginStorePage_wrapper{
+    margin-bottom:6.5vh;
+    position: relative;
+    overflow: hidden;
+    .helloAlien{
+        position: absolute;
+        width: 20vw;
+        top:5vh;
+        left: -3vw;
+        transform: rotate(60deg);
+        @include rwd(mobile){
+            top:5vh;
+            left: 3vw;
+            transform: rotate(-30deg);
+        }
+    }
+    .joinAlien{
+        position: absolute;
+        width: 20vw;
+        bottom:2vh;
+        right: -4vw;
+        transform: rotate(-60deg);
+        @include rwd(mobile){
+            right:4vw;
+            transform: rotate(30deg);
+        }
+    }
 
+}
 .storeLogin_signup{
 	@include rwd(desktop){
     // display: none;

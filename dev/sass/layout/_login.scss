@@ -2,6 +2,10 @@
 .loginMemberPage_Body{
     padding-top: 100px;
     background-color: $bgc;
+    background-image: url('../../img/story/aliensBg.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: 0%;
 }
 
 .login{
