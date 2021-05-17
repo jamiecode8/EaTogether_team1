@@ -12,7 +12,7 @@
     
 <body class="backend_body">
   
-    @@include('layout/header.html')
+    @@include('layout/header_backend.html')
     <div class="wrapper backend_wrapper">
 
       <div class="backend_top">
@@ -123,7 +123,7 @@
 
           <!-- 會員管理彈窗 -->
       <div class="backend_member_popUps">
-        <!-- <form action="#" method="post" class="form"> -->
+        <form action="#" method="post" class="backend_member_form">
 
           <!-- close button -->
           <button type="button" class="btn_close">
@@ -132,46 +132,45 @@
           
 
           <!-- 主標題 -->
-          <h1>會員管理</h1>
+          <h1 class="backend_Audit">會員管理</h1>
         
           <!-- 輸入框欄位 -->
-          <div class="pop_block">
-            <div class="pop_title">會員</div>
-            <div class="pop_data">user0001</div>
+          <div class="backend_member_block">
+            <h3 class="backend_subtitle">會員</h3>
+            <div class="backend_member_data1">user0001</div>
           </div>
-          <div class="pop_block">
-            <div class="pop_title">帳號</div>
-            <div class="pop_data">test123@gmail.com</div>
+          <div class="backend_member_block">
+            <h3 class="backend_subtitle">帳號</h3>
+            <div class="backend_member_data2">test123@gmail.com</div>
           </div>
-          <div class="pop_block">
-            <div class="pop_title">地區</div>
-            <div class="pop_data">永和</div>
+          <div class="backend_member_block">
+            <h3 class="backend_subtitle">地區</h3>
+            <div class="backend_member_data3">松江南京站</div>
           </div>
-          <div class="pop_block">
-            <div class="pop_title">美食喜好</div>
-            <div class="pop_data">火鍋,牛排</div>
+          <div class="backend_member_block">
+            <h3 class="backend_subtitle">美食喜好</h3>
+            <div class="backend_member_data4">火鍋,牛排</div>
           </div>
 
           <!-- 分隔線 -->
-          <div class="pop_line"></div>
+          <div class="backend_line"></div>
           
           <!-- 編輯動作 -->
-          <h1>權限編輯</h1>
-          <h2>會員狀態</h2>
+          <h1 class="backend_Audit">權限編輯</h1>
+          <h2 class="backend_status">會員狀態</h2>
           <div class="dropdown">
             <input type="text" id="dropdown_choice"  class="input">
             <img class="dropdown_arrow" src="./img/icon/icon_next_line.png" alt="">
-            <ul class="dropdown_select" id="dropdown_options">
+            <ul class="dropdown_select" id="backend_options">
                 <li>啟用</li>
                 <li>停權</li>
             </ul>
         </div>
           
           <!-- 單顆按鈕用這裡 -->
-          <div class="buttonArea">
-            <input type="submit" value="送出" class=" btn_submit">
+          <div class="backend_buttonArea">
+            <input type="submit" value="送出" class="btn_submit  backend_member_btn_submit">
           </div>
-          <br>
       </div>
     </div>
     @@include('layout/footer.html')
@@ -179,5 +178,5 @@
     <script>
        @@include('js/backend.js')
     </script>
-</body>
+  </body>
 </html>
