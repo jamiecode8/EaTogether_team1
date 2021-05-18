@@ -11,14 +11,8 @@
         @@include('layout/header.html')
     
         <div class="wrapper index_wrapper">
-            <!------------地圖------------>
-            <div class="index_map">
-                <img class="map_slogan" src="./img/index/slogan.png" alt="">
-                <img class="map" src="./img/index/map.png" alt="" />
-            </div>
-
-            <!-- ----------搜尋按鈕---------- -->
-            <ul class="index_searchbtn">
+              <!-- ----------搜尋按鈕---------- -->
+              <ul class="index_searchbtn">
                 <li class="search_btn_whatToEat">
                     <img src="./img/index/What to eat.png" alt="">
                     <p>今天吃什麼</p>
@@ -27,7 +21,13 @@
                     <img src="./img/index/search.png" alt="">
                     <p>美食搜尋</p>
                 </li>
-            </ul>
+            </ul>    
+            <!------------地圖------------>
+            <div class="index_map">
+                <img class="map_slogan" src="./img/index/slogan.png" alt="">
+                <img class="map" src="./img/index/map.png" alt="" />
+            </div>
+
 
             <!-- ----------裝飾外星人---------- -->
             <img class="et" src="./img/index/et.png" alt="">
@@ -522,7 +522,7 @@
                     </div>
                     <div class="reportReason">
                         <h2>檢舉原因:</h2>
-                        <textarea class="reportReason_text" name="" id="" cols="35" rows="5"></textarea>
+                        <textarea class="reportReason_text" name="" id="" cols="30" rows="5"></textarea>
                     </div>
                     <div class="reportBtn btn">
                         <input  type="submit" value="檢舉" class="getReportBtn btn_submit" />
@@ -530,10 +530,7 @@
               
                 </form>
             </div>
-            
-
-            
-
+    
         </div>
         @@include('layout/footer.html')
     <script>
@@ -543,6 +540,7 @@
         $('.search_btn_whatToEat').click(function (){
             $('.index_search_popup').fadeOut(100);
             $('.index_whatToEat_popup.1').fadeIn(50);
+
         });
 
         //關閉彈窗
@@ -593,14 +591,15 @@
         //哪裡有
         $('.getWhatBtn').click(function(){
             $('.index_store_popup').fadeIn(50);
+            $('.index_whatToEat_popup.5').fadeOut(50);
         }); 
         //-----whatToEat彈窗end------
 
         //-----search彈窗------
         //打開彈窗
         $('.search_btn_Search').click(function(){
-            $('.index_search_popup').fadeIn(50);
             $('.index_whatToEat_popup').fadeOut(100);
+            $('.index_search_popup').fadeIn(50);        
         });
         //關閉彈窗
         $('.getSearchClose').click(function (){
@@ -615,7 +614,7 @@
         });
         //出發探索 搜尋結果彈窗出現
         $('.getSearchBtn').click(function (){
-            $('.index_search_popup').fadeOut(100);
+            $('.index_search_popup').fadeOut(50);
             $('.index_store_popup').fadeIn(50);
         });
         //搜尋結果彈窗 點擊跳店家資訊

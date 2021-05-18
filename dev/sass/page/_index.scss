@@ -4,19 +4,21 @@ body.index{
     background-color:$bgc;
 }
 .index_wrapper{
+    @include rwd(desktop);
     position: relative;
-    // overflow-x: hidden;
+    // top: 0;
+    // overflow: hidden;
 }
 //----------map背景----------
 .index_map{
-    padding:2vw 0;
+    padding:3vh 0;
     // border: 1px solid;
     @include marginCenter();
     .map_slogan{
         width: 25vw;
         position: absolute;
         right:5vw;
-        top:5vw;
+        top:10vh;
     }
     .map{
         width: 46%;
@@ -26,35 +28,35 @@ body.index{
 .et{
     width:15vw;
     position: absolute;
-    bottom:15vw;
-    right:5vw;
+    bottom:20vh;
+    left:5vw;
     transform: rotate(-30deg);
 }
 //----------map背景end----------
 //----------搜尋按鈕----------
 .index_searchbtn{
     position:fixed;
-    right:10vw;
-    bottom:10vw;
+    right: 10%;
+    bottom: 30%;
     z-index: 98;
-    display: flex;    
+    display: flex; 
     li{ 
         // @include shadow();
         box-shadow:  -12px 10px 10px #D6D5AE;
         margin-left:3vw;
-        width:8vw;
-        height:8vw;
+        width:120px;
+        height:120px;
         background-color:$yellow;
         border-radius: 50%;
         img{
-            margin-top:1.5vw;
+            margin-top:25px;
             @include block_center();
-            width: 5vw;
-            height:5vw;          
+            width: 70px;
+            height:70px;          
         }
         p{
             text-align: center;
-            padding-top:2vw ;
+            padding-top:30px ;
             font-weight: bold;
         }
     }
@@ -72,12 +74,15 @@ body.index{
 }
 //----------搜尋按鈕end----------
 //----------whatToEat彈窗----------
+.index_whatToEat_popup.on{
+    display: block;
+}
 .index_whatToEat_popup{
     z-index: 1000;
     display: none;
     position: absolute;
-    top: 10%;
-    left: 10%;
+    top:5%;
+    left:10%;
     h1{
         color: $yellow;
     }
@@ -131,11 +136,14 @@ body.index{
 }
 //----------whatToEat彈窗end----------
 //----------search彈窗end----------
+.index_search_popup.on{
+    display: block;
+}
 .index_search_popup{
     z-index: 1000;
     display: none;
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 10%;
     h1{
         color: $green;
@@ -218,7 +226,7 @@ body.index{
     z-index: 1000;
     display: none;
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 10%;
    
     .getStore{
@@ -295,13 +303,13 @@ body.index{
     z-index: 1000;
     display:none;
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 10%;
     .getStoreDigitalInf{
         padding-bottom: 20px;
         background-color: white;
         overflow:auto;
-        height: 700px;
+        height:90vh;
 
         input{
             border-radius: 5px;
@@ -453,7 +461,7 @@ body.index{
     z-index: 1000;
     display: none;
     position: absolute;
-    top: 10%;
+    top: 5%;
     left:40%;
     .getReport{
         h1{
@@ -501,13 +509,14 @@ body.index{
 
 //----------檢舉店家彈窗end----------
 
-//rwd
 
 @include rwd(desktopSmall){
     .index_wrapper{
         // border: 1px solid yellow;
         .index_map{
-            margin:5vw 0;
+            margin: 5vh 0;
+            display: flex;
+            align-items: center;
             .map_slogan{
                 width: 30vw;
                 right:5vw;
@@ -519,15 +528,10 @@ body.index{
         }
         .et{
             right:5vw;
-            bottom:25vw;
+            bottom:15vh;
         }
-      
         .index_searchbtn{
-            right:10vw;
-            bottom:5vw;
-            p{
-                display: none;
-            }
+            bottom:150px;
         }
         .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
@@ -536,10 +540,13 @@ body.index{
     }
 }
 @include rwd(pad){
+   
     .index_wrapper{
         // border: 1px solid blue;
         .index_map{
-            margin:10vw 0;
+            margin: 10vh 0;
+            display: flex;
+            align-items: center;
             .map_slogan{
                 display: none;
             }
@@ -549,15 +556,12 @@ body.index{
         }
         .et{
             right:5vw;
-            top:10vw;
+            bottom:5vh;
         }
       
         .index_searchbtn{
-            right:10vw;
-            bottom:10vw;
-            p{
-                display: none;
-            }
+            bottom:240px;
+            
         }
         .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
@@ -570,7 +574,9 @@ body.index{
     .index_wrapper{
         // border: 1px solid red;
         .index_map{
-            margin:20vw 0;
+            margin: 10vh 0;
+            display: flex;
+            align-items: center;
             .map_slogan{
                 display: none;
 
@@ -581,15 +587,32 @@ body.index{
         }
         .et{
             right:5vw;
-            top:10vw;
+            bottom:5vh;
         }
       
         .index_searchbtn{
-            right:10vw;
-            bottom:20vw;
-            p{
-                display: none;
-            }
+            position:fixed;
+            z-index: 98;
+            display: flex;
+            bottom: 35%;    
+            li{ 
+                // @include shadow();
+                box-shadow:  -12px 10px 10px #D6D5AE;
+                margin-left:3vw;
+                width:100px;
+                height:100px;
+                background-color:$yellow;
+                border-radius: 50%;
+                img{
+                    margin-top:20px;
+                    @include block_center();
+                    width: 60px;
+                    height:60px;          
+                }
+                p{
+                    display: none;
+                }
+            }    
         }
         .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
@@ -599,10 +622,14 @@ body.index{
 }
 
 @include rwd(mobile){
+ 
     .index_wrapper{
         // border: 1px solid green;
+        @include rwd(mobile);
         .index_map{
-            margin:20vw 0;
+            margin: 10vh 0;
+            display: flex;
+            align-items: center;
             .map_slogan{
                 display: none;
 
@@ -613,22 +640,36 @@ body.index{
         }
         .et{
             right:5vw;
-            top:10vw;
+            bottom:5vh;
         }
       
         .index_searchbtn{
-            right:10vw;
-            bottom:40vw;
-            p{
-                display: none;
-            }
+            position:fixed;
+            z-index: 98;
+            display: flex;
+            bottom: 35%;    
+            li{ 
+                // @include shadow();
+                box-shadow:  -12px 10px 10px #D6D5AE;
+                margin-left:3vw;
+                width:70px;
+                height:70px;
+                background-color:$yellow;
+                border-radius: 50%;
+                img{
+                    margin-top:15px;
+                    @include block_center();
+                    width: 40px;
+                    height:40px;          
+                }
+                p{
+                    display: none;
+                }
+            }    
         }
         .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
             left: 50%;
-            
-            
         } 
     }
 }
-
