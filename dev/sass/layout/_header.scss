@@ -1,30 +1,30 @@
 // Jamie
 @include rwd(desktop){
-    header{
+    .headerInner{
         @include desktop ();
     }
 }
 
 @include rwd(desktopSmall){
-    header{
+    .headerInner{
         @include desktopSmall ();
     }
 }
 
 @include rwd(pad){
-    header{
+    .headerInner{
         @include pad ();
     }
 }
 
 @include rwd(largeMobile){
-    header{
+    .headerInner{
         @include largeMobile();
     }
 }
 
 @include rwd(mobile){
-    header{
+    .headerInner{
         @include mobile();
     }
 }
@@ -37,8 +37,6 @@ header{
     width: 100%;
     z-index: 950;
 }
-
-
 
 .headerInner {
     width: 100%;
@@ -153,77 +151,79 @@ header{
     transition: opacity 0.35s, height 0.35s;
     &_menu{
         position: relative;
-        height: 70%;
+        // height: 70%;
+        height: 90%;
+        max-height: 600px;
         top: 50%;
+        // top: 5%;
         transform: translateY(-50%);
         font-size: $fontSize_Title; 
         text-align: center;
     }
     ul{
         position: relative;
-        height: 118%;
+        height: 100%;
         width: 100%;
-        margin-top: -50px;
-        margin-bottom: -50px;
+        // margin-top: -50px;
+        // margin-bottom: -50px;
+    }        
+}
+.header_inner_myUFO{
+    background-image: url(../img/header_myUFO_hover.png);
+    background-repeat: no-repeat;
+    background-size: 120px;
+    // background-position: 50% 70%;
+        &:hover{
+            background-image: url(../img/header_myUFO.png);   
+        }
+        @include rwd(pad){
+            background-image: url(../img/header_myUFO.png); 
+        }
+        @include rwd(largeMobile){
+            background-image: url(../img/header_myUFO.png); 
+        }
+        @include rwd(mobile){
+            background-image: url(../img/header_myUFO.png);
+        }
     }
     
-        .header_inner_myUFO{
-            background-image: url(../img/header_myUFO_hover.png);
-            background-repeat: no-repeat;
-            background-size: 120px;
-            background-position: 50% 70%;
-                &:hover{
-                    background-image: url(../img/header_myUFO.png);   
-                }
-                @include rwd(pad){
-                    background-image: url(../img/header_myUFO.png); 
-                }
-                @include rwd(largeMobile){
-                    background-image: url(../img/header_myUFO.png); 
-                }
-                @include rwd(mobile){
-                    background-image: url(../img/header_myUFO.png);
-                }
-            }
-           
-        .header_inner_myPhoto{
-            background-image: url(../img/header_myPhoto_hover.png);
-            background-repeat: no-repeat;
-            background-size: 85px;
-            background-position: 50% 70%;
-                &:hover{
-                    background-image: url(../img/header_myPhoto.png);   
-                }
-                @include rwd(pad){
-                    background-image: url(../img/header_myPhoto.png);   
-                }
-                @include rwd(largeMobile){
-                    background-image: url(../img/header_myPhoto.png);   
-                }
-                @include rwd(mobile){
-                    background-image: url(../img/header_myPhoto.png);   
-                }
-            }
-
-        .header_inner_aboutUs{
-            background-image: url(../img/header_story_hover.png.png);
-            background-repeat: no-repeat;
-            background-size: 85px;
-            background-position: 50% 100%;
-                &:hover{
-                    background-image: url(../img/header_story.png);   
-                }
-                @include rwd(pad){
-                    background-image: url(../img/header_story.png);   
-                }
-                @include rwd(largeMobile){
-                    background-image: url(../img/header_story.png);     
-                }
-                @include rwd(mobile){
-                    background-image: url(../img/header_story.png);     
-                }
-            } 
+.header_inner_myPhoto{
+    background-image: url(../img/header_myPhoto_hover.png);
+    background-repeat: no-repeat;
+    background-size: 85px;
+    // background-position: 50% 70%;
+        &:hover{
+            background-image: url(../img/header_myPhoto.png);   
         }
+        @include rwd(pad){
+            background-image: url(../img/header_myPhoto.png);   
+        }
+        @include rwd(largeMobile){
+            background-image: url(../img/header_myPhoto.png);   
+        }
+        @include rwd(mobile){
+            background-image: url(../img/header_myPhoto.png);   
+        }
+    }
+
+.header_inner_aboutUs{
+    background-image: url(../img/header_story_hover.png.png);
+    background-repeat: no-repeat;
+    background-size: 85px;
+    // background-position: 50% 100%;
+        &:hover{
+            background-image: url(../img/header_story.png);   
+        }
+        @include rwd(pad){
+            background-image: url(../img/header_story.png);   
+        }
+        @include rwd(largeMobile){
+            background-image: url(../img/header_story.png);     
+        }
+        @include rwd(mobile){
+            background-image: url(../img/header_story.png);     
+        }
+    } 
 
 // 選單展開後-選單區
 .header_overlay.open {
@@ -234,6 +234,7 @@ header{
     // 出現的動畫
     .header_list{
         // @include borderTest();
+        background-position: 50% 45%;
         display: block;
         width: 100%;
         height: calc(100% / 4);
@@ -264,8 +265,12 @@ header{
             height: 100%;
             display: block;
             position: relative;
-            color: $colorTp; 
             overflow: hidden;
+        }
+        &_span{
+            position: relative;
+            bottom: -120px;
+            color: $colorTp;
             &:hover{
                 color: $color;
             }
@@ -278,6 +283,9 @@ header{
              @include rwd(mobile){
                 color: $color;
              }
+        }
+        &:hover span{
+            color: $color;
         }
     }
 }
