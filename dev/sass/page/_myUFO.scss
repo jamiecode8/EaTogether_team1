@@ -179,34 +179,34 @@ overflow: hidden;
         top: 25%;
         width: 30%;
         margin: 0 13%;
-        z-index: 40;
+        z-index: 9;
         @include rwd(desktopSmall){
             position: absolute;
             top: 23%;
             width: 35%;
             margin: 0 10%;
-            z-index: 40;
+            z-index: 9;
         }
         @include rwd(pad){
             position: absolute;
             top: 5%;
             width: 50%;
             margin: 0 20%;
-            z-index: 40;
+            z-index: 9;
         }
         @include rwd(largeMobile){
             position: absolute;
             top: 0%;
             width: 50%;
             margin: 0% 0% 0% 23%;
-            z-index: 40;
+            z-index: 9;
         }
         @include rwd(mobile){
             position: absolute;
             top: 10%;
             width: 65%;
             margin:0% 0% 0% 15%;
-            z-index: 40;
+            z-index: 9;
         }
     }
     .cabinet{
@@ -375,6 +375,10 @@ overflow: hidden;
 }
 
 
+
+
+
+
 // -----------hover but-------------------
 .hover-button:hover{
     animation: moveUpDown 1s infinite;
@@ -483,6 +487,413 @@ overflow: hidden;
        
     }
 }
+    // ----------櫃子彈窗---------------
+    #myUFO_category{
+        top:10%;
+        left: 41%;
+        right: 41%;
+        text-align: center;
+        display: none;
+        z-index: 999;
+        .categorform{
+            position: absolute;
+            top: 10%;
+            padding: 20px;
+            z-index: 999;
+        }
+
+        .categoricon{
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            z-index: 10;
+            
+        }
+
+        .coupon{
+            position: absolute;
+            top: 23%;
+            left: 20%;
+            width: 27%;
+
+            img{
+                width: 100%;
+            }
+            h1{
+                font-size: $fontSize_SubTitle;
+                color:#FFF;
+            }
+        }
+        .game{
+            position: absolute;
+            top: 34%;
+            right: 20%;
+            width: 27%;
+ 
+            img{
+                width: 100%;
+            }
+            h1{
+                font-size: $fontSize_SubTitle;
+                color:#FFF;
+            }
+        }
+        .Smallphoto{
+            position: absolute;
+            top: 52%;
+            left: 20%;
+            width: 27%;
+ 
+            img{
+                width: 100%;
+            }
+            h1{
+                font-size: $fontSize_SubTitle;
+                color:#FFF;
+            }
+        }
+        .Smalltask{
+            position: absolute;
+            top: 62%;
+            right: 25%;
+            width: 18%;
+
+            img{
+                width: 100%;
+            }
+            h1{
+                font-size: $fontSize_SubTitle;
+                color:#FFF;
+            }
+        }
+        
+    }
+    // ----------優惠券彈窗---------------
+    #wardrobe_coupon{
+        position: fixed;
+        top:15%;
+        left: 41%;
+        right: 41%;
+        text-align: center;
+        display: none;
+        z-index: 999;
+        .couponicon{
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            z-index: 10;
+            
+        }
+        #close_button{
+            position: absolute;
+            left: 0%;
+            top: 8%;
+            border: 2px solid #f80;
+            width: 100px;
+            height: 50px;
+        }
+    }
+    
+    
+    // ----------每日任務彈窗---------------
+    #wardrobe_Smalltask{
+        position: fixed;
+        top:15%;
+        left: 41%;
+        right: 41%;
+        display: none;
+        z-index: 999;
+        @include rwd(desktop){
+            position: fixed;
+            top:15%;
+            left: 41%;
+            right: 41%;
+            display: none;
+            z-index: 999;
+            }
+            @include rwd(desktopSmall){
+            position: fixed;
+            top:15%;
+            left: 41%;
+            right: 41%;
+            display: none;
+            z-index: 999;
+            }
+            @include rwd(pad){
+            position: fixed;
+            top:15%;
+            left: 41%;
+            right: 41%;
+            display: none;
+            z-index: 999;
+            }
+            @include rwd(largeMobile){
+            position: fixed;
+            top:15%;
+            left: 41%;
+            right: 41%;
+            display: none;
+            z-index: 999;
+            }
+            @include rwd(mobile){
+            position: fixed;
+            top:15%;
+            left: 41%;
+            right: 41%;
+            display: none;
+            z-index: 999;
+            }
+            .formSmalltask{
+                padding: 20px;
+                .Smalltaskbox{
+                    display: flex;
+                    
+                    .Littleman{
+                        right: 0%;
+                        top: 0%;
+                        z-index: 88;
+                        width: 30px;
+                        height: 30px;
+                        background-size: cover;
+                    }
+                    .progressmimi{
+                        margin: 0 20px;
+                        .progress {
+                            width: 240px;
+                            height: 10px;
+                            margin: 0 100%;
+                          }
+                          .progress-wrap {
+                            background: $mrtYellow;
+                            margin: 0px 0;
+                            overflow: hidden;
+                            position: relative;
+                            .progress-bar {
+                                background: #ddd;
+                                left: 0;
+                                position: absolute;
+                                top: 0;
+                              }
+                          }
+    
+                    }
+                    .buttonArea_Smalltask button{
+                        background: $yellow;
+                        margin: 0 0%;
+                        border-radius: 10%;
+                    }    
+                      
+                
+                }
+                
+                }
+                .Smalltaskbox4{
+                    display: flex;
+                    margin: 4% 0%;
+                    
+                    .mrtSmalltask{
+                        right: 0%;
+                        top: 0%;
+                        z-index: 88;
+                        width: 30px;
+                        height: 30px;
+                        background-size: cover;
+                    }
+                    .progressmimi{
+                        margin: 0 20px;
+                        .progress {
+                            width: 240px;
+                            height: 10px;
+                            margin: 0 10%;
+                          }
+                          .progress-wrap {
+                            background: $mrtYellow;
+                            margin: 0px 0;
+                            overflow: hidden;
+                            position: relative;
+                            .progress-bar {
+                                background: #ddd;
+                                left: 0;
+                                position: absolute;
+                                top: 0;
+                              }
+                          }
+    
+                    }
+                    .buttonArea_Smalltask button{
+                        background: $yellow;
+                        margin: 0 0%;
+                        border-radius: 10%;
+                    }    
+                      
+                
+                }
+                .Smalltaskbox5{
+                    display: flex;
+                    margin: 4% 0%;
+                    
+                    .mrtSmalltask{
+                        right: 0%;
+                        top: 0%;
+                        z-index: 88;
+                        width: 30px;
+                        height: 30px;
+                        background-size: cover;
+                    }
+                    .progressmimi{
+                        margin: 0 20px;
+                        .progress {
+                            width: 240px;
+                            height: 10px;
+                            margin: 0 10%;
+                          }
+                          .progress-wrap {
+                            background: $mrtYellow;
+                            margin: 0px 0;
+                            overflow: hidden;
+                            position: relative;
+                            .progress-bar {
+                                background: #ddd;
+                                left: 0;
+                                position: absolute;
+                                top: 0;
+                              }
+                          }
+    
+                    }
+                    .buttonArea_Smalltask button{
+                        background: $yellow;
+                        margin: 0 0%;
+                        border-radius: 10%;
+                    }    
+                      
+                
+                }
+                .Smalltaskbox6{
+                    display: flex;
+                    margin: 4% 0%;
+                    
+                    .mrtSmalltask{
+                        right: 0%;
+                        top: 0%;
+                        z-index: 88;
+                        width: 30px;
+                        height: 30px;
+                        background-size: cover;
+                    }
+                    .progressmimi{
+                        margin: 0 20px;
+                        .progress {
+                            width: 240px;
+                            height: 10px;
+                            margin: 0 10%;
+                          }
+                          .progress-wrap {
+                            background: $mrtYellow;
+                            margin: 0px 0;
+                            overflow: hidden;
+                            position: relative;
+                            .progress-bar {
+                                background: #ddd;
+                                left: 0;
+                                position: absolute;
+                                top: 0;
+                              }
+                          }
+    
+                    }
+                    .buttonArea_Smalltask button{
+                        background: $yellow;
+                        margin: 0 0%;
+                        border-radius: 10%;
+                    }    
+                      
+                
+                }
+                .Smalltaskbox7{
+                    display: flex;
+                    margin: 4% 0%;
+                    
+                    
+                    .mrtSmalltask{
+                        right: 0%;
+                        top: 0%;
+                        z-index: 88;
+                        width: 30px;
+                        height: 30px;
+                        background-size: cover;
+                    }
+                    .progressmimi{
+                        margin: 0 20px;
+                        .progress {
+                            width: 240px;
+                            height: 10px;
+                            margin: 0 10%;
+                          }
+                          .progress-wrap {
+                            background: $mrtYellow;
+                            margin: 0px 0;
+                            overflow: hidden;
+                            position: relative;
+                            .progress-bar {
+                                background: #ddd;
+                                left: 0;
+                                position: absolute;
+                                top: 0;
+                              }
+                          }
+    
+                    }
+                    .buttonArea_Smalltask button{
+                        background: $yellow;
+                        margin: 0 0%;
+                        border-radius: 10%;
+                    }    
+                      
+                
+                }
+                .Smalltaskbox8{
+                    display: flex;
+                    margin: 4% 0%;
+                    
+                    .mrtSmalltask{
+                        right: 0%;
+                        top: 0%;
+                        z-index: 88;
+                        width: 30px;
+                        height: 30px;
+                        background-size: cover;
+                    }
+                    .progressmimi{
+                        margin: 0 20px;
+                        .progress {
+                            width: 240px;
+                            height: 10px;
+                            margin: 0 10%;
+                          }
+                          .progress-wrap {
+                            background: $mrtYellow;
+                            margin: 0px 0;
+                            overflow: hidden;
+                            position: relative;
+                            .progress-bar {
+                                background: #ddd;
+                                left: 0;
+                                position: absolute;
+                                top: 0;
+                              }
+                          }
+    
+                    }
+                    .buttonArea_Smalltask button{
+                        background: $yellow;
+                        margin: 0 0%;
+                        border-radius: 10%;
+                    }    
+                      
+                
+                }
+            }    
 
 
 //----------靜瑩角色彈窗----------

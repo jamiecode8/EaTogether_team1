@@ -6,6 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         @@include('layout/style.html')
         <title>我的飛碟</title>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+          </script>
     </head>
 
     <body class="myUFO_wrapper">
@@ -34,7 +39,7 @@
             <!-- 收藏店家   -->
             <a href="#" ><img src="./img/mimi/favorites.svg" alt="" class="favorites hover-button"/></a>
             <!-- 櫃子 -->
-            <a href="./myUFO_category.html" ><img src="./img/mimi/cabinet.svg" alt="" class="cabinet hover-button"/></a>
+            <a href="#" ><img src="./img/mimi/cabinet.svg" alt="" class="cabinet hover-button" id="category"/></a>
         </div> 
 
         <div class="intermediate">  
@@ -42,14 +47,208 @@
             <img src="./img/mimi/Carousel.svg" alt="" class="Carousel" />
             <!-- 外星人   -->
             <a href="#"
-                ><img src="./img/mimi/character.svg" alt="" class="character hover-button"
+                ><img src="./img/mimi/wardrobe_character.svg" alt="" class="character hover-button"
             /></a>
         </div>  
         <!-- --------收藏餐廳彈窗-------- -->
 
 
         <!-- -------總分類彈窗----------- -->
+        <div class="popUps myUFOcategory" id="myUFO_category">
+            
+            <form action="#資料傳送送的網址" method="post" class="form categorform" >
+              <!-- close button -->
+              <button type="button" class="close_categor btn_close">
+                <img src="./img/icon/icon_close.png" alt="" >
+              </button>
+               <h1>選一個</h1>
+              <!-- 主標題 -->
+              <div class="categoricon"><img src="./img/mimi/category2.svg" alt="" class="categorimg"></div>
+               <!-- 優惠券 -->
+                <div class="coupon" ><a href="#" id="coupon_wardrobe" ><img src="./img/mimi/coupon.svg" alt="" class="hover-button" >
+                <h1>優惠卷</h1></a></div>
+                <!-- 小遊戲 -->
+                <div class="game"><a href="#"><img src="./img/mimi/game.svg" alt="" class="hover-button"><h1>小遊戲</h1></a></div>
+                <!-- 照片 -->
+                <div class="Smallphoto"><a href="./myphoto.html"><img src="./img/mimi/Smallphoto.svg" alt="" class="hover-button"><h1>照片牆</h1></a></div>
+                <!-- 任務 -->
+                <div class="Smalltask"><a href="#" id="Smalltask_wardrobe"><img src="./img/mimi/task.svg" alt=""  class="hover-button"><h1>每日任務</h1></a></div>
+            </form>
+            
+          </div>
+ 
+        <!-- -----------------------優惠券彈窗------------------------------------- -->  
+        <div class="popUps" id="wardrobe_coupon">
+            <form action="#資料傳送送的網址" method="post" class="form">
+              <!-- close button -->
+              <button type="button" class="close_coupon btn_close">
+                <img src="./img/icon/icon_close.png" alt="" >
+              </button>
+               <h1>每日優惠卷一張</h1>
+              <!-- 主標題 -->
+              <div class="couponicon"><img src="./img/mimi/couponicon.svg" alt="" ></div>
+              <!-- 單顆按鈕用這裡 -->
+              <div class="buttonArea">
+                <input type="submit" value="兌換" class=" btn_submit">
+              </div>
+            </form>
+          </div>
+          <!-- -----------------------每日任務彈窗----------------------------- -->
+          <div class="popUps" id="wardrobe_Smalltask">
+            <form action="#資料傳送送的網址" method="post" class="form formSmalltask"> 
+              <!-- close button -->
+              <button type="button" class="close_coupon btn_close">
+                <img src="./img/icon/icon_close.png" alt="">
+              </button>
+            
+              <!-- 主標題 -->
+              <h1>
+                每日任務 
+              </h1>
+              <div>
+                  <div class="Smalltaskbox">
+                      <!-- --1-- -->
+                      <div class="Littleman"><img src="./img/mimi/Littleman.svg" alt="" ></div>
+                      <!-- --2---- -->
+                    <div class="progressmimi">
+                      <p>每日小遊戲1/2</p>
+                      <div class="progress-wrap progress" data-progress-percent="50">
+                        <div class="progress-bar progress"></div>
+                      </div>
+                    </div>
+                      <!-- --3-- -->
+                      <div class="buttonArea_Smalltask">
+                        <button>兌換</button>
+                      </div>
+                  </div>
+              <div class="Smalltaskbox4">
+                <!-- --1-- -->
+                <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBlue.png" alt="" ></div>
+                <!-- --2---- -->
+              <div class="progressmimi">
+                <p>藍線搜尋1/2</p>
+                <div class="progress-wrap progress" data-progress-percent="100">
+                  <div class="progress-bar progress"></div>
+                </div>
+              </div>
+                <!-- --3-- -->
+                <div class="buttonArea_Smalltask">
+                  <button>兌換</button>
+                </div>
+            </div>
+            <div class="Smalltaskbox5">
+              <!-- --1-- -->
+              <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBrown.png" alt="" ></div>
+              <!-- --2---- -->
+            <div class="progressmimi">
+              <p>綜線搜尋1/2</p>
+              <div class="progress-wrap progress" data-progress-percent="100">
+                <div class="progress-bar progress"></div>
+              </div>
+            </div>
+              <!-- --3-- -->
+              <div class="buttonArea_Smalltask">
+                <button>送出</button>
+              </div>
+          </div>
+          <div class="Smalltaskbox6">
+            <!-- --1-- -->
+            <div class="mrtSmalltask"><img src="./img/icon/icon_mrtGreen.png" alt="" ></div>
+            <!-- --2---- -->
+          <div class="progressmimi">
+            <p>綠線搜尋1/2</p>
+            <div class="progress-wrap progress" data-progress-percent="100">
+              <div class="progress-bar progress"></div>
+            </div>
+          </div>
+            <!-- --3-- -->
+            <div class="buttonArea_Smalltask">
+              <button>送出</button>
+            </div>
+        </div>
+        <div class="Smalltaskbox7">
+          <!-- --1-- -->
+          <div class="mrtSmalltask"><img src="./img/icon/icon_mrtRed.png" alt="" ></div>
+          <!-- --2---- -->
+        <div class="progressmimi">
+          <p>紅線搜尋1/2</p>
+          <div class="progress-wrap progress" data-progress-percent="100">
+            <div class="progress-bar progress"></div>
+          </div>
+        </div>
+          <!-- --3-- -->
+          <div class="buttonArea_Smalltask">
+            <button>送出</button>
+          </div>
+      </div>
+      <div class="Smalltaskbox8">
+        <!-- --1-- -->
+        <div class="mrtSmalltask"><img src="./img/icon/icon_mrtYellow.png" alt="" ></div>
+        <!-- --2---- -->
+      <div class="progressmimi">
+        <p>橘線搜尋1/2</p>
+        <div class="progress-wrap progress" data-progress-percent="100">
+          <div class="progress-bar progress"></div>
+        </div>
+      </div>
+        <!-- --3-- -->
+        <div class="buttonArea_Smalltask">
+          <button>送出</button>
+        </div>
+    </div>
+              </div>   
+ 
+            </form>
+          </div>
         
+          <script>
+            $('#Smalltask_wardrobe').click(function(){
+                $('#wardrobe_Smalltask').css('display' , 'block').fadeIn(100);
+                    console.log('click ok');
+                    })
+                   // 關閉彈窗
+            $('.btn_close').click(function(){
+                $('#wardrobe_Smalltask').fadeOut(200);
+                });
+
+            moveProgressBar();
+
+             $(window).resize(function() {
+                moveProgressBar();
+                });
+
+            function moveProgressBar() {
+              console.log("moveProgressBar");
+                var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
+                var getProgressWrapWidth = $('.progress-wrap').width();
+                var progressTotal = getPercent * getProgressWrapWidth;
+                var animationLength = 2500;
+
+            $('.progress-bar').stop().animate({
+                left: progressTotal
+                }, animationLength);
+            }
+
+            moveProgressBar();
+
+                $(window).resize(function() {
+                    moveProgressBar();
+                    });
+
+                        function moveProgressBar() {
+                        console.log("moveProgressBar");
+                            var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
+                            var getProgressWrapWidth = $('.progress-wrap').width();
+                            var progressTotal = getPercent * getProgressWrapWidth;
+                            var animationLength = 2500;
+
+                                $('.progress-bar').stop().animate({
+                                    left: progressTotal
+                                    }, animationLength);
+                }
+    
+        </script>  
+  
         
         <!-- ----------靜瑩角色彈窗---------- -->
         <div class="popUps MyCharacter">
@@ -133,9 +332,6 @@
   
         @@include('layout/footer.html')
 
-        <script>
-        @@include('js/myUFO.js')
-
-        </script>
+        <script src="./js/myUFO.js"></script>
     </body>
 </html>

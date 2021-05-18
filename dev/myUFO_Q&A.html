@@ -8,13 +8,11 @@
     <title>Q&A</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
-<body>
-  <div class="wrapper">
+<body class="QA_body">
+  <div class="wrapper QA_wrapper">
     @@include('layout/header.html') 
     <!-- 米米在這裡面編輯 -->
-
-    <!-- --------------- -->
-   <div class="wrapper_QA">
+  
     <div class="fontmm"><h1>常見問題Q&A</h1></div>
       <ul class="ulmm">
         <li class="limm">
@@ -55,10 +53,11 @@
         </li>
 
       </ul>
-    </div>  
+     
   </div>
     @@include('layout/footer.html')
 <script>
+
       jQuery(function ($) {
     $(".answer").css("display", "none");
    
