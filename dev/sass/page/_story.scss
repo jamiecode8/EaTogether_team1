@@ -15,23 +15,23 @@
     }
     .mrtAlien{
         z-index:2;
-        width: 350px;
+        width: 300px;
         position: absolute;
         left:0vw;
-        top: 25vw;
+        top:30vw;
     }
     .story_map{
         z-index: 2;
         width:300px;
         position: absolute;
-        top:50vw;
+        top:55vw;
         right:2vw;
     }
     .story_Alien{
         z-index: 2;
         width:300px;
         position: absolute;
-        left:0vw;
+        left:-5vw;
         bottom:0vw;
     }
     .storyTitle{
@@ -40,7 +40,7 @@
         margin:0 auto;
     }
     .storySection{
-        width:60vw;
+        width:65vw;
         margin:5vw auto;
         .sectionPart{
             padding-bottom:5vw;
