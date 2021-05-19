@@ -89,6 +89,43 @@ header{
 }
 
 
+// 登入後，會員頭像才會出現的彈窗 
+.popUpsLogout.on{
+    display: block;
+}
+
+.popUpsLogout{
+    // display: nonse;
+    position: absolute;
+    top: 40px;
+    left: -135px;
+    @include rwd(largeMobile){
+        left: -120px;
+        }
+    @include rwd(mobile){
+        left: -120px;
+        }
+    &_from{
+        padding: 5px 0;
+        line-height: 40px;
+        width: 250px;
+        @include rwd(largeMobile){
+            width: 200px;
+            }
+        @include rwd(mobile){
+            width: 200px;
+            }
+    }
+    &_p{
+        padding-left: 30px;
+        &:hover{
+            background-color: $colorTp;
+        }
+    }
+}
+
+
+
     
 // 漢堡
 .ham {

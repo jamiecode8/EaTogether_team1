@@ -173,3 +173,8 @@ $('.signUp_tag_area').click(function (){
 $('.login_tag_select').toggleClass('on');
 });
 
+
+// 登入後，會員頭像才會出現的彈窗 
+$('#headerInner_login').click(function (){
+    $('.popUpsLogout').toggleClass('on');
+    });
