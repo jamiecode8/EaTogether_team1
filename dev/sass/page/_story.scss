@@ -15,23 +15,23 @@
     }
     .mrtAlien{
         z-index:2;
-        width: 300px;
+        width: 330px;
         position: absolute;
         left:0vw;
-        top:30vw;
+        top: 25vw;
     }
     .story_map{
         z-index: 2;
         width:300px;
         position: absolute;
-        top:55vw;
+        top:50vw;
         right:2vw;
     }
     .story_Alien{
         z-index: 2;
         width:300px;
         position: absolute;
-        left:-5vw;
+        left:0vw;
         bottom:0vw;
     }
     .storyTitle{
@@ -40,7 +40,7 @@
         margin:0 auto;
     }
     .storySection{
-        width:65vw;
+        width:60vw;
         margin:5vw auto;
         .sectionPart{
             padding-bottom:5vw;
@@ -95,14 +95,14 @@
             top:30vw;
         }
         .story_map{
-            top: 65vw;
+            top:65vw;
         }
     }
 }
 @include rwd(pad){
     .story_wrapper{
         .story_Alien{
-            width: 240px;
+            width: 200px;
             left: 0vw;
         }
         .story_Alien2{
@@ -112,11 +112,11 @@
          }
          .mrtAlien{
              width:250px;
-             top:40vw;
+             top:45vw;
          }
          .story_map{
              width: 250px;
-             top: 80vw;
+             top: 85vw;
              right: 0;
          }
     }
