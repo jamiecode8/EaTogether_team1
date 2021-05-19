@@ -6,50 +6,41 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         @@include('layout/style.html')
         <title>我的飛碟</title>
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init();
-          </script>
     </head>
 
     <body class="myUFO_wrapper">
         @@include('layout/header.html')
-        <div class="wrapper ">
+        <div class="wrapper myUFO_wrapper2">
            <div class="myUFO_bg">
             <div class="figure"><img src="./img/mimi/Backgroundimage.png" alt="#"  /></div>
             <div class="figure2"><img src="./img/mimi/Backgroundimage2.png" alt="#"  /></div>
             <div class="figure3"><img src="./img/mimi/Backgroundimaipad.png" alt="#" ></div>
             <div class="figure4"><img src="./img/mimi/Backgroundimage_phone.png" alt="#" ></div>
             </div>  
+            <div class="object">
             <!--窗戶-->
             <div class="window1">
-                <img src="./img/mimi/window.svg" alt="" class="window2" />
+                <img src="./img/mimi/window.svg" alt=""  />
             </div>
             <!--點數-->
             <div class="Points1">
             <img src="./img/mimi/Points.svg" alt="" />
             <p>8888</p>
-          </div>
+            </div>
          
 
-        <div class="laftmyufo">
             <!-- 燈 -->
-            <img src="./img/mimi/light.svg" alt="" class="light">   
+            <div class="light"><img src="./img/mimi/light.svg" alt="" ></div>   
             <!-- 收藏店家   -->
-            <a href="#" ><img src="./img/mimi/favorites.svg" alt="" class="favorites hover-button"/></a>
+            <div class="favorites"><a href="#" ><img src="./img/mimi/favorites.svg" alt="" class="hover-button"/></a></div>
             <!-- 櫃子 -->
-            <a href="#" ><img src="./img/mimi/cabinet.svg" alt="" class="cabinet hover-button" id="category"/></a>
-        </div> 
-
-        <div class="intermediate">  
+            <div class="cabinet"><a href="#" ><img src="./img/mimi/cabinet.svg" alt="" class="hover-button" id="category"/></a></div>
+ 
             <!-- 輪播版 -->
-            <img src="./img/mimi/Carousel.svg" alt="" class="Carousel" />
+            <div class="Carousel"><img src="./img/mimi/Carousel.svg" alt=""  /></div>
             <!-- 外星人   -->
-            <a href="#"
-                ><img src="./img/mimi/wardrobe_character.svg" alt="" class="character hover-button"
-            /></a>
-        </div>  
+            <div class="character"><a href="#"><img src="./img/mimi/wardrobe_character.svg" alt="" class="hover-button"/></a></div>
+        
         <!-- --------收藏餐廳彈窗-------- -->
 
 
@@ -320,7 +311,9 @@
                 </div>
                 <br />
             </form>
+          </div>
         </div>
+       </div> 
 
 
         <!-- <href href="./index.html"><ul class="index_searchbtn myuFOsearchbut">
