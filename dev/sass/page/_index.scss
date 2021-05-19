@@ -2,17 +2,21 @@
 
 body.index{
     background-color:$bgc;
+    // overflow: hidden;
+
 }
 .index_wrapper{
+    // border: 1px solid;
     @include rwd(desktop);
     position: relative;
-    // top: 0;
-    // overflow: hidden;
 }
 //----------map背景----------
 .index_map{
-    padding:3vh 0;
-    // border: 1px solid;
+    padding:5vh 0;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include marginCenter();
     .map_slogan{
         width: 25vw;
@@ -21,8 +25,8 @@ body.index{
         top:10vh;
     }
     .map{
-        width: 46%;
-          @include block_center();
+        width: 40vw;
+        //   @include block_center();
     }
 }
 .et{
@@ -36,14 +40,14 @@ body.index{
 //----------搜尋按鈕----------
 .index_searchbtn{
     position:fixed;
-    right: 10%;
-    bottom: 30%;
+    right:20px;
+    bottom: 15%;
     z-index: 98;
     display: flex; 
     li{ 
         // @include shadow();
         box-shadow:  -12px 10px 10px #D6D5AE;
-        margin-left:3vw;
+        margin-left:10px;
         width:120px;
         height:120px;
         background-color:$yellow;
@@ -142,9 +146,9 @@ body.index{
 .index_search_popup{
     z-index: 1000;
     display: none;
-    position: absolute;
-    top: 5%;
-    left: 10%;
+    position:fixed;
+    top: 5vh;
+    left: 10vw;
     h1{
         color: $green;
     }
@@ -225,9 +229,9 @@ body.index{
 .index_store_popup{
     z-index: 1000;
     display: none;
-    position: absolute;
-    top: 5%;
-    left: 10%;
+    position:fixed;
+    top: 5vh;
+    left: 10vw;
    
     .getStore{
 
@@ -302,9 +306,9 @@ body.index{
 .index_inf_popup{
     z-index: 1000;
     display:none;
-    position: absolute;
-    top: 5%;
-    left: 10%;
+    position:fixed;
+    top: 5vh;
+    left: 10vw;
     .getStoreDigitalInf{
         padding-bottom: 20px;
         background-color: white;
@@ -460,9 +464,9 @@ body.index{
 .index_searcReport_popup{
     z-index: 1000;
     display: none;
-    position: absolute;
-    top: 5%;
-    left:40%;
+    position:fixed;
+    top: 5vh;
+    left: 40vw;
     .getReport{
         h1{
             color: $yellow;
@@ -512,18 +516,14 @@ body.index{
 
 @include rwd(desktopSmall){
     .index_wrapper{
-        // border: 1px solid yellow;
+        // border: 1px solid violet;
         .index_map{
-            margin: 5vh 0;
-            display: flex;
-            align-items: center;
+         
             .map_slogan{
-                width: 30vw;
-                right:5vw;
-                top:7vw;
+                // display: none;
             }
             .map{
-                width: 65vw;
+                width:47vw;
             }
         }
         .et{
@@ -531,7 +531,7 @@ body.index{
             bottom:15vh;
         }
         .index_searchbtn{
-            bottom:150px;
+            bottom: 13vh;
         }
         .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
             right: 50%;
@@ -544,14 +544,12 @@ body.index{
     .index_wrapper{
         // border: 1px solid blue;
         .index_map{
-            margin: 10vh 0;
-            display: flex;
-            align-items: center;
+          
             .map_slogan{
                 display: none;
             }
             .map{
-                width:75vw;
+                width:55vw;
             }
         }
         .et{
@@ -560,7 +558,7 @@ body.index{
         }
       
         .index_searchbtn{
-            bottom:240px;
+            bottom:15vh;    
             
         }
         .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
@@ -569,20 +567,19 @@ body.index{
         } 
     }
 }
-    
+
+ 
 @include rwd(largeMobile){
     .index_wrapper{
         // border: 1px solid red;
         .index_map{
-            margin: 10vh 0;
-            display: flex;
-            align-items: center;
+            height: 80vh;
             .map_slogan{
                 display: none;
 
             }
             .map{
-                width: 80vw;
+                width: 65vw;
             }
         }
         .et{
@@ -594,7 +591,7 @@ body.index{
             position:fixed;
             z-index: 98;
             display: flex;
-            bottom: 35%;    
+            bottom:25vh;    
             li{ 
                 // @include shadow();
                 box-shadow:  -12px 10px 10px #D6D5AE;
@@ -625,17 +622,14 @@ body.index{
  
     .index_wrapper{
         // border: 1px solid green;
-        @include rwd(mobile);
         .index_map{
-            margin: 10vh 0;
-            display: flex;
-            align-items: center;
+            // height: 76vh;
             .map_slogan{
                 display: none;
 
             }
             .map{
-                width: 90vw;
+                width:80vw;
             }
         }
         .et{
@@ -647,7 +641,7 @@ body.index{
             position:fixed;
             z-index: 98;
             display: flex;
-            bottom: 35%;    
+            bottom: 25vh;    
             li{ 
                 // @include shadow();
                 box-shadow:  -12px 10px 10px #D6D5AE;
