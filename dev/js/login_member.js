@@ -1,5 +1,4 @@
 // 會員登入會員註冊彈窗、會員資料修改彈窗、忘記密碼彈窗
-
 new Vue({
     el: '#app',
     data:{
@@ -27,10 +26,11 @@ $('button').click(function(e){
 // 名字，按下icon才可以修改內容
 $('.memberInfo_edit_editIcon').click(function (){
     let memberInfo = $(this).siblings(':text');
-    $(memberInfo).removeAttr('disabled').focus(function(){
-        $(this).css("background-color","#fffdd0").attr('placeholder','')
+    $(memberInfo).removeAttr('disabled')
+        .focus(function(){
+            $(this).css("background-color","#fffdd0").attr('placeholder','')
         .blur(function(){
-        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','南京林志玲');;
+            memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','南京林志玲');;
         })  
     })
 });
@@ -54,10 +54,11 @@ $('#memberInfo_edit_area_stationSelect li').click(function(){
 // Email，按下icon才可以修改內容
 $('.memberInfo_edit_editIcon_email').click(function (){
     let memberInfo = $(this).siblings('input[type="email"]');
-    $(memberInfo).removeAttr('disabled').focus(function(){
-        $(this).css("background-color","#fffdd0").attr('placeholder','')
+    $(memberInfo).removeAttr('disabled')
+        .focus(function(){
+            $(this).css("background-color","#fffdd0").attr('placeholder','')
         .blur(function(){
-        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','南京林志玲');;
+            memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','南京林志玲');;
         })  
     })
 });
@@ -65,10 +66,11 @@ $('.memberInfo_edit_editIcon_email').click(function (){
 // 密碼，按下icon才可以修改內容
 $('.memberInfo_edit_editIcon_password').click(function (){
     let memberInfo = $(this).siblings('input[type="password"]');
-    $(memberInfo).removeAttr('disabled').focus(function(){
-        $(this).css("background-color","#fffdd0").attr('placeholder','')
+    $(memberInfo).removeAttr('disabled')
+        .focus(function(){
+            $(this).css("background-color","#fffdd0").attr('placeholder','')
         .blur(function(){
-        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled');
+            memberInfo.css("background-color","#fbffe8").attr('disabled','disabled');
         })  
     })
 });
@@ -76,10 +78,11 @@ $('.memberInfo_edit_editIcon_password').click(function (){
 // 生日，按下icon才可以修改內容
 $('.memberInfo_edit_editIcon_birthday').click(function (){
     let memberInfo = $(this).siblings(':text');
-    $(memberInfo).removeAttr('disabled').focus(function(){
-        $(this).css("background-color","#fffdd0").attr('placeholder','')
+    $(memberInfo).removeAttr('disabled')
+        .focus(function(){
+            $(this).css("background-color","#fffdd0").attr('placeholder','')
         .blur(function(){
-        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','1999/09/09');;
+            memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','1999/09/09');;
         })  
     })
 });
@@ -87,10 +90,11 @@ $('.memberInfo_edit_editIcon_birthday').click(function (){
 // 電話，按下icon才可以修改內容
 $('.memberInfo_edit_editIcon_tel').click(function (){
     let memberInfo = $(this).siblings('input[type="tel"]');
-    $(memberInfo).removeAttr('disabled').focus(function(){
-        $(this).css("background-color","#fffdd0").attr('placeholder','')
+    $(memberInfo).removeAttr('disabled')
+        .focus(function(){
+            $(this).css("background-color","#fffdd0").attr('placeholder','')
         .blur(function(){
-        memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','0912345678');;
+            memberInfo.css("background-color","#fbffe8").attr('disabled','disabled').attr('placeholder','0912345678');;
         })  
     })
 });
@@ -173,3 +177,11 @@ $('.signUp_tag_area').click(function (){
 $('.login_tag_select').toggleClass('on');
 });
 
+// $('span').click(function(){
+//     console.log(this);
+//     // let item = this.text();
+//     let b = $(this).fiynd('input[type="password"]');
+//     console.log(b);
+//     $('').append();
+
+// });
