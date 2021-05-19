@@ -10,39 +10,36 @@
 <body class="myUFO_wardrobe_body">
   @@include('layout/header.html')
 <!-- -----------------------------------===----- -->
-<div class="wrapper myUFO_wardrobe_wrapper">
-  <!-- 背景 -->
-  <div class="myUFO_wardrobe_bg">
-   <div class="myUFO_wardrobe_bg1"><img src="./img/mimi/wardrobe_bg1.png" alt="#" class="wardrobe_bg1" /></div>
-   <!-- <div class="myUFO_wardrobe_bg2"><img src="./img/mimi/wardrobe_bg2.png" alt="#"  class="wardrobe_bg2"/></div> -->
-   </div>
- </div>  
-  
- <div class="wardrobe_wall">
-   <!-- 衣服 -->
-   <div class="wall_wardrobe">
-     <img src="./img/mimi/wardrobe.png" alt="" class="wardrobe_wardrobe">
-   </div>
-   <!-- 人物 -->
-   <div class="wall_character">
-     <img src="./img/mimi/wardrobe_character.svg" alt="" class="wardrobe_character">
+   <div class="wrapper wardrobe_wrapper"> 
+     <div class="wardrobe_bg">
+     <img src="./img/mimi/Backgroundimage.png" alt="" class="wardrobe_bg1">
+     <img src="./img/mimi/Backgroundimage2.png" alt="" class="wardrobe_bg2">
+     <img src="./img/mimi/Backgroundimaipad.png" alt="" class="wardrobe_ipad">
+     <img src="./img/mimi/Backgroundimage_phone.png" alt="" class="wardrobe_phone">
+     <img src="./img/mimi/curtain.png" alt="" class="curtain">
     </div>
-   <!-- 窗戶 -->
-   <div class="wall_window">
-     <img src="./img/mimi/window.svg" alt="" class="wardrobe_window">
-   </div>
- </div>
 
- <!-- 圓站台 -->
- <div class="wardrobe_floor">
-  <div class="floor_border">
-    <img src="./img/mimi/wardrobe_border.png" alt="" class="floor_border">
-  </div>
- </div>
+    <div class="wardrobe_left">
+      <div class="wardrobe_light">
+        <img src="./img/mimi/wardrobe_light.svg" alt="">
+      </div>
+
+      <div class="wardrobe_character">
+        <img src="./img/mimi/wardrobe_character.svg" alt="">
+      </div>
+
+      <div class="wardrobe_border">
+        <img src="./img/mimi/wardrobe_border.png" alt="">
+      </div>
+    </div>
+
+    <div class="wardrobe_cabinet">
+      <img src="./img/mimi/wardrobe_cabinet.png" alt="">
+    </div>
 
  <!-- 選擇區 -->
  <div class="Choose_cabinet">
-   <!-- partial:index.partial.html -->
+
    <ul class="Choose_tabs">
     <li><a href="#view1">衣服</a></li>
     <li><a href="#view2">頭飾</a></li>
@@ -51,20 +48,7 @@
     </ul>
     <!-- 第一區 -->
     <div id="view1" class="tab-content">
-    <div class="content1">
-       <ul>
-         <li><a href=""><img src="./img/mimi/组 24.png" alt=""></a></li>
-         <li><a href=""><img src="./img/mimi/组 35.png" alt=""></a></li>
-       </ul>
-    </div>
-    <div class="content2">
-      <ul>
-        <li><a href=""><img src="./img/mimi/组 30.png" alt=""></a></li>
-        <li><a href=""><img src="./img/mimi/组 40@2x.png" alt=""></a></li>
-        <li><a href=""><img src="./img/mimi/组 38@2x.png" alt=""></a></li>
 
-      </ul>
-    </div>
     </div>
     <!-- 第二區 -->
     <div id="view2" class="tab-content">
@@ -81,7 +65,7 @@
     </div>
  </div>
 
-
+</div>
   <!-- ----------------------------------------- -->
   @@include('layout/footer.html')
   <script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>

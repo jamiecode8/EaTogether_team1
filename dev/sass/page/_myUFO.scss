@@ -43,23 +43,23 @@ overflow: hidden;
     .figure{
         width: 100%;
         margin: 0 auto;
-        height: 92vh;
+        height: 90vh;
     }
     .figure2{
         width: 100%;
         margin: 0 auto;
-        height: 92vh;
+        height: 90vh;
     }   
     .figure3{
         width: 100%;
         margin: 0 auto;
-        height: 92vh;
+        height: 90vh;
 
     }
     .figure4{
         width: 100%;
         margin: 0 auto;
-        height: 83vh;
+        height: 78vh;
     }
 }
 
@@ -97,23 +97,23 @@ overflow: hidden;
         }
         @include rwd(pad){
             position: absolute;
-            left: 2%;
-            top: 0%;
-            margin: 7%;
-            padding: 10%  2%;
-            width: 25%;
-            height: 100%;
+            left: 0%;
+            top: 27%;
+            margin: 0%;
+            padding: 10%  0%;
+            width: 30%;
+            height: 40%;
             z-index: 10;
-            // border: 1px solid orange;
+            border: 1px solid orange;
         }
         @include rwd(largeMobile){
             position: absolute;
             left: 0%;
-            top: 10%;
-            margin: 10%;
-            padding: 10%  2%;
-            width: 25%;
-            height: 100%;
+            top: 25%;
+            margin: 2%;
+            padding: 10%  0%;
+            width: 30%;
+            height: 20%;
             z-index: 10;
             // border: 1px solid orange;
         }
@@ -185,7 +185,7 @@ overflow: hidden;
         }
         @include rwd(largeMobile){
             position: absolute;
-            bottom: 10%;
+            bottom: 00%;
             left: 10%;
             margin: 0%;
             padding: 2%;
@@ -234,12 +234,12 @@ overflow: hidden;
             margin: 40px 10px;
         }
         @include rwd(pad){
-            font-size: 18px;
-            margin: 80px 10px;
+            font-size: 20px;
+            margin: 70px 10px;
         }
         @include rwd(largeMobile){
-            font-size: 18px;
-            margin: 50px 10px;
+            font-size: 20px;
+            margin: 70px 10px;
         }
         @include rwd(mobile){
             font-size: 20px;
@@ -280,18 +280,18 @@ overflow: hidden;
     }
     @include rwd(pad){
         position: absolute;
-        top: 13%;
-        right: 16%;
+        top: 20%;
+        right: 13%;
         margin: 0%;
         padding: 0%;
-        width: 11%;
+        width: 15%;
         height: 20%;
         z-index: 11;
     }
     @include rwd(largeMobile){
         position: absolute;
-        top: 13%;
-        right: 16%;
+        top: 28%;
+        right: 12%;
         margin: 0%;
         padding: 0%;
         width: 12%;
@@ -354,22 +354,22 @@ overflow: hidden;
     }
     @include rwd(pad){
     position: absolute;
-    bottom:40%;
-    right: 15%;
+    bottom:38%;
+    right: 12%;
     margin: 0%;
     padding: 0%;
-    width: 12%;
+    width: 17%;
     height: 30%;
     z-index: 10;
     }
     @include rwd(largeMobile){
     position: absolute;
-    bottom:40%;
-    right: 14%;
+    bottom:30%;
+    right: 10%;
     margin: 0%;
     padding: 0%;
     width: 15%;
-    height: 33%;
+    height: 30%;
     z-index: 10;
     }
     @include rwd(mobile){
@@ -436,21 +436,21 @@ overflow: hidden;
     @include rwd(pad){
         position: absolute;
         bottom: 0%;
-        right: 13%;
+        right: 8%;
         margin: 0%;
         padding: 0%;
-        width: 17%;
-        height: 51%;
+        width: 24%;
+        height: 50%;
         z-index: 10;
     }
     @include rwd(largeMobile){
         position: absolute;
         bottom: 0%;
-        right: 12%;
+        right: 5%;
         margin: 0%;
         padding: 0%;
-        width: 20%;
-        height: 53%;
+        width: 24%;
+        height: 45%;
         z-index: 10;
     }
     @include rwd(mobile){
@@ -521,23 +521,23 @@ overflow: hidden;
     @include rwd(pad){
         position: absolute;
         top: 0%;
-        right: 35%;
-        left: 35%;
+        right: 27.5%;
+        left: 27.5%;
         margin: 0%;
         padding: 0%;
-        width: 33%;
+        width: 45%;
         height: 52%;
         z-index: 10;
     }
     @include rwd(largeMobile){
         position: absolute;
         top: 0%;
-        right: 35%;
-        left: 35%;
+        right: 25%;
+        left: 25%;
         margin: 0%;
         padding: 0%;
-        width: 35%;
-        height: 52%;
+        width: 50%;
+        height: 45%;
         z-index: 10;
     }
     @include rwd(mobile){
@@ -608,22 +608,22 @@ overflow: hidden;
     @include rwd(pad){
         position: absolute;
         top: 50%;
-        right: 32.5%;
-        left: 32.5%;
+        right: 25%;
+        left: 25%;
         margin: 0%;
         padding: 0%;
-        width: 35%;
+        width: 50%;
         height: 52%;
         z-index: 10;
     }
     @include rwd(largeMobile){
         position: absolute;
         top: 50%;
-        right: 30%;
-        left: 30%;
+        right: 22.5%;
+        left: 22.5%;
         margin: 0%;
         padding: 0%;
-        width: 40%;
+        width: 55%;
         height: 52%;
         z-index: 10;
     }
@@ -721,7 +721,79 @@ overflow: hidden;
     }
 }
 
+.myufo_searchbtn1{
 
+.myufo_searchbtn2{
+    position:fixed;
+    right:20px;
+    bottom: 15%;
+    z-index: 98;
+    display: flex; 
+    @include rwd(desktop){
+        position:fixed;
+        right:20px;
+        bottom: 15%;
+        z-index: 98;
+        display: flex;
+    }
+    @include rwd(desktopSmall){
+        position:fixed;
+        right:20px;
+        bottom: 15%;
+        z-index: 98;
+        display: flex;
+    }
+    @include rwd(pad){
+        position:fixed;
+        right:20px;
+        bottom: 15%;
+        z-index: 98;
+        display: flex;
+    }
+    @include rwd(largeMobile){
+        position:fixed;
+        right:20px;
+        bottom: 15%;
+        z-index: 98;
+        display: flex;
+    }
+    @include rwd(mobile){
+        position:fixed;
+        right:20px;
+        bottom: 15%;
+        z-index: 98;
+        display: flex;
+    }
+    li{ 
+        // @include shadow();
+        box-shadow:  -12px 10px 10px #D6D5AE;
+        margin-left:10px;
+        width:120px;
+        height:120px;
+        background-color:$yellow;
+        border-radius: 50%;
+        img{
+            margin-top:25px;
+            @include block_center();
+            width: 70px;
+            height:70px;          
+        }
+        p{
+            text-align: center;
+            padding-top:30px ;
+            font-weight: bold;
+        }
+    }
+}
+@mixin search_btn_hover{
+    transform: translateY(-30px);
+    background-color: $mrtBrown;
+    transition: all 0.3s;
+}
+.myufo_btn_Search:hover{
+    @include search_btn_hover;
+}
+}
 
 
 
@@ -745,7 +817,8 @@ overflow: hidden;
 
 @media all and (min-width: 1200px) {
     .myUFO_bg .figure{
-        max-height: 700px;
+        height: 90vh;
+        
         display: block;
         
     }
@@ -768,7 +841,7 @@ overflow: hidden;
         
     }
     .myUFO_bg .figure2{
-        max-height: 700px;
+        height: 90vh;
         display: block;
     }
     .myUFO_bg .figure3{
@@ -787,12 +860,12 @@ overflow: hidden;
         
     }
     .myUFO_bg .figure2{
-        margin: 0 auto;
-        display:block;
+      display: none;
     }
     .myUFO_bg .figure3{
+        height: 90vh;
         width: 100%;
-        display:none;
+        display: block;
         
     }
     .myUFO_bg .figure4{
@@ -806,10 +879,12 @@ overflow: hidden;
         
     }
     .myUFO_bg .figure2{
+        
         display:none;
     }
     .myUFO_bg .figure3{
         display: block;
+        height: 85vh;
         
     }
     .myUFO_bg .figure4{

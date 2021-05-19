@@ -1,262 +1,391 @@
+
 .myUFO_wardrobe_body{
-  width: 100%;
-background: $bgc;
-overflow: hidden;
-  .myUFO_wardrobe_wrapper{
-
-    .myUFO_wardrobe_bg{
-
-      .myUFO_wardrobe_bg1{
-        width: 100%;
-        margin: 0 auto;
-        height: 91vh;
-      }
-      
-      .myUFO_wardrobe_bg2{
-        width: 100%;
-        margin: 0 auto;
-        height: 87vh;
-      }
-    }
-  }
-
-  // ----------衣服---------------
-  .wardrobe_wall{
-    position: absolute;
     width: 100%;
-    height: 30%;
-    top: 0%;
-    display: flex;
+    background: $bgc;
+    overflow: hidden;
 
-    .wall_wardrobe{
-      position: absolute;
-      left: 20%;
-      top:10%;
-      width: 10%;
-      @include rwd(desktop){
-        position: absolute;
-        left: 20%;
-        top:10%;
-        width: 10%;
-      }
-      @include rwd(desktopSmall){
-        position: absolute;
-        left: 20%;
-        top:10%;
-        width: 10%;
-      }
-      @include rwd(pad){
-        position: absolute;
-        left: 20%;
-        top:10%;
-        width: 10%;
-      }
-      @include rwd(largeMobile){
-        position: absolute;
-        left: 20%;
-        top:10%;
-        width: 10%;
-      }
-      @include rwd(mobile){
-        position: absolute;
-        left: 10%;
-        top:17%;
-        width: 30%;
-      }
-      .wardrobe_wardrobe{
-      width: 100%;
+    .wardrobe_wrapper{
+
+      .wardrobe_bg{
+
+        img{
+          width: 100%;
+        }
       }
     }
-
-    // ----------人物---------------
-    .wall_character{
-      position: absolute;
-      left: 40%;
-      right: 40%;
-      top: 35%;
-      width: 20%;
-      z-index: 20;
-      @include rwd(desktop){
-        position: absolute;
-        left: 40%;
-        right: 40%;
-        top: 40%;
-        width: 20%;
-        z-index: 20;
-      }
-      @include rwd(desktopSmall){
-        position: absolute;
-        left: 35%;
-        right: 35%;
-        top: 50%;
-        width: 30%;
-        z-index: 20;
-      }
-      @include rwd(pad){
-        position: absolute;
-        left: 35%;
-        right: 35%;
-        top: 55%;
-        width: 30%;
-        z-index: 20;
-      }
-      @include rwd(largeMobile){
-        position: absolute;
-        left: 25%;
-        right: 25%;
-        top: 35%;
-        width: 50%;
-        z-index: 20;
-      }
-      @include rwd(mobile){
-        position: absolute;
-        left: 10%;
-        right: 10%;
-        top: 40%;
-        width: 80%;
-        z-index: 20;
-      }
-      .wardrobe_character{
-      width: 100%;
-      }
-    }
-    // ----------窗戶---------------
-    .wall_window{
-      position: absolute;
-      right: 10%;
-      top:10%;
-      width: 20%;
-      z-index: 19;
-      @include rwd(desktop){
-        position: absolute;
-        right: 10%;
-        top:10%;
-        width: 20%;
-        z-index: 19;
-      }
-      @include rwd(desktopSmall){
-        position: absolute;
-        right: 10%;
-        top:10%;
-        width: 18%;
-        z-index: 19;
-      }
-      @include rwd(pad){
-        position: absolute;
-        right: 15%;
-        top:10%;
-        width: 18%;
-        z-index: 19;
-      }
-      @include rwd(largeMobile){
-        position: absolute;
-        right: 20%;
-        top:10%;
-        width: 17%;
-        z-index: 19;
-      }
-      @include rwd(mobile){
-        position: absolute;
-        right: 2%;
-        top:40%;
-        width: 40%;
-        z-index: 19;
-      }
-      .wardrobe_window{
-        width: 100%;
-
-      }
-    }
-  }
-
-  // ----------圓站台---------------
-  .wardrobe_floor{
-    position: absolute;
-    width: 100%;
-    height: 58%;
-    bottom: 0%;
     @include rwd(desktop){
-      position: absolute;
       width: 100%;
-      height: 60%;
-      bottom: 0%;
+      background: $bgc;
+      overflow: hidden;
     }
     @include rwd(desktopSmall){
-      position: absolute;
-      width: 100%;
-      height: 58%;
-      bottom: 0%;
+      background: $bgc;
+      overflow: hidden;
+      margin: 0 auto;
     }
     @include rwd(pad){
-      position: absolute;
-      width: 100%;
-      height: 60%;
-      bottom: 0%;
+      
+      background: $bgc;
+      overflow: hidden;
+      margin: 0 auto;
     }
     @include rwd(largeMobile){
-      position: absolute;
       width: 100%;
-      height: 60%;
-      bottom: 0%;
+      background: $bgc;
+      overflow: hidden;
+      display: block;
     }
     @include rwd(mobile){
-      position: absolute;
       width: 100%;
-      height: 60%;
-      bottom: 0%;
+      background: $bgc;
+      overflow: hidden;
+      display: block;
     }
-    
-    .floor_border{
-      margin: 0 auto;
-      width:20%;
-      z-index: 10;
-        @include rwd(desktop){
-          margin: 0 auto;
-          width:30%;
-          z-index: 10;
-        }
-        @include rwd(desktopSmall){
-          margin: 0 auto;
-          width:40%;
-          z-index: 10;
-        }
-        @include rwd(pad){
-          margin: 0 auto;
-          width:40%;
-          z-index: 10;
-        }
-        @include rwd(largeMobile){
-          margin: 0 auto;
-          width: 60%;
-          z-index: 10;
-        }
-        @include rwd(mobile){
-          margin: 0 auto;
-          width:80%;
-          z-index: 10;
-        }
-      .floor_border{
+
+    @media all and (min-width: 1200px) {
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg1{
+        display: block;
+        height: 90vh;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg2{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_ipad{
+        display: none;
+      }
+    .wardrobe_wrapper .wardrobe_bg .wardrobe_phone{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .curtain{
+        display: block;
+        position: absolute;
+        top: 0%;
         width: 100%;
+        height: 100%;
+      }
+
+
+
+    }
+
+    @media all and(max-width: 1199px) and (min-width: 992px) {
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg1{
+        display: block;
+        height: 90vh;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg2{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_ipad{
+        display: none;
+      }
+    .wardrobe_wrapper .wardrobe_bg .wardrobe_phone{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .curtain{
+        display: block;
+        position: absolute;
+        top: 0%;
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+
+    @media all and(max-width: 991px) and (min-width: 768px) {
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg1{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg2{
+        display: block;
+        height: 90vh;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_ipad{
+        display: none;
+      }
+    .wardrobe_wrapper .wardrobe_bg .wardrobe_phone{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .curtain{
+        display: block;
+        position: absolute;
+        top: 0%;
+        width: 100%;
+        height: 100%;
+      } 
+    }
+
+    @media all and(max-width: 767px) and (min-width: 576px) {
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg1{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg2{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_ipad{
+        display: block;
+        height: 82vh;
+      }
+    .wardrobe_wrapper .wardrobe_bg .wardrobe_phone{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .curtain{
+        display: none;
+      }
+    }
+
+    @media all and (max-width: 575px) {
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg1{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_bg2{
+        display: none;
+      }
+      .wardrobe_wrapper .wardrobe_bg .wardrobe_ipad{
+        display: none;
+      }
+    .wardrobe_wrapper .wardrobe_bg .wardrobe_phone{
+      display: block;
+      height: 79vh;
+      }
+      .wardrobe_wrapper .wardrobe_bg .curtain{
+        display: none;
+      }
+
+    }
+
+    .wardrobe_left{
+      position: absolute;
+      top: 0;
+      left: 10%;
+      width: 40%;
+      max-height: 700px;
+      border: 2px solid red;
+      @include rwd(desktop){
+        position: absolute;
+        top: 0;
+        left: 10%;
+        width: 40%;
+        height: 100%;
+        border: 2px solid red;
+      }
+      @include rwd(desktopSmall){
+        position: absolute;
+        top: 0;
+        left: 10%;
+        width: 40%;
+        height: 100%;
+        border: 2px solid red;
+      }
+      @include rwd(pad){
+        position: absolute;
+        top: 0;
+        left: 5%;
+        width: 40%;
+        height: 100%;
+        max-height: 900px;
+        border: 2px solid red;
+      }
+      @include rwd(largeMobile){
+        position: absolute;
+        top: 0;
+        left: 20%;
+        right: 20%;
+        width: 60%;
+        height: 100%;
+        border: 2px solid red;
+      }
+      @include rwd(mobile){
+        position: absolute;
+        top: 0;
+        left: 10%;
+        right: 10%;
+        width:80%;
+        height: 100%;
+        border: 2px solid red;
+      }
+      .wardrobe_border{
+        position: absolute;
+        bottom: 0%;
+        border: 2px solid green ;
+        z-index: 10;
         @include rwd(desktop){
+          position: absolute;
+          bottom: 0%;
+        }
+        @include rwd(desktopSmall){
+          position: absolute;
+          bottom: 5%;
+        }
+        @include rwd(pad){
+          position: absolute;
+          bottom: 20%;
+        }
+        @include rwd(largeMobile){
+          position: absolute;
+          bottom: 25%;
+        }
+        @include rwd(mobile){
+          position: absolute;
+          bottom: 34%;
+        }
+        img{
+          width: 50%;
+          margin: 0 auto;
+        }
+      }
+      .wardrobe_character{
+        position: absolute;
+        bottom: 15%;
+        width: 100%;
+        border: 2px solid yellow ;
+        z-index: 20;
+        @include rwd(desktop){
+          position: absolute;
+          bottom: 15%;
           width: 100%;
         }
         @include rwd(desktopSmall){
+          position: absolute;
+          bottom: 15%;
           width: 100%;
         }
         @include rwd(pad){
+          position: absolute;
+          bottom: 25%;
           width: 100%;
         }
         @include rwd(largeMobile){
+          position: absolute;
+          bottom: 33%;
           width: 100%;
         }
         @include rwd(mobile){
+          position: absolute;
+          bottom: 40%;
           width: 100%;
+        }
+        img{
+          padding: 20px;
+          width: 55%;
+          margin: 0 auto;
+          @include rwd(desktop){
+            padding: 20px;
+            width: 55%;
+            margin: 0 auto;
+          }
+          @include rwd(desktopSmall){
+            padding: 20px;
+            width: 60%;
+            margin: 0 auto;
+          }
+          @include rwd(pad){
+            padding: 0px;
+            width: 80%;
+            margin: 0 auto;
+          }
+          @include rwd(largeMobile){
+            padding: 20px;
+            width: 70%;
+            margin: 0 auto;
+          }
+          @include rwd(mobile){
+            padding: 20px;
+            width: 80%;
+            margin: 0 auto;
+          }
+        }
+      }
+      .wardrobe_light{
+        z-index: 10;
+        border: 2px solid blue ;
+        
+        img{
+          width: 20%;
+          margin: 0 auto;
+          @include rwd(desktop){
+            width: 20%;
+            margin: 0 auto;
+          }
+          @include rwd(desktopSmall){
+            width: 25%;
+            margin: 0 auto;
+          }
+          @include rwd(pad){
+            width: 40%;
+            margin: 0 auto;
+          }
+          @include rwd(largeMobile){
+            width: 25%;
+            margin: 0 auto;
+          }
+          @include rwd(mobile){
+            width: 30%;
+            margin: 0 auto;
+          }
         }
       }
     }
 
-  }
-}
+    .wardrobe_cabinet{
+      position: absolute;
+      right: 10%;
+      width: 50%;
+      height: 78%;
+      bottom: 0%;
+      border: 2px solid red;
+      @include rwd(desktop){
+        position: absolute;
+        right: 10%;
+        width: 50%;
+        height: 78%;
+        bottom: 0%;
+      }
+      @include rwd(desktopSmall){
+        position: absolute;
+        right: 10%;
+        width: 50%;
+        height: 78%;
+        bottom: 0%;
+      }
+      @include rwd(pad){
+        position: absolute;
+        right: 5%;
+        width: 55%;
+        height: 70%;
+        bottom: 0%;
+      }
+      @include rwd(largeMobile){
+       display: none;
+      }
+      @include rwd(mobile){
+        display: none;
+      }
+      img{
+        width: 480px;
+        margin: 0  auto;
+        @include rwd(desktop){
+          width: 480px;
+          margin: 0  auto;
+        }
+        @include rwd(desktopSmall){
+          width: 480px;
+          margin: 0  auto;
+        }
+        @include rwd(pad){
+          width: 480px;
+          margin: 0  auto;
+        }
+        @include rwd(largeMobile){
+          display: none;
+        }
+        @include rwd(mobile){
+          display: none;
+        }
+      }
+    }
+
+
 // ---------選擇區-------------
 .Choose_cabinet{
   position: absolute;
@@ -268,34 +397,34 @@ overflow: hidden;
   z-index: 50;
     @include rwd(desktop){
       position: absolute;
-      bottom: 14%;
-      height: 35%;
-      width: 50%;
-      right: 25%;
-      left: 25%;
-      z-index: 50;
+      bottom: 0%;
+       height: 88%;
+       width: 480px;
+       right: 20%;
+       left: 50%;
+       z-index: 50;
     }
     @include rwd(desktopSmall){
       position: absolute;
-      bottom: 14%;
-      height: 35%;
-      width: 70%;
-      right: 15%;
-      left: 15%;
-      z-index: 50;
+      bottom: 0%;
+       height: 88%;
+       width: 480px;
+       right: 20%;
+       left: 50%;
+       z-index: 50;
     }
     @include rwd(pad){
       position: absolute;
-      bottom: 14%;
-      height: 40%;
-      width: 80%;
-      right: 10%;
-      left: 10%;
-      z-index: 50;
+      bottom: 0%;
+       height: 88%;
+       width: 480px;
+       right: 20%;
+       left: 50%;
+       z-index: 50;
     }
     @include rwd(largeMobile){
       position: absolute;
-      bottom: -10%;
+      bottom: 0%;
       height: 60%;
       width: 80%;
       right: 10%;
@@ -304,8 +433,8 @@ overflow: hidden;
     }
     @include rwd(mobile){
       position: absolute;
-      bottom: -2%;
-      height: 60%;
+      bottom: 0%;
+      height: 43%;
       width: 80%;
       right: 10%;
       left: 10%;
@@ -332,32 +461,32 @@ overflow: hidden;
       margin-left: -5px;
     }
     .Choose_tabs a {
-      background-color: $mrtGreen;
+      background-color: $color;
       border-radius: 6px 6px 0 0;
       // box-shadow: inset 0 -6px 10px 0px #bbb;
       color: #FFF;
       display: block;
       font-size: $fontSize_SubTitle;
-      padding: 7px 30px;
+      padding: 9px 30px;
       position: relative;
       text-decoration: none;
       transition: all .3s;
       transform-origin: 50% 90%;
       @include rwd(desktop){
-        background-color: $mrtGreen;
+        background-color: $color;
         border-radius: 6px 6px 0 0;
         // box-shadow: inset 0 -6px 10px 0px #bbb;
         color: #FFF;
         display: block;
         font-size: $fontSize_SubTitle;
-        padding: 7px 30px;
+        padding: 9px 30px;
         position: relative;
         text-decoration: none;
         transition: all .3s;
         transform-origin: 50% 90%;
       }
       @include rwd(desktopSmall){
-        background-color: $mrtGreen;
+        background-color:$color;
         border-radius: 6px 6px 0 0;
         // box-shadow: inset 0 -6px 10px 0px #bbb;
         color: #FFF;
@@ -370,7 +499,7 @@ overflow: hidden;
         transform-origin: 50% 90%;
       }
       @include rwd(pad){
-        background-color: $mrtGreen;
+        background-color:$color;
         border-radius: 6px 6px 0 0;
         // box-shadow: inset 0 -6px 10px 0px #bbb;
         color: #FFF;
@@ -383,7 +512,7 @@ overflow: hidden;
         transform-origin: 50% 90%;
       }
       @include rwd(largeMobile){
-        background-color: $mrtGreen;
+        background-color:$color;
         border-radius: 6px 6px 0 0;
         // box-shadow: inset 0 -6px 10px 0px #bbb;
         color: #FFF;
@@ -396,7 +525,7 @@ overflow: hidden;
         transform-origin: 50% 90%;
       }
       @include rwd(mobile){
-        background-color: $mrtGreen;
+        background-color: $color;
       border-radius: 6px 6px 0 0;
       // box-shadow: inset 0 -6px 10px 0px #bbb;
       color: #FFF;
@@ -410,7 +539,7 @@ overflow: hidden;
       }
     }
     .Choose_tabs .is_active {
-      background-color: $green;
+      background-color: #C99F87;
       box-shadow: none;
       font-weight: bold;
       z-index: 1;
@@ -421,16 +550,61 @@ overflow: hidden;
     
     .tab-content {
       @include border_r();
-      background-color: #fff;
-      border: 20px solid $green;
+      // background-color: #fff;
+      // border: 20px solid $green;
       // box-shadow: 0 3px 0 0 #ccc;
       // padding: 30px 20px;
-     
+      position: absolute;
+      width: 100%;
+      height: 80%;
+      box-sizing: border-box;
+      @include rwd(desktop){
+              // background-color: #fff;
+      // border: 20px solid $green;
+      // box-shadow: 0 3px 0 0 #ccc;
+      // padding: 30px 20px;
       position: absolute;
       width: 100%;
       box-sizing: border-box;
+      }
+      @include rwd(desktopSmall){
+              // background-color: #fff;
+      // border: 20px solid $green;
+      // box-shadow: 0 3px 0 0 #ccc;
+      // padding: 30px 20px;
+      position: absolute;
+      width: 100%;
+      box-sizing: border-box;
+      }
+      @include rwd(pad){
+              // background-color: #fff;
+      // border: 20px solid $green;
+      // box-shadow: 0 3px 0 0 #ccc;
+      // padding: 30px 20px;
+      position: absolute;
+      width: 100%;
+      box-sizing: border-box;
+      }
+      @include rwd(largeMobile){
+      background-color: #fff;
+      border: 10px solid #C99F87;
+      // box-shadow: 0 3px 0 0 #ccc;
+      // padding: 30px 20px;
+      position: absolute;
+      width: 100%;
+      box-sizing: border-box;
+      }
+      @include rwd(mobile){
+        background-color: #fff;
+        border: 10px solid #C99F87;
+        // box-shadow: 0 3px 0 0 #ccc;
+        // padding: 30px 20px;
+        position: absolute;
+        width: 100%;
+        box-sizing: border-box;
+      }
       .content1{
-        border-bottom:3px $green solid;
+        // border-bottom:3px $green solid;
         ul{
           display: flex;
           li{
@@ -508,56 +682,6 @@ overflow: hidden;
 
 }
 
-@media all and (min-width: 1200px) {
-  .myUFO_wardrobe_bg .myUFO_wardrobe_bg1 .wardrobe_bg1{
-      display: block;
-      
-  }
-  .myUFO_wardrobe_bg .myUFO_wardrobe_bg2 .wardrobe_bg2{
-      display: none;
-  }
 
-}
-
-@media all and(max-width: 1199px) and (min-width: 992px) {
-  .myUFO_wardrobe_bg .myUFO_wardrobe_bg1 .wardrobe_bg1{
-     display: block; 
-      
-  }
-  .myUFO_wardrobe_bg .myUFO_wardrobe_bg2 .wardrobe_bg2{
-    display:none;
-  }
-
-}
-
-@media all and(max-width: 991px) and (min-width: 768px) {
-  .myUFO_wardrobe_bg .myUFO_wardrobe_bg1 .wardrobe_bg1{
-     display: block;
-      
-  }
-  .myUFO_wardrobe_bg .myUFO_wardrobe_bg2 .wardrobe_bg2{
-    display:none;
-  }
-}
-
-@media all and(max-width: 767px) and (min-width: 576px) {
-  .myUFO_wardrobe_bg .myUFO_wardrobe_bg1 .wardrobe_bg1{
-     display: block; 
-      
-  }
-  .myUFO_wardrobe_bg .myUFO_wardrobe_bg .wardrobe_bg2{
-      display:none;
-  }
-
-}
-
-@media all and (max-width: 575px) {
-  .myUFO_wardrobe_bg.myUFO_wardrobe_bg1 .wardrobe_bg1{
-      display: none;
-      
-  }
-  .myUFO_wardrobe_bg .myUFO_wardrobe_bg2 .wardrobe_bg2{
-    display: block;
-  }
 
 }
