@@ -7,7 +7,15 @@
         </a>
         <!-- 會員頭像 -->
         <div class="headerInner_login" id="headerInner_login">
-          <a href="./login_member.html"  class="headerInner_login_link" ></a>
+          <a href="./login_member.html"  class="headerInner_login_link" >
+          </a>
+           <!-- 登入後，會員頭像才會出現的彈窗 -->
+          <div class="popUps popUpsLogout">
+            <form action="" method="" class="form popUpsLogout_from">
+              <p class="popUpsLogout_p">編輯會員資料</p>
+              <p class="popUpsLogout_p">登出</p>
+            </form>
+          </div>
         </div>
 
         <!-- 漢堡圖 -->
@@ -67,7 +75,7 @@
     if (prevScrollpos > currentScrollPos) {
       $('header').css('background','transparent')
     } else {
-      $('header').css('background','rgba(251,255,232,0.8)')
+      $('header').css('background','rgba(251,255,232,0.5)')
     }
     prevScrollpos = currentScrollPos;
     }

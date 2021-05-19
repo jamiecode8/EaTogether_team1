@@ -185,3 +185,8 @@ $('.login_tag_select').toggleClass('on');
 //     $('').append();
 
 // });
+
+// 登入後，會員頭像才會出現的彈窗 
+$('#headerInner_login').click(function (){
+    $('.popUpsLogout').toggleClass('on');
+    });
