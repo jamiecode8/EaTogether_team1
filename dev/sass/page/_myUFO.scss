@@ -4,6 +4,36 @@ width: 100%;
 background: $bgc;
 overflow: hidden;
 // overflow: auto;
+
+	@include rwd(desktop){
+    width: 100%;
+    background: $bgc;
+    overflow: hidden;
+	}
+	@include rwd(desktopSmall){
+    background: $bgc;
+    overflow: hidden;
+    margin: 0 auto;
+	}
+	@include rwd(pad){
+    
+    background: $bgc;
+    overflow: hidden;
+    margin: 0 auto;
+	}
+	@include rwd(largeMobile){
+    width: 100%;
+    background: $bgc;
+    overflow: hidden;
+    display: block;
+	}
+	@include rwd(mobile){
+    width: 100%;
+    background: $bgc;
+    overflow: hidden;
+    display: block;
+	}
+
 }
 
 
@@ -29,289 +59,606 @@ overflow: hidden;
     .figure4{
         width: 100%;
         margin: 0 auto;
-        height: 88vh;
+        height: 83vh;
     }
 }
 
 .window1{
-    position: absolute;
-    width:28%;
-    top: 20%;
-    left: 7%;
-    @include rwd(desktopSmall){
         position: absolute;
-        width:38%;
-        top: 30%;
+        top: 5%;
         left: 2%;
+        margin: 7%;
+        padding: 2%;
+        width: 20%;
+        height: 100%;
+        z-index: 10;
+        // border: 1px solid orange;
+        @include rwd(desktop){
+            position: absolute;
+            left: 2%;
+            top: 5%;
+            margin: 7%;
+            padding: 2%;
+            width: 20%;
+            height: 100%;
+            z-index: 10;
+            // border: 1px solid orange;
         }
-    @include rwd(pad){
-        position: absolute;
-        width: 26%;
-        top: 12%;
-        left: 0%;
+        @include rwd(desktopSmall){
+            position: absolute;
+            left: 2%;
+            top: 5%;
+            margin: 7%;
+            padding: 10%  2%;
+            width: 25%;
+            height: 100%;
+            z-index: 10;
+            // border: 1px solid orange;
+        }
+        @include rwd(pad){
+            position: absolute;
+            left: 2%;
+            top: 0%;
+            margin: 7%;
+            padding: 10%  2%;
+            width: 25%;
+            height: 100%;
+            z-index: 10;
+            // border: 1px solid orange;
         }
         @include rwd(largeMobile){
             position: absolute;
-            width: 40%;
-            height: 50%;
-            top: 23%;
-            left: 0;
+            left: 0%;
+            top: 10%;
+            margin: 10%;
+            padding: 10%  2%;
+            width: 25%;
+            height: 100%;
+            z-index: 10;
+            // border: 1px solid orange;
         }
         @include rwd(mobile){
-            position: absolute;
-            width: 55%;
-            height: 40%;
-            top: 38%;
+            display: none;
+            // border: 1px solid orange;
         }
-    .window2{
-        width: 70%;
-        margin:  0 10%;
+ img{
+     width: 100%;
+    @include rwd(desktop){
+        width: 100%;
+        }
         @include rwd(desktopSmall){
-            width: 60%;
-            margin:  0 10%;
-            }
+            width: 100%;
+        }
         @include rwd(pad){
-            width: 90%;
-            margin:  30% 0%;
-            }
-            @include rwd(largeMobile){
-            width: 70%;
-            margin:  0% 0%;
-            }
-            @include rwd(mobile){
-                width: 70%;
-                margin:  0% 0%;
-            }
-        
+            width: 100%;
+        }
+        @include rwd(largeMobile){
+            width: 100%;
+        }
+        @include rwd(mobile){
+            width: 100%;
+        }
     }
-    
 }
 
 .Points1{
     position: absolute;
-    width: 20%;
-    height: 10%;
-    left: 18%;
-    top: 82%;
+    bottom: 0%;
+    left: 2%;
+    margin: 7%;
+    padding: 2%;
+    width: 7%;
+    height: 20%;
+    z-index: 10;
     display: flex;
-    align-items: center;
-    @include rwd(pad){
-        top: 70%;
-        left: 10%;
+    // border: 1px solid orange;
+     
+        @include rwd(desktop){
+            position: absolute;
+            bottom: 0%;
+            left: 2%;
+            margin: 7%;
+            padding: 2%;
+            width: 7%;
+            height: 20%;
+            display: flex;
+        }
+        @include rwd(desktopSmall){
+            position: absolute;
+            bottom: 0%;
+            left: 8%;
+            margin: 7%;
+            padding: 2%;
+            width: 9%;
+            height: 20%;
+            display: flex;
+        }
+        @include rwd(pad){
+            position: absolute;
+            bottom: 0%;
+            left: 10%;
+            margin: 7%;
+            padding: 2%;
+            width: 10%;
+            height: 20%;
+            display: flex;
         }
         @include rwd(largeMobile){
-        top: 65%;
-        left: 10%;
+            position: absolute;
+            bottom: 10%;
+            left: 10%;
+            margin: 0%;
+            padding: 2%;
+            width: 10%;
+            height: 20%;
+            display: flex;
         }
         @include rwd(mobile){
+            position: absolute;
+            bottom: 0%;
             left: 5%;
-            right: 95%;
-            top: 70%;
+            margin: 5%;
+            padding: 2%;
+            width: 15%;
+            height: 10%;
+            display: flex;
         }
-    
+   
     img{
-      width: 15%;
-      @include rwd(pad){
-        width: 25%;
+        width: 100%;
+        @include rwd(desktop){
+        width: 100%;
+        }
+        @include rwd(desktopSmall){
+        width: 90%;
+        }
+        @include rwd(pad){
+        width: 100%;
         }
         @include rwd(largeMobile){
-        width: 35%;
+        width: 100%;
         }
         @include rwd(mobile){
-            width: 45%;
+        width: 100%;
         }
     }
     p{
-      font-size: $fontSize_Title;
-      margin: 10px;
-      @include rwd(pad){
-        margin: 12px;
+        font-size: 20px;
+        margin: 30px 10px;
+        @include rwd(desktop){
+            font-size: 20px;
+            margin: 30px 10px;
+        }
+        @include rwd(desktopSmall){
+            font-size: 20px;
+            margin: 40px 10px;
+        }
+        @include rwd(pad){
+            font-size: 18px;
+            margin: 80px 10px;
         }
         @include rwd(largeMobile){
-        margin: 15px;
+            font-size: 18px;
+            margin: 50px 10px;
         }
         @include rwd(mobile){
-            margin: 10px;
+            font-size: 20px;
+            margin: 20px 10px;
         }
     }
 }
 
-.laftmyufo{
+.light{
     position: absolute;
-    width: 30%;
-    height: 80%;
-    top: 0%;
-    right: 0;
-    @include rwd(pad){
-        top: 10%;
-        }
-        @include rwd(largeMobile){
-        width: 35%;
-        top: 20%;
-        height: 80%;
-        }
-        @include rwd(mobile){
-            width: 35%;
-            top: 27%;
-            
-        }
-    .light{
-        width: 30%;
-        margin: 0 13%;
-        z-index: 99;
-        @include rwd(desktopSmall){
-            width: 35%;
-            margin: 0 10%;
-            z-index: 99;
-            }
-        @include rwd(pad){
-            display: none;
-            }
-            @include rwd(largeMobile){
-            display: none;
-            }
-            @include rwd(mobile){
-                display: none;
-            }
-    }
-    .favorites{
+    top: 8%;
+    right: 20%;
+    margin: 0%;
+    padding: 0%;
+    width: 7%;
+    height: 20%;
+    z-index: 11;
+    // border: 1px solid orange;
+    @include rwd(desktop){
         position: absolute;
-        top: 25%;
-        width: 30%;
-        margin: 0 13%;
-        z-index: 9;
-        @include rwd(desktopSmall){
-            position: absolute;
-            top: 23%;
-            width: 35%;
-            margin: 0 10%;
-            z-index: 9;
-        }
-        @include rwd(pad){
-            position: absolute;
-            top: 5%;
-            width: 50%;
-            margin: 0 20%;
-            z-index: 9;
-        }
-        @include rwd(largeMobile){
-            position: absolute;
-            top: 0%;
-            width: 50%;
-            margin: 0% 0% 0% 23%;
-            z-index: 9;
-        }
-        @include rwd(mobile){
-            position: absolute;
-            top: 10%;
-            width: 65%;
-            margin:0% 0% 0% 15%;
-            z-index: 9;
-        }
+        top: 8%;
+        right: 20%;
+        margin: 0%;
+        padding: 0%;
+        width: 7%;
+        height: 20%;
+        z-index: 11;
     }
-    .cabinet{
-        width: 45%;
-        margin: 30% 7%;
-        z-index: 40;
-        @include rwd(desktopSmall){
-            width: 60%;
-            margin: 50% 0 0 0%;
-            z-index: 40;
-        }
-        @include rwd(pad){
-            width: 70%;
-            margin:70% 4% 0% 8%;
-            z-index: 40;
-            }
-            @include rwd(largeMobile){
-            width: 80%;
-            margin:50% 0% 0% 8%;
-            z-index: 40;
-            }
-            @include rwd(mobile){
-                width: 100%;
-                margin:120% 0% 0% 0%;
-                z-index: 40;
-            }
+    @include rwd(desktopSmall){
+        position: absolute;
+        top: 15%;
+        right: 20%;
+        margin: 0%;
+        padding: 0%;
+        width: 10%;
+        height: 20%;
+        z-index: 11;
     }
-}
-
-.intermediate{
-    position: absolute;
-    width: 30%;
-    height: 100%;
-    top: 0;
-    left: 35%;
-    right: 35%;
-    display: inline-grid;
     @include rwd(pad){
-        width: 50%;
-        top: 0;
-        height: 50%;
-        display: inline-grid;
-        left: 25%;
-        }
-        @include rwd(largeMobile){
-            width: 50%;
-            top: 0;
-            height: 70%;
-            display: inline-grid;
-            left: 25%;
-        }
-        @include rwd(mobile){
-            width: 70%;
-            top: 0;
-            height: 90%;
-            display: inline-grid;
-            left: 15%;
-        }
-    .Carousel{
-
-        width: 70%;
-        margin: 0 auto;
-        @include rwd(desktopSmall){
-            width: 100%;
-            margin: 0 auto;
-        }
-        @include rwd(pad){
-            width: 80%;
-            margin: 0 auto;
-            }
-            @include rwd(largeMobile){
-                width: 90%;
-                margin: 0 auto;
-            }
-            @include rwd(mobile){
-                width: 85%;
-                margin: 29% auto;
-            }
-        
+        position: absolute;
+        top: 13%;
+        right: 16%;
+        margin: 0%;
+        padding: 0%;
+        width: 11%;
+        height: 20%;
+        z-index: 11;
     }
-    .character{
-        width: 100%;
-        margin: 5%   auto;
-        text-align: center;
-        @include rwd(desktopSmall){
-            width: 100%;
-            margin: 15%   auto;
-            text-align: center;
+    @include rwd(largeMobile){
+        position: absolute;
+        top: 13%;
+        right: 16%;
+        margin: 0%;
+        padding: 0%;
+        width: 12%;
+        height: 20%;
+        z-index: 11;
+    }
+    @include rwd(mobile){
+        display: none;
         }
-        @include rwd(pad){
-            width: 90%;
-            margin: 15%   auto;
-            text-align: center;
-            }
-            @include rwd(largeMobile){
-            width: 90%;
-            margin: 15%   auto;
-            }
-            @include rwd(mobile){
-            width: 70%;
-            margin: -10% 0% 0% 20%;
-            }
-        
+
+    img{
+    width: 100%;
+    @include rwd(desktop){
+    width: 100%;
+    }
+    @include rwd(desktopSmall){
+        width: 100%;
+    }
+    @include rwd(pad){
+        width: 100%;
+    }
+    @include rwd(largeMobile){
+        width: 100%;
+    }
+    @include rwd(mobile){
+        width: 100%;
+        }
     }
 }
+
+.favorites{
+    position: absolute;
+    bottom: 40%;
+    right: 19%;
+    margin: 0%;
+    padding: 0%;
+    width: 8%;
+    height: 35%;
+    z-index: 10;
+    // border: 1px solid orange;
+    @include rwd(desktop){
+    position: absolute;
+    bottom:40%;
+    right: 19%;
+    margin: 0%;
+    padding: 0%;
+    width: 8%;
+    height: 35%;
+    z-index: 10;
+    }
+    @include rwd(desktopSmall){
+    position: absolute;
+    bottom:40%;
+    right: 19%;
+    margin: 0%;
+    padding: 0%;
+    width: 10%;
+    height: 26%;
+    z-index: 10;
+    }
+    @include rwd(pad){
+    position: absolute;
+    bottom:40%;
+    right: 15%;
+    margin: 0%;
+    padding: 0%;
+    width: 12%;
+    height: 30%;
+    z-index: 10;
+    }
+    @include rwd(largeMobile){
+    position: absolute;
+    bottom:40%;
+    right: 14%;
+    margin: 0%;
+    padding: 0%;
+    width: 15%;
+    height: 33%;
+    z-index: 10;
+    }
+    @include rwd(mobile){
+    position: absolute;
+    bottom:38%;
+    right: 4%;
+    margin: 0%;
+    padding: 0%;
+    width: 22%;
+    height: 40%;
+    z-index: 10;
+        }
+    img{
+     width: 100%;
+        @include rwd(desktop){
+        width:100%;
+        }
+        @include rwd(desktopSmall){
+        width:100%;
+        }
+        @include rwd(pad){
+        width:100%;
+        }
+        @include rwd(largeMobile){
+        width:100%;
+        }
+        @include rwd(mobile){
+        width:100%;
+        }
+
+    }
+}
+
+.cabinet{
+    position: absolute;
+    bottom: 0%;
+    right: 17%;
+    margin: 0%;
+    padding: 0%;
+    width: 12%;
+    height: 46%;
+    z-index: 10;
+    // border: 1px solid orange;
+    @include rwd(desktop){
+        position: absolute;
+        bottom: 0%;
+        right: 17%;
+        margin: 0%;
+        padding: 0%;
+        width: 12%;
+        height: 46%;
+        z-index: 10;
+    }
+    @include rwd(desktopSmall){
+        position: absolute;
+        bottom: 0%;
+        right: 16%;
+        margin: 0%;
+        padding: 0%;
+        width: 15%;
+        height: 38%;
+        z-index: 10;
+    }
+    @include rwd(pad){
+        position: absolute;
+        bottom: 0%;
+        right: 13%;
+        margin: 0%;
+        padding: 0%;
+        width: 17%;
+        height: 51%;
+        z-index: 10;
+    }
+    @include rwd(largeMobile){
+        position: absolute;
+        bottom: 0%;
+        right: 12%;
+        margin: 0%;
+        padding: 0%;
+        width: 20%;
+        height: 53%;
+        z-index: 10;
+    }
+    @include rwd(mobile){
+        position: absolute;
+        bottom: 0%;
+        left: 2%;
+        margin: 0% 0%;
+        padding: 70px 0%;
+        width: 30%;
+        min-height: 80%;
+        z-index: 10;
+        border: 1px solid green;
+        }
+    img{
+       width: 100%;
+        @include rwd(desktop){
+            width: 100%;
+        }
+        @include rwd(desktopSmall){
+            width: 100%;
+        }
+        @include rwd(pad){
+            width: 100%;
+        }
+        @include rwd(largeMobile){
+            width: 100%;
+        }
+        @include rwd(mobile){
+            width: 100%;
+        }
+
+    }
+}
+
+.Carousel{
+    position: absolute;
+    top: 0%;
+    right: 37.5%;
+    left: 37.5%;
+    margin: 0%;
+    padding: 0%;
+    width: 25%;
+    height: 52%;
+    z-index: 10;
+    @include rwd(desktop){
+    position: absolute;
+    top: 0%;
+    right: 37.5%;
+    left: 37.5%;
+    margin: 0%;
+    padding: 0%;
+    width: 25%;
+    height: 52%;
+    z-index: 10;
+    
+    }
+    @include rwd(desktopSmall){
+    position: absolute;
+    top: 0%;
+    right: 35%;
+    left: 35%;
+    margin: 0%;
+    padding: 0%;
+    width: 32%;
+    height: 52%;
+    z-index: 10;
+    }
+    @include rwd(pad){
+        position: absolute;
+        top: 0%;
+        right: 35%;
+        left: 35%;
+        margin: 0%;
+        padding: 0%;
+        width: 33%;
+        height: 52%;
+        z-index: 10;
+    }
+    @include rwd(largeMobile){
+        position: absolute;
+        top: 0%;
+        right: 35%;
+        left: 35%;
+        margin: 0%;
+        padding: 0%;
+        width: 35%;
+        height: 52%;
+        z-index: 10;
+    }
+    @include rwd(mobile){
+        position: absolute;
+        top: 0%;
+        right: 25%;
+        left: 25%;
+        margin: 0%;
+        padding: 0%;
+        width: 50%;
+        height: 52%;
+        z-index: 10;
+        }
+    img{
+    width: 100%;
+    @include rwd(desktop){
+        width: 100%;
+        }
+        @include rwd(desktopSmall){
+        width: 100%;
+        }
+        @include rwd(pad){
+            width: 100%;
+        }
+        @include rwd(largeMobile){
+            width: 100%;
+        }
+        @include rwd(mobile){
+            width: 100%;
+        }
+
+    }
+}
+
+.character{
+    position: absolute;
+    top: 48%;
+    right: 37.5%;
+    left: 37.5%;
+    margin: 0%;
+    padding: 0%;
+    width: 25%;
+    height: 52%;
+    z-index: 10;
+    border: 1px solid orange;
+    @include rwd(desktop){
+    position: absolute;
+    top: 40%;
+    right: 37.5%;
+    left: 37.5%;
+    margin: 0%;
+    padding: 0%;
+    width: 25%;
+    height: 52%;
+    z-index: 10;
+    }
+    @include rwd(desktopSmall){
+    position: absolute;
+    top: 50%;
+    right: 35%;
+    left: 35%;
+    margin: 0%;
+    padding: 0%;
+    width: 30%;
+    height: 52%;
+    z-index: 10;
+    }
+    @include rwd(pad){
+        position: absolute;
+        top: 50%;
+        right: 32.5%;
+        left: 32.5%;
+        margin: 0%;
+        padding: 0%;
+        width: 35%;
+        height: 52%;
+        z-index: 10;
+    }
+    @include rwd(largeMobile){
+        position: absolute;
+        top: 50%;
+        right: 30%;
+        left: 30%;
+        margin: 0%;
+        padding: 0%;
+        width: 40%;
+        height: 52%;
+        z-index: 10;
+    }
+    @include rwd(mobile){
+        position: absolute;
+        top: 50%;
+        right: 20%;
+        left: 20%;
+        margin: 0%;
+        padding: 0%;
+        width: 60%;
+        height: 52%;
+        z-index: 10;
+        }
+    img{
+      width: 100%;
+        @include rwd(desktop){
+            width: 100%;
+        }
+        @include rwd(desktopSmall){
+            width: 100%;
+        }
+        @include rwd(pad){
+            width: 100%;
+        }
+        @include rwd(largeMobile){
+            width: 100%;
+        }
+        @include rwd(mobile){
+            width: 100%;
+        }
+
+    }
+}
+// ---------------------------
 
 .myuFOsearchbut{
     position:fixed;
@@ -398,6 +745,7 @@ overflow: hidden;
 
 @media all and (min-width: 1200px) {
     .myUFO_bg .figure{
+        max-height: 700px;
         display: block;
         
     }
@@ -420,6 +768,7 @@ overflow: hidden;
         
     }
     .myUFO_bg .figure2{
+        max-height: 700px;
         display: block;
     }
     .myUFO_bg .figure3{
@@ -438,6 +787,7 @@ overflow: hidden;
         
     }
     .myUFO_bg .figure2{
+        margin: 0 auto;
         display:block;
     }
     .myUFO_bg .figure3{
@@ -446,8 +796,7 @@ overflow: hidden;
         
     }
     .myUFO_bg .figure4{
-        display: none;
-       
+        display: none;  
     }
 }
 
@@ -482,9 +831,47 @@ overflow: hidden;
         
     }
     .myUFO_bg .figure4{
+       
         display: block;
         margin: 0 auto;
        
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .object{
+        max-height: 700px;
+        
+    }
+}
+
+@media all and(max-width: 1199px) and (min-width: 992px) {
+    .object{
+       
+        
+    }
+}
+
+@media all and(max-width: 991px) and (min-width: 768px) {
+    .object{
+        max-height: 700px;
+        
+    }
+}
+
+@media all and(max-width: 767px) and (min-width: 576px) {
+    .object{
+        
+        
+    }
+}
+
+@media all and (max-width: 575px) {
+
+    .object{
+        max-width: 514px;
+        display: block;
+        margin: 0 auto;
     }
 }
     // ----------櫃子彈窗---------------

@@ -420,10 +420,12 @@ overflow: hidden;
   // 選擇內容區
     
     .tab-content {
+      @include border_r();
       background-color: #fff;
       border: 20px solid $green;
       // box-shadow: 0 3px 0 0 #ccc;
       // padding: 30px 20px;
+     
       position: absolute;
       width: 100%;
       box-sizing: border-box;
