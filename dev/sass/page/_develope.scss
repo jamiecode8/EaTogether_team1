@@ -6,11 +6,11 @@
 }
 
 .develope_wrapper{
-    height: 92vh;  //加這一行
+    height: 90vh;  //加這一行
 }
 
 .develope_bg_container{   //新增一個div放背景圖
-    width: 87%;        
+    width: 85%;        
     margin: 0 auto;
 }
 
@@ -202,6 +202,7 @@
         display: block;
         margin: 0 auto;
     }
+    
 }
 
 // ----------------------
@@ -403,5 +404,21 @@
         width: 15%;
         left: 22%;
         top: 19%;
+    }
+    .develope_wrapper{
+        height: 80vh;  //加這一行
+    }
+    .develope_form{
+        h1{
+            font-size: 24px;   
+            margin: initial;
+        }
+        h2{
+            font-size: 10px;
+        }
+        li{
+            font-size: 8px;
+            margin: initial;
+        }
     }
 }
