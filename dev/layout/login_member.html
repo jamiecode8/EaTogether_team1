@@ -29,17 +29,18 @@
                 <div>
                     <!-- 放登入的東西 -->
                     <div class="inner_block_area" id="login_block"> 
-                        <!-- 輸入框欄位 -->
-                        <input type="text" placeholder="E-mail" />
-                        <input type="text" placeholder="密碼" />
-                        
-                        <!-- 單顆按鈕用這裡 -->
-                        <div class="btn">
-                            <a href="./index.html" class="loginMember_link">
-                                <input type="submit" value="送出" class="btn_submit loginMember_link" id="memberLogin_submit"/>
-                            </a>
-                        </div>
-                        
+                        <form method="POST" action="../php/Frontend/API/Login.php">
+                            <!-- 輸入框欄位 -->
+                            <input type="text" placeholder="E-mail" id="email"/>
+                            <input type="text" placeholder="密碼" id="pwd"/>
+                            
+                            <!-- 單顆按鈕用這裡 -->
+                            <div class="btn">
+                                <a href="./index.html" class="loginMember_link">
+                                    <input type="submit" value="送出" class="btn_submit loginMember_link" id="memberLogin_submit" onclick="return doSubmit();"/>
+                                </a>
+                            </div>
+                        </form>
                         <!-- 無法登入 -->
                         <div class="forgetPassword">
                             <!-- <a href="">忘記密碼?</a> -->
@@ -273,3 +274,15 @@
     </div>
 </div>
 <!-- Vue 導入範圍 終點 -->
+<script>
+    function doSubmit() {
+        if (document.getElementById('email').value == '') {
+            alert("請填寫[帳號]");
+            return false;
+        }
+        if (document.getElementById('pwd').value == '') {
+            alert("請填寫[密碼]");
+            return false;
+        }        
+    }
+</script>
