@@ -42,6 +42,13 @@
                 $('.btn_close').click(function(){
                 $('#wardrobe_coupon').fadeOut(200);
               });
+
+              $(".buybtn").click(
+                function(){
+                  $(this).text("已領取");     
+                  $(this).addClass("buyed");
+                }
+              );  
         //    -------------總分類-------------------
         $('#category').click(function(){
             $('#myUFO_category').css('display' , 'block').fadeIn(100);
@@ -53,4 +60,72 @@
           $('#myUFO_category').fadeOut(200);
           });
             
+
+        //   ---------------每日任務的進度條-----------------------
+        $('#more1').on('click', function(){
+            $('.more1').val( $('.more1').val() + 50);
+            return false;
+          });
+          
+          $('#more2').on('click', function(){
+            $('.more2').val( $('.more2').val() + 50);
+            return false;
+          });
+          
+          $('#more3').on('click', function(){
+            $('.more3').val( $('.more3').val() + 50);
+            return false;
+          });
+          
+          $('#more4').on('click', function(){
+            $('.more4').val( $('.more4').val() + 50);
+            return false;
+          });
+          
+          $('#more5').on('click', function(){
+            $('.more5').val( $('.more5').val() + 50);
+            return false;
+          });
+          
+          $('#more6').on('click', function(){
+            $('.more6').val( $('.more6').val() + 50);
+            return false;
+          });
+          
+          $(".buybtn1").click(
+            function(){
+              $(this).text("兌換");     
+              $(this).addClass("buyed1");
+            }
+          );
+          $(".buybtn2").click(
+            function(){
+              $(this).text("兌換");     
+              $(this).addClass("buyed2");
+            }
+          );
+          $(".buybtn3").click(
+            function(){
+              $(this).text("兌換");     
+              $(this).addClass("buyed3");
+            }
+          );
+          $(".buybtn4").click(
+            function(){
+              $(this).text("兌換");     
+              $(this).addClass("buyed4");
+            }
+          );
+          $(".buybtn5").click(
+            function(){
+              $(this).text("兌換");     
+              $(this).addClass("buyed5");
+            }
+          );
+          $(".buybtn6").click(
+            function(){
+              $(this).text("兌換");     
+              $(this).addClass("buyed6");
+            }
+          );
         
