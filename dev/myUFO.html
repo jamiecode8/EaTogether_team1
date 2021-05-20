@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         @@include('layout/style.html')
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <title>我的飛碟</title>
     </head>
 
@@ -39,7 +40,7 @@
             <!-- 輪播版 -->
             <div class="Carousel"><img src="./img/mimi/Carousel.svg" alt=""  /></div>
             <!-- 外星人   -->
-            <div class="character"><a href="#"><img src="./img/mimi/wardrobe_character.svg" alt="" class="hover-button"/></a></div>
+            <div class="character"><a href="#"><img src="./img/mimi/wardrobe_character.svg" alt="" class="animated headShake infinite delay-1s"/></a></div>
            <div class="myufo_searchbtn1">
             <ul class="index_searchbtn myufo_searchbtn2">
   
@@ -89,7 +90,7 @@
               <div class="couponicon"><img src="./img/mimi/couponicon.svg" alt="" ></div>
               <!-- 單顆按鈕用這裡 -->
               <div class="buttonArea">
-                <input type="submit" value="兌換" class=" btn_submit">
+                <a href="#"><div class="buybtn">領取優惠券</div></a>
               </div>
             </form>
           </div>
@@ -106,95 +107,88 @@
                 每日任務 
               </h1>
               <div>
-                  <div class="Smalltaskbox">
+                  <div class="Smalltaskbox1">
                       <!-- --1-- -->
                       <div class="Littleman"><img src="./img/mimi/Littleman.svg" alt="" ></div>
                       <!-- --2---- -->
                     <div class="progressmimi">
                       <p>每日小遊戲1/2</p>
-                      <div class="progress-wrap progress" data-progress-percent="50">
-                        <div class="progress-bar progress"></div>
-                      </div>
+                      <div class="progress_bar">
+                        <progress max="100" value="0" class="more1"></progress>
+                        
+                        <button type="button" id="more1" class="buybtn1">兌換</button>
+                        </div>
                     </div>
-                      <!-- --3-- -->
-                      <div class="buttonArea_Smalltask">
-                        <button>兌換</button>
-                      </div>
+                    
                   </div>
-              <div class="Smalltaskbox4">
+              <div class="Smalltaskbox2">
                 <!-- --1-- -->
                 <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBlue.png" alt="" ></div>
                 <!-- --2---- -->
               <div class="progressmimi">
                 <p>藍線搜尋1/2</p>
-                <div class="progress-wrap progress" data-progress-percent="100">
-                  <div class="progress-bar progress"></div>
+                <div class="progress_bar">
+                  <progress max="100" value="0" class="more2"></progress>
+                  
+                <button type="button" id="more2" class="buybtn2">兌換</button>
                 </div>
               </div>
                 <!-- --3-- -->
-                <div class="buttonArea_Smalltask">
-                  <button>兌換</button>
-                </div>
             </div>
-            <div class="Smalltaskbox5">
+            <div class="Smalltaskbox3">
               <!-- --1-- -->
               <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBrown.png" alt="" ></div>
               <!-- --2---- -->
             <div class="progressmimi">
               <p>綜線搜尋1/2</p>
-              <div class="progress-wrap progress" data-progress-percent="100">
-                <div class="progress-bar progress"></div>
+              <div class="progress_bar">
+                <progress max="100" value="0" class="more3"></progress>
+                  
+                <button type="button" id="more3" class="buybtn3">兌換</button>
               </div>
             </div>
-              <!-- --3-- -->
-              <div class="buttonArea_Smalltask">
-                <button>送出</button>
-              </div>
+           
           </div>
-          <div class="Smalltaskbox6">
+          <div class="Smalltaskbox4">
             <!-- --1-- -->
             <div class="mrtSmalltask"><img src="./img/icon/icon_mrtGreen.png" alt="" ></div>
             <!-- --2---- -->
           <div class="progressmimi">
             <p>綠線搜尋1/2</p>
-            <div class="progress-wrap progress" data-progress-percent="100">
-              <div class="progress-bar progress"></div>
+            <div class="progress_bar">
+              <progress max="100" value="0" class="more4"></progress>
+                  
+              <button type="button" id="more4" class="buybtn4">兌換</button>
             </div>
           </div>
-            <!-- --3-- -->
-            <div class="buttonArea_Smalltask">
-              <button>送出</button>
-            </div>
+
         </div>
-        <div class="Smalltaskbox7">
+        <div class="Smalltaskbox5">
           <!-- --1-- -->
           <div class="mrtSmalltask"><img src="./img/icon/icon_mrtRed.png" alt="" ></div>
           <!-- --2---- -->
         <div class="progressmimi">
           <p>紅線搜尋1/2</p>
-          <div class="progress-wrap progress" data-progress-percent="100">
-            <div class="progress-bar progress"></div>
+          <div class="progress_bar">
+            <progress max="100" value="0" class="more5"></progress>
+                
+            <button type="button" id="more5" class="buybtn5">兌換</button>
           </div>
         </div>
-          <!-- --3-- -->
-          <div class="buttonArea_Smalltask">
-            <button>送出</button>
-          </div>
+
       </div>
-      <div class="Smalltaskbox8">
+      <div class="Smalltaskbox6">
         <!-- --1-- -->
         <div class="mrtSmalltask"><img src="./img/icon/icon_mrtYellow.png" alt="" ></div>
         <!-- --2---- -->
       <div class="progressmimi">
         <p>橘線搜尋1/2</p>
-        <div class="progress-wrap progress" data-progress-percent="100">
-          <div class="progress-bar progress"></div>
+        <div class="progress_bar">
+          <progress max="100" value="0" class="more6"></progress>
+          <button type="button" id="more6" class="buybtn6">兌換</button>
         </div>
       </div>
-        <!-- --3-- -->
-        <div class="buttonArea_Smalltask">
-          <button>送出</button>
-        </div>
+
     </div>
               </div>   
  
