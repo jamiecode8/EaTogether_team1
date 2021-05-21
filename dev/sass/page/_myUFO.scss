@@ -1061,14 +1061,38 @@ overflow: hidden;
             padding:10px 20px;
             background-color:$yellow;
             color:white;
-            border-radius: @include border_r();
+            border-radius: 2px;
           }
         .buyed{
             background-color:#B8B8B8;
             color:white;
-            border-radius: @include border_r();
+            border-radius: 2px;
         }
     }
+
+       #wardrobe_coupon2{
+        position: fixed;
+        top:15%;
+        left: 41%;
+        right: 41%;
+        text-align: center;
+        display: none;
+        z-index: 999;
+
+        .buybtn22{
+            display:inline-block;
+            padding:10px 20px;
+            background-color:$yellow;
+            color:white;
+            border-radius: 2px;
+          }
+        .buyed22{
+            background-color:#B8B8B8;
+            color:white;
+            border-radius: 2px;
+        }
+    }
+    
     
     
     // ----------每日任務彈窗---------------
@@ -1328,6 +1352,26 @@ overflow: hidden;
     background-color:#B8B8B8;
     color:white;
   }
+
+  #myUFOprogressbar{
+    position: fixed;
+    top:30%;
+    left: 41%;
+    right: 41%;
+    text-align: center;
+    display: none;
+    z-index: 999;
+
+    #close_button{
+        position: absolute;
+        left: 0%;
+        top: 8%;
+        border: 2px solid #f80;
+        width: 100px;
+        height: 50px;
+    }
+
+}
 
 //----------靜瑩角色彈窗----------
 .MyCharacter{

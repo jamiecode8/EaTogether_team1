@@ -49,6 +49,22 @@
                   $(this).addClass("buyed");
                 }
               );  
+
+              $('#couponbut2').click(function(){
+                $('#wardrobe_coupon2').css('display' , 'block').fadeIn(100);
+                console.log('click ok');
+                })
+  
+                $('.btn_close').click(function(){
+                $('#wardrobe_coupon2').fadeOut(200);
+              });
+              
+              $(".buybtn22").click(
+                function(){
+                  $(this).text("兌換成功");     
+                  $(this).addClass("buyed22");
+                }
+              ); 
         //    -------------總分類-------------------
         $('#category').click(function(){
             $('#myUFO_category').css('display' , 'block').fadeIn(100);
@@ -128,4 +144,36 @@
               $(this).addClass("buyed6");
             }
           );
+
+          $('#more1').click(function(){
+            $('#myUFOprogressbar').css('display' , 'block').fadeIn(100);
+            console.log('click ok');
+            })
+
+                               // 關閉彈窗
+          $('.btn_close').click(function(){
+          $('#myUFOprogressbar').fadeOut(200);
+          });
+            $('#more2').click(function(){
+            $('#myUFOprogressbar').css('display' , 'block').fadeIn(100);
+            console.log('click ok');
+            })
+            $('#more3').click(function(){
+            $('#myUFOprogressbar').css('display' , 'block').fadeIn(100);
+            console.log('click ok');
+            })   
+            $('#more4').click(function(){
+            $('#myUFOprogressbar').css('display' , 'block').fadeIn(100);
+            console.log('click ok');
+            })
+            $('#more5').click(function(){
+            $('#myUFOprogressbar').css('display' , 'block').fadeIn(100);
+            console.log('click ok');
+            })
+            $('#more6').click(function(){
+            $('#myUFOprogressbar').css('display' , 'block').fadeIn(100);
+            console.log('click ok');
+            })
+
+
         
