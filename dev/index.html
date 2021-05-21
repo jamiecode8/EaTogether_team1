@@ -34,22 +34,17 @@
 
             <!-- ----------whatToEat彈窗---------- -->
             <!-- q1 -->
-            <div class="popUps index_whatToEat_popup 1" v-show="q1">
+            <div class="popUps index_whatToEat_popup 1"  v-show="q1" >
                 <form class="form whatToEat_q" action="">
                     <button type="button" class="whatToEatClose btn_close" @click=''>
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>今天吃什麼</h1>
                     <h2>Q1:請選擇符合你心情的顏色</h2>
-                    <input  @click="show" type="text" value="" class="myOptions"  v-model="choice">
+                    <input  @click="show" type="text" :value="GetChoice(0)" class="myOptions">
                     <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
                         <ul v-show="myOptions" class="select_options" id="options">
-                            <li v-for="color in mrtColor" @click='myColor(color)'>{{color}}</li>
-                            <!-- <li class="b" v-model="choice">藍色</li>
-                            <li class="r" v-model="choice">紅色</li>
-                            <li class="g" v-model="choice">綠色</li>
-                            <li class="br"v-model="choice">棕色</li>
-                            <li class="y" v-model="choice">黃色</li> -->
+                            <li v-for="color in mrtColor" @click='myChoice(color,0)'>{{color}}</li>
                         </ul>
                     
                     <div class="btn">
@@ -61,19 +56,15 @@
                    <!-- q2 -->
                    <div class="popUps index_whatToEat_popup 2" v-show="q2">
                     <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close">
+                        <button type="button"  class="whatToEatClose btn_close">
                             <img src="./img/icon/icon_close_20.png" alt="">
                         </button>
                         <h1>今天吃什麼</h1>
                         <h2>Q2:請選擇你的口味偏好</h2>
-                        <input  @click="show" type="text" value="" class="myOptions"  v-model="choice">
+                        <input  @click="show" type="text" :value="GetChoice(1)" class="myOptions">
                         <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
                             <ul v-show="myOptions" class="select_options" id="options">
-                                <li v-for="color in favor" @click='myColor(color)'>{{color}}</li>
-                            <!-- <li>我吃重鹹</li>
-                            <li>無辣不歡</li>
-                            <li>健康路線</li>
-                            <li>甜食殺手</li> -->
+                                <li v-for="favor in favors" @click='myChoice(favor,1)'>{{favor}}</li>
                             </ul>
     
                         <div class="buttonArea">
@@ -91,15 +82,12 @@
                         </button>
                         <h1>今天吃什麼</h1>
                         <h2>Q3:你現在想去的國家</h2>
-                        <input type="text"  class="myOptions" disabled="disabled">
-                        <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
-                        <ul class="select_options" id="options">
-                            <li>日本</li>
-                            <li>義大利</li>
-                            <li>美國</li>
-                            <li>留在台灣</li>
-                        </ul>
-    
+                        <input  @click="show" type="text" :value="GetChoice(2)" class="myOptions">
+                        <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
+                            <ul v-show="myOptions" class="select_options" id="options">
+                                <li v-for="country in countrys" @click='myChoice(country,2)'>{{country}}</li>
+                            </ul>
+
                         <div class="buttonArea">
                             <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
                             <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
@@ -115,18 +103,15 @@
                         </button>
                         <h1>今天吃什麼</h1>
                         <h2>Q4:你的感情狀態</h2>
-                        <input type="text"  class="myOptions" disabled="disabled">
-                        <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
-                        <ul class="select_options" id="options">
-                            <li>曖昧讓我委屈</li>
-                            <li>單身狗狗</li>
-                            <li>失戀無罪</li>
-                            <li>幸福美滿</li>
-                        </ul>
+                        <input  @click="show" type="text" :value="GetChoice(3)" class="myOptions">
+                        <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
+                            <ul v-show="myOptions" class="select_options" id="options">
+                                <li v-for="feeling in emotion" @click='myChoice(feeling,3)'>{{feeling}}</li>
+                            </ul>
     
                         <div class="buttonArea">
                             <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
-                            <input  value="看結果" class="whatBtnNext btn_d btn_submit" />
+                            <input  value="看結果" class="whatBtnNext btn_d btn_submit"  @click="callAjax"/>
                         </div>
                     
                     </form>
@@ -139,7 +124,7 @@
                     </button>
                     <h1>今天吃什麼</h1>
                     <h2>適合你的食物是</h2>
-                    <input type="text"  class="myOptions" disabled="disabled">    
+                    <input type="text"  class="myOptions" disabled="disabled" value="" placeholder="後端撈出來食物">    
     
                     <div class="whatBtn buttonArea">
                         <input  value="再一次" class="whatBtnAgain btn_d btn_submit" />
@@ -540,28 +525,39 @@
             el: '#app_index',
             data: {     //變數放這裡!
                 mrtColor: ['藍色','紅色','綠色','棕色','黃色'],
-                favor:['我吃重鹹','無辣不歡','健康路線','甜食螞蟻'],
+                favors:['我吃重鹹','無辣不歡','健康路線','甜食螞蟻'],
+                countrys:['日本','義大利','美國','留在台灣'],
+                emotion:['曖昧讓人受盡委屈','喜歡寂寞','失戀無罪','戀愛i-n-g'],
                 myOptions:false,
                 q1:false,
                 q2:false,
                 q3:false,
                 q4:false,
                 q5:false,
-
-                choice:'',
+                choices:[],
             },
             methods: {  //函數大部分放這裡!
                 show(){
                     this.myOptions = !this.myOptions;  
                 },
-                myColor(color){
-                    this.choice = color;
+                myChoice(selected,index){
+                    this.choices[index] = selected;
+                    // console.log(this.choices);
                     this.myOptions = false;
                 },
                 whatToEat(){
-                    this.q1 = !this.q1;
+                    this.q1=!this.q1;
+                    
+                },
+                GetChoice(index){
+                    return this.choices[index];
+                },
+                callAjax(){
+                    console.log(this.choices);
+                    alert('send to backend');
                 }
-            },     
+            },
+           
         });
         //-----whatToEat彈窗------
         //打開彈窗
