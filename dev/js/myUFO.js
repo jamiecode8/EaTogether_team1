@@ -79,32 +79,32 @@
 
         //   ---------------每日任務的進度條-----------------------
         $('#more1').on('click', function(){
-            $('.more1').val( $('.more1').val() + 50);
+            $('.more1').val( $('.more1').val() + 100);
             return false;
           });
           
           $('#more2').on('click', function(){
-            $('.more2').val( $('.more2').val() + 50);
+            $('.more2').val( $('.more2').val() + 100);
             return false;
           });
           
           $('#more3').on('click', function(){
-            $('.more3').val( $('.more3').val() + 50);
+            $('.more3').val( $('.more3').val() + 100);
             return false;
           });
           
           $('#more4').on('click', function(){
-            $('.more4').val( $('.more4').val() + 50);
+            $('.more4').val( $('.more4').val() + 100);
             return false;
           });
           
           $('#more5').on('click', function(){
-            $('.more5').val( $('.more5').val() + 50);
+            $('.more5').val( $('.more5').val() + 100);
             return false;
           });
           
           $('#more6').on('click', function(){
-            $('.more6').val( $('.more6').val() + 50);
+            $('.more6').val( $('.more6').val() + 100);
             return false;
           });
           
@@ -175,5 +175,3 @@
             console.log('click ok');
             })
 
-
-        

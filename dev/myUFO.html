@@ -7,6 +7,9 @@
         @@include('layout/style.html')
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <title>我的飛碟</title>
+        <link
+        rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  
     </head>
 
     <body class="myUFO_wrapper">
@@ -36,9 +39,21 @@
             <div class="favorites"><a href="#" ><img src="./img/mimi/favorites.svg" alt="" class="hover-button"/></a></div>
             <!-- 櫃子 -->
             <div class="cabinet"><a href="#" ><img src="./img/mimi/cabinet.svg" alt="" class="hover-button" id="category"/></a></div>
- 
             <!-- 輪播版 -->
             <div class="Carousel"><img src="./img/mimi/Carousel.svg" alt=""  /></div>
+            <!---輪播----->
+               <!-- Swiper -->
+            
+               <div class="slideshow-body" id="slideshow">
+                <div class="slide-wrapper">
+                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告.jpg" alt=""></a></div>
+                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告2.jpg" alt=""></a></div>
+                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告3.jpg" alt=""></a></div>
+                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告4.jpg" alt=""></a></div>
+                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告5.png" alt=""></a></div>
+                </div>
+              </div>
+                         
             <!-- 外星人   -->
             <div class="character"><a href="#"><img src="./img/mimi/wardrobe_character.svg" alt="" class="animated pulse infinite delay-4s"/></a></div>
            <div class="myufo_searchbtn1">
@@ -128,7 +143,7 @@
                       <div class="Littleman"><img src="./img/mimi/Littleman.svg" alt="" ></div>
                       <!-- --2---- -->
                     <div class="progressmimi">
-                      <p>每日小遊戲1/2</p>
+                      <p>每日小遊戲</p>
                       <div class="progress_bar">
                         <progress max="100" value="0" class="more1"></progress>
                         
@@ -142,7 +157,7 @@
                 <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBlue.png" alt="" ></div>
                 <!-- --2---- -->
               <div class="progressmimi">
-                <p>藍線搜尋1/2</p>
+                <p>藍線搜尋</p>
                 <div class="progress_bar">
                   <progress max="100" value="0" class="more2"></progress>
                   
@@ -156,7 +171,7 @@
               <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBrown.png" alt="" ></div>
               <!-- --2---- -->
             <div class="progressmimi">
-              <p>綜線搜尋1/2</p>
+              <p>綜線搜尋</p>
               <div class="progress_bar">
                 <progress max="100" value="0" class="more3"></progress>
                   
@@ -170,7 +185,7 @@
             <div class="mrtSmalltask"><img src="./img/icon/icon_mrtGreen.png" alt="" ></div>
             <!-- --2---- -->
           <div class="progressmimi">
-            <p>綠線搜尋1/2</p>
+            <p>綠線搜尋</p>
             <div class="progress_bar">
               <progress max="100" value="0" class="more4"></progress>
                   
@@ -184,7 +199,7 @@
           <div class="mrtSmalltask"><img src="./img/icon/icon_mrtRed.png" alt="" ></div>
           <!-- --2---- -->
         <div class="progressmimi">
-          <p>紅線搜尋1/2</p>
+          <p>紅線搜尋</p>
           <div class="progress_bar">
             <progress max="100" value="0" class="more5"></progress>
                 
@@ -198,7 +213,7 @@
         <div class="mrtSmalltask"><img src="./img/icon/icon_mrtYellow.png" alt="" ></div>
         <!-- --2---- -->
       <div class="progressmimi">
-        <p>橘線搜尋1/2</p>
+        <p>橘線搜尋</p>
         <div class="progress_bar">
           <progress max="100" value="0" class="more6"></progress>
           <button type="button" id="more6" class="buybtn6">兌換</button>

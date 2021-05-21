@@ -581,7 +581,7 @@ overflow: hidden;
     padding: 0%;
     width: 25%;
     height: 52%;
-    z-index: 10;
+    z-index: 51;
 
     @include rwd(desktop){
     position: absolute;
@@ -592,7 +592,7 @@ overflow: hidden;
     padding: 0%;
     width: 25%;
     height: 52%;
-    z-index: 10;
+    z-index: 51;
 
     }
     @include rwd(desktopSmall){
@@ -604,7 +604,7 @@ overflow: hidden;
     padding: 0%;
     width: 30%;
     height: 52%;
-    z-index: 10;
+    z-index: 51;
     
     }
     @include rwd(pad){
@@ -616,7 +616,7 @@ overflow: hidden;
         padding: 0%;
         width: 50%;
         height: 52%;
-        z-index: 10;
+        z-index: 51;
     }
     @include rwd(largeMobile){
         position: absolute;
@@ -627,7 +627,7 @@ overflow: hidden;
         padding: 0%;
         width: 55%;
         height: 52%;
-        z-index: 10;
+        z-index: 51;
     }
     @include rwd(mobile){
         position: absolute;
@@ -638,7 +638,7 @@ overflow: hidden;
         padding: 0%;
         width: 60%;
         height: 52%;
-        z-index: 10;
+        z-index: 51;
         }
     img{
       width: 100%;
@@ -660,6 +660,49 @@ overflow: hidden;
 
     }
 }
+
+// -----TV輪播---------------------
+.slideshow-body{
+    position: absolute;
+    top: 8%;
+    right:3% ;
+    left: 0%;
+    border-radius: 10px;
+}
+#slideshow {
+    overflow: hidden;
+    height: 215px;
+    width: 290px;
+    margin: 0 auto;
+    z-index: 50;
+  }
+  
+  .slide-wrapper {
+    width: 2912px;
+    -webkit-animation: slide 14s ease infinite;
+  }
+  .slide-wrapper  img{
+    width: 290px;
+    height: 215px;
+    
+  }
+  
+  .slide {
+    float: left;
+    height: 207px;
+    width: 290px;
+  }
+  
+  
+  @-webkit-keyframes slide {
+    20% {margin-left: 0px;}
+    30% {margin-left: -290px;}
+    50% {margin-left: -290px;}
+    60% {margin-left: -580px;}
+    70% {margin-left: -580px;}
+    80% {margin-left: -870px;}
+    90% {margin-left: -870px;}
+  }
 // ---------------------------
 
 .myuFOsearchbut{
