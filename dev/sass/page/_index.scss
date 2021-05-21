@@ -83,7 +83,6 @@ body.index{
 }
 .index_whatToEat_popup{
     z-index: 1000;
-    display: none;
     position: absolute;
     top:3vh;
     left:10vw;
@@ -111,7 +110,7 @@ body.index{
         .select_options{
             margin-top: -20px;   
             border: 2px solid $lightgreen;
-            display: none;
+            // display: none;
             li{
                 padding-left: 10px;
                 line-height:36px;

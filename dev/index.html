@@ -10,10 +10,10 @@
     <body class="index">
         @@include('layout/header.html')
     
-        <div class="wrapper index_wrapper">
+        <div class="wrapper index_wrapper" id="app_index">
               <!-- ----------搜尋按鈕---------- -->
-              <ul class="index_searchbtn">
-                <li class="search_btn_whatToEat">
+            <ul class="index_searchbtn" id="mySearchBtn">
+                <li class="search_btn_whatToEat" @click='whatToEat'>
                     <img src="./img/index/What to eat.png" alt="">
                     <p>今天吃什麼</p>
                 </li>
@@ -34,118 +34,119 @@
 
             <!-- ----------whatToEat彈窗---------- -->
             <!-- q1 -->
-            <div class="popUps index_whatToEat_popup 1">
+            <div class="popUps index_whatToEat_popup 1" v-show="q1">
                 <form class="form whatToEat_q" action="">
-                    <button type="button" class="whatToEatClose btn_close">
+                    <button type="button" class="whatToEatClose btn_close" @click=''>
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>今天吃什麼</h1>
                     <h2>Q1:請選擇符合你心情的顏色</h2>
-                    <input type="text" 
-                     class="myOptions" disabled="disabled">
-                    <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
-                    <ul class="select_options" id="options">
-                        <li class="b">藍色</li>
-                        <li class="r">紅色</li>
-                        <li class="g">綠色</li>
-                        <li class="br">棕色</li>
-                        <li class="y">黃色</li>
-                    </ul>
+                    <input  @click="show" type="text" value="" class="myOptions"  v-model="choice">
+                    <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
+                        <ul v-show="myOptions" class="select_options" id="options">
+                            <li v-for="color in mrtColor" @click='myColor(color)'>{{color}}</li>
+                            <!-- <li class="b" v-model="choice">藍色</li>
+                            <li class="r" v-model="choice">紅色</li>
+                            <li class="g" v-model="choice">綠色</li>
+                            <li class="br"v-model="choice">棕色</li>
+                            <li class="y" v-model="choice">黃色</li> -->
+                        </ul>
                     
                     <div class="btn">
                         <input  value="下一題" class="whatBtnNext btn_submit" />
                     </div>
-              
+                    
                 </form>
             </div>
-            <!-- q2 -->
-            <div class="popUps index_whatToEat_popup 2">
-                <form class="form whatToEat_q" action="">
-                    <button type="button" class="whatToEatClose btn_close">
-                        <img src="./img/icon/icon_close_20.png" alt="">
-                    </button>
-                    <h1>今天吃什麼</h1>
-                    <h2>Q2:請選擇你的口味偏好</h2>
-                    <input type="text"  class="myOptions" disabled="disabled">
-                    <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
-                    <ul class="select_options" id="options">
-                        <li>我吃重鹹</li>
-                        <li>無辣不歡</li>
-                        <li>健康路線</li>
-                        <li>甜食殺手</li>
-                    </ul>
-
-                    <div class="buttonArea">
-                        <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
-                        <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
-                    </div>
-              
-                </form>
-            </div>
-            <!-- q3 -->
-            <div class="popUps index_whatToEat_popup 3">
-                <form class="form whatToEat_q" action="">
-                    <button type="button" class="whatToEatClose btn_close">
-                        <img src="./img/icon/icon_close_20.png" alt="">
-                    </button>
-                    <h1>今天吃什麼</h1>
-                    <h2>Q3:你現在想去的國家</h2>
-                    <input type="text"  class="myOptions" disabled="disabled">
-                    <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
-                    <ul class="select_options" id="options">
-                        <li>日本</li>
-                        <li>義大利</li>
-                        <li>美國</li>
-                        <li>留在台灣</li>
-                    </ul>
-
-                    <div class="buttonArea">
-                        <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
-                        <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
-                    </div>
-              
-                </form>
-            </div>
-            <!-- q4 -->
-            <div class="popUps index_whatToEat_popup 4">
-                <form class="form whatToEat_q" action="">
-                    <button type="button" class="whatToEatClose btn_close">
-                        <img src="./img/icon/icon_close_20.png" alt="">
-                    </button>
-                    <h1>今天吃什麼</h1>
-                    <h2>Q4:你的感情狀態</h2>
-                    <input type="text"  class="myOptions" disabled="disabled">
-                    <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
-                    <ul class="select_options" id="options">
-                        <li>曖昧讓我委屈</li>
-                        <li>單身狗狗</li>
-                        <li>失戀無罪</li>
-                        <li>幸福美滿</li>
-                    </ul>
-
-                    <div class="buttonArea">
-                        <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
-                        <input  value="看結果" class="whatBtnNext btn_d btn_submit" />
-                    </div>
-                
-                </form>
-            </div>
-            <!-- q5 -->
-            <div class="popUps index_whatToEat_popup 5">
-            <form class="form whatToEat_q" action="">
-                <button type="button" class="whatToEatClose btn_close">
-                    <img src="./img/icon/icon_close_20.png" alt="">
-                </button>
-                <h1>今天吃什麼</h1>
-                <h2>適合你的食物是</h2>
-                <input type="text"  class="myOptions" disabled="disabled">    
-
-                <div class="whatBtn buttonArea">
-                    <input  value="再一次" class="whatBtnAgain btn_d btn_submit" />
-                    <input  value="哪裡有" class=" getWhatBtn btn_d btn_submit" />
+                   <!-- q2 -->
+                   <div class="popUps index_whatToEat_popup 2" v-show="q2">
+                    <form class="form whatToEat_q" action="">
+                        <button type="button" class="whatToEatClose btn_close">
+                            <img src="./img/icon/icon_close_20.png" alt="">
+                        </button>
+                        <h1>今天吃什麼</h1>
+                        <h2>Q2:請選擇你的口味偏好</h2>
+                        <input  @click="show" type="text" value="" class="myOptions"  v-model="choice">
+                        <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
+                            <ul v-show="myOptions" class="select_options" id="options">
+                                <li v-for="color in favor" @click='myColor(color)'>{{color}}</li>
+                            <!-- <li>我吃重鹹</li>
+                            <li>無辣不歡</li>
+                            <li>健康路線</li>
+                            <li>甜食殺手</li> -->
+                            </ul>
+    
+                        <div class="buttonArea">
+                            <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
+                            <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
+                        </div>
+                  
+                    </form>
                 </div>
-                </form>
-            </div> 
+                <!-- q3 -->
+                <div class="popUps index_whatToEat_popup 3" v-show="q3">
+                    <form class="form whatToEat_q" action="">
+                        <button type="button" class="whatToEatClose btn_close">
+                            <img src="./img/icon/icon_close_20.png" alt="">
+                        </button>
+                        <h1>今天吃什麼</h1>
+                        <h2>Q3:你現在想去的國家</h2>
+                        <input type="text"  class="myOptions" disabled="disabled">
+                        <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
+                        <ul class="select_options" id="options">
+                            <li>日本</li>
+                            <li>義大利</li>
+                            <li>美國</li>
+                            <li>留在台灣</li>
+                        </ul>
+    
+                        <div class="buttonArea">
+                            <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
+                            <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
+                        </div>
+                  
+                    </form>
+                </div>
+                <!-- q4 -->
+                <div class="popUps index_whatToEat_popup 4" v-show="q4">
+                    <form class="form whatToEat_q" action="">
+                        <button type="button" class="whatToEatClose btn_close">
+                            <img src="./img/icon/icon_close_20.png" alt="">
+                        </button>
+                        <h1>今天吃什麼</h1>
+                        <h2>Q4:你的感情狀態</h2>
+                        <input type="text"  class="myOptions" disabled="disabled">
+                        <img class="whatToEat_q_arrow" src="./img/icon/icon_next_line.png" alt="">
+                        <ul class="select_options" id="options">
+                            <li>曖昧讓我委屈</li>
+                            <li>單身狗狗</li>
+                            <li>失戀無罪</li>
+                            <li>幸福美滿</li>
+                        </ul>
+    
+                        <div class="buttonArea">
+                            <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
+                            <input  value="看結果" class="whatBtnNext btn_d btn_submit" />
+                        </div>
+                    
+                    </form>
+                </div>
+                <!-- q5 -->
+                <div class="popUps index_whatToEat_popup 5" v-show="q5">
+                <form class="form whatToEat_q" action="">
+                    <button type="button" class="whatToEatClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h1>今天吃什麼</h1>
+                    <h2>適合你的食物是</h2>
+                    <input type="text"  class="myOptions" disabled="disabled">    
+    
+                    <div class="whatBtn buttonArea">
+                        <input  value="再一次" class="whatBtnAgain btn_d btn_submit" />
+                        <input  value="哪裡有" class=" getWhatBtn btn_d btn_submit" />
+                    </div>
+                    </form>
+                </div>
             <!-- ----------whatToEat彈窗end---------- -->
             <!-- ----------search彈窗end---------- -->
             <!-- 搜尋彈窗 -->
@@ -534,36 +535,61 @@
         </div>
         @@include('layout/footer.html')
     <script>
+        //vue
+        new Vue({
+            el: '#app_index',
+            data: {     //變數放這裡!
+                mrtColor: ['藍色','紅色','綠色','棕色','黃色'],
+                favor:['我吃重鹹','無辣不歡','健康路線','甜食螞蟻'],
+                myOptions:false,
+                q1:false,
+                q2:false,
+                q3:false,
+                q4:false,
+                q5:false,
 
+                choice:'',
+            },
+            methods: {  //函數大部分放這裡!
+                show(){
+                    this.myOptions = !this.myOptions;  
+                },
+                myColor(color){
+                    this.choice = color;
+                    this.myOptions = false;
+                },
+                whatToEat(){
+                    this.q1 = !this.q1;
+                }
+            },     
+        });
         //-----whatToEat彈窗------
         //打開彈窗
-        $('.search_btn_whatToEat').click(function (){
-            $('.index_search_popup').fadeOut(100);
-            $('.index_whatToEat_popup.1').fadeIn(50);
+        // $('.search_btn_whatToEat').click(function (){
+        //     $('.index_search_popup').fadeOut(100);
+        //     $('.index_whatToEat_popup.1').fadeIn(50);
 
-        });
+        // });
 
         //關閉彈窗
-        $('.whatToEatClose').click(function (){
-            $('.index_whatToEat_popup').fadeOut(200);
-        });
+        // $('.whatToEatClose').click(function (){
+        //     $('.index_whatToEat_popup').fadeOut(200);
+        // });
     
         //下拉箭頭打開
-        $('.whatToEat_q_arrow').click(function (e) {
-            // e.preventDefault();
-            // $(this).toggleClass('on');
-            $('.select_options').toggleClass('on');
-        });
+        // $('.whatToEat_q_arrow').click(function (e) {
+        //     $('.select_options').toggleClass('on');
+        // });
 
         //選擇答案 (取選到的值) 那每題的input變成陣列
-        $('#options li').click(function(){
-            let options=document.getElementsByClassName('myOptions');  
-            let questionIndex=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;   //為了取索引位置-1 questionNumber=questionIndex
-            options[questionIndex].value=$(this).text();//options[0]拿第一題
-            console.log(questionIndex);
-            $('.select_options').toggleClass('on');
-            // $('.whatToEat_q_arrow').toggleClass('on');
-        });
+        // $('#options li').click(function(){
+        //     let options=document.getElementsByClassName('myOptions');  
+        //     let questionIndex=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;   //為了取索引位置-1 questionNumber=questionIndex
+        //     options[questionIndex].value=$(this).text();//options[0]拿第一題
+        //     console.log(questionIndex);
+        //     $('.select_options').toggleClass('on');
+        //     // $('.whatToEat_q_arrow').toggleClass('on');
+        // });
 
         //按下一題並回答問題才可繼續
         $('.whatBtnNext').click(function(){
@@ -598,8 +624,9 @@
         //-----search彈窗------
         //打開彈窗
         $('.search_btn_Search').click(function(){
-            $('.index_whatToEat_popup').fadeOut(100);
-            $('.index_search_popup').fadeIn(50);        
+            $('.index_search_popup').toggleClass('on');
+            // $('.index_whatToEat_popup').fadeOut(100);
+            // $('.index_search_popup').fadeIn(50);        
         });
         //關閉彈窗
         $('.getSearchClose').click(function (){
