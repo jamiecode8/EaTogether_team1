@@ -40,7 +40,7 @@
             <!-- 輪播版 -->
             <div class="Carousel"><img src="./img/mimi/Carousel.svg" alt=""  /></div>
             <!-- 外星人   -->
-            <div class="character"><a href="#"><img src="./img/mimi/wardrobe_character.svg" alt="" class="animated headShake infinite delay-1s"/></a></div>
+            <div class="character"><a href="#"><img src="./img/mimi/wardrobe_character.svg" alt="" class="animated pulse infinite delay-4s"/></a></div>
            <div class="myufo_searchbtn1">
             <ul class="index_searchbtn myufo_searchbtn2">
   
@@ -90,7 +90,23 @@
               <div class="couponicon"><img src="./img/mimi/couponicon.svg" alt="" ></div>
               <!-- 單顆按鈕用這裡 -->
               <div class="buttonArea">
-                <a href="#"><div class="buybtn">領取優惠券</div></a>
+                <a href="#"><div class="buybtn" id="couponbut2">領取優惠券</div></a>
+              </div>
+            </form>
+          </div>
+
+          <div class="popUps" id="wardrobe_coupon2">
+            <form action="#資料傳送送的網址" method="post" class="form">
+              <!-- close button -->
+              <button type="button" class="close_coupon btn_close">
+                <img src="./img/icon/icon_close.png" alt="" >
+              </button>
+               <h1>每日優惠卷一張</h1>
+              <!-- 主標題 -->
+              <h2>請給店員操作</h2>
+              <!-- 單顆按鈕用這裡 -->
+              <div class="buttonArea">
+                <a href="#"><div class="buybtn22">兌換優惠券</div></a>
               </div>
             </form>
           </div>
@@ -242,6 +258,21 @@
                 }
     
         </script>  
+               <!-- -------總分類彈窗----------- -->
+               <div class="popUps myUFOprogressbar" id="myUFOprogressbar">
+            
+                <form action="#資料傳送送的網址" method="post" class="form categorform" >
+                  <!-- close button -->
+                  <button type="button" class="close_myUFOprogressbar btn_close">
+                    <img src="./img/icon/icon_close.png" alt="" >
+                  </button>
+                   <h1>已領取點數10點!</h1>
+                  
+                </form>
+                
+              </div>
+
+        
   
         
         <!-- ----------靜瑩角色彈窗---------- -->
