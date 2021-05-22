@@ -5,15 +5,15 @@
         <a href="./index.html" class="logo">
             <img src="./img/logo.png" alt="" />
         </a>
-        <!-- 會員頭像 -->
-        <div class="headerInner_login" id="headerInner_login">
-          <a href="./login_member.html"  class="headerInner_login_link" >
+        <!-- 會員頭像 Vue掛載點-->
+        <div class="headerInner_login app" id="headerInner_login" >  
+          <a  class="headerInner_login_link" @click="header_toggle" >
           </a>
            <!-- 登入後，會員頭像才會出現的彈窗 -->
-          <div class="popUps popUpsLogout">
+          <div class="popUps popUpsLogout" v-show="toggle">
             <form action="" method="" class="form popUpsLogout_from">
-              <p class="popUpsLogout_p">編輯會員資料</p>
-              <p class="popUpsLogout_p">登出</p>
+              <a href="./login_member.html"><p class="popUpsLogout_p">編輯會員資料</p></a>
+              <a href="./index.html"><p class="popUpsLogout_p">登出</p></a>
             </form>
           </div>
         </div>
@@ -80,3 +80,5 @@
     prevScrollpos = currentScrollPos;
     }
 </script>
+
+<script src="../js/header.js" ></script>
