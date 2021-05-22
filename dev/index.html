@@ -17,7 +17,7 @@
                     <img src="./img/index/What to eat.png" alt="">
                     <p>今天吃什麼</p>
                 </li>
-                <li class="search_btn_Search">
+                <li class="search_btn_Search" @click='searchIcon'>
                     <img src="./img/index/search.png" alt="">
                     <p>美食搜尋</p>
                 </li>
@@ -36,7 +36,7 @@
             <!-- q1 -->
             <div class="popUps index_whatToEat_popup 1"  v-show="q1" >
                 <form class="form whatToEat_q" action="">
-                    <button type="button" class="whatToEatClose btn_close" @click=''>
+                    <button type="button" class="whatToEatClose btn_close">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>今天吃什麼</h1>
@@ -53,89 +53,89 @@
                     
                 </form>
             </div>
-                   <!-- q2 -->
-                   <div class="popUps index_whatToEat_popup 2" v-show="q2">
-                    <form class="form whatToEat_q" action="">
-                        <button type="button"  class="whatToEatClose btn_close">
-                            <img src="./img/icon/icon_close_20.png" alt="">
-                        </button>
-                        <h1>今天吃什麼</h1>
-                        <h2>Q2:請選擇你的口味偏好</h2>
-                        <input  @click="show" type="text" :value="GetChoice(1)" class="myOptions">
-                        <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
-                            <ul v-show="myOptions" class="select_options" id="options">
-                                <li v-for="favor in favors" @click='myChoice(favor,1)'>{{favor}}</li>
-                            </ul>
-    
-                        <div class="buttonArea">
-                            <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
-                            <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
-                        </div>
-                  
-                    </form>
-                </div>
-                <!-- q3 -->
-                <div class="popUps index_whatToEat_popup 3" v-show="q3">
-                    <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close">
-                            <img src="./img/icon/icon_close_20.png" alt="">
-                        </button>
-                        <h1>今天吃什麼</h1>
-                        <h2>Q3:你現在想去的國家</h2>
-                        <input  @click="show" type="text" :value="GetChoice(2)" class="myOptions">
-                        <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
-                            <ul v-show="myOptions" class="select_options" id="options">
-                                <li v-for="country in countrys" @click='myChoice(country,2)'>{{country}}</li>
-                            </ul>
+            <!-- q2 -->
+            <div class="popUps index_whatToEat_popup 2" v-show="q2">
+                <form class="form whatToEat_q" action="">
+                    <button type="button"  class="whatToEatClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h1>今天吃什麼</h1>
+                    <h2>Q2:請選擇你的口味偏好</h2>
+                    <input  @click="show" type="text" :value="GetChoice(1)" class="myOptions">
+                    <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
+                        <ul v-show="myOptions" class="select_options" id="options">
+                            <li v-for="favor in favors" @click='myChoice(favor,1)'>{{favor}}</li>
+                        </ul>
 
-                        <div class="buttonArea">
-                            <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
-                            <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
-                        </div>
-                  
-                    </form>
-                </div>
-                <!-- q4 -->
-                <div class="popUps index_whatToEat_popup 4" v-show="q4">
-                    <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close">
-                            <img src="./img/icon/icon_close_20.png" alt="">
-                        </button>
-                        <h1>今天吃什麼</h1>
-                        <h2>Q4:你的感情狀態</h2>
-                        <input  @click="show" type="text" :value="GetChoice(3)" class="myOptions">
-                        <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
-                            <ul v-show="myOptions" class="select_options" id="options">
-                                <li v-for="feeling in emotion" @click='myChoice(feeling,3)'>{{feeling}}</li>
-                            </ul>
-    
-                        <div class="buttonArea">
-                            <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
-                            <input  value="看結果" class="whatBtnNext btn_d btn_submit"  @click="callAjax"/>
-                        </div>
-                    
-                    </form>
-                </div>
-                <!-- q5 -->
-                <div class="popUps index_whatToEat_popup 5" v-show="q5">
+                    <div class="buttonArea">
+                        <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
+                        <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
+                    </div>
+            
+                </form>
+            </div>
+            <!-- q3 -->
+            <div class="popUps index_whatToEat_popup 3" v-show="q3">
                 <form class="form whatToEat_q" action="">
                     <button type="button" class="whatToEatClose btn_close">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>今天吃什麼</h1>
-                    <h2>適合你的食物是</h2>
-                    <input type="text"  class="myOptions" disabled="disabled" value="" placeholder="後端撈出來食物">    
-    
-                    <div class="whatBtn buttonArea">
-                        <input  value="再一次" class="whatBtnAgain btn_d btn_submit" />
-                        <input  value="哪裡有" class=" getWhatBtn btn_d btn_submit" />
+                    <h2>Q3:你現在想去的國家</h2>
+                    <input  @click="show" type="text" :value="GetChoice(2)" class="myOptions">
+                    <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
+                        <ul v-show="myOptions" class="select_options" id="options">
+                            <li v-for="country in countrys" @click='myChoice(country,2)'>{{country}}</li>
+                        </ul>
+
+                    <div class="buttonArea">
+                        <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
+                        <input  value="下一題" class="whatBtnNext btn_d btn_submit" />
                     </div>
-                    </form>
+            
+                </form>
+            </div>
+            <!-- q4 -->
+            <div class="popUps index_whatToEat_popup 4" v-show="q4">
+                <form class="form whatToEat_q" action="">
+                    <button type="button" class="whatToEatClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h1>今天吃什麼</h1>
+                    <h2>Q4:你的感情狀態</h2>
+                    <input  @click="show" type="text" :value="GetChoice(3)" class="myOptions">
+                    <img class="whatToEat_q_arrow" @click="show" src="./img/icon/icon_next_line.png" alt="">
+                        <ul v-show="myOptions" class="select_options" id="options">
+                            <li v-for="feeling in emotion" @click='myChoice(feeling,3)'>{{feeling}}</li>
+                        </ul>
+
+                    <div class="buttonArea">
+                        <input  value="上一題" class="whatBtnPre btn_d btn_submit" />
+                        <input  value="看結果" class="whatBtnNext btn_d btn_submit"  @click="callAjax"/>
+                    </div>
+                
+                </form>
+            </div>
+            <!-- q5 -->
+            <div class="popUps index_whatToEat_popup 5" v-show="q5">
+            <form class="form whatToEat_q" action="">
+                <button type="button" class="whatToEatClose btn_close">
+                    <img src="./img/icon/icon_close_20.png" alt="">
+                </button>
+                <h1>今天吃什麼</h1>
+                <h2>適合你的食物是</h2>
+                <input type="text"  class="myOptions" disabled="disabled" value="" placeholder="後端撈出來食物">    
+
+                <div class="whatBtn buttonArea">
+                    <input  value="再一次" class="whatBtnAgain btn_d btn_submit" />
+                    <input  value="哪裡有" class=" getWhatBtn btn_d btn_submit" />
                 </div>
+                </form>
+            </div>
             <!-- ----------whatToEat彈窗end---------- -->
             <!-- ----------search彈窗end---------- -->
             <!-- 搜尋彈窗 -->
-            <div class="popUps index_search_popup">
+            <div class="popUps index_search_popup" v-show="searchBoard">
                 <form class="form getSearch" action="">
                     <button type="button" class="getSearchClose btn_close">
                         <img src="./img/icon/icon_close_20.png" alt="">
@@ -143,39 +143,42 @@
                     <h1>Search</h1>
                     <div class="searchFood text_search">
                         <h2>搜尋美食</h2>
-                        <input type="text">
-                        <img src="./img/icon/icon_search.png" alt="">
+                        <input type="text"  :disabled="isTyped" v-model="findFood" @click='showTag(1)'>
+                        <img src="./img/icon/icon_search.png" alt="" @click='showFood'>
+                        <!-- <ul class="foodTypeList" v-show="foodList">
+                            <li class="foodType" v-for="food in foods" @click="myFood(food)">{{food}}</li>
+                        </ul> -->
                     </div>
                     <div class="searchFood mrt_search"> 
                         <h2>捷運路線</h2>
-                        <input type="text" disabled="disabled">
-                        <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="">
-                        <ul class="mrtLines">
-                            <li class="b">板南線</li>
-                            <li class="r">淡水信義線</li>
-                            <li class="g">松山新店線</li>
-                            <li class="br">文湖線</li>
-                            <li class="y">中和新蘆線</li>
+                        <input @click='show' type="text" disabled="disabled" v-model="searchLine" >
+                        <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="" @click='showLine'>
+                        <ul class="mrtLines" v-show="myLine">
+                            <li v-for="line in mrtLine" @click="myline(line)">{{line}}</li>
                         </ul>
                     </div>
                     <div class="searchFood  keyword_search">
-                        <h2>關鍵字搜索</h2>
-                        <input type="text" disabled="disabled"> 
-                        <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="">
-                        <div class="searchTags">
-                            <span>#日式</span><span>#韓式</span><span>#美式</span><span>#台式</span>
-                            <span>#法式</span><span>#中式</span><span>#聚餐</span><span>#簡餐</span>
-                            <span>#銅板美食</span><span>#下午茶</span><span>#早午餐</span><span>#商業午餐</span>
-                            <span>#夜市</span><span>#咖哩</span><span>#火鍋</span><span>#牛排</span>
-                            <span>#咖啡店</span><span>#餐酒館</span><span>#鐵板燒</span><span>#拉麵</span>
-                            <span>#甜點</span><span>#麵食</span><span>#雞排</span><span>#鹽酥雞</span> 
-                        </div>
+                        <h2>分類搜索</h2>
+                        <input type="text" disabled="disabled" v-model="searchTags"> 
+                        <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="" @click="showTag(3)">
                     </div>
-            
+    
                     <div class="SearchBtn btn">
-                        <input  value="出發探索" class="getSearchBtn btn_submit" />
+                        <input  value="出發探索" class="getSearchBtn btn_submit"/>
                     </div>
               
+                </form>
+            </div>
+            <!-- 標籤彈窗     -->
+            <div class="popUps tags_popUp" v-show="tagList" >
+                <form action="#資料傳送送的網址"  class="form getTags">
+                    <button type="button" class="getSearchClose btn_close">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h2>請選擇標籤</h2>
+                    <div class="searchTags">
+                        <span v-for="tag in tags" @click="myTag(tag)">{{tag}}</span>
+                    </div>
                 </form>
             </div>
             <!-- 搜尋結果彈窗 -->
@@ -523,38 +526,89 @@
         //vue
         new Vue({
             el: '#app_index',
-            data: {     //變數放這裡!
+            data: { 
+                //題目答案    
                 mrtColor: ['藍色','紅色','綠色','棕色','黃色'],
                 favors:['我吃重鹹','無辣不歡','健康路線','甜食螞蟻'],
                 countrys:['日本','義大利','美國','留在台灣'],
                 emotion:['曖昧讓人受盡委屈','喜歡寂寞','失戀無罪','戀愛i-n-g'],
+                //題目答案的下拉選單
                 myOptions:false,
+                //題目的下拉選單  
                 q1:false,
                 q2:false,
                 q3:false,
                 q4:false,
                 q5:false,
+                //選擇的答案陣列
                 choices:[],
+                //搜尋
+                searchBoard:false,
+                myLine:false,
+                mrtLine:['板南線','淡水信義線','松山新店線','文湖線','中和新蘆線'],
+                // lines:false,
+                searchLine:'',
+                findFood:'',
+                searchTags:'',
+                foodList:false,
+                // foods:['鹽酥雞','雞排','咖哩','火鍋','牛排','拉麵','鐵板燒'],
+                tagList:false,                                                                               						
+                tags:['#日式','#韓式','#美式','#義式','#台式','#法式','#中式','#夜市','#商業午餐','#早午餐','#下午茶','#銅板美食','#簡餐','#聚餐','#餐酒館','#咖啡店','#甜點','#麵食','#鹽酥雞','#雞排','#咖哩','#火鍋','#牛排','#拉麵','#鐵板燒'],
+                isTyped:false,
             },
-            methods: {  //函數大部分放這裡!
+            methods: { 
+                whatToEat(){
+                    this.q1=!this.q1;
+                },
+                //打開下拉選單
                 show(){
                     this.myOptions = !this.myOptions;  
                 },
+                //選到的答案對應到題目
                 myChoice(selected,index){
                     this.choices[index] = selected;
                     // console.log(this.choices);
                     this.myOptions = false;
                 },
-                whatToEat(){
-                    this.q1=!this.q1;
-                    
-                },
+                //選的答案到input
                 GetChoice(index){
                     return this.choices[index];
                 },
+                //測試答案送到後端
                 callAjax(){
                     console.log(this.choices);
                     alert('send to backend');
+                },
+                //打開搜尋彈窗
+                searchIcon(){
+                    //console.log(this.searchBoard);
+                    this.searchBoard = !this.searchBoard;  
+                },
+                showLine(){
+                    this.myLine = !this.myLine;
+                },
+                myline(line){
+                    this.searchLine= line;
+                    this.myLine = false;
+                },
+                showFood(){
+                    this.foodList = !this.foodList;
+                },
+                myFood(food){
+                    this.searchFood =food;
+                    this.foodList = false;
+                },
+                myTag(tag){
+                    this.searchTags = tag;
+                    this.tagList = false;
+                },
+                showTag(number){
+                    if(number==3 && this.findFood==''){
+                        this.tagList = !this.tagList;
+                    }
+                    if(number==1){
+                        this.searchTags='';
+                    }
                 }
             },
            
@@ -568,9 +622,9 @@
         // });
 
         //關閉彈窗
-        // $('.whatToEatClose').click(function (){
-        //     $('.index_whatToEat_popup').fadeOut(200);
-        // });
+        $('.whatToEatClose').click(function (){
+            $('.index_whatToEat_popup').fadeOut(200);
+        });
     
         //下拉箭頭打開
         // $('.whatToEat_q_arrow').click(function (e) {
@@ -619,22 +673,23 @@
 
         //-----search彈窗------
         //打開彈窗
-        $('.search_btn_Search').click(function(){
-            $('.index_search_popup').toggleClass('on');
-            // $('.index_whatToEat_popup').fadeOut(100);
-            // $('.index_search_popup').fadeIn(50);        
-        });
+        // $('.search_btn_Search').click(function(){
+        //     $('.index_search_popup').toggleClass('on');
+        //     // $('.index_whatToEat_popup').fadeOut(100);
+        //     // $('.index_search_popup').fadeIn(50);        
+        // });
         //關閉彈窗
         $('.getSearchClose').click(function (){
             $(this.parentNode.parentNode).fadeOut(200);
+            
         });
         //顯示下拉選單
-        $('.mrt_search_icon').click(function (){
-            $('.mrtLines').toggleClass('on');
-        });
-        $('.keyword_search_icon').click(function (){
-            $('.searchTags').toggleClass('on');
-        });
+        // $('.mrt_search_icon').click(function (){
+        //     $('.mrtLines').toggleClass('on');
+        // });
+        // $('.keyword_search_icon').click(function (){
+        //     $('.searchTags').toggleClass('on');
+        // });
         //出發探索 搜尋結果彈窗出現
         $('.getSearchBtn').click(function (){
             $('.index_search_popup').fadeOut(50);
