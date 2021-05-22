@@ -10,14 +10,13 @@
     background-image: url(../../img/tang/background.png);
     background-size: cover;
     background-repeat: repeat;
-    padding-top: 100px;
+    padding-top: 70px;
 }
 
 //公用
 .pho_main{
     width:1200px;
     margin:0 auto;
-    padding: 30px 0;
 }
 
 //使用者頭像
@@ -49,7 +48,7 @@
 // 上方 s1
 .pho_top_s1{
     display:flex;
-    margin: 4% 0 3%;
+    margin: 4% 0 2%;
 
     h1{
         width:9%;
@@ -66,6 +65,23 @@
         margin-top: 35px;
         position: relative;
         left: -30px;
+    }
+}
+
+div .pho_top_personal_page_s1{
+    margin: 2% 0 2%;
+}
+
+.pho_top_personal_page{
+    ul{
+        display:flex;
+        justify-content: space-between;
+        width:70%;
+        margin-bottom: 2%;
+    }
+    span{
+        font-weight: bold;
+        margin-right: 5px;
     }
 }
 
@@ -86,9 +102,13 @@
     
     border-top: 1px solid $green;
     padding-top: 2%;
+
+    a:hover{
+        color: $green;
+    }
 }
 
-//下方拍立得
+//拍立得
 .pho_store_cards_lists{
     display: flex;
     flex-wrap: wrap;
@@ -106,10 +126,10 @@
     }
     img{
         width: 100%;
-        
     }
 
-}   
+}
+
 
 //商家連結、按讚、留言
 .pho_vender_thumb_message{
@@ -149,10 +169,13 @@
     article{
         flex-basis: 0;
         flex-grow: 5;
-        padding-bottom: 4%;
-
-        
+        padding-bottom: 6%; 
     }
+
+    article{
+        line-height: 1.2;
+    }
+
     &>p{
         flex-basis: 0;
         flex-grow: 5; 
@@ -161,196 +184,38 @@
     }
 }
 
-// -----------------myphoto rwd----------------- //
+//============================= myphoto_personal_page =============================//
+//大部分使用myphoto頁面的scss
 
-@include rwd(desktop){
-    .pho_main{
-        width:1000px;
+// 上方s1
+.pho_top_personal_page{
+    a:hover{
+        color: $green;
     }
 }
 
-@include rwd(desktopSmall){
-    .pho_main{
-        width:88%;
-    }
-
-    .pho_top_s1 img {
-        margin-top: 27px;
-    }
-    
-    .pho_store_cards_lists{
-        li{
-            flex-basis:31%;
-            margin-bottom: 3%;
-        }
-    }
-    
-    .pho_vender_thumb_message a:nth-child(1){
-        padding-right: 20%;
-    }
-
-    .pho_vender_feat_tag{
-        padding-right: 15%;
-    }
-
-    .pho_vender_profile{
-        a img{
-            padding-bottom: 10px;
-        }
-    }
-}
-
-@include rwd(pad){
-    .pho_main{
-        width:90%;
-    }
-    .pho_top_s1 h1{
-        width:13%;
-        padding: 5% 0 2%;
-    }
-
-    .pho_top_s1 img{
-        margin-top: 24px;
-    }
-
-    .pho_store_cards_lists{
-        padding-top:20px;
-
-        li{
-            flex-basis:31%;
-            margin-bottom: 3%;
-        }
-    }
-    
-    .pho_vender_thumb_message a:nth-child(1){
-        padding-right: 10%;
-        font-size: 16px;
-    }
-
-    .pho_vender_feat_tag{
-        padding-right: 15%;
-    }
-
-    .pho_vender_profile{
-        a img{
-            padding:0 1px 2px 0;
-        }
-
-        p a {
-            font-size: 10px;
-            line-height: 0.1;
-        }
-
-        article p{
-            line-height:1.5;
-        }
-
-        p{
-            font-size: 10px;
-            margin-bottom: 2px;
-        }
-    }
-}
-
-@include rwd(largeMobile){
-    .pho_main{
-        width:90%;
-    }
-
-    .pho_top_content img {
-        flex-basis: 0;
-        flex-grow: 3;
-    }
-    .pho_top_s1 h1 {
-        width: 60px;
-        padding: 5% 0 2%;
-    }
-    
-    .pho_user_pic {
-        width: 27%;
-        padding: 0;
-    }
-
-    .pho_store_cards_lists {
-        padding-top: 20px;
-    }
-
-    .pho_store_cards_lists{
-        flex-direction: column;
-    }
-
-    .pho_store_cards_lists li {
-        padding: 5%;
-        margin: 3% auto;
-    }
-
-    .pho_top_s1 img {
-        margin-top: 20px;
-    }
-}
-
-@include rwd(mobile){
-    .pho_main{
-        width:90%;
-    }
-    .pho_top_wrapper {
-        justify-content: center;
-    }
-
-    .pho_top_s2 a {
-        font-size: 12px;
-    }
-
-    .pho_top_content img {
-        flex-basis: 0;
-        flex-grow: 3;
-    }
-    .pho_top_s1 h1 {
-        width: 70px;
-        padding: 6% 0 2%;
-    }
-    
-    .pho_user_pic {
-        width: 27%;
-        padding: 2% 0;
-        height: 0x;
-    }
-
-    .pho_store_cards_lists {
-        padding-top: 20px;
-    }
-
-    .pho_store_cards_lists{
-        flex-direction: column;
-    }
-
-    .pho_store_cards_lists li {
-        padding: 5%;
-        margin: 3% auto;
-    }
-
-    .pho_top_s1 img {
-        margin-top: 20px;
-    }
-}
-
-
-//-------------------------拍立得內文彈窗-------------------------//
+//==========================拍立得內文彈窗==========================//
 .pho_disappear{
     display: none;
 }
 .pho_popUps{
     
-    position: relative; 
-
+    position: absolute; 
     width:70%;
     position: fixed;
     z-index: 1000;
-   
 
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+
+
+    // max-width: 70%;
+    // max-height: 80vh;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // position: absolute;
 
 
 }
@@ -523,12 +388,337 @@
     }
 }
 
+//==========================查看粉絲彈窗==========================// 
+.pho_popUps_fans.on{
+    display:block;
+}
+
+.pho_popUps_fans{
+    z-index: 1000;
+    display: none;
+    position: absolute;
+    top: 6%;
+    left: 34%;
+    position: fixed;
+    h1{
+        margin-bottom: 30px;
+    }
+    
+    article{
+        height:320px;
+        overflow-x:hidden;
+        overflow-y:auto;
+    }
+
+    article span{
+        padding: 0;
+    }
+
+    .pho_article_a5 .btn_cancel{
+        width: 70px;
+        font-size: 12px;
+        line-height: 34px;
+        margin: 14px;
+    }
+
+    .btn{
+        margin-left: 45%;
+    }
+
+}
+
+#pho_scroll_style::-webkit-scrollbar-track {
+    background-color: #fdfdfd;
+}
+
+#pho_scroll_style::-webkit-scrollbar {
+    width: 6px;
+}
+
+#pho_scroll_style::-webkit-scrollbar-thumb {
+    background-color: $green;
+}
+
+.pho_popUps_fans .pho_article_a5:first-child{
+    margin-top: 15px;
+}
+
+.pho_popUps_fans .pho_article_a6{
+    margin-top: 15px;
+}
+
+.pho_popUps_fans .pho_article_a5{
+    display: flex;
+    align-items: center;
+    
+    img:first-child {
+        width: 20%;
+        margin-right:10px;
+        padding: 0;
+        display: inline-block;
+    }
+}
+
+//==========================查看追蹤名單彈窗==========================// 
+.pho_popUps_follow.on{
+    display:block;
+}
+
+.pho_popUps_follow{
+    z-index: 1000;
+    display: none;
+    position: absolute;
+    top: 6%;
+    left: 34%;
+    position: fixed;
+    h1{
+        margin-bottom: 30px;
+    }
+    
+    article{
+        height:320px;
+        overflow-x:hidden;
+        overflow-y:auto;
+    }
+
+    article span{
+        padding: 0;
+    }
+
+    .pho_article_a5 .btn_cancel{
+        width: 70px;
+        font-size: 12px;
+        line-height: 34px;
+        margin: 14px;
+    }
+
+    .btn{
+        margin-left: 45%;
+    }
+
+}
+
+#pho_scroll_style::-webkit-scrollbar-track {
+    background-color: #fdfdfd;
+}
+
+#pho_scroll_style::-webkit-scrollbar {
+    width: 6px;
+}
+
+#pho_scroll_style::-webkit-scrollbar-thumb {
+    background-color: $green;
+}
+
+.pho_popUps_follow .pho_article_a5:first-child{
+    margin-top: 15px;
+}
+
+.pho_popUps_follow .pho_article_a6{
+    margin-top: 15px;
+}
+
+.pho_popUps_follow .pho_article_a5{
+    display: flex;
+    align-items: center;
+    
+    img:first-child {
+        width: 20%;
+        margin-right:10px;
+        padding: 0;
+        display: inline-block;
+    }
+}
+
+// -----------------myphoto rwd----------------- //
+
+@include rwd(desktop){
+    .pho_main{
+        width:1000px;
+    }
+}
+
+@include rwd(desktopSmall){
+    .pho_main{
+        width:80%;
+    }
+
+    .pho_top_s1 img {
+        margin-top: 27px;
+    }
+    
+    .pho_store_cards_lists{
+        li{
+            flex-basis:31%;
+            margin-bottom: 3%;
+        }
+    }
+    
+    .pho_vender_thumb_message a:nth-child(1){
+        padding-right: 20%;
+    }
+
+    .pho_vender_feat_tag{
+        padding-right: 15%;
+    }
+
+    .pho_vender_profile{
+        a img{
+            padding-bottom: 10px;
+        }
+    }
+}
+
+@include rwd(pad){
+    .pho_main{
+        width:90%;
+    }
+    .pho_top_s1 h1{
+        width:13%;
+        padding: 5% 0 2%;
+    }
+
+    .pho_top_s1 img{
+        margin-top: 24px;
+    }
+
+    .pho_store_cards_lists{
+        padding-top:20px;
+
+        li{
+            flex-basis:31%;
+            margin-bottom: 3%;
+        }
+    }
+    
+    .pho_vender_thumb_message a:nth-child(1){
+        padding-right: 10%;
+        font-size: 16px;
+    }
+
+    .pho_vender_feat_tag{
+        padding-right: 15%;
+    }
+
+    .pho_vender_profile{
+        a img{
+            padding:0 1px 2px 0;
+        }
+
+        p a {
+            font-size: 10px;
+            line-height: 0.1;
+        }
+
+        article p{
+            line-height:1.5;
+        }
+
+        p{
+            font-size: 10px;
+            margin-bottom: 2px;
+        }
+    }
+}
+
+@include rwd(largeMobile){
+    .pho_main{
+        width:90%;
+    }
+
+    .pho_top_content img {
+        flex-basis: 0;
+        flex-grow: 3;
+    }
+    .pho_top_s1 h1 {
+        width: 60px;
+        padding: 5% 0 2%;
+    }
+    
+    .pho_user_pic {
+        width: 27%;
+        padding: 0;
+    }
+
+    .pho_store_cards_lists {
+        padding-top: 20px;
+    }
+
+    .pho_store_cards_lists{
+        flex-direction: column;
+    }
+
+    .pho_store_cards_lists li {
+        padding: 5%;
+        margin: 3% auto;
+    }
+
+    .pho_top_s1 img {
+        margin-top: 20px;
+    }
+}
+
+@include rwd(mobile){
+    .pho_main{
+        width:90%;
+    }
+    .pho_top_wrapper {
+        justify-content: center;
+    }
+
+    .pho_top_s2 a {
+        font-size: 12px;
+    }
+
+    .pho_top_content img {
+        flex-basis: 0;
+        flex-grow: 3;
+    }
+    .pho_top_s1 h1 {
+        width: 70px;
+        padding: 6% 0 2%;
+    }
+    
+    .pho_user_pic {
+        width: 27%;
+        padding: 5% 0;
+        height: 0x;
+    }
+
+    .pho_store_cards_lists {
+        padding-top: 20px;
+    }
+
+    .pho_store_cards_lists{
+        flex-direction: column;
+    }
+
+    .pho_store_cards_lists li {
+        padding: 5%;
+        margin: 3% auto;
+    }
+
+    .pho_top_s1 img {
+        margin-top: 20px;
+    }
+
+// -------------------pho_personal_page RWD ------------------- //
+    .pho_top_personal_page{
+        ul{
+            width:100%;
+        }
+    }
+}
+
+
+
+
 
 
 // -------------------拍立得內文彈窗 RWD ------------------- //
 @include rwd(desktop){
     .pho_popUps {
-        width: 70%;
+        width: 70%;       
     }
 }
 
@@ -699,11 +889,6 @@
     
 // jamie加的
 .pho_popUps{
-    @include rwd(pad){
-        // overflow: auto;
-        // height: 90vh;
-        // display: flex;
-        }
     @include rwd(largeMobile){
         overflow: auto;
         height: 90vh;
@@ -713,3 +898,7 @@
         height: 90vh;
     }
     }
+    
+
+
+

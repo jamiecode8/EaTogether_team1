@@ -24,9 +24,9 @@
                     <!-- 使用者ET頭像 -->
                     <img class="pho_user_pic"src="././img/tang/ET_photo.png" alt="">
                     
-                    <!-- 上方s1 -->
                     <div>
-                        <section class="pho_top_s1">
+                        <!-- 上方s1 -->
+                        <section class="pho_top_s1 pho_top_personal_page_s1">
                             <!-- 使用者ID -->
                             <h1>訪客</h1>
                         
@@ -34,14 +34,24 @@
                             <input class="pho_search_bar" type="text" id="pho_search" placeholder="Search">
                             <label for="pho_search"><img src="././img/icon/icon_search.png" alt=""></label>
                         </section>
-                    
+
+                        <section class="pho_top_personal_page">
+                            <!-- 貼文數、粉絲、追蹤者 -->
+                            <ul>
+                                <li><a href="#"><span>66</span>貼文</a></li>
+                                <li><a class="pho_fans_openbtn" href="#"><span>88</span>位追蹤者</a></li>
+                                <li><a class="pho_follow_openbtn" href="#"><span>50</span>追蹤中</a></li>
+                            </ul>
+                        </section>
+
+
                         <!-- 上方s2 -->
                         <section class="pho_top_s2">
 
                             <!-- 選單 -->
                             <ul class="pho_menu">
                                 <li><a href="myphoto.html">推薦拍立得</a></li>
-                                <li><a href="myphoto_personal_page.html">我的拍立得</a></li>
+                                <li class="pho_personal_page_btn"><a href="myphoto_personal_page.html">我的拍立得</a></li>
                                 <li><a href="myphoto_post_pic.html">製作拍立得</a></li>
                                 <li><a href="#">我的追蹤</a></li>
                             </ul>
@@ -280,7 +290,7 @@
                     </button>
                     
 
-                    <div>
+                    <div class="pho_popUps_allcontent">
                         <!-- s1 pic-->
                         <section class="pho_poppus_s1">
                             <div>
@@ -317,7 +327,7 @@
                                 </div>
                             </article>
                             
-                            <article>
+                            <article class="pho_article_allcontent_a5">
                                 <div class="pho_article_a5">
                                     <img src="./img/tang/ET_photo.png" alt="">   
                                     <span><a href="#">tina888</a></span>
@@ -350,6 +360,231 @@
                  </form> 
             </div>
             
+            <!------------- 查看粉絲彈窗 -------------->
+            <div class="popUps pho_popUps_fans pho_fans" >
+                <form action="#資料傳送送的網址" method="post" class="form">
+                    <!-- close button -->
+                    <button type="button" class="btn_close pho_fans_closebtn">
+                        <img src="./img/icon/icon_close.png" alt="" />
+                    </button>
+            
+                    <!-- 主標題 -->
+                    <h1>粉絲</h1>
+                    
+                    <div class="pho_line_p1"></div>
+
+                    <article id="pho_scroll_style">
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+                    </article>
+                </form>
+            </div>
+
+            <!------------- 查看追蹤名單彈窗 -------------->
+            <div class="popUps pho_popUps_follow pho_follow">
+                <form action="#資料傳送送的網址" method="post" class="form">
+                    <!-- close button -->
+                    <button type="button" class="btn_close pho_follow_closebtn">
+                        <img src="./img/icon/icon_close.png" alt="" />
+                    </button>
+            
+                    <!-- 主標題 -->
+                    <h1>追蹤中</h1>
+                    
+                    <div class="pho_line_p1"></div>
+
+                    <article id="pho_scroll_style">
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+                    </article>
+                </form>
+            </div>
         
         </main>
     </div>
@@ -360,7 +595,9 @@
 
 <!-- ==================================上方開始編輯========================================== -->
     @@include('layout/footer.html')
+
 <script>
+    // 開啟、關閉拍立得內文彈窗
     let pho_popup_closebtn_js = document.getElementById('pho_popup_closebtn');
     let pho_cards_pic_js = document.querySelectorAll('img.pho_cards_pic');
 
@@ -369,12 +606,33 @@
             pho_popup_closebtn_js.closest('div.pho_popUps').classList.remove('pho_disappear');
         });
     }
-
         pho_popup_closebtn_js.addEventListener("click",function(){
             this.closest('div.pho_popUps').classList.add('pho_disappear');
         });
 
+    // ----------查看粉絲彈窗----------
+    //打開彈窗
+    $('.pho_fans_openbtn').click(function (){
+        $('.pho_popUps_fans').fadeOut(100);
+        $('.pho_popUps_fans.pho_fans').fadeIn(50);
+    });
 
+    //關閉彈窗
+    $('.pho_fans_closebtn').click(function (){
+        $('.pho_popUps_fans').fadeOut(200);
+    });
+
+    // ----------追蹤名單彈窗----------
+    //打開彈窗
+    $('.pho_follow_openbtn').click(function(){
+        $('.pho_popUps_follow').fadeOut(100);
+        $('.pho_popUps_follow.pho_follow').fadeIn(50);
+    });
+
+    //關閉彈窗
+    $('.pho_follow_closebtn').click(function(){
+        $('.pho_popUps_follow').fadeOut(200);
+    });
 
 </script>
 
