@@ -374,7 +374,7 @@ overflow: hidden;
     }
     @include rwd(mobile){
     position: absolute;
-    bottom:38%;
+    bottom:20%;
     right: 4%;
     margin: 0%;
     padding: 0%;
@@ -455,7 +455,7 @@ overflow: hidden;
     }
     @include rwd(mobile){
         position: absolute;
-        bottom: 0%;
+        top: 30%;
         left: 2%;
         margin: 0% 0%;
         padding: 70px 0%;
@@ -543,11 +543,11 @@ overflow: hidden;
     @include rwd(mobile){
         position: absolute;
         top: 0%;
-        right: 25%;
-        left: 25%;
+        right:15%;
+        left:15%;
         margin: 0%;
         padding: 0%;
-        width: 50%;
+        width: 70%;
         height: 52%;
         z-index: 10;
         }
@@ -699,8 +699,8 @@ overflow: hidden;
         }
         @include rwd(mobile){
             position: absolute;
-            top: 4%;
-            right:6% ;
+            top: 6%;
+            right:10% ;
             left: 0%;
             border-radius: 10px;
         }
@@ -741,8 +741,8 @@ overflow: hidden;
         }
         @include rwd(mobile){
             overflow: hidden;
-            height: 17%;
-            width: 36%;
+            max-height: 22%;
+            width: 50%;
             margin: 0 auto;
             z-index: 50;
         }
@@ -768,12 +768,12 @@ overflow: hidden;
             height: 110%;
         }
         @include rwd(largeMobile){
-            width: 110%;
-            height: 110%;
+            width: 75%;
+            height: 75%;
         }
         @include rwd(mobile){
-            width: 110%;
-            height: 110%;
+            width: 75%;
+            height: 75%;
         }
     
   }
