@@ -7,6 +7,11 @@
         @@include('layout/style.html')
         <title>首頁</title>
     </head>
+    <style>
+        .noText{
+            background-color:#ECECEC;
+        }
+    </style>
     <body class="index">
         @@include('layout/header.html')
     
@@ -143,7 +148,7 @@
                     <h1>Search</h1>
                     <div class="searchFood text_search">
                         <h2>搜尋美食</h2>
-                        <input type="text"  :disabled="isTyped" v-model="findFood" @click='showTag(1)'>
+                        <input :class="findFoodClass" type="text"  :disabled="isTyped" v-model="findFood" @click='showTag(1)'>
                         <img src="./img/icon/icon_search.png" alt="" @click='showFood'>
                         <!-- <ul class="foodTypeList" v-show="foodList">
                             <li class="foodType" v-for="food in foods" @click="myFood(food)">{{food}}</li>
@@ -151,15 +156,15 @@
                     </div>
                     <div class="searchFood mrt_search"> 
                         <h2>捷運路線</h2>
-                        <input @click='show' type="text" disabled="disabled" v-model="searchLine" >
+                        <input :class="searchLineClass" @click='show' type="text" disabled="disabled" v-model="searchLine" >
                         <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="" @click='showLine'>
                         <ul class="mrtLines" v-show="myLine">
                             <li v-for="line in mrtLine" @click="myline(line)">{{line}}</li>
                         </ul>
                     </div>
                     <div class="searchFood  keyword_search">
-                        <h2>分類搜索</h2>
-                        <input type="text" disabled="disabled" v-model="searchTags"> 
+                        <h2>標籤搜尋</h2>
+                        <input :class="searchTagsClass" type="text" disabled="disabled" v-model="searchTags"> 
                         <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="" @click="showTag(3)">
                     </div>
     
@@ -609,8 +614,27 @@
                     if(number==1){
                         this.searchTags='';
                     }
-                }
+                },
+             
             },
+            computed:{
+                findFoodClass(){
+                    return{
+                        noText: this.findFood.length === 0,                    
+                    }
+                },
+                searchLineClass(){
+                    return{
+                        noText: this.searchLine.length === 0,                    
+                    }
+                },
+                searchTagsClass(){
+                    return{
+                        noText: this.searchTags.length === 0,                    
+                    }
+                },
+                
+            }
            
         });
         //-----whatToEat彈窗------
