@@ -67,7 +67,7 @@ body.index{
 }
 @mixin search_btn_hover{
     transform: translateY(-30px);
-    background-color: $mrtBrown;
+    background-color:$mrtBrown;
     transition: all 0.3s;
 }
 .search_btn_whatToEat:hover{
@@ -523,6 +523,8 @@ body.index{
         .reportStore{
             margin-bottom: 10px;
             .reportStore_name{
+                font-size: 18px;
+                text-align: left;
                 padding-bottom: 10px;
                 font-weight: bold;
                 color: $green;
@@ -536,7 +538,7 @@ body.index{
             }
         }
         .reportReason{
-            h2{
+            h2{ 
                 color: $mrtRed;
                 padding-bottom: 5px;
             }
