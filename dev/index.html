@@ -8,9 +8,7 @@
         <title>首頁</title>
     </head>
     <style>
-        .noText{
-            background-color:#ECECEC;
-        }
+    
     </style>
     <body class="index">
         @@include('layout/header.html')
@@ -40,23 +38,20 @@
             <!-- ----------whatToEat彈窗---------- -->
             <!-- q1 -->
             <keep-alive>
-            <component :is="content" @next-emit="nextQ" @pre-emit="preQ" @answer-emit="answerQ" @call-ajax-emit="callAjaxQ"></component>
+            <component :is="content"  @next-emit="nextQ" @pre-emit="preQ" @answer-emit="answerQ" @call-ajax-emit="callAjaxQ" @close-emit="closeQ" @again-emit="againQ" :selected="choices"></component>
             </keep-alive>
 
             <!-- 搜尋彈窗 -->
-            <div class="popUps index_search_popup" v-show="isShowSearch">
+            <div class="popUps index_search_popup" v-show="isSearchBoard">
                 <form class="form getSearch" action="">
-                    <button type="button" class="getSearchClose btn_close">
+                    <button type="button" class="getSearchClose btn_close" @click='closeSearch(1)'>
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>Search</h1>
                     <div class="searchFood text_search">
                         <h2>搜尋美食</h2>
                         <input :class="findFoodClass" type="text"  :disabled="isTyped" v-model="findFood" @click='showTag(1)'>
-                        <img src="./img/icon/icon_search.png" alt="" @click='showFood'>
-                        <!-- <ul class="foodTypeList" v-show="foodList">
-                            <li class="foodType" v-for="food in foods" @click="myFood(food)">{{food}}</li>
-                        </ul> -->
+                        <img src="./img/icon/icon_search.png" alt="">
                     </div>
                     <div class="searchFood mrt_search"> 
                         <h2>捷運路線</h2>
@@ -73,7 +68,7 @@
                     </div>
     
                     <div class="SearchBtn btn">
-                        <input  value="出發探索" class="getSearchBtn btn_submit"/>
+                        <input  value="出發探索" class="getSearchBtn btn_submit" @click='searchFood'>
                     </div>
               
                 </form>
@@ -91,9 +86,9 @@
                 </form>
             </div>
             <!-- 搜尋結果彈窗 -->
-            <div class="popUps index_store_popup">
+            <div class="popUps index_store_popup" v-show="isSearchStores">
                 <form class="form getStore" action="">
-                    <button type="button" class="getSearchClose btn_close">
+                    <button type="button" class="getSearchClose btn_close" @click="closeSearch(2)">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <div class="searchFood text_search">
@@ -120,9 +115,9 @@
                                     <span class="station_color">南京復興</span>
                                 </li>
                                 <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
+                                    <span>#銅板美食</span>
                                     <span>#咖啡店</span>
-                                    <span>#甜點</span>
+                                    <span>#慘酒館</span>
                                 </li>
                             </ul>
                             <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
@@ -228,9 +223,9 @@
                 </form>
             </div>
             <!-- 店家詳細資訊 -->
-            <div class="popUps index_inf_popup">
+            <div class="popUps index_inf_popup" v-show="isStoreInf">
                 <form class="form getStoreDigitalInf" action="">
-                    <button type="button" class="getSearchClose btn_close">
+                    <button type="button" class="getSearchClose btn_close" @click="closeSearch(3)">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <div class="searchFood text_search">
@@ -432,13 +427,14 @@
         </div>
         @@include('layout/footer.html')
     <script>
+        const bus = new Vue();
         Vue.component('1',{
-            props: [''],
+            props: ['selected'],
             template: `
                 <div class="popUps index_whatToEat_popup 1">
                     <form class="form whatToEat_q" action="">
                         <button type="button" class="whatToEatClose btn_close">
-                            <img src="./img/icon/icon_close_20.png" alt="">
+                            <img src="./img/icon/icon_close_20.png" alt="" @click='closeForm'>
                         </button>
                         <h1>今天吃什麼</h1>
                         <h2>Q1:請選擇符合你心情的顏色</h2>
@@ -447,7 +443,7 @@
                             <ul v-show="isOption" class="select_options" id="options">
                                 <li v-for="color in mrtColor" @click="getOption(color)">{{color}}</li>
                             </ul>
-                            <p v-show="warn" style="color:red">請完成作答</p>
+                            <p v-show="warn" style="color:#f98072">請完成作答</p>
                         <div class="btn">
                             <input  value="下一題" class="whatBtnNext btn_submit" @click="getNext" />
                         </div>
@@ -462,6 +458,9 @@
                     isOption:false,
                     warn:false,
                 };
+            },
+            mounted() {
+                bus.$on('clear-input-emit', () => this.selectedOption ='' ); 
             },
             methods: {
                 showList(){
@@ -480,17 +479,22 @@
                     }else{
                         this.warn = true;
                     }
-                }
-              
+                },
+                closeForm(){
+                    this.$emit('close-emit');
+                    bus.$emit('clear-input-emit')
+
+                },
+                
             },    
         });
         Vue.component('2',{
-            props: [],
+            props: ['selected'],
             template: `
                 <div class="popUps index_whatToEat_popup 2">
                     <form class="form whatToEat_q" action="">
                         <button type="button" class="whatToEatClose btn_close">
-                            <img src="./img/icon/icon_close_20.png" alt="">
+                            <img src="./img/icon/icon_close_20.png" alt="" @click='closeForm'>
                         </button>
                         <h1>今天吃什麼</h1>
                         <h2>Q2:請選擇你的口味偏好</h2>
@@ -499,7 +503,7 @@
                         <ul v-show="isOption" class="select_options" id="options">
                             <li v-for="favor in favors" @click='getOption(favor)'>{{favor}}</li>
                         </ul>
-                        <p v-show="warn" style="color:red">請完成作答</p>
+                        <p v-show="warn" style="color:#f98072">請完成作答</p>
 
                         
                         <div class="btn">
@@ -512,19 +516,22 @@
             `,
             data(){
                 return {
-                    selectedOption:'',
+                    selectedOption:this.selected[1],
                     favors:['我吃重鹹','無辣不歡','健康路線','甜食螞蟻'],
                     isOption:false,
                     warn:false,
 
                 };
             },
+            mounted() {
+                bus.$on('clear-input-emit', () => this.selectedOption ='' ); 
+            },
             methods: {
                 showList(){
                     this.isOption = !this.isOption;  
                 },
                 getOption(favor){
-                    this.selectedOption=favor;
+                    this.selectedOption= favor;
                     this.isOption=false;
                     this.$emit('answer-emit',favor);
                     this.warn = false;
@@ -538,16 +545,20 @@
                 },
                 getPre(){
                     this.$emit('pre-emit');
+                },
+                closeForm(){
+                    this.$emit('close-emit');
+                    bus.$emit('clear-input-emit')
+
                 }
             },    
         });
-        
         Vue.component('3',{
-            props: [],
+            props: ['selected'],
             template: `
                 <div class="popUps index_whatToEat_popup 3">
                     <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close">
+                        <button type="button" class="whatToEatClose btn_close" @click='closeForm'>
                             <img src="./img/icon/icon_close_20.png" alt="">
                         </button>
                         <h1>今天吃什麼</h1>
@@ -557,7 +568,7 @@
                         <ul v-show="isOption" class="select_options" id="options">
                             <li v-for="country in countrys" @click='getOption(country)'>{{country}}</li>
                         </ul>
-                        <p v-show="warn" style="color:red">請完成作答</p>
+                        <p v-show="warn" style="color:#f98072">請完成作答</p>
 
                         <div class="btn">
                             <input  value="上一題" class="whatBtnPre btn_d btn_submit" @click="getPre">
@@ -575,12 +586,15 @@
                     warn:false,
                 };
             },
+            mounted() {
+                bus.$on('clear-input-emit', () => this.selectedOption ='' ); 
+            },
             methods: {
                 showList(){
                     this.isOption = !this.isOption;  
                 },
                 getOption(country){
-                    this.selectedOption=country;
+                    this.selectedOption= country;
                     this.isOption=false;
                     this.$emit('answer-emit',country);
                     this.warn = false;
@@ -594,6 +608,11 @@
                 },
                 getPre(){
                     this.$emit('pre-emit');
+                },
+                closeForm(){
+                    this.$emit('close-emit');
+                    bus.$emit('clear-input-emit')
+
                 }
               
             },    
@@ -603,7 +622,7 @@
             template: `
                 <div class="popUps index_whatToEat_popup 4">
                     <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close">
+                        <button type="button" class="whatToEatClose btn_close" @click='closeForm'>
                             <img src="./img/icon/icon_close_20.png" alt="">
                         </button>
                         <h1>今天吃什麼</h1>
@@ -613,7 +632,7 @@
                         <ul v-show="isOption" class="select_options" id="options">
                             <li v-for="feeling in emotion" @click='getOption(feeling)'>{{feeling}}</li>
                         </ul>
-                        <p v-show="warn" style="color:red">請完成作答</p>
+                        <p v-show="warn" style="color:#f98072">請完成作答</p>
 
                         <div class="buttonArea">
                             <input  value="上一題" class="whatBtnPre btn_d btn_submit"  @click="getPre">
@@ -651,10 +670,16 @@
                     if(this.selectedOption !== ''){
                         this.$emit('next-emit');
                         this.$emit('call-ajax-emit');
-
+                        bus.$emit('clear-input-emit')
+        
                     }else{
                         this.warn = true;
                     }
+                },
+                closeForm(){
+                    this.$emit('close-emit');
+                    bus.$emit('clear-input-emit')
+
                 }
               
             },    
@@ -664,14 +689,14 @@
             template: `
                 <div class="popUps index_whatToEat_popup 5">
                     <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close">
+                        <button type="button" class="whatToEatClose btn_close" @click='closeForm'>
                             <img src="./img/icon/icon_close_20.png" alt="">
                         </button>
                         <h1>今天吃什麼</h1>
                         <h2>適合你的食物是</h2>
                         <input type="text"  class="myOptions" disabled="disabled" value="" placeholder="後端撈出來食物">    
                         <div class="whatBtn buttonArea">
-                            <input  value="再一次" class="whatBtnAgain btn_d btn_submit" @click="getPre" >
+                            <input  value="再一次" class="whatBtnAgain btn_d btn_submit" @click="getAgain" >
                             <input  value="哪裡有" class=" getWhatBtn btn_d btn_submit" >
                         </div>
                     </form>
@@ -684,58 +709,44 @@
             },
             methods: {
            
-                getPre(){
-                    this.$emit('pre-emit');
+                getAgain(){
+                    this.$emit('again-emit');
+                },
+                closeForm(){
+                    this.$emit('close-emit');
+                    bus.$emit('clear-input-emit')
+
                 }
               
             },    
         });
 
-        //vue
+        //search
         new Vue({
             el: '#app_index',
-            data: { 
-                q4:false,
-                q5:false,      
-                choices:[],
-                //搜尋
-                isShowSearch:false,
+            data: {     
+                choices:[],//whatToEat答案
+                isSearchBoard:false,
                 isShowLine:false,
                 mrtLine:['板南線','淡水信義線','松山新店線','文湖線','中和新蘆線'],
-                // lines:false,
                 searchLine:'',
                 findFood:'',
                 searchTags:'',
                 isShowTag:false,                                                                               						
                 tags:['#日式','#韓式','#美式','#義式','#台式','#法式','#中式','#夜市','#商業午餐','#早午餐','#下午茶','#銅板美食','#簡餐','#聚餐','#餐酒館','#咖啡店','#甜點','#麵食','#鹽酥雞','#雞排','#咖哩','#火鍋','#牛排','#拉麵','#鐵板燒'],
                 isTyped:false,
-                content:'',
+                content:'',//question compoment
+                isSearchStores:false,
+                isStoreInf:false,
             },
             methods: { 
               
-                //打開下拉選單
                 show(){
                     this.optionList = !this.optionList;  
                 },
-                //選到的答案對應到題目
-                // myChoice(selected,index){
-                //     this.choices[index]= selected;
-                //     // console.log(this.choices);
-                //     this.optionList = false;
-                // },
-                //選的答案到input
-                GetChoice(index){
-                    return this.choices[index];
-                },
-                //測試答案送到後端
-                // callAjax(){
-                //     console.log(this.choices);
-                //     alert('send to backend');
-                // },
                 //打開搜尋彈窗
                 searchIcon(){
-                    //console.log(this.isShowSearch);
-                    this.isShowSearch = !this.isShowSearch;  
+                    this.isSearchBoard = !this.isSearchBoard;  
                 },
                 showLine(){
                     this.isShowLine = !this.isShowLine;
@@ -743,9 +754,6 @@
                 myline(line){
                     this.searchLine= line;
                     this.isShowLine = false;
-                },
-                showFood(){
-                    this.foodList = !this.foodList;
                 },
                 myTag(tag){
                     this.searchTags = tag;
@@ -774,8 +782,37 @@
                     console.log(this.choices);
                     alert('send To Backend');
                     this.choices =['','','',''];
+                },
+                closeQ(){
+                    this.content = '';
+                    this.choices =['','','',''];
+                },
+                againQ(){
+                    this.content = '1';
+                    this.choices =['','','',''];
+                },
+                closeSearch(number){
+                    if(number == 1){
+                        this.isSearchBoard = false;
+                        this.searchLine = '';
+                        this.findFood = '';
+                        this.searchTags ='';
+                    }else if(number == 2){
+                        this.isSearchStores = false;
+                    }else if(number == 3){
+                        this.isStoreInf = false;
+                    }
+                   
+                },
+                searchFood(){
+                    this.searchLine = '';
+                    this.findFood = '';
+                    this.searchTags ='';
+                    console.log(this.findFood,this.searchLine,this.searchTags);
+                    alert('Ajax send to backend');
+                    this.isSearchBoard = false;
+                    this.isSearchStores = true;
                 }
-             
             },
             computed:{
                 findFoodClass(){
@@ -806,9 +843,9 @@
         // });
 
         //關閉彈窗
-        $('.whatToEatClose').click(function (){
-            $('.index_whatToEat_popup').fadeOut(200);
-        });
+        // $('.whatToEatClose').click(function (){
+        //     $('.index_whatToEat_popup').fadeOut(200);
+        // });
     
         //下拉箭頭打開
         // $('.whatToEat_q_arrow').click(function (e) {
@@ -863,10 +900,10 @@
         //     // $('.index_search_popup').fadeIn(50);        
         // });
         //關閉彈窗
-        $('.getSearchClose').click(function (){
-            $(this.parentNode.parentNode).fadeOut(200);
+        // $('.getSearchClose').click(function (){
+        //     $(this.parentNode.parentNode).fadeOut(200);
             
-        });
+        // });
         //顯示下拉選單
         // $('.mrt_search_icon').click(function (){
         //     $('.mrtLines').toggleClass('on');
@@ -875,16 +912,16 @@
         //     $('.searchTags').toggleClass('on');
         // });
         //出發探索 搜尋結果彈窗出現
-        $('.getSearchBtn').click(function (){
-            $('.index_search_popup').fadeOut(50);
-            $('.index_store_popup').fadeIn(50);
-        });
+        // $('.getSearchBtn').click(function (){
+        //     $('.index_search_popup').fadeOut(50);
+        //     $('.index_store_popup').fadeIn(50);
+        // });
         //搜尋結果彈窗 點擊跳店家資訊
-        $('.getStoreInf').click(function (e){
-            $(this.parentNode.parentNode.parentNode).fadeOut(100);
-            $('.index_inf_popup').fadeIn(50);
-        });
-        //收藏
+        // $('.getStoreInf').click(function (e){
+        //     $(this.parentNode.parentNode.parentNode).fadeOut(100);
+        //     $('.index_inf_popup').fadeIn(50);
+        // });
+        // //收藏
         $('.storeInf_title_like').click(function (){
             $(this).toggleClass('on');
         });

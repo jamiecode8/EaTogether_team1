@@ -139,6 +139,9 @@ body.index{
 }
 //----------whatToEat彈窗end----------
 //----------search彈窗end----------
+.noText{
+    background-color:#ECECEC;
+}
 .index_search_popup.on{
     // display: block;
 }
@@ -268,7 +271,7 @@ body.index{
 //----------搜尋結果彈窗----------
 .index_store_popup{
     z-index: 1000;
-    display: none;
+    // display: none;
     position:fixed;
     top: 3vh;
     left: 10vw;
@@ -318,6 +321,7 @@ body.index{
                     .getStoreInf_tag{
                         span{
                             color: $mrtBlue;
+                            font-size: 14px;
                         }
                     }
                     .getStoreInf_station{
@@ -345,7 +349,7 @@ body.index{
 //----------店家資訊彈窗----------
 .index_inf_popup{
     z-index: 1000;
-    display:none;
+    // display:none;
     position:fixed;
     top: 3vh;
     left: 10vw;
@@ -575,7 +579,7 @@ body.index{
         .index_searchbtn{
             bottom: 13vh;
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup, .tags_popUp {
             right: 50%;
             left: 50%;
         } 
@@ -603,7 +607,7 @@ body.index{
             bottom:15vh;    
             
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup, .tags_popUp {
             right: 50%;
             left: 50%;
         } 
@@ -653,7 +657,7 @@ body.index{
                 }
             }    
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup, .tags_popUp{
             right: 50%;
             left: 50%;
             
@@ -709,7 +713,8 @@ body.index{
                 }
             }    
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
+       
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup,  .tags_popUp {
             right: 50%;
             left: 50%;
            
