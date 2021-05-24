@@ -3,113 +3,67 @@
 <div id="app"> 
 <!-- 登入註冊彈窗 -->
     <div class="popUps login" id="memberLogin_popups" > <!--Chris-->
-        <form action="#資料傳送送的網址" method="" class="form login">
-            <!-- close button -->
-            <!-- <button type="button" class="btn_close">
-                <img src="./img/icon/icon_close.png" alt="" />
-            </button> -->
-
+        <form method="POST" action="../php/Frontend/API/Login.php" class="form login">
             <!-- 會員頭像 -->
             <div class="loginMemberPic">
                 <img src="./img/test_login_memberPic.png" alt="">
             </div>
-
-
             <div class="loginInner">
-
                 <!-- 登入註冊切換區 -->
                 <div class="loginSwitch">
-
                     <button type="button" class="toggolebtn areaShow"  id="btn_login"> 登入 </button>
                     <button type="button" class="toggolebtn" id="btn_signup"> 註冊 </button>
-
                 </div>
-                
                 <!-- 內容區域 -->
                 <div>
                     <!-- 放登入的東西 -->
                     <div class="inner_block_area" id="login_block"> 
-                        <form method="POST" action="../php/Frontend/API/Login.php">
+                        <form>
                             <!-- 輸入框欄位 -->
-                            <input type="text" placeholder="E-mail" id="email"/>
-                            <input type="text" placeholder="密碼" id="pwd"/>
-                            
+                            <input type="text" placeholder="E-mail" id="email" name="member_email_input"/>
+                            <input type="text" placeholder="密碼" id="pwd" name="member_password_input"/>
                             <!-- 單顆按鈕用這裡 -->
                             <div class="btn">
                                 <a href="./index.html" class="loginMember_link">
-                                    <input type="submit" value="送出" class="btn_submit loginMember_link" id="memberLogin_submit" onclick="return doSubmit();"/>
+                                    <input type="submit" value="送出" class="btn_submit loginMember_link" id="memberLogin_submit"/>
                                 </a>
                             </div>
                         </form>
                         <!-- 無法登入 -->
                         <div class="forgetPassword">
-                            <!-- <a href="">忘記密碼?</a> -->
                             <span>忘記密碼?</span>
                         </div>
                     </div>
-            
+                </div>    
+            </div>    
+        </form>   
+        <form method="POST" action="../php/Frontend/API/join.php" class="form login join_form jon_login">
+                <div  class="loginInner">
                     <!-- 放註冊的東西 -->
                     <div class="inner_block_area areaHide" id="signUp_block"> 
                         <!-- 輸入框欄位 -->
-                        <input type="text" placeholder="E-mail" />
-                        <input type="text" placeholder="密碼" />
+                        <!-- <input type="text" placeholder="E-mail" v-bind:class="{ 'is-invalid': emailError }" v-model="email"/>{{ emailErrMsg }}
+                        <input type="text" placeholder="密碼" v-bind:class="{ 'is-invalid': passwordError }" v-model="password"/>{{ passErrMsg }} -->
+                        <input type="text" placeholder="E-mail"/>
+                        <input type="text" placeholder="密碼"/>
                         <input type="text" placeholder="再次輸入密碼" />
-
                         <!-- 常去站點 -->
                         <div class="login_station">
-                        <!-- <input type="text" id="login_station_choice" placeholder="我最常去的捷運站" class="input"> -->
-                        <input type="text" id="login_station_choice" class="input" v-model="selectedStation" disabled="disabled">
-                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
-                        <ul class="login_station_select" id="login_station_options">
-                            <li v-for="station in blueStations" class="b">{{station}}</li> 
-                            <li v-for="station in redStation" class="r">{{station}}</li> 
-                            <li v-for="station in greenStation" class="g">{{station}}</li> 
-                            <li v-for="station in brownStation" class="br">{{station}}</li> 
-                            <li v-for="station in yellowStation" class="y">{{station}}</li> 
-                            <!-- <li  class="b">市政府</li>
-                            <li  class="b">忠孝敦化</li>
-                            <li  class="b">國父紀念館</li>
-                            <li  class="b">板橋</li>
-                            <li  class="b">新埔</li>
-                            <li  class="b">府中</li>
-                            <li  class="b">龍山寺</li>
-                            <li  class="r">淡水</li>
-                            <li  class="r">劍潭</li> 
-                            <li  class="r">圓山</li>
-                            <li  class="r">台北車站</li>
-                            <li  class="r">東門</li>
-                            <li  class="r">大安森林公園</li>
-                            <li  class="r">信義安和</li>
-                            <li  class="r">台北101</li>
-                            <li  class="g">松山</li>
-                            <li  class="g">南京三民</li>
-                            <li  class="g">南京復興</li>
-                            <li  class="g">中山</li>
-                            <li  class="g">中正紀念堂</li>
-                            <li  class="g">台電大樓</li>
-                            <li  class="g">公館</li>
-                            <li  class="g">景美</li>
-                            <li  class="br">東湖</li>
-                            <li  class="br">西湖</li>
-                            <li  class="br">港墘</li>
-                            <li  class="br">大直</li>
-                            <li  class="br">中山國中</li>
-                            <li  class="br">六張犁</li>
-                            <li  class="br">萬芳社區</li>
-                            <li  class="y">頂溪</li>
-                            <li  class="y">南京松江</li>
-                            <li  class="y">忠孝新生</li>
-                            <li  class="y">台北橋</li>
-                            <li  class="y">徐匯中學</li>
-                            <li  class="y">新莊</li> -->
-                        </ul>
+                            <input type="text" id="login_station_choice" class="input" v-model="selectedStation" disabled="disabled">
+                            <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
+                            <ul class="login_station_select" id="login_station_options">
+                                <li v-for="station in blueStations" class="b">{{station}}</li> 
+                                <li v-for="station in redStation" class="r">{{station}}</li> 
+                                <li v-for="station in greenStation" class="g">{{station}}</li> 
+                                <li v-for="station in brownStation" class="br">{{station}}</li> 
+                                <li v-for="station in yellowStation" class="y">{{station}}</li> 
+                            </ul>
                         </div>
-
                         <!-- 喜好標籤 -->
                         <div class="login_tag">
                             <input type="text" placeholder="喜好標籤" disabled="disabled"/>
                             <button class="signUp_tag_area ">
-                            <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="">
+                                <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="">
                             </button>
                             <div class="login_tag_select" id="login_tag_select">
                                 <span>#日式</span>
@@ -137,8 +91,7 @@
                                 <span>#雞排</span>
                                 <span>#鹽酥雞</span> 
                             </div>
-                        </div>
-                        
+                        </div> 
                         <!-- 單顆按鈕用這裡 -->
                         <div class="btn">
                             <a href="./index.html" class="loginMember_link">
@@ -148,19 +101,16 @@
                     </div>
                 </div>
             </div>
-
         </form>
     </div>
-
     <!-- 認證彈窗verification -->
     <div class="popUps verification areaHide">
         <!-- <form action="#資料傳送送的網址" method="post" class="form"> -->
-        <form action="#資料傳送送的網址" class="form">  <!--Chris-->
+        <form method="POST" action="../php/Frontend/API/loginCheck.php" class="form">  <!--Chris-->
             <!-- close button -->
             <button type="button" class="btn_close">
                 <img src="./img/icon/icon_close.png" alt="" />
             </button>
-
             <!-- logo -->
             <div class="verification_logo">
                 <img src="./img/logo.png">
@@ -169,7 +119,6 @@
             <div> 
                 <!-- 輸入框欄位 -->
                 <input type="text" placeholder="輸入原註冊E-mail" />
-                
                 <!-- 單顆按鈕用這裡 -->
                 <div class="btn">
                     <input type="submit" value="寄送認證" class="btn_submit ver_submit" />
@@ -177,112 +126,22 @@
             </div>
         </form>
     </div>
-
-    <!-- 會員資料編輯 -->
-    <div class="popUps memberInfo_edit" id="memberInfo_edit">
-        <form action="#資料傳送送的網址" method="" class="form memberInfo_edit_form">
-            <!-- close button -->
-            <button type="button" class="btn_close">
-                <img src="./img/icon/icon_close.png" alt="" />
-            </button>
-            <h1 class="memberInfo_edit_title">會員資料 </h1>
-            <div class="memberInfo_edit_inner">
-                <!-- 左邊圖片區 -->
-                <div class="memberInfo_edit_imgArea"></div>
-                <!-- 右邊文字區 -->
-                <div class="memberInfo_edit_textArea">
-                    <div class="memberInfo_edit_area">
-                        <input type="text" placeholder="南京林志玲" value="" name="" disabled="disabled"/>
-                        <button class="memberInfo_edit_editIcon">
-                        </button>
-                    </div>
-                    <!-- 喜好標籤 -->
-                    <div class="memberInfo_edit_area">
-                        <input type="text" placeholder="喜好標籤" value="#日式 #韓式 #牛排"   disabled="disabled" />
-                        <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_tag">
-                        </button>
-                        <div class="memberInfo_edit_area_tag" id="memberInfo_edit_area_tag">
-                            <span>#日式</span>
-                            <span>#韓式</span>
-                            <span>#美式</span>
-                            <span>#台式</span>
-                            <span>#法式</span>
-                            <span>#中式</span>
-                            <span>#聚餐</span>
-                            <span>#簡餐</span>
-                            <span>#銅板美食</span>
-                            <span>#下午茶</span>
-                            <span>#早午餐</span>
-                            <span>#商業午餐</span>
-                            <span>#夜市</span>
-                            <span>#咖哩</span>
-                            <span>#火鍋</span>
-                            <span>#牛排</span>
-                            <span>#咖啡店</span>
-                            <span>#餐酒館</span>
-                            <span>#鐵板燒</span>
-                            <span>#拉麵</span>
-                            <span>#甜點</span>
-                            <span>#麵食</span>
-                            <span>#雞排</span>
-                            <span>#鹽酥雞</span> 
-                        </div>
-                    </div>
-                    <!-- 站點 -->
-                    <div class="memberInfo_edit_area">
-                        <input type="text" placeholder="" value="南京復興" id="memberInfo_station_input" v-model="selectedStation" disabled="disabled" />
-                        <button class="memberInfo_edit_editIcon" id="memberInfo_editIcon_station">
-                        </button>
-                        <ul class="memberInfo_edit_area_stationSelect" id="memberInfo_edit_area_stationSelect">
-                            <li v-for="station in blueStations" class="b">{{station}}</li> 
-                            <li v-for="station in redStation" class="r">{{station}}</li> 
-                            <li v-for="station in greenStation" class="g">{{station}}</li> 
-                            <li v-for="station in brownStation" class="br">{{station}}</li> 
-                            <li v-for="station in yellowStation" class="y">{{station}}</li> 
-                        </ul>
-                    </div>
-                    <div class="memberInfo_edit_area">
-                        <input type="email" placeholder="tibame@gmail.com" value="tibame@gmail.com" disabled="disabled"/>
-                        <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_email">
-                        </button>
-                    </div>
-                    <div class="memberInfo_edit_area">
-                        <input type="password" placeholder="1234566"  value="1234566" id="myPassword" disabled="disabled"/>
-                        <!-- 查看密碼按鈕 scss寫在_btn -->
-                        <button class="showPassword"></button>
-                        <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_password"></button>
-                    </div>
-                    <div class="memberInfo_edit_area">
-                        <input type="text" placeholder="1999/09/09" disabled="disabled"/>
-                        <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_birthday"></button>
-                    </div>
-                    <div class="memberInfo_edit_area">
-                        <input type="tel" placeholder="0912345678" disabled="disabled"/>
-                        <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_tel">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- 主標題 -->
-            <!-- 單顆按鈕用這裡 -->
-            <div class="btn">
-                <a href="./index.html">
-                    <input type="" value="送出" class="btn_submit memberInfo_edit_submit" />
-                </a>
-            </div>
-        </form>
-    </div>
 </div>
 <!-- Vue 導入範圍 終點 -->
+
+<!-- PHP test -->
 <script>
-    function doSubmit() {
-        if (document.getElementById('email').value == '') {
+    let login_submit = document.getElementById('memberLogin_submit');
+    let login_email = document.getElementById('email');
+    let login_pwd = document.getElementById('pwd');
+    login_submit.addEventListener('click',function(){
+        if (login_email.value == '') {
             alert("請填寫[帳號]");
             return false;
         }
-        if (document.getElementById('pwd').value == '') {
+        if (login_pwd.value == '') {
             alert("請填寫[密碼]");
             return false;
         }        
-    }
+    });
 </script>

@@ -1,0 +1,104 @@
+    <!-- 會員資料編輯 -->
+    <div id="app">
+        <div class="popUps memberInfo_edit" id="memberInfo_edit">
+            <form action="#資料傳送送的網址" method="" class="form memberInfo_edit_form">
+                <!-- close button -->
+                <!-- <button type="button" class="btn_close">
+                    <img src="./img/icon/icon_close.png" alt="" />
+                </button> -->
+                <h1 class="memberInfo_edit_title">會員資料 </h1>
+                <div class="memberInfo_edit_inner">
+                    <!-- 左邊圖片區 -->
+                    <div class="memberInfo_edit_imgArea"></div>
+                    <!-- 右邊文字區 -->
+                    <div class="memberInfo_edit_textArea">
+                        <div class="memberInfo_edit_area">
+                            <span> e-mail：</span>
+                            <input type="email" placeholder="tibame@gmail.com" value="tibame@gmail.com" disabled="disabled"/>
+                            <!-- <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_email">
+                            </button> -->
+                        </div>
+                        <div class="memberInfo_edit_area">
+                            <span> 密碼：</span>
+                            <input type="password" placeholder="1234566"  value="1234566" id="myPassword" disabled="disabled"/>
+                            <!-- 查看密碼按鈕 scss寫在_btn -->
+                            <button class="showPassword"></button>
+                            <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_password"></button>
+                        </div>
+                        <div class="memberInfo_edit_area">
+                            <span> 暱稱：</span>
+                            <input type="text" placeholder="南京林志玲" value="" name="" disabled="disabled"/>
+                            <button class="memberInfo_edit_editIcon">
+                            </button>
+                        </div>
+                        <div class="memberInfo_edit_area">
+                            <span> 生日：</span>
+                            <input type="text" placeholder="1999/09/09" disabled="disabled"/>
+                            <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_birthday"></button>
+                        </div>
+                        <div class="memberInfo_edit_area">
+                            <span> 電話：</span>
+                            <input type="tel" placeholder="0912345678" disabled="disabled"/>
+                            <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_tel">
+                            </button>
+                        </div>
+                        <!-- 站點 -->
+                        <div class="memberInfo_edit_area">
+                            <span> 最愛捷運站點：</span>
+                            <input type="text" placeholder="" value="南京復興" id="memberInfo_station_input" v-model="selectedStation" disabled="disabled" />
+                            <button class="memberInfo_edit_editIcon" id="memberInfo_editIcon_station">
+                            </button>
+                            <ul class="memberInfo_edit_area_stationSelect" id="memberInfo_edit_area_stationSelect">
+                                <li v-for="station in blueStations" class="b">{{station}}</li> 
+                                <li v-for="station in redStation" class="r">{{station}}</li> 
+                                <li v-for="station in greenStation" class="g">{{station}}</li> 
+                                <li v-for="station in brownStation" class="br">{{station}}</li> 
+                                <li v-for="station in yellowStation" class="y">{{station}}</li> 
+                            </ul>
+                        </div>
+                        <!-- 喜好標籤 -->
+                        <div class="memberInfo_edit_area">
+                            <span> 喜好標籤：</span>
+                            <input type="text" placeholder="喜好標籤" value="#日式 #韓式 #牛排"   disabled="disabled" />
+                            <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_tag">
+                            </button>
+                            <div class="memberInfo_edit_area_tag" id="memberInfo_edit_area_tag">
+                                <span>#日式</span>
+                                <span>#韓式</span>
+                                <span>#美式</span>
+                                <span>#台式</span>
+                                <span>#法式</span>
+                                <span>#中式</span>
+                                <span>#聚餐</span>
+                                <span>#簡餐</span>
+                                <span>#銅板美食</span>
+                                <span>#下午茶</span>
+                                <span>#早午餐</span>
+                                <span>#商業午餐</span>
+                                <span>#夜市</span>
+                                <span>#咖哩</span>
+                                <span>#火鍋</span>
+                                <span>#牛排</span>
+                                <span>#咖啡店</span>
+                                <span>#餐酒館</span>
+                                <span>#鐵板燒</span>
+                                <span>#拉麵</span>
+                                <span>#甜點</span>
+                                <span>#麵食</span>
+                                <span>#雞排</span>
+                                <span>#鹽酥雞</span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 主標題 -->
+                <!-- 單顆按鈕用這裡 -->
+                <div class="btn">
+                    <a href="./index.html">
+                        <input type="" value="送出" class="btn_submit memberInfo_edit_submit" />
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
