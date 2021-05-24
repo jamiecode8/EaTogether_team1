@@ -78,9 +78,6 @@ body.index{
 }
 //----------搜尋按鈕end----------
 //----------whatToEat彈窗----------
-.index_whatToEat_popup.on{
-    display: block;
-}
 .index_whatToEat_popup{
     z-index: 1000;
     position: absolute;
@@ -95,7 +92,6 @@ body.index{
     }
     .whatToEat_q{
         background-color: white;
-      
         .whatToEat_q_arrow{
             position: absolute;
             right:60px;
@@ -133,6 +129,20 @@ body.index{
             }
             .y{
                 color: $mrtYellow;
+            }
+        }
+        .questionWarn{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                width:80px;
+                padding-bottom: 5px;
+            }
+            p{
+                color: $mrtRed;
+                font-weight: bold;
             }
         }
     }
@@ -284,10 +294,11 @@ body.index{
         }
         background-color: white;
         .searchFood{
+            position: relative;
             img{
                 position: absolute;
-                right:60px;
-                top:100px;
+                right:10px;
+                top:50px;
             }
         }
         h1{
@@ -394,9 +405,16 @@ body.index{
                   
           }
             .getStoreInf_star{
+                margin: 5px 0;
                 display: flex;
                 img{
                     width:20px;
+                }
+            }
+            .getStoreInf_tag{
+                font-size: 12px;
+                span{
+                    color:$mrtBlue;
                 }
             }
             .storeInf_title_warn{ 
@@ -410,13 +428,7 @@ body.index{
             .storeInf_warnIcon.on{
                 filter: opacity(1);
             }  
-            .getStoreInf_tag{
-                font-size: 12px;
-                float: right;
-                span{
-                    color:$mrtBlue;
-                }
-            }
+           
           }
         }
         //店家資訊按鈕
@@ -664,7 +676,7 @@ body.index{
         } 
         .index_search_popup, .index_searcReport_popup, .index_store_popup, .index_inf_popup {
             form{
-                height: 95vh;
+                // height: 95vh;
             }
         }
     }
@@ -721,7 +733,9 @@ body.index{
         }
         .index_search_popup, .index_searcReport_popup, .index_store_popup, .index_inf_popup {
             form{
-                height: 95vh;
+                padding:30px 10px;
+                width:320px;
+
             }
         }
     }
