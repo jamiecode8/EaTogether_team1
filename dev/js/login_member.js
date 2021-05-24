@@ -8,10 +8,10 @@ new Vue({
         brownStation: ['東湖','西湖','港墘','大直','中山國中','六張犁','萬芳社區'],
         yellowStation: ['頂溪','南京松江','忠孝新生','台北橋','徐匯中學','新莊'],
         selectedStation:'最愛捷運站點',
-        selectedBlueStation: '藍線'
+        selectedBlueStation: '藍線',
     },
     methods: {
-        
+   
     },
     computed:{
 
@@ -136,13 +136,13 @@ $('.forgetPassword').click(function(){
 });
 
 //關閉認證彈窗 Chris  (這樣寫會讓所有XX )
-$('.btn_close').click(function(){
-    $('.memberInfo_edit').addClass('areaHide');  
-})
+// $('.btn_close').click(function(){
+//     $('.memberInfo_edit').addClass('areaHide');  
+// })
 
-$('.btn_close').click(function(){
-    $('.verification').addClass('areaHide');  
-})
+// $('.btn_close').click(function(){
+//     $('.verification').addClass('areaHide');  
+// })
 
 
 // 登入註冊切換
@@ -177,16 +177,77 @@ $('.signUp_tag_area').click(function (){
 $('.login_tag_select').toggleClass('on');
 });
 
-// $('span').click(function(){
-//     console.log(this);
-//     // let item = this.text();
-//     let b = $(this).fiynd('input[type="password"]');
-//     console.log(b);
-//     $('').append();
-
-// });
-
 // 登入後，會員頭像才會出現的彈窗 
 $('#headerInner_login').click(function (){
     $('.popUpsLogout').toggleClass('on');
     });
+
+
+
+    
+
+
+// Bootstrap 表單驗證
+    // var app = new Vue({
+    //     el: '#app',
+    //     data: {
+    //         username: '',
+    //         usernameError: false,
+    //         userErrMsg: '',
+    //         password: '',
+    //         passwordError: false,
+    //         passErrMsg: '',
+    //         email: '',
+    //         emailError: false,
+    //         emailErrMsg: ''
+    //     },
+    //   watch: {
+    //         username: function () {
+    //             var isText = /^[a-zA-Z0-9]+$/;
+    //             if (!isText.test(this.username)) {
+    //                 this.usernameError = true;
+    //                 this.userErrMsg = '請勿包含特殊字元';
+    //             }
+    //             else if (this.username.length > 10) {
+    //                 this.usernameError = true;
+    //                 this.userErrMsg = '請勿超過10個字';
+    //             }
+    //             else {
+    //                 this.usernameError = false;
+    //             }
+    //         },
+    //     password: function () {
+    //             var isText = /^[a-zA-Z0-9]+$/;
+    //             var inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
+    //             if (!isText.test(this.password)) {
+    //                 this.passwordError = true;
+    //                 this.passErrMsg = '請勿包含特殊字元';
+    //             }
+    //             else if (this.password.length < 6) {
+    //                 this.passwordError = true;
+    //                 this.passErrMsg = '請勿少於6個字';
+    //             }
+    //             else if (this.password.length > 15) {
+    //                 this.passwordError = true;
+    //                 this.passErrMsg = '請勿超過15個字';
+    //             }
+    //             else if (!include.test(this.password)) {
+    //                 this.passwordError = true;
+    //                 this.passErrMsg = '至少包括一個大小寫字母或數字';
+    //             }
+    //             else {
+    //                 this.passwordError = false;
+    //             }
+    //         },
+    //         email: function () {
+    //             var isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+    //             if (!isMail.test(this.email)) {
+    //                 this.emailError = true;
+    //                 this.emailErrMsg = 'email格式錯誤';
+    //             }
+    //             else {
+    //                 this.emailError = false;
+    //             }
+    //         }
+    //     }
+    // });

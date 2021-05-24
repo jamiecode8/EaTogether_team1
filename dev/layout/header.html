@@ -12,7 +12,8 @@
            <!-- 登入後，會員頭像才會出現的彈窗 -->
           <div class="popUps popUpsLogout" v-show="toggle">
             <form action="" method="" class="form popUpsLogout_from">
-              <a href="./login_member.html"><p class="popUpsLogout_p">編輯會員資料</p></a>
+              <a href="./login_member_modify.html"><p class="popUpsLogout_p">編輯會員資料</p></a>
+              <a href="./login_member.html"><p class="popUpsLogout_p">登入/註冊</p></a>
               <a href="./index.html"><p class="popUpsLogout_p">登出</p></a>
             </form>
           </div>
@@ -79,6 +80,19 @@
     }
     prevScrollpos = currentScrollPos;
     }
-</script>
 
-<script src="../js/header.js" ></script>
+    // 會員登出與修改資料的彈窗
+    new Vue({
+        el: '.app',
+        data: {
+            toggle: false,
+        },
+        methods: {
+            header_toggle(){
+                this.toggle = !this.toggle;
+            },
+        },
+    });
+</script>
+<!-- 
+<script src="../js/header.js" ></script> -->

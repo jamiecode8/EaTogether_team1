@@ -1,18 +1,26 @@
 // 抓回上面的100px
 .loginMemberPage_Body{
-    padding-top: 100px;
+    padding-top: 75px;
     background-color: $bgc;
     background-image: url('../../img/story/aliensBg.png');
     background-size:contain;
     background-repeat: no-repeat;
     background-position: 0%;
+    height: 90vh;
 }
 
+//註冊的表單
+.join_form{
+    padding-top: 0;
+}
+
+//登入與註冊
 .login{
     @include block_center();
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     box-shadow: initial;
     width: 600px;
+    overflow: auto;
     @include rwd(largeMobile){
         width: 300px;
         padding: 25px;
@@ -178,6 +186,7 @@
             padding: 30px 50px;
             margin-left: initial;
             transform: initial;
+            // bottom: 490px;   //Chris 5/22 修改
     }
     // 內容區塊，
     &_inner{
