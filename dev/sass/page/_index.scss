@@ -67,7 +67,7 @@ body.index{
 }
 @mixin search_btn_hover{
     transform: translateY(-30px);
-    background-color: $mrtBrown;
+    background-color:$mrtBrown;
     transition: all 0.3s;
 }
 .search_btn_whatToEat:hover{
@@ -78,12 +78,8 @@ body.index{
 }
 //----------搜尋按鈕end----------
 //----------whatToEat彈窗----------
-.index_whatToEat_popup.on{
-    display: block;
-}
 .index_whatToEat_popup{
     z-index: 1000;
-    display: none;
     position: absolute;
     top:3vh;
     left:10vw;
@@ -96,22 +92,16 @@ body.index{
     }
     .whatToEat_q{
         background-color: white;
-      
         .whatToEat_q_arrow{
             position: absolute;
             right:60px;
             top:175px;
         }
-        .whatToEat_q_arrow.on{
-            transform: rotate(180deg);
-        }
-        .select_options.on{
-            display: block;
-        }
+      
         .select_options{
             margin-top: -20px;   
             border: 2px solid $lightgreen;
-            display: none;
+            // display: none;
             li{
                 padding-left: 10px;
                 line-height:36px;
@@ -136,16 +126,30 @@ body.index{
                 color: $mrtYellow;
             }
         }
+        .questionWarn{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                width:80px;
+                padding-bottom: 5px;
+            }
+            p{
+                color: $mrtRed;
+                font-weight: bold;
+            }
+        }
     }
 }
 //----------whatToEat彈窗end----------
 //----------search彈窗end----------
-.index_search_popup.on{
-    display: block;
+.noText{
+    background-color:#ECECEC;
 }
 .index_search_popup{
     z-index: 1000;
-    display: none;
+    // display: none;
     position:fixed;
     top: 3vh;
     left: 10vw;
@@ -158,8 +162,9 @@ body.index{
     }
     input{
         border-radius: 5px;
-        margin-top:30px;
+        margin-top:20px;
     }
+ 
     .getSearch{
         height: 650px;
         background-color: white;
@@ -168,23 +173,20 @@ body.index{
             img{
                 position: absolute;
                 right:10px;
-                top: 65px;
+                top: 55px;
             }
+               
             .mrt_search_icon{
-                top: 70px;
+                top: 60px;
             }
-            .mrtLines.on{
-                display: block;
-            }
+         
             .mrtLines{
-                overflow: auto;
-                height: 45px;
-                display: none;
-                margin-top: -20px;   
+                margin-top: -20px;
+                background-color:white;      
                 border: 2px solid $lightgreen;
                 li{
                     padding-left: 10px;
-                    line-height:36px;
+                    line-height:30px;
                 }
                 li:hover{
                     background-color: $lightgreen;
@@ -206,41 +208,63 @@ body.index{
                     color: $mrtYellow;
                 }
             }
-            .searchTags.on{
-                display: block;
-            }
-            .searchTags{
-                overflow: auto;
-                height: 45px;
-                margin-top: -20px;
-                background-color: white;
-                border: 2px solid $lightgreen;
-                display: none;
 
-                span{
-                    background-color: $lightgreen;
-                    margin: 5px;
-                    padding: 5px;
-                    border-radius:5px;
-                    display: inline-block;
-                }
-                span:hover{
-                    background-color: $yellow;
-                }
+        }
+        .searchWarn{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            img{
+                width:50px;
+                padding-bottom: 5px;
+            }
+            p{
+                color: $mrtRed;
+                font-weight: bold;
             }
         }
 
     }
 }
+//----------標籤彈窗----------
+
+.tags_popUp{
+    position: absolute;
+    top: 5vh;
+    left: 12vw;
+    border-radius: 5px;
+    .getTags{
+        width: 350px;
+        h2{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+     
+        .searchTags{
+        
+            span{
+                background-color: $lightgreen;
+                margin: 5px;
+                padding: 5px;
+                border-radius:5px;
+                display: inline-block;
+            }
+            span:hover{
+                background-color: $yellow;
+            }
+        }
+    }
+    
+}
 //----------search彈窗end----------
 //----------搜尋結果彈窗----------
 .index_store_popup{
     z-index: 1000;
-    display: none;
+    // display: none;
     position:fixed;
     top: 3vh;
     left: 10vw;
-   
     .getStore{
         height: 650px;
 
@@ -250,10 +274,11 @@ body.index{
         }
         background-color: white;
         .searchFood{
+            position: relative;
             img{
                 position: absolute;
-                right:60px;
-                top:100px;
+                right:10px;
+                top:50px;
             }
         }
         h1{
@@ -287,6 +312,7 @@ body.index{
                     .getStoreInf_tag{
                         span{
                             color: $mrtBlue;
+                            font-size: 14px;
                         }
                     }
                     .getStoreInf_station{
@@ -314,7 +340,7 @@ body.index{
 //----------店家資訊彈窗----------
 .index_inf_popup{
     z-index: 1000;
-    display:none;
+    // display:none;
     position:fixed;
     top: 3vh;
     left: 10vw;
@@ -347,21 +373,25 @@ body.index{
             border-bottom:2px solid $color;
             display: flex;
             justify-content: space-between;
-            .storeInf_title_like.on{
-                filter: grayscale(0);
-            }
+          
             .storeInf_title_like{
                   width: 30px;
                   height: 30px;
                   align-self: center;
                   margin-left: 8px;
-                  filter: grayscale(1);
-                  
+                  filter: grayscale(1);      
           }
             .getStoreInf_star{
+                margin: 5px 0;
                 display: flex;
                 img{
                     width:20px;
+                }
+            }
+            .getStoreInf_tag{
+                font-size: 12px;
+                span{
+                    color:$mrtBlue;
                 }
             }
             .storeInf_title_warn{ 
@@ -375,13 +405,7 @@ body.index{
             .storeInf_warnIcon.on{
                 filter: opacity(1);
             }  
-            .getStoreInf_tag{
-                font-size: 12px;
-                float: right;
-                span{
-                    color:$mrtBlue;
-                }
-            }
+           
           }
         }
         //店家資訊按鈕
@@ -472,42 +496,23 @@ body.index{
 //----------檢舉店家彈窗----------
 .index_searcReport_popup{
     z-index: 1000;
-    display: none;
+    // display: none;
     position:fixed;
     top: 3vh;
     left: 40vw;
     .getReport{
         h1{
-            color: $yellow;
-        }
-        padding-bottom: 20px;
-        .reportTitle{
-            margin-bottom: 20px;
-            display: flex;
-            img{
-                margin-right: 5px;
-                width: 20px;
-            }
-        }
-        .reportStore{
-            margin-bottom: 10px;
-            .reportStore_name{
-                padding-bottom: 10px;
-                font-weight: bold;
-                color: $green;
-            }
-            .reportStore_tags{
-                padding-bottom: 10px;
-                span{
-                    color: $mrtBlue;
-                    font-size: 14px;
-                }
-            }
+            margin: 0;
         }
         .reportReason{
-            h2{
+            h2{ 
+                text-align:left;
                 color: $mrtRed;
-                padding-bottom: 5px;
+                padding-top:40px;
+            }
+            img{
+                float: left;
+                width: 50px;
             }
             .reportReason_text{
                 background-color: $lightgreen;
@@ -528,9 +533,7 @@ body.index{
         // border: 1px solid violet;
         .index_map{
          
-            .map_slogan{
-                // display: none;
-            }
+          
             .map{
                 width:47vw;
             }
@@ -542,7 +545,7 @@ body.index{
         .index_searchbtn{
             bottom: 13vh;
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup, .tags_popUp {
             right: 50%;
             left: 50%;
         } 
@@ -570,7 +573,7 @@ body.index{
             bottom:15vh;    
             
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup, .tags_popUp {
             right: 50%;
             left: 50%;
         } 
@@ -620,14 +623,14 @@ body.index{
                 }
             }    
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup, .tags_popUp{
             right: 50%;
             left: 50%;
             
         } 
         .index_search_popup, .index_searcReport_popup, .index_store_popup, .index_inf_popup {
             form{
-                height: 95vh;
+                // height: 95vh;
             }
         }
     }
@@ -676,14 +679,16 @@ body.index{
                 }
             }    
         }
-        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup {
+       
+        .index_search_popup, .index_searcReport_popup, .index_whatToEat_popup, .index_store_popup, .index_inf_popup,  .tags_popUp {
             right: 50%;
             left: 50%;
            
         }
-        .index_search_popup, .index_searcReport_popup, .index_store_popup, .index_inf_popup {
+        .index_search_popup, .index_searcReport_popup, .index_store_popup, .index_inf_popup{
             form{
-                height: 95vh;
+                // padding:20px 10px;
+                // width:320px;
             }
         }
     }
