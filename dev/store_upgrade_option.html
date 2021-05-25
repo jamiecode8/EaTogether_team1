@@ -25,28 +25,34 @@
                  -->
                 <div class="upgradeOption_btnArea">
                     <div class="upgradeOption_btnArea_option">
-                        <!-- 月繳$399 -->
-                        <label class="checkboxArea">
-                            <input type="checkbox" value="confirm"  class="checkbox"/>
-                            <span class="checkboxArea_read">月費$399</span>
+                        <!-- 方案選擇 value="month要處理 -->
+                        <label class="checkboxArea upgradeOptions">
+                            <input v-model="option" type="radio" value="月費$399" class="checkbox"/>
+                            <span class="checkboxArea_read">
+                                月費$399</span>
                         </label>
-                        <!-- 年繳$399 -->
-                        <label class="checkboxArea">
-                            <input type="checkbox" value="confirm"  class="checkbox"/>
-                            <span class="checkboxArea_read">年費$4599</span>
+                        <label class="checkboxArea upgradeOptions">
+                            <input v-model="option" type="radio" value="年費$4599" class="checkbox"/>
+                            <span class="checkboxArea_read">
+                                年費$4599</span>
                         </label>
+
                     </div>
                     <div class="buttonArea upgradeOption_btnArea_submit">
                         <a href="/store_free.html">
-                            <input type="" value="返回" class="btn_pre" />
+                            <input type="button" value="返回" class="btn_pre" />
                         </a>
                         <a href="/store_upgrade_info.html">
-                            <input type="" value="下一步" class="   btn_submit" />
+                            <input type="" value="下一步" class="btn_submit" id="storeUpgradeInfo_btnNext"  disabled/>
                         </a>
+                        <!-- <button value="下一步" class="btn_submit" id="storeUpgradeInfo_btnNext"  >下一步
+                            <a href="/store_upgrade_info.html"  class="btn_submit_a" ></a>
+                        </button> -->
                     </div>
                 </div>
             </section>
         </div>
         @@include('layout/footer.html')
+        <script src="js/store_upgrade.js"></script>
     </body>
 </html>
