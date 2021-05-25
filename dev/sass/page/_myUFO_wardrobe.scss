@@ -323,7 +323,35 @@
           }
         }
       }
- 
+      @media all and (max-height:567px){
+        .wardrobe_character{
+          position: absolute;
+          bottom: 14%;
+          width: 100%;
+          @include rwd(pad){
+            position: absolute;
+            bottom: 28%;
+            width: 100%;
+          }
+          @include rwd(largeMobile){
+            position: absolute;
+            bottom: 40%;
+            width: 100%;
+          }
+          @include rwd(mobile){
+            position: absolute;
+            bottom: 46%;
+            width: 100%;
+
+          }
+          img{
+            padding: 20px;
+            width: 60%;
+            margin: 0 auto;
+            z-index: 20;
+          }
+        }
+      }
       @media all and(max-width: 1024px) and (min-height: 1366px){
         .wardrobe_character{
           position: absolute;
@@ -337,6 +365,7 @@
           }
         }
       }
+
       @media all and(max-width: 541px) and (min-width: 540px){
         .wardrobe_character  img{
           padding: 20px;
@@ -375,7 +404,26 @@
           }
         }
       }
+      @media all and (max-height:567px){
+        .wardrobe_light {
+          img{
+          width: 20%;
+          margin: 0 auto;
+          @include rwd(pad){
+            width: 30%;
+            margin: 0 auto;
+          }
+          @include rwd(largeMobile){
+            display: none;
+          }
+          @include rwd(mobile){
+            display: none;
+          }
+        }
+      }
+      }
     }
+
     @media all and(max-width: 1024px) and (min-height: 1366px){
       .wardrobe_light{
         z-index: 10;
@@ -420,14 +468,14 @@
         display: none;
       }
       img{
-        width: 480px;
+        width: 380px;
         margin: 0  auto;
         @include rwd(desktop){
-          width: 480px;
+          width: 380px;
           margin: 0  auto;
         }
         @include rwd(desktopSmall){
-          width: 480px;
+          width: 380px;
           margin: 0  auto;
         }
         @include rwd(pad){
@@ -523,29 +571,30 @@
 // ---------選擇區-------------
 .Choose_cabinet{
   position: absolute;
-  bottom: -7%;
-  height: 95%;
-   width: 480px;
+  bottom: 11%;
+  height: 78%;
+   width: 380px;
    right: 20%;
    left: 50%;
    z-index: 50;
-  // border: 2px solid green ;
+  //  border: 1px red solid;
     @include rwd(desktop){
       position: absolute;
-      bottom: -7%;
-      height: 95%;
-       width: 480px;
+      bottom: 11%;
+      height: 78%;
+       width: 380px;
        right: 20%;
        left: 50%;
        z-index: 50;
+       border: 1px red solid;
     }
     @include rwd(desktopSmall){
       position: absolute;
-      bottom: -7%;
+      bottom: -4.5%;
       height: 94%;
-       width: 480px;
+       width: 380px;
        right: 20%;
-       left: 43%;
+       left: 45%;
        z-index: 50;
     }
     @include rwd(pad){
@@ -712,7 +761,7 @@
         height: 100%;
         ul{
           li{
-            margin: 40px auto;
+            margin: 30px auto;
             padding-left: 20px;
             @include rwd(desktop){
 
@@ -767,7 +816,7 @@
         ul{
           
           li{
-            margin: 45px auto;
+            margin: 37px auto;
             padding-left: 20px;
             @include rwd(desktop){
 
@@ -821,7 +870,7 @@
         height: 100%;
         ul{
           li{
-            margin: 40px auto;
+            margin: 33px auto;
             padding-left: 20px;
             @include rwd(desktop){
 
@@ -876,13 +925,15 @@
         ul{
           
           li{
-            margin: 45px auto;
+            margin: 35px auto;
             padding-left: 20px;
             @include rwd(desktop){
-
+              margin: 35px auto;
+              padding-left: 20px;
             }
             @include rwd(desktopSmall){
-
+            margin: 35px auto;
+            padding-left: 20px;
             }
             @include rwd(pad){
               margin: 40px auto;
@@ -947,7 +998,7 @@
       color: #FFF;
       display: block;
       font-size: $fontSize_SubTitle;
-      padding: 9px 30px;
+      padding: 9px 15px;
       position: relative;
       text-decoration: none;
       transition: all .3s;
@@ -959,7 +1010,7 @@
         color: #FFF;
         display: block;
         font-size: $fontSize_SubTitle;
-        padding: 9px 30px;
+        padding: 5px 15px;
         position: relative;
         text-decoration: none;
         transition: all .3s;
@@ -971,12 +1022,13 @@
         // box-shadow: inset 0 -6px 10px 0px #bbb;
         color: #FFF;
         display: block;
-        font-size: $fontSize_SubTitle;
-        padding: 7px 30px;
+        font-size:16px;
+        padding: 7px 15px;
         position: relative;
         text-decoration: none;
         transition: all .3s;
         transform-origin: 50% 90%;
+        left: 60%;
       }
       @include rwd(pad){
         background-color:$color;
