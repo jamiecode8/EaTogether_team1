@@ -9,43 +9,66 @@
         <!-- 輪播slick -->
         <!-- <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
+        <!-- 輪播swiper -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     </head>
     <body class="store_storeBody">
         @@include('layout/header.html')
-
         <!-- 本頁內容 -->
         <div class="wrapper store_wrap">
             <!-- 商家資訊區塊 -->
             <section class="store_storeInfoArea">
                 <!-- 左邊照片區 -->
                 <section class="store_photoArea">
-                    <div class="store_photoArea_big">
-                        <img src="./img/store/testPic1.png" alt="">
+                    <div class="swiper-container mySwiper2">
+                    <!-- 上面大圖區 -->
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood1.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood3.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood4.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood5.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood6.png" />
+                            </div>
+                        </div>
+                        <!-- 那2個箭頭 -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
-                    <div class="store_photoArea_small">
-                        <ul>
-                            <li>
-                                <img src="./img/store/testPic2.png" alt="">
-                            </li>
-                            <li>
-                                <img src="./img/store/testPic3.png" alt="">
-                            </li>
-                            <li>
-                                <img src="./img/store/testPic4.png" alt="">
-                            </li>
-                        </ul>
-                        <!-- <div>
-                            <img src="./img/store/testPic1.png" alt="">
+                    <!-- 下面小圖區 -->
+                    <div thumbsSlider="" class="swiper-container mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood1.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood2.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood3.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood4.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood5.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/store/testfood6.png" />
+                            </div>
                         </div>
-                        <div>
-                            <img src="./img/store/testPic2.png" alt="">
-                        </div>
-                        <div>
-                            <img src="./img/store/testPic3.png" alt="">
-                        </div>
-                        <div>
-                            <img src="./img/store/testPic4.png" alt="">
-                        </div> -->
                     </div>
                 </section>
                 <!-- 右邊文字區 -->
@@ -53,9 +76,11 @@
                     <div class="store_storeInfo_Name">
                             {{storeName}}
                         </h1>
-                        <button>
-                            <img src="./img/icon/icon_edit.png" alt="">
-                        </button>
+                        <a href="./login_store.html">
+                            <button>
+                                <img src="./img/icon/icon_edit.png" alt="">
+                            </button>
+                        </a>
                     </div>
                     <div class="store_storeInfo_Detail">
                         <ul>
@@ -143,10 +168,9 @@
             </section>
         </div> 
         @@include('layout/footer.html')
+        <!-- 輪播swiper -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+        <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
         <script src="js/store_free.js"></script>
-        <!-- 輪播slick -->
-        <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        <script type="text/javascript" src="slick/slick.min.js"></script> -->
     </body>
 </html>

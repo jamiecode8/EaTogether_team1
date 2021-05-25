@@ -23,45 +23,49 @@
                         <h1 class="upgradeInfoConfirm_basic_menu_item upgradeInfoConfirm_basic_menu_personal" id="upgradeInfoConfirm_personal">個人</h1>
                     </div>
                     <!-- 企業 -->
-                    <div class="upgradeInfoConfirm_basic_co upgradeInfoConfirm_areaShow">
-                        <form action="#資料傳送送的網址" method=" " class="form upgradeInfoConfirm_formC">
+                    <div class="upgradeInfoConfirm_basic_co upgradeInfoConfirm_areaShow" id="upgradeInfo_co">
+                        <form action="" method=" " class="form upgradeInfoConfirm_formC"  id="upgradeInfo_company_form">
                             <!-- 輸入框欄位 -->
-                            <input type="text" placeholder="公司抬頭" />
-                            <input type="text" placeholder="統一編號" />
-                            <input type="text" placeholder="登記地址" />
-                            <input type="text" placeholder="聯絡人" />
-                            <input type="text" placeholder="聯絡電話" />
-                            <div class="priceChoice">
-                                <p>月繳$399</p>
+                            <input type="text" placeholder="公司抬頭"  :value="companyName" required/>
+                            <!-- <input type="number" placeholder="統一編號" maxlength="8"  :value="companyId" oninput="if(value.length>8)value=value.slice(0,8)" required/> -->
+                            <input type="number" placeholder="統一編號":value="companyId" pattern="\d{8}" required/>
+                            <input type="text" placeholder="登記地址" :value="companyAdd" required/>
+                            <input type="text" placeholder="聯絡人" :value="contactName" required/>
+                            <!-- <input type="number" placeholder="聯絡電話"  class="upgradeCoTel" maxlength="10"  :value="contactTel" oninput="if(value.length>10)value=value.slice(0,10)"  required/> -->
+                            <input type="number" placeholder="聯絡電話"  :value="contactTel"  pattern="[a-zA-Z0-9]{8,}"  required/>
+                            <div class="upgradeOption_btnArea_option priceChoice ">
+                                  <p>月繳$399</p>
+                                  <!-- <p>{{option}}</p> -->
                             </div>
                             
                             <!-- 2顆按鈕用這個 -->
                             <div class="upgradeInfoConfirm_buttonArea_outer">
                                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
                                     <a href="/store_upgrade_option.html">
-                                        <input type="" value="返回" class="btn_cancel" />
+                                        <input type="button" value="返回" class="btn_cancel" />
                                     </a>
-                                    <input type="submit" value="下一步" class="btn_next btn_next_upgradeInfoConfirm_basic"/>
+                                    <input type="submit" value="下一步" class="btn_next btn_next_upgradeInfoConfirm_basic">
                                 </div>
                             </div>
                         </form>
                     </div>
                     <!-- 個人 -->
-                    <div class="upgradeInfoConfirm_basic_personal upgradeInfoConfirm_areaHide">
-                        <form action="#資料傳送送的網址" method=" " class="form upgradeInfoConfirm_formP">
+                    <div class="upgradeInfoConfirm_basic_personal upgradeInfoConfirm_areaHide" id="upgradeInfo_personal">
+                        <form action="" method=" " class="form upgradeInfoConfirm_formP" id="upgradeInfo_personal_form">
                             <!-- 輸入框欄位 -->
-                            <input type="text" placeholder="姓名" />
-                            <input type="text" placeholder="地址" />
-                            <input type="text" placeholder="聯絡電話" />
+                            <input type="text" placeholder="姓名"  :value="contactName"  required/>
+                            <input type="text" placeholder="地址"  :value="contactAdd"  required/>
+                            <input type="number" placeholder="聯絡電話"  maxlength="10"  :value="contactTel" oninput="if(value.length>10)value=value.slice(0,10)" required/>
                             <div class="priceChoice">
                                 <p>月繳$399</p>
+                                <!-- <p>{{option}}</p> -->
                             </div>
                             
                             <!-- 2顆按鈕用這個 -->
                             <div class="upgradeInfoConfirm_buttonArea_outer">
                                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
                                     <a href="/store_upgrade_option.html">
-                                        <input type="" value="返回" class="btn_cancel" />
+                                        <input type="button" value="返回" class="btn_cancel" />
                                     </a>
                                     <input type="submit" value="下一步" class="btn_next btn_next_upgradeInfoConfirm_basic"/>
                                 </div>
@@ -69,76 +73,15 @@
                         </form>
                     </div>
                 </div>
-                <!-- 付款方式 -->
-                <div class="upgradeInfoConfirm_payment blockNone">
-                     <!-- 選單 -->
-                     <div class="upgradeInfoConfirm_payment_menu">
-                        <h1 class="upgradeInfoConfirm_payment_menu_item upgradeInfoConfirm_payment_menu_card" id="upgradeInfoConfirm_card">信用卡
-                        </h1>
-                        <h1 class="upgradeInfoConfirm_payment_menu_item upgradeInfoConfirm_payment_menu_acc" id="upgradeInfoConfirm_acc">轉帳</h1>
-                     </div>
-                     <!-- 信用卡 -->
-                     <div class="upgradeInfoConfirm_payment_card upgradeInfoConfirm_areaShow">
-                        <form action="#資料傳送送的網址" method=" " class="form upgradeInfoConfirm_formC">
-                            <!-- 輸入框欄位 -->
-                            <label for="card-number" class="card_label">信用卡號碼</label>
-                            <input type="num" id="card-number" class="input-cart-number" maxlength="4" />
-                            <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
-                            <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
-                            <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
-                            <br>
-
-                            <label for="validDate" class="card_label">有效日期</label>
-                            <input type="text" id="validDate" /><br>
-                            <label for="cvv" class="card_label">安全碼</label>
-                            <input type="text" maxlength="3" id="ccv" />
-                            <div class="priceChoice">
-                                <p>月繳$399</p>
-                            </div>
-                            
-                            <!-- 2顆按鈕 -->
-                            <div class="upgradeInfoConfirm_buttonArea_outer">
-                                <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                                    
-                                    <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
-                                    <a href="/store_upgrade_complete.html">
-                                        <input type="" value="下一步" class="btn_next" />
-                                    </a>
-                                </div>
-                            </div>
-                        </form>
-                     </div>
-                     <!-- 轉帳 -->
-                     <div class="upgradeInfoConfirm_payment_acc upgradeInfoConfirm_areaHide">
-                        <form action="#資料傳送送的網址" method="" class="form upgradeInfoConfirm_formP">
-                            <!-- 輸入框欄位 -->
-                            <label for="bank" class="card_label">銀行</label>
-                            <input type="text" value="台新銀行敦南分行" id="bank" class="trans_iput trans_iput_s"/><br>
-                            <label for="bankAcc" class="card_label">銀行帳戶</label>
-                            <input type="text" value="1010203040405" id="bankAcc" class="trans_iput"/><br>
-                            <label for="accName" class="card_label">戶名</label>
-                            <input type="text" value="外食一起來有限公司"  id="accName" class="trans_iput trans_iput_s"/><br>
-                            <div class="priceChoice">
-                                <p>月繳$399</p>
-                            </div>
-                            
-                            <!-- 2顆按鈕 -->
-                            <div class="upgradeInfoConfirm_buttonArea_outer">
-                                <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                                    
-                                    <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
-                                    <a href="/store_upgrade_complete.html">
-                                        <input type="" value="下一步" class="btn_next" />
-                                    </a>
-                                </div>
-                            </div>
-                        </form>
-                     </div>
-                </div>
             </section>
 
         </div>
         @@include('layout/footer.html')
+        <!-- Cleave.js v1.1.1 -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.1.1/cleave.min.js"></script> -->
+        <!-- Cleave.js 台灣電話號碼格式化 v1.1.1 -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.1.1/addons/cleave-phone.tw.js"></script> -->
+
         <script src="js/store_upgrade.js"></script>
     </body>
 </html>
