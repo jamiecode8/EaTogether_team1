@@ -97,12 +97,7 @@ body.index{
             right:60px;
             top:175px;
         }
-        .whatToEat_q_arrow.on{
-            transform: rotate(180deg);
-        }
-        .select_options.on{
-            display: block;
-        }
+      
         .select_options{
             margin-top: -20px;   
             border: 2px solid $lightgreen;
@@ -152,9 +147,6 @@ body.index{
 .noText{
     background-color:#ECECEC;
 }
-.index_search_popup.on{
-    // display: block;
-}
 .index_search_popup{
     z-index: 1000;
     // display: none;
@@ -183,30 +175,12 @@ body.index{
                 right:10px;
                 top: 55px;
             }
-            // .foodTypeList{
-            //     border: 2px solid $lightgreen;
-            //     margin-top: -20px;
-            //     background-color:white;   
-
-            //     .foodType{
-            //         padding-left: 10px;
-            //         line-height:20px;
-            //     }
-            //     .foodType:hover{
-            //         background-color: $lightgreen;
-            //     }
-            // }
                
             .mrt_search_icon{
                 top: 60px;
             }
-            .mrtLines.on{
-                // display: block;
-            }
+         
             .mrtLines{
-                // overflow: auto;
-                // height: 45px;
-                // display: none;
                 margin-top: -20px;
                 background-color:white;      
                 border: 2px solid $lightgreen;
@@ -236,6 +210,20 @@ body.index{
             }
 
         }
+        .searchWarn{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            img{
+                width:50px;
+                padding-bottom: 5px;
+            }
+            p{
+                color: $mrtRed;
+                font-weight: bold;
+            }
+        }
 
     }
 }
@@ -252,17 +240,9 @@ body.index{
             text-align: center;
             margin-bottom: 20px;
         }
-        .searchTags.on{
-            display: block;
-        }
+     
         .searchTags{
-            // overflow: auto;
-            // height: 45px;
-            // margin-top: -20px;
-            // background-color: white;
-            // border: 2px solid $lightgreen;
-            // display: none;
-    
+        
             span{
                 background-color: $lightgreen;
                 margin: 5px;
@@ -393,16 +373,13 @@ body.index{
             border-bottom:2px solid $color;
             display: flex;
             justify-content: space-between;
-            .storeInf_title_like.on{
-                filter: grayscale(0);
-            }
+          
             .storeInf_title_like{
                   width: 30px;
                   height: 30px;
                   align-self: center;
                   margin-left: 8px;
-                  filter: grayscale(1);
-                  
+                  filter: grayscale(1);      
           }
             .getStoreInf_star{
                 margin: 5px 0;
@@ -519,44 +496,23 @@ body.index{
 //----------檢舉店家彈窗----------
 .index_searcReport_popup{
     z-index: 1000;
-    display: none;
+    // display: none;
     position:fixed;
     top: 3vh;
     left: 40vw;
     .getReport{
         h1{
-            color: $yellow;
-        }
-        padding-bottom: 20px;
-        .reportTitle{
-            margin-bottom: 20px;
-            display: flex;
-            img{
-                margin-right: 5px;
-                width: 20px;
-            }
-        }
-        .reportStore{
-            margin-bottom: 10px;
-            .reportStore_name{
-                font-size: 18px;
-                text-align: left;
-                padding-bottom: 10px;
-                font-weight: bold;
-                color: $green;
-            }
-            .reportStore_tags{
-                padding-bottom: 10px;
-                span{
-                    color: $mrtBlue;
-                    font-size: 14px;
-                }
-            }
+            margin: 0;
         }
         .reportReason{
             h2{ 
+                text-align:left;
                 color: $mrtRed;
-                padding-bottom: 5px;
+                padding-top:40px;
+            }
+            img{
+                float: left;
+                width: 50px;
             }
             .reportReason_text{
                 background-color: $lightgreen;
@@ -577,9 +533,7 @@ body.index{
         // border: 1px solid violet;
         .index_map{
          
-            .map_slogan{
-                // display: none;
-            }
+          
             .map{
                 width:47vw;
             }
@@ -731,11 +685,10 @@ body.index{
             left: 50%;
            
         }
-        .index_search_popup, .index_searcReport_popup, .index_store_popup, .index_inf_popup {
+        .index_search_popup, .index_searcReport_popup, .index_store_popup, .index_inf_popup{
             form{
-                padding:30px 10px;
-                width:320px;
-
+                // padding:20px 10px;
+                // width:320px;
             }
         }
     }
