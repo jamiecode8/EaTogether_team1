@@ -1,6 +1,14 @@
 .body_upgrade{
     background-color: $bgc;
     padding-top: 100px;
+    // input type=number時，不要出現上下的箭頭
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
 }
 
 // wrap 包在1200以內
@@ -126,6 +134,7 @@
     background-position: 5px 0;
     background-size: 15px;
     padding-left: 25px;
+    margin: initial;
 }
 
 // 企業個人切換選單css
@@ -196,6 +205,12 @@
         }
 }
 
+// 連絡電話，套cleave.js  目前好像無效
+// var cleave = new Cleave( ".upgradeCoTel", {
+//     phone: true, // 電話模式
+//     phoneRegionCode: "tw"
+// });
+
 // 轉帳
 form .trans_iput{
    width: 80%; 
@@ -260,6 +275,10 @@ form .trans_iput{
         line-height: 25px;
         }
 }
+
+.-error{
+    @include border($mrtRed);
+    }
 
 // 升級完成頁面
 .upgradeComplete_inner{
@@ -356,3 +375,11 @@ form .trans_iput{
 }
 
 // 以上上面那區
+
+.btn_submit_a{
+    // width: 100px;
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+}
+
