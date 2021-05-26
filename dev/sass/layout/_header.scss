@@ -95,7 +95,6 @@ header{
 }
 
 .popUpsLogout{
-    // display: none;
     position: absolute;
     top: 40px;
     left: -135px;
@@ -123,8 +122,6 @@ header{
         }
     }
 }
-
-
 
     
 // 漢堡
@@ -180,7 +177,7 @@ header{
     position: fixed;
     background: $lightgreen;
     background-repeat: no-repeat;
-    top: 0;
+    top: -50px;
     left: 0;
     width: 100%;
     height: 0%;
@@ -188,11 +185,9 @@ header{
     transition: opacity 0.35s, height 0.35s;
     &_menu{
         position: relative;
-        // height: 70%;
         height: 90%;
         max-height: 600px;
         top: 50%;
-        // top: 5%;
         transform: translateY(-50%);
         font-size: $fontSize_Title; 
         text-align: center;
@@ -201,15 +196,12 @@ header{
         position: relative;
         height: 100%;
         width: 100%;
-        // margin-top: -50px;
-        // margin-bottom: -50px;
     }        
 }
 .header_inner_myUFO{
     background-image: url(../img/header_myUFO_hover.png);
     background-repeat: no-repeat;
     background-size: 120px;
-    // background-position: 50% 70%;
         &:hover{
             background-image: url(../img/header_myUFO.png);   
         }
@@ -228,7 +220,6 @@ header{
     background-image: url(../img/header_myPhoto_hover.png);
     background-repeat: no-repeat;
     background-size: 85px;
-    // background-position: 50% 70%;
         &:hover{
             background-image: url(../img/header_myPhoto.png);   
         }
@@ -247,7 +238,6 @@ header{
     background-image: url(../img/header_story_hover.png.png);
     background-repeat: no-repeat;
     background-size: 85px;
-    // background-position: 50% 100%;
         &:hover{
             background-image: url(../img/header_story.png);   
         }
@@ -265,12 +255,12 @@ header{
 // 選單展開後-選單區
 .header_overlay.open {
     // z-index: 900;
+    top: 0;
     opacity: 1;
     visibility: visible;
     height: 100%;
     // 出現的動畫
     .header_list{
-        // @include borderTest();
         background-position: 50% 45%;
         display: block;
         width: 100%;

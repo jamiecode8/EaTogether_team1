@@ -137,38 +137,25 @@
     margin: initial;
 }
 
-// 企業個人切換選單css
-.upgradeInfoConfirm_basic{
-    &_menu_item{
+// 切換選單css
+.upgradeInfoConfirm{
+    &_menuArea{
+        display: flex;
+    }
+    &_menu{
         width: 100px;
         text-align: center;
         line-height: 40px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         cursor: pointer;
+        font-size: $fontSize_Title;
+        font-weight: bold;
     }
-    &_menu_co{
+    &_menuL{
         background-color: $yellow;
     }
-    &_menu_personal{
-        background-color: $green;
-    }
-}
-
-// 信用卡傳障切換選單css
-.upgradeInfoConfirm_payment{
-    &_menu_item{
-        width: 100px;
-        text-align: center;
-        line-height: 40px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        cursor: pointer;
-    }
-    &_menu_card{
-        background-color: $yellow;
-    }
-    &_menu_acc{
+    &_menuR{
         background-color: $green;
     }
 }
@@ -224,14 +211,10 @@ form .trans_iput{
 
 .upgradeInfoConfirm_basic{
     width: 100%;
-    // display: block; //預設
-    // display: none;
 }
 
 .upgradeInfoConfirm_payment{
     width: 100%;
-    // display: block;
-    // display: none; //預設
 }
 
 .upgradeInfoConfirm{
@@ -302,25 +285,31 @@ form .trans_iput{
 
 // 以下上面那區
 .upgradeHeader{
-    // @include borderTest();
-    padding: 10px 150px;
+    //一頁式的用這邊
+    // display: flex;
+    // justify-content: space-around;
+    // align-items: center;
+    // height: 100px;
+    //一頁式的用這邊
+    padding: 10px 50px;
+    @include rwd(desktop){
+        padding: 10px 100px;
+        }
     @include rwd(pad){
-        padding: 10px 50px;
-        }
-        @include rwd(largeMobile){
-            padding: 10px 50px;
-        }
-        @include rwd(mobile){
-            padding: 10px 0px;
-        }
-    &_area{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 100px;
+        padding: 10px 0px;
     }
+    @include rwd(mobile){
+        padding: 10px 0px;
+        }
+    //分頁式的用這邊
+    &_area{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    }   
+    //分頁式的用這邊
     &_areaList{
-        // @include borderTest(blue);
         background-image: url(../img/tang/steps_bg_style.png);
         background-position:center;
         background-size: contain;
@@ -329,34 +318,49 @@ form .trans_iput{
         height: 100px;
         padding-bottom: 12% ;
         position: relative;
-        @include rwd(mobile){
-            background-size: 70%;
-            background-position: 11px 13px;
+        @include rwd(largeMobile){
+            background-size: 85%;
+            background-position: 11px 4px;
+            width: 60px;
+            height: 60px;
             }
-
+        @include rwd(mobile){
+            background-size: 85%;
+            background-position: 11px 4px;
+            width: 60px;
+            height: 60px;
+            }
     }
     &_step{
-        margin-top: 30%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         width: 100%;
         padding-left:12%;
+        padding-top: 15%;
     }
     &_stepNo{
         font-size: 50px;
         display: inline-block;
+        @include rwd(largeMobile){
+            font-size: 30px;
+            }
         @include rwd(mobile){
             font-size: 30px;
             }
     }
     &_text{
-        // flex-basis: 0;
-        // flex-grow: 0.5;
         text-align: center;
         width: 40px;
+        @include rwd(largeMobile){
+            font-size: $fontSizeLink;
+            line-height: 20px;
+            }
+        @include rwd(mobile){
+            font-size: $fontSizeLink;
+            line-height: 20px;
+            }
     }
-    
 }
 
 .upgradeHeader
@@ -367,11 +371,20 @@ form .trans_iput{
     background-color: $green;
     opacity: .2;
     border-radius: 50%;
-
     position: absolute;
     right: -2%;
     bottom: 18%;
     z-index: 1;
+    @include rwd(largeMobile){
+        width: 30px;
+        right: -6%;
+        bottom: 2%;
+        }
+    @include rwd(mobile){
+        width: 30px;
+        right: -6%;
+        bottom: 2%;
+        }
 }
 
 // 以上上面那區
