@@ -38,7 +38,7 @@
             <!-- ----------whatToEat彈窗---------- -->
             <!-- q1 -->
             <keep-alive>
-            <component :is="content"  @next-emit="nextQ" @pre-emit="preQ" @answer-emit="answerQ" @call-ajax-emit="callAjaxQ" @close-emit="closeQ" @again-emit="againQ" @store-emit="showStores"></component>
+            <component :is="'popup-'+content"  @next-emit="nextQ" @pre-emit="preQ" @answer-emit="answerQ" @call-ajax-emit="callAjaxQ" @close-emit="closeQ" @again-emit="againQ" @store-emit="showStores"></component>
             </keep-alive>
 
             <!-- 搜尋彈窗 -->
@@ -269,11 +269,10 @@
                         <!-- 基本資訊icon     -->
                         <div class="storeInf_section">
                             <ul class="storeInf_sectionIcon">
-                                <li class="sectionIcon sectionIcon_location"><img src="./img/icon/icon_location.png" alt=""  @click="inf='location'"></li>
-                                <li class="sectionIcon sectionIcon_mrt"><img src="./img/icon/icon_mrt.png" alt="" @click="inf='station'"></li>
-                                <li class="sectionIcon sectionIcon_tel"><img src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
-                                <!-- <li class="sectionIcon sectionIcon_time"><img src="./img/icon/icon_time.png" alt=""></li> -->
-                                <li class="sectionIcon sectionIcon_price"><img src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
+                                <li class="sectionIcon sectionIcon_location" :class="{'on' : inf === 'location'}"><img src="./img/icon/icon_location.png" alt=""  @click="inf='location'"></li>
+                                <li class="sectionIcon sectionIcon_mrt" :class="{'on' : inf === 'station'}"><img src="./img/icon/icon_mrt.png" alt="" @click="inf='station'"></li>
+                                <li class="sectionIcon sectionIcon_tel" :class="{'on' : inf === 'phone'}"><img src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
+                                <li class="sectionIcon sectionIcon_price" :class="{'on' : inf === 'price'}"><img src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
                             </ul>
                             <component :is="inf"></component>
                         </div>
@@ -430,7 +429,7 @@
         @@include('layout/footer.html')
     <script>
         const bus = new Vue();
-        Vue.component('1',{
+        Vue.component('popup-1',{
             props: [''],
             template: `
                 <div class="popUps index_whatToEat_popup 1">
@@ -493,7 +492,7 @@
                 
             },    
         });
-        Vue.component('2',{
+        Vue.component('popup-2',{
             props: [''],
             template: `
                 <div class="popUps index_whatToEat_popup 2">
@@ -561,7 +560,7 @@
                 }
             },    
         });
-        Vue.component('3',{
+        Vue.component('popup-3',{
             props: [''],
             template: `
                 <div class="popUps index_whatToEat_popup 3">
@@ -628,7 +627,7 @@
               
             },    
         });
-        Vue.component('4',{
+        Vue.component('popup-4',{
             props: [],
             template: `
                 <div class="popUps index_whatToEat_popup 4">
@@ -700,7 +699,7 @@
               
             },    
         });
-        Vue.component('5',{
+        Vue.component('popup-5',{
             props: [],
             template: `
                 <div class="popUps index_whatToEat_popup 5">
@@ -969,10 +968,7 @@
                     return{
                         filter:`opacity(${this.infoOpacity})`,
                     }
-                }
-
-               
-                
+                } 
             },
             //後端傳資料
             // mounted() {
@@ -983,11 +979,7 @@
             // },
            
         });
-       
-        $('.sectionIcon').click(function (){
-            $('.sectionIcon').removeClass('on');
-            $(this).toggleClass('on');
-        });
+    
     </script>    
     </body>
 
