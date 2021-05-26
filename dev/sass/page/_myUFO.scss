@@ -1553,19 +1553,20 @@ overflow: hidden;
         }
         .getCharacter_choiceList{
            display: flex;
-           .choiceList_body{
+           .choiceList_body,.choiceList_eye,.choiceList_mouth{
                p{
-                   color:$green;
+                //    color:$green;
+                   cursor: pointer;
                }
            }
            .choiceList_body.off{
                p{
-                   color:$color;
+                //    color:$color;
                }
            }
            .choiceList_eye.on, .choiceList_mouth.on{
                 p{
-                    color: $green;
+                    // color: $green;
                 }
            }   
            p{
@@ -1580,11 +1581,12 @@ overflow: hidden;
             .choiceOrgan{
                 background-color: $lightgreen;
                 border-radius: 5px;
-                height: 300px;
+                // height: 300px;
                 .alienBody{
                     padding:20px 0;
                     display: flex;
                     justify-content: space-around;
+                    cursor: pointer;
                     img{
                         height: 90px;
                     }
@@ -1593,6 +1595,7 @@ overflow: hidden;
                     padding:20px 0;
                     display: flex;
                     justify-content: space-around;
+                    cursor: pointer;
                     img{
                         height:40px;
                     }
@@ -1601,16 +1604,56 @@ overflow: hidden;
                     padding:20px 0;
                     display: flex;
                     justify-content: space-around;
+                    cursor: pointer;
                     img{
                         height:30px;
                     }
                 }
             }
             .myEye, .myMouth{
-                display: none;
+                // display: none;
             }
         }
         
     }
     
+}
+
+//我的外食星人，上面組裝出來的部份
+.MyCharacter_body{
+    z-index: 3;
+    @include block_center();
+}
+
+.MyCharacter_eye {
+    z-index: 2;
+    position: relative;
+    // max-width: 22%;
+    width: 50%;
+    bottom: 210px;
+    @include block_center();
+    img{
+        width: 50%;
+    }
+}
+
+.MyCharacter_mouth {
+    z-index: 2;
+    position: relative;
+    // max-width: 20%;
+    bottom: 290px;
+    @include block_center();
+    img{
+        width: 50%;
+    }
+}
+
+.MyCharacter .getCharacter .getCharacter_alien {
+    padding: 20px;
+    max-height: 60%;
+}
+
+//頁籤切換加上class
+.active{
+    color: $green;
 }

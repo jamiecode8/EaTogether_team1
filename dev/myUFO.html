@@ -1,379 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        @@include('layout/style.html')
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-        <title>我的飛碟</title>
-        <link
-        rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-  
-    </head>
 
-    <body class="myUFO_wrapper">
-        @@include('layout/header.html')
-        <div class="wrapper myUFO_wrapper2">
-           <div class="myUFO_bg">
-            <div class="figure"><img src="./img/mimi/Backgroundimage.png" alt="#"  /></div>
-            <div class="figure2"><img src="./img/mimi/Backgroundimage2.png" alt="#"  /></div>
-            <div class="figure3"><img src="./img/mimi/Backgroundimaipad.png" alt="#" ></div>
-            <div class="figure4"><img src="./img/mimi/Backgroundimage_phone.png" alt="#" ></div>
-            </div>  
-            <div class="object">
-            <!--窗戶-->
-            <div class="window1">
-                <img src="./img/mimi/window.svg" alt=""  />
-            </div>
-            <!--點數-->
-            <div class="Points1">
-            <img src="./img/mimi/Points.svg" alt="" />
-            <p>8888</p>
-            </div>
-         
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	@@include('layout/style.html')
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<title>我的飛碟</title>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-            <!-- 燈 -->
-            <div class="light"><img src="./img/mimi/light.svg" alt="" ></div>   
-            <!-- 收藏店家   -->
-            <div class="favorites"><a href="#" ><img src="./img/mimi/favorites.svg" alt="" class="hover-button"/></a></div>
-            <!-- 櫃子 -->
-            <div class="cabinet"><a href="#" ><img src="./img/mimi/cabinet.svg" alt="" class="hover-button" id="category"/></a></div>
-            <!-- 輪播版 -->
-            <div class="Carousel"><img src="./img/mimi/Carousel.svg" alt=""  /></div>
-            <!---輪播----->
-               <!-- Swiper -->
-            
-               <div class="slideshow-body" id="slideshow">
-                <div class="slide-wrapper">
-                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告.jpg" alt=""></a></div>
-                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告2.jpg" alt=""></a></div>
-                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告3.jpg" alt=""></a></div>
-                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告4.jpg" alt=""></a></div>
-                  <div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告5.png" alt=""></a></div>
-                </div>
-              </div>
-                         
-            <!-- 外星人   -->
-            <div class="character"><a href="#"><img src="./img/mimi/wardrobe_character.svg" alt="" class="animated pulse infinite delay-4s"/></a></div>
-           <div class="myufo_searchbtn1">
-            <ul class="index_searchbtn myufo_searchbtn2">
-  
-              <li class="search_btn_Search myufo_btn_Search">
-                  <img src="./img/index/search.png" alt="">
-                  <p>美食搜尋</p>
-              </li>
-          </ul>
-        </div>   
-        
-        <!-- --------收藏餐廳彈窗-------- -->
+</head>
+
+<body class="myUFO_wrapper">
+	@@include('layout/header.html')
+	<div class="wrapper myUFO_wrapper2">
+		<div class="myUFO_bg">
+			<div class="figure"><img src="./img/mimi/Backgroundimage.png" alt="#" /></div>
+			<div class="figure2"><img src="./img/mimi/Backgroundimage2.png" alt="#" /></div>
+			<div class="figure3"><img src="./img/mimi/Backgroundimaipad.png" alt="#"></div>
+			<div class="figure4"><img src="./img/mimi/Backgroundimage_phone.png" alt="#"></div>
+		</div>
+		<div class="object">
+			<!--窗戶-->
+			<div class="window1">
+				<img src="./img/mimi/window.svg" />
+			</div>
+			<!--點數-->
+			<div class="Points1">
+				<img src="./img/mimi/Points.svg" alt="" />
+				<p>8888</p>
+			</div>
 
 
-        <!-- -------總分類彈窗----------- -->
-        <div class="popUps myUFOcategory" id="myUFO_category">
-            
-            <form action="#資料傳送送的網址" method="post" class="form categorform" >
-              <!-- close button -->
-              <button type="button" class="close_categor btn_close">
-                <img src="./img/icon/icon_close.png" alt="" >
-              </button>
-               <h1>選一個</h1>
-              <!-- 主標題 -->
-              <div class="categoricon"><img src="./img/mimi/category2.svg" alt="" class="categorimg"></div>
-               <!-- 優惠券 -->
-                <div class="coupon" ><a href="#" id="coupon_wardrobe" ><img src="./img/mimi/coupon.svg" alt="" class="hover-button" >
-                <h1>優惠卷</h1></a></div>
-                <!-- 小遊戲 -->
-                <div class="game"><a href="#"><img src="./img/mimi/game.svg" alt="" class="hover-button"><h1>小遊戲</h1></a></div>
-                <!-- 照片 -->
-                <div class="Smallphoto"><a href="./myphoto.html"><img src="./img/mimi/Smallphoto.svg" alt="" class="hover-button"><h1>照片牆</h1></a></div>
-                <!-- 任務 -->
-                <div class="Smalltask"><a href="#" id="Smalltask_wardrobe"><img src="./img/mimi/task.svg" alt=""  class="hover-button"><h1>每日任務</h1></a></div>
-            </form>
-            
-          </div>
- 
-        <!-- -----------------------優惠券彈窗------------------------------------- -->  
-        <div class="popUps" id="wardrobe_coupon">
-            <form action="#資料傳送送的網址" method="post" class="form">
-              <!-- close button -->
-              <button type="button" class="close_coupon btn_close">
-                <img src="./img/icon/icon_close.png" alt="" >
-              </button>
-               <h1>每日優惠卷一張</h1>
-              <!-- 主標題 -->
-              <div class="couponicon"><img src="./img/mimi/couponicon.svg" alt="" ></div>
-              <!-- 單顆按鈕用這裡 -->
-              <div class="buttonArea">
-                <a href="#"><div class="buybtn" id="couponbut2">領取優惠券</div></a>
-              </div>
-            </form>
-          </div>
+			<!-- 燈 -->
+			<div class="light"><img src="./img/mimi/light.svg" alt=""></div>
+			<!-- 收藏店家   -->
+			<div class="favorites"><a href="#"><img src="./img/mimi/favorites.svg" alt="" class="hover-button" /></a>
+			</div>
+			<!-- 櫃子 -->
+			<div class="cabinet"><a href="#"><img src="./img/mimi/cabinet.svg" alt="" class="hover-button"
+						id="category" /></a></div>
+			<!-- 輪播版 -->
+			<div class="Carousel"><img src="./img/mimi/Carousel.svg" alt="" /></div>
+			<!---輪播----->
+			<!-- Swiper -->
 
-          <div class="popUps" id="wardrobe_coupon2">
-            <form action="#資料傳送送的網址" method="post" class="form">
-              <!-- close button -->
-              <button type="button" class="close_coupon btn_close">
-                <img src="./img/icon/icon_close.png" alt="" >
-              </button>
-               <h1>每日優惠卷一張</h1>
-              <!-- 主標題 -->
-              <h2>請給店員操作</h2>
-              <!-- 單顆按鈕用這裡 -->
-              <div class="buttonArea">
-                <a href="#"><div class="buybtn22">兌換優惠券</div></a>
-              </div>
-            </form>
-          </div>
-          <!-- -----------------------每日任務彈窗----------------------------- -->
-          <div class="popUps" id="wardrobe_Smalltask">
-            <form action="#資料傳送送的網址" method="post" class="form formSmalltask"> 
-              <!-- close button -->
-              <button type="button" class="close_coupon btn_close">
-                <img src="./img/icon/icon_close.png" alt="">
-              </button>
-            
-              <!-- 主標題 -->
-              <h1>
-                每日任務 
-              </h1>
-              <div>
-                  <div class="Smalltaskbox1">
-                      <!-- --1-- -->
-                      <div class="Littleman"><img src="./img/mimi/Littleman.svg" alt="" ></div>
-                      <!-- --2---- -->
-                    <div class="progressmimi">
-                      <p>每日小遊戲</p>
-                      <div class="progress_bar">
-                        <progress max="100" value="0" class="more1"></progress>
-                        
-                        <button type="button" id="more1" class="myUFO_button buybtn1">兌換</button>
-                        </div>
-                    </div>
-                    
-                  </div>
-              <div class="Smalltaskbox2">
-                <!-- --1-- -->
-                <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBlue.png" alt="" ></div>
-                <!-- --2---- -->
-              <div class="progressmimi">
-                <p>藍線搜尋</p>
-                <div class="progress_bar">
-                  <progress max="100" value="0" class="more2"></progress>
-                  
-                <button type="button" id="more2" class="myUFO_button buybtn2">兌換</button>
-                </div>
-              </div>
-                <!-- --3-- -->
-            </div>
-            <div class="Smalltaskbox3">
-              <!-- --1-- -->
-              <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBrown.png" alt="" ></div>
-              <!-- --2---- -->
-            <div class="progressmimi">
-              <p>綜線搜尋</p>
-              <div class="progress_bar">
-                <progress max="100" value="0" class="more3"></progress>
-                  
-                <button type="button" id="more3" class="myUFO_button buybtn3">兌換</button>
-              </div>
-            </div>
-           
-          </div>
-          <div class="Smalltaskbox4">
-            <!-- --1-- -->
-            <div class="mrtSmalltask"><img src="./img/icon/icon_mrtGreen.png" alt="" ></div>
-            <!-- --2---- -->
-          <div class="progressmimi">
-            <p>綠線搜尋</p>
-            <div class="progress_bar">
-              <progress max="100" value="0" class="more4"></progress>
-                  
-              <button type="button" id="more4" class="myUFO_button buybtn4">兌換</button>
-            </div>
-          </div>
+			<div class="slideshow-body" id="slideshow">
+				<div class="slide-wrapper">
+					<div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告.jpg" alt=""></a></div>
+					<div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告2.jpg" alt=""></a></div>
+					<div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告3.jpg" alt=""></a></div>
+					<div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告4.jpg" alt=""></a></div>
+					<div class="slide"><a href="#"><img src="./img/mimi/餐廳廣告5.png" alt=""></a></div>
+				</div>
+			</div>
 
-        </div>
-        <div class="Smalltaskbox5">
-          <!-- --1-- -->
-          <div class="mrtSmalltask"><img src="./img/icon/icon_mrtRed.png" alt="" ></div>
-          <!-- --2---- -->
-        <div class="progressmimi">
-          <p>紅線搜尋</p>
-          <div class="progress_bar">
-            <progress max="100" value="0" class="more5"></progress>
-                
-            <button type="button" id="more5" class="myUFO_button buybtn5">兌換</button>
-          </div>
-        </div>
+			<!-- 外星人   -->
+			<div class="character"><a href="#"><img src="./img/mimi/wardrobe_character.svg" alt=""
+						class="animated pulse infinite delay-4s" /></a></div>
+			<div class="myufo_searchbtn1">
+				<ul class="index_searchbtn myufo_searchbtn2">
 
-      </div>
-      <div class="Smalltaskbox6">
-        <!-- --1-- -->
-        <div class="mrtSmalltask"><img src="./img/icon/icon_mrtYellow.png" alt="" ></div>
-        <!-- --2---- -->
-      <div class="progressmimi">
-        <p>橘線搜尋</p>
-        <div class="progress_bar">
-          <progress max="100" value="0" class="more6"></progress>
-          <button type="button" id="more6" class="myUFO_button buybtn6">兌換</button>
-        </div>
-      </div>
+					<li class="search_btn_Search myufo_btn_Search">
+						<img src="./img/index/search.png" alt="">
+						<p>美食搜尋</p>
+					</li>
+				</ul>
+			</div>
 
-    </div>
-              </div>   
- 
-            </form>
-          </div>
-        
-          <script>
-            $('#Smalltask_wardrobe').click(function(){
-                $('#wardrobe_Smalltask').css('display' , 'block').fadeIn(100);
-                    console.log('click ok');
-                    })
-                   // 關閉彈窗
-            $('.btn_close').click(function(){
-                $('#wardrobe_Smalltask').fadeOut(200);
-                });
-
-            moveProgressBar();
-
-             $(window).resize(function() {
-                moveProgressBar();
-                });
-
-            function moveProgressBar() {
-              console.log("moveProgressBar");
-                var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
-                var getProgressWrapWidth = $('.progress-wrap').width();
-                var progressTotal = getPercent * getProgressWrapWidth;
-                var animationLength = 2500;
-
-            $('.progress-bar').stop().animate({
-                left: progressTotal
-                }, animationLength);
-            }
-
-            moveProgressBar();
-
-                $(window).resize(function() {
-                    moveProgressBar();
-                    });
-
-                        function moveProgressBar() {
-                        console.log("moveProgressBar");
-                            var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
-                            var getProgressWrapWidth = $('.progress-wrap').width();
-                            var progressTotal = getPercent * getProgressWrapWidth;
-                            var animationLength = 2500;
-
-                                $('.progress-bar').stop().animate({
-                                    left: progressTotal
-                                    }, animationLength);
-                }
-    
-        </script>  
-               <!-- -------總分類彈窗----------- -->
-               <div class="popUps myUFOprogressbar" id="myUFOprogressbar">
-            
-                <form action="#資料傳送送的網址" method="post" class="form categorform" >
-                  <!-- close button -->
-                  <button type="button" class="close_myUFOprogressbar btn_close">
-                    <img src="./img/icon/icon_close.png" alt="" >
-                  </button>
-                   <h1>已領取點數10點!</h1>
-                  
-                </form>
-                
-              </div>
-
-        
-  
-        
-        <!-- ----------靜瑩角色彈窗---------- -->
-        <div class="popUps MyCharacter">
-            <form action=""  class="form getCharacter">
-    
-                <button type="button" class="getCharacterClose btn_close">
-                    <img src="./img/icon/icon_close.png" alt="" />
-                </button>
-    
-                <h1>我的外食星人</h1>
-                <div class="getCharacter_alien">
-                    <!-- 所選的角色身體顯示 -->
-                    <img src="./img/MyUFO_Alien/alienTest.png" alt="">
-                </div>
-                <div class="getCharacter_choiceList">
-                    <div class="choiceList_body"><p>身體</p></div>
-                    <div class="choiceList_eye"><p>眼睛</p></div>
-                    <div class="choiceList_mouth"><p>嘴巴</p></div>
-                </div>
-                <div class="getCharacter_choice">
-                    <div class="choiceOrgan myBody">
-                        <ul class="alienBody">
-                            <li><img src="./img/MyUFO_Alien/body1.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/body2.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/body3.png" alt=""></li>
-                        </ul>
-                        <ul class="alienBody">
-                            <li><img src="./img/MyUFO_Alien/body4.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/body5.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/body6.png" alt=""></li>
-                        </ul>
-                    </div>
-                    <div class="choiceOrgan myEye">
-                        <ul class="alienEye">
-                            <li><img src="./img/MyUFO_Alien/eye1.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/eye2.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/eye3.png" alt=""></li>
-                        </ul>
-                        <ul class="alienEye">
-                            <li><img src="./img/MyUFO_Alien/eye4.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/eye7.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/eye6.png" alt=""></li>
-                        </ul>
-                        <ul class="alienEye">
-                            <li><img src="./img/MyUFO_Alien/eye5.png" alt=""></li>
-                        </ul>
-                    </div>
-                    <div class="choiceOrgan myMouth">
-                        <ul class="alienMouth">
-                            <li><img src="./img/MyUFO_Alien/mouth1.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/mouth2.png" alt=""></li>
-                        </ul>
-                        <ul class="alienMouth">
-                            <li><img src="./img/MyUFO_Alien/mouth3.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/mouth4.png" alt=""></li>
-                        </ul>
-                        <ul class="alienMouth">
-                            <li><img src="./img/MyUFO_Alien/mouth5.png" alt=""></li>
-                            <li><img src="./img/MyUFO_Alien/mouth6.png" alt=""></li>
-                        </ul>
-                    </div>
-                </div>
-               
-                
-                <div class="btn getCharacterBtn">
-                    <a href="/myUFO_wardrobe.html">
-                        <input type="" value="送出" class="btn_submit getMyCharacter" disabled: disabled/>
-                    </a>
-                </div>
-                <br />
-            </form>
-          </div>
-        </div>
-       </div> 
+			<!-- --------收藏餐廳彈窗-------- -->
 
 
-        <!-- <href href="./index.html"><ul class="index_searchbtn myuFOsearchbut">
+			<!-- -------總分類彈窗----------- -->
+			<div class="popUps myUFOcategory" id="myUFO_category">
+
+				<form action="#資料傳送送的網址" method="post" class="form categorform">
+					<!-- close button -->
+					<button type="button" class="close_categor btn_close">
+						<img src="./img/icon/icon_close.png" alt="">
+					</button>
+					<h1>選一個</h1>
+					<!-- 主標題 -->
+					<div class="categoricon"><img src="./img/mimi/category2.svg" alt="" class="categorimg"></div>
+					<!-- 優惠券 -->
+					<div class="coupon"><a href="#" id="coupon_wardrobe"><img src="./img/mimi/coupon.svg" alt=""
+								class="hover-button">
+							<h1>優惠卷</h1>
+						</a></div>
+					<!-- 小遊戲 -->
+					<div class="game"><a href="#"><img src="./img/mimi/game.svg" alt="" class="hover-button">
+							<h1>小遊戲</h1>
+						</a></div>
+					<!-- 照片 -->
+					<div class="Smallphoto"><a href="./myphoto.html"><img src="./img/mimi/Smallphoto.svg" alt=""
+								class="hover-button">
+							<h1>照片牆</h1>
+						</a></div>
+					<!-- 任務 -->
+					<div class="Smalltask"><a href="#" id="Smalltask_wardrobe"><img src="./img/mimi/task.svg" alt=""
+								class="hover-button">
+							<h1>每日任務</h1>
+						</a></div>
+				</form>
+
+			</div>
+
+			<!-- -----------------------優惠券彈窗--------------------------------------->
+			<div class="popUps" id="wardrobe_coupon">
+				<form action="#資料傳送送的網址" method="post" class="form">
+					<!-- close button -->
+					<button type="button" class="close_coupon btn_close">
+						<img src="./img/icon/icon_close.png" alt="">
+					</button>
+					<h1>每日優惠卷一張</h1>
+					<!-- 主標題 -->
+					<div class="couponicon"><img src="./img/mimi/couponicon.svg" alt=""></div>
+					<!-- 單顆按鈕用這裡 -->
+					<div class="buttonArea">
+						<a href="#">
+							<div class="buybtn" id="couponbut2">領取優惠券</div>
+						</a>
+					</div>
+				</form>
+			</div>
+
+			<div class="popUps" id="wardrobe_coupon2">
+				<form action="#資料傳送送的網址" method="post" class="form">
+					<!-- close button -->
+					<button type="button" class="close_coupon btn_close">
+						<img src="./img/icon/icon_close.png" alt="">
+					</button>
+					<h1>每日優惠卷一張</h1>
+					<!-- 主標題 -->
+					<h2>請給店員操作</h2>
+					<!-- 單顆按鈕用這裡 -->
+					<div class="buttonArea">
+						<a href="#">
+							<div class="buybtn22">兌換優惠券</div>
+						</a>
+					</div>
+				</form>
+			</div>
+			<!-- -----------------------每日任務彈窗----------------------------- -->
+			<div class="popUps" id="wardrobe_Smalltask">
+				<form action="#資料傳送送的網址" method="post" class="form formSmalltask">
+					<!-- close button -->
+					<button type="button" class="close_coupon btn_close">
+						<img src="./img/icon/icon_close.png" alt="">
+					</button>
+
+					<!-- 主標題 -->
+					<h1>
+						每日任務
+					</h1>
+					<div>
+						<div class="Smalltaskbox1">
+							<!-- --1-- -->
+							<div class="Littleman"><img src="./img/mimi/Littleman.svg" alt=""></div>
+							<!-- --2---- -->
+							<div class="progressmimi">
+								<p>每日小遊戲</p>
+								<div class="progress_bar">
+									<progress max="100" value="0" class="more1"></progress>
+
+									<button type="button" id="more1" class="myUFO_button buybtn1">兌換</button>
+								</div>
+							</div>
+
+						</div>
+						<div class="Smalltaskbox2">
+							<!-- --1-- -->
+							<div class="mrtSmalltask"><img src="./img/icon/icon_mrtBlue.png" alt=""></div>
+							<!-- --2---- -->
+							<div class="progressmimi">
+								<p>藍線搜尋</p>
+								<div class="progress_bar">
+									<progress max="100" value="0" class="more2"></progress>
+
+									<button type="button" id="more2" class="myUFO_button buybtn2">兌換</button>
+								</div>
+							</div>
+							<!-- --3-- -->
+						</div>
+						<div class="Smalltaskbox3">
+							<!-- --1-- -->
+							<div class="mrtSmalltask"><img src="./img/icon/icon_mrtBrown.png" alt=""></div>
+							<!-- --2---- -->
+							<div class="progressmimi">
+								<p>綜線搜尋</p>
+								<div class="progress_bar">
+									<progress max="100" value="0" class="more3"></progress>
+
+									<button type="button" id="more3" class="myUFO_button buybtn3">兌換</button>
+								</div>
+							</div>
+
+						</div>
+						<div class="Smalltaskbox4">
+							<!-- --1-- -->
+							<div class="mrtSmalltask"><img src="./img/icon/icon_mrtGreen.png" alt=""></div>
+							<!-- --2---- -->
+							<div class="progressmimi">
+								<p>綠線搜尋</p>
+								<div class="progress_bar">
+									<progress max="100" value="0" class="more4"></progress>
+
+									<button type="button" id="more4" class="myUFO_button buybtn4">兌換</button>
+								</div>
+							</div>
+
+						</div>
+						<div class="Smalltaskbox5">
+							<!-- --1-- -->
+							<div class="mrtSmalltask"><img src="./img/icon/icon_mrtRed.png" alt=""></div>
+							<!-- --2---- -->
+							<div class="progressmimi">
+								<p>紅線搜尋</p>
+								<div class="progress_bar">
+									<progress max="100" value="0" class="more5"></progress>
+
+									<button type="button" id="more5" class="myUFO_button buybtn5">兌換</button>
+								</div>
+							</div>
+
+						</div>
+						<div class="Smalltaskbox6">
+							<!-- --1-- -->
+							<div class="mrtSmalltask"><img src="./img/icon/icon_mrtYellow.png" alt=""></div>
+							<!-- --2---- -->
+							<div class="progressmimi">
+								<p>橘線搜尋</p>
+								<div class="progress_bar">
+									<progress max="100" value="0" class="more6"></progress>
+									<button type="button" id="more6" class="myUFO_button buybtn6">兌換</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+			<script>
+				$('#Smalltask_wardrobe').click(function () {
+					$('#wardrobe_Smalltask').css('display', 'block').fadeIn(100);
+					console.log('click ok');
+				})
+				// 關閉彈窗
+				$('.btn_close').click(function () {
+					$('#wardrobe_Smalltask').fadeOut(200);
+				});
+
+				moveProgressBar();
+
+				$(window).resize(function () {
+					moveProgressBar();
+				});
+
+				function moveProgressBar() {
+					console.log("moveProgressBar");
+					var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
+					var getProgressWrapWidth = $('.progress-wrap').width();
+					var progressTotal = getPercent * getProgressWrapWidth;
+					var animationLength = 2500;
+
+					$('.progress-bar').stop().animate({
+						left: progressTotal
+					}, animationLength);
+				}
+
+				moveProgressBar();
+
+				$(window).resize(function () {
+					moveProgressBar();
+				});
+
+				function moveProgressBar() {
+					console.log("moveProgressBar");
+					var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
+					var getProgressWrapWidth = $('.progress-wrap').width();
+					var progressTotal = getPercent * getProgressWrapWidth;
+					var animationLength = 2500;
+
+					$('.progress-bar').stop().animate({
+						left: progressTotal
+					}, animationLength);
+				}
+			</script>
+			<!-- -------總分類彈窗----------- -->
+			<div class="popUps myUFOprogressbar" id="myUFOprogressbar">
+
+				<form action="#資料傳送送的網址" method="post" class="form categorform">
+					<!-- close button -->
+					<button type="button" class="close_myUFOprogressbar btn_close">
+						<img src="./img/icon/icon_close.png" alt="">
+					</button>
+					<h1>已領取點數10點!</h1>
+
+				</form>
+
+			</div>
+
+			<!-- ----------靜瑩角色彈窗---------- -->
+			<div class="popUps MyCharacter">
+				<form action="" class="form getCharacter">
+
+					<button type="button" class="getCharacterClose btn_close">
+						<img src="./img/icon/icon_close.png" alt="" />
+					</button>
+
+					<h1>我的外食星人</h1>
+					<div class="getCharacter_alien">
+						<!-- 所選的角色身體顯示 -->
+						<!-- <img src="./img/MyUFO_Alien/alienTest.png" alt=""> -->
+						<!-- Way2 -->
+						<!-- MyCharacter_body -->
+						<img class="MyCharacter_body" v-if="MyCharacter_body == 1" src="./img/MyUFO_Alien/body1.png">
+						<img class="MyCharacter_body" v-if="MyCharacter_body == 2" src="./img/MyUFO_Alien/body2.png">
+						<img class="MyCharacter_body" v-if="MyCharacter_body == 3" src="./img/MyUFO_Alien/body3.png">
+						<img class="MyCharacter_body" v-if="MyCharacter_body == 4" src="./img/MyUFO_Alien/body4.png">
+						<img class="MyCharacter_body" v-if="MyCharacter_body == 5" src="./img/MyUFO_Alien/body5.png">
+						<img class="MyCharacter_body" v-if="MyCharacter_body == 6" src="./img/MyUFO_Alien/body6.png">
+						<!-- MyCharacter_eyes -->
+						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 1" src="./img/MyUFO_Alien/eye1.png">
+						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 2" src="./img/MyUFO_Alien/eye2.png">
+						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 3" src="./img/MyUFO_Alien/eye3.png">
+						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 4" src="./img/MyUFO_Alien/eye4.png">
+						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 5" src="./img/MyUFO_Alien/eye5.png">
+						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 6" src="./img/MyUFO_Alien/eye6.png">
+						<!-- MyCharacter_mouth -->
+						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 1" src="./img/MyUFO_Alien/mouth1.png">
+						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 2" src="./img/MyUFO_Alien/mouth2.png">
+						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 3" src="./img/MyUFO_Alien/mouth3.png">
+						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 4" src="./img/MyUFO_Alien/mouth4.png">
+						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 5" src="./img/MyUFO_Alien/mouth5.png">
+						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 6" src="./img/MyUFO_Alien/mouth6.png">
+					</div>
+					<div class="getCharacter_choiceList">
+						<div class="choiceList_body" @click="getCharacter_choiceList = 1">
+							<p  @click="selected = 1" :class="{active:selected == 1}">身體</p>
+							<!-- <p @click="e => e.target.classList.toggle('active')">身體</p> -->
+						</div>
+						<div class="choiceList_eye" @click="getCharacter_choiceList = 2">
+							<p @click="selected = 2" :class="{active:selected == 2}">眼睛</p>
+							<!-- <p @click="e => e.target.classList.toggle('active')">眼睛</p> -->
+						</div>
+						<div class="choiceList_mouth" @click="getCharacter_choiceList = 3">
+							<p @click="selected = 3" :class="{active:selected == 3}">嘴巴</p>
+							<!-- <p @click="e => e.target.classList.toggle('active')">嘴巴</p> -->
+						</div>
+					</div>
+					<div class="getCharacter_choice">
+						<div class="choiceOrgan myBody" v-if="getCharacter_choiceList == 1">
+							<ul class="alienBody">
+								<li @click="MyCharacter_body = 1"><img src="./img/MyUFO_Alien/body1.png" alt=""></li>
+								<li @click="MyCharacter_body = 2"><img src="./img/MyUFO_Alien/body2.png" alt=""></li>
+								<li @click="MyCharacter_body = 3"><img src="./img/MyUFO_Alien/body3.png" alt=""></li>
+							</ul>
+							<ul class="alienBody">
+								<li @click="MyCharacter_body = 4"><img src="./img/MyUFO_Alien/body4.png" alt=""></li>
+								<li @click="MyCharacter_body = 5"><img src="./img/MyUFO_Alien/body5.png" alt=""></li>
+								<li @click="MyCharacter_body = 6"><img src="./img/MyUFO_Alien/body6.png" alt=""></li>
+							</ul>
+						</div>
+						<div class="choiceOrgan myEye" v-if="getCharacter_choiceList == 2">
+							<ul class="alienEye">
+								<li @click="MyCharacter_eye = 1"><img src="./img/MyUFO_Alien/eye1.png" alt=""></li>
+								<li @click="MyCharacter_eye = 2"><img src="./img/MyUFO_Alien/eye2.png" alt=""></li>
+								<li @click="MyCharacter_eye = 3"><img src="./img/MyUFO_Alien/eye3.png" alt=""></li>
+							</ul>
+							<ul class="alienEye">
+								<li @click="MyCharacter_eye = 4"><img src="./img/MyUFO_Alien/eye4.png" alt=""></li>
+								<li @click="MyCharacter_eye = 5"><img src="./img/MyUFO_Alien/eye5.png" alt=""></li>
+								<li @click="MyCharacter_eye = 6"><img src="./img/MyUFO_Alien/eye6.png" alt=""></li>
+							</ul>
+						</div>
+						<div class="choiceOrgan myMouth" v-if="getCharacter_choiceList == 3">
+							<ul class="alienMouth">
+								<li @click="MyCharacter_mouth = 1"><img src="./img/MyUFO_Alien/mouth1.png" alt=""></li>
+								<li @click="MyCharacter_mouth = 2"><img src="./img/MyUFO_Alien/mouth2.png" alt=""></li>
+								<li @click="MyCharacter_mouth = 3"><img src="./img/MyUFO_Alien/mouth3.png" alt=""></li>
+							</ul>
+							<ul class="alienMouth">
+								<li @click="MyCharacter_mouth = 4"><img src="./img/MyUFO_Alien/mouth4.png" alt=""></li>
+								<li @click="MyCharacter_mouth = 5"><img src="./img/MyUFO_Alien/mouth5.png" alt=""></li>
+								<li @click="MyCharacter_mouth = 6"><img src="./img/MyUFO_Alien/mouth6.png" alt=""></li>
+							</ul>
+						</div>
+					</div>
+					<div class="btn getCharacterBtn">
+						<a href="/myUFO_wardrobe.html">
+							<input type="" value="送出" class="btn_submit getMyCharacter" disabled: disabled />
+						</a>
+					</div>
+					<br/>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- <href href="./index.html"><ul class="index_searchbtn myuFOsearchbut">
             <li class="search_btn_Search">
                 <img src="./img/index/search.png" alt="">
                 <p>美食搜尋</p>
             </li> -->
-        </ul></href>
-  
-        @@include('layout/footer.html')
+	</ul>
+	</href>
 
-        <script src="./js/myUFO.js"></script>
-    </body>
+	@@include('layout/footer.html')
+
+	<script>
+		new Vue({
+			el: '.MyCharacter',
+			data: {
+				// 選取物件
+				MyCharacter_body: 1,
+				MyCharacter_eye: 1,
+				MyCharacter_mouth: 1,
+				// 頁籤切換
+				getCharacter_choiceList: 1,
+				//加上class
+				selected: undefined,
+			},
+		});
+	</script>
+
+	<script src="./js/myUFO.js"></script>
+</body>
+
 </html>
+
+<!-- way1 註冊component  -->
+<script>
+	// Vue.component('body_1',{
+	//   template: `
+	//       <div>
+	//         <img class="MyCharacter_body" src="./img/MyUFO_Alien/body1.png">
+	//       </div>
+	//   `
+	// });
+
+	// Vue.component('body_2',{
+	//     template: `
+	//           <div>
+	//             <img class="MyCharacter_body" src="./img/MyUFO_Alien/body2.png">
+	//           </div>
+	//     `
+	// });
+
+	// Vue.component('body_3',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_body" src="./img/MyUFO_Alien/body3.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('body_4',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_body" src="./img/MyUFO_Alien/body4.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('body_5',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_body" src="./img/MyUFO_Alien/body5.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('body_6',{
+	//       template: `
+	//           <div>
+	//             <img class="MyCharacter_body" src="./img/MyUFO_Alien/body6.png">
+	//           </div>
+	//       `
+	//   });
+
+	// Vue.component('eyes_1',{
+	//       template: `
+	//           <div>
+	//             <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye1.png">
+	//           </div>
+	//       `
+	//   });
+
+	// Vue.component('eyes_2',{
+	//       template: `
+	//           <div>
+	//             <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye2.png">
+	//           </div>
+	//       `
+	//   });
+
+	// Vue.component('eyes_3',{
+	//       template: `
+	//           <div>
+	//             <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye3.png">
+	//           </div>
+	//       `
+	//   });
+
+	// Vue.component('eyes_4',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye4.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('eyes_5',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye5.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('eyes_6',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye6.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('eyes_7',{
+	//       template: `
+	//           <div>
+	//             <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye5.png">
+	//           </div>
+	//       `
+	//   });
+
+	// Vue.component('mouth_1',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth1.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('mouth_2',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth2.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('mouth_3',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth3.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('mouth_4',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth4.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('mouth_5',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth5.png">
+	//         </div>
+	//     `
+	// });
+
+	// Vue.component('mouth_6',{
+	//     template: `
+	//         <div>
+	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth6.png">
+	//         </div>
+	//     `
+	// });
+</script>
+<!-- <component :is="body"></component>
+<component :is="eyes"></component>
+<component :is="mouth"></component> -->
+
+<!-- <div class="getCharacter_choice">
+
+<div class="choiceOrgan myBody">
+	<ul class="alienBody">
+		<li @click="body='body_1'"><img src="./img/MyUFO_Alien/body1.png" alt=""></li>
+		<li @click="body='body_2'"><img src="./img/MyUFO_Alien/body2.png" alt=""></li>
+		<li @click="body='body_3'"><img src="./img/MyUFO_Alien/body3.png" alt=""></li>
+		
+	</ul>
+	<ul class="alienBody">
+		<li @click="body='body_4'"><img src="./img/MyUFO_Alien/body4.png" alt=""></li>
+		<li @click="body='body_5'"><img src="./img/MyUFO_Alien/body5.png" alt=""></li>
+		<li @click="body='body_6'"><img src="./img/MyUFO_Alien/body6.png" alt=""></li>
+	</ul>
+</div>
+<div class="choiceOrgan myEye"> 
+	<ul class="alienEye">
+		<li @click="eyes='eyes_1'"><img src="./img/MyUFO_Alien/eye1.png" alt=""></li>
+		<li @click="eyes='eyes_2'"><img src="./img/MyUFO_Alien/eye2.png" alt=""></li>
+		<li @click="eyes='eyes_3'"><img src="./img/MyUFO_Alien/eye3.png" alt=""></li>
+	</ul>
+	<ul class="alienEye">
+		<li @click="eyes='eyes_4'"><img src="./img/MyUFO_Alien/eye4.png" alt=""></li>
+		<li @click="eyes='eyes_5'"><img src="./img/MyUFO_Alien/eye5.png" alt=""></li>
+		<li @click="eyes='eyes_6'"><img src="./img/MyUFO_Alien/eye6.png" alt=""></li>
+	</ul>
+	<ul class="alienEye">
+		<li @click="eyes='eyes_7'"><img src="./img/MyUFO_Alien/eye5.png" alt=""></li>
+	</ul>
+</div>
+<div class="choiceOrgan myMouth">
+	<ul class="alienMouth">
+		<li @click="mouth='mouth_1'"><img src="./img/MyUFO_Alien/mouth1.png" alt=""></li>
+		<li @click="mouth='mouth_2'"><img src="./img/MyUFO_Alien/mouth2.png" alt=""></li>
+	</ul>
+	<ul class="alienMouth">
+		<li @click="mouth='mouth_3'"><img src="./img/MyUFO_Alien/mouth3.png" alt=""></li>
+		<li @click="mouth='mouth_4'"><img src="./img/MyUFO_Alien/mouth4.png" alt=""></li>
+	</ul>
+	<ul class="alienMouth">
+		<li @click="mouth='mouth_5'"><img src="./img/MyUFO_Alien/mouth5.png" alt=""></li>
+		<li @click="mouth='mouth_6'"><img src="./img/MyUFO_Alien/mouth6.png" alt=""></li>
+	</ul>
+</div>
+</div> -->
