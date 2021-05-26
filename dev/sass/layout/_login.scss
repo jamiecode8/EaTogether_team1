@@ -263,6 +263,9 @@
 
 //鄰近站點的下拉選單
 .memberInfo_edit_area{
+    .memberInfo_edit_area_title{
+        background-color:white;
+    }
     &_stationSelect.on{
         display: block;
         margin-bottom: 20px;
@@ -304,3 +307,4 @@
         color: $mrtYellow;
     }
 }
+

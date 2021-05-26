@@ -50,8 +50,8 @@
                         <!-- 常去站點 -->
                         <div class="login_station">
                             <input type="text" id="login_station_choice" class="input" v-model="selectedStation" disabled="disabled">
-                            <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
-                            <ul class="login_station_select" id="login_station_options">
+                            <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="station_Selection_toggle">
+                            <ul class="login_station_select" id="login_station_options" v-if="station_Selection == 1">
                                 <li v-for="station in blueStations" class="b">{{station}}</li> 
                                 <li v-for="station in redStation" class="r">{{station}}</li> 
                                 <li v-for="station in greenStation" class="g">{{station}}</li> 
@@ -63,9 +63,9 @@
                         <div class="login_tag">
                             <input type="text" placeholder="喜好標籤" disabled="disabled"/>
                             <button class="signUp_tag_area ">
-                                <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="">
+                                <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="food_Selection = 1">
                             </button>
-                            <div class="login_tag_select" id="login_tag_select">
+                            <div class="login_tag_select" id="login_tag_select" v-if="food_Selection == 1">
                                 <span>#日式</span>
                                 <span>#韓式</span>
                                 <span>#美式</span>
