@@ -36,6 +36,7 @@
 
 }
 .storeLogin_signup{
+    overflow: initial;
 	@include rwd(desktop){
     // display: none;
     width: 1000px;
