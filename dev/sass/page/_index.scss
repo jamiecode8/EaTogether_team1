@@ -230,7 +230,7 @@ body.index{
 //----------標籤彈窗----------
 
 .tags_popUp{
-    position: absolute;
+    position:fixed;
     top: 5vh;
     left: 12vw;
     border-radius: 5px;
