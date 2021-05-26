@@ -166,7 +166,7 @@ body.index{
     }
  
     .getSearch{
-        height: 650px;
+        // height: 650px;
         background-color: white;
         .searchFood {
             position: relative;
@@ -402,10 +402,6 @@ body.index{
                 margin-bottom: 5px;
                 filter: opacity(0.5);
             }
-            .storeInf_warnIcon.on{
-                filter: opacity(1);
-            }  
-           
           }
         }
         //店家資訊按鈕
@@ -424,7 +420,7 @@ body.index{
             }
             .sectionIconInf{
                 text-align: center;
-                padding-bottom:5px;
+                padding-bottom:10px;
                 font-weight: bold;
             }
         }
@@ -434,6 +430,7 @@ body.index{
             .storeInf_picMain{
                 margin-top:10px;
                 width: 300px;
+                height: 300px;
             }
             .storeInf_picSection{
                 margin-top: 10px;

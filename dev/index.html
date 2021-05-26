@@ -269,13 +269,13 @@
                         <!-- 基本資訊icon     -->
                         <div class="storeInf_section">
                             <ul class="storeInf_sectionIcon">
-                                <li class="sectionIcon sectionIcon_location"><img src="./img/icon/icon_location.png" alt=""></li>
-                                <li class="sectionIcon sectionIcon_mrt"><img src="./img/icon/icon_mrt.png" alt=""></li>
-                                <li class="sectionIcon sectionIcon_tel"><img src="./img/icon/icon_tel.png" alt=""></li>
+                                <li class="sectionIcon sectionIcon_location"><img src="./img/icon/icon_location.png" alt=""  @click="inf='location'"></li>
+                                <li class="sectionIcon sectionIcon_mrt"><img src="./img/icon/icon_mrt.png" alt="" @click="inf='station'"></li>
+                                <li class="sectionIcon sectionIcon_tel"><img src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
                                 <!-- <li class="sectionIcon sectionIcon_time"><img src="./img/icon/icon_time.png" alt=""></li> -->
-                                <li class="sectionIcon sectionIcon_price"><img src="./img/icon/icon_price.png" alt=""></li>
+                                <li class="sectionIcon sectionIcon_price"><img src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
                             </ul>
-                            <p class="sectionIconInf"></p>
+                            <component :is="inf"></component>
                         </div>
                         <!-- 店家照片 -->
                         <div class="storeInf_pic">
@@ -296,6 +296,8 @@
                         <div class="storeInf_comment">
                             <h2>評論</h2>
                             <div class="storeInf_comments">
+                            <!-- <div class="storeInf_comments" v-for="comment in comments"> -->
+
                                 <ul class="storeInf_commentMain">
                                     <li class="commentMain_account">
                                         <img src="./img/index/account.png" alt="">
@@ -738,7 +740,38 @@
               
             },    
         });
-
+        Vue.component('location',{
+            props: [''],
+            template: `
+            <p class="sectionIconInf">store.address</p>
+            `,
+            data(){
+                return {
+                };
+            },
+            mounted() {
+            },
+            methods: {
+                // getInf(){
+                //     this.$emit('storeinf-emit');
+                // },
+            },    
+        });
+        Vue.component('station',{
+            template: `
+            <p class="sectionIconInf" @click='getInf'>store.station</p>
+            `,
+        });
+        Vue.component('phone',{
+            template: `
+            <p class="sectionIconInf">store.phone</p>
+            `,
+        });
+        Vue.component('price',{
+            template: `
+            <p class="sectionIconInf">store.price</p>
+            `,
+        });
         //search
         new Vue({
             el: '#app_index',
@@ -756,13 +789,15 @@
                 content:'',//question compoment
                 isSearchStores:false,
                 isStoreInf:false,
-                stores:[],//ajax
+                stores: [{name:'Andy',address:'全家就是你家'},{name:'Brian',address:'你家巷口'}],//ajax
                 isSearchNothing:false,
                 isSearchReport:false,
                 heartGrayscale:1,
                 warnOpacity:0.5,
                 coupon:'領取優惠',
                 report:'',
+                inf:'location',
+                infoOpacity:1,
             },
             methods: { 
                 //whatToEat
@@ -867,10 +902,14 @@
                     this.isStoreInf = true;
                 },
                 searchSomething(){
-                    alert('Ajax send to backend');
-                    this.isStoreInf = false;
-                    this.isSearchStores = true;
-                    this.findFood = '';
+                    if( this.findFood != '' && this.findFood != '請輸入食物'){
+                        alert('Ajax send to backend');
+                        this.isStoreInf = false;
+                        this.isSearchStores = true;
+                        this.findFood = '';
+                    }else{
+                        this.findFood = '請輸入食物';
+                    }
                 },
               
                 getStoreReported(){
@@ -897,7 +936,8 @@
                         console.log('{{this.store}}');
                         this.heartGrayscale=0;
                     }
-                  },
+                },
+            
             },
             computed:{
                 findFoodClass(){
@@ -924,6 +964,11 @@
                     return{
                         filter:`opacity(${this.warnOpacity})`,
                     }
+                },
+                storeInfOpacity(){
+                    return{
+                        filter:`opacity(${this.infoOpacity})`,
+                    }
                 }
 
                
@@ -938,32 +983,11 @@
             // },
            
         });
-      
-        //店家資訊
+       
         $('.sectionIcon').click(function (){
             $('.sectionIcon').removeClass('on');
             $(this).toggleClass('on');
-            let myClassName =this.className.split(' ')[1];
-            $('.sectionIconInf').css('color','#6c584c');
-           
-            if(myClassName=='sectionIcon_location'){
-                $('.sectionIconInf').html('地址｜復興北路你家巷口200號');
-            }else if(myClassName=='sectionIcon_mrt'){
-                $('.sectionIconInf').html('捷運站｜南京復興');
-                $('.sectionIconInf').css('color','#7baa85');
-            }else if(myClassName=='sectionIcon_tel'){
-                $('.sectionIconInf').html('電話｜02 1234567');
-            }else if(myClassName=='sectionIcon_time'){
-                $('.sectionIconInf').html('營業時間｜10:00-20:00');
-            }else if(myClassName=='sectionIcon_price'){
-                $('.sectionIconInf').html('平均客單｜150 元');
-            }
         });
-      
-      
-      
-
-
     </script>    
     </body>
 
