@@ -1,69 +1,104 @@
-<!-- 這邊是寫三個彈窗; //篩選結果 //單一店家 //檢舉彈窗 -->
-            <!-- ----------搜尋按鈕---------- -->
-            <ul class="index_searchbtn">
-                <li class="search_btn_Search">
+
+    
+              <!-- ----------搜尋按鈕---------- -->
+            <ul class="index_searchbtn" id="mySearchBtn">
+              
+                <li class="search_btn_Search" @click='searchIcon'>
                     <img src="./img/index/search.png" alt="">
                     <p>美食搜尋</p>
                 </li>
             </ul>    
-            <!-- ----------search彈窗end---------- -->
+
             <!-- 搜尋彈窗 -->
-            <div class="popUps index_search_popup">
+            <div class="popUps index_search_popup" v-show="isSearchBoard">
                 <form class="form getSearch" action="">
-                    <button type="button" class="getSearchClose btn_close">
+                    <button type="button" class="getSearchClose btn_close" @click='closeSearch(1)'>
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>Search</h1>
                     <div class="searchFood text_search">
                         <h2>搜尋美食</h2>
-                        <input type="text">
+                        <input :class="findFoodClass" type="text"  :disabled="isTyped" v-model="findFood" @click='showTag(1)'>
                         <img src="./img/icon/icon_search.png" alt="">
                     </div>
                     <div class="searchFood mrt_search"> 
                         <h2>捷運路線</h2>
-                        <input type="text" disabled="disabled">
-                        <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="">
-                        <ul class="mrtLines">
-                            <li class="b">板南線</li>
-                            <li class="r">淡水信義線</li>
-                            <li class="g">松山新店線</li>
-                            <li class="br">文湖線</li>
-                            <li class="y">中和新蘆線</li>
+                        <input :class="searchLineClass"  type="text" disabled="disabled" v-model="searchLine" >
+                        <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="" @click='showLine'>
+                        <ul class="mrtLines" v-show="isShowLine">
+                            <li v-for="line in mrtLine" @click="myline(line)">{{line}}</li>
                         </ul>
                     </div>
                     <div class="searchFood  keyword_search">
-                        <h2>關鍵字搜索</h2>
-                        <input type="text" disabled="disabled"> 
-                        <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="">
-                        <div class="searchTags">
-                            <span>#日式</span><span>#韓式</span><span>#美式</span><span>#台式</span>
-                            <span>#法式</span><span>#中式</span><span>#聚餐</span><span>#簡餐</span>
-                            <span>#銅板美食</span><span>#下午茶</span><span>#早午餐</span><span>#商業午餐</span>
-                            <span>#夜市</span><span>#咖哩</span><span>#火鍋</span><span>#牛排</span>
-                            <span>#咖啡店</span><span>#餐酒館</span><span>#鐵板燒</span><span>#拉麵</span>
-                            <span>#甜點</span><span>#麵食</span><span>#雞排</span><span>#鹽酥雞</span> 
-                        </div>
+                        <h2>標籤搜尋</h2>
+                        <input :class="searchTagsClass" type="text" disabled="disabled" v-model="searchTags"> 
+                        <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="" @click="showTag(3)">
                     </div>
-            
+                    <div class="searchWarn" v-show="isSearchNothing"><img src="./img/index/warn1.png" alt=""><p>Ｏpps!沒有完成搜尋</p></div>
+
                     <div class="SearchBtn btn">
-                        <input  value="出發探索" class="getSearchBtn btn_submit" />
+                        <input  value="出發探索" class="getSearchBtn btn_submit" @click='searchFood'>
                     </div>
               
                 </form>
             </div>
+            <!-- 標籤彈窗     -->
+            <div class="popUps tags_popUp" v-show="isShowTag" >
+                <form action="#資料傳送送的網址"  class="form getTags">
+                    <button type="button" class="getSearchClose btn_close" @click="closeSearch(4)">
+                        <img src="./img/icon/icon_close_20.png" alt="">
+                    </button>
+                    <h2>請選擇標籤</h2>
+                    <div class="searchTags">
+                        <span v-for="tag in tags" @click="myTag(tag)">{{tag}}</span>
+                    </div>
+                </form>
+            </div>
             <!-- 搜尋結果彈窗 -->
-            <div class="popUps index_store_popup">
+            <div class="popUps index_store_popup" v-show="isSearchStores">
                 <form class="form getStore" action="">
-                    <button type="button" class="getSearchClose btn_close">
+                    <button type="button" class="getSearchClose btn_close" @click="closeSearch(2)">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <div class="searchFood text_search">
                         <h1 class="text_search_title">搜尋美食</h1>
-                        <input type="text">
-                        <img src="./img/icon/icon_search.png" alt="">
+                        <input type="text" v-model="findFood">
+                        <img src="./img/icon/icon_search.png" alt="" @click="searchSomething">
                     </div>
                     <!-- 店家名單 -->
                     <div class="getStoreInf_search">
+                        <div class="getStoreInf" @click="finalStoreInf">
+                        <!-- <div class="getStoreInf" v-for="store in stores"> -->
+                            <ul class="getStoreInf_digital" >
+                                <li class="getStoreInf_name">
+                                    <h2>提八米咖啡廳</h2>
+                                    <!-- <h2>{{store.name}}}</h2> -->
+                                </li>
+                                <li class="getStoreInf_star">
+                                    <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
+                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
+                                    <!-- <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
+                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
+                                </li>
+                                <li class="getStoreInf_station">
+                                    <p>捷運站:</p>     <!--  判斷是哪一個站給他該線顏色 -->
+                                    <span class="station_color">南京復興</span>
+                                    <!-- <span class="station_color">{{store.station}}}</span> -->
+
+                                </li>
+                                <li class="getStoreInf_tag">
+                                    <span>#銅板美食</span>
+                                    <span>#咖啡店</span>
+                                    <span>#餐酒館</span>
+                                    <!-- <span>{{store.tag1}}}</span>
+                                    <span>{{store.tag2}}}</span>
+                                    <span>{{store.tag3}}}</span> -->
+                                </li>
+                            </ul>
+                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
+                            <!-- <img class="getStoreInf_pic" :src="store.image"> -->
+
+                        </div>
                         <div class="getStoreInf">
                             <ul class="getStoreInf_digital">
                                 <li class="getStoreInf_name">
@@ -75,6 +110,27 @@
                                   <img src="./img/icon/icon_star.png" alt="">
                                   <img src="./img/icon/icon_star.png" alt="">
                                   <img src="./img/icon/icon_star_default.png" alt="">
+                                </li>
+                                <li class="getStoreInf_station">
+                                    <p>捷運站:</p>
+                                    <span class="station_color">南京復興</span>
+                                </li>
+                                <li class="getStoreInf_tag">
+                                    <span>#下午茶</span>
+                                    <span>#咖啡店</span>
+                                    <span>#甜點</span>
+                                </li>
+                            </ul>
+                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
+                        </div>
+                        <div class="getStoreInf">
+                            <ul class="getStoreInf_digital">
+                                <li class="getStoreInf_name">
+                                    <h2>提八米咖啡廳</h2>
+                                </li>
+                                <li class="getStoreInf_star"> 
+                                    <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
+                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
                                 </li>
                                 <li class="getStoreInf_station">
                                     <p>捷運站:</p>
@@ -136,105 +192,58 @@
                             </ul>
                             <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
                         </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star_default.png" alt="">
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                        </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star_default.png" alt="">
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                        </div>
-                    </div>
-                    <p class="searchTotal">共 <span>5</span> 筆</p>    
+                   </div>   <!-- 後端要抓全部total筆數 -->
+                    <p class="searchTotal">共 <span>5</span> 筆</p>
+                    <!-- <p class="searchTotal" >共 <span>{{store.length}}</span> 筆</p>      -->
                 </form>
             </div>
             <!-- 店家詳細資訊 -->
-            <div class="popUps index_inf_popup">
+            <div class="popUps index_inf_popup" v-show="isStoreInf">
                 <form class="form getStoreDigitalInf" action="">
-                    <button type="button" class="getSearchClose btn_close">
+                    <button type="button" class="getSearchClose btn_close" @click="closeSearch(3)">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <div class="searchFood text_search">
                         <h1 class="text_search_title">搜尋美食</h1>
-                        <input type="text">
-                        <img src="./img/icon/icon_search.png" alt="">
+                        <input type="text" v-model="findFood">
+                        <img src="./img/icon/icon_search.png" alt="" @click="searchSomething">
                     </div>
                     <!-- 店家基本資訊 -->
                     <div class="storeInf">
                         <div class="storeInf_title">
-                            <img class="storeInf_title_like" src="./img/icon/icon_heart.png" alt="">
+                            <img class="storeInf_title_like" @click="toCollect" :style="collectionClass" src="./img/icon/icon_heart.png" alt="">
                             <div>
                                 <h2 class="storeInf_title_name">提八米咖啡廳</h2>
+                                <!-- <h2 class="storeInf_title_name">{{store.name}}</h2> -->
                                 <div class="getStoreInf_star"> 
-                                    <img src="./img/icon/icon_star.png" alt="">
-                                    <img src="./img/icon/icon_star.png" alt="">
-                                    <img src="./img/icon/icon_star.png" alt="">
-                                    <img src="./img/icon/icon_star.png" alt="">
-                                    <img src="./img/icon/icon_star_default.png" alt="">
+                                    <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
+                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
+                                    <!-- <div v-for="star in store.star"><img src="./img/icon/icon_star.png" alt=""></div>
+                                    <div v-for="darkStar in store.star"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
                                 </div>
-                           </div>
-                           <ul class="storeInf_title_warn">
-                                <li>
-                                    <img class="storeInf_warnIcon" src="./img/icon/icon_warn.png" alt="">
-                                </li>
-                                <li class="getStoreInf_tag">
+                                <div class="getStoreInf_tag">
                                     <span>#下午茶</span>
                                     <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-
-                            </ul>
+                                    <span>#銅板美食</span>
+                                      <!-- <span>{{store.tag1}}}</span>
+                                    <span>{{store.tag2}}}</span>
+                                    <span>{{store.tag3}}}</span> -->
+                                </div>
+                           </div>
+                           <div class="storeInf_title_warn">
+                                    <img class="storeInf_warnIcon" src="./img/icon/icon_warn.png" alt="" @click="getStoreReported" :style="signOpacity">
+                            </div>
                         </div>
                         <!-- 基本資訊icon     -->
                         <div class="storeInf_section">
                             <ul class="storeInf_sectionIcon">
-                                <li class="sectionIcon sectionIcon_location"><img src="./img/icon/icon_location.png" alt=""></li>
-                                <li class="sectionIcon sectionIcon_mrt"><img src="./img/icon/icon_mrt.png" alt=""></li>
-                                <li class="sectionIcon sectionIcon_tel"><img src="./img/icon/icon_tel.png" alt=""></li>
-                                <li class="sectionIcon sectionIcon_time"><img src="./img/icon/icon_time.png" alt=""></li>
-                                <li class="sectionIcon sectionIcon_price"><img src="./img/icon/icon_price.png" alt=""></li>
+                                <li class="sectionIcon sectionIcon_location"><img src="./img/icon/icon_location.png" alt=""  @click="inf='location'"></li>
+                                <li class="sectionIcon sectionIcon_mrt"><img src="./img/icon/icon_mrt.png" alt="" @click="inf='station'"></li>
+                                <li class="sectionIcon sectionIcon_tel"><img src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
+                                <!-- <li class="sectionIcon sectionIcon_time"><img src="./img/icon/icon_time.png" alt=""></li> -->
+                                <li class="sectionIcon sectionIcon_price"><img src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
                             </ul>
-                            <p class="sectionIconInf"></p>
+                            <component :is="inf"></component>
                         </div>
                         <!-- 店家照片 -->
                         <div class="storeInf_pic">
@@ -244,30 +253,37 @@
                                 <img src="./img/index/storePic2.jpeg" alt="">
                                 <img src="./img/index/storePic3.jpeg" alt="">
                                 <img src="./img/index/storePic3.jpeg" alt="">
+                                <!-- <img :src="store.image1" alt="">
+                                <img :src="store.image2" alt="">
+                                <img :src="store.image3" alt="">
+                                <img :src="store.image4" alt=""> -->
                             </div>
     
                         </div>
                         <!-- 評論 -->
                         <div class="storeInf_comment">
                             <h2>評論</h2>
-
                             <div class="storeInf_comments">
+                            <!-- <div class="storeInf_comments" v-for="comment in comments"> -->
+
                                 <ul class="storeInf_commentMain">
                                     <li class="commentMain_account">
                                         <img src="./img/index/account.png" alt="">
+                                        <!-- <img :src="store.commentMemberPic" alt=""> -->
                                         <p>MrRight</p>
+                                        <!-- <p>{{store.commentMember}}</p> -->
                                     </li>
                                     
                                     <li class="commentMain_star">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
+                                        <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
+                                        <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
+                                        <!-- <div v-for="star in store.commentStar"><img src="./img/icon/icon_star.png" alt=""></div>
+                                        <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
                                     </li>
 
                                     <li class="commentMain_comment">
                                         <p>東西好吃 想跟老闆結婚</p>
+                                        <!-- <p>{{store.comment}}</p> -->
                                     </li>
                                 </ul>
                             </div>
@@ -355,181 +371,277 @@
                     </div>
                     <!-- 優惠券 -->
                     <div class="btn storeInf_btn">
-                        <input  value="領取優惠券" class="getCouponBtn btn_submit" />
+                        <input   v-model="coupon" class="getCouponBtn btn_submit" @click="getCoupon"/>
                     </div>
                     <br />
                 </form>
             </div>
             <!-- 檢舉店家彈窗 -->
-            <div class="popUps index_searcReport_popup">
+            <div class="popUps index_searcReport_popup" v-show="isSearchReport">
                 <form class="form getReport" action="">
-                    <button type="button" class="getReportClose btn_close">
+                    <button type="button" class="getReportClose btn_close" @click="closeSearch(5)">
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>我要檢舉</h1>
-                    <div class="reportTitle">
-                        <img src="./img/icon/icon_warn.png" alt="">
-                        <h2>被檢舉店家:</h2>
-                    </div>
-                    <div class="reportStore">
-                        <p class="reportStore_name">提八米咖啡廳</p>
-                        <div class="reportStore_tags">
-                            <span>#下午茶</span>
-                            <span>#咖啡店</span>
-                            <span>#甜點</span>
-                        </div>
-                    </div>
                     <div class="reportReason">
+                        <img src="./img/index/warn2.png" alt="">
                         <h2>檢舉原因:</h2>
-                        <textarea class="reportReason_text" name="" id="" cols="30" rows="5"></textarea>
+                        <textarea class="reportReason_text" name="" id="" cols="30" rows="5" v-model="report" placeholder="請留下原因 管理員會盡快處理！"></textarea>
                     </div>
                     <div class="reportBtn btn">
-                        <input  type="submit" value="檢舉" class="getReportBtn btn_submit" />
+                        <input  @click='sendReport' value="檢舉" class="getReportBtn btn_submit" />
                     </div>
               
                 </form>
             </div>
-    
-        </div>
     <script>
+        
+        Vue.component('location',{
+            props: [''],
+            template: `
+            <p class="sectionIconInf">store.address</p>
+            `,
+            data(){
+                return {
+                };
+            },
+            mounted() {
+            },
+            methods: {
+                // getInf(){
+                //     this.$emit('storeinf-emit');
+                // },
+            },    
+        });
+        Vue.component('station',{
+            template: `
+            <p class="sectionIconInf" @click='getInf'>store.station</p>
+            `,
+        });
+        Vue.component('phone',{
+            template: `
+            <p class="sectionIconInf">store.phone</p>
+            `,
+        });
+        Vue.component('price',{
+            template: `
+            <p class="sectionIconInf">store.price</p>
+            `,
+        });
+        //search
+        new Vue({
+            el: '#app',
+            data: {
+                choices:[],//whatToEat答案
+                isSearchBoard:false,
+                isShowLine:false,
+                mrtLine:['板南線','淡水信義線','松山新店線','文湖線','中和新蘆線'],
+                searchLine:'',
+                findFood:'',
+                searchTags:'',
+                isShowTag:false,                                                                               						
+                tags:['#日式','#韓式','#美式','#義式','#台式','#法式','#中式','#夜市','#商業午餐','#早午餐','#下午茶','#銅板美食','#簡餐','#聚餐','#餐酒館','#咖啡店','#甜點','#麵食','#鹽酥雞','#雞排','#咖哩','#火鍋','#牛排','#拉麵','#鐵板燒'],
+                isTyped:false,
+                content:'',//question compoment
+                isSearchStores:false,
+                isStoreInf:false,
+                stores: [{name:'Andy',address:'全家就是你家'},{name:'Brian',address:'你家巷口'}],//ajax
+                isSearchNothing:false,
+                isSearchReport:false,
+                heartGrayscale:1,
+                warnOpacity:0.5,
+                coupon:'領取優惠',
+                report:'',
+                inf:'location',
+                infoOpacity:1,
+            },
+            methods: { 
+                //whatToEat
+                nextQ(){
+                    this.content = String(parseInt(this.content)+1);
+                },
+                preQ(){
+                    this.content = String(parseInt(this.content)-1);
+                },
+                answerQ(selected){
+                    let index = parseInt(this.content)-1;
+                    this.choices[index] = selected;
+                    console.log(this.choices);
+                },
+                callAjaxQ(){
+                    console.log(this.choices);
+                    alert('send To Backend');
+                    this.choices =['','','',''];
+                },
+                closeQ(){
+                    this.content = '';
+                    this.choices =['','','',''];
+                },
+                againQ(){
+                    this.content = '1';
+                    this.choices =['','','',''];
+                },
+                //search
+                closeSearch(number){
+                    if(number == 1){
+                        this.isSearchBoard = false;
+                        this.searchLine = '';
+                        this.findFood = '';
+                        this.searchTags ='';
+                        this.isSearchNothing=false;
+                    }else if(number == 2){
+                        this.isSearchStores = false;
+                        this.findFood = '';
 
-        //-----whatToEat彈窗------
-        //打開彈窗
-        $('.search_btn_whatToEat').click(function (){
-            $('.index_search_popup').fadeOut(100);
-            $('.index_whatToEat_popup.1').fadeIn(50);
+                    }else if(number == 3){
+                        this.isStoreInf = false;
+                        this.findFood = '';
+                    }else if(number == 4){
+                        this.isShowTag = false;
+                    }else if(number == 5){
+                        this.isSearchReport = false;
+                        this.warnOpacity = 0.5;                   
+                    }
+                   
+                },
+                show(){
+                    this.optionList = !this.optionList;  
+                },
+                //打開搜尋彈窗
+                searchIcon(){
+                    this.isSearchBoard = !this.isSearchBoard;  
+                },
+                //捷運線選單
+                showLine(){
+                    this.isShowLine = !this.isShowLine;
+                },
+                myline(line){
+                    this.searchLine= line;
+                    this.isShowLine = false;
+                    this.isSearchNothing=false;
+                },
+                myTag(tag){
+                    this.searchTags = tag;
+                    this.isShowTag = false;
+                },
+                showTag(number){
+                    if(number==3 && this.findFood==''){
+                        this.isShowTag = !this.isShowTag;
+                        this.isSearchNothing=false;
+                    }
+                    if(number==1){
+                        this.searchTags='';
+                        this.isSearchNothing=false;
+                    }
+                },
+               
+                searchFood(){
+                    if(this.findFood !=''||this.searchTags !=''||this.searchLine != ''){
+                        this.searchLine = '';
+                        this.findFood = '';
+                        this.searchTags ='';
+                        console.log(this.findFood,this.searchLine,this.searchTags);
+                        alert('Ajax send to backend');
+                        this.isSearchBoard = false;
+                        this.isSearchStores = true;
+                        this.isSearchNothing = false;                   
+                    }else{
+                        this.isSearchNothing =true;                   
+                     }
+                  
+                },
+                showStores(){
+                    this.isSearchStores = true;
+                },
+                finalStoreInf(){
+                    this.isSearchStores = false;
+                    this.isStoreInf = true;
+                },
+                searchSomething(){
+                    if( this.findFood != '' && this.findFood != '請輸入食物'){
+                        alert('Ajax send to backend');
+                        this.isStoreInf = false;
+                        this.isSearchStores = true;
+                        this.findFood = '';
+                    }else{
+                        this.findFood = '請輸入食物';
+                    }
+                },
+              
+                getStoreReported(){
+                    this.isSearchReport = true;
+                    this.warnOpacity = 1;                   
+                },
+                sendReport(){
+                    alert('sent to backend');
+                    console.log(this.report);
+                    this.report='';
+                    this.isSearchReport = false;
+                    this.warnOpacity =0.5;
+                },
+                getCoupon(){
+                    alert('Ajax send to backend');
+                    this.coupon = "領取過了";   
+                },
+                toCollect(){
+                    if(this.heartGrayscale == 0){
+                        this.heartGrayscale=1;
+                        alert('remove from collection')
+                    }else{
+                        alert('send to backend  my collection');               
+                        console.log('{{this.store}}');
+                        this.heartGrayscale=0;
+                    }
+                },
+            
+            },
+            computed:{
+                findFoodClass(){
+                    return{
+                        noText: this.findFood.length === 0,                    
+                    }
+                },
+                searchLineClass(){
+                    return{
+                        noText: this.searchLine.length === 0,                    
+                    }
+                },
+                searchTagsClass(){
+                    return{
+                        noText: this.searchTags.length === 0,                    
+                    }
+                },
+                collectionClass(){
+                    return{
+                        filter:`grayscale(${this.heartGrayscale})`,
+                    }
+                },
+                signOpacity(){
+                    return{
+                        filter:`opacity(${this.warnOpacity})`,
+                    }
+                },
+                storeInfOpacity(){
+                    return{
+                        filter:`opacity(${this.infoOpacity})`,
+                    }
+                }
 
+               
+                
+            },
+            //後端傳資料
+            // mounted() {
+            //     axios.get('stores的json檔')
+            //          .then(res => this.stores = res.data)  //成功時候的處理函數
+            //          .catch(error => console.log(error))
+            //     fetch('stores的json檔').then(res=>res.json()).then(res => this.stores=res);     
+            // },
+           
         });
-
-        //關閉彈窗
-        $('.whatToEatClose').click(function (){
-            $('.index_whatToEat_popup').fadeOut(200);
-        });
-    
-        //下拉箭頭打開
-        $('.whatToEat_q_arrow').click(function (e) {
-            // e.preventDefault();
-            // $(this).toggleClass('on');
-            $('.select_options').toggleClass('on');
-        });
-
-        //選擇答案 (取選到的值) 那每題的input變成陣列
-        $('#options li').click(function(){
-            let options=document.getElementsByClassName('myOptions');  
-            let questionIndex=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;   //為了取索引位置-1 questionNumber=questionIndex
-            options[questionIndex].value=$(this).text();//options[0]拿第一題
-            console.log(questionIndex);
-            $('.select_options').toggleClass('on');
-            // $('.whatToEat_q_arrow').toggleClass('on');
-        });
-
-        //按下一題並回答問題才可繼續
-        $('.whatBtnNext').click(function(){
-            let options=document.getElementsByClassName('myOptions');
-            let questionIndex=(this.parentNode.parentNode.parentNode.className).split(' ')[2]-1;
-            if( options[questionIndex].value == "" ){
-                alert('請完成作答');
-            }else{
-                $(this.parentNode.parentNode.parentNode).fadeOut(100);
-                $(this.parentNode.parentNode.parentNode).next().fadeIn(50);
-            }
-        });
-        //按上一題
-        $('.whatBtnPre').click(function(){
-            $(this.parentNode.parentNode.parentNode).fadeOut(100);
-            $(this.parentNode.parentNode.parentNode).prev().fadeIn(50);
-        });
-
-        //按再一次 表單清空
-        $('.whatBtnAgain').click(function (){
-            $(this.parentNode.parentNode.parentNode).fadeOut(100);
-            $('.myOptions').val('');
-            $('.index_whatToEat_popup.1').fadeIn(50);
-        });
-        //哪裡有
-        $('.getWhatBtn').click(function(){
-            $('.index_store_popup').fadeIn(50);
-            $('.index_whatToEat_popup.5').fadeOut(50);
-        }); 
-        //-----whatToEat彈窗end------
-
-        //-----search彈窗------
-        //打開彈窗
-        $('.search_btn_Search').click(function(){
-            $('.index_whatToEat_popup').fadeOut(100);
-            $('.index_search_popup').fadeIn(50);        
-        });
-        //關閉彈窗
-        $('.getSearchClose').click(function (){
-            $(this.parentNode.parentNode).fadeOut(200);
-        });
-        //顯示下拉選單
-        $('.mrt_search_icon').click(function (){
-            $('.mrtLines').toggleClass('on');
-        });
-        $('.keyword_search_icon').click(function (){
-            $('.searchTags').toggleClass('on');
-        });
-        //出發探索 搜尋結果彈窗出現
-        $('.getSearchBtn').click(function (){
-            $('.index_search_popup').fadeOut(50);
-            $('.index_store_popup').fadeIn(50);
-        });
-        //搜尋結果彈窗 點擊跳店家資訊
-        $('.getStoreInf').click(function (e){
-            $(this.parentNode.parentNode.parentNode).fadeOut(100);
-            $('.index_inf_popup').fadeIn(50);
-        });
-        //收藏
-        $('.storeInf_title_like').click(function (){
-            $(this).toggleClass('on');
-        });
-        //店家資訊
+       
         $('.sectionIcon').click(function (){
             $('.sectionIcon').removeClass('on');
             $(this).toggleClass('on');
-            let myClassName =this.className.split(' ')[1];
-            $('.sectionIconInf').css('color','#6c584c');
-           
-            if(myClassName=='sectionIcon_location'){
-                $('.sectionIconInf').html('地址｜復興北路你家巷口200號');
-            }else if(myClassName=='sectionIcon_mrt'){
-                $('.sectionIconInf').html('捷運站｜南京復興');
-                $('.sectionIconInf').css('color','#7baa85');
-            }else if(myClassName=='sectionIcon_tel'){
-                $('.sectionIconInf').html('電話｜02 1234567');
-            }else if(myClassName=='sectionIcon_time'){
-                $('.sectionIconInf').html('營業時間｜10:00-20:00');
-            }else if(myClassName=='sectionIcon_price'){
-                $('.sectionIconInf').html('平均客單｜150 元');
-            }
         });
-        //領取優惠
-        $('.getCouponBtn').click(function(){
-            $(this).val('領取過了');
-        });
-         //檢舉店家  
-         $('.storeInf_warnIcon').click(function (){
-            $(this).addClass('on');
-            $('.index_searcReport_popup').fadeIn(100);
-
-        });
-        //關閉彈窗
-        $('.storeInf_warnIcon.on').click(function (){
-            $(this).removeClass('on');
-            $('.index_searcReport_popup').fadeOut(100);
-        });
-      
-        $('.getReportClose').click(function (){
-            $('.storeInf_warnIcon').toggleClass('on');
-            $(this.parentNode.parentNode).fadeOut(100);
-        });
-      
-
-        
-
-     
     </script>    
-    </body>
-
-</html>
