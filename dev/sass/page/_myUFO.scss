@@ -792,6 +792,7 @@ overflow: hidden;
             float: left;
             height: 207px;
             width: 290px;
+            
         }
         @include rwd(pad){
             float: left;
@@ -940,11 +941,7 @@ overflow: hidden;
             width: 70px;
             height:70px;          
         }
-        p{
-            text-align: center;
-            padding-top:30px ;
-            font-weight: bold;
-        }
+
     }
 }
 @mixin search_btn_hover{
