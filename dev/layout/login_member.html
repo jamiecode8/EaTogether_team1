@@ -37,19 +37,19 @@
                 </div>    
             </div>    
         </form>   
-        <form method="POST" action="../php/Frontend/API/join.php" class="form login join_form jon_login">
+        <form method="POST" action="../dist/php/Frontend/API/join.php" class="form login join_form jon_login">
                 <div  class="loginInner">
                     <!-- 放註冊的東西 -->
                     <div class="inner_block_area areaHide" id="signUp_block"> 
                         <!-- 輸入框欄位 -->
                         <!-- <input type="text" placeholder="E-mail" v-bind:class="{ 'is-invalid': emailError }" v-model="email"/>{{ emailErrMsg }}
                         <input type="text" placeholder="密碼" v-bind:class="{ 'is-invalid': passwordError }" v-model="password"/>{{ passErrMsg }} -->
-                        <input type="text" placeholder="E-mail"/>
-                        <input type="text" placeholder="密碼"/>
+                        <input type="text" placeholder="E-mail" name="member_email_input"/>
+                        <input type="text" placeholder="密碼" name="member_password_input"/>
                         <input type="text" placeholder="再次輸入密碼" />
                         <!-- 常去站點 -->
                         <div class="login_station">
-                            <input type="text" id="login_station_choice" class="input" v-model="selectedStation" disabled="disabled">
+                            <input type="text" id="login_station_choice" class="input" v-model="selectedStation" disabled="disabled" name="station_input">
                             <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="station_Selection_toggle">
                             <ul class="login_station_select" id="login_station_options" v-if="station_Selection == 1">
                                 <li v-for="station in blueStations" class="b">{{station}}</li> 
@@ -61,7 +61,7 @@
                         </div>
                         <!-- 喜好標籤 -->
                         <div class="login_tag">
-                            <input type="text" placeholder="喜好標籤" disabled="disabled"/>
+                            <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_input"/>
                             <button class="signUp_tag_area ">
                                 <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="food_Selection = 1">
                             </button>
