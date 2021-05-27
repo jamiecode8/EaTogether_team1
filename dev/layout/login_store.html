@@ -1,11 +1,7 @@
 <!-- Jamie -->
 <!-- 商家登入 -->
 <div class="popUps login blockBlock" id="storeLogin_popups">
-    <form action="#資料傳送送的網址" method="" class="form login">
-        <!-- close button -->
-        <!-- <button type="button" class="btn_close">
-            <img src="./img/icon/icon_close.png" alt="" />
-        </button> -->
+    <div class="form login">
 
         <!-- 商家頭像 -->
         <div class="loginMemberPic">
@@ -21,9 +17,8 @@
                 <button type="button" class="toggolebtn" id="btn_signupStore"> 註冊 </button>
 
             </div>
-            <!-- 內容區域 -->
-            <div>
-                <!-- 放登入的東西 -->
+            <!-- 商家登入 -->
+            <form>
                 <div class="inner_block_area" id="login_block"> 
                     <!-- 輸入框欄位 -->
                     <input type="text" placeholder="E-mail" />
@@ -40,10 +35,10 @@
                             <input type="submit" value="送出" class="btn_submit signUpStore_link" id="storeSignUp_submit"/>
                         </a>
                     </div>
-            </div>
+            </form>
         </div>
 
-    </form>
+    </div>
 </div>
 
 <!-- 商家註冊 -->
@@ -242,7 +237,7 @@
 
                 <!-- 同意遵守商家守則 -->
                 <label class="checkboxArea">
-                    <input type="checkbox" value="confirm"  class="checkbox"/>
+                    <input type="radio" value="confirm"  class="checkbox"/>
                     <span class="checkboxArea_read">已閱讀商家守則，並同意遵守</span>
                 </label>
                 <!-- 2顆按鈕用這個 -->
