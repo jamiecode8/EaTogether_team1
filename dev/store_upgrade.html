@@ -11,41 +11,41 @@
         @@include('layout/header.html')
         <div class="wrapper wrapper_upgrade" id="upgrade">
             <section class="upgradeHeader">
-                <button class="upgradeHeader_areaList">
+                <button class="upgradeHeader_areaList" @click="step = 0">
                     <div class="upgradeHeader_step">
                         <h6 class="upgradeHeader_stepNo">1</h6>
                         <div class="upgradeHeader_text">選擇方案
                         </div>
                     </div>
-                    <div class="upgradeHeader_bg"></div>
+                    <!-- <div class="upgradeHeader_bg"></div> -->
+                    <div :class="greenCircle"></div>
                 </button>
-                <button class="upgradeHeader_areaList" >
+                <button class="upgradeHeader_areaList"  @click="step = 1">
                     <div class="upgradeHeader_step">
                         <h6 class="upgradeHeader_stepNo">2</h6>
-                        <div class="upgradeHeader_text">資料確認
+                        <div class="upgradeHeader_text">基本資料
                         </div>
+                    </div>
+                    <!-- <div class="upgradeHeader_bg"></div> -->
+                    <div :class="greenCircle1"></div>
+                </button>
+                <button class="upgradeHeader_areaList" @click="step = 2">
+                    <div class="upgradeHeader_step">
+                            <h6 class="upgradeHeader_stepNo">3</h6>
+                            <div class="upgradeHeader_text">付款方式
+                            </div>
                     </div>
                     <div class="upgradeHeader_bg"></div>
+                    <div :class="greenCircle2"></div>
                 </button>
-                <button  @click="">
-                    <div class="upgradeHeader_areaList" >
-                        <div class="upgradeHeader_step">
-                                <h6 class="upgradeHeader_stepNo">3</h6>
-                                <div class="upgradeHeader_text">付款方式
-                                </div>
-                            </div>
-                            <div class="upgradeHeader_bg"></div>
-                    </div>
-                </button>
-                <button @click="">
-                    <li class="upgradeHeader_areaList" >
-                        <div class="upgradeHeader_step">
-                            <h6 class="upgradeHeader_stepNo">4</h6>
-                            <div class="upgradeHeader_text">升級完成
-                            </div>
+                <button class="upgradeHeader_areaList"  @click="step = 3">
+                    <div class="upgradeHeader_step">
+                        <h6 class="upgradeHeader_stepNo">4</h6>
+                        <div class="upgradeHeader_text">升級完成
                         </div>
-                        <div class="upgradeHeader_bg"></div>
-                    </li>
+                    </div>
+                    <!-- <div class="upgradeHeader_bg"></div> -->
+                    <div :class="greenCircle3"></div>
                 </button>
             </section>
             <!--主要內容區 -->
@@ -82,110 +82,104 @@
                                 <a href="/store_free.html">
                                     <input type="button" value="返回" class="btn_pre" />
                                 </a>
-                                <button @click="step + 1" class="btn_submit">下一步</button>
+                                <button @click="step += 1" class="btn_submit">下一步</button>
                             </div>
                         </div>
                     </section>
                 </div>
-                <!-- 資料確認 -->
+                <!-- 企業個人確認 -->
                 <div v-if="step === 1" class="upgrade_info">
                     <!-- 這邊放資料確認的內容 -->
-                    <div class="upgradeInfoConfirm_basic blockBlock">
+                    <div class="upgradeInfoConfirm">
                         <!-- 選單 -->
-                        <div class="upgradeInfoConfirm_basic_menu">
-                            <h1 class="upgradeInfoConfirm_basic_menu_item upgradeInfoConfirm_basic_menu_co" id="upgradeInfoConfirm_co">企業
+                        <div class="upgradeInfoConfirm_menuArea">
+                            <h1 class="upgradeInfoConfirm_menu  upgradeInfoConfirm_menuL" @click="infoChoice = 1">企業
                             </h1>
-                            <h1 class="upgradeInfoConfirm_basic_menu_item upgradeInfoConfirm_basic_menu_personal" id="upgradeInfoConfirm_personal">個人</h1>
+                            <h1 class="upgradeInfoConfirm_menu upgradeInfoConfirm_menuR" @click="infoChoice = 2" >個人</h1>
                         </div>
                         <!-- 企業 -->
-                        <div class="upgradeInfoConfirm_basic_co upgradeInfoConfirm_areaShow" id="upgradeInfo_co">
-                            <form action="" method=" " class="form upgradeInfoConfirm_formC"  id="upgradeInfo_company_form">
-                                輸入框欄位
-                                <input type="text" placeholder="公司抬頭"  :value="companyName" required/>
-                                <input type="number" placeholder="統一編號":value="companyId" pattern="\d{8}" required/>
-                                <input type="text" placeholder="登記地址" :value="companyAdd" required/>
-                                <input type="text" placeholder="聯絡人" :value="contactName" required/>
-                                <input type="number" placeholder="聯絡電話"  :value="contactTel"  pattern="[a-zA-Z0-9]{8,}"  required/>
-                                <div class="upgradeOption_btnArea_option priceChoice ">
-                                        <p>月繳$399</p>
+                        <form class="form upgradeInfoConfirm_formC" v-if="infoChoice == 1">
+                            <input type="text" placeholder="公司抬頭" required/>
+                            <input type="number" placeholder="統一編號" pattern="\d{8}" required/>
+                            <input type="text" placeholder="登記地址" required/>
+                            <input type="text" placeholder="聯絡人" required/>
+                            <input type="number" placeholder="聯絡電話" pattern="[a-zA-Z0-9]{8,}"  required/>
+                            <div class="upgradeOption_btnArea_option priceChoice ">
+                                <p>{{option}}</p>
+                            </div>
+                            
+                            <!-- 2顆按鈕用這個 -->
+                            <div class="upgradeInfoConfirm_buttonArea_outer">
+                                <div class="buttonArea upgradeInfoConfirm_buttonArea">
+                                    <a href="/store_upgrade_option.html">
+                                        <input type="button" value="返回" class="btn_cancel btn_mobile" />
+                                    </a>
+                                    <button  @click="step += 1" class="btn_submit btn_mobile">下一步</button>
                                 </div>
-                                
-                                <!-- 2顆按鈕用這個 -->
-                                <div class="upgradeInfoConfirm_buttonArea_outer">
-                                    <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                                        <a href="/store_upgrade_option.html">
-                                            <input type="button" value="返回" class="btn_cancel" />
-                                        </a>
-                                        <button @click="step + 1" class="btn_submit">下一步</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                         <!-- 個人 -->
-                        <div class="upgradeInfoConfirm_basic_personal upgradeInfoConfirm_areaHide" id="upgradeInfo_personal">
-                            <form action="" method=" " class="form upgradeInfoConfirm_formP" id="upgradeInfo_personal_form">
-                                輸入框欄位
-                                <input type="text" placeholder="姓名"  :value="contactName"  required/>
-                                <input type="text" placeholder="地址"  :value="contactAdd"  required/>
-                                <input type="number" placeholder="聯絡電話"  maxlength="10"  :value="contactTel" oninput="if(value.length>10)value=value.slice(0,10)" required/>
-                                <div class="priceChoice">
-                                    <p>月繳$399</p>
-                                    <!-- <p>{{option}}</p> -->
+                        <form class="form upgradeInfoConfirm_formP" id="upgradeInfo_personal_form"  v-if="infoChoice == 2" >
+                            <input type="text" placeholder="姓名" required/>
+                            <input type="text" placeholder="地址" required/>
+                            <input type="number" placeholder="聯絡電話" oninput="if(value.length>10)value=value.slice(0,10)" required/>
+                            <div class="priceChoice">
+                                <p>{{option}}</p>
+                            </div>
+                            
+                            <!-- 2顆按鈕用這個 -->
+                            <div class="upgradeInfoConfirm_buttonArea_outer">
+                                <div class="buttonArea upgradeInfoConfirm_buttonArea">
+                                    <a href="/store_upgrade_option.html">
+                                        <input type="button" value="返回" class="btn_cancel btn_mobile" />
+                                    </a>
+                                    <button @click="step += 1" class="btn_submit btn_mobile">下一步</button>
                                 </div>
-                                
-                                <!-- 2顆按鈕用這個 -->
-                                <div class="upgradeInfoConfirm_buttonArea_outer">
-                                    <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                                        <a href="/store_upgrade_option.html">
-                                            <input type="button" value="返回" class="btn_cancel" />
-                                        </a>
-                                        <button @click="step + 1" class="btn_submit">下一步</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                     <!-- 下一步/submit button -->
                 </div>
                 <!-- 付款方式 -->
                 <div v-if="step === 2" class="upgrade_payment">
                     <!-- 這邊放付款方式的內容 -->
-                    <div class="upgradeInfoConfirm" id="upgrade">
+                    <div class="upgradeInfoConfirm">
+                        <!-- 選擇欄位 -->
                         <div class="upgradeInfoConfirm_menuArea">
-                            <h1 class="upgradeInfoConfirm_menu upgradeInfoConfirm_menuL" @click="teat = 1 ">信用卡
+                            <h1 class="upgradeInfoConfirm_menu upgradeInfoConfirm_menuL" @click="paymentChoice = 1">信用卡
                             </h1>
-                            <h1 class="upgradeInfoConfirm_menu upgradeInfoConfirm_menuR" @click="teat = 2 ">轉帳</h1>
+                            <h1 class="upgradeInfoConfirm_menu upgradeInfoConfirm_menuR" @click="paymentChoice = 2">轉帳</h1>
                         </div>
-                        <div class="upgradeInfoConfirm_card">
-                            <form class="form upgradeInfoConfirm_formC" id="upgradeInfo_card_form">
+                        <!-- 信用卡區 -->
+                        <div v-if="paymentChoice == 1" >
+                            <form class="form upgradeInfoConfirm_formC" >
                                 <label for="card-number" class="card_label">信用卡號碼</label>
                                 <input type="num" id="card-number" class="input-cart-number" maxlength="4" />
                                 <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
                                 <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
                                 <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
                                 <br>
-    
+
                                 <label for="validDate" class="card_label">有效日期</label>
                                 <input type="text" id="validDate" /><br>
                                 <label for="cvv" class="card_label">安全碼</label>
                                 <input type="number" maxlength="3" id="ccv" />
                                 <div class="priceChoice">
-                                    <p>月繳$399</p>
-                                    <!-- <p>{{option}}</p> -->
+                                    <p>{{option}}</p>
                                 </div>
                                 
                                 <div class="upgradeInfoConfirm_buttonArea_outer">
                                     <div class="buttonArea upgradeInfoConfirm_buttonArea">
                                         
-                                        <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
-                                        <button @click="step + 1" class="btn_submit">下一步</button>
+                                        <button class="btn_pre btn_btn btn_mobile">返回</button>
+                                        <button  @click="step += 1" class="btn_submit btn_mobile">下一步</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        
-                        <div class="upgradeInfoConfirm_acc"  v-if="test == 2">
-                            <form class="form upgradeInfoConfirm_formP">
+                        <!-- 轉帳區 -->
+                        <div v-if="paymentChoice == 2" >
+                            <form class="form upgradeInfoConfirm_formP"  >
                                 <!-- 輸入框欄位 -->
                                 <label for="bank" class="card_label">銀行</label>
                                 <input type="text" value="台新銀行敦南分行" id="bank" class="trans_iput trans_iput_s"/><br>
@@ -194,31 +188,30 @@
                                 <label for="accName" class="card_label">戶名</label>
                                 <input type="text" value="外食一起來有限公司"  id="accName" class="trans_iput trans_iput_s"/><br>
                                 <div class="priceChoice">
-                                    <p>月繳$399</p>
+                                    <p>{{option}}</p>
                                 </div>
                                 
                                 <!-- 2顆按鈕 -->
                                 <div class="upgradeInfoConfirm_buttonArea_outer">
                                     <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                                        
-                                        <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
-                                        <button @click="step + 1" class="btn_submit">下一步</button>
+                                        <button class="btn_pre btn_btn btn_mobile">返回</button>
+                                        <button  @click="step += 1" class="btn_submit btn_mobile">下一步</button>
                                     </div>
                                 </div>
                             </form>
-                        </div> 
+                        </div>
                     </div>
                 </div>
                 <!-- 升級完成 -->
                 <div v-if="step === 3" class="upgrade_finish">
                     <!-- 這邊放升級敘述的內容 -->
-                    <div class="upgradeComplete_inner">
-                        <div class="upgradeComplete_inner_text">
-                            <h1>感謝您！<br class="upgradeComplete_inner_br"> 已收到您的申請!</h1>
+                    <div class="upgradeFinish_inner">
+                        <div class="upgradeFinish_inner_text">
+                            <h1>感謝您！<br class="upgradeFinish_inner_br"> 已收到您的申請!</h1>
                                     
-                            <p>請等待1~2個工作天，<br class="upgradeComplete_inner_br"> 系統會另行通知</p>
+                            <p>請等待1~2個工作天，<br class="upgradeFinish_inner_br"> 系統會另行通知</p>
                         </div>
-                        <div class="buttonArea upgradeComplete_buttonArea">
+                        <div class="buttonArea upgradeFinish_buttonArea">
                             <a href="./store_free.html">
                                 <button class="btn_cancel btn_btn btn_mobile" >商家專區</button>
                             </a>
@@ -229,34 +222,64 @@
                     </div>
                 </div>
             </main>
-
-            <!-- 原本用來看內容的 -->
-            <!-- <keep-alive>
-                <component :is="content"></component>
-                payment
-            </keep-alive> -->
-
-
            
         </div>
         @@include('layout/footer.html')
 
 <script>
-// 先隱藏
-export default {
-    data() {
-        return {
-            step: 2,
-            is_page: true
-        }
-    }
-}
-// new Vue({
-//     el: '#upgrade',
-//     data: { 
-//         option: '月繳$399',
-//     },
-// });
+new Vue({
+    el: '#upgrade',
+    data: {
+        // 步驟切換
+        step:0,
+        // 頁籤切換
+        paymentChoice: 1,
+        infoChoice: 1,
+        //方案選擇
+        // selected: undefined,
+        option: " ",
+    },
+    computed: { //函數也可以放這裡!但是放在這裡的函數，不能傳參數，一定要有傳回值(return)
+        greenCircle(){
+            // if(this.step === 0){
+            //     return {
+            //         upgradeHeader_bg: true,
+            //         bgActive: true,
+            //     };
+            // }else{
+            //     return {
+            //         upgradeHeader_bg: true,
+            //         bgActive: false,
+            //     };
+            // }
+            return {
+                upgradeHeader_bg: true,
+                bgActive: this.step === 0,
+            };
+        },
+        greenCircle1(){
+            return {
+                upgradeHeader_bg: true,
+                bgActive: this.step === 1,
+            };
+        },
+        greenCircle2(){
+            return {
+                upgradeHeader_bg: true,
+                bgActive: this.step === 2,
+            };
+        },
+        greenCircle3(){
+            return {
+                upgradeHeader_bg: true,
+                bgActive: this.step === 3,
+            };
+        },
+    },
+}); 
+
+
+
 </script>
     </body>
 </html>

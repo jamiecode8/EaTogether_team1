@@ -42,26 +42,33 @@
     }
 }
 .wrapper_upgrade{
-    padding: 0px 100px 50px;
+    @include rwd(largeMobile){
+        }
     @include rwd(mobile){
-        padding: 0 0 50px;
-    }
-    &_Option{
-        padding: initial;
     }
 }
 
 .upgradeOption{
     display: flex;
+    @include rwd(largeMobile){
+        display: block;
+        padding: 0 20px;
+        }
     @include rwd(mobile){
         display: block;
-        padding: 0 50px;
+        padding: 0 20px;
         }
     position: relative;
     padding: 50px;
     &::after{
         @include lightLine();
-        left: -50px;
+        left: 0px;
+        @include rwd(desktop){
+            left: -50px;
+            }
+        @include rwd(desktopSmall){
+            left: -50px;
+        }
     }
     p{
         line-height: 40px;
@@ -81,7 +88,81 @@
             }
         }
     }
-    
+    .checkboxArea_read{
+        font-size: $fontSize;
+    }
+}
+
+// 因應footer 調整高度
+.upgrade{
+    &_option{
+        @include rwd(desktop){
+            height: 62vh;
+        }
+        @include rwd(desktopSmall){
+            height: 60vh;
+        }
+        @include rwd(pad){
+            height: 70vh;
+        }
+        @include rwd(largeMobile){
+            height: 56vh;
+        }
+        @include rwd(mobile){
+            height: 56vh;
+        }
+    }
+    &_finish{
+        @include rwd(desktop){
+            height: 73vh;
+        }
+        @include rwd(desktopSmall){
+            height: 60vh;
+        }
+        @include rwd(pad){
+            height: 70vh;
+        }
+        @include rwd(largeMobile){
+            height: 56vh;
+        }
+        @include rwd(mobile){
+            height: 56vh;
+        }
+    }
+    &_info{
+        @include rwd(desktop){
+            height: 73vh;
+        }
+        @include rwd(desktopSmall){
+            height: 60vh;
+        }
+        @include rwd(pad){
+            height: 70vh;
+        }
+        @include rwd(largeMobile){
+            height: 64vh;
+        }
+        @include rwd(mobile){
+            height: 64vh;
+        }
+    }
+    &_payment{
+        @include rwd(desktop){
+            height: 73vh;
+        }
+        @include rwd(desktopSmall){
+            height: 60vh;
+        }
+        @include rwd(pad){
+            height: 70vh;
+        }
+        @include rwd(largeMobile){
+            height: 56vh;
+        }
+        @include rwd(mobile){
+            height: 56vh;
+        }
+    }
 }
 
 // 費用選擇頁面的按鈕區
@@ -100,9 +181,14 @@
         margin:initial;
         transform: initial;
         margin-left: calc(100% - 285px);
-    }
-    @include rwd(mobile){
-        padding-top: 0;
+        @include rwd(largeMobile){
+            padding-top: 0;
+            margin-left: calc(100% - 250px);
+            }
+        @include rwd(mobile){
+            padding-top: 0;
+            margin-left: calc(100% - 250px);
+        }
     }
 }
 
@@ -118,20 +204,11 @@
     }
 }
 
-// 企業個人選單切換
-.upgradeInfoConfirm{
-    &_areaHide{
-        display: none;
-    }
-    &_areaShow{
-        display: block;
-    }
-}
 //月繳前面那顆 
 .priceChoice{
     background-image: url('../img/icon/icon_choice.png');
     background-repeat: no-repeat;
-    background-position: 5px 0;
+    background-position: 5px 7px;
     background-size: 15px;
     padding-left: 25px;
     margin: initial;
@@ -165,8 +242,15 @@
     width: 82px;
     display: inline-block;
     margin-right: 8px;
+    @include rwd(largeMobile){
+        width: 60px;
+        margin: initial;
+        padding: initial;
+        }
     @include rwd(mobile){
-        width: 70px;
+        width: 60px;
+        margin: initial;
+        padding: initial;
         }
     &:last-child {
       margin-right: 0;
@@ -264,8 +348,8 @@ form .trans_iput{
     }
 
 // 升級完成頁面
-.upgradeComplete_inner{
-    // height: 200px;
+.upgradeFinish_inner{
+    padding-top: 50px;
     &_text{
         padding: 30px 0;
         text-align: center;
@@ -285,12 +369,10 @@ form .trans_iput{
 
 // 以下上面那區
 .upgradeHeader{
-    //一頁式的用這邊
-    // display: flex;
-    // justify-content: space-around;
-    // align-items: center;
-    // height: 100px;
-    //一頁式的用這邊
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
     padding: 10px 50px;
     @include rwd(desktop){
         padding: 10px 100px;
@@ -301,14 +383,6 @@ form .trans_iput{
     @include rwd(mobile){
         padding: 10px 0px;
         }
-    //分頁式的用這邊
-    &_area{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100px;
-    }   
-    //分頁式的用這邊
     &_areaList{
         background-image: url(../img/tang/steps_bg_style.png);
         background-position:center;
@@ -321,14 +395,14 @@ form .trans_iput{
         @include rwd(largeMobile){
             background-size: 85%;
             background-position: 11px 4px;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             }
         @include rwd(mobile){
             background-size: 85%;
             background-position: 11px 4px;
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             }
     }
     &_step{
@@ -338,6 +412,12 @@ form .trans_iput{
         width: 100%;
         padding-left:12%;
         padding-top: 15%;
+        @include rwd(largeMobile){
+            padding-top: 25%;
+            }
+        @include rwd(mobile){
+            padding-top: 25%;
+            }
     }
     &_stepNo{
         font-size: 50px;
@@ -376,15 +456,25 @@ form .trans_iput{
     bottom: 18%;
     z-index: 1;
     @include rwd(largeMobile){
-        width: 30px;
-        right: -6%;
-        bottom: 2%;
+        width: 40px;
+        right: 0%;
+        bottom: 5%;
         }
     @include rwd(mobile){
-        width: 30px;
-        right: -6%;
-        bottom: 2%;
+        width: 40px;
+        right: 0%;
+        bottom: 5%;
         }
+}
+
+.upgradeHeader .bgActive{
+    opacity: .6;
+    z-index: 1;
+}
+
+
+.stepHere{
+    opacity: .6;
 }
 
 // 以上上面那區
