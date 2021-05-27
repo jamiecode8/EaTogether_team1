@@ -1,78 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @@include('layout/style.html')
-    <title>Q&A</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  @@include('layout/style.html')
+  <title>Q&A</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
+
 <body class="QA_body">
   <div class="wrapper QA_wrapper">
-    @@include('layout/header.html') 
+    @@include('layout/header.html')
     <!-- 米米在這裡面編輯 -->
-  
-    <div class="fontmm"><h1>常見問題Q&A</h1></div>
-      <ul class="ulmm">
-        <li class="limm">
-          <div class="question">
-            <p>問題一</p>
-          </div>
-          <div class="answer">
-            <p>答:</p>
-          </div>
-        </li>
-        
-          <li class="limm">
-          <div class="question">
-            <p>問題二</p>
-          </div>
-          <div class="answer">
-            <p>答:</p>
-          </div>
-        </li>
 
-        
-          <li class="limm">
-          <div class="question">
-            <p>問題三</p>
-          </div>
-          <div class="answer">
-            <p>答:</p>
-          </div>
-        </li>
+    <div class="fontmm">
+      <h1>常見問題Q&A</h1>
+    </div>
+    <ul class="ulmm">
+      <li class="limm">
+        <div class="question">
+          <p>問題一</p>
+        </div>
+        <div class="answer">
+          <p>答:</p>
+        </div>
+      </li>
 
-          <li class="limm">
-          <div class="question">
-            <p>問題三</p>
-          </div>
-          <div class="answer">
-            <p>答:</p>
-          </div>
-        </li>
+      <li class="limm">
+        <div class="question">
+          <p>問題二</p>
+        </div>
+        <div class="answer">
+          <p>答:</p>
+        </div>
+      </li>
 
-      </ul>
-     
+
+      <li class="limm">
+        <div class="question">
+          <p>問題三</p>
+        </div>
+        <div class="answer">
+          <p>答:</p>
+        </div>
+      </li>
+
+      <li class="limm">
+        <div class="question">
+          <p>問題三</p>
+        </div>
+        <div class="answer">
+          <p>答:</p>
+        </div>
+      </li>
+
+    </ul>
+
   </div>
-    @@include('layout/footer.html')
-<script>
+  @@include('layout/footer.html')
+  <script>
 
-      jQuery(function ($) {
-    $(".answer").css("display", "none");
-   
-    $(".question").click(function () {
-      
-      $(".question").not(this).removeClass("open");
-   
-      $(".question").not(this).next().slideUp(300);
-   
-      $(this).toggleClass("open");
-  
-      $(this).next().slideToggle(300);
-  
+    jQuery(function ($) {
+      $(".answer").css("display", "none");
+
+      $(".question").click(function () {
+
+        $(".question").not(this).removeClass("open");
+
+        $(".question").not(this).next().slideUp(300);
+
+        $(this).toggleClass("open");
+
+        $(this).next().slideToggle(300);
+
+      });
     });
-  });
-</script>
+  </script>
 </body>
+
 </html>
