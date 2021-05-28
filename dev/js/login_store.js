@@ -56,3 +56,23 @@ $('.showPassword').click(function(){
         myPassword.type = "password";
     }
 })
+
+
+// 上傳照片
+function doFirst(){
+    //先跟畫面產生關連，再建事件聆聽功能
+    document.getElementById('theFile1').onchange = fileChange;
+  }
+  function fileChange(){
+    let file = document.getElementById('theFile1').files[0];
+    let readFile = new FileReader();
+    readFile.readAsDataURL(file);
+    readFile.addEventListener('load',function(){
+      let image = document.getElementById('store_image1');
+      image.src = readFile.result;
+      image.style.maxWidth = '300px';
+      image.style.maxHeight = '300px';
+    });
+  
+  }
+  window.addEventListener('load',doFirst);
