@@ -172,9 +172,10 @@
     @include rwd(mobile){
         width: 300px;
         }
-    .pho_edit_top{
+    &_dropArea{
         justify-content: space-between;
         margin: 20px 0;
+        padding-top: 20px;
         display: flex;
         @include rwd(pad){
             display: block;
@@ -189,20 +190,26 @@
             @include block_center(); 
             }
         // 照片上傳
-        .pho_edit{
-            width: 300px;
-            height:260px;
-            background-color: $colorTp;
-            text-align: center;
-            padding-top: 20%;
-            @include rwd(mobile){
-                width: 280px;
-                @include block_center(); 
-                }
-            
-        }
+    }
+    &_picEdit{
+        // test
+        position: relative;
+        // test
+        width: 300px;
+        height:260px;
+        background-color: $colorTp;
+        @include rwd(mobile){
+            width: 280px;
+            @include block_center(); 
+            }
     }
     &_subtitle{
+        // test
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translate(-50%);
+        // test
         line-height: 25px;
         @include rwd(pad){
             text-align: initial;
@@ -216,6 +223,22 @@
             text-align: initial;
             margin-top: 10px;
             }
+    }
+    &_uploadPicButton{
+        // test
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%);
+        // test
+    }
+    &_dropHere{
+        // test
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%);
+        // test
     }
 
 }
