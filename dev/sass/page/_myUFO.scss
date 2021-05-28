@@ -1,147 +1,165 @@
 //米米的
-.myUFO_wrapper{
-width: 100%;
-background: $bgc;
-overflow: hidden;
-// overflow: auto;
+.myUFO_wrapper {
+    width: 100%;
+    background: $bgc;
+    overflow: hidden;
+    // overflow: auto;
 
-	@include rwd(desktop){
-    width: 100%;
-    background: $bgc;
-    overflow: hidden;
-	}
-	@include rwd(desktopSmall){
-    background: $bgc;
-    overflow: hidden;
-    margin: 0 auto;
-	}
-	@include rwd(pad){
-    
-    background: $bgc;
-    overflow: hidden;
-    margin: 0 auto;
-	}
-	@include rwd(largeMobile){
-    width: 100%;
-    background: $bgc;
-    overflow: hidden;
-    display: block;
-	}
-	@include rwd(mobile){
-    width: 100%;
-    background: $bgc;
-    overflow: hidden;
-    display: block;
-	}
+    @include rwd(desktop) {
+        width: 100%;
+        background: $bgc;
+        overflow: hidden;
+    }
+
+    @include rwd(desktopSmall) {
+        background: $bgc;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    @include rwd(pad) {
+
+        background: $bgc;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    @include rwd(largeMobile) {
+        width: 100%;
+        background: $bgc;
+        overflow: hidden;
+        display: block;
+    }
+
+    @include rwd(mobile) {
+        width: 100%;
+        background: $bgc;
+        overflow: hidden;
+        display: block;
+    }
 
 }
 
 
-.myUFO_bg{
+.myUFO_bg {
 
-    
-    .figure{
+
+    .figure {
         width: 100%;
         margin: 0 auto;
         height: 90vh;
     }
-    .figure2{
+
+    .figure2 {
         width: 100%;
         margin: 0 auto;
         height: 90vh;
-    }   
-    .figure3{
+    }
+
+    .figure3 {
         width: 100%;
         margin: 0 auto;
         height: 90vh;
 
     }
-    .figure4{
+
+    .figure4 {
         width: 100%;
         margin: 0 auto;
         height: 78vh;
     }
 }
 
-.window1{
+.window1 {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    margin: 7%;
+    padding: 2%;
+    width: 20%;
+    height: 100%;
+    z-index: 10;
+
+    // border: 1px solid orange;
+    @include rwd(desktop) {
         position: absolute;
-        top: 5%;
         left: 2%;
+        top: 5%;
         margin: 7%;
         padding: 2%;
         width: 20%;
         height: 100%;
         z-index: 10;
         // border: 1px solid orange;
-        @include rwd(desktop){
-            position: absolute;
-            left: 2%;
-            top: 5%;
-            margin: 7%;
-            padding: 2%;
-            width: 20%;
-            height: 100%;
-            z-index: 10;
-            // border: 1px solid orange;
-        }
-        @include rwd(desktopSmall){
-            position: absolute;
-            left: 2%;
-            top: 5%;
-            margin: 7%;
-            padding: 10%  2%;
-            width: 25%;
-            height: 100%;
-            z-index: 10;
-            // border: 1px solid orange;
-        }
-        @include rwd(pad){
-            position: absolute;
-            left: 0%;
-            top: 27%;
-            margin: 0%;
-            padding: 10%  0%;
-            width: 30%;
-            height: 40%;
-            z-index: 10;
-            // border: 1px solid orange;
-        }
-        @include rwd(largeMobile){
-            position: absolute;
-            left: 0%;
-            top: 25%;
-            margin: 2%;
-            padding: 10%  0%;
-            width: 30%;
-            height: 20%;
-            z-index: 10;
-            // border: 1px solid orange;
-        }
-        @include rwd(mobile){
-            display: none;
-            // border: 1px solid orange;
-        }
- img{
-     width: 100%;
-    @include rwd(desktop){
+    }
+
+    @include rwd(desktopSmall) {
+        position: absolute;
+        left: 2%;
+        top: 5%;
+        margin: 7%;
+        padding: 10% 2%;
+        width: 25%;
+        height: 100%;
+        z-index: 10;
+        // border: 1px solid orange;
+    }
+
+    @include rwd(pad) {
+        position: absolute;
+        left: 0%;
+        top: 27%;
+        margin: 0%;
+        padding: 10% 0%;
+        width: 30%;
+        height: 40%;
+        z-index: 10;
+        // border: 1px solid orange;
+    }
+
+    @include rwd(largeMobile) {
+        position: absolute;
+        left: 0%;
+        top: 25%;
+        margin: 2%;
+        padding: 10% 0%;
+        width: 30%;
+        height: 20%;
+        z-index: 10;
+        // border: 1px solid orange;
+    }
+
+    @include rwd(mobile) {
+        display: none;
+        // border: 1px solid orange;
+    }
+
+    img {
         width: 100%;
-        }
-        @include rwd(desktopSmall){
+
+        @include rwd(desktop) {
             width: 100%;
         }
-        @include rwd(pad){
+
+        @include rwd(desktopSmall) {
             width: 100%;
         }
-        @include rwd(largeMobile){
+
+        @include rwd(pad) {
             width: 100%;
         }
-        @include rwd(mobile){
+
+        @include rwd(largeMobile) {
+            width: 100%;
+        }
+
+        @include rwd(mobile) {
             width: 100%;
         }
     }
 }
 
-.Points1{
+.Points1 {
     position: absolute;
     bottom: 0%;
     left: 2%;
@@ -152,103 +170,118 @@ overflow: hidden;
     z-index: 10;
     display: flex;
     // border: 1px solid orange;
-     
-        @include rwd(desktop){
-            position: absolute;
-            bottom: 0%;
-            left: 2%;
-            margin: 7%;
-            padding: 2%;
-            width: 7%;
-            height: 20%;
-            display: flex;
-        }
-        @include rwd(desktopSmall){
-            position: absolute;
-            bottom: 0%;
-            left: 8%;
-            margin: 7%;
-            padding: 2%;
-            width: 9%;
-            height: 20%;
-            display: flex;
-        }
-        @include rwd(pad){
-            position: absolute;
-            bottom: 0%;
-            left: 10%;
-            margin: 7%;
-            padding: 2%;
-            width: 10%;
-            height: 20%;
-            display: flex;
-        }
-        @include rwd(largeMobile){
-            position: absolute;
-            bottom: 00%;
-            left: 10%;
-            margin: 0%;
-            padding: 2%;
-            width: 10%;
-            height: 20%;
-            display: flex;
-        }
-        @include rwd(mobile){
-            position: absolute;
-            bottom: 0%;
-            left: 5%;
-            margin: 5%;
-            padding: 2%;
-            width: 15%;
-            height: 10%;
-            display: flex;
-        }
-   
-    img{
+
+    @include rwd(desktop) {
+        position: absolute;
+        bottom: 0%;
+        left: 2%;
+        margin: 7%;
+        padding: 2%;
+        width: 7%;
+        height: 20%;
+        display: flex;
+    }
+
+    @include rwd(desktopSmall) {
+        position: absolute;
+        bottom: 0%;
+        left: 8%;
+        margin: 7%;
+        padding: 2%;
+        width: 9%;
+        height: 20%;
+        display: flex;
+    }
+
+    @include rwd(pad) {
+        position: absolute;
+        bottom: 0%;
+        left: 10%;
+        margin: 7%;
+        padding: 2%;
+        width: 10%;
+        height: 20%;
+        display: flex;
+    }
+
+    @include rwd(largeMobile) {
+        position: absolute;
+        bottom: 00%;
+        left: 10%;
+        margin: 0%;
+        padding: 2%;
+        width: 10%;
+        height: 20%;
+        display: flex;
+    }
+
+    @include rwd(mobile) {
+        position: absolute;
+        bottom: 0%;
+        left: 5%;
+        margin: 5%;
+        padding: 2%;
+        width: 15%;
+        height: 10%;
+        display: flex;
+    }
+
+    img {
         width: 100%;
-        @include rwd(desktop){
-        width: 100%;
+
+        @include rwd(desktop) {
+            width: 100%;
         }
-        @include rwd(desktopSmall){
-        width: 90%;
+
+        @include rwd(desktopSmall) {
+            width: 90%;
         }
-        @include rwd(pad){
-        width: 100%;
+
+        @include rwd(pad) {
+            width: 100%;
         }
-        @include rwd(largeMobile){
-        width: 100%;
+
+        @include rwd(largeMobile) {
+            width: 100%;
         }
-        @include rwd(mobile){
-        width: 100%;
+
+        @include rwd(mobile) {
+            width: 100%;
         }
     }
-    p{
+
+    p {
         font-size: 20px;
         margin: 30px 10px;
-        @include rwd(desktop){
+
+        @include rwd(desktop) {
             font-size: 20px;
             margin: 30px 10px;
         }
-        @include rwd(desktopSmall){
+
+        @include rwd(desktopSmall) {
             font-size: 20px;
             margin: 40px 10px;
         }
-        @include rwd(pad){
+
+        @include rwd(pad) {
             font-size: 20px;
             margin: 70px 10px;
         }
-        @include rwd(largeMobile){
+
+        @include rwd(largeMobile) {
             font-size: 20px;
             margin: 70px 10px;
         }
-        @include rwd(mobile){
+
+        @include rwd(mobile) {
             font-size: 20px;
             margin: 20px 10px;
         }
     }
 }
 
-.light{
+.light {
     position: absolute;
     top: 8%;
     right: 20%;
@@ -257,8 +290,9 @@ overflow: hidden;
     width: 7%;
     height: 20%;
     z-index: 11;
+
     // border: 1px solid orange;
-    @include rwd(desktop){
+    @include rwd(desktop) {
         position: absolute;
         top: 8%;
         right: 20%;
@@ -268,7 +302,8 @@ overflow: hidden;
         height: 20%;
         z-index: 11;
     }
-    @include rwd(desktopSmall){
+
+    @include rwd(desktopSmall) {
         position: absolute;
         top: 15%;
         right: 20%;
@@ -278,7 +313,8 @@ overflow: hidden;
         height: 20%;
         z-index: 11;
     }
-    @include rwd(pad){
+
+    @include rwd(pad) {
         position: absolute;
         top: 20%;
         right: 13%;
@@ -288,7 +324,8 @@ overflow: hidden;
         height: 20%;
         z-index: 11;
     }
-    @include rwd(largeMobile){
+
+    @include rwd(largeMobile) {
         position: absolute;
         top: 28%;
         right: 12%;
@@ -298,31 +335,37 @@ overflow: hidden;
         height: 20%;
         z-index: 11;
     }
-    @include rwd(mobile){
+
+    @include rwd(mobile) {
         display: none;
+    }
+
+    img {
+        width: 100%;
+
+        @include rwd(desktop) {
+            width: 100%;
         }
 
-    img{
-    width: 100%;
-    @include rwd(desktop){
-    width: 100%;
-    }
-    @include rwd(desktopSmall){
-        width: 100%;
-    }
-    @include rwd(pad){
-        width: 100%;
-    }
-    @include rwd(largeMobile){
-        width: 100%;
-    }
-    @include rwd(mobile){
-        width: 100%;
+        @include rwd(desktopSmall) {
+            width: 100%;
+        }
+
+        @include rwd(pad) {
+            width: 100%;
+        }
+
+        @include rwd(largeMobile) {
+            width: 100%;
+        }
+
+        @include rwd(mobile) {
+            width: 100%;
         }
     }
 }
 
-.favorites{
+.favorites {
     position: absolute;
     bottom: 40%;
     right: 19%;
@@ -331,79 +374,90 @@ overflow: hidden;
     width: 8%;
     height: 35%;
     z-index: 10;
+
     // border: 1px solid orange;
-    @include rwd(desktop){
-    position: absolute;
-    bottom:40%;
-    right: 19%;
-    margin: 0%;
-    padding: 0%;
-    width: 8%;
-    height: 35%;
-    z-index: 10;
+    @include rwd(desktop) {
+        position: absolute;
+        bottom: 40%;
+        right: 19%;
+        margin: 0%;
+        padding: 0%;
+        width: 8%;
+        height: 35%;
+        z-index: 10;
     }
-    @include rwd(desktopSmall){
-    position: absolute;
-    bottom:40%;
-    right: 19%;
-    margin: 0%;
-    padding: 0%;
-    width: 10%;
-    height: 26%;
-    z-index: 10;
+
+    @include rwd(desktopSmall) {
+        position: absolute;
+        bottom: 40%;
+        right: 19%;
+        margin: 0%;
+        padding: 0%;
+        width: 10%;
+        height: 26%;
+        z-index: 10;
     }
-    @include rwd(pad){
-    position: absolute;
-    bottom:38%;
-    right: 12%;
-    margin: 0%;
-    padding: 0%;
-    width: 17%;
-    height: 30%;
-    z-index: 10;
+
+    @include rwd(pad) {
+        position: absolute;
+        bottom: 38%;
+        right: 12%;
+        margin: 0%;
+        padding: 0%;
+        width: 17%;
+        height: 30%;
+        z-index: 10;
     }
-    @include rwd(largeMobile){
-    position: absolute;
-    bottom:30%;
-    right: 10%;
-    margin: 0%;
-    padding: 0%;
-    width: 15%;
-    height: 30%;
-    z-index: 10;
+
+    @include rwd(largeMobile) {
+        position: absolute;
+        bottom: 30%;
+        right: 10%;
+        margin: 0%;
+        padding: 0%;
+        width: 15%;
+        height: 30%;
+        z-index: 10;
     }
-    @include rwd(mobile){
-    position: absolute;
-    bottom:20%;
-    right: 4%;
-    margin: 0%;
-    padding: 0%;
-    width: 22%;
-    height: 40%;
-    z-index: 10;
+
+    @include rwd(mobile) {
+        position: absolute;
+        bottom: 20%;
+        right: 4%;
+        margin: 0%;
+        padding: 0%;
+        width: 22%;
+        height: 40%;
+        z-index: 10;
+    }
+
+    img {
+        width: 100%;
+
+        @include rwd(desktop) {
+            width: 100%;
         }
-    img{
-     width: 100%;
-        @include rwd(desktop){
-        width:100%;
+
+        @include rwd(desktopSmall) {
+            width: 100%;
         }
-        @include rwd(desktopSmall){
-        width:100%;
+
+        @include rwd(pad) {
+            width: 100%;
         }
-        @include rwd(pad){
-        width:100%;
+
+        @include rwd(largeMobile) {
+            width: 100%;
         }
-        @include rwd(largeMobile){
-        width:100%;
-        }
-        @include rwd(mobile){
-        width:100%;
+
+        @include rwd(mobile) {
+            width: 100%;
         }
 
     }
 }
 
-.cabinet{
+.cabinet {
     position: absolute;
     bottom: 0%;
     right: 17%;
@@ -412,8 +466,9 @@ overflow: hidden;
     width: 12%;
     height: 46%;
     z-index: 10;
+
     // border: 1px solid orange;
-    @include rwd(desktop){
+    @include rwd(desktop) {
         position: absolute;
         bottom: 0%;
         right: 17%;
@@ -423,7 +478,8 @@ overflow: hidden;
         height: 46%;
         z-index: 10;
     }
-    @include rwd(desktopSmall){
+
+    @include rwd(desktopSmall) {
         position: absolute;
         bottom: 0%;
         right: 16%;
@@ -433,7 +489,8 @@ overflow: hidden;
         height: 38%;
         z-index: 10;
     }
-    @include rwd(pad){
+
+    @include rwd(pad) {
         position: absolute;
         bottom: 0%;
         right: 8%;
@@ -443,7 +500,8 @@ overflow: hidden;
         height: 50%;
         z-index: 10;
     }
-    @include rwd(largeMobile){
+
+    @include rwd(largeMobile) {
         position: absolute;
         bottom: 0%;
         right: 5%;
@@ -453,7 +511,8 @@ overflow: hidden;
         height: 45%;
         z-index: 10;
     }
-    @include rwd(mobile){
+
+    @include rwd(mobile) {
         position: absolute;
         top: 30%;
         left: 2%;
@@ -463,29 +522,35 @@ overflow: hidden;
         min-height: 80%;
         z-index: 10;
         // border: 1px solid green;
-        }
-    img{
-       width: 100%;
-        @include rwd(desktop){
+    }
+
+    img {
+        width: 100%;
+
+        @include rwd(desktop) {
             width: 100%;
         }
-        @include rwd(desktopSmall){
+
+        @include rwd(desktopSmall) {
             width: 100%;
         }
-        @include rwd(pad){
+
+        @include rwd(pad) {
             width: 100%;
         }
-        @include rwd(largeMobile){
+
+        @include rwd(largeMobile) {
             width: 100%;
         }
-        @include rwd(mobile){
+
+        @include rwd(mobile) {
             width: 100%;
         }
 
     }
 }
 
-.Carousel{
+.Carousel {
     position: absolute;
     top: 0%;
     right: 37.5%;
@@ -495,30 +560,33 @@ overflow: hidden;
     width: 25%;
     height: 52%;
     z-index: 10;
-    @include rwd(desktop){
-    position: absolute;
-    top: 0%;
-    right: 37.5%;
-    left: 37.5%;
-    margin: 0%;
-    padding: 0%;
-    width: 25%;
-    height: 52%;
-    z-index: 10;
-    
+
+    @include rwd(desktop) {
+        position: absolute;
+        top: 0%;
+        right: 37.5%;
+        left: 37.5%;
+        margin: 0%;
+        padding: 0%;
+        width: 25%;
+        height: 52%;
+        z-index: 10;
+
     }
-    @include rwd(desktopSmall){
-    position: absolute;
-    top: 0%;
-    right: 35%;
-    left: 35%;
-    margin: 0%;
-    padding: 0%;
-    width: 32%;
-    height: 52%;
-    z-index: 10;
+
+    @include rwd(desktopSmall) {
+        position: absolute;
+        top: 0%;
+        right: 35%;
+        left: 35%;
+        margin: 0%;
+        padding: 0%;
+        width: 32%;
+        height: 52%;
+        z-index: 10;
     }
-    @include rwd(pad){
+
+    @include rwd(pad) {
         position: absolute;
         top: 0%;
         right: 27.5%;
@@ -529,7 +597,8 @@ overflow: hidden;
         height: 52%;
         z-index: 10;
     }
-    @include rwd(largeMobile){
+
+    @include rwd(largeMobile) {
         position: absolute;
         top: 0%;
         right: 25%;
@@ -540,39 +609,46 @@ overflow: hidden;
         height: 45%;
         z-index: 10;
     }
-    @include rwd(mobile){
+
+    @include rwd(mobile) {
         position: absolute;
         top: 0%;
-        right:15%;
-        left:15%;
+        right: 15%;
+        left: 15%;
         margin: 0%;
         padding: 0%;
         width: 70%;
         height: 52%;
         z-index: 10;
-        }
-    img{
-    width: 100%;
-    @include rwd(desktop){
+    }
+
+    img {
         width: 100%;
-        }
-        @include rwd(desktopSmall){
-        width: 100%;
-        }
-        @include rwd(pad){
+
+        @include rwd(desktop) {
             width: 100%;
         }
-        @include rwd(largeMobile){
+
+        @include rwd(desktopSmall) {
             width: 100%;
         }
-        @include rwd(mobile){
+
+        @include rwd(pad) {
+            width: 100%;
+        }
+
+        @include rwd(largeMobile) {
+            width: 100%;
+        }
+
+        @include rwd(mobile) {
             width: 100%;
         }
 
     }
 }
 
-.character{
+.character {
     position: absolute;
     top: 48%;
     right: 37.5%;
@@ -583,31 +659,33 @@ overflow: hidden;
     height: 52%;
     z-index: 51;
 
-    @include rwd(desktop){
-    position: absolute;
-    top: 40%;
-    right: 37.5%;
-    left: 37.5%;
-    margin: 0%;
-    padding: 0%;
-    width: 25%;
-    height: 52%;
-    z-index: 51;
+    @include rwd(desktop) {
+        position: absolute;
+        top: 40%;
+        right: 37.5%;
+        left: 37.5%;
+        margin: 0%;
+        padding: 0%;
+        width: 25%;
+        height: 52%;
+        z-index: 51;
 
     }
-    @include rwd(desktopSmall){
-    position: absolute;
-    top: 50%;
-    right: 35%;
-    left: 35%;
-    margin: 0%;
-    padding: 0%;
-    width: 30%;
-    height: 52%;
-    z-index: 51;
-    
+
+    @include rwd(desktopSmall) {
+        position: absolute;
+        top: 50%;
+        right: 35%;
+        left: 35%;
+        margin: 0%;
+        padding: 0%;
+        width: 30%;
+        height: 52%;
+        z-index: 51;
+
     }
-    @include rwd(pad){
+
+    @include rwd(pad) {
         position: absolute;
         top: 50%;
         right: 25%;
@@ -618,7 +696,8 @@ overflow: hidden;
         height: 52%;
         z-index: 51;
     }
-    @include rwd(largeMobile){
+
+    @include rwd(largeMobile) {
         position: absolute;
         top: 50%;
         right: 22.5%;
@@ -629,7 +708,8 @@ overflow: hidden;
         height: 52%;
         z-index: 51;
     }
-    @include rwd(mobile){
+
+    @include rwd(mobile) {
         position: absolute;
         top: 50%;
         right: 20%;
@@ -639,22 +719,28 @@ overflow: hidden;
         width: 60%;
         height: 52%;
         z-index: 51;
-        }
-    img{
-      width: 100%;
-        @include rwd(desktop){
+    }
+
+    img {
+        width: 100%;
+
+        @include rwd(desktop) {
             width: 100%;
         }
-        @include rwd(desktopSmall){
+
+        @include rwd(desktopSmall) {
             width: 100%;
         }
-        @include rwd(pad){
+
+        @include rwd(pad) {
             width: 100%;
         }
-        @include rwd(largeMobile){
+
+        @include rwd(largeMobile) {
             width: 100%;
         }
-        @include rwd(mobile){
+
+        @include rwd(mobile) {
             width: 100%;
         }
 
@@ -662,811 +748,921 @@ overflow: hidden;
 }
 
 // -----TV輪播---------------------
-.slideshow-body{
+.slideshow-body {
     position: absolute;
     top: 8%;
-    right:3% ;
+    right: 3%;
     left: 0%;
     border-radius: 10px;
+
     // border: 1px solid red;
-    @include rwd(desktop){
+    @include rwd(desktop) {
         position: absolute;
         top: 8%;
-        right:3% ;
+        right: 3%;
         left: 0%;
         border-radius: 10px;
-        }
-        @include rwd(desktopSmall){
-            position: absolute;
-            top: 8%;
-            right:3% ;
-            left: 0%;
-            border-radius: 10px;
-        }
-        @include rwd(pad){
-            position: absolute;
-            top: 5%;
-            right:6% ;
-            left: 0%;
-            border-radius: 10px;
-        }
-        @include rwd(largeMobile){
-            position: absolute;
-            top: 7%;
-            right:6% ;
-            left: 0%;
-            border-radius: 10px;
-        }
-        @include rwd(mobile){
-            position: absolute;
-            top: 6%;
-            right:10% ;
-            left: 0%;
-            border-radius: 10px;
-        }
+    }
+
+    @include rwd(desktopSmall) {
+        position: absolute;
+        top: 8%;
+        right: 3%;
+        left: 0%;
+        border-radius: 10px;
+    }
+
+    @include rwd(pad) {
+        position: absolute;
+        top: 5%;
+        right: 6%;
+        left: 0%;
+        border-radius: 10px;
+    }
+
+    @include rwd(largeMobile) {
+        position: absolute;
+        top: 7%;
+        right: 6%;
+        left: 0%;
+        border-radius: 10px;
+    }
+
+    @include rwd(mobile) {
+        position: absolute;
+        top: 6%;
+        right: 10%;
+        left: 0%;
+        border-radius: 10px;
+    }
 }
+
 #slideshow {
     overflow: hidden;
     height: 33%;
     width: 16%;
     margin: 0 auto;
     z-index: 50;
-    @include rwd(desktop){
+
+    @include rwd(desktop) {
         overflow: hidden;
         height: 33%;
         width: 18%;
         margin: 0 auto;
         z-index: 50;
-        }
-        @include rwd(desktopSmall){
-            overflow: hidden;
-            height: 32%;
-            width: 24%;
-            margin: 0 auto;
-            z-index: 50;
-        }
-        @include rwd(pad){
-            overflow: hidden;
-            height: 20%;
-            width: 33%;
-            margin: 0 auto;
-            z-index: 50;
-        }
-        @include rwd(largeMobile){
-            overflow: hidden;
-            height: 28%;
-            width: 36%;
-            margin: 0 auto;
-            z-index: 50;
-        }
-        @include rwd(mobile){
-            overflow: hidden;
-            max-height: 22%;
-            width: 50%;
-            margin: 0 auto;
-            z-index: 50;
-        }
-  }
-  
-  .slide-wrapper {
+    }
+
+    @include rwd(desktopSmall) {
+        overflow: hidden;
+        height: 32%;
+        width: 24%;
+        margin: 0 auto;
+        z-index: 50;
+    }
+
+    @include rwd(pad) {
+        overflow: hidden;
+        height: 20%;
+        width: 33%;
+        margin: 0 auto;
+        z-index: 50;
+    }
+
+    @include rwd(largeMobile) {
+        overflow: hidden;
+        height: 28%;
+        width: 36%;
+        margin: 0 auto;
+        z-index: 50;
+    }
+
+    @include rwd(mobile) {
+        overflow: hidden;
+        max-height: 22%;
+        width: 50%;
+        margin: 0 auto;
+        z-index: 50;
+    }
+}
+
+.slide-wrapper {
     width: 2912px;
     -webkit-animation: slide 14s ease infinite;
-  }
-  .slide-wrapper  img{
+}
+
+.slide-wrapper img {
     width: 100%;
     height: 110%;
-    @include rwd(desktop){
+
+    @include rwd(desktop) {
         width: 110%;
         height: 110%;
-        }
-        @include rwd(desktopSmall){
-            width: 110%;
-            height: 110%;
-        }
-        @include rwd(pad){
-            width: 110%;
-            height: 110%;
-        }
-        @include rwd(largeMobile){
-            width: 75%;
-            height: 75%;
-        }
-        @include rwd(mobile){
-            width: 75%;
-            height: 75%;
-        }
-    
-  }
+    }
 
-  
-  .slide {
+    @include rwd(desktopSmall) {
+        width: 110%;
+        height: 110%;
+    }
+
+    @include rwd(pad) {
+        width: 110%;
+        height: 110%;
+    }
+
+    @include rwd(largeMobile) {
+        width: 75%;
+        height: 75%;
+    }
+
+    @include rwd(mobile) {
+        width: 75%;
+        height: 75%;
+    }
+
+}
+
+
+.slide {
     float: left;
     height: 207px;
     width: 290px;
-    @include rwd(desktop){
+
+    @include rwd(desktop) {
         float: left;
         height: 207px;
         width: 290px;
-        }
-        @include rwd(desktopSmall){
-            float: left;
-            height: 207px;
-            width: 290px;
-            
-        }
-        @include rwd(pad){
-            float: left;
-            height: 207px;
-            width: 290px;
-        }
-        @include rwd(largeMobile){
-            float: left;
-            height: 207px;
-            width: 290px;
-        }
-        @include rwd(mobile){
+    }
+
+    @include rwd(desktopSmall) {
+        float: left;
+        height: 207px;
+        width: 290px;
+
+    }
+
+    @include rwd(pad) {
+        float: left;
+        height: 207px;
+        width: 290px;
+    }
+
+    @include rwd(largeMobile) {
+        float: left;
+        height: 207px;
+        width: 290px;
+    }
+
+    @include rwd(mobile) {
         display: block;
-        }
-  }
-  
-  
-  @-webkit-keyframes slide {
-    20% {margin-left: 0px;}
-    30% {margin-left: -290px;}
-    50% {margin-left: -290px;}
-    60% {margin-left: -580px;}
-    70% {margin-left: -580px;}
-    80% {margin-left: -870px;}
-    90% {margin-left: -870px;}
-    
-  }
+    }
+}
+
+
+@-webkit-keyframes slide {
+    20% {
+        margin-left: 0px;
+    }
+
+    30% {
+        margin-left: -290px;
+    }
+
+    50% {
+        margin-left: -290px;
+    }
+
+    60% {
+        margin-left: -580px;
+    }
+
+    70% {
+        margin-left: -580px;
+    }
+
+    80% {
+        margin-left: -870px;
+    }
+
+    90% {
+        margin-left: -870px;
+    }
+
+}
 
 // ---------------------------
 
-.myuFOsearchbut{
-    position:fixed;
-    right:10vw;
-    bottom:10vw;
+.myuFOsearchbut {
+    position: fixed;
+    right: 10vw;
+    bottom: 10vw;
     z-index: 98;
-    display: flex;    
-    li{ 
+    display: flex;
+
+    li {
         // @include shadow();
-        box-shadow:  -12px 10px 10px #D6D5AE;
-        margin-left:3vw;
-        width:8vw;
-        height:8vw;
-        background-color:$yellow;
+        box-shadow: -12px 10px 10px #D6D5AE;
+        margin-left: 3vw;
+        width: 8vw;
+        height: 8vw;
+        background-color: $yellow;
         border-radius: 50%;
-        @include rwd(pad){
-            box-shadow:  -12px 10px 10px #D6D5AE;
-            margin-left:3vw;
-            width:8vw;
-            height:8vw;
-            background-color:$yellow;
+
+        @include rwd(pad) {
+            box-shadow: -12px 10px 10px #D6D5AE;
+            margin-left: 3vw;
+            width: 8vw;
+            height: 8vw;
+            background-color: $yellow;
             border-radius: 50%;
-            }
-            @include rwd(largeMobile){
-                box-shadow:  -12px 10px 10px #D6D5AE;
-                margin-left:3vw;
-                width:8vw;
-                height:8vw;
-                background-color:$yellow;
-                border-radius: 50%;
-            }
-            @include rwd(mobile){
-                box-shadow:  -12px 10px 10px #D6D5AE;
-                margin-left:3vw;
-                width:8vw;
-                height:8vw;
-                background-color:$yellow;
-                border-radius: 50%;
-            }
-        img{
-            margin-top:1.5vw;
+        }
+
+        @include rwd(largeMobile) {
+            box-shadow: -12px 10px 10px #D6D5AE;
+            margin-left: 3vw;
+            width: 8vw;
+            height: 8vw;
+            background-color: $yellow;
+            border-radius: 50%;
+        }
+
+        @include rwd(mobile) {
+            box-shadow: -12px 10px 10px #D6D5AE;
+            margin-left: 3vw;
+            width: 8vw;
+            height: 8vw;
+            background-color: $yellow;
+            border-radius: 50%;
+        }
+
+        img {
+            margin-top: 1.5vw;
             @include block_center();
             width: 5vw;
-            height:5vw;          
+            height: 5vw;
         }
-        p{
+
+        p {
             text-align: center;
-            padding-top:2vw ;
+            padding-top: 2vw;
             font-weight: bold;
-            @include rwd(pad){
-               
-                }
-                @include rwd(largeMobile){
-               display: none;
-                }
-                @include rwd(mobile){
-               display: none;
-                }
+
+            @include rwd(pad) {}
+
+            @include rwd(largeMobile) {
+                display: none;
+            }
+
+            @include rwd(mobile) {
+                display: none;
+            }
         }
     }
 }
 
-.myufo_searchbtn1{
+.myufo_searchbtn1 {
 
-.myufo_searchbtn2{
-    position:fixed;
-    right:20px;
-    bottom: 15%;
-    z-index: 98;
-    display: flex; 
-    @include rwd(desktop){
-        position:fixed;
-        right:20px;
+    .myufo_searchbtn2 {
+        position: fixed;
+        right: 20px;
         bottom: 15%;
         z-index: 98;
         display: flex;
-    }
-    @include rwd(desktopSmall){
-        position:fixed;
-        right:20px;
-        bottom: 15%;
-        z-index: 98;
-        display: flex;
-    }
-    @include rwd(pad){
-        position:fixed;
-        right:20px;
-        bottom: 15%;
-        z-index: 98;
-        display: flex;
-    }
-    @include rwd(largeMobile){
-        position:fixed;
-        right:20px;
-        bottom: 15%;
-        z-index: 98;
-        display: flex;
-    }
-    @include rwd(mobile){
-        position:fixed;
-        right:20px;
-        bottom: 15%;
-        z-index: 98;
-        display: flex;
-    }
-    li{ 
-        // @include shadow();
-        box-shadow:  -12px 10px 10px #D6D5AE;
-        margin-left:10px;
-        width:120px;
-        height:120px;
-        background-color:$yellow;
-        border-radius: 50%;
-        img{
-            margin-top:25px;
-            @include block_center();
-            width: 70px;
-            height:70px;          
+
+        @include rwd(desktop) {
+            position: fixed;
+            right: 20px;
+            bottom: 15%;
+            z-index: 98;
+            display: flex;
         }
 
+        @include rwd(desktopSmall) {
+            position: fixed;
+            right: 20px;
+            bottom: 15%;
+            z-index: 98;
+            display: flex;
+        }
+
+        @include rwd(pad) {
+            position: fixed;
+            right: 20px;
+            bottom: 15%;
+            z-index: 98;
+            display: flex;
+        }
+
+        @include rwd(largeMobile) {
+            position: fixed;
+            right: 20px;
+            bottom: 15%;
+            z-index: 98;
+            display: flex;
+        }
+
+        @include rwd(mobile) {
+            position: fixed;
+            right: 20px;
+            bottom: 15%;
+            z-index: 98;
+            display: flex;
+        }
+
+        li {
+            // @include shadow();
+            box-shadow: -12px 10px 10px #D6D5AE;
+            margin-left: 10px;
+            width: 120px;
+            height: 120px;
+            background-color: $yellow;
+            border-radius: 50%;
+
+            img {
+                margin-top: 25px;
+                @include block_center();
+                width: 70px;
+                height: 70px;
+            }
+
+        }
     }
-}
-@mixin search_btn_hover{
-    transform: translateY(-30px);
-    background-color: $mrtBrown;
-    transition: all 0.3s;
-}
-.myufo_btn_Search:hover{
-    @include search_btn_hover;
-}
+
+    @mixin search_btn_hover {
+        transform: translateY(-30px);
+        background-color: $mrtBrown;
+        transition: all 0.3s;
+    }
+
+    .myufo_btn_Search:hover {
+        @include search_btn_hover;
+    }
 }
 
 
 
 
 // -----------hover but-------------------
-.hover-button:hover{
+.hover-button:hover {
     animation: moveUpDown 1s infinite;
-  }
-@keyframes moveUpDown{
-    0%{
-      transform: translateY(0);
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
     }
-    50%{
-      transform: scale(1.03) translateY(-10px);
+
+    50% {
+        transform: scale(1.03) translateY(-10px);
     }
-    100%{
-      transform: translateY(0);
+
+    100% {
+        transform: translateY(0);
     }
-  }
-  
+}
+
 
 @media all and (min-width: 1200px) {
-    .myUFO_bg .figure{
+    .myUFO_bg .figure {
         height: 90vh;
-        
+
         display: block;
-        
+
     }
-    .myUFO_bg .figure2{
+
+    .myUFO_bg .figure2 {
         display: none;
     }
-    .myUFO_bg .figure3{
+
+    .myUFO_bg .figure3 {
         display: none;
-        
+
     }
-    .myUFO_bg .figure4{
+
+    .myUFO_bg .figure4 {
         display: none;
-       
+
     }
 }
 
 @media all and(max-width: 1199px) and (min-width: 992px) {
-    .myUFO_bg .figure{
+    .myUFO_bg .figure {
         display: none;
-        
+
     }
-    .myUFO_bg .figure2{
+
+    .myUFO_bg .figure2 {
         height: 90vh;
         display: block;
     }
-    .myUFO_bg .figure3{
+
+    .myUFO_bg .figure3 {
         display: none;
-        
+
     }
-    .myUFO_bg .figure4{
+
+    .myUFO_bg .figure4 {
         display: none;
-       
+
     }
 }
 
 @media all and(max-width: 991px) and (min-width: 768px) {
-    .myUFO_bg .figure{
+    .myUFO_bg .figure {
         display: none;
-        
+
     }
-    .myUFO_bg .figure2{
-      display: none;
+
+    .myUFO_bg .figure2 {
+        display: none;
     }
-    .myUFO_bg .figure3{
+
+    .myUFO_bg .figure3 {
         height: 90vh;
         width: 100%;
         display: block;
-        
+
     }
-    .myUFO_bg .figure4{
-        display: none;  
+
+    .myUFO_bg .figure4 {
+        display: none;
     }
 }
 
 @media all and(max-width: 767px) and (min-width: 576px) {
-    .myUFO_bg .figure{
+    .myUFO_bg .figure {
         display: none;
-        
+
     }
-    .myUFO_bg .figure2{
-        
-        display:none;
+
+    .myUFO_bg .figure2 {
+
+        display: none;
     }
-    .myUFO_bg .figure3{
+
+    .myUFO_bg .figure3 {
         display: block;
         height: 85vh;
-        
+
     }
-    .myUFO_bg .figure4{
+
+    .myUFO_bg .figure4 {
         display: none;
-       
+
     }
 }
 
 @media all and (max-width: 575px) {
-    .myUFO_bg .figure{
+    .myUFO_bg .figure {
         display: none;
-        
+
     }
-    .myUFO_bg .figure2{
+
+    .myUFO_bg .figure2 {
         display: none;
     }
-    .myUFO_bg .figure3{
+
+    .myUFO_bg .figure3 {
         display: none;
-        
+
     }
-    .myUFO_bg .figure4{
-       
+
+    .myUFO_bg .figure4 {
+
         display: block;
         margin: 0 auto;
-       
+
     }
 }
 
 @media all and (min-width: 1200px) {
-    .object{
+    .object {
         max-height: 700px;
-        
+
     }
 }
 
 @media all and(max-width: 1199px) and (min-width: 992px) {
-    .object{
-       
-        
-    }
+    .object {}
 }
 
 @media all and(max-width: 991px) and (min-width: 768px) {
-    .object{
+    .object {
         max-height: 700px;
-        
+
     }
 }
 
 @media all and(max-width: 767px) and (min-width: 576px) {
-    .object{
-        
-        
-    }
+    .object {}
 }
 
 @media all and (max-width: 575px) {
 
-    .object{
+    .object {
         max-width: 514px;
         display: block;
         margin: 0 auto;
     }
 }
-    // ----------櫃子彈窗---------------
-    #myUFO_category{
-        top:10%;
-        left: 41%;
-        right: 41%;
-        text-align: center;
-        display: none;
-        z-index: 999;
-        .categorform{
-            position: absolute;
-            top: 10%;
-            padding: 20px;
-            z-index: 999;
-        }
 
-        .categoricon{
+// ----------櫃子彈窗---------------
+#myUFO_category {
+    top: 10%;
+    left: 41%;
+    right: 41%;
+    text-align: center;
+    display: none;
+    z-index: 999;
+
+    .categorform {
+        position: absolute;
+        top: 10%;
+        padding: 20px;
+        z-index: 999;
+    }
+
+    .categoricon {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        z-index: 10;
+
+    }
+
+    .coupon {
+        position: absolute;
+        top: 23%;
+        left: 20%;
+        width: 27%;
+
+        img {
             width: 100%;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            z-index: 10;
-            
         }
 
-        .coupon{
-            position: absolute;
-            top: 23%;
-            left: 20%;
-            width: 27%;
-
-            img{
-                width: 100%;
-            }
-            h1{
-                font-size: $fontSize_SubTitle;
-                color:#FFF;
-            }
-        }
-        .game{
-            position: absolute;
-            top: 34%;
-            right: 20%;
-            width: 27%;
- 
-            img{
-                width: 100%;
-            }
-            h1{
-                font-size: $fontSize_SubTitle;
-                color:#FFF;
-            }
-        }
-        .Smallphoto{
-            position: absolute;
-            top: 52%;
-            left: 20%;
-            width: 27%;
- 
-            img{
-                width: 100%;
-            }
-            h1{
-                font-size: $fontSize_SubTitle;
-                color:#FFF;
-            }
-        }
-        .Smalltask{
-            position: absolute;
-            top: 62%;
-            right: 25%;
-            width: 18%;
-
-            img{
-                width: 100%;
-            }
-            h1{
-                font-size: $fontSize_SubTitle;
-                color:#FFF;
-            }
-        }
-        
-    }
-    // ----------優惠券彈窗---------------
-    #wardrobe_coupon{
-        position: fixed;
-        top:15%;
-        left: 41%;
-        right: 41%;
-        text-align: center;
-        display: none;
-        z-index: 999;
-        .couponicon{
-            width: 50%;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            z-index: 10;
-            
-        }
-        #close_button{
-            position: absolute;
-            left: 0%;
-            top: 8%;
-            border: 2px solid #f80;
-            width: 100px;
-            height: 50px;
-        }
-        .buybtn{
-            display:inline-block;
-            padding:10px 20px;
-            background-color:$yellow;
-            color:white;
-            border-radius: 2px;
-          }
-        .buyed{
-            background-color:#B8B8B8;
-            color:white;
-            border-radius: 2px;
+        h1 {
+            font-size: $fontSize_SubTitle;
+            color: #FFF;
         }
     }
 
-       #wardrobe_coupon2{
-        position: fixed;
-        top:15%;
-        left: 41%;
-        right: 41%;
-        text-align: center;
-        display: none;
-        z-index: 999;
+    .game {
+        position: absolute;
+        top: 34%;
+        right: 20%;
+        width: 27%;
 
-        .buybtn22{
-            display:inline-block;
-            padding:10px 20px;
-            background-color:$yellow;
-            color:white;
-            border-radius: 2px;
-          }
-        .buyed22{
-            background-color:#B8B8B8;
-            color:white;
-            border-radius: 2px;
+        img {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: $fontSize_SubTitle;
+            color: #FFF;
         }
     }
-    
-    
-    
-    // ----------每日任務彈窗---------------
-    #wardrobe_Smalltask{
+
+    .Smallphoto {
+        position: absolute;
+        top: 52%;
+        left: 20%;
+        width: 27%;
+
+        img {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: $fontSize_SubTitle;
+            color: #FFF;
+        }
+    }
+
+    .Smalltask {
+        position: absolute;
+        top: 62%;
+        right: 25%;
+        width: 18%;
+
+        img {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: $fontSize_SubTitle;
+            color: #FFF;
+        }
+    }
+
+}
+
+// ----------優惠券彈窗---------------
+#wardrobe_coupon {
+    position: fixed;
+    top: 15%;
+    left: 41%;
+    right: 41%;
+    text-align: center;
+    display: none;
+    z-index: 999;
+
+    .couponicon {
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        z-index: 10;
+
+    }
+
+    #close_button {
+        position: absolute;
+        left: 0%;
+        top: 8%;
+        border: 2px solid #f80;
+        width: 100px;
+        height: 50px;
+    }
+
+    .buybtn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: $yellow;
+        color: white;
+        border-radius: 2px;
+    }
+
+    .buyed {
+        background-color: #B8B8B8;
+        color: white;
+        border-radius: 2px;
+    }
+}
+
+#wardrobe_coupon2 {
+    position: fixed;
+    top: 15%;
+    left: 41%;
+    right: 41%;
+    text-align: center;
+    display: none;
+    z-index: 999;
+
+    .buybtn22 {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: $yellow;
+        color: white;
+        border-radius: 2px;
+    }
+
+    .buyed22 {
+        background-color: #B8B8B8;
+        color: white;
+        border-radius: 2px;
+    }
+}
+
+
+
+// ----------每日任務彈窗---------------
+#wardrobe_Smalltask {
+    position: fixed;
+    top: 15%;
+    left: 41%;
+    right: 41%;
+    display: none;
+    z-index: 999;
+
+    @include rwd(desktop) {
         position: fixed;
-        top:15%;
+        top: 15%;
         left: 41%;
         right: 41%;
         display: none;
         z-index: 999;
-        @include rwd(desktop){
-            position: fixed;
-            top:15%;
-            left: 41%;
-            right: 41%;
-            display: none;
-            z-index: 999;
-            }
-            @include rwd(desktopSmall){
-            position: fixed;
-            top:15%;
-            left: 41%;
-            right: 41%;
-            display: none;
-            z-index: 999;
-            }
-            @include rwd(pad){
-            position: fixed;
-            top:15%;
-            left: 41%;
-            right: 41%;
-            display: none;
-            z-index: 999;
-            }
-            @include rwd(largeMobile){
-            position: fixed;
-            top:15%;
-            left: 41%;
-            right: 41%;
-            display: none;
-            z-index: 999;
-            }
-            @include rwd(mobile){
-            position: fixed;
-            top:15%;
-            left: 41%;
-            right: 41%;
-            display: none;
-            z-index: 999;
-            }
-            .formSmalltask{
-                padding: 20px;
-                .Smalltaskbox1{
-                    display: flex;
-                    padding: 10px;
-                    border-bottom:1px #F1F1F1 solid;
-                    
-                    .Littleman{
-                        right: 0%;
-                        top: 0%;
-                        z-index: 88;
-                        width: 30px;
-                        height: 30px;
-                        background-size: cover;
-                    }
-                    .progressmimi{
-                        margin: 0 20px;
+    }
 
-    
-                    }
-   
-                      
-                
-                }
-            
-                }
-                .Smalltaskbox2{
-                    display: flex;
-                    padding: 10px;
-                    border-bottom:1px #F1F1F1 solid;
-                    
-                    .mrtSmalltask{
-                        right: 0%;
-                        top: 0%;
-                        z-index: 88;
-                        width: 30px;
-                        height: 30px;
-                        background-size: cover;
-                    }
-                    .progressmimi{
-                        margin: 0 20px;
-                     
-                    }   
-                      
-                
-                }
-                .Smalltaskbox3{
-                    display: flex;
-                    padding: 10px;
-                    border-bottom:1px #F1F1F1 solid;
-                    
-                    .mrtSmalltask{
-                        right: 0%;
-                        top: 0%;
-                        z-index: 88;
-                        width: 30px;
-                        height: 30px;
-                        background-size: cover;
-                    }
-                    .progressmimi{
-                        margin: 0 20px;
-                        
-    
-                    } 
-                      
-                
-                }
-                .Smalltaskbox4{
-                    display: flex;
-                    padding: 10px;
-                    border-bottom:1px #F1F1F1 solid;
-                    
-                    .mrtSmalltask{
-                        right: 0%;
-                        top: 0%;
-                        z-index: 88;
-                        width: 30px;
-                        height: 30px;
-                        background-size: cover;
-                    }
-                    .progressmimi{
-                        margin: 0 20px;
-                        
-                    }  
-                      
-                
-                }
-                .Smalltaskbox5{
-                    display: flex;
-                    padding: 10px;
-                    border-bottom:1px #F1F1F1 solid;
-                    
-                    
-                    .mrtSmalltask{
-                        right: 0%;
-                        top: 5%;
-                        z-index: 88;
-                        width: 30px;
-                        height: 30px;
-                        background-size: cover;
-                    }
-                    .progressmimi{
-                        margin: 0 20px;
-                    
-                    }
-                
-                }
-                .Smalltaskbox6{
-                    display: flex;
-                    padding: 10px;
-                    border-bottom:1px #F1F1F1 solid;
-                    
-                    .mrtSmalltask{
-                        right: 0%;
-                        top: 0%;
-                        z-index: 88;
-                        width: 30px;
-                        height: 30px;
-                        background-size: cover;
-                    }
-                    .progressmimi{
-                        margin: 0 20px;
-                      
-    
-                    }
+    @include rwd(desktopSmall) {
+        position: fixed;
+        top: 15%;
+        left: 41%;
+        right: 41%;
+        display: none;
+        z-index: 999;
+    }
 
-                
-                }
-            }    
+    @include rwd(pad) {
+        position: fixed;
+        top: 15%;
+        left: 41%;
+        right: 41%;
+        display: none;
+        z-index: 999;
+    }
+
+    @include rwd(largeMobile) {
+        position: fixed;
+        top: 15%;
+        left: 41%;
+        right: 41%;
+        display: none;
+        z-index: 999;
+    }
+
+    @include rwd(mobile) {
+        position: fixed;
+        top: 15%;
+        left: 41%;
+        right: 41%;
+        display: none;
+        z-index: 999;
+    }
+
+    .formSmalltask {
+        padding: 20px;
+
+        .Smalltaskbox1 {
+            display: flex;
+            padding: 10px;
+            border-bottom: 1px #F1F1F1 solid;
+
+            .Littleman {
+                right: 0%;
+                top: 0%;
+                z-index: 88;
+                width: 30px;
+                height: 30px;
+                background-size: cover;
+            }
+
+            .progressmimi {
+                margin: 0 20px;
+
+
+            }
+
+
+
+        }
+
+    }
+
+    .Smalltaskbox2 {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px #F1F1F1 solid;
+
+        .mrtSmalltask {
+            right: 0%;
+            top: 0%;
+            z-index: 88;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+        }
+
+        .progressmimi {
+            margin: 0 20px;
+
+        }
+
+
+    }
+
+    .Smalltaskbox3 {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px #F1F1F1 solid;
+
+        .mrtSmalltask {
+            right: 0%;
+            top: 0%;
+            z-index: 88;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+        }
+
+        .progressmimi {
+            margin: 0 20px;
+
+
+        }
+
+
+    }
+
+    .Smalltaskbox4 {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px #F1F1F1 solid;
+
+        .mrtSmalltask {
+            right: 0%;
+            top: 0%;
+            z-index: 88;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+        }
+
+        .progressmimi {
+            margin: 0 20px;
+
+        }
+
+
+    }
+
+    .Smalltaskbox5 {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px #F1F1F1 solid;
+
+
+        .mrtSmalltask {
+            right: 0%;
+            top: 5%;
+            z-index: 88;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+        }
+
+        .progressmimi {
+            margin: 0 20px;
+
+        }
+
+    }
+
+    .Smalltaskbox6 {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px #F1F1F1 solid;
+
+        .mrtSmalltask {
+            right: 0%;
+            top: 0%;
+            z-index: 88;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+        }
+
+        .progressmimi {
+            margin: 0 20px;
+
+
+        }
+
+
+    }
+}
+
 // --------------進度條css------------------
-.progress_bar{
+.progress_bar {
     margin: 5px auto;
     display: flex;
-  }
-  
-  progress {
-    display: block; /* default: inline-block */
+}
+
+progress {
+    display: block;
+    /* default: inline-block */
     width: 230px;
     border: 0 none;
     background: #E4E4E4;
     border-radius: 5px;
-    
-  }
-  progress::-moz-progress-bar {
+
+}
+
+progress::-moz-progress-bar {
     border-radius: 5px;
     background: #FFD700;
     /* box-shadow: inset 0 -2px 4px rgba(0,0,0,0.4), 0 2px 5px 0px rgba(0,0,0,0.3); */
-    
-  }
-  /* webkit */
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
+
+}
+
+/* webkit */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
     progress {
-      height: 15px;
+        height: 15px;
     }
-  }
-  progress::-webkit-progress-bar {
-      background: transparent;
-  }  
-  progress::-webkit-progress-value {  
+}
+
+progress::-webkit-progress-bar {
+    background: transparent;
+}
+
+progress::-webkit-progress-value {
     border-radius: 5px;
     background: #FFD700;
-  } 
-  
-  p {
-    text-align:center;
-  }
-  .myUFO_button{
+}
+
+p {
+    text-align: center;
+}
+
+.myUFO_button {
     position: absolute;
     border: 0;
     background: #FFD700;
@@ -1476,50 +1672,55 @@ overflow: hidden;
     width: 15%;
     color: #FFF;
     border-radius: 4px;
-  
-  }
-  
-  .buyed1{
-    
-    background-color:#B8B8B8;
-    color:white;
-  }
-  .buyed2{
-    
-    background-color:#B8B8B8;
-    color:white;
-  }
-  .buyed3{
-    
-    background-color:#B8B8B8;
-    color:white;
-  }
-  .buyed4{
-    
-    background-color:#B8B8B8;
-    color:white;
-  }
-  .buyed5{
-    
-    background-color:#B8B8B8;
-    color:white;
-  }
-  .buyed6{
-    
-    background-color:#B8B8B8;
-    color:white;
-  }
 
-  #myUFOprogressbar{
+}
+
+.buyed1 {
+
+    background-color: #B8B8B8;
+    color: white;
+}
+
+.buyed2 {
+
+    background-color: #B8B8B8;
+    color: white;
+}
+
+.buyed3 {
+
+    background-color: #B8B8B8;
+    color: white;
+}
+
+.buyed4 {
+
+    background-color: #B8B8B8;
+    color: white;
+}
+
+.buyed5 {
+
+    background-color: #B8B8B8;
+    color: white;
+}
+
+.buyed6 {
+
+    background-color: #B8B8B8;
+    color: white;
+}
+
+#myUFOprogressbar {
     position: fixed;
-    top:30%;
+    top: 30%;
     left: 41%;
     right: 41%;
     text-align: center;
     display: none;
     z-index: 999;
 
-    #close_button{
+    #close_button {
         position: absolute;
         left: 0%;
         top: 8%;
@@ -1531,130 +1732,320 @@ overflow: hidden;
 }
 
 //----------靜瑩角色彈窗----------
-.MyCharacter{
+.MyCharacter {
     z-index: 1000;
     display: none;
     position: absolute;
-    top:10%;
-    left:50%;
+    top: 6%;
+    left: 50%;
     right: 50%;
-    h1{
+
+    @include rwd(desktopSmall) {
+        top: 3%;
+    }
+
+    @include rwd(pad) {
+        top: 3%;
+    }
+
+    @include rwd(largeMobile) {
+        top: 3%;
+    }
+
+    @include rwd(mobile) {
+        top: 3%;
+    }
+
+    h1 {
         color: $yellow;
         margin: initial;
+
+        @include rwd(desktop) {
+            font-size: 30px;
+            position: relative;
+            top: -13px;
+        }
     }
-    .getCharacter{
-        overflow: auto;
-        height: 95vh;
-        padding-bottom:20px;
+
+    .getCharacter {
+        overflow: hidden;
+        height: 89vh;
+        padding-bottom: 20px;
         z-index: 11;
-        .getCharacter_alien{
-            padding: 20px;
+
+        @include rwd(desktop) {
+            width: 1000px;
         }
-        .getCharacter_choiceList{
-           display: flex;
-           .choiceList_body,.choiceList_eye,.choiceList_mouth{
-               p{
-                //    color:$green;
-                   cursor: pointer;
-               }
-           }
-           .choiceList_body.off{
-               p{
-                //    color:$color;
-               }
-           }
-           .choiceList_eye.on, .choiceList_mouth.on{
-                p{
-                    // color: $green;
-                }
-           }   
-           p{
-               margin-left: 5px;
-               padding: 10px;
-               background-color:$lightgreen;
-               border-radius: 5px;
-               font-weight: bold;
-           }
+
+        @include rwd(desktopSmall) {
+            overflow: auto;
+            height: 95vh;
         }
-        .getCharacter_choice{
-            .choiceOrgan{
-                background-color: $lightgreen;
-                border-radius: 5px;
-                height: 300px;
-                .alienBody{
-                    padding:20px 0;
-                    display: flex;
-                    justify-content: space-around;
-                    cursor: pointer;
-                    img{
-                        // height: 90px;
+
+        @include rwd(pad) {
+            overflow: auto;
+            height: 95vh;
+        }
+
+        @include rwd(largeMobile) {
+            overflow: auto;
+            height: 95vh;
+        }
+
+        @include rwd(mobile) {
+            overflow: auto;
+            height: 95vh;
+        }
+
+        .getCharacterClose {
+            @include rwd(desktop) {
+                top: 20px;
+            }
+        }
+
+        // test
+        .MyCharacter_for_web {
+            @include rwd(desktop) {
+                display: flex;
+            }
+
+            @include rwd(desktopSmall) {
+                display: initial;
+            }
+
+            @include rwd(pad) {
+                display: initial;
+            }
+
+            @include rwd(largeMobile) {
+                display: initial;
+            }
+
+            @include rwd(mobile) {
+                display: initial;
+            }
+
+            .getCharacter_alien {
+                padding: 20px;
+
+                // test
+                .MyCharacter_body {
+                    @include rwd(desktop) {
+                        position: relative;
+                        bottom: 10px;
                     }
                 }
-                .alienEye{
-                    padding:20px 0;
-                    display: flex;
-                    justify-content: space-around;
-                    cursor: pointer;
-                    img{
-                        // height:40px;
+
+                .MyCharacter_eye {
+                    position: relative;
+                    bottom: 370px;
+
+                    @include rwd(desktopSmall) {
+                        bottom: 270px;
+                    }
+
+                    @include rwd(pad) {
+                        bottom: 270px;
+                    }
+
+                    @include rwd(largeMobile) {
+                        bottom: 270px;
+                    }
+
+                    @include rwd(mobile) {
+                        bottom: 270px;
                     }
                 }
-                .alienMouth{
-                    padding:20px 0;
-                    display: flex;
-                    justify-content: space-around;
-                    cursor: pointer;
-                    img{
-                        // height:30px;
+
+                .MyCharacter_mouth {
+                    position: relative;
+                    bottom: 730px;
+
+                    @include rwd(desktopSmall) {
+                        bottom: 530px;
+                    }
+
+                    @include rwd(pad) {
+                        bottom: 530px;
+                    }
+
+                    @include rwd(largeMobile) {
+                        bottom: 530px;
+                    }
+
+                    @include rwd(mobile) {
+                        bottom: 530px;
+                    }
+                }
+
+                .getCharacterBtn_web {
+                    position: relative;
+                    bottom: 750px;
+
+                    @include rwd(desktopSmall) {
+                        display: none;
+                    }
+
+                    @include rwd(pad) {
+                        display: none;
+                    }
+
+                    @include rwd(largeMobile) {
+                        display: none;
+                    }
+
+                    @include rwd(mobile) {
+                        display: none;
                     }
                 }
             }
-            .myEye, .myMouth{
-                // display: none;
+
+            .getCharacter_choice {
+                @include rwd(desktopSmall) {
+                    position: relative;
+                    top: 60px;
+                }
+
+                @include rwd(pad) {
+                    position: relative;
+                    top: 60px;
+                }
+
+                @include rwd(largeMobile) {
+                    position: relative;
+                    top: 60px;
+                }
+
+                @include rwd(mobile) {
+                    position: relative;
+                    top: 60px;
+                }
+
+                .choiceOrgan {
+                    background-color: $lightgreen;
+                    border-radius: 5px;
+                    height: 410px;
+
+                    @include rwd(desktopSmall) {
+                        height: 300px;
+                    }
+
+                    @include rwd(pad) {
+                        height: 300px;
+                    }
+
+                    @include rwd(largeMobile) {
+                        height: 300px;
+                    }
+
+                    @include rwd(mobile) {
+                        height: 300px;
+                    }
+
+                    .alienBody {
+                        padding: 20px 0;
+                        display: flex;
+                        justify-content: space-around;
+                        cursor: pointer;
+                    }
+
+                    .alienEye {
+                        padding: 20px 0;
+                        display: flex;
+                        justify-content: space-around;
+                        cursor: pointer;
+                    }
+
+                    .alienMouth {
+                        padding: 20px 0;
+                        display: flex;
+                        justify-content: space-around;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .getCharacter_choiceList {
+                display: flex;
+
+                .choiceList_body,
+                .choiceList_eye,
+                .choiceList_mouth {
+                    p {
+                        cursor: pointer;
+                    }
+
+                    //頁籤切換加上class
+                    .active {
+                        color: $green;
+                    }
+
+                }
+
+                p {
+                    margin-left: 5px;
+                    padding: 10px;
+                    background-color: $lightgreen;
+                    border-radius: 5px;
+                    font-weight: bold;
+                }
+            }
+
+        }
+
+        .getCharacterBtn {
+            display: none;
+
+            @include rwd(desktopSmall) {
+                display: block;
+                position: relative;
+                bottom: -55px;
+            }
+
+            @include rwd(pad) {
+                display: block;
+                position: relative;
+                bottom: -55px;
+            }
+
+            @include rwd(largeMobile) {
+                display: block;
+                position: relative;
+                bottom: -55px;
+            }
+
+            @include rwd(mobile) {
+                display: block;
+                position: relative;
+                bottom: -55px;
             }
         }
-        
+
     }
-    
+
 }
 
 //我的外食星人，上面組裝出來的部份
-.MyCharacter_body{
-    // z-index: 3;
-    // @include block_center();
-}
-
-.MyCharacter_eye {
-    // z-index: 2;
-    position: relative;
-    // width: 50%;
-    bottom: 270px;
-    // @include block_center();
-    img{
-        // width: 50%;
-    }
-}
-
-.MyCharacter_mouth {
-    // z-index: 2;
-    position: relative;
-    bottom: 530px;
-    // @include block_center();
-    img{
-        // width: 50%;
-    }
-}
 
 .MyCharacter .getCharacter .getCharacter_alien {
-    padding: 20px;
-    max-height: 61%;
-}
 
-//頁籤切換加上class
-.active{
-    color: $green;
-}
+    @include rwd(desktopSmall) {
+        padding: 20px;
+        max-height: 61%;
+    }
 
-.text-danger{
-    color: blue;
+    @include rwd(pad) {
+        padding: 20px;
+        max-height: 61%;
+    }
+
+    @include rwd(largeMobile) {
+        padding: 20px;
+        max-height: 61%;
+    }
+
+    @include rwd(mobile) {
+        padding: 20px;
+        max-height: 61%;
+    }
 }

@@ -306,103 +306,100 @@
 						<img src="./img/icon/icon_close.png" alt="" />
 					</button>
 
-					<h1>我的外食星人</h1>
-					<div class="getCharacter_alien">
-						<!-- 所選的角色身體顯示 -->
-						<!-- <img src="./img/MyUFO_Alien/alienTest.png" alt=""> -->
-						<!-- Way2 -->
-						<!-- MyCharacter_body -->
-						<img class="MyCharacter_body" v-if="MyCharacter_body == 1" src="./img/MyUFO_Alien/body1.png">
-						<img class="MyCharacter_body" v-if="MyCharacter_body == 2" src="./img/MyUFO_Alien/body2.png">
-						<img class="MyCharacter_body" v-if="MyCharacter_body == 3" src="./img/MyUFO_Alien/body3.png">
-						<img class="MyCharacter_body" v-if="MyCharacter_body == 4" src="./img/MyUFO_Alien/body4.png">
-						<img class="MyCharacter_body" v-if="MyCharacter_body == 5" src="./img/MyUFO_Alien/body5.png">
-						<img class="MyCharacter_body" v-if="MyCharacter_body == 6" src="./img/MyUFO_Alien/body6.png">
-						<!-- MyCharacter_eyes -->
-						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 1" src="./img/MyUFO_Alien/eye1.png">
-						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 2" src="./img/MyUFO_Alien/eye2.png">
-						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 3" src="./img/MyUFO_Alien/eye3.png">
-						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 4" src="./img/MyUFO_Alien/eye4.png">
-						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 5" src="./img/MyUFO_Alien/eye5.png">
-						<img class="MyCharacter_eye" v-if="MyCharacter_eye == 6" src="./img/MyUFO_Alien/eye6.png">
-						<!-- MyCharacter_mouth -->
-						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 1" src="./img/MyUFO_Alien/mouth1.png">
-						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 2" src="./img/MyUFO_Alien/mouth2.png">
-						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 3" src="./img/MyUFO_Alien/mouth3.png">
-						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 4" src="./img/MyUFO_Alien/mouth4.png">
-						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 5" src="./img/MyUFO_Alien/mouth5.png">
-						<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 6" src="./img/MyUFO_Alien/mouth6.png">
-					</div>
-					<div class="getCharacter_choiceList">
-						<div class="choiceList_body" @click="getCharacter_choiceList = 1">
-							<p  @click="selected = 1" :class="{active:selected == 1}">身體</p>
-							<!-- <p @click="e => e.target.classList.toggle('active')">身體</p> -->
+					
+					<div class="MyCharacter_for_web">
+						<div class="getCharacter_alien">
+							<!-- 所選的角色身體顯示 -->
+							<h1>我的外食星人</h1>
+							<!-- MyCharacter_body -->
+							<img class="MyCharacter_body" v-if="MyCharacter_body == 1" src="./img/MyUFO_Alien/body1.png">
+							<img class="MyCharacter_body" v-if="MyCharacter_body == 2" src="./img/MyUFO_Alien/body2.png">
+							<img class="MyCharacter_body" v-if="MyCharacter_body == 3" src="./img/MyUFO_Alien/body3.png">
+							<img class="MyCharacter_body" v-if="MyCharacter_body == 4" src="./img/MyUFO_Alien/body4.png">
+							<img class="MyCharacter_body" v-if="MyCharacter_body == 5" src="./img/MyUFO_Alien/body5.png">
+							<img class="MyCharacter_body" v-if="MyCharacter_body == 6" src="./img/MyUFO_Alien/body6.png">
+							<!-- MyCharacter_eyes -->
+							<img class="MyCharacter_eye" v-if="MyCharacter_eye == 1" src="./img/MyUFO_Alien/eye1.png">
+							<img class="MyCharacter_eye" v-if="MyCharacter_eye == 2" src="./img/MyUFO_Alien/eye2.png">
+							<img class="MyCharacter_eye" v-if="MyCharacter_eye == 3" src="./img/MyUFO_Alien/eye3.png">
+							<img class="MyCharacter_eye" v-if="MyCharacter_eye == 4" src="./img/MyUFO_Alien/eye4.png">
+							<img class="MyCharacter_eye" v-if="MyCharacter_eye == 5" src="./img/MyUFO_Alien/eye5.png">
+							<img class="MyCharacter_eye" v-if="MyCharacter_eye == 6" src="./img/MyUFO_Alien/eye6.png">
+							<!-- MyCharacter_mouth -->
+							<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 1" src="./img/MyUFO_Alien/mouth1.png">
+							<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 2" src="./img/MyUFO_Alien/mouth2.png">
+							<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 3" src="./img/MyUFO_Alien/mouth3.png">
+							<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 4" src="./img/MyUFO_Alien/mouth4.png">
+							<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 5" src="./img/MyUFO_Alien/mouth5.png">
+							<img class="MyCharacter_mouth" v-if="MyCharacter_mouth == 6" src="./img/MyUFO_Alien/mouth6.png">
+							<div class="btn getCharacterBtn_web">
+								<a href="/myUFO_wardrobe.html">
+									<input type="" value="送出" class="btn_submit getMyCharacter" disabled: disabled />
+								</a>
+							</div>
 						</div>
-						<div class="choiceList_eye" @click="getCharacter_choiceList = 2">
-							<p @click="selected = 2" :class="{active:selected == 2}">眼睛</p>
-							<!-- <p @click="e => e.target.classList.toggle('active')">眼睛</p> -->
-						</div>
-						<div class="choiceList_mouth" @click="getCharacter_choiceList = 3">
-							<p @click="selected = 3" :class="{active:selected == 3}">嘴巴</p>
-							<!-- <p @click="e => e.target.classList.toggle('active')">嘴巴</p> -->
-						</div>
-					</div>
-					<div class="getCharacter_choice">
-						<div class="choiceOrgan myBody" v-if="getCharacter_choiceList == 1">
-							<ul class="alienBody">
-								<li @click="MyCharacter_body = 1"><img src="./img/MyUFO_Alien/body1.png" alt=""></li>
-								<li @click="MyCharacter_body = 2"><img src="./img/MyUFO_Alien/body2.png" alt=""></li>
-								<li @click="MyCharacter_body = 3"><img src="./img/MyUFO_Alien/body3.png" alt=""></li>
-							</ul>
-							<ul class="alienBody">
-								<li @click="MyCharacter_body = 4"><img src="./img/MyUFO_Alien/body4.png" alt=""></li>
-								<li @click="MyCharacter_body = 5"><img src="./img/MyUFO_Alien/body5.png" alt=""></li>
-								<li @click="MyCharacter_body = 6"><img src="./img/MyUFO_Alien/body6.png" alt=""></li>
-							</ul>
-						</div>
-						<div class="choiceOrgan myEye" v-if="getCharacter_choiceList == 2">
-							<ul class="alienEye">
-								<li @click="MyCharacter_eye = 1"><img src="./img/MyUFO_Alien/eye1_option.png" alt=""></li>
-								<li @click="MyCharacter_eye = 2"><img src="./img/MyUFO_Alien/eye2_option.png" alt=""></li>
-								<li @click="MyCharacter_eye = 3"><img src="./img/MyUFO_Alien/eye3_option.png" alt=""></li>
-							</ul>
-							<ul class="alienEye">
-								<li @click="MyCharacter_eye = 4"><img src="./img/MyUFO_Alien/eye4_option.png" alt=""></li>
-								<li @click="MyCharacter_eye = 5"><img src="./img/MyUFO_Alien/eye5_option.png" alt=""></li>
-								<li @click="MyCharacter_eye = 6"><img src="./img/MyUFO_Alien/eye6_option.png" alt=""></li>
-							</ul>
-						</div>
-						<div class="choiceOrgan myMouth" v-if="getCharacter_choiceList == 3">
-							<ul class="alienMouth">
-								<li @click="MyCharacter_mouth = 1"><img src="./img/MyUFO_Alien/mouth1_option.png" alt=""></li>
-								<li @click="MyCharacter_mouth = 2"><img src="./img/MyUFO_Alien/mouth2_option.png" alt=""></li>
-								<li @click="MyCharacter_mouth = 3"><img src="./img/MyUFO_Alien/mouth3_option.png" alt=""></li>
-							</ul>
-							<ul class="alienMouth">
-								<li @click="MyCharacter_mouth = 4"><img src="./img/MyUFO_Alien/mouth4_option.png" alt=""></li>
-								<li @click="MyCharacter_mouth = 5"><img src="./img/MyUFO_Alien/mouth5_option.png" alt=""></li>
-								<li @click="MyCharacter_mouth = 6"><img src="./img/MyUFO_Alien/mouth6_option.png" alt=""></li>
-							</ul>
+						<div class="getCharacter_choice">
+							<div class="getCharacter_choiceList">
+								<div class="choiceList_body" @click="getCharacter_choiceList = 1">
+									<p  @click="selected = 1" :class="{active:selected == 1}">身體</p>
+									<!-- <p @click="e => e.target.classList.toggle('active')">身體</p> -->
+								</div>
+								<div class="choiceList_eye" @click="getCharacter_choiceList = 2">
+									<p @click="selected = 2" :class="{active:selected == 2}">眼睛</p>
+									<!-- <p @click="e => e.target.classList.toggle('active')">眼睛</p> -->
+								</div>
+								<div class="choiceList_mouth" @click="getCharacter_choiceList = 3">
+									<p @click="selected = 3" :class="{active:selected == 3}">嘴巴</p>
+									<!-- <p @click="e => e.target.classList.toggle('active')">嘴巴</p> -->
+								</div>
+							</div>
+							<div class="choiceOrgan myBody" v-if="getCharacter_choiceList == 1">
+								<ul class="alienBody">
+									<li @click="MyCharacter_body = 1"><img src="./img/MyUFO_Alien/body1_option.png" alt=""></li>
+									<li @click="MyCharacter_body = 2"><img src="./img/MyUFO_Alien/body2_option.png" alt=""></li>
+									<li @click="MyCharacter_body = 3"><img src="./img/MyUFO_Alien/body3_option.png" alt=""></li>
+								</ul>
+								<ul class="alienBody">
+									<li @click="MyCharacter_body = 4"><img src="./img/MyUFO_Alien/body4_option.png" alt=""></li>
+									<li @click="MyCharacter_body = 5"><img src="./img/MyUFO_Alien/body5_option.png" alt=""></li>
+									<li @click="MyCharacter_body = 6"><img src="./img/MyUFO_Alien/body6_option.png" alt=""></li>
+								</ul>
+							</div>
+							<div class="choiceOrgan myEye" v-if="getCharacter_choiceList == 2">
+								<ul class="alienEye">
+									<li @click="MyCharacter_eye = 1"><img src="./img/MyUFO_Alien/eye1_option.png" alt=""></li>
+									<li @click="MyCharacter_eye = 2"><img src="./img/MyUFO_Alien/eye2_option.png" alt=""></li>
+									<li @click="MyCharacter_eye = 3"><img src="./img/MyUFO_Alien/eye3_option.png" alt=""></li>
+								</ul>
+								<ul class="alienEye">
+									<li @click="MyCharacter_eye = 4"><img src="./img/MyUFO_Alien/eye4_option.png" alt=""></li>
+									<li @click="MyCharacter_eye = 5"><img src="./img/MyUFO_Alien/eye5_option.png" alt=""></li>
+									<li @click="MyCharacter_eye = 6"><img src="./img/MyUFO_Alien/eye6_option.png" alt=""></li>
+								</ul>
+							</div>
+							<div class="choiceOrgan myMouth" v-if="getCharacter_choiceList == 3">
+								<ul class="alienMouth">
+									<li @click="MyCharacter_mouth = 1"><img src="./img/MyUFO_Alien/mouth1_option.png" alt=""></li>
+									<li @click="MyCharacter_mouth = 2"><img src="./img/MyUFO_Alien/mouth2_option.png" alt=""></li>
+									<li @click="MyCharacter_mouth = 3"><img src="./img/MyUFO_Alien/mouth3_option.png" alt=""></li>
+								</ul>
+								<ul class="alienMouth">
+									<li @click="MyCharacter_mouth = 4"><img src="./img/MyUFO_Alien/mouth4_option.png" alt=""></li>
+									<li @click="MyCharacter_mouth = 5"><img src="./img/MyUFO_Alien/mouth5_option.png" alt=""></li>
+									<li @click="MyCharacter_mouth = 6"><img src="./img/MyUFO_Alien/mouth6_option.png" alt=""></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="btn getCharacterBtn">
 						<a href="/myUFO_wardrobe.html">
 							<input type="" value="送出" class="btn_submit getMyCharacter" disabled: disabled />
 						</a>
-					</div>
-					<br/>
+					</div>	
 				</form>
 			</div>
 		</div>
 	</div>
-
-	<!-- <href href="./index.html"><ul class="index_searchbtn myuFOsearchbut">
-            <li class="search_btn_Search">
-                <img src="./img/index/search.png" alt="">
-                <p>美食搜尋</p>
-            </li> -->
-	</ul>
-	</href>
 
 	@@include('layout/footer.html')
 
@@ -427,206 +424,3 @@
 
 </html>
 
-<!-- way1 註冊component  -->
-<script>
-	// Vue.component('body_1',{
-	//   template: `
-	//       <div>
-	//         <img class="MyCharacter_body" src="./img/MyUFO_Alien/body1.png">
-	//       </div>
-	//   `
-	// });
-
-	// Vue.component('body_2',{
-	//     template: `
-	//           <div>
-	//             <img class="MyCharacter_body" src="./img/MyUFO_Alien/body2.png">
-	//           </div>
-	//     `
-	// });
-
-	// Vue.component('body_3',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_body" src="./img/MyUFO_Alien/body3.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('body_4',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_body" src="./img/MyUFO_Alien/body4.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('body_5',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_body" src="./img/MyUFO_Alien/body5.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('body_6',{
-	//       template: `
-	//           <div>
-	//             <img class="MyCharacter_body" src="./img/MyUFO_Alien/body6.png">
-	//           </div>
-	//       `
-	//   });
-
-	// Vue.component('eyes_1',{
-	//       template: `
-	//           <div>
-	//             <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye1.png">
-	//           </div>
-	//       `
-	//   });
-
-	// Vue.component('eyes_2',{
-	//       template: `
-	//           <div>
-	//             <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye2.png">
-	//           </div>
-	//       `
-	//   });
-
-	// Vue.component('eyes_3',{
-	//       template: `
-	//           <div>
-	//             <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye3.png">
-	//           </div>
-	//       `
-	//   });
-
-	// Vue.component('eyes_4',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye4.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('eyes_5',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye5.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('eyes_6',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye6.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('eyes_7',{
-	//       template: `
-	//           <div>
-	//             <img class="MyCharacter_eyes" src="./img/MyUFO_Alien/eye5.png">
-	//           </div>
-	//       `
-	//   });
-
-	// Vue.component('mouth_1',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth1.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('mouth_2',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth2.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('mouth_3',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth3.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('mouth_4',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth4.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('mouth_5',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth5.png">
-	//         </div>
-	//     `
-	// });
-
-	// Vue.component('mouth_6',{
-	//     template: `
-	//         <div>
-	//           <img class="MyCharacter_mouth" src="./img/MyUFO_Alien/mouth6.png">
-	//         </div>
-	//     `
-	// });
-</script>
-<!-- <component :is="body"></component>
-<component :is="eyes"></component>
-<component :is="mouth"></component> -->
-
-<!-- <div class="getCharacter_choice">
-
-<div class="choiceOrgan myBody">
-	<ul class="alienBody">
-		<li @click="body='body_1'"><img src="./img/MyUFO_Alien/body1.png" alt=""></li>
-		<li @click="body='body_2'"><img src="./img/MyUFO_Alien/body2.png" alt=""></li>
-		<li @click="body='body_3'"><img src="./img/MyUFO_Alien/body3.png" alt=""></li>
-		
-	</ul>
-	<ul class="alienBody">
-		<li @click="body='body_4'"><img src="./img/MyUFO_Alien/body4.png" alt=""></li>
-		<li @click="body='body_5'"><img src="./img/MyUFO_Alien/body5.png" alt=""></li>
-		<li @click="body='body_6'"><img src="./img/MyUFO_Alien/body6.png" alt=""></li>
-	</ul>
-</div>
-<div class="choiceOrgan myEye"> 
-	<ul class="alienEye">
-		<li @click="eyes='eyes_1'"><img src="./img/MyUFO_Alien/eye1.png" alt=""></li>
-		<li @click="eyes='eyes_2'"><img src="./img/MyUFO_Alien/eye2.png" alt=""></li>
-		<li @click="eyes='eyes_3'"><img src="./img/MyUFO_Alien/eye3.png" alt=""></li>
-	</ul>
-	<ul class="alienEye">
-		<li @click="eyes='eyes_4'"><img src="./img/MyUFO_Alien/eye4.png" alt=""></li>
-		<li @click="eyes='eyes_5'"><img src="./img/MyUFO_Alien/eye5.png" alt=""></li>
-		<li @click="eyes='eyes_6'"><img src="./img/MyUFO_Alien/eye6.png" alt=""></li>
-	</ul>
-	<ul class="alienEye">
-		<li @click="eyes='eyes_7'"><img src="./img/MyUFO_Alien/eye5.png" alt=""></li>
-	</ul>
-</div>
-<div class="choiceOrgan myMouth">
-	<ul class="alienMouth">
-		<li @click="mouth='mouth_1'"><img src="./img/MyUFO_Alien/mouth1.png" alt=""></li>
-		<li @click="mouth='mouth_2'"><img src="./img/MyUFO_Alien/mouth2.png" alt=""></li>
-	</ul>
-	<ul class="alienMouth">
-		<li @click="mouth='mouth_3'"><img src="./img/MyUFO_Alien/mouth3.png" alt=""></li>
-		<li @click="mouth='mouth_4'"><img src="./img/MyUFO_Alien/mouth4.png" alt=""></li>
-	</ul>
-	<ul class="alienMouth">
-		<li @click="mouth='mouth_5'"><img src="./img/MyUFO_Alien/mouth5.png" alt=""></li>
-		<li @click="mouth='mouth_6'"><img src="./img/MyUFO_Alien/mouth6.png" alt=""></li>
-	</ul>
-</div>
-</div> -->
