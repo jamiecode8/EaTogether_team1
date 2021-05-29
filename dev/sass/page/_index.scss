@@ -425,24 +425,49 @@ body.index{
             }
         }
         //店家照片
-        .storeInf_pic{
+        .slider{
             border-bottom: 2px solid $color;
-            .storeInf_picMain{
-                margin-top:10px;
-                width: 300px;
-                height: 300px;
-            }
-            .storeInf_picSection{
-                margin-top: 10px;
+            margin: 0 auto;
+            width: 300px;
+            .slider-nav{
                 margin-bottom: 10px;
-                display: flex;
-                justify-content: space-between;
                 img{
-                    width:70px;
+                    height:70px;
+                    width: 70px;
+                    display: block;
+                    margin: 0 auto;
                 }
             }
-           
+            .slider-for{
+                width: 300px;
+                height:300px;
+                margin: 10px auto;
+                img{
+                    height:300px;
+                    width: 300px;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
         }
+        // .storeInf_pic{
+        //     border-bottom: 2px solid $color;
+        //     .storeInf_picMain{
+        //         margin-top:10px;
+        //         width: 300px;
+        //         height: 300px;
+        //     }
+        //     .storeInf_picSection{
+        //         margin-top: 10px;
+        //         margin-bottom: 10px;
+        //         display: flex;
+        //         justify-content: space-between;
+        //         img{
+        //             width:70px;
+        //         }
+        //     }
+           
+        // }
         //店家評論
         .storeInf_comment{
             // height: 160px;
