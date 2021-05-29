@@ -6,9 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />        
         @@include('layout/style.html')
         <title>首頁</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" /> -->
+     
     </head>
     <style>
-    
+   
     </style>
     <body class="index">
         @@include('layout/header.html')
@@ -99,133 +102,35 @@
                     </div>
                     <!-- 店家名單 -->
                     <div class="getStoreInf_search">
-                        <div class="getStoreInf" @click="finalStoreInf">
-                        <!-- <div class="getStoreInf" v-for="store in stores"> -->
+                        <div class="getStoreInf" @click="finalStoreInf(store)" v-for="store in stores">
                             <ul class="getStoreInf_digital" >
                                 <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                    <!-- <h2>{{store.name}}}</h2> -->
+                                    <h2>{{store.Name}}</h2>
                                 </li>
                                 <li class="getStoreInf_star">
-                                    <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
+                                    <div v-for="star in store.Stars"><img src="./img/icon/icon_star.png" alt=""></div>
+                                    <div v-for="darkStar in 5-store.Stars"><img src="./img/icon/icon_star_default.png" alt=""></div>
                                     <!-- <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
                                     <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
                                 </li>
                                 <li class="getStoreInf_station">
                                     <p>捷運站:</p>     <!--  判斷是哪一個站給他該線顏色 -->
-                                    <span class="station_color">南京復興</span>
+                                    <span class="station_color">{{store.Station}}</span>
                                     <!-- <span class="station_color">{{store.station}}}</span> -->
 
                                 </li>
                                 <li class="getStoreInf_tag">
-                                    <span>#銅板美食</span>
-                                    <span>#咖啡店</span>
-                                    <span>#餐酒館</span>
+                                    <span>{{store.Tag}}</span>
+                                    
                                     <!-- <span>{{store.tag1}}}</span>
                                     <span>{{store.tag2}}}</span>
                                     <span>{{store.tag3}}}</span> -->
                                 </li>
                             </ul>
                             <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                            <!-- <img class="getStoreInf_pic" :src="store.image"> -->
-
-                        </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star_default.png" alt="">
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                        </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                    <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                        </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star_default.png" alt="">
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                        </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star_default.png" alt="">
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
                         </div>
                    </div>   <!-- 後端要抓全部total筆數 -->
-                    <p class="searchTotal">共 <span>5</span> 筆</p>
+                    <p class="searchTotal">共 <span>{{stores.length}}</span> 筆</p>
                     <!-- <p class="searchTotal" >共 <span>{{store.length}}</span> 筆</p>      -->
                 </form>
             </div>
@@ -245,18 +150,16 @@
                         <div class="storeInf_title">
                             <img class="storeInf_title_like" @click="toCollect" :style="collectionClass" src="./img/icon/icon_heart.png" alt="">
                             <div>
-                                <h2 class="storeInf_title_name">提八米咖啡廳</h2>
+                                <h2 class="storeInf_title_name">{{storeDetail.Name}}</h2>
                                 <!-- <h2 class="storeInf_title_name">{{store.name}}</h2> -->
                                 <div class="getStoreInf_star"> 
-                                    <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
+                                    <div v-for="star in storeDetail.Stars"><img src="./img/icon/icon_star.png" alt=""></div>
+                                    <div v-for="darkStar in getDarkStars(storeDetail.Stars)"><img src="./img/icon/icon_star_default.png" alt=""></div>
                                     <!-- <div v-for="star in store.star"><img src="./img/icon/icon_star.png" alt=""></div>
                                     <div v-for="darkStar in store.star"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
                                 </div>
                                 <div class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#銅板美食</span>
+                                    <span>{{storeDetail.Tag}}</span>
                                       <!-- <span>{{store.tag1}}}</span>
                                     <span>{{store.tag2}}}</span>
                                     <span>{{store.tag3}}}</span> -->
@@ -274,130 +177,61 @@
                                 <li class="sectionIcon sectionIcon_tel" :class="{'on' : inf === 'phone'}"><img src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
                                 <li class="sectionIcon sectionIcon_price" :class="{'on' : inf === 'price'}"><img src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
                             </ul>
-                            <component :is="inf"></component>
+                            <component :Address='storeDetail.Address' :Station='storeDetail.Station' :Phone='storeDetail.Phone' :Price='storeDetail.Price' :is="inf"></component>
                         </div>
                         <!-- 店家照片 -->
-                        <div class="storeInf_pic">
-                            <img class="storeInf_picMain" src="./img/index/storeMainPic.jpeg" alt="">
-                            <div class="storeInf_picSection">
+                        <div class="storeInf_pic slider">
+                            <div class="slider-for">
                                 <img src="./img/index/storePic2.jpeg" alt="">
                                 <img src="./img/index/storePic2.jpeg" alt="">
                                 <img src="./img/index/storePic3.jpeg" alt="">
                                 <img src="./img/index/storePic3.jpeg" alt="">
+                            </div>
+                            <div class="slider-nav">
+                                <img src="./img/index/storePic2.jpeg" alt="">
+                                <img src="./img/index/storePic2.jpeg" alt="">
+                                <img src="./img/index/storePic3.jpeg" alt="">
+                                <img src="./img/index/storePic3.jpeg" alt="">
+                            </div>
+                            <!-- <img class="storeInf_picMain" src="./img/index/storeMainPic.jpeg" alt="">
+                            <div class="storeInf_picSection"> -->
+                                <!-- <img src="./img/index/storePic2.jpeg" alt="">
+                                <img src="./img/index/storePic2.jpeg" alt="">
+                                <img src="./img/index/storePic3.jpeg" alt="">
+                                <img src="./img/index/storePic3.jpeg" alt=""> -->
                                 <!-- <img :src="store.image1" alt="">
                                 <img :src="store.image2" alt="">
                                 <img :src="store.image3" alt="">
                                 <img :src="store.image4" alt=""> -->
-                            </div>
+                            <!-- </div> -->
     
                         </div>
                         <!-- 評論 -->
                         <div class="storeInf_comment">
                             <h2>評論</h2>
-                            <div class="storeInf_comments">
+                            <div class="storeInf_comments" v-for="comment in storeDetail.Comments" >
                             <!-- <div class="storeInf_comments" v-for="comment in comments"> -->
-
                                 <ul class="storeInf_commentMain">
                                     <li class="commentMain_account">
                                         <img src="./img/index/account.png" alt="">
                                         <!-- <img :src="store.commentMemberPic" alt=""> -->
-                                        <p>MrRight</p>
+                                        <p>{{comment.MemberID}}</p>
                                         <!-- <p>{{store.commentMember}}</p> -->
                                     </li>
                                     
                                     <li class="commentMain_star">
-                                        <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                        <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
+                                        <div v-for="star in comment.MemberStar"><img src="./img/icon/icon_star.png" alt=""></div>
+                                        <div v-for="darkStar in 5-comment.MemberStar"><img src="./img/icon/icon_star_default.png" alt=""></div>
                                         <!-- <div v-for="star in store.commentStar"><img src="./img/icon/icon_star.png" alt=""></div>
                                         <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
                                     </li>
 
                                     <li class="commentMain_comment">
-                                        <p>東西好吃 想跟老闆結婚</p>
+                                        <p>{{comment.Comment}}</p>
                                         <!-- <p>{{store.comment}}</p> -->
                                     </li>
                                 </ul>
-                            </div>
-                            <div class="storeInf_comments">
-                                <ul class="storeInf_commentMain">
-                                    <li class="commentMain_account">
-                                        <img src="./img/index/account.png" alt="">
-                                        <p>handsomeMan</p>
-                                    </li>
-                                    
-                                    <li class="commentMain_star">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                    </li>
-
-                                    <li class="commentMain_comment">
-                                        <p>ＣＰ值高 重點是老闆娘票釀</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="storeInf_comments">
-                                <ul class="storeInf_commentMain">
-                                    <li class="commentMain_account">
-                                        <img src="./img/index/account.png" alt="">
-                                        <p>LittlePrincess</p>
-                                    </li>
-                                    
-                                    <li class="commentMain_star">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                    </li>
-
-                                    <li class="commentMain_comment">
-                                        <p>本公主覺得好吃極了</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="storeInf_comments">
-                                <ul class="storeInf_commentMain">
-                                    <li class="commentMain_account">
-                                        <img src="./img/index/account.png" alt="">
-                                        <p>hahaMan</p>
-                                    </li>
-                                    
-                                    <li class="commentMain_star">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                    </li>
-
-                                    <li class="commentMain_comment">
-                                        <p>我覺得哈哈 普普通通</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="storeInf_comments">
-                                <ul class="storeInf_commentMain">
-                                    <li class="commentMain_account">
-                                        <img src="./img/index/account.png" alt="">
-                                        <p>SexFat</p>
-                                    </li>
-                                    
-                                    <li class="commentMain_star">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                    </li>
-
-                                    <li class="commentMain_comment">
-                                        <p>我覺得很棒很好吃</p>
-                                    </li>
-                                </ul>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                     <!-- 優惠券 -->
@@ -427,6 +261,7 @@
             </div>
         </div>
         @@include('layout/footer.html')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>        
     <script>
         const bus = new Vue();
         Vue.component('popup-1',{
@@ -688,7 +523,7 @@
                     }else{
                         this.warn = true;
                     }
-                    let data=[{name:'',stars:''},{name:'',stars:''},{name:'',stars:''}];
+                    
                     
                 },
                 closeForm(){
@@ -739,10 +574,11 @@
               
             },    
         });
+       
         Vue.component('location',{
-            props: [''],
+            props: ['Address','Station','Phone','Price'],
             template: `
-            <p class="sectionIconInf">store.address</p>
+            <p class="sectionIconInf">{{Address}}</p>
             `,
             data(){
                 return {
@@ -757,18 +593,21 @@
             },    
         });
         Vue.component('station',{
+            props: ['Address','Station','Phone','Price'],
             template: `
-            <p class="sectionIconInf" @click='getInf'>store.station</p>
+            <p class="sectionIconInf">{{Station}}</p>
             `,
         });
         Vue.component('phone',{
+            props: ['Address','Station','Phone','Price'],
             template: `
-            <p class="sectionIconInf">store.phone</p>
+            <p class="sectionIconInf">{{Phone}}</p>
             `,
         });
         Vue.component('price',{
+            props: ['Address','Station','Phone','Price'],
             template: `
-            <p class="sectionIconInf">store.price</p>
+            <p class="sectionIconInf">{{Price}}</p>
             `,
         });
         //search
@@ -788,7 +627,7 @@
                 content:'',//question compoment
                 isSearchStores:false,
                 isStoreInf:false,
-                stores: [{name:'Andy',address:'全家就是你家'},{name:'Brian',address:'你家巷口'}],//ajax
+                stores: [],//ajax
                 isSearchNothing:false,
                 isSearchReport:false,
                 heartGrayscale:1,
@@ -797,6 +636,26 @@
                 report:'',
                 inf:'',
                 infoOpacity:1,
+                storeDetail:'',
+                comments:[{MemberID:'abby520',MemberStar:3,Comment:'我覺得很好吃店員很帥想嫁'},
+                         {MemberID:'SexFat',MemberStar:5,Comment:'店員很正請嫁給我'}, 
+                         {MemberID:'abc123',MemberStar:4,Comment:'good good eat'}, 
+                         {MemberID:'tony1112',MemberStar:1,Comment:'so bad'}, 
+                         {MemberID:'snoopy001',MemberStar:5,Comment:'love it'}, 
+                         {MemberID:'qq12345',MemberStar:2,Comment:'好吃店'}],
+                comments1:[{MemberID:'abby520',MemberStar:3,Comment:'aaa'},
+                         {MemberID:'SexFat',MemberStar:5,Comment:'aaa'}, 
+                         {MemberID:'abc123',MemberStar:4,Comment:'good good eat'}, 
+                         {MemberID:'tony1112',MemberStar:1,Comment:'so bad'}, 
+                         {MemberID:'snoopy001',MemberStar:5,Comment:'love it'}, 
+                         {MemberID:'qq12345',MemberStar:2,Comment:'好吃店'}],
+                comments2:[{MemberID:'abby520',MemberStar:3,Comment:'bbb'},
+                         {MemberID:'SexFat',MemberStar:5,Comment:'bbb'}, 
+                         {MemberID:'abc123',MemberStar:4,Comment:'good good eat'}, 
+                         {MemberID:'tony1112',MemberStar:1,Comment:'so bad'}, 
+                         {MemberID:'snoopy001',MemberStar:5,Comment:'love it'}, 
+                         {MemberID:'qq12345',MemberStar:2,Comment:'好吃店'}],
+
             },
             methods: { 
                 //whatToEat
@@ -855,6 +714,7 @@
                     this.isSearchBoard = !this.isSearchBoard;  
                 },
                 //捷運線選單
+
                 showLine(){
                     this.isShowLine = !this.isShowLine;
                 },
@@ -884,10 +744,17 @@
                         this.findFood = '';
                         this.searchTags ='';
                         console.log(this.findFood,this.searchLine,this.searchTags);
-                        alert('Ajax send to backend');
                         this.isSearchBoard = false;
                         this.isSearchStores = true;
-                        this.isSearchNothing = false;                   
+                        this.isSearchNothing = false; 
+                        alert('Ajax send to backend');
+                        //假資料
+                        let data=[{Comments:this.comments,Name:'AA咖啡廳',Stars:3,Address:'中正路1號',StationColor:'綠',Station:'松江南京',Phone:'021',Price:'100-150',Tag:'#日式＃中式＃韓式'},
+                                    {Comments:this.comments1,Name:'BB咖啡廳',Stars:4,Address:'中正路2號',StationColor:'紅',Station:'信義',Phone:'0212',Price:'150-200',Tag:'#美式＃日式＃韓式'},
+                                    {Comments:this.comments2,Name:'CC咖啡廳',Stars:5,Address:'中正路3號',StationColor:'黃',Station:'忠孝新生',Phone:'02123',Price:'200-250',Tag:'#台式＃英式＃日式'}];
+                        this.stores=data;
+                        
+                        
                     }else{
                         this.isSearchNothing =true;                   
                      }
@@ -896,9 +763,10 @@
                 showStores(){
                     this.isSearchStores = true;
                 },
-                finalStoreInf(){
+                finalStoreInf(store){
                     this.isSearchStores = false;
                     this.isStoreInf = true;
+                    this.storeDetail = store;
                 },
                 searchSomething(){
                     if( this.findFood != '' && this.findFood != '請輸入食物'){
@@ -936,6 +804,13 @@
                         this.heartGrayscale=0;
                     }
                 },
+                getDarkStars(lightStars){
+                    if(lightStars==null){
+                        return 5;
+                    }else{
+                        return 5-lightStars;
+                    }
+                },
             
             },
             computed:{
@@ -968,7 +843,7 @@
                     return{
                         filter:`opacity(${this.infoOpacity})`,
                     }
-                } 
+                },
             },
             //後端傳資料
             // mounted() {
@@ -979,7 +854,22 @@
             // },
            
         });
-    
+        //slick輪播
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-nav',
+        });
+
+        $('.slider-nav').slick({
+            slidesToShow: 4,
+            slidesToScroll:1,
+            arrows: false,
+            asNavFor: '.slider-for',
+            focusOnSelect: true,
+        });
     </script>    
     </body>
 
