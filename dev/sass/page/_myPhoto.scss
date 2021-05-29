@@ -296,10 +296,19 @@ div .pho_top_personal_page_s1{
     span{
         padding-right: 2%;
     }
+
+    .pho_star{
+        padding-bottom: 1%;
+    }
+}
+
+.pho_article_a2 {
+    justify-content: space-between;
 }
 
 .pho_article_a2 span a:nth-child(1) {
-    font-size: 13px;
+    font-size: 15px;
+    justify-content:space-between;
 }
 
 .pho_line_p1{
@@ -310,17 +319,15 @@ div .pho_top_personal_page_s1{
 }
 
 .pho_article_a3{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-
     div{
         padding-top: 4%;
     }
-
-    .pho_star{
-        padding-bottom: 4%;
+    a{
+        margin-right: 10px;
+        font-size: 12px;
     }
+
+    
 }
 
 .pho_article_a4{
@@ -428,10 +435,12 @@ div .pho_top_personal_page_s1{
     }
 
     .pho_article_a5 .btn_cancel{
-        width: 70px;
+        width: 40px;
+        height:25px;
         font-size: 12px;
-        line-height: 34px;
+        line-height: 22px;
         margin: 14px;
+        padding:0;
     }
 
     .btn{
@@ -451,11 +460,6 @@ div .pho_top_personal_page_s1{
 #pho_scroll_style::-webkit-scrollbar-thumb {
     background-color: $green;
 }
-
-.pho_popUps_fans .pho_article_a5:first-child{
-    margin-top: 15px;
-}
-
 .pho_popUps_fans .pho_article_a6{
     margin-top: 15px;
 }
@@ -500,10 +504,12 @@ div .pho_top_personal_page_s1{
     }
 
     .pho_article_a5 .btn_cancel{
-        width: 70px;
+        width: 40px;
+        height:25px;
         font-size: 12px;
-        line-height: 34px;
+        line-height: 22px;
         margin: 14px;
+        padding:0;
     }
 
     .btn{
@@ -522,10 +528,6 @@ div .pho_top_personal_page_s1{
 
 #pho_scroll_style::-webkit-scrollbar-thumb {
     background-color: $green;
-}
-
-.pho_popUps_follow .pho_article_a5:first-child{
-    margin-top: 15px;
 }
 
 .pho_popUps_follow .pho_article_a6{
