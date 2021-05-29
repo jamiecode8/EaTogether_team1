@@ -514,7 +514,6 @@
                     this.$emit('pre-emit');
                 },
                 callAjax(){
-                    console.log(this);
                     if(this.selectedOption !== ''){
                         this.$emit('next-emit');
                         this.$emit('call-ajax-emit');
@@ -673,7 +672,29 @@
                 callAjaxQ(){
                     console.log(this.choices);
                     alert('send To Backend');
-                    this.choices =['','','',''];
+
+                    //choices=['藍色',a,b]
+                    
+                    this.choices[0]=this.choices[0][0];
+
+                    switch(this.choices[2]){
+                        case'義大利':
+                        this.choices[2]='義式';
+                        case'美國':
+                        this.choices[2]='美式';
+                        case'留在台灣':
+                        this.choices[2]='台式';
+
+                        case'日本':
+                        this.choices[2]='日式';
+
+                        
+                    }
+                    alert(this.choices);
+
+                    //清空每個問題
+                    //this.choices =['','','',''];
+
                 },
                 closeQ(){
                     this.content = '';
