@@ -1,4 +1,3 @@
-
 .myUFO_wardrobe_body {
 	width: 100%;
 	background: #fffdd0;
@@ -901,7 +900,7 @@
     .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four .swiper-container, 
     .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives .swiper-container, 
     .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six .swiper-container {
-        padding: 5%;
+        // padding: 5%;
         display: block;
     }
     
@@ -1024,9 +1023,6 @@
 	
 	}
 }
-
-
-
 
 
 @media all and (max-width:1199px) and (min-width:992px) {
@@ -1788,11 +1784,10 @@
 
 
 /*mimi*/
-/*mimi*/
 .myUFO_wardrobe_body .close{
     float: left;
     margin-top: -45px;
-    margin-left:84%;
+    margin-left:84%; 
+    
 }
-
 /*mimi end*/
