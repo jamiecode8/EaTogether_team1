@@ -241,17 +241,6 @@ new Vue({
     },
     computed: { //函數也可以放這裡!但是放在這裡的函數，不能傳參數，一定要有傳回值(return)
         greenCircle(){
-            // if(this.step === 0){
-            //     return {
-            //         upgradeHeader_bg: true,
-            //         bgActive: true,
-            //     };
-            // }else{
-            //     return {
-            //         upgradeHeader_bg: true,
-            //         bgActive: false,
-            //     };
-            // }
             return {
                 upgradeHeader_bg: true,
                 bgActive: this.step === 0,
