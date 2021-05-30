@@ -3,7 +3,7 @@
     <!-- 登入註冊彈窗 -->
     <div class="popUps login" id="memberLogin_popups">
         <!--Chris-->
-        <form method="POST" action="../dist/php/Frontend/API/Login.php" class="form login">
+        <form method="POST" action="../dist/php/Frontend/API/Member_Login.php" class="form login">
             <!-- 會員頭像 -->
             <div class="loginMemberPic">
                 <img src="./img/test_login_memberPic.png" alt="">
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </form>
-        <form method="POST" action="../dist/php/Frontend/API/join.php" class="form login join_form jon_login">
+        <form method="POST" action="../dist/php/Frontend/API/Member_join.php" class="form login join_form jon_login">
             <div class="loginInner">
                 <!-- 放註冊的東西 -->
                 <div class="inner_block_area areaHide" id="signUp_block">
@@ -56,49 +56,15 @@
                     <!-- 常去站點 -->
                     <div class="login_station">
                         <input type="text" id="login_station_choice" class="input" v-model="selectedStation"
-                            name="station_input">
-                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
-                        <!-- <ul class="login_station_select" id="login_station_options" v-if="station_Selection === 1">                            
-                            <li v-for="station in blueStations" @click="getStation(station)" class="b">{{station}}</li>
-                            <li v-for="station in redStation" @click="getStation(station)" class="r">{{station}}</li>
-                            <li v-for="station in greenStation" @click="getStation(station)" class="g">{{station}}</li>
-                            <li v-for="station in brownStation" @click="getStation(station)" class="br">{{station}}</li>
-                            <li v-for="station in yellowStation" @click="getStation(station)" class="y">{{station}}</li>
-                        </ul> -->
+                            name="station_input" placeholder="選擇最愛站點" disabled>
+                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="stations_board_show">
                     </div>
                     <!-- 喜好標籤 -->
                     <div class="login_tag">
-                        <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_input" />
-                        <button class="signUp_tag_area ">
-                            <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt=""
-                                @click="food_Selection = 1">
+                        <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_input" v-model="selectedTag"/>
+                        <button class="signUp_tag_area">
+                            <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show">
                         </button>
-                        <div class="login_tag_select" id="login_tag_select" v-if="food_Selection == 1">
-                            <span>#日式</span>
-                            <span>#韓式</span>
-                            <span>#美式</span>
-                            <span>#台式</span>
-                            <span>#法式</span>
-                            <span>#中式</span>
-                            <span>#聚餐</span>
-                            <span>#簡餐</span>
-                            <span>#銅板美食</span>
-                            <span>#下午茶</span>
-                            <span>#早午餐</span>
-                            <span>#商業午餐</span>
-                            <span>#夜市</span>
-                            <span>#咖哩</span>
-                            <span>#火鍋</span>
-                            <span>#牛排</span>
-                            <span>#咖啡店</span>
-                            <span>#餐酒館</span>
-                            <span>#鐵板燒</span>
-                            <span>#拉麵</span>
-                            <span>#甜點</span>
-                            <span>#麵食</span>
-                            <span>#雞排</span>
-                            <span>#鹽酥雞</span>
-                        </div>
                     </div>
                     <!-- 單顆按鈕用這裡 -->
                     <div class="btn">
@@ -110,12 +76,33 @@
                 </div>
             </div>
         </form>
-        <!-- <div class="form">
-            <h1>haha</h1>
-        </div> -->
+        <!-- 選站點彈窗 -->
+        <div class="form form_station_board" v-show="close_station_board">
+            <button type="button" class="btn_close" @click="close_station_board_btn">
+                <img src="./img/icon/icon_close.png" alt="" />
+            </button>
+             <div class="login_station_select" id="login_station_options">                            
+                <span v-for="station in blueStation" @click="getStation(station)" class="b">{{station}}</span>
+                <span v-for="station in redStation" @click="getStation(station)" class="r">{{station}}</span>
+                <span v-for="station in greenStation" @click="getStation(station)" class="g">{{station}}</span>
+                <span v-for="station in brownStation" @click="getStation(station)" class="br">{{station}}</span>
+                <span v-for="station in yellowStation" @click="getStation(station)" class="y">{{station}}</span>
+								<!-- <p @click="e => e.target.classList.toggle('active')">身體</p> -->
+
+            </div>
+        </div>
+        <!-- 選喜好彈窗 -->
+        <div class="form form_tag_board login_tag_select" id="login_tag_select" v-show="close_tags_board">
+            <button type="button" class="btn_close" @click="close_tags_board_btn">
+                <img src="./img/icon/icon_close.png" alt="" />
+            </button>
+             <div class="login_station_select" id="login_station_options">                            
+                <span v-for="tag in tags" @click="getTags(tag)">{{tag}}</span>
+            </div>
+        </div>
         <!-- 認證彈窗verification -->
         <div class="popUps verification" v-show="forgetPassword_verification">
-            <form method="POST" action="../php/Frontend/API/loginCheck.php" class="form">
+            <form method="POST" action="../php/Frontend/API/loginCheck.php" class="form form_forgotpassword">
                 <!-- close button -->
                 <button type="button" class="btn_close" @click="close_forgetPassword_verification">
                     <img src="./img/icon/icon_close.png" alt="" />
@@ -142,15 +129,16 @@
     new Vue({
         el: '#app',
         data: {
-            blueStations: ['市政府', '忠孝敦化', '國父紀念館', '板橋', '新埔', '府中', '龍山寺'],
+            blueStation: ['市政府', '忠孝敦化', '國父紀念館', '板橋', '新埔', '府中', '龍山寺'],
             redStation: ['淡水', '劍潭', '圓山', '台北車站', '東門', '大安森林公園', '信義安和', '台北101'],
             greenStation: ['松山', '南京三民', '南京復興', '中山', '中正紀念堂', '台電大樓', '公館', '景美'],
             brownStation: ['東湖', '西湖', '港墘', '大直', '中山國中', '六張犁', '萬芳社區'],
             yellowStation: ['頂溪', '南京松江', '忠孝新生', '台北橋', '徐匯中學', '新莊'],
-            selectedStation: '最愛捷運站',
-            selectedBlueStation: '藍線',
-            food_Selection: 0,
-            station_Selection: 0,
+            selectedStation: '',
+            station: '',
+            tags:['#日式','#韓式','#美式','#義式','#台式','#法式','#中式','#夜市','#商業午餐','#早午餐','#下午茶','#銅板美食','#簡餐','#聚餐','#餐酒館','#咖啡店','#甜點','#麵食','#鹽酥雞','#雞排','#咖哩','#火鍋','#牛排','#拉麵','#鐵板燒'],
+            tag: '',
+            selectedTag:'',
             account: '',
             password: '',
             account_login: true,
@@ -162,8 +150,9 @@
             password_register: '',
             account_register_msg: true,
             password_register_msg: true,
+            close_station_board: false,
+            close_tags_board: false,
         },
-        methods: {},
         watch: {
             account: function () {
                 var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
@@ -214,6 +203,21 @@
             },
             getStation(station){
                 this.selectedStation = station;
+            },
+            close_station_board_btn(){
+                this.close_station_board = !this.close_station_board;
+            },
+            stations_board_show(){
+                this.close_station_board = !this.close_station_board;
+            },
+            getTags(tag){
+                this.selectedTag = tag;
+            },
+            tags_board_show(){
+                this.close_tags_board = !this.close_tags_board;
+            },
+            close_tags_board_btn(){
+                this.close_tags_board = !this.close_tags_board;
             },
         },
         computed: {

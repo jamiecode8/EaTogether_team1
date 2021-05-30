@@ -6,9 +6,9 @@
     background-size:contain;
     background-repeat: no-repeat;
     background-position: 0%;
-    height: 90vh;
+    // height: 90vh;
+    overflow: auto
 }
-
 //註冊的表單
 .join_form{
     padding-top: 0;
@@ -88,12 +88,15 @@
     &_select{
         margin-top: -20px;   
         border: 2px solid $lightgreen;
-        display: none;
-        li{
-            padding-left: 10px;
-            line-height:36px;
+        // display: none;
+        span{
+            background-color: $lightgreen;
+            margin: 5px;
+            padding: 5px;
+            border-radius:5px;
+            display: inline-block;
         }
-        li:hover{
+        span:hover{
             background-color: $lightgreen;
         }
         .b{
@@ -114,10 +117,10 @@
     }
 }
 
-.login_station_select.on{
-    margin-bottom: 20px;
-    display: block;
-}
+// .login_station_select.on{
+//     margin-bottom: 20px;
+//     display: block;
+// }
 
 // 美食標籤
 .login_tag{
@@ -128,7 +131,7 @@
         right: 9.8px;
     }
     &_select{
-        display: none;
+        // display: none;
         border: 2px solid $lightgreen;
         span{
             background-color: $lightgreen;
@@ -153,9 +156,9 @@
 // 認證彈窗verification
 .verification{
     form{
-        position: absolute;
-        top: 40px;
-        height: 400px;
+        // position: absolute;
+        // top: 40px;
+        // height: 400px;
     }
     &_logo{
         @include block_center();
@@ -254,7 +257,7 @@
         margin-top: -10px;
     }
     &_tag{
-        display: none;
+        // display: none;
     }
     span{
         background-color: $lightgreen;
@@ -330,4 +333,15 @@
         font-size: 6px;
         color: red;
     }
+}
+
+.form_forgotpassword{
+    position: fixed;
+    top: 30px;
+    height: 380px;
+}
+
+.form_station_board, .form_tag_board{
+    position: fixed;
+    top: 60px;
 }

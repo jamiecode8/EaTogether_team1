@@ -141,16 +141,16 @@ $('#btn_login').click(function () {
 });
 
 // 下拉選單
-$('.login_station_arrow').click(function (e) {
-    $('.login_station_select').toggleClass('on');
-});
+// $('.login_station_arrow').click(function (e) {
+//     $('.login_station_select').toggleClass('on');
+// });
 
 
-$('#login_station_options li').click(function () {
-    let inputColor = document.getElementById('login_station_choice');
-    inputColor.value = $(this).text();
-    $('.login_station_select').toggleClass('on');
-});
+// $('#login_station_options li').click(function () {
+//     let inputColor = document.getElementById('login_station_choice');
+//     inputColor.value = $(this).text();
+//     $('.login_station_select').toggleClass('on');
+// });
 
 // 會員註冊-喜好選單開關
 // $('.signUp_tag_area').click(function () {
