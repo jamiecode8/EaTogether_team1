@@ -266,7 +266,7 @@
 @media all and (max-width:575px) {
 	.myUFO_wardrobe_body .wardrobe_left .wardrobe_border {
 		position: absolute;
-		bottom: 58%
+		bottom: 48%;
 	}
 }
 
@@ -328,7 +328,7 @@
 @media all and (max-width:575px) {
 	.myUFO_wardrobe_body .wardrobe_left .wardrobe_character {
 		position: absolute;
-		bottom: 62%;
+		bottom: 53%;
 		width: 100%
 	}
 }
@@ -813,10 +813,9 @@
 @media all and (max-width:575px) {
 	.myUFO_wardrobe_body .Choose_cabinet {
 		position: absolute;
-		bottom: 24%;
+		bottom: 21%;
 		height: 40%;
 		width: 100%;
-	
 		left: 0 ; 
 		z-index: 50
 	}
@@ -900,7 +899,7 @@
     .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four .swiper-container, 
     .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives .swiper-container, 
     .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six .swiper-container {
-        // padding: 5%;
+        padding: 15px 0px 0px 0px;
         display: block;
     }
     
