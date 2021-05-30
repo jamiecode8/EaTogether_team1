@@ -1949,7 +1949,8 @@ progress::-webkit-progress-value {
 
     .getCharacter {
         overflow: hidden;
-        height: 89vh;
+        // height: 89vh;
+		height: 530px;
         padding-bottom: 20px;
         z-index: 11;
 
@@ -1983,7 +1984,6 @@ progress::-webkit-progress-value {
             }
         }
 
-        // test
         .MyCharacter_for_web {
             @include rwd(desktop) {
                 display: flex;
@@ -2058,6 +2058,7 @@ progress::-webkit-progress-value {
                     }
                 }
 
+				// 桌機版的 button
                 .getCharacterBtn_web {
                     position: relative;
                     bottom: 750px;
@@ -2172,7 +2173,7 @@ progress::-webkit-progress-value {
             }
 
         }
-
+		// RWD 的 button
         .getCharacterBtn {
             display: none;
 
