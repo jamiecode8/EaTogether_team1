@@ -18,11 +18,11 @@
 
             </div>
             <!-- 商家登入 -->
-            <form>
+            <form method="POST" action="./php/Frontend/API/LoginStore.php">
                 <div class="inner_block_area" id="login_block"> 
                     <!-- 輸入框欄位 -->
-                    <input type="text" placeholder="E-mail" />
-                    <input type="text" placeholder="密碼" />
+                    <input type="text" placeholder="E-mail" name="storeEmail"/>
+                    <input type="text" placeholder="密碼" name="storeTel"/>
                     
                     <!-- 無法登入 -->
                     <div class="forgetPassword">
@@ -42,9 +42,8 @@
 </div>
 
 <!-- 商家註冊 -->
-<!-- <div class="popUps store_signUp blockNone"  id="store_signUp"> -->
-    <div class="popUps store_signUp blockShow"  id="store_signUp">
-    <form action="#資料傳送送的網址" method="" class="form storeLogin_signup">
+<div class="popUps store_signUp blockShow"  id="store_signUp">
+    <form method="POST" action="./php/Frontend/API/storeSignUp.php" class="form storeLogin_signup">
         <!-- close button -->
         <button type="button" class="btn_close" id="store_signUp_close">
             <img src="./img/icon/icon_close.png" alt="" />
@@ -62,9 +61,9 @@
                         <!-- <button class="store_signUp_editIcon"> -->
                         </button>
                     </div>
-                    <input type="text" placeholder="輸入餐廳名稱" />
-                    <input type="text" placeholder="輸入餐廳電話" />
-                    <input type="text" placeholder="輸入餐廳地址" />
+                    <input type="text" name="store_name" placeholder="輸入餐廳名稱" />
+                    <input type="text" name="store_tel"  placeholder="輸入餐廳電話" />
+                    <input type="text" name="store_address"  placeholder="輸入餐廳地址" />
                 </section>
                 <!-- 聯絡資訊 -->
                 <section class="store_signUp_basicInfo">
@@ -72,20 +71,18 @@
                         <h2>聯絡資訊</h2>
                         <!-- <button class="store_signUp_editIcon"></button> -->
                     </div>
-                    <input type="text" placeholder="聯絡人" />
-                    <input type="text" placeholder="連絡電話" />
-                    <input type="text" placeholder="E-mail" />
+                    <input type="text" name="contact_name"  placeholder="聯絡人" />
+                    <input type="text" name="contact_tel"  placeholder="連絡電話" />
+                    <input type="text" name="contact_email"  placeholder="E-mail" />
                 </section>
                 <!-- 進階資料 -->
                 <section class="store_signUp_basicInfo">
                     <div class="store_signUp_title">
                         <h2>進階資料</h2>
-                        <!-- <button class="store_signUp_editIcon"> -->
-                        </button>
                     </div>
                     <h2>客單價</h2>
                     <div class="login_station">
-                        <input type="text" id="login_station_choice" placeholder="選擇價格區間
+                        <input type="text"  name="price_id" id="login_station_choice" placeholder="選擇價格區間
                         " class="input">
                         <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
                         <ul class="login_station_select" id="login_station_options">
@@ -97,7 +94,7 @@
 
                     <h2>鄰近捷運站</h2>
                     <div class="login_store_station">
-                        <input type="text" id="login_station_choice_store" placeholder="選擇鄰近站點" class="input">
+                        <input type="text"  name="station_id" id="login_station_choice_store" placeholder="選擇鄰近站點" class="input">
                         <img class="login_store_station_arrow" src="./img/icon/icon_next_line.png" alt="">
                         <ul class="login_store_station_select" id="login_station_options_store">
                             <li  class="b">市政府</li>
@@ -186,58 +183,75 @@
             
                         <div class="store_imgArea_dropArea">
                             <div class="store_imgArea_picEdit">
-                                <input type="file" id="theFile1" class="btn_submit store_imgArea_uploadPicButton" value="選擇檔案">
                                 <h3 class="store_imgArea_subtitle">形象海報</h3>
-                                <div>
+                                <div id="dropZone1" class="store_imgArea_dropZone">
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
-                                    <img id="store_image1">
+                                    <img id="store_image1" class="store_imgArea_image">
+                                    <div class="picUpload" id="picUpload">
+                                        <input type="file" id="theFile1" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="store_imgArea_picEdit">
-                                <input type="file" id="theFile2" class="btn_submit store_imgArea_uploadPicButton" value="選擇檔案">
                                 <h3 class="store_imgArea_subtitle">店景</h3>
-                                <div>
+                                <div id="dropZone2" class="store_imgArea_dropZone">
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
-                                    <img id="store_image1">
+                                    <img id="store_image2" class="store_imgArea_image">
+                                    <div class="picUpload" id="picUpload2">
+                                        <input type="file" id="theFile2" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="store_imgArea_picEdit">
-                                <input type="file" id="theFile3" class="btn_submit store_imgArea_uploadPicButton" value="選擇檔案">
                                 <h3 class="store_imgArea_subtitle">菜單</h3>
-                                <div>
+                                <div id="dropZone3" class="store_imgArea_dropZone">
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
-                                    <img id="store_image1">
+                                    <img id="store_image3" class="store_imgArea_image">
+                                    <div class="picUpload" id="picUpload3">
+                                        <input type="file" id="theFile3" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- <div class="pho_edit_line"></div> -->
-
                         <div class="store_imgArea_dropArea">
                             <div class="store_imgArea_picEdit">
-                                <input type="file" id="theFile4" class="btn_submit store_imgArea_uploadPicButton" value="選擇檔案">
                                 <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                <div>
+                                <div id="dropZone4" class="store_imgArea_dropZone">
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
-                                    <img id="store_image1">
+                                    <img id="store_image4" class="store_imgArea_image">
+                                    <div class="picUpload" id="picUpload4">
+                                        <input type="file" id="theFile4" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="store_imgArea_picEdit">
-                                <input type="file" id="theFile5" class="btn_submit store_imgArea_uploadPicButton" value="選擇檔案">
                                 <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                <div>
+                                <div id="dropZone5" class="store_imgArea_dropZone">
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
-                                    <img id="store_image1">
+                                    <img id="store_image5" class="store_imgArea_image">
+                                    <div class="picUpload" id="picUpload5">
+                                        <input type="file" id="theFile5" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="store_imgArea_picEdit">
-                                <input type="file" id="theFile6" class="btn_submit store_imgArea_uploadPicButton" value="選擇檔案">
                                 <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                <div>
+                                <div id="dropZone6" class="store_imgArea_dropZone">
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
-                                    <img id="store_image1">
+                                    <img id="store_image6" class="store_imgArea_image">
+                                    <div class="picUpload" id="picUpload6">
+                                        <input type="file" id="theFile6" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </section>
@@ -250,12 +264,9 @@
                 <!-- 2顆按鈕用這個 -->
                 <div class="buttonArea">
                     <input type="" value="取消" class="btn_d btn_cancel" id="store_signUp_back"/>
-                    <a href="./store_free.html">
-                        <input type="" value="送出" class="btn_submit" />
-                    </a>
+                    <input type="submit" value="送出" class="btn_submit" />
                 </div>
             </div>
         </div>
-
     </form>
 </div>
