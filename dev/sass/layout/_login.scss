@@ -19,7 +19,7 @@
     @include block_center();
     padding-bottom: 15px;
     box-shadow: initial;
-    width: 600px;
+    width: 510px;
     overflow: auto;
     @include rwd(largeMobile){
         width: 300px;
@@ -152,11 +152,18 @@
 
 // 認證彈窗verification
 .verification{
+    form{
+        position: absolute;
+        top: 40px;
+        height: 400px;
+    }
     &_logo{
         @include block_center();
         margin-bottom: 20px;
     }
     z-index: 999;
+    position: relative;
+    bottom: 457px;
 }
 
 .verifiShow{
@@ -308,3 +315,19 @@
     }
 }
 
+
+.inner_block_area{
+    p{
+        margin: -10px 0 10px 0;
+        font-size: 6px;
+        color: red;
+    }
+}
+
+.verification{
+    p{
+        margin: -10px 0 10px 0;
+        font-size: 6px;
+        color: red;
+    }
+}
