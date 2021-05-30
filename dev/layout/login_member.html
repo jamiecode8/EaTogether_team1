@@ -42,7 +42,7 @@
                 </div>
             </div>
         </form>
-        <form method="POST" action="../dist/php/Frontend/API/Member_join.php" class="form login join_form jon_login">
+        <form method="POST" action="../dist/php/Frontend/API/Member_join.php" class="form login join_form">
             <div class="loginInner">
                 <!-- 放註冊的東西 -->
                 <div class="inner_block_area areaHide" id="signUp_block">
@@ -87,7 +87,7 @@
                 <span v-for="station in greenStation" @click="getStation(station)" class="g">{{station}}</span>
                 <span v-for="station in brownStation" @click="getStation(station)" class="br">{{station}}</span>
                 <span v-for="station in yellowStation" @click="getStation(station)" class="y">{{station}}</span>
-								<!-- <p @click="e => e.target.classList.toggle('active')">身體</p> -->
+				
 
             </div>
         </div>
@@ -138,7 +138,9 @@
             station: '',
             tags:['#日式','#韓式','#美式','#義式','#台式','#法式','#中式','#夜市','#商業午餐','#早午餐','#下午茶','#銅板美食','#簡餐','#聚餐','#餐酒館','#咖啡店','#甜點','#麵食','#鹽酥雞','#雞排','#咖哩','#火鍋','#牛排','#拉麵','#鐵板燒'],
             tag: '',
-            selectedTag:'',
+            selectedTag:[],
+            close_station_board: false,
+            close_tags_board: false,
             account: '',
             password: '',
             account_login: true,
@@ -150,8 +152,6 @@
             password_register: '',
             account_register_msg: true,
             password_register_msg: true,
-            close_station_board: false,
-            close_tags_board: false,
         },
         watch: {
             account: function () {
@@ -192,7 +192,6 @@
                     this.password_register_msg = true;
                 }
             },
-
         },
         methods: {
             open_forgetPassword_verification() {
@@ -203,27 +202,31 @@
             },
             getStation(station){
                 this.selectedStation = station;
+                this.close_station_board = false;
+            },
+            stations_board_show(){
+                this.close_station_board = !this.close_station_board;
+                this.close_tags_board = false;
             },
             close_station_board_btn(){
                 this.close_station_board = !this.close_station_board;
             },
-            stations_board_show(){
-                this.close_station_board = !this.close_station_board;
-            },
             getTags(tag){
-                this.selectedTag = tag;
+                if(this.selectedTag.length < 3){
+                    this.selectedTag.unshift(tag);
+                }else{    
+                    this.selectedTag.pop(tag);
+                    this.selectedTag.unshift(tag);
+                }
             },
             tags_board_show(){
                 this.close_tags_board = !this.close_tags_board;
+                this.close_station_board = false;
             },
             close_tags_board_btn(){
                 this.close_tags_board = !this.close_tags_board;
             },
         },
-        computed: {
-            // station_Selection_toggle() {
-            //     return this.station_Selection = 1;
-            // },
-        },
+        computed: {},
     })
 </script>
