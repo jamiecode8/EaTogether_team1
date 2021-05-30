@@ -93,7 +93,7 @@ function doFirst(){
           image.style.maxWidth = '300px';
           image.style.maxHeight = '300px';
           btn_Upload.style.left = '240px';
-          btn_Upload.style.top = '210px';
+          btn_Upload.style.top = '250px';
       }
     });
   }
@@ -112,11 +112,11 @@ function doFirst(){
       let image = document.getElementById('store_image1');
       image.src = readFile.result;
       if( image.src != ""){          
-        let btn_Upload = document.getElementsByClassName('picUpload')[0];
+        let btn_Upload = document.getElementById('picUpload1');
         image.style.maxWidth = '300px';
         image.style.maxHeight = '300px';
         btn_Upload.style.left = '240px';
-        btn_Upload.style.top = '210px';
+        btn_Upload.style.top = '250px';
     }
     });
   }
@@ -131,11 +131,11 @@ function fileChange2(){
       let image = document.getElementById('store_image2');
       image.src = readFile.result;
       if( image.src != ""){          
-          let btn_Upload2 = document.getElementById('picUpload2')[0];
+        let btn_Upload = document.getElementById('picUpload2');;
           image.style.maxWidth = '300px';
           image.style.maxHeight = '300px';
-          btn_Upload2.style.left = '240px';
-          btn_Upload2.style.top = '210px';
+          btn_Upload.style.left = '240px';
+          btn_Upload.style.top = '250px';
       }
     });
   }
@@ -172,11 +172,11 @@ function fileChange2(){
       let image = document.getElementById('store_image3');
       image.src = readFile.result;
       if( image.src != ""){          
-        let btn_Upload = document.getElementById('picUpload3')[0];
+        let btn_Upload = document.getElementById('picUpload3');
           image.style.maxWidth = '300px';
           image.style.maxHeight = '300px';
           btn_Upload.style.left = '240px';
-          btn_Upload.style.top = '210px';
+          btn_Upload.style.top = '250px';
       }
     });
   }
@@ -213,11 +213,11 @@ function fileChange2(){
       let image = document.getElementById('store_image4');
       image.src = readFile.result;
       if( image.src != ""){          
-        let btn_Upload = document.getElementById('picUpload4')[0];
+        let btn_Upload = document.getElementById('picUpload4');
           image.style.maxWidth = '300px';
           image.style.maxHeight = '300px';
           btn_Upload.style.left = '240px';
-          btn_Upload.style.top = '210px';
+          btn_Upload.style.top = '250px';
       }
     });
   }
@@ -254,11 +254,11 @@ function fileChange2(){
       let image = document.getElementById('store_image5');
       image.src = readFile.result;
       if( image.src != ""){          
-        let btn_Upload = document.getElementById('picUpload5')[0];
+        let btn_Upload = document.getElementById('picUpload5');
           image.style.maxWidth = '300px';
           image.style.maxHeight = '300px';
           btn_Upload.style.left = '240px';
-          btn_Upload.style.top = '210px';
+          btn_Upload.style.top = '250px';
       }
     });
   }
@@ -295,11 +295,12 @@ function fileChange2(){
       let image = document.getElementById('store_image6');
       image.src = readFile.result;
       if( image.src != ""){          
-        let btn_Upload = document.getElementById('picUpload6')[0];
+        let btn_Upload = document.getElementById('picUpload6');
           image.style.maxWidth = '300px';
           image.style.maxHeight = '300px';
           btn_Upload.style.left = '240px';
-          btn_Upload.style.top = '210px';
+          btn_Upload.style.top = '250px';
+        // btn_Upload.addClass("moveButton");
       }
     });
   }
