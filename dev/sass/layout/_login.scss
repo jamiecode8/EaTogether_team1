@@ -39,6 +39,7 @@
     @include btn(".btn_submit", $yellow, $tp);
 }
 
+// 登入介面下面的忘記密碼
 .forgetPassword{
     font-size: $fontSizeSmall;
     text-align: right;
@@ -83,6 +84,7 @@
         position: absolute;
         top: 13px;
         right: 10px;
+        cursor: pointer;
     }
     
     &_select{
@@ -95,6 +97,7 @@
             padding: 5px;
             border-radius:5px;
             display: inline-block;
+            cursor: pointer;
         }
         span:hover{
             background-color: $lightgreen;
@@ -117,11 +120,6 @@
     }
 }
 
-// .login_station_select.on{
-//     margin-bottom: 20px;
-//     display: block;
-// }
-
 // 美食標籤
 .login_tag{
     position: relative;
@@ -131,7 +129,6 @@
         right: 9.8px;
     }
     &_select{
-        // display: none;
         border: 2px solid $lightgreen;
         span{
             background-color: $lightgreen;
@@ -140,17 +137,14 @@
             border-radius: 5px;
             display: inline-block;
         }
-        span:hover{
-            background-color: $yellow;
-        }
     }
 }
 
-.login_tag_select.on{
-    margin-top: -40px;
-    margin-bottom: 20px;
-    display: block;
-}
+// .login_tag_select.on{
+//     margin-top: -40px;
+//     margin-bottom: 20px;
+//     display: block;
+// }
 
 
 // 認證彈窗verification
@@ -169,9 +163,9 @@
     bottom: 457px;
 }
 
-.verifiShow{
-    display: block;
-}
+// .verifiShow{
+//     display: block;
+// }
 
 // 所有要藏起來的區塊都可以用
 .areaHide{
@@ -179,7 +173,7 @@
     transition: 1, ease-in-out;
 }
 
-// 編輯會員資料--------------------------
+// 編輯會員資料開始--------------------------
 #memberInfo_edit{
     margin-left: calc((100vw - 400px)/2);
     @include rwd(desktop){
@@ -317,6 +311,7 @@
         color: $mrtYellow;
     }
 }
+// 編輯會員資料結束--------------------------
 
 
 .inner_block_area{
@@ -344,4 +339,8 @@
 .form_station_board, .form_tag_board{
     position: fixed;
     top: 60px;
+}
+
+.login_station_select span:hover{
+    background-color: $yellow;
 }
