@@ -83,5 +83,54 @@
         $_SESSION["member_password_input"] = $MemberName; 
         
     }
+    
+    //--------------------------------------商家專用--------------------------------------
 
+    //取得會員ID(前台專用)
+    function getStoreID(){
+
+        //先判斷session是否存在
+        if(!isset($_SESSION)){
+            session_start(); 
+        }
+
+        //有登入session->回傳ID，無登入session->回傳空字串""
+        return isset($_SESSION["contact_email"]) ? $_SESSION["contact_email"] : ""; 
+
+    }
+
+    //取得會員帳號(前台專用)
+    function getStoreTel(){
+
+        //先判斷session是否存在
+        if(!isset($_SESSION)){
+            session_start(); 
+        }
+
+        //有登入session->回傳Name，無登入session->回傳空字串""
+        return isset($_SESSION["contact_tel"]) ? $_SESSION["contact_tel"] : ""; 
+
+    }
+
+    //寫入Session(前台專用)
+    function setStoreInfo($storeEmail, $storeTel){
+
+        //先判斷session是否存在
+        if(!isset($_SESSION)){
+            session_start(); 
+        }
+
+        //Table 'ec_member'裡的ID欄位值
+        $_SESSION["contact_email"] = $storeEmail; 
+
+        //Table 'ec_member'裡的Account欄位值
+        $_SESSION["contact_tel"] = $storeTel; 
+        
+    }
+    // 商家部分參考改過的function
+    // getMemberID -- getStoreID
+    // getMemberName -- getStoreTel
+    // setMemberInfo -- setStoreInfo 
+
+    
 ?>
