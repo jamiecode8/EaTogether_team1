@@ -330,13 +330,13 @@
     }
 }
 
-.form_forgotpassword{
+.form_forgotpassword, .form_forgotpassword_membeer_modify{
     position: fixed;
     top: 30px;
     height: 380px;
 }
 
-.form_station_board, .form_tag_board{
+.form_station_board, .form_tag_board, .form_tag_board_member_modify, .form_station_board_member_modify{
     position: fixed;
     top: 60px;
 }
