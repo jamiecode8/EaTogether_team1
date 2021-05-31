@@ -107,3 +107,93 @@ var myChart = new Chart(ctx, {
       swiper: swiper,
     },
   });
+
+  // ajax部分------------------------------
+function init(){    
+    $.ajax({            
+        method: "POST",
+        url: "./php/Frontend/API/StoreLoginCheck.php",
+        data:{},            
+        dataType: "text",
+        success: function (response) {
+            if(response == ""){
+                //尚未登入->前往Login.php
+                alert('請先登入，將前往登入頁'); 
+                location.href = 'login_store.html';
+            }else{
+                getStoreMember();
+            }              
+        },
+        error: function(exception) {
+            alert("數據載入失敗: " + exception.status);
+        }
+    });
+  }
+  
+  function getStoreMember(){    
+    $.ajax({            
+        method: "POST",
+        url: "./php/Frontend/API/storeMember.php",
+        data:{},            
+        dataType: "json",
+        success: function (response) {                
+            showStoreMember(response);                       
+        },
+        error: function(exception) {
+            alert("數據載入失敗: " + exception.status);
+        }
+    });
+  }
+  
+  //顯示商家資料
+  function showStoreMember(response){
+    var price;
+        switch(row.price_id){
+            case "1":
+                status = "<150";
+                break;
+            case "2": 
+                status = "151~500";
+                break;
+            case "3": 
+                status = "501~1000";
+                break;                
+        }
+    $('#store_storeInfo').append(
+        `<div class="store_storeInfo_Name">
+            +<h1>`
+              +  row.store_name +
+            `</h1> 
+            <a href="./login_store.html">+
+                <button> +
+                    <img src="./img/icon/icon_edit.png" alt=""> +
+                </button>
+            </a>
+        </div>
+        <div class="store_storeInfo_Detail">
+            <ul>
+                <li class="store_infoList store_infoTel">`
+              +  row.store_tel +
+                `</li>
+                <li class="store_infoList store_infoMail">`
+              +  row.store_address +
+                `</li >
+                <li class="store_infoList store_infoPrice">`
+              +  price +
+                `</li >
+                <li  class="store_infoList store_infomrt">`
+              +  row.station_id +
+                `</li>
+                <li  class="store_infoList store_infoTag">`
+              +  row.station_id +
+                `</li>
+                <li class="store_infoList store_infoWarn">`
+              +  store_submit +
+                `</li>
+            </ul>
+        </div>`
+    );
+  
+    //顯示會員資訊
+    // showMember();
+  }

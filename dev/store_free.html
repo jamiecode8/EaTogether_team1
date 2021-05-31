@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     </head>
-    <body class="store_storeBody">
+    <body class="store_storeBody" onload="init()">
         @@include('layout/header.html')
         <!-- 本頁內容 -->
         <div class="wrapper store_wrap">
@@ -70,7 +70,8 @@
                 </section>
                 <!-- 右邊文字區 -->
                 <section class="store_storeInfo" id="store_storeInfo">
-                    <div class="store_storeInfo_Name">
+                    <!-- <div class="store_storeInfo_Name">
+                        <h1>
                             {{storeName}}
                         </h1>
                         <a href="./login_store.html">
@@ -98,10 +99,9 @@
                             </li>
                             <li class="store_infoList store_infoWarn">
                                 {{storeState}}
-                                <!-- 資料審核中 -->
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </section>
             </section>
 
