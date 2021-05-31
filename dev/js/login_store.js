@@ -327,4 +327,4 @@ function fileChange2(){
 //     }
 //     });
 //   }
-  window.addEventListener('load',doFirst);
+window.addEventListener('load',doFirst);

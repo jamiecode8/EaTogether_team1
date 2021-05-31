@@ -1,7 +1,7 @@
 <!-- jamie已編輯 -->
 <?php
     include("../../Lib/Util.php"); 
-    $t = date('Y-m-d', time());
+    // $t = date('Y-m-d', time());
     // echo $t;
 
     //建立SQL
@@ -11,7 +11,7 @@
     price_id,station_id,image_img,
     store_img,menu_img,food1_img,
     food2_img,food3_img,store_level,
-    -- store_date,
+    store_date,
     store_status,store_submit)
     VALUES 
     (?,?,?,
@@ -19,8 +19,7 @@
     1,4,?,
     9,9,9,
     9,9,1,
-    -- STR_TO_DATE('$t', '%y-%m-%d'),
-    1,2)";
+    NOW(),1,2)";
     echo $sql;
 
 

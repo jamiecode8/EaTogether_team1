@@ -86,7 +86,7 @@
     
     //--------------------------------------商家專用--------------------------------------
 
-    //取得會員ID(前台專用)
+    //取得商家帳號(前台專用)
     function getStoreID(){
 
         //先判斷session是否存在
@@ -112,7 +112,7 @@
 
     }
 
-    //寫入Session(前台專用)
+    //寫入Session(前台商家登入專用)
     function setStoreInfo($storeEmail, $storeTel){
 
         //先判斷session是否存在
@@ -120,17 +120,21 @@
             session_start(); 
         }
 
-        //Table 'ec_member'裡的ID欄位值
+        //Table 'store'裡contact_email的欄位值
         $_SESSION["contact_email"] = $storeEmail; 
 
-        //Table 'ec_member'裡的Account欄位值
+        //Table 'store'裡的contact_tel欄位值
         $_SESSION["contact_tel"] = $storeTel; 
-        
     }
-    // 商家部分參考改過的function
-    // getMemberID -- getStoreID
-    // getMemberName -- getStoreTel
-    // setMemberInfo -- setStoreInfo 
 
+    // 取得商家ID
+    function setSessionS($storeID){
+        //先判斷session是否存在
+        if(!isset($_SESSION)){
+            session_start(); 
+        }
+        //Table 'store'裡的store_id欄位值
+        $_SESSION["store_id"] = $storeID; 
+    }
     
 ?>
