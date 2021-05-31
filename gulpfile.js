@@ -1,5 +1,11 @@
 const { src, dest, series, parallel, watch } = require("gulp");
 
+// 只是移動php檔案
+function php(){
+    return src(["dev/php/*.*", "dev/php/**/*.*"])
+    .pipe(dest("dist/php"));
+}
+
 // sass 編譯
 const sass = require("gulp-sass");
 const cleanCSS = require("gulp-clean-css");
@@ -77,7 +83,7 @@ function browser() {
         "change",
         reload
     );
-    watch(["dev/images/*.*", "dev/images/**/*.*"], imgs_dev).on(
+    watch(["dev/image/*.*", "dev/image/**/*.*"], imgs_dev).on(
         "change",
         reload
     );
@@ -90,6 +96,6 @@ exports.default = series(imgs_dev, includeHTML, sassStyle, babel5, browser);
 //先清除舊檔案，再同時執行其他的、再壓縮圖檔
 exports.prod = series(
     clear,
-    parallel(includeHTML, sassStyle, babel5),
+    parallel(includeHTML, sassStyle, babel5, php),
     imgs_prod
 );
