@@ -6,9 +6,9 @@
                     <h1>邱博英</h1>
                     <br>
                     <ul>
-                        <li>廠商專區頁面</li>
-                        <li>登入系統</li>
-                        <li>開發架構建置</li>
+                        <li>商家頁面及功能</li>
+                        <li>系統分析</li>
+                        <li>系統分析</li>
                     </ul>
                     <br>
                     <a href="https://jamiecode8.github.io/tfd101010/" target="_blank">
