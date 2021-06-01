@@ -82,7 +82,7 @@
                     </div>
                     <h2>客單價</h2>
                     <div class="login_station">
-                        <input type="text"  name="price_id" id="login_station_choice" placeholder="選擇價格區間
+                        <input type="text" name="price_id" id="login_station_choice" placeholder="選擇價格區間
                         " class="input">
                         <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
                         <ul class="login_station_select" id="login_station_options">
@@ -94,50 +94,19 @@
 
                     <h2>鄰近捷運站</h2>
                     <div class="login_store_station">
-                        <input type="text"  name="station_id" id="login_station_choice_store" placeholder="選擇鄰近站點" class="input">
-                        <img class="login_store_station_arrow" src="./img/icon/icon_next_line.png" alt="">
-                        <ul class="login_store_station_select" id="login_station_options_store">
-                            <li  class="b">市政府</li>
-                            <li  class="b">忠孝敦化</li>
-                            <li  class="b">國父紀念館</li>
-                            <li  class="b">板橋</li>
-                            <li  class="b">新埔</li>
-                            <li  class="b">府中</li>
-                            <li  class="b">龍山寺</li>
-                            <li  class="r">淡水</li>
-                            <li  class="r">劍潭</li>
-                            <li  class="r">圓山</li>
-                            <li  class="r">台北車站</li>
-                            <li  class="r">東門</li>
-                            <li  class="r">大安森林公園</li>
-                            <li  class="r">信義安和</li>
-                            <li  class="r">台北101</li>
-                            <li  class="g">松山</li>
-                            <li  class="g">南京三民</li>
-                            <li  class="g">南京復興</li>
-                            <li  class="g">中山</li>
-                            <li  class="g">中正紀念堂</li>
-                            <li  class="g">台電大樓</li>
-                            <li  class="g">公館</li>
-                            <li  class="g">景美</li>
-                            <li  class="br">東湖</li>
-                            <li  class="br">西湖</li>
-                            <li  class="br">港墘</li>
-                            <li  class="br">大直</li>
-                            <li  class="br">中山國中</li>
-                            <li  class="br">六張犁</li>
-                            <li  class="br">萬芳社區</li>
-                            <li  class="y">頂溪</li>
-                            <li  class="y">南京松江</li>
-                            <li  class="y">忠孝新生</li>
-                            <li  class="y">台北橋</li>
-                            <li  class="y">徐匯中學</li>
-                            <li  class="y">新莊</li>
-                        </ul>
+                        <input type="text" id="login_station_choice" class="input" v-model="selectedStation"
+                            name="station_id" placeholder="選擇鄰近站點" disabled>
+                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="stations_board_show">
                     </div>
 
                     <h2>選擇關鍵字(最多三個)</h2>
-                    <div class="loginMemberTag_tagArea">
+                    <div class="login_tag">
+                        <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_id" v-model="selectedTag"/>
+                        <button class="signUp_tag_area">
+                            <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show">
+                        </button>
+                    </div>
+                    <!-- <div class="loginMemberTag_tagArea">
                         <button type="button" class="btn_tag">#銅板美食</button>
                         <button type="button" class="btn_tag">#日式</button>
                         <button type="button" class="btn_tag">#韓式</button>
@@ -164,7 +133,7 @@
                         <button type="button" class="btn_tag">#手搖飲</button>
                         <button type="button" class="btn_tag">#餐酒館</button>
                         <button type="button" class="btn_tag">#拉麵</button>
-                    </div>
+                    </div> -->
                 </section>
                 
                 <!-- 商家照片 -->
@@ -269,4 +238,134 @@
             </div>
         </div>
     </form>
+    <!-- 選站點彈窗 -->
+    <div class="form storeSignUpPopups" v-show="close_station_board">
+        <button type="button" class="btn_close" @click="close_station_board_btn">
+            <img src="./img/icon/icon_close.png" alt="" />
+        </button>
+            <div class="login_station_select" id="login_station_options">                            
+            <span v-for="station in blueStation" @click="getStation(station)" class="b">{{station}}</span>
+            <span v-for="station in redStation" @click="getStation(station)" class="r">{{station}}</span>
+            <span v-for="station in greenStation" @click="getStation(station)" class="g">{{station}}</span>
+            <span v-for="station in brownStation" @click="getStation(station)" class="br">{{station}}</span>
+            <span v-for="station in yellowStation" @click="getStation(station)" class="y">{{station}}</span>
+            
+
+        </div>
+    </div>
+    <!-- 選標籤彈窗 -->
+    <div class="form storeSignUpPopups login_tag_select" id="login_tag_select" v-show="close_tags_board">
+        <button type="button" class="btn_close" @click="close_tags_board_btn">
+            <img src="./img/icon/icon_close.png" alt="" />
+        </button>
+            <div class="login_station_select" id="login_station_options">                            
+            <span v-for="tag in tags" @click="getTags(tag)">{{tag}}</span>
+        </div>
+    </div>
+
 </div>
+<script>
+    new Vue({
+        el: '#store_signUp',
+        data: {
+            blueStation: ['市政府', '忠孝敦化', '國父紀念館', '板橋', '新埔', '府中', '龍山寺'],
+            redStation: ['淡水', '劍潭', '圓山', '台北車站', '東門', '大安森林公園', '信義安和', '台北101'],
+            greenStation: ['松山', '南京三民', '南京復興', '中山', '中正紀念堂', '台電大樓', '公館', '景美'],
+            brownStation: ['東湖', '西湖', '港墘', '大直', '中山國中', '六張犁', '萬芳社區'],
+            yellowStation: ['頂溪', '南京松江', '忠孝新生', '台北橋', '徐匯中學', '新莊'],
+            selectedStation: '',
+            station: '',
+            tags:['#日式','#韓式','#美式','#義式','#台式','#法式','#中式','#夜市','#商業午餐','#早午餐','#下午茶','#銅板美食','#簡餐','#聚餐','#餐酒館','#咖啡店','#甜點','#麵食','#鹽酥雞','#雞排','#咖哩','#火鍋','#牛排','#拉麵','#鐵板燒'],
+            tag: '',
+            selectedTag:[],
+            close_station_board: false,
+            close_tags_board: false,
+            account: '',
+            password: '',
+            account_login: true,
+            password_login: true,
+            forgetPassword_verification: false,
+            email_login: true,
+            email: '',
+            account_register: '',
+            password_register: '',
+            account_register_msg: true,
+            password_register_msg: true,
+        },
+        watch: {
+            account: function () {
+                var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+                if (!isText.test(this.account) && this.account.length > 10) {
+                    this.account_login = false;
+                } else {
+                    this.account_login = true;
+                }
+            },
+            password: function () {
+                if (this.password.length < 6) {
+                    this.password_login = false;
+                } else {
+                    this.password_login = true;
+                }
+            },
+            email: function () {
+                var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+                if (!isText.test(this.email) && this.email.length > 10) {
+                    this.email_login = false;
+                } else {
+                    this.email_login = true;
+                }
+            },
+            account_register: function () {
+                var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+                if (!isText.test(this.account_register) && this.account_register.length > 10) {
+                    this.account_register_msg = false;
+                } else {
+                    this.account_register_msg = true;
+                }
+            },
+            password_register: function () {
+                if (this.password_register.length < 6) {
+                    this.password_register_msg = false;
+                } else {
+                    this.password_register_msg = true;
+                }
+            },
+        },
+        methods: {
+            open_forgetPassword_verification() {
+                this.forgetPassword_verification = !this.forgetPassword_verification;
+            },
+            close_forgetPassword_verification() {
+                this.forgetPassword_verification = !this.forgetPassword_verification;
+            },
+            getStation(station){
+                this.selectedStation = station;
+                this.close_station_board = false;
+            },
+            stations_board_show(){
+                this.close_station_board = !this.close_station_board;
+                this.close_tags_board = false;
+            },
+            close_station_board_btn(){
+                this.close_station_board = !this.close_station_board;
+            },
+            getTags(tag){
+                if(this.selectedTag.length < 3){
+                    this.selectedTag.unshift(tag);
+                }else{    
+                    this.selectedTag.pop(tag);
+                    this.selectedTag.unshift(tag);
+                }
+            },
+            tags_board_show(){
+                this.close_tags_board = !this.close_tags_board;
+                this.close_station_board = false;
+            },
+            close_tags_board_btn(){
+                this.close_tags_board = !this.close_tags_board;
+            },
+        },
+        computed: {},
+    })
+</script>
