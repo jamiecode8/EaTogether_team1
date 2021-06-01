@@ -1,4 +1,3 @@
-/* ------------------------------- */
 .myUFO_wrapper {
 	width: 100%;
 	background: #fffdd0;
@@ -108,6 +107,18 @@
 	}
 }
 
+@media all and (max-width:1199px) and (min-width:992px)and (max-height:578px) {
+	.window1 {
+		position: absolute;
+		left: 2%;
+		top: -20%;
+		margin: 7%;
+		width: 25%;
+		height: 100%;
+		z-index: 10
+	}
+}
+
 @media all and (max-width:991px) and (min-width:768px) {
 	.window1 {
 		position: absolute;
@@ -116,6 +127,18 @@
 		margin: 0;
 		padding: 10% 0;
 		width: 30%;
+		height: 40%;
+		z-index: 10
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px) and (max-height:578px){
+	.window1 {
+		position: absolute;
+		left: 0;
+		top: 0%;
+		margin: 0;
+		width: 20%;
 		height: 40%;
 		z-index: 10
 	}
@@ -225,6 +248,19 @@
 	}
 }
 
+@media all and (max-width:991px) and (min-width:768px)and (max-height:578px) {
+	.Points1 {
+		position: absolute;
+		bottom: 0;
+		left: 10%;
+		margin: 5%;
+		padding: 2%;
+		width: 10%;
+		height: 20%;
+		display: flex
+	}
+}
+
 @media all and (max-width:767px) and (min-width:576px) {
 	.Points1 {
 		position: absolute;
@@ -272,6 +308,11 @@
 		width: 100%
 	}
 }
+@media all and (max-width:991px) and (min-width:768px) and (max-height:578px) {
+	.Points1 img {
+		width: 60%
+	}
+}
 
 @media all and (max-width:767px) and (min-width:576px) {
 	.Points1 img {
@@ -308,6 +349,12 @@
 	.Points1 p {
 		font-size: 20px;
 		margin: 70px 10px
+	}
+}
+@media all and (max-width:991px) and (min-width:768px)and (max-height:578px) {
+	.Points1 p {
+		font-size: 20px;
+		margin: 25px 10px
 	}
 }
 
@@ -362,6 +409,19 @@
 	}
 }
 
+@media all and (max-width:1199px) and (min-width:992px)and (max-height:578px) {
+	.light {
+		position: absolute;
+		top: 2%;
+		right: 20%;
+		margin: 0;
+		padding: 0;
+		width: 10%;
+		height: 20%;
+		z-index: 11
+	}
+}
+
 @media all and (max-width:991px) and (min-width:768px) {
 	.light {
 		position: absolute;
@@ -370,6 +430,18 @@
 		margin: 0;
 		padding: 0;
 		width: 15%;
+		height: 20%;
+		z-index: 11
+	}
+}
+@media all and (max-width:991px) and (min-width:768px) and (max-height:578px){
+	.light {
+		position: absolute;
+		top: 3%;
+		right: 16%;
+		margin: 0;
+		padding: 0;
+		width: 10%;
 		height: 20%;
 		z-index: 11
 	}
@@ -464,6 +536,18 @@
 		z-index: 10
 	}
 }
+@media all and (max-width:1199px) and (min-width:992px)and (max-height:578px) {
+	.favorites {
+		position: absolute;
+		bottom: 50%;
+		right: 21%;
+		margin: 0;
+		padding: 0;
+		width: 8%;
+		height: 26%;
+		z-index: 10
+	}
+}
 
 @media all and (max-width:991px) and (min-width:768px) {
 	.favorites {
@@ -473,6 +557,19 @@
 		margin: 0;
 		padding: 0;
 		width: 17%;
+		height: 30%;
+		z-index: 10
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px)and (max-height:578px) {
+	.favorites {
+		position: absolute;
+		bottom: 45%;
+		right: 15%;
+		margin: 0;
+		padding: 0;
+		width: 10%;
 		height: 30%;
 		z-index: 10
 	}
@@ -494,7 +591,7 @@
 @media all and (max-width:575px) {
 	.favorites {
 		position: absolute;
-		bottom: 20%;
+		bottom: 17%;
 		right: 4%;
 		margin: 0;
 		padding: 0;
@@ -575,6 +672,19 @@
 	}
 }
 
+@media all and (max-width:1199px) and (min-width:992px)and (max-height:578px) {
+	.cabinet {
+		position: absolute;
+		bottom: 10%;
+		right: 19%;
+		margin: 0;
+		padding: 0;
+		width: 12%;
+		height: 38%;
+		z-index: 10
+	}
+}
+
 @media all and (max-width:991px) and (min-width:768px) {
 	.cabinet {
 		position: absolute;
@@ -583,6 +693,19 @@
 		margin: 0;
 		padding: 0;
 		width: 24%;
+		height: 50%;
+		z-index: 10
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px)and (max-height:578px) {
+	.cabinet {
+		position: absolute;
+		bottom: 0;
+		right: 12%;
+		margin: 0;
+		padding: 0;
+		width: 15%;
 		height: 50%;
 		z-index: 10
 	}
@@ -657,7 +780,7 @@
 	padding: 0;
 	width: 25%;
 	height: 52%;
-	z-index: 10
+	z-index: 55
 }
 
 @media all and (min-width:1200px) {
@@ -670,7 +793,7 @@
 		padding: 0;
 		width: 25%;
 		height: 52%;
-		z-index: 10
+		z-index: 55
 	}
 }
 
@@ -684,7 +807,20 @@
 		padding: 0;
 		width: 32%;
 		height: 52%;
-		z-index: 10
+		z-index: 55
+	}
+}
+@media all and (max-width:1199px) and (min-width:992px)and (max-height:578px) {
+	.Carousel {
+		position: absolute;
+		top: 0;
+		right: 35%;
+		left: 35%;
+		margin: 0;
+		padding: 0;
+		width: 330px;
+		height: 52%;
+		z-index: 55
 	}
 }
 
@@ -698,9 +834,24 @@
 		padding: 0;
 		width: 45%;
 		height: 52%;
-		z-index: 10
+		z-index: 55
 	}
 }
+
+@media all and (max-width:991px) and (min-width:768px) and (max-height:578px){
+	.Carousel {
+		position: absolute;
+		top: 0;
+		right: 35.5%;
+		left: 35.5%;
+		margin: 0;
+		padding: 0;
+		width: 275px;
+		height: 52%;
+		z-index: 55
+	}
+}
+
 
 @media all and (max-width:767px) and (min-width:576px) {
 	.Carousel {
@@ -712,7 +863,7 @@
 		padding: 0;
 		width: 50%;
 		height: 45%;
-		z-index: 10
+		z-index: 55
 	}
 }
 
@@ -726,7 +877,7 @@
 		padding: 0;
 		width: 70%;
 		height: 52%;
-		z-index: 10
+		z-index: 55
 	}
 }
 
@@ -773,7 +924,7 @@
 	padding: 0;
 	width: 25%;
 	height: 52%;
-	z-index: 51
+	z-index: 56
 }
 
 @media all and (min-width:1200px) {
@@ -786,7 +937,7 @@
 		padding: 0;
 		width: 25%;
 		height: 52%;
-		z-index: 51
+		z-index: 56
 	}
 }
 
@@ -800,11 +951,25 @@
 		padding: 0;
 		width: 30%;
 		height: 52%;
-		z-index: 51
+		z-index: 56
 	}
 }
 
-@media all and (max-width:991px) and (min-width:768px) {
+@media all and (max-width:1199px) and (min-width:992px)  and (max-height:578px){
+	.character {
+		position: absolute;
+		top: 50%;
+		right: 39%;
+		left: 39%;
+		margin: 0;
+		padding: 0;
+		width: 20%;
+		height: 52%;
+		z-index: 56
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px)  {
 	.character {
 		position: absolute;
 		top: 50%;
@@ -814,7 +979,21 @@
 		padding: 0;
 		width: 50%;
 		height: 52%;
-		z-index: 51
+		z-index: 56
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px) and (max-height:578px) {
+	.character {
+		position: absolute;
+		top: 40%;
+		right: 35%;
+		left: 35%;
+		margin: 0;
+		padding: 0;
+		width: 30%;
+		height: 52%;
+		z-index: 56
 	}
 }
 
@@ -828,7 +1007,7 @@
 		padding: 0;
 		width: 55%;
 		height: 52%;
-		z-index: 51
+		z-index: 56
 	}
 }
 
@@ -842,7 +1021,7 @@
 		padding: 0;
 		width: 60%;
 		height: 52%;
-		z-index: 51
+		z-index: 56
 	}
 }
 
@@ -892,7 +1071,7 @@
 @media all and (min-width:1200px) {
 	.slideshow-body {
 		position: absolute;
-		top: 8%;
+		top: 5%;
 		right: 3%;
 		left: 0;
 		border-radius: 10px
@@ -909,12 +1088,31 @@
 	}
 }
 
+@media all and (max-width:1199px) and (min-width:992px) and (max-height:578px){
+	.slideshow-body {
+		position: absolute;
+		top: 4%;
+		left: 0;
+		border-radius: 10px
+	}
+}
+
 @media all and (max-width:991px) and (min-width:768px) {
 	.slideshow-body {
 		position: absolute;
-		top: 5%;
+		top: 2%;
 		right: 6%;
 		left: 0;
+		border-radius: 10px
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px)and (max-height:578px) {
+	.slideshow-body {
+		position: absolute;
+		top: 2%;
+		
+		left: 3%;
 		border-radius: 10px
 	}
 }
@@ -932,7 +1130,7 @@
 @media all and (max-width:575px) {
 	.slideshow-body {
 		position: absolute;
-		top: 5%;
+		top: 2%;
 		right: 10%;
 		left: 0;
 		border-radius: 10px;
@@ -952,7 +1150,7 @@
 @media all and (min-width:1200px) {
 	.myUFO_wrapper #slideshow {
 		overflow: hidden;
-        height: 28%;
+        height: 43%;
 		width: 18%;
 		margin: 0 auto;
 		z-index: 50
@@ -962,9 +1160,18 @@
 @media all and (max-width:1199px) and (min-width:992px) {
 	.myUFO_wrapper #slideshow {
 		overflow: hidden;
-        height: 15%;
-	
-		width: 21%;
+        height: 43%;
+		width: 18%;
+		margin: 0 auto;
+		z-index: 50
+	}
+}
+
+@media all and (max-width:1199px) and (min-width:992px) and (max-height:578px){
+	.myUFO_wrapper #slideshow {
+		overflow: hidden;
+        height: 46%;
+		width: 22%;
 		margin: 0 auto;
 		z-index: 50
 	}
@@ -973,12 +1180,22 @@
 @media all and (max-width:991px) and (min-width:768px) {
 	.myUFO_wrapper #slideshow {
 		overflow: hidden;
-	
-		width: 33%;
+        height: 100%;
+		width: 32%;
 		margin: 0 auto;
 		z-index: 50
 	}
 }
+@media all and (max-width:991px) and (min-width:768px)and (max-height:578px) {
+	.myUFO_wrapper #slideshow {
+		overflow: hidden;
+		height: 100%;
+		width: 200px;
+		margin: 0 auto;
+		z-index: 50
+	}
+}
+
 
 @media all and (max-width:767px) and (min-width:576px) {
 	.myUFO_wrapper #slideshow {
@@ -1004,7 +1221,7 @@
 @media all and (max-width:575px) and (min-width:321px) and (min-height:812px) {
 	.myUFO_wrapper #slideshow {
 		overflow: hidden;
-		max-height: 27%;
+		max-height: 33%;
 		width: 50%;
 		margin: 0 auto;
 		z-index: 50;
@@ -1015,7 +1232,7 @@
 @media all and (max-width:575px) and (min-width:321px)  and (max-height:812px) and (min-height:720px) {
 	.myUFO_wrapper #slideshow {
 		overflow: hidden;
-		max-height: 31%;
+		max-height: 38%;
 		width: 50%;
 		margin: 0 auto;
 		z-index: 50;
@@ -1025,7 +1242,7 @@
 @media all and (max-width:376px) and (min-width:280px) {
 	.myUFO_wrapper #slideshow {
 		overflow: hidden;
-		max-height: 32%;
+		max-height: 37%;
 		width: 50%;
 		margin: 0 auto;
 		z-index: 50;
@@ -1035,9 +1252,11 @@
 
 @media all and (max-width:376px) and (min-height:812px) {
 	.myUFO_wrapper #slideshow {
-		
-		max-height: 25%;
-	
+		overflow: hidden;
+		max-height: 32%;
+		width: 48%;
+		margin: 0 auto;
+		z-index: 50;
         
 	}
 }
@@ -1064,7 +1283,7 @@
 	height: 100%;
 }
 
-/*
+
 @media all and (min-width:1200px) {
 	.slide-wrapper img {
 		width: 110%;
@@ -1074,8 +1293,8 @@
 
 @media all and (max-width:1199px) and (min-width:992px) {
 	.slide-wrapper img {
-		width: 110%;
-		height: 110%
+		width: 100%;
+		height: 100%
 	}
 }
 
@@ -1099,7 +1318,7 @@
 		height: 75%
 	}
 }
-*/
+
 
 .myUFO_wrapper .slide {
 	float: left;
@@ -1110,7 +1329,7 @@
 @media (min-width:1200px) and (height:578px){
 
     .myUFO_wrapper .slideshow-body {
-        top:6%;
+        top:4%;
     }
 }
 @media (max-width:1199px) and (min-width:992px) and (height:578px){
@@ -1140,7 +1359,7 @@
 @media (width:768px) and (height:1024px){
 	.myUFO_wrapper .slide {
 		float: left;
-		width: 7%;
+		height: 100%;
 	}
 }
 
@@ -1165,11 +1384,11 @@
 }
 
 
-/*
+
 @media all and (min-width:1200px) {
 	.slide {
 		float: left;
-		height: 207px;
+		height: 250px;
 		width: 290px
 	}
 }
@@ -1177,7 +1396,7 @@
 @media all and (max-width:1199px) and (min-width:992px) {
 	.slide {
 		float: left;
-		height: 207px;
+		height: 250px;
 		width: 290px
 	}
 }
@@ -1185,49 +1404,181 @@
 @media all and (max-width:991px) and (min-width:768px) {
 	.slide {
 		float: left;
-		height: 207px;
-		width: 290px
+		height: 200px;
+		width: 200px
 	}
 }
 
 @media all and (max-width:767px) and (min-width:576px) {
 	.slide {
 		float: left;
-		height: 207px;
+		height: 250px;
 		width: 290px
 	}
 }
 
 @media all and (max-width:575px) {
 	.slide {
-		display: block
+		float: left;
+		height: 250px;
+		width: 290px
 	}
 }
-*/
 
 @-webkit-keyframes slide {
 	20% {
 		margin-left: 0
 	}
 	30% {
-		margin-left: -290px
+		margin-left: -270px
 	}
 	50% {
-		margin-left: -290px
+		margin-left: -270px
 	}
 	60% {
-		margin-left: -580px
+		margin-left: -530px
 	}
 	70% {
-		margin-left: -580px
+		margin-left: -530px
 	}
 	80% {
-		margin-left: -870px
+		margin-left: -800px
 	}
 	90% {
-		margin-left: -870px
+		margin-left: -800px
 	}
 }
+
+@media all and (min-width:1200px) {
+	@-webkit-keyframes slide {
+		20% {
+			margin-left: 0
+		}
+		30% {
+			margin-left: -270px
+		}
+		50% {
+			margin-left: -270px
+		}
+		60% {
+			margin-left: -530px
+		}
+		70% {
+			margin-left: -530px
+		}
+		80% {
+			margin-left: -800px
+		}
+		90% {
+			margin-left: -800px
+		}
+	}
+}
+
+@media all and (max-width:1199px) and (min-width:992px) {
+	@-webkit-keyframes slide {
+		20% {
+			margin-left: 0
+		}
+		30% {
+			margin-left: -270px
+		}
+		50% {
+			margin-left: -270px
+		}
+		60% {
+			margin-left: -530px
+		}
+		70% {
+			margin-left: -530px
+		}
+		80% {
+			margin-left: -800px
+		}
+		90% {
+			margin-left: -800px
+		}
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px) {
+	@-webkit-keyframes slide {
+		20% {
+			margin-left: 0
+		}
+		30% {
+			margin-left: -270px
+		}
+		50% {
+			margin-left: -270px
+		}
+		60% {
+			margin-left: -530px
+		}
+		70% {
+			margin-left: -530px
+		}
+		80% {
+			margin-left: -800px
+		}
+		90% {
+			margin-left: -800px
+		}
+	}
+}
+
+@media all and (max-width:767px) and (min-width:576px) {
+	@-webkit-keyframes slide {
+		20% {
+			margin-left: 0
+		}
+		30% {
+			margin-left: -270px
+		}
+		50% {
+			margin-left: -270px
+		}
+		60% {
+			margin-left: -530px
+		}
+		70% {
+			margin-left: -530px
+		}
+		80% {
+			margin-left: -800px
+		}
+		90% {
+			margin-left: -800px
+		}
+	}
+}
+
+@media all and (max-width:575px) {
+	@-webkit-keyframes slide {
+		20% {
+			margin-left: 0
+		}
+		30% {
+			margin-left: -270px
+		}
+		50% {
+			margin-left: -270px
+		}
+		60% {
+			margin-left: -530px
+		}
+		70% {
+			margin-left: -530px
+		}
+		80% {
+			margin-left: -800px
+		}
+		90% {
+			margin-left: -800px
+		}
+	}
+}
+
 
 .myuFOsearchbut {
 	position: fixed;
@@ -1457,6 +1808,23 @@
 	}
 }
 
+@media all and (max-width:992px) and (min-width:768px)  and (max-height:578px){
+	.myUFO_bg .figure {
+		display: none
+	}
+	.myUFO_bg .figure2 {
+		height: 90vh;
+		width: 100%;
+		display: block
+	}
+	.myUFO_bg .figure3 {
+		display: none
+	}
+	.myUFO_bg .figure4 {
+		display: none
+	}
+}
+
 @media all and (max-width:767px) and (min-width:576px) {
 	.myUFO_bg .figure {
 		display: none
@@ -1520,7 +1888,7 @@
 
 #myUFO_category .categorform {
 	position: absolute;
-	top: 10%;
+	top: 2%;
 	padding: 20px;
 	z-index: 999
 }
@@ -1935,7 +2303,6 @@ progress::-webkit-progress-value {
 	width: 100px;
 	height: 50px
 }
-
 
 //----------靜瑩角色彈窗----------
 .MyCharacter {
