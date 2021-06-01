@@ -106,9 +106,9 @@
                     <h1>李靜瑩</h1>
                     <br>
                     <ul>
-                        <li>廠商專區頁面</li>
-                        <li>登入系統</li>
-                        <li>開發架構建置</li>
+                        <li>視覺規劃</li>
+                        <li>首頁頁面</li>
+                        <li>搜尋系統</li>
                     </ul>
                     <br>
                     <a href="https://ginny-li.github.io/tanaka/loading.html" target="_blank">
