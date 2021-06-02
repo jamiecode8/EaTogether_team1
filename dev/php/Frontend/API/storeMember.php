@@ -2,21 +2,22 @@
     include("../../Lib/Util.php");
     include("../../Lib/Member.php");
 
-    //取得POST過來的值
-    // $CateName = $_POST["CateName"]; //分類名稱
-    // $Status = $_POST["Status"];   //狀態 0:刪除, 1:下架, 2:上架
-
     //建立SQL
     $sql = "SELECT 
-    store_name, store_name,store_tel,
-    price_id, station_id, 
-    FROM store where store_id = $storeID"; 
+    r.store_name, r.store_address, r.store_tel,
+    r.price_id, t.station_name, r.store_submit
+    FROM store r natural join station t
+    where contact_tel = ?";
 
     //執行
     $statement = getPDO()->prepare($sql);
+    $statement->bindValue(1 , getStoreMemberID()); 
+    // $statement->bindValue(2 , getStoreMemberID()); 
     $statement->execute();
     $data = $statement->fetchAll();
 
+ 
     //回傳json
+    // echo 123;
     echo json_encode($data);
 ?>

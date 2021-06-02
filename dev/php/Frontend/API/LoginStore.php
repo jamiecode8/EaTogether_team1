@@ -10,12 +10,14 @@
     $statement->bindValue(2, $_POST["storeTel"]); //input 的 name 的值
     $statement->execute();
     $data = $statement->fetchAll();
-
+    
     $storeEmail = "";
     $storeTel = "";
+    $StoreId = "";
     foreach($data as $index => $row){
-        $storeEmail = $row["contact_email"];  //後台資料表裡的欄位名稱
-        $storeTel = $row["contact_tel"];  //後台資料表裡的欄位名稱
+        $storeEmail = $row["contact_email"];  //資料表裡的欄位名稱
+        $storeTel = $row["contact_tel"];  //資料表裡的欄位名稱
+        $StoreId = $row["store_id"];
     }
 
     //判斷是否有會員資料?
@@ -24,10 +26,11 @@
         include("../../Lib/Member.php");        
     
         //將會員資訊寫入session
-        setMemberInfo($storeEmail, $storeTel);
+        setStoreMemberInfo($storeEmail, $storeTel, $StoreId);
 
         //導回商家首頁       
-        echo "<script>alert('登入成功!'); location.href = '../../../store_free.html';</script>"; 
+        echo "<script>alert('登入成功!'); 
+        location.href = '../../../store_free.html';</script>"; 
 
     }else{
 
@@ -36,6 +39,3 @@
         
     }
 ?>
-
-<!-- memberID 改 storeEmail -->
-<!-- MemberName 改 storeTel -->
