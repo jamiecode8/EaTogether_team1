@@ -197,6 +197,17 @@
 	}
 }
 
+@media all and (max-width:991px) and (min-width:768px)and (min-height:560px) and(max-height:580px) {
+	.myUFO_wardrobe_body .wardrobe_left {
+		position: absolute;
+		top: 0;
+		left: 10%;
+		width: 40%;
+		height: 100%;
+		max-height: 900px
+	}
+}
+
 @media all and (max-width:767px) and (min-width:576px) {
 	.myUFO_wardrobe_body .wardrobe_left {
 		position: absolute;
@@ -277,10 +288,17 @@
 	}
 }
 
-@media all and (max-width:767px) and (min-width:576px) {
+@media all and (max-width:767px) and (min-width:576px){
 	.myUFO_wardrobe_body .wardrobe_left .wardrobe_border {
 		position: absolute;
 		bottom: 25%
+	}
+}
+
+@media all and (max-width:767px) and (min-width:576px)and (min-height:560px) and(max-height:580px) {
+	.myUFO_wardrobe_body .wardrobe_left .wardrobe_border {
+		position: absolute;
+		bottom: 45%
 	}
 }
 
@@ -362,10 +380,18 @@
 	}
 }
 
-@media all and (max-width:767px) and (min-width:576px) {
+@media all and (max-width:767px) and (min-width:576px){
 	.myUFO_wardrobe_body .wardrobe_left .wardrobe_character {
 		position: absolute;
 		bottom: 33%;
+		width: 100%
+	}
+}
+
+@media all and (max-width:767px) and (min-width:576px) and (min-height:560px) and(max-height:580px){
+	.myUFO_wardrobe_body .wardrobe_left .wardrobe_character {
+		position: absolute;
+		bottom: 53%;
 		width: 100%
 	}
 }
@@ -781,6 +807,17 @@
 	}
 }
 
+@media all and (max-width:767px) and (min-width:576px)and (min-height:560px) and(max-height:580px)  {
+	.myUFO_wardrobe_body .wardrobe_Points {
+		display: flex;
+		position: absolute;
+		bottom: 58%;
+		left: 15%;
+		z-index: 50
+	}
+}
+
+
 @media all and (max-width:575px) {
 	.myUFO_wardrobe_body .wardrobe_Points {
 		display: flex;
@@ -935,8 +972,7 @@
 		bottom: 30.9%;
 		height: 59.5%;
 		width: 430px;
-		right: 40%;
-		left: 50%;
+		margin: 0% 10% 0% 10%;
 		z-index: 50
 	}
 }
@@ -952,6 +988,19 @@
 		z-index: 50
 	}
 }
+
+@media all and (max-width:767px) and (min-width:576px) and (min-height:560px) and(max-height:580px){
+	.myUFO_wardrobe_body .Choose_cabinet {
+		position: absolute;
+		bottom: 0;
+		height: 60%;
+		width: 85%;
+		right: 10%;
+		left: 0;
+		z-index: 50
+	}
+}
+
 
 @media all and (max-width:575px) {
 	.myUFO_wardrobe_body .Choose_cabinet {
@@ -1043,7 +1092,7 @@
     .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four .swiper-container, 
     .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives .swiper-container, 
     .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six .swiper-container {
-        padding: 5%;
+        
         display: block;
     }
     
@@ -1081,6 +1130,80 @@
         
     }
 }
+
+@media all and (max-width:767px) and (min-height:560px) and(max-height:580px){
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six {
+    width:100%;
+    height:50%;
+        
+    }
+    
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives {
+       border-bottom: solid 10px #c99f87;
+        
+    }
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content{
+        display: block;
+    }
+    
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One ul, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three ul, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul {
+  display: none;
+    }
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One .swiper-container, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two .swiper-container, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three .swiper-container, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four .swiper-container, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives .swiper-container, 
+    .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six .swiper-container {
+     
+        display: block;
+    }
+    
+/*    mimi 側邊的顯示 衣櫃 跟商城*/
+    .myUFO_wardrobe_body #sideTabContainer{
+        width: 10%;
+        float: left;
+        height: 100%;
+        display: block;
+
+    }
+    
+    
+    .sideTab{
+        border: solid #c99f87;   
+        background-color: #c99f87;
+        margin-top:165%;
+        box-shadow: none;
+        font-weight: 700;
+        font-size: 1.6em;
+        line-height:1.6em;
+        height: 30%;
+        width: 80%;
+        margin-left: 30%;;
+        color: white;
+        border-radius: 6px 6px 6px 6px;
+        
+        
+    }
+    
+    #mainTabContainer{
+        width: 80%;
+        float: left;
+    }
+
+}
 	@media all and (max-width:991px) and (min-width:768px) and (min-height:560px) and(max-height:580px){
 		#mainTabContainer{
 			width: 60%;
@@ -1098,40 +1221,40 @@
 
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One ul li {
-	margin: 30px;
-	padding-left: 20px
+	margin: 0px;
+	
 }
 
 @media all and (max-width:991px) and (min-width:768px) and (min-height:560px) and(max-height:580px){
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One ul li {
-		margin: 28px;
-		padding-left: 20px
+		margin: 19px 0px 0px 55px;
+		
 	}
 }
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One ul li img {
 	width: 38%;
-	margin: 32px auto
+	margin: 3px auto
 }
 
 @media all and (min-width:1200px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One ul li img {
 		width: 38%;
-		margin: 32px auto
+		margin: 3px auto
 	}
 }
 
 @media all and (max-width:1199px) and (min-width:992px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One ul li img {
 		width: 38%;
-		margin: 32px auto
+		margin: 3px auto
 	}
 }
 
 @media all and (max-width:991px) and (min-width:768px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_One ul li img {
 		width: 37%;
-		margin: 32px auto
+		margin: 3px auto
 	}
 }
 
@@ -1164,32 +1287,32 @@
 
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul li {
-	margin: 35px;
+	margin: 0px;
 }
 
 @media all and (max-width:991px) and (min-width:768px) and (min-height:560px) and(max-height:580px){
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul li {
-		margin: 28px;
+		margin: 0px auto;
 	}
 	
 }
 
 @media all and (max-width:1199px) and (min-width:992px)and (min-height:560px) and(max-height:580px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul li {
-		margin: 25px 30px;
+		margin: 0px auto;
 	
 	}
 }
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul li img {
-	width: 80%;
+	width: 40%;
 	height: 100%;
 	margin: 0 auto
 }
 
 @media all and (min-width:1200px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul li img {
-		width: 80%;
+		width: 40%;
 		height: 100%;
 		margin: 0 auto
 	}
@@ -1198,7 +1321,7 @@
 
 @media all and (max-height:1080px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul li img {
-		width: 65%;
+		width: 40%;
 	
 	}
 }
@@ -1212,9 +1335,17 @@
 	}
 }
 
+@media all and (max-width:1199px) and (min-width:992px) and (min-height:560px) and(max-height:580px){
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul li img {
+		width: 40%;
+		height: 100%;
+		margin: 0 auto
+	}
+}
+
 @media all and (max-width:991px) and (min-width:768px){
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul li img {
-		width: 65%;
+		width: 39%;
 		height: 100%;
 		margin: 0 auto
 	}
@@ -1222,7 +1353,7 @@
 
 @media all and (max-width:991px) and (min-width:768px)and (min-height:560px) and(max-height:580px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_two ul li img {
-		width: 65%;
+		width: 39%;
 		height: 80%;
 		margin: 0 auto
 	}
@@ -1254,21 +1385,21 @@
 
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three ul li {
-	margin: 34px auto;
-	padding-left: 20px
+	margin: 0px auto;
+	
 }
 
 @media all and (max-width:991px) and (min-width:768px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three ul li {
-		margin: 39px auto;
-		padding-left: 20px
+		margin: 0px auto;
+		
 	}
 }
 
 @media all and (max-width:991px) and (min-width:768px) and (min-height:560px) and(max-height:580px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three ul li {
-		margin: 32px auto;
-		padding-left: 20px
+		margin: 0px auto;
+		
 	}
 }
 
@@ -1282,7 +1413,7 @@
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three ul li img {
 		width: 30%;
 		height: 100%;
-		margin: 0 auto
+		margin: 20px auto
 	}
 }
 
@@ -1290,15 +1421,30 @@
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three ul li img {
 		width: 30%;
 		height: 100%;
-		margin: 0 auto
+		margin: 0px auto;
+	}
+}
+
+@media all and (max-width:1199px) and (min-width:992px)  and (min-height:560px) and(max-height:580px){
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three ul li img {
+		width: 40%;
+		height: 100%;
+		margin: 0px auto;
 	}
 }
 
 @media all and (max-width:991px) and (min-width:768px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three ul li img {
-		width: 29%;
+		width: 40%;
 		height: 100%;
 		margin: 0 auto
+	}
+}
+@media all and (max-width:991px) and (min-width:768px)and (min-height:560px) and(max-height:580px) {
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_three ul li img {
+		width: 40%;
+		height: 100%;
+		margin: 0px auto;
 	}
 }
 
@@ -1317,34 +1463,34 @@
 
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li {
-	margin: 34px auto;
+	margin: 0px auto;
   
 
 }
 
 @media all and (max-width:991px) and (min-width:768px){
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li {
-		margin: 40px auto;
+		margin: 0px auto;
 	
 	}
 }
 
 @media all and (max-width:991px) and (min-width:768px) and (min-height:560px) and(max-height:580px){
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li {
-		margin: 33px auto;
+		margin: 0px auto;
 	
 	}
 }
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li img {
-	width: 60%;
+	width: 40%;
 	height: 100%;
 	margin: 0 auto
 }
 
 @media all and (min-width:1200px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li img {
-		width: 60%;
+		width: 40%;
 		height: 100%;
 		margin: 0 auto
 	}
@@ -1362,13 +1508,20 @@
 	}
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li img {
         width: 65% !important;
-    margin: 42px auto!important;
+        margin: 42px auto!important;
 	}
 }
 
 @media all and (max-height:950px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li img {
 		width: 54%;
+	
+	}
+}
+
+@media all and (min-height:560px) and(max-height:580px) {
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li img {
+		width: 40%;
 	
 	}
 }
@@ -1381,9 +1534,25 @@
 	}
 }
 
+@media all and (max-width:1199px) and (min-width:992px) and (min-height:560px) and(max-height:580px) {
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li img {
+		width: 40%;
+		height: 100%;
+		margin: 0 auto
+	}
+}
+
 @media all and (max-width:991px) and (min-width:768px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li img {
-		width: 54%;
+		width: 40%;
+		height: 100%;
+		margin: 0 auto
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px)and (min-height:560px) and(max-height:580px) {
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_four ul li img {
+		width: 40%;
 		height: 100%;
 		margin: 0 auto
 	}
@@ -1402,33 +1571,33 @@
 }
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul li {
-	margin: 33px auto;
-	padding-left: 20px
+	margin: 0px auto;
+	
 }
 
 @media all and (max-width:991px) and (min-width:768px){
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul li {
-		margin: 39px auto;
-		padding-left: 20px
+		margin: 0px auto;
+		
 	}
 }
 
 @media all and (max-width:991px) and (min-width:768px) and (min-height:560px) and(max-height:580px){
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul li {
-		margin: 30px auto;
-		padding-left: 20px
+		margin: 0px auto;
+		
 	}
 }
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul li img {
-	width: 38%;
+	width: 40%;
 	height: 100%;
 	margin: 0 auto
 }
 
 @media all and (min-width:1200px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul li img {
-		width: 38%;
+		width: 40%;
 		height: 100%;
 		margin: 0 auto
 	}
@@ -1436,7 +1605,7 @@
 
 @media all and (max-width:1199px) and (min-width:992px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul li img {
-		width: 38%;
+		width: 40%;
 		height: 100%;
 		margin: 0 auto
 	}
@@ -1444,11 +1613,20 @@
 
 @media all and (max-width:991px) and (min-width:768px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul li img {
-		width: 34%;
+		width: 39%;
 		height: 100%;
 		margin: 0 auto
 	}
 }
+
+@media all and (max-width:991px) and (min-width:768px)and (min-height:560px) and(max-height:580px) {
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul li img {
+		width: 40%;
+		height: 100%;
+		margin: 0px auto
+	}
+}
+
 
 @media all and (max-width:767px) and (min-width:576px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_Fives ul li img {
@@ -1487,7 +1665,7 @@
 }
 @media all and (min-width:1200px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li {
-		margin: 35px auto;
+		margin: 0px auto;
 	
 	}
 }
@@ -1499,31 +1677,38 @@
 	}
 }
 
+@media all and (max-width:1199px) and (min-width:992px)and (min-height:560px) and(max-height:580px) {
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li {
+		margin: 0px auto;
+		
+	}
+}
+
 @media all and (max-width:991px) and (min-width:768px)  {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li {
-		margin: 40px auto;
+		margin: 0px auto;
 		
 	}
 }
 
 @media all and (max-width:991px) and (min-width:768px)  and (min-height:560px) and(max-height:580px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li {
-		margin: 30px auto;
+		margin: 0px auto;
 		
 	}
 }
 
 
 .myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li img {
-	width: 60%;
+	width: 40%;
 	height: 100%;
-	margin: 0 auto
+	margin: 15px auto
 }
 
 
 @media all and (min-width:1200px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li img {
-		width: 60%;
+		width: 40%;
 		height: 100%;
 		margin: 0 auto
 	}
@@ -1533,7 +1718,7 @@
 
 @media all and (max-height:1080px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li img {
-		width: 54%;
+		width: 40%;
 	
 	}
 }
@@ -1545,13 +1730,30 @@
 	}
 }
 
-@media all and (max-width:991px) and (min-width:768px) {
+@media all and (max-width:1199px) and (min-width:992px)and (min-height:560px) and(max-height:580px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li img {
-		width: 51%;
+		width: 45%;
+		height: 100%;
+		margin: 0px auto
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px){
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li img {
+		width: 39%;
 		height: 100%;
 		margin: 0 auto
 	}
 }
+
+@media all and (max-width:991px) and (min-width:768px)and (min-height:560px) and(max-height:580px)  {
+	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li img {
+		width: 40%;
+		height: 100%;
+		margin: 0px auto
+	}
+}
+
 
 @media all and (max-width:767px) and (min-width:576px) {
 	.myUFO_wardrobe_body .Choose_cabinet .tab-content .tab-content_six ul li img {
