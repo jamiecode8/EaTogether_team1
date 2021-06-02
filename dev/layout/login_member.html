@@ -95,7 +95,7 @@
                 <img src="./img/icon/icon_close.png" alt="" />
             </button>
              <div class="login_station_select" id="login_station_options">                            
-                <span v-for="tag in tags" @click="getTags(tag)">{{tag}}</span>
+                <span v-for="tag in tags" @click="getTags(tag)">#{{tag}}</span>
             </div>
         </div>
         <!-- 認證彈窗verification -->
@@ -134,7 +134,7 @@
             yellowStation: ['頂溪', '南京松江', '忠孝新生', '台北橋', '徐匯中學', '新莊'],
             selectedStation: '',
             station: '',
-            tags:['#日式','#韓式','#美式','#義式','#台式','#法式','#中式','#夜市','#商業午餐','#早午餐','#下午茶','#銅板美食','#簡餐','#聚餐','#餐酒館','#咖啡店','#甜點','#麵食','#鹽酥雞','#雞排','#咖哩','#火鍋','#牛排','#拉麵','#鐵板燒'],
+            tags:['日式','韓式','美式','義式','台式','法式','中式','夜市','商業午餐','早午餐','下午茶','銅板美食','簡餐','聚餐','餐酒館','咖啡店','甜點','麵食','鹽酥雞','雞排','咖哩','火鍋','牛排','拉麵','鐵板燒'],
             tag: '',
             selectedTag:[],
             close_station_board: false,
@@ -192,10 +192,10 @@
             },
         },
         methods: {
-            open_forgetPassword_verification() {
+            open_forgetPassword_verification(){
                 this.forgetPassword_verification = !this.forgetPassword_verification;
             },
-            close_forgetPassword_verification() {
+            close_forgetPassword_verification(){
                 this.forgetPassword_verification = !this.forgetPassword_verification;
             },
             getStation(station){
