@@ -86,8 +86,25 @@
     
     //--------------------------------------商家專用--------------------------------------
 
-    //取得商家帳號(前台專用)
-    function getStoreID(){
+    //寫入Session(LoginStore.php)
+    function setStoreMemberInfo($storeEmail, $storeTel, $StoreId){
+
+        //先判斷session是否存在
+        if(!isset($_SESSION)){
+            session_start(); 
+        }
+
+        //Table 'ec_member'裡的ID欄位值
+        $_SESSION["contact_email"] = $storeEmail; 
+
+        //Table 'ec_member'裡的Account欄位值
+        $_SESSION["contact_tel"] = $storeTel; 
+        $_SESSION["store_id"] = $StoreId; 
+        
+    }
+
+    //取得商家ID(StoreLoginCheck.php) 
+    function getStoreMemberID(){
 
         //先判斷session是否存在
         if(!isset($_SESSION)){
@@ -95,46 +112,21 @@
         }
 
         //有登入session->回傳ID，無登入session->回傳空字串""
-        return isset($_SESSION["contact_email"]) ? $_SESSION["contact_email"] : ""; 
+        // return isset($_SESSION["store_id"]) ? $_SESSION["store_id"] : ""; 
+        return isset($_SESSION["contact_email"]) ? $_SESSION["contact_tel"] : ""; 
 
     }
 
-    //取得會員帳號(前台專用)
-    function getStoreTel(){
+    //取得商家會員帳號(前台專用)
+    // function getStoreMemberName(){
 
-        //先判斷session是否存在
-        if(!isset($_SESSION)){
-            session_start(); 
-        }
+    //     //先判斷session是否存在
+    //     if(!isset($_SESSION)){
+    //         session_start(); 
+    //     }
 
-        //有登入session->回傳Name，無登入session->回傳空字串""
-        return isset($_SESSION["contact_tel"]) ? $_SESSION["contact_tel"] : ""; 
-
-    }
-
-    //寫入Session(前台商家登入專用)
-    function setStoreInfo($storeEmail, $storeTel){
-
-        //先判斷session是否存在
-        if(!isset($_SESSION)){
-            session_start(); 
-        }
-
-        //Table 'store'裡contact_email的欄位值
-        $_SESSION["contact_email"] = $storeEmail; 
-
-        //Table 'store'裡的contact_tel欄位值
-        $_SESSION["contact_tel"] = $storeTel; 
-    }
-
-    // 取得商家ID
-    function setSessionS($storeID){
-        //先判斷session是否存在
-        if(!isset($_SESSION)){
-            session_start(); 
-        }
-        //Table 'store'裡的store_id欄位值
-        $_SESSION["store_id"] = $storeID; 
-    }
+    //     //有登入session->回傳Name，無登入session->回傳空字串""
+    //     return isset($_SESSION["contact_tel"]) ? $_SESSION["contact_tel"] : ""; 
+    // }
     
 ?>

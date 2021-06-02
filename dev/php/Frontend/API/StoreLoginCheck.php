@@ -1,6 +1,6 @@
 <?php    
 	include("../../Lib/Member.php");
 
-    //登入檢查
-    echo getStoreID();
+    ///回傳session檢查結果，拿到store_id
+    echo getStoreMemberID();
 ?>
