@@ -81,14 +81,14 @@
                         <h2>進階資料</h2>
                     </div>
                     <h2>客單價</h2>
-                    <div class="login_station">
-                        <input type="text" name="price_id" id="login_station_choice" placeholder="選擇價格區間
+                    <div class="login_price">
+                        <input type="text" name="price_id" id="login_price_choice" placeholder="選擇價格區間
                         " class="input">
-                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="">
-                        <ul class="login_station_select" id="login_station_options">
-                            <li  class="b"> <$150 </li>
-                            <li  class="b"> $151~$500</li>
-                            <li  class="b"> $501~$1000</li>
+                        <img class="login_price_arrow" src="./img/icon/icon_next_line.png" alt="">
+                        <ul class="login_price_select">
+                            <li  class="br"> <$150 </li>
+                            <li  class="br"> $151~$500</li>
+                            <li  class="br"> $501~$1000</li>
                         </ul>
                     </div>
 
@@ -102,38 +102,8 @@
                     <h2>選擇關鍵字(最多三個)</h2>
                     <div class="login_tag">
                         <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_id" v-model="selectedTag"/>
-                        <button class="signUp_tag_area">
-                            <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show">
-                        </button>
+                        <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show">
                     </div>
-                    <!-- <div class="loginMemberTag_tagArea">
-                        <button type="button" class="btn_tag">#銅板美食</button>
-                        <button type="button" class="btn_tag">#日式</button>
-                        <button type="button" class="btn_tag">#韓式</button>
-                        <button type="button" class="btn_tag">#美式</button>
-                        <button type="button" class="btn_tag">#義式</button>
-                        <button type="button" class="btn_tag">#台式</button>
-                        <button type="button" class="btn_tag">#法式</button>
-                        <button type="button" class="btn_tag">#中式</button>
-                        <button type="button" class="btn_tag">#聚餐</button>
-                        <button type="button" class="btn_tag">#簡餐</button>
-                        <button type="button" class="btn_tag">#下午茶</button>
-                        <button type="button" class="btn_tag">#早午餐</button>
-                        <button type="button" class="btn_tag">#商業午餐</button>
-                        <button type="button" class="btn_tag">#夜市</button>
-                        <button type="button" class="btn_tag">#雞排</button>
-                        <button type="button" class="btn_tag">#咖哩</button>
-                        <button type="button" class="btn_tag">#火鍋</button>
-                        <button type="button" class="btn_tag">#牛排</button>
-                        <button type="button" class="btn_tag">#咖啡</button>
-                        <button type="button" class="btn_tag">#甜點</button>
-                        <button type="button" class="btn_tag">#鐵板燒</button>
-                        <button type="button" class="btn_tag">#麵食</button>
-                        <button type="button" class="btn_tag">#鹽酥雞</button>
-                        <button type="button" class="btn_tag">#手搖飲</button>
-                        <button type="button" class="btn_tag">#餐酒館</button>
-                        <button type="button" class="btn_tag">#拉麵</button>
-                    </div> -->
                 </section>
                 
                 <!-- 商家照片 -->

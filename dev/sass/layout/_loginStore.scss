@@ -120,6 +120,24 @@
         top: 13px;
         right: 10px;
     }
+}
+
+.login_store_station_select.on{
+    margin-bottom: 20px;
+    display: block;
+}
+
+// 客單價
+.login_price{
+    position: relative;
+    &_arrow{
+        position: absolute;
+        top: 13px;
+        right: 10px;
+    }
+    &_select{
+        display: none;
+    }
     &_select{
         margin-top: -20px;   
         border: 2px solid $lightgreen;
@@ -131,29 +149,16 @@
         li:hover{
             background-color: $lightgreen;
         }
-        .b{
-            color:$mrtBlue;
-        }
-        .r{
-            color:$mrtRed;
-        }
         .br{
             color: $mrtBrown;
-        }
-        .g{
-            color: $mrtGreen;
-        }
-        .y{
-            color: $mrtYellow;
         }
     }
 }
 
-.login_store_station_select.on{
+.login_price_select.on{
     margin-bottom: 20px;
     display: block;
 }
-
 
 
 //照片上傳區

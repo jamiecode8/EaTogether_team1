@@ -22,28 +22,14 @@ $('#store_signUp_back').click(function(){
 });
 
 // 下拉選單-客單價
-$('.login_station_arrow').click(function (e) {
-    $('.login_station_select').toggleClass('on');
+$('.login_price_arrow').click(function (e) {
+    $('.login_price_select').toggleClass('on');
 });
 
-
-$('#login_station_options li').click(function(){
-    let inputColor=document.getElementById('login_station_choice');
+$('.login_price_select li').click(function(){
+    let inputColor=document.getElementById('login_price_choice');
     inputColor.value=$(this).text();
-    $('.login_station_select').toggleClass('on');
-
-})
-
-// 下拉選單-鄰近站點
-$('.login_store_station_arrow').click(function (e) {
-$('.login_store_station_select').toggleClass('on');
-});
-
-
-$('#login_station_options_store li').click(function(){
-    let inputColor=document.getElementById('login_station_choice_store');
-    inputColor.value=$(this).text();
-    $('.login_store_station_select').toggleClass('on');
+    $('.login_price_select').toggleClass('on');
 
 })
 
