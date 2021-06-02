@@ -8,7 +8,7 @@
                     <ul>
                         <li>商家頁面及功能</li>
                         <li>系統分析</li>
-                        <li>系統分析</li>
+                        <li>專題文件</li>
                     </ul>
                     <br>
                     <a href="https://jamiecode8.github.io/tfd101010/" target="_blank">
