@@ -37,16 +37,16 @@
      </div>
 
 	 <div class="wardrobe_character">
-		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 1" src="./img/mimi/character/cap5.png" alt="">
-		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 2" src="./img/mimi/character/cap4.png" alt="">
-		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 3" src="./img/mimi/character/cap3.png" alt="">
-		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 4" src="./img/mimi/character/cap2.png" alt="">
-		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 5" src="./img/mimi/character/cap1.png" alt="">
-		<img class="wardrobe_character_clothe" v-if="wardrobe_character_clothe == 1" src="./img/mimi/character/clothe1.png" alt="">
+    <img class="wardrobe_character_clothe" v-if="wardrobe_character_clothe == 1" src="./img/mimi/character/clothe1.png" alt="">
 		<img class="wardrobe_character_clothe" v-if="wardrobe_character_clothe == 2" src="./img/mimi/character/clothe2.png" alt="">
 		<img class="wardrobe_character_clothe" v-if="wardrobe_character_clothe == 3" src="./img/mimi/character/clothe3.png" alt="">
 		<img class="wardrobe_character_clothe" v-if="wardrobe_character_clothe == 4" src="./img/mimi/character/clothe4.png" alt="">
 		<img class="wardrobe_character_clothe" v-if="wardrobe_character_clothe == 5" src="./img/mimi/character/clothe5.png" alt="">
+		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 1" src="./img/mimi/character/cap1.png" alt="">
+		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 2" src="./img/mimi/character/cap2.png" alt="">
+		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 3" src="./img/mimi/character/cap3.png" alt="">
+		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 4" src="./img/mimi/character/cap4.png" alt="">
+		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 5" src="./img/mimi/character/cap5.png" alt="">
 		<img class="wardrobe_character_fitting" v-if="wardrobe_character_fitting == 1" src="./img/mimi/character/fitting1.png" alt="">
 		<img class="wardrobe_character_fitting" v-if="wardrobe_character_fitting == 2" src="./img/mimi/character/fitting2.png" alt="">
 		<img class="wardrobe_character_fitting" v-if="wardrobe_character_fitting == 3" src="./img/mimi/character/fitting3.png" alt="">
@@ -86,11 +86,11 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 1"><img src="./img/mimi/Paid/clothes/Paid_clothes.png" alt="" ></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 2"><img src="./img/mimi/Paid/clothes/Paid_clothes2.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 5"><img src="./img/mimi/Paid/clothes/Paid_clothes.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 4"><img src="./img/mimi/Paid/clothes/Paid_clothes2.png" alt="" ></div>
           <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 3"><img src="./img/mimi/Paid/clothes/Paid_clothes3.png" alt="" ></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 4"><img src="./img/mimi/Paid/clothes/Paid_clothes4.png" alt="" ></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 5"><img src="./img/mimi/Paid/clothes/Paid_clothes5.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 2"><img src="./img/mimi/Paid/clothes/Paid_clothes4.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 1"><img src="./img/mimi/Paid/clothes/Paid_clothes5.png" alt="" ></div>
         </div>
       </div>
       <hr class="lineline"/>
@@ -112,11 +112,11 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 1"><img src="./img/mimi/Paid/Headwear/Paid_Headwear.png" alt="" ></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 2"><img src="./img/mimi/Paid/Headwear/Paid_Headwear2.png" alt="" ></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 3"><img src="./img/mimi/Paid/Headwear/Paid_Headwear3.png" alt="" ></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 4"><img src="./img/mimi/Paid/Headwear/Paid_Headwear4.png" alt="" ></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 5"><img src="./img/mimi/Paid/Headwear/Paid_Headwear5.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 1"><img src="./img/mimi/Paid/Headwear/Paid_Headwear.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 4"><img src="./img/mimi/Paid/Headwear/Paid_Headwear2.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 5"><img src="./img/mimi/Paid/Headwear/Paid_Headwear3.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 3"><img src="./img/mimi/Paid/Headwear/Paid_Headwear4.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 2"><img src="./img/mimi/Paid/Headwear/Paid_Headwear5.png" alt="" ></div>
         </div>
       </div>
       <hr class="lineline"/>
@@ -138,11 +138,11 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 1"><img src="./img/mimi/Paid/Accessories/Paid_Accessories.png" alt=""  class="Accessoriesimg"></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 2"><img src="./img/mimi/Paid/Accessories/Paid_Accessories2.png" alt="" class="Accessoriesimg"></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 3"><img src="./img/mimi/Paid/Accessories/Paid_Accessories3.png" alt="" class="Accessoriesimg"></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 4"><img src="./img/mimi/Paid/Accessories/Paid_Accessories4.png" alt="" class="Accessoriesimg"></div>
-          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 5"><img src="./img/mimi/Paid/Accessories/Paid_Accessories5.png" alt="" class="Accessoriesimg"></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 1"><img src="./img/mimi/Paid/Accessories/Paid_Accessories.png" alt=""  class="Accessoriesimg"></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 2"><img src="./img/mimi/Paid/Accessories/Paid_Accessories2.png" alt="" class="Accessoriesimg"></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 3"><img src="./img/mimi/Paid/Accessories/Paid_Accessories3.png" alt="" class="Accessoriesimg"></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 4"><img src="./img/mimi/Paid/Accessories/Paid_Accessories4.png" alt="" class="Accessoriesimg"></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 5"><img src="./img/mimi/Paid/Accessories/Paid_Accessories5.png" alt="" class="Accessoriesimg"></div>
         </div>
       </div>
       <hr class="lineline"/>
@@ -218,9 +218,9 @@
     new Vue({
       el:'#app_myufo_wardrobe',
 	  data: {
-		  wardrobe_character_cap: 0,
-		  wardrobe_character_clothe: 0,
-		  wardrobe_character_fitting: 0,
+		  wardrobe_character_cap: 1,
+		  wardrobe_character_clothe: 2,
+		  wardrobe_character_fitting: 2,
 	}
       
     })
