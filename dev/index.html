@@ -17,9 +17,9 @@
         @@include('layout/header.html')
     
         <div class="wrapper index_wrapper" id="app_index">
-              <!-- ----------搜尋按鈕---------- -->
+             <!-- ----------搜尋按鈕---------- -->
             <ul class="index_searchbtn" id="mySearchBtn">
-                <li @click="content=content=='1'?'':'1'" class="search_btn_whatToEat">
+                <li @click="content=content=='1'?'':'1';isSearchBoard = false" class="search_btn_whatToEat"> 
                     <img src="./img/index/What to eat.png" alt="">
                     <p>今天吃什麼</p>
                 </li>
@@ -27,7 +27,7 @@
                     <img src="./img/index/search.png" alt="">
                     <p>美食搜尋</p>
                 </li>
-            </ul>    
+            </ul>
             <!------------地圖------------>
             <div class="index_map">
                 <img class="map_slogan" src="./img/index/slogan.png" alt="">
@@ -40,41 +40,52 @@
 
             <!-- ----------whatToEat彈窗---------- -->
             <!-- q1 -->
-            <keep-alive>
-            <component :is="'popup-'+content"  @next-emit="nextQ" @pre-emit="preQ" @answer-emit="answerQ" @call-ajax-emit="callAjaxQ" @close-emit="closeQ" @again-emit="againQ" @store-emit="showStores"></component>
+            <keep-alive v-if="content !=='' ">
+                <component :is="'popup-'+content" @next-emit="nextQ" @pre-emit="preQ" @answer-emit="answerQ"
+                    @call-ajax-emit="callAjaxQ" @close-emit="closeQ" @again-emit="againQ" @store-emit="showStores" > 
+                </component>
             </keep-alive>
 
             <!-- 搜尋彈窗 -->
             <div class="popUps index_search_popup" v-show="isSearchBoard">
-                <form class="form getSearch" action="">
+                <!-- <form class="form getSearch" method="post" action="./php/Frontend/API/search.php"> -->
+                <form class="form getSearch">
+
                     <button type="button" class="getSearchClose btn_close" @click='closeSearch(1)'>
                         <img src="./img/icon/icon_close_20.png" alt="">
                     </button>
                     <h1>Search</h1>
                     <div class="searchFood text_search">
                         <h2>搜尋美食</h2>
-                        <input :class="findFoodClass" type="text"  :disabled="isTyped" v-model="findFood" @click='showTag(1)'>
+                        <input :class="findFoodClass" type="text" :disabled="isTyped" v-model="findFood" @click='showTag(1)'
+                            onkeyup="doQuery(this.value)">
+
                         <img src="./img/icon/icon_search.png" alt="">
                     </div>
-                    <div class="searchFood mrt_search"> 
+                    <div class="searchFood mrt_search">
                         <h2>捷運路線</h2>
-                        <input :class="searchLineClass"  type="text" disabled="disabled" v-model="searchLine" >
-                        <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="" @click='showLine'>
+                        <input :class="searchLineClass" type="text" disabled="disabled" v-model="searchLine">
+                        <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="" @click='showLine'
+                            name="searchByLine">
                         <ul class="mrtLines" v-show="isShowLine">
                             <li v-for="line in mrtLine" @click="myline(line)">{{line}}</li>
                         </ul>
                     </div>
                     <div class="searchFood  keyword_search">
                         <h2>標籤搜尋</h2>
-                        <input :class="searchTagsClass" type="text" disabled="disabled" v-model="searchTags"> 
+                        <input :class="searchTagsClass" type="text" disabled="disabled" v-model="searchTags"
+                            name="searchByTag">
                         <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="" @click="showTag(3)">
                     </div>
-                    <div class="searchWarn" v-show="isSearchNothing"><img src="./img/index/warn1.png" alt=""><p>Ｏpps!沒有完成搜尋</p></div>
+                    <div class="searchWarn" v-show="isSearchNothing"><img src="./img/index/warn1.png" alt="">
+                        <p>Ｏpps!沒有完成搜尋</p>
+                    </div>
+    
 
                     <div class="SearchBtn btn">
-                        <input  value="出發探索" class="getSearchBtn btn_submit" @click='searchFood'>
+                        <input value="出發探索" class="getSearchBtn btn_submit" @click='searchFood()'>
                     </div>
-              
+
                 </form>
             </div>
             <!-- 標籤彈窗     -->
@@ -89,7 +100,7 @@
                     </div>
                 </form>
             </div>
-            <!-- 搜尋結果彈窗 -->
+             <!-- 搜尋結果彈窗 -->
             <div class="popUps index_store_popup" v-show="isSearchStores">
                 <form class="form getStore" action="">
                     <button type="button" class="getSearchClose btn_close" @click="closeSearch(2)">
@@ -103,37 +114,35 @@
                     <!-- 店家名單 -->
                     <div class="getStoreInf_search">
                         <div class="getStoreInf" @click="finalStoreInf(store)" v-for="store in stores">
-                            <ul class="getStoreInf_digital" >
+                            <ul class="getStoreInf_digital">
                                 <li class="getStoreInf_name">
-                                    <h2>{{store.Name}}</h2>
+                                    <h2>{{store.store_name}}</h2>
                                 </li>
-                                <li class="getStoreInf_star">
+                                <!-- <li class="getStoreInf_star">
                                     <div v-for="star in store.Stars"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in 5-store.Stars"><img src="./img/icon/icon_star_default.png" alt=""></div>
-                                    <!-- <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
-                                </li>
+                                    <div v-for="darkStar in 5-store.Stars"><img src="./img/icon/icon_star_default.png"
+                                            alt=""></div>
+                                </li> -->
                                 <li class="getStoreInf_station">
-                                    <p>捷運站:</p>     <!--  判斷是哪一個站給他該線顏色 -->
-                                    <span class="station_color">{{store.Station}}</span>
-                                    <!-- <span class="station_color">{{store.station}}}</span> -->
+                                    <p>捷運站:{{store.station_name}}站</p> <!--  判斷是哪一個站給他該線顏色 -->
+                                    <!-- <span class="station_color">{{store.Station}}</span> -->
 
                                 </li>
                                 <li class="getStoreInf_tag">
-                                    <span>{{store.Tag}}</span>
-                                    
-                                    <!-- <span>{{store.tag1}}}</span>
-                                    <span>{{store.tag2}}}</span>
-                                    <span>{{store.tag3}}}</span> -->
+                                    <span>{{store.store_tag1}}</span>
+                                    <span>{{store.store_tag2}}</span>
+                                    <span>{{store.store_tag3}}</span>
+
+
                                 </li>
                             </ul>
                             <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
                         </div>
-                   </div>   <!-- 後端要抓全部total筆數 -->
+                    </div> <!-- 後端要抓全部total筆數 -->
                     <p class="searchTotal">共 <span>{{stores.length}}</span> 筆</p>
-                    <!-- <p class="searchTotal" >共 <span>{{store.length}}</span> 筆</p>      -->
                 </form>
             </div>
+
             <!-- 店家詳細資訊 -->
             <div class="popUps index_inf_popup" v-show="isStoreInf">
                 <form class="form getStoreDigitalInf" action="">
@@ -146,71 +155,81 @@
                         <img src="./img/icon/icon_search.png" alt="" @click="searchSomething">
                     </div>
                     <!-- 店家基本資訊 -->
-                    <div class="storeInf">
+                    <div class="storeInf" v-if="storeDetail">
                         <div class="storeInf_title">
-                            <img class="storeInf_title_like" @click="toCollect" :style="collectionClass" src="./img/icon/icon_heart.png" alt="">
+                            <img class="storeInf_title_like" @click="toCollect" :style="collectionClass"
+                                src="./img/icon/icon_heart.png" alt="">
                             <div>
-                                <h2 class="storeInf_title_name">{{storeDetail.Name}}</h2>
+                                <h2 class="storeInf_title_name">{{storeDetail.store_name}}</h2>
                                 <!-- <h2 class="storeInf_title_name">{{store.name}}</h2> -->
-                                <div class="getStoreInf_star"> 
+                                <div class="getStoreInf_star">
                                     <div v-for="star in storeDetail.Stars"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in getDarkStars(storeDetail.Stars)"><img src="./img/icon/icon_star_default.png" alt=""></div>
+                                    <div v-for="darkStar in getDarkStars(storeDetail.Stars)"><img
+                                            src="./img/icon/icon_star_default.png" alt=""></div>
                                     <!-- <div v-for="star in store.star"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in store.star"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
+                                        <div v-for="darkStar in store.star"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
                                 </div>
                                 <div class="getStoreInf_tag">
-                                    <span>{{storeDetail.Tag}}</span>
-                                      <!-- <span>{{store.tag1}}}</span>
-                                    <span>{{store.tag2}}}</span>
-                                    <span>{{store.tag3}}}</span> -->
+                                    <span>{{storeDetail.store_tag1}}</span>
+                                    <span>{{storeDetail.store_tag2}}</span>
+                                    <span>{{storeDetail.store_tag3}}</span>
+
                                 </div>
-                           </div>
-                           <div class="storeInf_title_warn">
-                                    <img class="storeInf_warnIcon" src="./img/icon/icon_warn.png" alt="" @click="getStoreReported" :style="signOpacity">
+                            </div>
+                            <div class="storeInf_title_warn">
+                                <img class="storeInf_warnIcon" src="./img/icon/icon_warn.png" alt=""
+                                    @click="getStoreReported" :style="signOpacity">
                             </div>
                         </div>
                         <!-- 基本資訊icon     -->
                         <div class="storeInf_section">
                             <ul class="storeInf_sectionIcon">
-                                <li class="sectionIcon sectionIcon_location" :class="{'on' : inf === 'location'}"><img src="./img/icon/icon_location.png" alt=""  @click="inf='location'"></li>
-                                <li class="sectionIcon sectionIcon_mrt" :class="{'on' : inf === 'station'}"><img src="./img/icon/icon_mrt.png" alt="" @click="inf='station'"></li>
-                                <li class="sectionIcon sectionIcon_tel" :class="{'on' : inf === 'phone'}"><img src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
-                                <li class="sectionIcon sectionIcon_price" :class="{'on' : inf === 'price'}"><img src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
+                                <li class="sectionIcon sectionIcon_location" :class="{'on' : inf === 'location'}"><img
+                                        src="./img/icon/icon_location.png" alt="" @click="inf='location'"></li>
+                                <li class="sectionIcon sectionIcon_mrt" :class="{'on' : inf === 'station'}"><img
+                                        src="./img/icon/icon_mrt.png" alt="" @click="inf='station'"></li>
+                                <li class="sectionIcon sectionIcon_tel" :class="{'on' : inf === 'phone'}"><img
+                                        src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
+                                <li class="sectionIcon sectionIcon_price" :class="{'on' : inf === 'price'}"><img
+                                        src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
                             </ul>
-                            <component :Address='storeDetail.Address' :Station='storeDetail.Station' :Phone='storeDetail.Phone' :Price='storeDetail.Price' :is="inf"></component>
+                            <component :Address='storeDetail.store_address' :Station='storeDetail.station_name'
+                                :Phone='storeDetail.store_tel' :Price='storeDetail.price_interval' :is="inf"></component>
                         </div>
                         <!-- 店家照片 -->
-                        <div class="storeInf_pic slider">
-                            <div class="slider-for">
-                                <img src="./img/index/storePic2.jpeg" alt="">
-                                <img src="./img/index/storePic2.jpeg" alt="">
-                                <img src="./img/index/storePic3.jpeg" alt="">
-                                <img src="./img/index/storePic3.jpeg" alt="">
+                            <div class="storeInf_pic slider">
+                                <div class="slider-for">
+                                    <img src="./img/index/storePic2.jpeg" alt="">
+                                    <img src="./img/index/storePic2.jpeg" alt="">
+                                    <img src="./img/index/storePic3.jpeg" alt="">
+                                    <img src="./img/index/storePic3.jpeg" alt="">
+                                </div>
+                                <div class="slider-nav">
+                                    <img src="./img/index/storePic2.jpeg" alt="">
+                                    <img src="./img/index/storePic2.jpeg" alt="">
+                                    <img src="./img/index/storePic3.jpeg" alt="">
+                                    <img src="./img/index/storePic3.jpeg" alt="">
+                                </div>
                             </div>
-                            <div class="slider-nav">
-                                <img src="./img/index/storePic2.jpeg" alt="">
-                                <img src="./img/index/storePic2.jpeg" alt="">
-                                <img src="./img/index/storePic3.jpeg" alt="">
-                                <img src="./img/index/storePic3.jpeg" alt="">
-                            </div>
+                        
                             <!-- <img class="storeInf_picMain" src="./img/index/storeMainPic.jpeg" alt="">
-                            <div class="storeInf_picSection"> -->
-                                <!-- <img src="./img/index/storePic2.jpeg" alt="">
-                                <img src="./img/index/storePic2.jpeg" alt="">
-                                <img src="./img/index/storePic3.jpeg" alt="">
-                                <img src="./img/index/storePic3.jpeg" alt=""> -->
-                                <!-- <img :src="store.image1" alt="">
-                                <img :src="store.image2" alt="">
-                                <img :src="store.image3" alt="">
-                                <img :src="store.image4" alt=""> -->
+                                <div class="storeInf_picSection"> -->
+                            <!-- <img src="./img/index/storePic2.jpeg" alt="">
+                                    <img src="./img/index/storePic2.jpeg" alt="">
+                                    <img src="./img/index/storePic3.jpeg" alt="">
+                                    <img src="./img/index/storePic3.jpeg" alt=""> -->
+                            <!-- <img :src="store.image1" alt="">
+                                    <img :src="store.image2" alt="">
+                                    <img :src="store.image3" alt="">
+                                    <img :src="store.image4" alt=""> -->
                             <!-- </div> -->
-    
-                        </div>
+
+                    
                         <!-- 評論 -->
                         <div class="storeInf_comment">
                             <h2>評論</h2>
-                            <div class="storeInf_comments" v-for="comment in storeDetail.Comments" >
-                            <!-- <div class="storeInf_comments" v-for="comment in comments"> -->
+                            <div class="storeInf_comments" v-for="comment in storeDetail.Comments">
+                                <!-- <div class="storeInf_comments" v-for="comment in comments"> -->
                                 <ul class="storeInf_commentMain">
                                     <li class="commentMain_account">
                                         <img src="./img/index/account.png" alt="">
@@ -218,12 +237,14 @@
                                         <p>{{comment.MemberID}}</p>
                                         <!-- <p>{{store.commentMember}}</p> -->
                                     </li>
-                                    
+
                                     <li class="commentMain_star">
-                                        <div v-for="star in comment.MemberStar"><img src="./img/icon/icon_star.png" alt=""></div>
-                                        <div v-for="darkStar in 5-comment.MemberStar"><img src="./img/icon/icon_star_default.png" alt=""></div>
+                                        <div v-for="star in comment.MemberStar"><img src="./img/icon/icon_star.png" alt="">
+                                        </div>
+                                        <div v-for="darkStar in 5-comment.MemberStar"><img
+                                                src="./img/icon/icon_star_default.png" alt=""></div>
                                         <!-- <div v-for="star in store.commentStar"><img src="./img/icon/icon_star.png" alt=""></div>
-                                        <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
+                                            <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
                                     </li>
 
                                     <li class="commentMain_comment">
@@ -231,12 +252,12 @@
                                         <!-- <p>{{store.comment}}</p> -->
                                     </li>
                                 </ul>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                     <!-- 優惠券 -->
                     <div class="btn storeInf_btn">
-                        <input   v-model="coupon" class="getCouponBtn btn_submit" @click="getCoupon"/>
+                        <input v-model="coupon" class="getCouponBtn btn_submit" @click="getCoupon" @click="loginCheck" />
                     </div>
                     <br />
                 </form>
@@ -251,644 +272,763 @@
                     <div class="reportReason">
                         <img src="./img/index/warn2.png" alt="">
                         <h2>檢舉原因:</h2>
-                        <textarea class="reportReason_text" name="" id="" cols="30" rows="5" v-model="report" placeholder="請留下原因 管理員會盡快處理！"></textarea>
+                        <textarea class="reportReason_text" name="" id="" cols="30" rows="5" v-model="report"
+                            placeholder="請留下原因 管理員會盡快處理！"></textarea>
                     </div>
                     <div class="reportBtn btn">
-                        <input  @click='sendReport' value="檢舉" class="getReportBtn btn_submit" />
+                        <input @click='sendReport' value="檢舉" class="getReportBtn btn_submit" />
                     </div>
-              
+
                 </form>
             </div>
         </div>
         @@include('layout/footer.html')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>        
-    <script>
-        const bus = new Vue();
-        Vue.component('popup-1',{
-            props: [''],
-            template: `
-                <div class="popUps index_whatToEat_popup 1">
-                    <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close">
-                            <img src="./img/icon/icon_close_20.png" alt="" @click='closeForm'>
-                        </button>
-                        <h1>今天吃什麼</h1>
-                        <h2>Q1:請選擇符合你心情的顏色</h2>
-                        <input  @click="showList" type="text" class="myOptions" v-model="selectedOption">
-                        <img class="whatToEat_q_arrow" @click="showList" src="./img/icon/icon_next_line.png" alt="">
+        <script>
+            var abcd={};
+            const bus = new Vue();
+            Vue.component('popup-1', {
+                props: [''],
+                template: `
+                    <div class="popUps index_whatToEat_popup 1">
+                        <form class="form whatToEat_q" action="">
+                            <button type="button" class="whatToEatClose btn_close">
+                                <img src="./img/icon/icon_close_20.png" alt="" @click='closeForm'>
+                            </button>
+                            <h1>今天吃什麼</h1>
+                            <h2>Q1:請選擇符合你心情的顏色</h2>
+                            <input  @click="showList" type="text" class="myOptions" v-model="selectedOption">
+                            <img class="whatToEat_q_arrow" @click="showList" src="./img/icon/icon_next_line.png" alt="">
+                                <ul v-show="isOption" class="select_options" id="options">
+                                    <li v-for="color in mrtColor" @click="getOption(color)">{{color}}</li>
+                                </ul>
+                                <div v-show="warn" class="questionWarn">
+                                    <img src="./img/index/warn.png" alt="">
+                                    <p> 請完成作答</p>
+                                </div>
+                            <div class="btn">
+                                <input  value="下一題" class="whatBtnNext btn_submit" @click="getNext" />
+                            </div>
+                            
+                        </form>
+                    </div>
+                `,
+                data() {
+                    return {
+                        selectedOption: '',
+                        mrtColor: ['藍色', '紅色', '綠色', '棕色', '黃色'],
+                        isOption: false,
+                        warn: false,
+                    };
+                },
+                mounted() {
+                    bus.$on('clear-input-emit', () => this.selectedOption = '');
+                },
+                methods: {
+                    showList() {
+                        this.isOption = !this.isOption;
+                    },
+                    getOption(color) {
+                        this.selectedOption = color;
+                        this.isOption = false;
+                        this.$emit('answer-emit', color);
+                        this.warn = false;
+                    },
+                    getNext() {
+                        //  判斷有沒有值可進到下一題
+                        if (this.selectedOption !== '') {
+                            this.$emit('next-emit');
+                        } else {
+                            this.warn = true;
+                        }
+                    },
+                    closeForm() {
+                        this.$emit('close-emit');
+                        bus.$emit('clear-input-emit')
+                        this.warn = false;
+                    },
+    
+                },
+            });
+            Vue.component('popup-2', {
+                props: [''],
+                template: `
+                    <div class="popUps index_whatToEat_popup 2">
+                        <form class="form whatToEat_q" action="">
+                            <button type="button" class="whatToEatClose btn_close">
+                                <img src="./img/icon/icon_close_20.png" alt="" @click='closeForm'>
+                            </button>
+                            <h1>今天吃什麼</h1>
+                            <h2>Q2:請選擇你的口味偏好</h2>
+                            <input  @click="showList" type="text" v-model="selectedOption" class="myOptions">
+                            <img class="whatToEat_q_arrow" @click="showList" src="./img/icon/icon_next_line.png" alt="">
                             <ul v-show="isOption" class="select_options" id="options">
-                                <li v-for="color in mrtColor" @click="getOption(color)">{{color}}</li>
+                                <li v-for="favor in favors" @click='getOption(favor)'>{{favor}}</li>
                             </ul>
                             <div v-show="warn" class="questionWarn">
                                 <img src="./img/index/warn.png" alt="">
                                 <p> 請完成作答</p>
                             </div>
-                        <div class="btn">
-                            <input  value="下一題" class="whatBtnNext btn_submit" @click="getNext" />
-                        </div>
-                        
-                    </form>
-                </div>
-            `,
-            data(){
-                return {
-                    selectedOption:'',
-                    mrtColor: ['藍色','紅色','綠色','棕色','黃色'],
-                    isOption:false,
-                    warn:false,
-                };
-            },
-            mounted() {
-                bus.$on('clear-input-emit', () => this.selectedOption ='' ); 
-            },
-            methods: {
-                showList(){
-                    this.isOption = !this.isOption;  
+    
+                            
+                            <div class="btn">
+                                <input  value="上一題" class="whatBtnPre btn_d btn_submit" @click="getPre">
+                                <input  value="下一題" class="whatBtnNext btn_submit" @click="getNext">
+                            </div>
+                            
+                        </form>
+                    </div>
+                `,
+                data() {
+                    return {
+                        selectedOption: '',
+                        favors: ['我吃重鹹', '無辣不歡', '健康路線', '甜食螞蟻'],
+                        isOption: false,
+                        warn: false,
+    
+                    };
                 },
-                getOption(color){
-                    this.selectedOption= color;
-                    this.isOption=false;
-                    this.$emit('answer-emit',color);
-                    this.warn = false;
+                mounted() {
+                    bus.$on('clear-input-emit', () => this.selectedOption = '');
                 },
-                getNext(){
-                    //  判斷有沒有值可進到下一題
-                    if(this.selectedOption !== ''){
-                        this.$emit('next-emit');
-                    }else{
-                        this.warn = true;
+                methods: {
+                    showList() {
+                        this.isOption = !this.isOption;
+                    },
+                    getOption(favor) {
+                        this.selectedOption = favor;
+                        this.isOption = false;
+                        this.$emit('answer-emit', favor);
+                        this.warn = false;
+                    },
+                    getNext() {
+                        if (this.selectedOption !== '') {
+                            this.$emit('next-emit');
+                        } else {
+                            this.warn = true;
+                        }
+                    },
+                    getPre() {
+                        this.$emit('pre-emit');
+                    },
+                    closeForm() {
+                        this.$emit('close-emit');
+                        bus.$emit('clear-input-emit');
+                        this.warn = false;
                     }
                 },
-                closeForm(){
-                    this.$emit('close-emit');
-                    bus.$emit('clear-input-emit')
-                    this.warn=false;
+            });
+            Vue.component('popup-3', {
+                props: [''],
+                template: `
+                    <div class="popUps index_whatToEat_popup 3">
+                        <form class="form whatToEat_q" action="">
+                            <button type="button" class="whatToEatClose btn_close" @click='closeForm'>
+                                <img src="./img/icon/icon_close_20.png" alt="">
+                            </button>
+                            <h1>今天吃什麼</h1>
+                            <h2>Q3:你現在想去的國家</h2>
+                            <input  @click="showList" type="text" v-model="selectedOption" class="myOptions">
+                            <img class="whatToEat_q_arrow" @click="showList" src="./img/icon/icon_next_line.png" alt="">
+                            <ul v-show="isOption" class="select_options" id="options">
+                                <li v-for="country in countrys" @click='getOption(country)'>{{country}}</li>
+                            </ul>
+                            <div v-show="warn" class="questionWarn">
+                                <img src="./img/index/warn.png" alt="">
+                                <p> 請完成作答</p>
+                            </div>
+    
+                            <div class="btn">
+                                <input  value="上一題" class="whatBtnPre btn_d btn_submit" @click="getPre">
+                                <input  value="下一題" class="whatBtnNext btn_submit" @click="getNext" >
+                            </div>
+                            
+                        </form>
+                    </div>
+                `,
+                data() {
+                    return {
+                        selectedOption: '',
+                        countrys: ['日本', '義大利', '美國', '留在台灣'],
+                        isOption: false,
+                        warn: false,
+                    };
                 },
-                
-            },    
-        });
-        Vue.component('popup-2',{
-            props: [''],
-            template: `
-                <div class="popUps index_whatToEat_popup 2">
-                    <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close">
-                            <img src="./img/icon/icon_close_20.png" alt="" @click='closeForm'>
-                        </button>
-                        <h1>今天吃什麼</h1>
-                        <h2>Q2:請選擇你的口味偏好</h2>
-                        <input  @click="showList" type="text" v-model="selectedOption" class="myOptions">
-                        <img class="whatToEat_q_arrow" @click="showList" src="./img/icon/icon_next_line.png" alt="">
-                        <ul v-show="isOption" class="select_options" id="options">
-                            <li v-for="favor in favors" @click='getOption(favor)'>{{favor}}</li>
-                        </ul>
-                        <div v-show="warn" class="questionWarn">
-                            <img src="./img/index/warn.png" alt="">
-                            <p> 請完成作答</p>
-                        </div>
-
-                        
-                        <div class="btn">
-                            <input  value="上一題" class="whatBtnPre btn_d btn_submit" @click="getPre">
-                            <input  value="下一題" class="whatBtnNext btn_submit" @click="getNext">
-                        </div>
-                        
-                    </form>
-                </div>
-            `,
-            data(){
-                return {
-                    selectedOption:'',
-                    favors:['我吃重鹹','無辣不歡','健康路線','甜食螞蟻'],
-                    isOption:false,
-                    warn:false,
-
-                };
-            },
-            mounted() {
-                bus.$on('clear-input-emit', () => this.selectedOption ='' ); 
-            },
-            methods: {
-                showList(){
-                    this.isOption = !this.isOption;  
+                mounted() {
+                    bus.$on('clear-input-emit', () => this.selectedOption = '');
                 },
-                getOption(favor){
-                    this.selectedOption= favor;
-                    this.isOption=false;
-                    this.$emit('answer-emit',favor);
-                    this.warn = false;
-                },
-                getNext(){
-                    if(this.selectedOption !== ''){
-                        this.$emit('next-emit');
-                    }else{
-                        this.warn = true;
+                methods: {
+                    showList() {
+                        this.isOption = !this.isOption;
+                    },
+                    getOption(country) {
+                        this.selectedOption = country;
+                        this.isOption = false;
+                        this.$emit('answer-emit', country);
+                        this.warn = false;
+                    },
+                    getNext() {
+                        if (this.selectedOption !== '') {
+                            this.$emit('next-emit');
+                        } else {
+                            this.warn = true;
+                        }
+                    },
+                    getPre() {
+                        this.$emit('pre-emit');
+                    },
+                    closeForm() {
+                        this.$emit('close-emit');
+                        bus.$emit('clear-input-emit');
+                        this.warn = false;
                     }
+    
                 },
-                getPre(){
-                    this.$emit('pre-emit');
+            });
+            Vue.component('popup-4', {
+                props: [],
+                template: `
+                    <div class="popUps index_whatToEat_popup 4">
+                        <form class="form whatToEat_q" action="">
+                            <button type="button" class="whatToEatClose btn_close" @click='closeForm'>
+                                <img src="./img/icon/icon_close_20.png" alt="">
+                            </button>
+                            <h1>今天吃什麼</h1>
+                            <h2>Q4:你的感情狀態</h2>
+                            <input  @click="showList" type="text" v-model="selectedOption" class="myOptions">
+                            <img class="whatToEat_q_arrow" @click="showList" src="./img/icon/icon_next_line.png" alt="">
+                            <ul v-show="isOption" class="select_options" id="options">
+                                <li v-for="feeling in emotion" @click='getOption(feeling)'>{{feeling}}</li>
+                            </ul>
+                            <div v-show="warn" class="questionWarn">
+                                <img src="./img/index/warn.png" alt="">
+                                <p> 請完成作答</p>
+                            </div>
+    
+                            <div class="buttonArea">
+                                <input  value="上一題" class="whatBtnPre btn_d btn_submit"  @click="getPre">
+                                <input  value="看結果" class="whatBtnNext btn_d btn_submit" @click="callAjax">
+                            </div>
+                            
+                        </form>
+                    </div>
+                `,
+                data() {
+                    return {
+                        selectedOption: '',
+                        emotion: ['曖昧讓人受盡委屈', '孤獨萬歲', '失戀無罪', '戀愛i-n-g'],
+                        isOption: false,
+                        warn: false,
+    
+                    };
                 },
-                closeForm(){
-                    this.$emit('close-emit');
-                    bus.$emit('clear-input-emit');
-                    this.warn=false;
-                }
-            },    
-        });
-        Vue.component('popup-3',{
-            props: [''],
-            template: `
-                <div class="popUps index_whatToEat_popup 3">
-                    <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close" @click='closeForm'>
-                            <img src="./img/icon/icon_close_20.png" alt="">
-                        </button>
-                        <h1>今天吃什麼</h1>
-                        <h2>Q3:你現在想去的國家</h2>
-                        <input  @click="showList" type="text" v-model="selectedOption" class="myOptions">
-                        <img class="whatToEat_q_arrow" @click="showList" src="./img/icon/icon_next_line.png" alt="">
-                        <ul v-show="isOption" class="select_options" id="options">
-                            <li v-for="country in countrys" @click='getOption(country)'>{{country}}</li>
-                        </ul>
-                        <div v-show="warn" class="questionWarn">
-                            <img src="./img/index/warn.png" alt="">
-                            <p> 請完成作答</p>
-                        </div>
-
-                        <div class="btn">
-                            <input  value="上一題" class="whatBtnPre btn_d btn_submit" @click="getPre">
-                            <input  value="下一題" class="whatBtnNext btn_submit" @click="getNext" >
-                        </div>
-                        
-                    </form>
-                </div>
-            `,
-            data(){
-                return {
-                    selectedOption:'',
-                    countrys:['日本','義大利','美國','留在台灣'],
-                    isOption:false,
-                    warn:false,
-                };
-            },
-            mounted() {
-                bus.$on('clear-input-emit', () => this.selectedOption ='' ); 
-            },
-            methods: {
-                showList(){
-                    this.isOption = !this.isOption;  
-                },
-                getOption(country){
-                    this.selectedOption= country;
-                    this.isOption=false;
-                    this.$emit('answer-emit',country);
-                    this.warn = false;
-                },
-                getNext(){
-                    if(this.selectedOption !== ''){
-                        this.$emit('next-emit');
-                    }else{
-                        this.warn = true;
+                methods: {
+                    showList() {
+                        this.isOption = !this.isOption;
+                    },
+                    getOption(feeling) {
+                        this.selectedOption = feeling;
+                        this.isOption = false;
+                        this.$emit('answer-emit', feeling);
+                        this.warn = false;
+                    },
+    
+                    getPre() {
+                        this.$emit('pre-emit');
+                    },
+                    callAjax() {
+                        if (this.selectedOption !== '') {
+                            this.$emit('next-emit');
+                            this.$emit('call-ajax-emit');
+                            bus.$emit('clear-input-emit')
+    
+                        } else {
+                            this.warn = true;
+                        }
+    
+    
+                    },
+                    closeForm() {
+                        this.$emit('close-emit');
+                        bus.$emit('clear-input-emit');
+                        this.warn = false;
                     }
+    
                 },
-                getPre(){
-                    this.$emit('pre-emit');
+            });
+            Vue.component('popup-5', {
+                props: [],
+                template: `
+                    <div class="popUps index_whatToEat_popup 5">
+                        <form class="form whatToEat_q" action="">
+                            <button type="button" class="whatToEatClose btn_close" @click='closeForm'>
+                                <img src="./img/icon/icon_close_20.png" alt="">
+                            </button>
+                            <h1>今天吃什麼</h1>
+                            <h2>適合你的食物是</h2>
+                            <input type="text"  class="myOptions" disabled="disabled" value="" placeholder="後端撈出來食物">    
+                            <div class="whatBtn buttonArea">
+                                <input  value="再一次" class="whatBtnAgain btn_d btn_submit" @click="getAgain" >
+                                <input  value="哪裡有" class=" getWhatBtn btn_d btn_submit"  @click="getStores">
+                            </div>
+                        </form>
+                    </div>
+                `,
+                data() {
+                    return {
+    
+                    };
                 },
-                closeForm(){
-                    this.$emit('close-emit');
-                    bus.$emit('clear-input-emit');
-                    this.warn=false;
-                }
-              
-            },    
-        });
-        Vue.component('popup-4',{
-            props: [],
-            template: `
-                <div class="popUps index_whatToEat_popup 4">
-                    <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close" @click='closeForm'>
-                            <img src="./img/icon/icon_close_20.png" alt="">
-                        </button>
-                        <h1>今天吃什麼</h1>
-                        <h2>Q4:你的感情狀態</h2>
-                        <input  @click="showList" type="text" v-model="selectedOption" class="myOptions">
-                        <img class="whatToEat_q_arrow" @click="showList" src="./img/icon/icon_next_line.png" alt="">
-                        <ul v-show="isOption" class="select_options" id="options">
-                            <li v-for="feeling in emotion" @click='getOption(feeling)'>{{feeling}}</li>
-                        </ul>
-                        <div v-show="warn" class="questionWarn">
-                            <img src="./img/index/warn.png" alt="">
-                            <p> 請完成作答</p>
-                        </div>
-
-                        <div class="buttonArea">
-                            <input  value="上一題" class="whatBtnPre btn_d btn_submit"  @click="getPre">
-                            <input  value="看結果" class="whatBtnNext btn_d btn_submit" @click="callAjax">
-                        </div>
-                        
-                    </form>
-                </div>
-            `,
-            data(){
-                return {
-                    selectedOption:'',
-                    emotion:['曖昧讓人受盡委屈','孤獨萬歲','失戀無罪','戀愛i-n-g'],
-                    isOption:false,
-                    warn:false,
-
-                };
-            },
-            methods: {
-                showList(){
-                    this.isOption = !this.isOption;  
-                },
-                getOption(feeling){
-                    this.selectedOption=feeling;
-                    this.isOption=false;
-                    this.$emit('answer-emit',feeling);
-                    this.warn = false;
-                },
-             
-                getPre(){
-                    this.$emit('pre-emit');
-                },
-                callAjax(){
-                    if(this.selectedOption !== ''){
-                        this.$emit('next-emit');
-                        this.$emit('call-ajax-emit');
+                methods: {
+    
+                    getAgain() {
+                        this.$emit('again-emit');
+                    },
+                    closeForm() {
+                        this.$emit('close-emit');
                         bus.$emit('clear-input-emit')
-        
-                    }else{
-                        this.warn = true;
+    
+                    },
+                    getStores() {
+                        this.$emit('close-emit');
+                        this.$emit('store-emit');
                     }
-                    
-                    
+    
                 },
-                closeForm(){
-                    this.$emit('close-emit');
-                    bus.$emit('clear-input-emit');
-                    this.warn=false;
-                }
+            });
+    
+            Vue.component('location', {
+                props: ['Address', 'Station', 'Phone', 'Price'],
+                template: `
+                <p class="sectionIconInf">{{Address}}</p>
+                `,
+                data() {
+                    return {
+                    };
+                },
+                mounted() {
+                },
+                methods: {
+                    // getInf(){
+                    //     this.$emit('storeinf-emit');
+                    // },
+                },
+            });
+            Vue.component('station', {
+                props: ['Address', 'Station', 'Phone', 'Price'],
+                template: `
+                <p class="sectionIconInf">{{Station}}</p>
+                `,
+            });
+            Vue.component('phone', {
+                props: ['Address', 'Station', 'Phone', 'Price'],
+                template: `
+                <p class="sectionIconInf">{{Phone}}</p>
+                `,
+            });
+            Vue.component('price', {
+                props: ['Address', 'Station', 'Phone', 'Price'],
+                template: `
+                <p class="sectionIconInf">{{Price}}</p>
+                `,
+            });
+            //search
+            new Vue({
+                el: '#app_index',
+                data: {
+                    choices: [],//whatToEat答案
+                    isSearchBoard: false,
+                    isWhatToEat:true,
+                    isShowLine: false,
+                    mrtLine: ['板南線', '淡水信義線', '松山新店線', '文湖線', '中和新蘆線'],
+                    searchLine: '',
+                    findFood: '',
+                    searchTags: '',
+                    isShowTag: false,
+                    tags: ['日式', '韓式', '美式', '義式', '台式', '法式', '中式', '夜市', '商業午餐', '早午餐', '下午茶', '銅板美食', '簡餐', '聚餐', '餐酒館', '咖啡店', '甜點', '麵食', '鹽酥雞', '雞排', '咖哩', '火鍋', '牛排', '拉麵', '鐵板燒'],
+                    isTyped: false,
+                    content: '',//question compoment
+                    isSearchStores: false,
+                    isStoreInf: false,
+                    stores: [],//ajax
+                    isSearchNothing: false,
+                    isSearchReport: false,
+                    heartGrayscale: 1,
+                    warnOpacity: 0.5,
+                    coupon: '領取優惠',
+                    report: '',
+                    inf: '',
+                    infoOpacity: 1,
+                    storeDetail: null,
+                },
+                methods: {
+                    //whatToEat
+                    nextQ() {
+                        this.content = String(parseInt(this.content) + 1);
+                    },
+                    preQ() {
+                        this.content = String(parseInt(this.content) - 1);
+                    },
+                    answerQ(selected) {
+                        let index = parseInt(this.content) - 1;
+                        this.choices[index] = selected;
+                        console.log(this.choices);
+                    },
+                    callAjaxQ() {
+                        console.log(this.choices);
+                        alert('send To Backend');
+    
+                        //choices=['藍色',a,b]
+    
+                        this.choices[0] = this.choices[0][0];
+    
+                        switch (this.choices[2]) {
+                            case '義大利':
+                                this.choices[2] = '義式';
+                            case '美國':
+                                this.choices[2] = '美式';
+                            case '留在台灣':
+                                this.choices[2] = '台式';
+                            case '日本':
+                                this.choices[2] = '日式';
+                        }
+                        alert(this.choices);
+    
+                        //清空每個問題
+                        //this.choices =['','','',''];
+    
+                    },
+                    closeQ() {
+                        this.content = '';
+                        this.choices = ['', '', '', ''];
+                    },
+                    againQ() {
+                        this.content = '1';
+                        this.choices = ['', '', '', ''];
+                    },
               
-            },    
-        });
-        Vue.component('popup-5',{
-            props: [],
-            template: `
-                <div class="popUps index_whatToEat_popup 5">
-                    <form class="form whatToEat_q" action="">
-                        <button type="button" class="whatToEatClose btn_close" @click='closeForm'>
-                            <img src="./img/icon/icon_close_20.png" alt="">
-                        </button>
-                        <h1>今天吃什麼</h1>
-                        <h2>適合你的食物是</h2>
-                        <input type="text"  class="myOptions" disabled="disabled" value="" placeholder="後端撈出來食物">    
-                        <div class="whatBtn buttonArea">
-                            <input  value="再一次" class="whatBtnAgain btn_d btn_submit" @click="getAgain" >
-                            <input  value="哪裡有" class=" getWhatBtn btn_d btn_submit"  @click="getStores">
-                        </div>
-                    </form>
-                </div>
-            `,
-            data(){
-                return {
-                
-                };
-            },
-            methods: {
-           
-                getAgain(){
-                    this.$emit('again-emit');
-                },
-                closeForm(){
-                    this.$emit('close-emit');
-                    bus.$emit('clear-input-emit')
-
-                },
-                getStores(){
-                    this.$emit('close-emit');
-                    this.$emit('store-emit');
-                }
-              
-            },    
-        });
-       
-        Vue.component('location',{
-            props: ['Address','Station','Phone','Price'],
-            template: `
-            <p class="sectionIconInf">{{Address}}</p>
-            `,
-            data(){
-                return {
-                };
-            },
-            mounted() {
-            },
-            methods: {
-                // getInf(){
-                //     this.$emit('storeinf-emit');
-                // },
-            },    
-        });
-        Vue.component('station',{
-            props: ['Address','Station','Phone','Price'],
-            template: `
-            <p class="sectionIconInf">{{Station}}</p>
-            `,
-        });
-        Vue.component('phone',{
-            props: ['Address','Station','Phone','Price'],
-            template: `
-            <p class="sectionIconInf">{{Phone}}</p>
-            `,
-        });
-        Vue.component('price',{
-            props: ['Address','Station','Phone','Price'],
-            template: `
-            <p class="sectionIconInf">{{Price}}</p>
-            `,
-        });
-        //search
-        new Vue({
-            el: '#app_index',
-            data: {
-                choices:[],//whatToEat答案
-                isSearchBoard:false,
-                isShowLine:false,
-                mrtLine:['板南線','淡水信義線','松山新店線','文湖線','中和新蘆線'],
-                searchLine:'',
-                findFood:'',
-                searchTags:'',
-                isShowTag:false,                                                                               						
-                tags:['#日式','#韓式','#美式','#義式','#台式','#法式','#中式','#夜市','#商業午餐','#早午餐','#下午茶','#銅板美食','#簡餐','#聚餐','#餐酒館','#咖啡店','#甜點','#麵食','#鹽酥雞','#雞排','#咖哩','#火鍋','#牛排','#拉麵','#鐵板燒'],
-                isTyped:false,
-                content:'',//question compoment
-                isSearchStores:false,
-                isStoreInf:false,
-                stores: [],//ajax
-                isSearchNothing:false,
-                isSearchReport:false,
-                heartGrayscale:1,
-                warnOpacity:0.5,
-                coupon:'領取優惠',
-                report:'',
-                inf:'',
-                infoOpacity:1,
-                storeDetail:'',
-                comments:[{MemberID:'abby520',MemberStar:3,Comment:'我覺得很好吃店員很帥想嫁'},
-                         {MemberID:'SexFat',MemberStar:5,Comment:'店員很正請嫁給我'}, 
-                         {MemberID:'abc123',MemberStar:4,Comment:'good good eat'}, 
-                         {MemberID:'tony1112',MemberStar:1,Comment:'so bad'}, 
-                         {MemberID:'snoopy001',MemberStar:5,Comment:'love it'}, 
-                         {MemberID:'qq12345',MemberStar:2,Comment:'好吃店'}],
-                comments1:[{MemberID:'abby520',MemberStar:3,Comment:'aaa'},
-                         {MemberID:'SexFat',MemberStar:5,Comment:'aaa'}, 
-                         {MemberID:'abc123',MemberStar:4,Comment:'good good eat'}, 
-                         {MemberID:'tony1112',MemberStar:1,Comment:'so bad'}, 
-                         {MemberID:'snoopy001',MemberStar:5,Comment:'love it'}, 
-                         {MemberID:'qq12345',MemberStar:2,Comment:'好吃店'}],
-                comments2:[{MemberID:'abby520',MemberStar:3,Comment:'bbb'},
-                         {MemberID:'SexFat',MemberStar:5,Comment:'bbb'}, 
-                         {MemberID:'abc123',MemberStar:4,Comment:'good good eat'}, 
-                         {MemberID:'tony1112',MemberStar:1,Comment:'so bad'}, 
-                         {MemberID:'snoopy001',MemberStar:5,Comment:'love it'}, 
-                         {MemberID:'qq12345',MemberStar:2,Comment:'好吃店'}],
-
-            },
-            methods: { 
-                //whatToEat
-                nextQ(){
-                    this.content = String(parseInt(this.content)+1);
-                },
-                preQ(){
-                    this.content = String(parseInt(this.content)-1);
-                },
-                answerQ(selected){
-                    let index = parseInt(this.content)-1;
-                    this.choices[index] = selected;
-                    console.log(this.choices);
-                },
-                callAjaxQ(){
-                    console.log(this.choices);
-                    alert('send To Backend');
-
-                    //choices=['藍色',a,b]
-                    
-                    this.choices[0]=this.choices[0][0];
-
-                    switch(this.choices[2]){
-                        case'義大利':
-                        this.choices[2]='義式';
-                        case'美國':
-                        this.choices[2]='美式';
-                        case'留在台灣':
-                        this.choices[2]='台式';
-                        case'日本':
-                        this.choices[2]='日式';
-                    }
-                    alert(this.choices);
-
-                    //清空每個問題
-                    //this.choices =['','','',''];
-
-                },
-                closeQ(){
-                    this.content = '';
-                    this.choices =['','','',''];
-                },
-                againQ(){
-                    this.content = '1';
-                    this.choices =['','','',''];
-                },
-                //search
-                closeSearch(number){
-                    if(number == 1){
-                        this.isSearchBoard = false;
-                        this.searchLine = '';
-                        this.findFood = '';
-                        this.searchTags ='';
-                        this.isSearchNothing=false;
-                    }else if(number == 2){
-                        this.isSearchStores = false;
-                        this.findFood = '';
-
-                    }else if(number == 3){
-                        this.isStoreInf = false;
-                        this.findFood = '';
-                    }else if(number == 4){
+                    //search
+                    closeSearch(number) {
+                        if (number == 1) {
+                            this.isSearchBoard = false;
+                            this.searchLine = '';
+                            this.findFood = '';
+                            this.searchTags = '';
+                            this.isSearchNothing = false;
+                        } else if (number == 2) {
+                            this.isSearchStores = false;
+                            this.findFood = '';
+    
+                        } else if (number == 3) {
+                            this.isStoreInf = false;
+                            this.findFood = '';
+                        } else if (number == 4) {
+                            this.isShowTag = false;
+                        } else if (number == 5) {
+                            this.isSearchReport = false;
+                            this.warnOpacity = 0.5;
+                        }
+    
+                    },
+                    show() {
+                        this.optionList = !this.optionList;
+                    },
+                    closeSearchBoard(){
+                        if(this.content=1){
+                            this.isSearchBoard = false;
+                        }
+                    },
+                    //打開搜尋彈窗
+                    searchIcon() {
+                        this.isSearchBoard = !this.isSearchBoard;
+                        // if(this.isSearchBoard === true){
+                        //     this.isWhatToEat = false
+                        // }
+                        this.content ="";
+                    },
+                    //捷運線選單
+    
+                    showLine() {
+                        this.isShowLine = !this.isShowLine;
+                    },
+                    myline(line) {
+                        this.searchLine = line;
+                        this.isShowLine = false;
+                        this.isSearchNothing = false;
+                    },
+                    myTag(tag) {
+                        this.searchTags = tag;
                         this.isShowTag = false;
-                    }else if(number == 5){
+                    },
+                    showTag(number) {
+                        if (number == 3 && this.findFood == '') {
+                            this.isShowTag = !this.isShowTag;
+                            this.isSearchNothing = false;
+                        }
+                        if (number == 1) {
+                            this.searchTags = '';
+                            this.isSearchNothing = false;
+                        }
+                    },
+    
+                    searchFood() {
+                        if (this.findFood != '' || this.searchTags != '' || this.searchLine != '') {
+                            let data1=this.findFood;
+                            let data2=this.searchLine;
+                            let data3=this.searchTags;
+                            
+                            
+                            this.searchLine = '';
+                            this.findFood = '';
+                            this.searchTags = '';
+                            this.isSearchBoard = false;
+                            this.isSearchStores = true;
+                            this.isSearchNothing = false;
+    
+                            var self = this;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/search.php",
+                                data: {
+                                    //php變數
+                                    searchItem : data1,
+                                    line_name : data2,
+                                    tag_name : data3,
+    
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    // alert(response);
+                                    self.stores = response;
+                                    abcd=response;
+                                    // console.log(response);
+    
+                                },
+                                error: function (exception) {
+                                    alert("發生錯誤: " + exception.status);
+                                }
+                            });
+                            
+    
+    
+    
+                        } else {
+                            this.isSearchNothing = true;
+                        }
+    
+                    },
+                    log(msg){
+                      console.log(msg)  ;
+                    },
+                    showStores() {
+                        this.isSearchStores = true;
+                    },
+                    finalStoreInf(store) {
+                        this.isSearchStores = false;
+                        this.isStoreInf = true;
+                        this.storeDetail = store;
+                        this.$nextTick(()=>{    
+                            slick();
+                        })
+                        
+                    },
+                    searchSomething() {
+                        if (this.findFood != '' && this.findFood != '請輸入食物 站別 店名') {
+                            let data1=this.findFood;
+                            let data2=this.searchLine;
+                            let data3=this.searchTags;
+                            var self = this;
+                            // alert(data1);
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/search.php",
+                                data: {
+                                    //php變數
+                                    searchItem : data1,
+                                    line_name : data2,
+                                    tag_name : data3,
+    
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    // alert(response);
+                                
+                                    self.stores = response;
+                                },
+                                error: function (exception) {
+                                    alert("發生錯誤: " + exception.status);
+                                }
+                            });
+                           
+                            this.isStoreInf = false;
+                            this.isSearchStores = true;
+                            this.findFood = '';
+                            
+    
+                        } else {
+                            this.findFood = '請輸入食物 站別 店名';
+                        }
+                        
+                    },
+                    
+    
+                    getStoreReported() {
+                        this.isSearchReport = true;
+                        this.warnOpacity = 1;
+                    },
+                    sendReport() {
+                        alert('sent to backend');
+                        console.log(this.report);
+                        this.report = '';
                         this.isSearchReport = false;
-                        this.warnOpacity = 0.5;                   
-                    }
+                        this.warnOpacity = 0.5;
+                    },
+                    getCoupon() {
+                        alert('Ajax send to backend');
+                        this.coupon = "領取過了";
+                    },
+                    toCollect() {
+                        if (this.heartGrayscale == 0) {
+                            this.heartGrayscale = 1;
+                            console.log('{{this.store}}');
+                            let storeId=this.storeDetail.store_id;
+                            alert(storeId);
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/RemoveFavorite.php",
+                                data: {
+                                    //php變數
+                                    favorite : storeId
+                                },
+                                dataType: "json",
+                            });
+                            alert('remove from collection')
+                        } else {
+                            console.log('{{this.store}}');
+                            this.heartGrayscale = 0;
+                            //need to change php
+                            let storeId=this.storeDetail.store_id;
+                            alert(storeId);
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/AddFavorite.php",
+                                data: {
+                                    //php變數
+                                    favorite : storeId
+    
+                                },
+                                dataType: "json",
+                            });
+                            alert('send to backend  my collection');
+                        }
+                    },
+                    getDarkStars(lightStars) {
+                        if (lightStars == null) {
+                            return 5;
+                        } else {
+                            return 5 - lightStars;
+                        }
+                    },
+                 
+    
                    
+    
                 },
-                show(){
-                    this.optionList = !this.optionList;  
+                computed: {
+                    findFoodClass() {
+                        return {
+                            noText: this.findFood.length === 0,
+                        }
+                    },
+                    searchLineClass() {
+                        return {
+                            noText: this.searchLine.length === 0,
+                        }
+                    },
+                    searchTagsClass() {
+                        return {
+                            noText: this.searchTags.length === 0,
+                        }
+                    },
+                    collectionClass() {
+                        return {
+                            filter: `grayscale(${this.heartGrayscale})`,
+                        }
+                    },
+                    signOpacity() {
+                        return {
+                            filter: `opacity(${this.warnOpacity})`,
+                        }
+                    },
+                    storeInfOpacity() {
+                        return {
+                            filter: `opacity(${this.infoOpacity})`,
+                        }
+                    },
                 },
-                //打開搜尋彈窗
-                searchIcon(){
-                    this.isSearchBoard = !this.isSearchBoard;  
-                },
-                //捷運線選單
-
-                showLine(){
-                    this.isShowLine = !this.isShowLine;
-                },
-                myline(line){
-                    this.searchLine= line;
-                    this.isShowLine = false;
-                    this.isSearchNothing=false;
-                },
-                myTag(tag){
-                    this.searchTags = tag;
-                    this.isShowTag = false;
-                },
-                showTag(number){
-                    if(number==3 && this.findFood==''){
-                        this.isShowTag = !this.isShowTag;
-                        this.isSearchNothing=false;
-                    }
-                    if(number==1){
-                        this.searchTags='';
-                        this.isSearchNothing=false;
-                    }
-                },
-               
-                searchFood(){
-                    if(this.findFood !=''||this.searchTags !=''||this.searchLine != ''){
-                        this.searchLine = '';
-                        this.findFood = '';
-                        this.searchTags ='';
-                        console.log(this.findFood,this.searchLine,this.searchTags);
-                        this.isSearchBoard = false;
-                        this.isSearchStores = true;
-                        this.isSearchNothing = false; 
-                        alert('Ajax send to backend');
-                        //假資料
-                        let data=[{Comments:this.comments,Name:'AA咖啡廳',Stars:3,Address:'中正路1號',StationColor:'綠',Station:'松江南京',Phone:'021',Price:'100-150',Tag:'#日式＃中式＃韓式'},
-                                    {Comments:this.comments1,Name:'BB咖啡廳',Stars:4,Address:'中正路2號',StationColor:'紅',Station:'信義',Phone:'0212',Price:'150-200',Tag:'#美式＃日式＃韓式'},
-                                    {Comments:this.comments2,Name:'CC咖啡廳',Stars:5,Address:'中正路3號',StationColor:'黃',Station:'忠孝新生',Phone:'02123',Price:'200-250',Tag:'#台式＃英式＃日式'}];
-                        this.stores=data;
-                        
-                        
-                    }else{
-                        this.isSearchNothing =true;                   
-                     }
-                  
-                },
-                showStores(){
-                    this.isSearchStores = true;
-                },
-                finalStoreInf(store){
-                    this.isSearchStores = false;
-                    this.isStoreInf = true;
-                    this.storeDetail = store;
-                },
-                searchSomething(){
-                    if( this.findFood != '' && this.findFood != '請輸入食物'){
-                        alert('Ajax send to backend');
-                        this.isStoreInf = false;
-                        this.isSearchStores = true;
-                        this.findFood = '';
-                    }else{
-                        this.findFood = '請輸入食物';
-                    }
-                },
+                // mounted:{
+                //     //slick輪播
               
-                getStoreReported(){
-                    this.isSearchReport = true;
-                    this.warnOpacity = 1;                   
-                },
-                sendReport(){
-                    alert('sent to backend');
-                    console.log(this.report);
-                    this.report='';
-                    this.isSearchReport = false;
-                    this.warnOpacity =0.5;
-                },
-                getCoupon(){
-                    alert('Ajax send to backend');
-                    this.coupon = "領取過了";   
-                },
-                toCollect(){
-                    if(this.heartGrayscale == 0){
-                        this.heartGrayscale=1;
-                        alert('remove from collection')
-                    }else{
-                        alert('send to backend  my collection');               
-                        console.log('{{this.store}}');
-                        this.heartGrayscale=0;
+                // }
+            });
+            function loginCheck(){    
+                alert('loginCheck');
+                $.ajax({            
+                    method: "POST",
+                    url: "./php/Frontend/API/LoginCheck.php",
+                    data:{},            
+                    dataType: "text",
+                    success: function (response) {
+                        if(response == ""){
+                            //尚未登入->前往Login.php
+                            alert('請先登入，將前往登入頁'); 
+                            location.href = 'login_store.html';
+                        }else{
+                            getMemberID();
+                        }              
+                    },
+                    error: function(exception) {
+                        alert("數據載入失敗1: " + exception.status);
                     }
-                },
-                getDarkStars(lightStars){
-                    if(lightStars==null){
-                        return 5;
-                    }else{
-                        return 5-lightStars;
+                });
+            };
+            function getMemberID(){    
+                $.ajax({            
+                    method: "POST",
+                    url: "./php/Frontend/API/Member.php",
+                    data:{},            
+                    // dataType: "json",
+                    success: function (response) {          
+                        showMember(response);                       
+                    },
+                    error: function(exception) {
+                        alert(exception.responseText);
+                        // alert("數據載入失敗2: " + exception.status);
                     }
-                },
-            
-            },
-            computed:{
-                findFoodClass(){
-                    return{
-                        noText: this.findFood.length === 0,                    
-                    }
-                },
-                searchLineClass(){
-                    return{
-                        noText: this.searchLine.length === 0,                    
-                    }
-                },
-                searchTagsClass(){
-                    return{
-                        noText: this.searchTags.length === 0,                    
-                    }
-                },
-                collectionClass(){
-                    return{
-                        filter:`grayscale(${this.heartGrayscale})`,
-                    }
-                },
-                signOpacity(){
-                    return{
-                        filter:`opacity(${this.warnOpacity})`,
-                    }
-                },
-                storeInfOpacity(){
-                    return{
-                        filter:`opacity(${this.infoOpacity})`,
-                    }
-                },
-            },
-            //後端傳資料
-            // mounted() {
-            //     axios.get('stores的json檔')
-            //          .then(res => this.stores = res.data)  //成功時候的處理函數
-            //          .catch(error => console.log(error))
-            //     fetch('stores的json檔').then(res=>res.json()).then(res => this.stores=res);     
-            // },
+                });
+            }
+            function slick(){
+                $('.slider-for').slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        fade: true,
+                        asNavFor: '.slider-nav',
+                    });
+    
+                $('.slider-nav').slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    asNavFor: '.slider-for',
+                    focusOnSelect: true,
+                }); 
+            }        
+                   
+    
            
-        });
-        //slick輪播
-        $('.slider-for').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            fade: true,
-            asNavFor: '.slider-nav',
-        });
-
-        $('.slider-nav').slick({
-            slidesToShow: 4,
-            slidesToScroll:1,
-            arrows: false,
-            asNavFor: '.slider-for',
-            focusOnSelect: true,
-        });
-    </script>    
+    
+        </script>
     </body>
-
-</html>
+    
+    </html>
