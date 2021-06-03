@@ -65,6 +65,18 @@ $(".buybtn22").click(
     $(this).addClass("buyed22");
   }
 );
+
+// -------------收藏店家--------------
+$('#Favoritesbox').click(function () {
+  $('#myUFO_Favorites').css('display', 'block').fadeIn(100);
+  console.log('click ok');
+})
+
+// 關閉彈窗
+$('.btn_close').click(function () {
+  $('#myUFO_Favorites').fadeOut(200);
+});
+
 //    -------------總分類-------------------
 $('#category').click(function () {
   $('#myUFO_category').css('display', 'block').fadeIn(100);
