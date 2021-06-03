@@ -209,13 +209,34 @@
             close_station_board_btn(){
                 this.close_station_board = !this.close_station_board;
             },
+            // getTags(tag){
+            //     let result = Array.from(new Set(this.selectedTag));
+            //     console.log(result);
+            //     if(result.length < 3){
+            //         this.result.unshift(tag);
+            //     }else{    
+            //         this.result.pop(tag);
+            //         this.result.unshift(tag);
+            //     }
+            // },
+            // getTags(tag){
+            //     if(this.selectedTag.length < 3 && !this.selectedTag.includes(tag)){
+            //         this.selectedTag.unshift(tag);
+            //     }else{    
+            //         this.selectedTag.pop(tag);
+            //         this.selectedTag.unshift(tag);
+            //     }
+            // },
             getTags(tag){
-                if(this.selectedTag.length < 3){
-                    this.selectedTag.unshift(tag);
-                }else{    
+                // console.log(tag)
+                // console.log(this.selectedTag.includes(tag))
+                if(this.selectedTag.includes(tag)){
+                    return false
+                 }
+                if(this.selectedTag.length >= 3){
                     this.selectedTag.pop(tag);
-                    this.selectedTag.unshift(tag);
-                }
+                }                  
+                this.selectedTag.unshift(tag);               
             },
             tags_board_show(){
                 this.close_tags_board = !this.close_tags_board;
