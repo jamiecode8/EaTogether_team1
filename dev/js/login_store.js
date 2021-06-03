@@ -22,16 +22,16 @@ $('#store_signUp_back').click(function(){
 });
 
 // 下拉選單-客單價
-$('.login_price_arrow').click(function (e) {
-    $('.login_price_select').toggleClass('on');
-});
+// $('.login_price_arrow').click(function (e) {
+//     $('.login_price_select').toggleClass('on');
+// });
 
-$('.login_price_select li').click(function(){
-    let inputColor=document.getElementById('login_price_choice');
-    inputColor.value=$(this).text();
-    $('.login_price_select').toggleClass('on');
+// $('.login_price_select li').click(function(){
+//     let inputColor=document.getElementById('login_price_choice');
+//     inputColor.value=$(this).text();
+//     $('.login_price_select').toggleClass('on');
 
-})
+// })
 
 // 那顆眼睛按下去，密碼會出現
 $('.showPassword').click(function(){
