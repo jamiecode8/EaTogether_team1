@@ -2093,6 +2093,25 @@
 	}
 }
 
+#myUFO_Favorites{
+	top: 10%;
+	left: 41%;
+	right: 41%;
+	text-align: center;
+	display: none;
+	z-index: 999
+}
+
+#myUFO_Favorites .Favoritesform {
+	position: absolute;
+	top: 2%;
+	padding: 20px;
+	z-index: 999
+}
+
+
+
+
 #myUFO_category {
 	top: 10%;
 	left: 41%;
