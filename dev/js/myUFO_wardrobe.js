@@ -66,22 +66,22 @@ $(function () {
   tabMenu();
 }); // ---------------
 
-$(function () {
-  $("a.tab").on("click", function (e) {
-    e.preventDefault();
-    /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
+$('.tabgroup > div').hide();
+$('.tabgroup > div:first-of-type').show();
+$('.tabs a').click(function(e){
+  e.preventDefault();
+    var $this = $(this),
+        tabgroup = '#'+$this.parents('.tabs').data('tabgroup'),
+        others = $this.closest('li').siblings().children('a'),
+        target = $this.attr('href');
+    others.removeClass('active');
+    $this.addClass('active');
+    $(tabgroup).children('div').hide();
+    $(target).show();
+  
+})
 
-    $(this).closest("ul").find("a.tab").removeClass("-on");
-    $(this).addClass("-on");
-    /* 找到對應的頁籤內容，加上 -on 來顯示 */
-
-    $("div.tab").removeClass("-on");
-    $("div.tab." + $(this).attr("data-target")).addClass("-on");
-  });
-}); 
-
-
-// ---------輪播----------------
+// --------------------
 
 var swipers = ["#swiper-container-One","#swiper-container-two","#swiper-container-three",
               "#swiper-container-four","#swiper-container-fives","#swiper-container-six"
@@ -119,6 +119,8 @@ $('.carousel[data-type="multi"] .item').each(function () {
     next.children(':first-child').clone().appendTo($(this));
   }
 });
+
+
 
 
 // chris 暫時取消
