@@ -26,9 +26,9 @@
                     <h1>楊書旻</h1>
                     <br>
                     <ul>
-                        <li>廠商專區頁面</li>
                         <li>登入系統</li>
-                        <li>開發架構建置</li>
+                        <li>角色刢建</li>
+                        <li>團隊介紹</li>
                     </ul>
                     <br>
                     <a href="https://diary2017.github.io/Gladyme/" target="_blank">

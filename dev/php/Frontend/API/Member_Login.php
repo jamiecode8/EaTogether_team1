@@ -2,7 +2,7 @@
     include("../../Lib/Util.php");	//與資料庫連線
 
     //建立SQL
-    $sql = "SELECT * FROM member WHERE member_setpoint = 0 and member_email = ? and member_password = ?";
+    $sql = "SELECT * FROM member WHERE member_status = 1 and member_email = ? and member_password = ?";
 
     //給值
     $statement = getPDO()->prepare($sql);
