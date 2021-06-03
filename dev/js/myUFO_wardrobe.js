@@ -120,30 +120,34 @@ $('.carousel[data-type="multi"] .item').each(function () {
   }
 });
 
-function change(){
 
-      $('#myUFO_wardrobe_popUps_change').show();      
+// chris 暫時取消
+
+// function change(){
+
+//       $('#myUFO_wardrobe_popUps_change').show();      
     
-    popUp("#資料傳送送的網址",content,btn1,btn2); 
-}
+//     popUp("#資料傳送送的網址",content,btn1,btn2); 
+// }
 
 
 
-//彈窗
-function addCar() 
-{
-    //這邊可以做餘額的判斷
-    var key = true; //餘額足夠  
-    //var key = false; //餘額不足
-;
+// //彈窗
+// function addCar() 
+// {
+//     //這邊可以做餘額的判斷
+//     var key = true; //餘額足夠  
+//     //var key = false; //餘額不足
+// ;
    
-     if(key){
-         $('#myUFO_wardrobe_popUps_car').show();
-     }
-    else{
-        $('#myUFO_wardrobe_popUps_car_less').show();  
-    }
-    
+//      if(key){
+//          $('#myUFO_wardrobe_popUps_car').show();
+//      }
+//     else{
+//         $('#myUFO_wardrobe_popUps_car_less').show();  
+//     }
+
+// chris 暫時取消    
     
     
 
@@ -151,6 +155,6 @@ function addCar()
 
     
     
-}
+// }
     
    
