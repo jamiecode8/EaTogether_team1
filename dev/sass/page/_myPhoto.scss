@@ -373,6 +373,7 @@ div .pho_top_personal_page_s1{
         width:5%;
         position: absolute;
         right: 0px;
+        top: 23px;
         margin-right: 5%;
     }
 
@@ -547,188 +548,186 @@ div .pho_top_personal_page_s1{
 }
 
 // -----------------myphoto rwd----------------- //
-
-@include rwd(desktop){
-    .pho_main{
+.pho_main{
+    @include rwd(desktop){
         width:1000px;
     }
-}
-
-@include rwd(desktopSmall){
-    .pho_main{
+    @include rwd(desktopSmall){
         width:80%;
     }
-
-    .pho_top_s1 img {
-        margin-top: 27px;
+    @include rwd(pad){
+        width:90%;
     }
-    
-    .pho_store_cards_lists{
-        li{
-            flex-basis:31%;
-            margin-bottom: 3%;
+    @include rwd(largeMobile){
+        width:90%;
+    }
+    @include rwd(mobile){
+        width:90%;
+    }
+}
+
+.pho_top_wrapper{
+    @include rwd(mobile){
+        justify-content: center;
+    }
+}
+
+.pho_top_content{
+    img{
+        @include rwd(largeMobile){
+            flex-basis: 0;
+            flex-grow: 3;
         }
-    }
-    
-    .pho_vender_thumb_message a:nth-child(1){
-        padding-right: 20%;
-    }
-
-    .pho_vender_feat_tag{
-        padding-right: 15%;
-    }
-
-    .pho_vender_profile{
-        a img{
-            padding-bottom: 10px;
+        @include rwd(mobile){
+            flex-basis: 0;
+            flex-grow: 3;
         }
     }
 }
 
-@include rwd(pad){
-    .pho_main{
-        width:90%;
-    }
-    .pho_top_s1 h1{
-        width:13%;
-        padding: 5% 0 2%;
-    }
-
-    .pho_top_s1 img{
-        margin-top: 24px;
-    }
-
-    .pho_store_cards_lists{
-        padding-top:20px;
-
-        li{
-            flex-basis:31%;
-            margin-bottom: 3%;
-        }
-    }
-    
-    .pho_vender_thumb_message a:nth-child(1){
-        padding-right: 10%;
-        font-size: 16px;
-    }
-
-    .pho_vender_feat_tag{
-        padding-right: 15%;
-    }
-
-    .pho_vender_profile{
-        a img{
-            padding:0 1px 2px 0;
-        }
-
-        p a {
-            font-size: 10px;
-            line-height: 0.1;
-        }
-
-        article p{
-            line-height:1.5;
-        }
-
-        p{
-            font-size: 10px;
-            margin-bottom: 2px;
-        }
-    }
-}
-
-@include rwd(largeMobile){
-    .pho_main{
-        width:90%;
-    }
-
-    .pho_top_content img {
-        flex-basis: 0;
-        flex-grow: 3;
-    }
-    .pho_top_s1 h1 {
-        width: 60px;
-        padding: 5% 0 2%;
-    }
-    
-    .pho_user_pic {
+.pho_user_pic{
+    @include rwd(largeMobile){
         width: 27%;
         padding: 0;
     }
-
-    .pho_store_cards_lists {
-        padding-top: 20px;
-    }
-
-    .pho_store_cards_lists{
-        flex-direction: column;
-    }
-
-    .pho_store_cards_lists li {
-        padding: 5%;
-        margin: 3% auto;
-    }
-
-    .pho_top_s1 img {
-        margin-top: 20px;
-    }
-}
-
-@include rwd(mobile){
-    .pho_main{
-        width:90%;
-    }
-    .pho_top_wrapper {
-        justify-content: center;
-    }
-
-    .pho_top_s2 a {
-        font-size: 12px;
-    }
-
-    .pho_top_content img {
-        flex-basis: 0;
-        flex-grow: 3;
-    }
-    .pho_top_s1 h1 {
-        width: 70px;
-        padding: 6% 0 2%;
-    }
-    
-    .pho_user_pic {
+    @include rwd(mobile){
         width: 27%;
         padding: 5% 0;
         height: 0x;
     }
+}
 
-    .pho_store_cards_lists {
-        padding-top: 20px;
+.pho_top_s1{
+    h1{
+        @include rwd(pad){
+            width:13%;
+            padding: 5% 0 2%;
+        }
+        @include rwd(largeMobile){
+            width: 60px;
+            padding: 5% 0 2%;
+        }
+        @include rwd(mobile){
+            width: 70px;
+            padding: 6% 0 2%;
+        }
     }
+    img{
+        @include rwd(desktopSmall){
+            margin-top: 27px;
+        }
+        @include rwd(pad){
+            margin-top: 24px;
+        }
+        @include rwd(largeMobile){
+            margin-top: 20px;
+        }
+        @include rwd(mobile){
+            margin-top: 20px;
+        }
+    }
+}
 
-    .pho_store_cards_lists{
+.pho_top_s2{
+    a{
+        @include rwd(mobile){
+            font-size: 12px;
+        }
+    }
+}
+
+.pho_store_cards_lists{
+    @include rwd(pad){
+        padding-top:20px;
+    }
+    @include rwd(largeMobile){
+        padding-top: 20px;
         flex-direction: column;
     }
-
-    .pho_store_cards_lists li {
-        padding: 5%;
-        margin: 3% auto;
+    @include rwd(mobile){
+        padding-top: 20px;
+        flex-direction: column;
     }
-
-    .pho_top_s1 img {
-        margin-top: 20px;
+    li{
+        @include rwd(pad){
+            flex-basis:31%;
+            margin-bottom: 3%;
+        }
+        @include rwd(desktopSmall){
+            flex-basis:31%;
+            margin-bottom: 3%;
+        }
+        @include rwd(largeMobile){
+            padding: 5%;
+            margin: 3% auto;
+        }
+        @include rwd(mobile){
+            padding: 5%;
+            margin: 3% auto;
+        }
     }
+}
 
-// -------------------pho_personal_page RWD ------------------- //
-    .pho_top_personal_page{
-        ul{
-            width:100%;
+.pho_vender_thumb_message{
+    a:nth-child(1){
+        @include rwd(desktopSmall){
+            padding-right: 20%;
+        }
+        @include rwd(pad){
+            padding-right: 10%;
+            font-size: 16px;
+        }
+    }
+}
+
+.pho_vender_feat_tag{
+    @include rwd(desktopSmall){
+        padding-right: 15%;
+    }
+    @include rwd(pad){
+        padding-right: 15%;
+    }
+}
+
+.pho_vender_profile{
+    a img{
+        @include rwd(desktopSmall){
+            padding-bottom: 10px;
+        }
+        @include rwd(pad){
+            padding:0 1px 2px 0;
+        }
+    }
+    p{
+        @include rwd(pad){
+            font-size: 10px;
+            margin-bottom: 2px;
+        }
+        a{
+            @include rwd(pad){
+                font-size: 10px;
+                line-height: 0.1;
+            }
+        }
+    }
+    article{
+        p{
+            @include rwd(pad){
+                line-height:1.5;
+            }
         }
     }
 }
 
 
-
-
+// -------------------pho_personal_page RWD ------------------- //
+.pho_top_personal_page{
+    ul{
+        @include rwd(mobile){
+            width:100%;
+        }
+    }
+}
 
 
 // -------------------拍立得內文彈窗 RWD ------------------- //

@@ -1,4 +1,7 @@
 //棠棠的
+*{
+    outline: 1px solid red;
+}
 //============================= myPhoto =============================//
 //繼承myPhoto的scss
 //============================= myphoto_post_pic =============================//
@@ -130,6 +133,17 @@
         
         @include btn('.btn_submit', $green, $tp);
 
+        .btn_submit{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            // :hover {
+            //     cursor: pointer;
+            //     color: transparent;
+            // }
+        }
+
         article{
             position: absolute;
             right: 0;
@@ -154,6 +168,16 @@
                 }
         }
     }
+    .pho_input_change{
+        width:200px;
+        position: absolute;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: 0;
+    }
+
     >div{
         padding-left: 20px;
     }
