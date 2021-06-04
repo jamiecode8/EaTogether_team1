@@ -1,7 +1,7 @@
 //關閉彈窗, 移除毛玻璃
-$('.btn_close').click(function(){
-    $('.wrapper').removeClass('blur');  
-})
+// $('.btn_close').click(function(){
+//     $('.wrapper').removeClass('blur');  
+// })
 
 //點選漢堡，彈窗消失
 $('.ham').click(function(){
