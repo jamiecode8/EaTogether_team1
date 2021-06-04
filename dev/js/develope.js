@@ -66,9 +66,9 @@
                     <h1>顏宏鈞</h1>
                     <br>
                     <ul>
-                        <li>廠商專區頁面</li>
-                        <li>登入系統</li>
-                        <li>開發架構建置</li>
+                        <li>後台頁面</li>
+                        <li>資料庫設計</li>
+                        <li>資料庫整理</li>
                     </ul>
                     <br>
                     <a href="https://levisedwin.github.io/tdf10121/index.html" target="_blank">
