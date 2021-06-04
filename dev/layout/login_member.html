@@ -82,11 +82,11 @@
                 <img src="./img/icon/icon_close.png" alt="" />
             </button>
              <div class="login_station_select" id="login_station_options">                            
-                <span v-for="station in blueStation" @click="getStation(station)" class="b">{{station}}</span>
-                <span v-for="station in redStation" @click="getStation(station)" class="r">{{station}}</span>
-                <span v-for="station in greenStation" @click="getStation(station)" class="g">{{station}}</span>
-                <span v-for="station in brownStation" @click="getStation(station)" class="br">{{station}}</span>
-                <span v-for="station in yellowStation" @click="getStation(station)" class="y">{{station}}</span>
+                <span v-for="station in blueStation" @click="getStation(station)" class="b">{{station.text}}</span>
+                <span v-for="station in redStation" @click="getStation(station)" class="r">{{station.text}}</span>
+                <span v-for="station in greenStation" @click="getStation(station)" class="g">{{station.text}}</span>
+                <span v-for="station in brownStation" @click="getStation(station)" class="br">{{station.text}}</span>
+                <span v-for="station in yellowStation" @click="getStation(station)" class="y">{{station.text}}</span>
             </div>
         </div>
         <!-- 選喜好彈窗 -->
@@ -95,7 +95,7 @@
                 <img src="./img/icon/icon_close.png" alt="" />
             </button>
              <div class="login_station_select" id="login_station_options">                            
-                <span v-for="tag in tags" @click="getTags(tag)">#{{tag}}</span>
+                <span v-for="tag in tags" @click="getTags(tag)">#{{tag.text}}</span>
             </div>
         </div>
         <!-- 認證彈窗verification -->
@@ -127,14 +127,82 @@
     new Vue({
         el: '#app',
         data: {
-            blueStation: ['市政府', '忠孝敦化', '國父紀念館', '板橋', '新埔', '府中', '龍山寺'],
-            redStation: ['淡水', '劍潭', '圓山', '台北車站', '東門', '大安森林公園', '信義安和', '台北101'],
-            greenStation: ['松山', '南京三民', '南京復興', '中山', '中正紀念堂', '台電大樓', '公館', '景美'],
-            brownStation: ['東湖', '西湖', '港墘', '大直', '中山國中', '六張犁', '萬芳社區'],
-            yellowStation: ['頂溪', '南京松江', '忠孝新生', '台北橋', '徐匯中學', '新莊'],
+            blueStation: [
+                { text :'市政府',value:17},
+                { text :'忠孝敦化', value:18},
+                { text :'國父紀念館', value:19},
+                { text :'板橋', value: 20},
+                { text :'新埔', value: 21},
+                { text :'府中', value: 22},
+                { text :'龍山寺', value: 23},
+            ],
+            redStation: [
+                { text :'東門',value:1},
+                { text :'台北101', value:2},
+                { text :'劍潭', value:3},
+                { text :'淡水', value: 4},
+                { text :'圓山', value: 5},
+                { text :'台北車站', value: 6},
+                { text :'信義安和', value: 7},
+                { text :'大安森林公園', value: 8},
+            ],
+            greenStation: [
+                { text :'景美',value:9},
+                { text :'公館', value:10},
+                { text :'台電大樓', value:11},
+                { text :'中正紀念堂', value: 12},
+                { text :'中山', value: 13},
+                { text :'南京復興', value: 14},
+                { text :'南京三民', value: 15},
+                { text :'松山', value: 16},
+            ],
+            brownStation: [
+                { text :'東湖',value: 24},
+                { text :'西湖', value: 25},
+                { text :'港墘', value: 26},
+                { text :'大直', value: 27},
+                { text :'中山國中', value: 28},
+                { text :'六張犁', value: 29},
+                { text :'萬芳社區', value: 30},
+            ],
+            yellowStation: [
+                { text :'頂溪',value: 31},
+                { text :'南京松江', value: 32},
+                { text :'忠孝新生', value: 33},
+                { text :'台北橋', value: 34},
+                { text :'徐匯中學', value: 35},
+                { text :'新莊', value: 36},
+            ],
             selectedStation: '',
             station: '',
-            tags:['日式','韓式','美式','義式','台式','法式','中式','夜市','商業午餐','早午餐','下午茶','銅板美食','簡餐','聚餐','餐酒館','咖啡店','甜點','麵食','鹽酥雞','雞排','咖哩','火鍋','牛排','拉麵','鐵板燒'],
+            tags:[
+                { text :'日式',value:1},
+                { text :'韓式', value:2},
+                { text :'美式', value:3},
+                { text :'義式', value: 4},
+                { text :'台式', value: 5},
+                { text :'法式', value: 6},
+                { text :'中式', value: 7},
+                { text :'聚餐', value: 8},  
+                { text :'簡餐',value:9},
+                { text :'銅板美食', value:10},
+                { text :'下午茶', value:11},
+                { text :'早午餐', value: 12},
+                { text :'商業午餐', value: 13},
+                { text :'夜市', value: 14},
+                { text :'雞排', value: 15},
+                { text :'咖哩', value: 16},  
+                { text :'火鍋',value:17},
+                { text :'牛排', value:18},
+                { text :'咖啡店', value:19},
+                { text :'甜點', value: 20},
+                { text :'鐵板燒', value: 21},
+                { text :'麵食', value: 22},
+                { text :'鹽酥雞', value: 23},
+                { text :'手搖飲',value: 24},
+                { text :'餐酒館', value: 25},
+                { text :'拉麵', value: 26},
+            ],
             tag: '',
             selectedTag:[],
             close_station_board: false,
@@ -199,7 +267,7 @@
                 this.forgetPassword_verification = !this.forgetPassword_verification;
             },
             getStation(station){
-                this.selectedStation = station;
+                this.selectedStation = station.text;
                 this.close_station_board = false;
             },
             stations_board_show(){
@@ -209,34 +277,14 @@
             close_station_board_btn(){
                 this.close_station_board = !this.close_station_board;
             },
-            // getTags(tag){
-            //     let result = Array.from(new Set(this.selectedTag));
-            //     console.log(result);
-            //     if(result.length < 3){
-            //         this.result.unshift(tag);
-            //     }else{    
-            //         this.result.pop(tag);
-            //         this.result.unshift(tag);
-            //     }
-            // },
-            // getTags(tag){
-            //     if(this.selectedTag.length < 3 && !this.selectedTag.includes(tag)){
-            //         this.selectedTag.unshift(tag);
-            //     }else{    
-            //         this.selectedTag.pop(tag);
-            //         this.selectedTag.unshift(tag);
-            //     }
-            // },
             getTags(tag){
-                // console.log(tag)
-                // console.log(this.selectedTag.includes(tag))
-                if(this.selectedTag.includes(tag)){
+                if(this.selectedTag.includes(tag.text)){
                     return false
                  }
                 if(this.selectedTag.length >= 3){
-                    this.selectedTag.pop(tag);
+                    this.selectedTag.pop(tag.text);
                 }                  
-                this.selectedTag.unshift(tag);               
+                this.selectedTag.unshift(tag.text);               
             },
             tags_board_show(){
                 this.close_tags_board = !this.close_tags_board;
