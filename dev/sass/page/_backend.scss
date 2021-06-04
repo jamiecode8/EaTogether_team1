@@ -6,7 +6,7 @@
 
     .backend_wrapper{
         width: 1200px;
-        height: 930px;
+        min-height: 950px;
         margin: 0 auto; 
     }
 
@@ -135,14 +135,14 @@
         .backend_member_popUps{
 
             display: none;
-            position: absolute;
-            top: -900px;
+            position: fixed;
+            top: 150px;
             left: 10px;
 
             @include block_center(); //區塊置中
             
             background-color: #fff;
-            position: relative;
+            // position: relative;
             width: 400px;
             padding: 50px;
             @include shadow;
