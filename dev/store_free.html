@@ -10,10 +10,10 @@
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     </head>
-    <body class="store_storeBody" onload="init()">
+    <body class="store_storeBody">
         @@include('layout/header.html')
         <!-- 本頁內容 -->
-        <div class="wrapper store_wrap">
+        <div class="wrapper store_wrap" id="store_wrap">
             <!-- 商家資訊區塊 -->
             <section class="store_storeInfoArea">
                 <!-- 左邊照片區 -->
@@ -22,22 +22,28 @@
                     <!-- 上面大圖區 -->
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood1.png" />
+                                <img src="./img/store/food1.png" />
+                                <!-- <img :src="[`./img/Upload/food/`+ memberData.image_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood2.png" />
+                                <img src="./img/store/food2.png" />
+                                <!-- <img :src="[`./img/Upload/food/`+ memberData.store_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood3.png" />
+                                <img src="./img/store/food3.png" />
+                                <!-- <img :src="[`./img/Upload/food/`+ memberData.menu_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood4.png" />
+                                <img src="./img/store/food4.png" />
+                                <!-- <img :src="[`./img/Upload/food/`+ memberData.food1_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood5.png" />
+                                <img src="./img/store/food5.png" />
+                                <!-- <img :src="[`./img/Upload/food/`+ memberData.food2_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood6.png" />
+                                <img src="./img/store/food6.png" />
+                                <!-- <img :src="[`./img/Upload/food/`+ memberData.food3_img]" /> -->
                             </div>
                         </div>
                         <!-- 那2個箭頭 -->
@@ -48,22 +54,28 @@
                     <div thumbsSlider="" class="swiper-container mySwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood1.png" />
+                                <img src="./img/store/food1.png" />
+                                 <!-- <img :src="[`./img/Upload/food/`+ memberData.image_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood2.png" />
+                                <img src="./img/store/food2.png" />
+                                 <!-- <img :src="[`./img/Upload/food/`+ memberData.store_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood3.png" />
+                                <img src="./img/store/food3.png" />
+                                 <!-- <img :src="[`./img/Upload/food/`+ memberData.menu_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood4.png" />
+                                <img src="./img/store/food4.png" />
+                                <!-- <img :src="[`./img/Upload/food/`+ memberData.food1_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood5.png" />
+                                <img src="./img/store/food5.png" />
+                                <!-- <img :src="[`./img/Upload/food/`+ memberData.food2_img]" /> -->
                             </div>
                             <div class="swiper-slide">
-                                <img src="./img/store/testfood6.png" />
+                                <img src="./img/store/food6.png" />
+                                <!-- <img :src="[`./img/Upload/food/`+ memberData.food3_img]" /> -->
                             </div>
                         </div>
                     </div>
@@ -89,16 +101,18 @@
                                 {{memberData.store_address}}
                             </li >
                             <li class="store_infoList store_infoPrice">
-                                {{price}}
+                                {{storePrice[memberData.price_id]}}
                             </li >
                             <li  class="store_infoList store_infomrt">
                                 {{memberData.station_name}}
                             </li>
                             <li  class="store_infoList store_infoTag">
-                                {{memberData.storeTag}}
+                                {{memberData.store_tag1}}
+                                {{memberData.store_tag2}}
+                                {{memberData.store_tag3}}
                             </li>
                             <li class="store_infoList store_infoWarn">
-                                {{memberData.submit}}
+                                {{storeStatus[memberData.store_submit]}}
                             </li>
                         </ul>
                     </div> 

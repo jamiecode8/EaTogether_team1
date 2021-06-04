@@ -42,8 +42,8 @@
 </div>
 
 <!-- 商家註冊 -->
-<div class="popUps store_signUp blockShow"  id="store_signUp">
-    <form method="POST" action="./php/Frontend/API/storeSignUp.php" class="form storeLogin_signup">
+<div class="popUps store_signUp blockShow" id="store_signUp">
+    <form method="POST" action="./php/Frontend/API/storeSignUp.php" class="form storeLogin_signup"  enctype="multipart/form-data" >
         <!-- close button -->
         <button type="button" class="btn_close" id="store_signUp_close">
             <img src="./img/icon/icon_close.png" alt="" />
@@ -82,8 +82,8 @@
                     </div>
                     <h2>客單價</h2>
                     <div class="login_price">
-                        <input type="text" name="price_id" id="login_price_choice" placeholder="選擇價格區間" class="input" v-model="selectedPrice" >
-                        <img class="login_price_arrow" src="./img/icon/icon_next_line.png" alt="" @click="price_board_show">
+                        <input type="text" name="price_id" id="login_price_choice" placeholder="選擇價格區間" class="input" v-model="selectedPrice" :value="price.value"/>
+                        <img class="login_price_arrow" src="./img/icon/icon_next_line.png" alt="" @click="price_board_show"/>
                         <ul class="login_price_select" v-show="close_price_board">
                             <li v-for="price in prices" @click="getPrice(price)" class="br"> {{price.text}} </li>
                         </ul>
@@ -91,15 +91,15 @@
 
                     <h2>鄰近捷運站</h2>
                     <div class="login_store_station">
-                        <input type="text" id="login_station_choice" class="input" v-model="selectedStation"
-                            name="station_id" placeholder="選擇鄰近站點" disabled>
-                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="stations_board_show">
+                        <input type="text" id="login_station_choice" class="input" v-model="selectedStation" :value="station.value"
+                            name="station_id" placeholder="選擇鄰近站點" disabled/>
+                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="stations_board_show"/>
                     </div>
 
                     <h2>選擇關鍵字(最多三個)</h2>
                     <div class="login_tag">
-                        <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_id" v-model="selectedTag"/>
-                        <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show">
+                        <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_id" v-model="selectedTag"  :value="tag.value"/>
+                        <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show"/>
                     </div>
                 </section>
                 
@@ -124,7 +124,7 @@
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
                                     <img id="store_image1" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload">
-                                        <input type="file" id="theFile1" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <input type="file" id="theFile1" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
                                         <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
                                     <img id="store_image2" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload2">
-                                        <input type="file" id="theFile2" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <input type="file" id="theFile2" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
                                         <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
                                     <img id="store_image3" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload3">
-                                        <input type="file" id="theFile3" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <input type="file" id="theFile3" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
                                         <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
                                     <img id="store_image4" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload4">
-                                        <input type="file" id="theFile4" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <input type="file" id="theFile4" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
                                         <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                     </div>
                                 </div>
@@ -171,7 +171,7 @@
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
                                     <img id="store_image5" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload5">
-                                        <input type="file" id="theFile5" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <input type="file" id="theFile5" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
                                         <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
                                     <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
                                     <img id="store_image6" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload6">
-                                        <input type="file" id="theFile6" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案">
+                                        <input type="file" id="theFile6" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
                                         <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                     </div>
                                 </div>
@@ -386,7 +386,6 @@
             },
             price_board_show(){
                 this.close_price_board = !this.close_price_board;
-                // this.close_tags_board = false;
             },
             close_price_board_btn(){
                 this.close_price_board = !this.close_price_board;
