@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         @@include('layout/style.html')
         <title>新增拍立得</title>
+        <script src="js/myphoto_post_pic.js"></script>
     </head>
     <body class="pho_body">
         @@include('layout/header.html')
@@ -53,13 +54,16 @@
                     <h2>選擇背景圖片 </h2>
                     <div class="pho_edit_fullcontent">
                         <div class="pho_plug_in_area">
-                            <h5>請將檔案拖放置此</br>或</h5>
-                            <button type="button" class="btn_submit">選擇檔案+</button>
+                            <img id="pho_image">
+                            <!-- <h5>請將檔案拖放置此</br>或</h5> -->
+                            <div class="btn_submit" id="pho_btn_none">選擇檔案+</div>
+                            <input type="file" id="pho_theFile" class="btn_submit pho_input_change" value="選擇檔案+">
                             <article>
                                 <h6>檔案格式：JPG、JPEG、PNG</h6>
                                 <h6>檔案容量：3MB以下</h6>
                                 <h6>建議圖片尺寸：640px × 640px</h6>
                             </article>
+                            
                         </div>
                         
                         <section>
