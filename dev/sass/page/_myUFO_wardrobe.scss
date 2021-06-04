@@ -908,7 +908,7 @@
   }
   
   .mimislide img{
-   width: 100%;
+   width: 98px;
   }
   
   .swiper-wrapper{
@@ -935,6 +935,23 @@
 		line-height: 24px;
 		z-index: 50;
 	    }
+		.wardrobe_character_cap{
+			position: relative;
+			top: 280px;
+			margin: initial;
+		}
+	
+		.wardrobe_character_clothe{
+			position: relative;
+			top: 603px;
+			margin: initial;
+		}
+	
+		.wardrobe_character_fitting{
+			position: relative;
+			top: 4px;
+			margin: initial;
+		}
 	}
 	@media all and (min-width:1200px) and (min-height:560px) and(max-height:580px) {
 		.mimitab{
@@ -976,6 +993,23 @@
 			font-size: 18px;
 			line-height: 24px;
 			z-index: 50;
+			}
+			.wardrobe_character_cap{
+				position: relative;
+				top: 280px;
+				margin: initial;
+			}
+		
+			.wardrobe_character_clothe{
+				position: relative;
+				top: 603px;
+				margin: initial;
+			}
+		
+			.wardrobe_character_fitting{
+				position: relative;
+				top: 4px;
+				margin: initial;
 			}
 	}
 
@@ -1027,16 +1061,19 @@
 		position: relative;
 		top: 280px;
 		margin: initial;
+		z-index: 20;
 	}
 
 	.wardrobe_character_clothe{
 		position: relative;
 		top: 603px;
 		margin: initial;
+		z-index: 25;
 	}
 
 	.wardrobe_character_fitting{
 		position: relative;
 		top: 4px;
 		margin: initial;
+		z-index: 19;
 	}

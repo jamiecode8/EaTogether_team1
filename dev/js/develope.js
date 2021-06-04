@@ -27,7 +27,7 @@
                     <br>
                     <ul>
                         <li>登入系統</li>
-                        <li>角色刢建</li>
+                        <li>角色創建</li>
                         <li>團隊介紹</li>
                     </ul>
                     <br>
@@ -46,9 +46,9 @@
                     <h1>賴彥勳</h1>
                     <br>
                     <ul>
-                        <li>廠商專區頁面</li>
-                        <li>登入系統</li>
-                        <li>開發架構建置</li>
+                        <li>我的飛碟頁面3/2</li>
+                        <li>更衣室頁面</li>
+                        <li>常見問題頁面</li>
                     </ul>
                     <br>
                     <a href="https://judy8108.github.io/WD101003/landingpage.html" target="_blank">

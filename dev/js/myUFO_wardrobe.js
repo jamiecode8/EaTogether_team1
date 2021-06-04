@@ -25,7 +25,7 @@ for(var i =0; i<6;i++){
 
  var swiper = new Swiper(swipers[i], {
    slidesPerView: 5,   //同時顯示的slides數量
-   spaceBetween: 10,   //slide之間的距離 (單位px)
+   spaceBetween: 0,   //slide之間的距離 (單位px)
    loop: false,
    pagination: {
      el: '.swiper-pagination',  
