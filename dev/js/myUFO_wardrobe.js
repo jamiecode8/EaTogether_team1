@@ -58,12 +58,12 @@ for(var i =0; i<6;i++){
 
 // chris 暫時取消
 
-// function change(){
+function change(){
 
-//       $('#myUFO_wardrobe_popUps_change').show();      
+      $('#myUFO_wardrobe_popUps_change').show();      
     
-//     popUp("#資料傳送送的網址",content,btn1,btn2); 
-// }
+    popUp("#資料傳送送的網址",content,btn1,btn2); 
+}
 
 
 
@@ -82,14 +82,19 @@ for(var i =0; i<6;i++){
 //         $('#myUFO_wardrobe_popUps_car_less').show();  
 //     }
 
-// chris 暫時取消    
-    
-    
-
-
-
-    
+// chris 暫時取消      
     
 // }
+
+$('#myUFO_wardrobe_popUpsbox').click(function () {
+  $('#myUFO_wardrobe_popUps_car').css('display', 'block').fadeIn(100);
+  console.log('click ok');
+})
+
+// 關閉彈窗
+$('.btn_close').click(function () {
+  $('#myUFO_wardrobe_popUps_car').fadeOut(200);
+});
+
     
    

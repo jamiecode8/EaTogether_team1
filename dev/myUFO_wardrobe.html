@@ -23,7 +23,7 @@
     <img src="./img/mimi/Backgroundimage.png" alt="" class="wardrobe_bg1">
     <img src="./img/mimi/Backgroundimage2.png" alt="" class="wardrobe_bg2">
     <img src="./img/mimi/Backgroundimaipad.png" alt="" class="wardrobe_ipad">
-    <img src="./img/mimi/Backgroundimage_phone.png" alt="" class="wardrobe_phone">
+    <img src="./img/mimi/Backgroundimage_phone3.png" alt="" class="wardrobe_phone">
     <img src="./img/mimi/curtain.png" alt="" class="curtain">
    </div>
 
@@ -46,12 +46,12 @@
 		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 2" src="./img/mimi/character/cap2.png" alt="">
 		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 3" src="./img/mimi/character/cap3.png" alt="">
 		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 4" src="./img/mimi/character/cap4.png" alt="">
-		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 5" src="./img/mimi/character/cap5.png" alt="">
+		<img class="wardrobe_character_cap" v-if="wardrobe_character_cap == 5" src="./img/mimi/character/cap5-1.png" alt="">
 		<img class="wardrobe_character_fitting" v-if="wardrobe_character_fitting == 1" src="./img/mimi/character/fitting1.png" alt="">
 		<img class="wardrobe_character_fitting" v-if="wardrobe_character_fitting == 2" src="./img/mimi/character/fitting2.png" alt="">
 		<img class="wardrobe_character_fitting" v-if="wardrobe_character_fitting == 3" src="./img/mimi/character/fitting3.png" alt="">
 		<img class="wardrobe_character_fitting" v-if="wardrobe_character_fitting == 4" src="./img/mimi/character/fitting4.png" alt="">
-		<img class="wardrobe_character_fitting" v-if="wardrobe_character_fitting == 5" src="./img/mimi/character/fitting5.png" alt="">
+		<img class="wardrobe_character_fitting" v-if="wardrobe_character_fitting == 5" src="./img/mimi/character/fitting5-1.png" alt="">
 	</div>
 
      <div class="wardrobe_border">
@@ -84,7 +84,7 @@
     <div class="tabgroup_tab" id="tab1">
       <div class="swiper-container"  id="swiper-container-two">  
         <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper ">
           <!-- Slides -->
           <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 5"><img src="./img/mimi/Paid/clothes/Paid_clothes.png" alt="" ></div>
           <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 4"><img src="./img/mimi/Paid/clothes/Paid_clothes2.png" alt="" ></div>
@@ -98,11 +98,11 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes.png" alt="" ></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes2.png" alt="" ></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes3.png" alt="" ></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes4.png" alt="" ></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes5.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 5" id="myUFO_wardrobe_popUpsbox"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 4"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes2.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 3"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes3.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 2"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes4.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_clothe = 1"><img src="./img/mimi/Unpaid/clothes/Unpaid_clothes5.png" alt="" ></div>
         </div>
       </div>
     </div>
@@ -124,11 +124,11 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear.png" alt="" ></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear2.png" alt="" ></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear3.png" alt="" ></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear4.png" alt="" ></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear5.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 1"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 4"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear2.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 5"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear3.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 3"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear4.png" alt="" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_cap = 2"><img src="./img/mimi/Unpaid/Headwear/Unpaid_Headwear5.png" alt="" ></div>
         </div>
       </div> 
     </div>
@@ -150,11 +150,11 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories.png" alt="" class="Accessoriesimg"></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories2.png" alt="" class="Accessoriesimg"></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories3.png" alt="" class="Accessoriesimg" ></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories4.png" alt="" class="Accessoriesimg"></div>
-          <div class="swiper-slide mimislide"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories5.png" alt="" class="Accessoriesimg"></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 1"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories.png" alt="" class="Accessoriesimg"></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 2"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories2.png" alt="" class="Accessoriesimg"></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 3"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories3.png" alt="" class="Accessoriesimg" ></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 4"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories4.png" alt="" class="Accessoriesimg"></div>
+          <div class="swiper-slide mimislide" @click="wardrobe_character_fitting = 5"><img src="./img/mimi/Unpaid/Accessories/Unpaid_Accessories5.png" alt="" class="Accessoriesimg"></div>
         </div>
       </div> 
     </div>
@@ -164,24 +164,24 @@
  <!-- mimi 對話框-->     
    <!--購買金額確認-->   
    <div class="popUps myUFO_wardrobe_popUps_info" id="myUFO_wardrobe_popUps_car">
-       <form action="#資料傳送送的網址" method="post" class="form" >
+       <form action="#資料傳送送的網址" method="post" class="form myUFO_popUps_class " >
               
-           <button type="button" class="myUFO_btn_close close">
+           <!-- <button type="button" class="myUFO_btn_close close">
                <img src="./img/icon/icon_close.png" alt="">
-           </button>
-                購買頭飾 1件<br/><br/>
+           </button> -->
+                <!-- 購買頭飾 1件<br/><br/>
                 將扣除點數600點<br/><br/>
                尚餘點數1200點
-           
+            -->
               <div>
-                 <input type="button"  value="取消購買" class="myUFO_btn_close btn_submit">
-                 <input type="submit" value="確認購買" class="myUFO_btn_close btn_submit">
+                 <input type="button"  value="取消購買" class=" btn_close  myUFO_wardrobebuy_btn wardrobebuy_btnbtn" >
+                 <input type="submit"  value="確認購買" class="myUFO_btn_close btn_submit myUFO_wardrobebuy_btn" >
                </div>
              </form>
     </div>
             
    <!--餘額不足-->   
-   <div class="popUps myUFO_wardrobe_popUps_info" id="myUFO_wardrobe_popUps_car_less">
+   <!-- <div class="popUps myUFO_wardrobe_popUps_info" id="myUFO_wardrobe_popUps_car_less">
        <form action="#資料傳送送的網址" method="post" class="form "  >
               
            <button type="button" class="myUFO_btn_close close ">
@@ -194,7 +194,7 @@
                  <input type="submit" value="確認" class=" btn_submit">
            </div>
        </form>
-    </div> 
+    </div>  -->
        <!--更換成功-->   
    <!-- <div class="popUps myUFO_wardrobe_popUps_info" id="myUFO_wardrobe_popUps_change">
        <form action="#資料傳送送的網址" method="post" class="form" > -->
@@ -227,34 +227,34 @@
 
 
   //  ---------------------------
-//  $('.contact').click(function (){
-//           $('.contactInf').toggleClass('on');
-//       });
+ $('.contact').click(function (){
+          $('.contactInf').toggleClass('on');
+      });
       
       // chris 暫時取消
       
       /*mimi 加入衣櫃的btn*/
-      // $('.tab-content_One .swiper-slide').click(function(){change()});
-      // $('.tab-content_One   li').click(function(){change()});
-      // $('.tab-content_three .swiper-slide').click(function(){change()});
-      // $('.tab-content_three li').click(function(){change()});  
-      // $('.tab-content_Fives  .swiper-slide').click(function(){change()}); 
-      // $('.tab-content_Fives  li').click(function(){change()}); 
+      $('.tab-content_One .swiper-slide').click(function(){change()});
+      $('.tab-content_One   li').click(function(){change()});
+      $('.tab-content_three .swiper-slide').click(function(){change()});
+      $('.tab-content_three li').click(function(){change()});  
+      $('.tab-content_Fives  .swiper-slide').click(function(){change()}); 
+      $('.tab-content_Fives  li').click(function(){change()}); 
    
       /*=====*/
       /*mimi 加入商城的btn*/
-      // $('.tab-content_two   .swiper-slide').click(function(){addCar()});
-      // $('.tab-content_two   li').click(function(){addCar()});
-      // $('.tab-content_four .swiper-slide').click(function(){addCar()});
-      // $('.tab-content_four li').click(function(){addCar()});  
-      // $('.tab-content_six   .swiper-slide').click(function(){addCar()}); 
-      // $('.tab-content_six   li').click(function(){addCar()}); 
+      $('.tab-content_two   .swiper-slide').click(function(){addCar()});
+      $('.tab-content_two   li').click(function(){addCar()});
+      $('.tab-content_four .swiper-slide').click(function(){addCar()});
+      $('.tab-content_four li').click(function(){addCar()});  
+      $('.tab-content_six   .swiper-slide').click(function(){addCar()}); 
+      $('.tab-content_six   li').click(function(){addCar()}); 
 
       // chris 暫時取消
     
       /*=====*/
 //     對話框關閉的按鈕
-      // $('.myUFO_btn_close').click(function(){$('.tist_popUps').fadeOut(200)});
+      $('.myUFO_btn_close').click(function(){$('.tist_popUps').fadeOut(200)});
 
 
       
