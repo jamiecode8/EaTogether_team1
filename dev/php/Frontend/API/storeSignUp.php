@@ -18,7 +18,7 @@
         $filePath_Temp = $fileTmpName_arr[$i];
 
         //檔案最終存放位置
-        $filePath = $ServerRoot."/dist/php/Upload/food/".$fileName_arr[$i];
+        $filePath = $ServerRoot."/dist/upload/food/".$fileName_arr[$i];
         
         if($error_arr[$i] > 0){
             echo "上傳失敗: 錯誤代碼".$error_arr[$i];
