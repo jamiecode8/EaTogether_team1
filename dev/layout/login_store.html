@@ -82,8 +82,10 @@
                     </div>
                     <h2>客單價</h2>
                     <div class="login_price">
-                        <input type="text" name="price_id" id="login_price_choice" placeholder="選擇價格區間" class="input" v-model="selectedPrice" :value="price.value"/>
-                        <img class="login_price_arrow" src="./img/icon/icon_next_line.png" alt="" @click="price_board_show"/>
+                        <input type="text" id="login_price_choice" placeholder="選擇價格區間" class="input" v-model="selectedPrice"/>
+                        <!-- 隱藏欄位 -->
+                        <input type="hidden" name="price_id" v-model="selectedPriceId" value="price_id"/>
+                        <img class="login_price_arrow" src="./img/icon/icon_next_line.png" alt="" @click="price_board_show">
                         <ul class="login_price_select" v-show="close_price_board">
                             <li v-for="price in prices" @click="getPrice(price)" class="br"> {{price.text}} </li>
                         </ul>
@@ -91,15 +93,21 @@
 
                     <h2>鄰近捷運站</h2>
                     <div class="login_store_station">
-                        <input type="text" id="login_station_choice" class="input" v-model="selectedStation" :value="station.value"
-                            name="station_id" placeholder="選擇鄰近站點" disabled/>
-                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="stations_board_show"/>
+                        <input type="text" id="login_station_choice" class="input" v-model="selectedStation" placeholder="選擇鄰近站點" disabled/>
+                        <!-- 隱藏欄位 -->
+                        <input type="hidden" value="station_id"  class="input" v-model="selectedStationId" name="station_id"/>
+                        
+                        <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="stations_board_show">
                     </div>
 
                     <h2>選擇關鍵字(最多三個)</h2>
                     <div class="login_tag">
-                        <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_id" v-model="selectedTag"  :value="tag.value"/>
-                        <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show"/>
+                        <input type="text" placeholder="喜好標籤" disabled v-model="selectedTag" />
+                        <!-- 隱藏欄位 -->
+                        <input type="hidden" placeholder="喜好標籤" name="tag_id1" v-model="selectedTag1" value="tag_id1"/>
+                        <input type="hidden" placeholder="喜好標籤" name="tag_id2"v-model="selectedTag2" value="tag_id2" />
+                        <input type="hidden" placeholder="喜好標籤" name="tag_id3" value="tag_id3" v-model="selectedTag3"/>
+                        <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show">
                     </div>
                 </section>
                 
@@ -246,6 +254,7 @@
             { text :'$501 ~ $1000', value:3},              
             ],
             selectedPrice: '',
+            selectedPriceId: '',
             price: '',
             redStation: [
                 { text :'東門',value:1},
@@ -294,6 +303,7 @@
                 { text :'新莊', value: 36},
             ],
             selectedStation: '',
+            selectedStationId: '',
             station: '',
             tags:[
             { text :'日式',value:1},
@@ -325,6 +335,9 @@
             ],
             tag: '',
             selectedTag:[],
+            selectedTag1: null,
+            selectedTag2: null,
+            selectedTag3: null,
             close_station_board: false,
             close_tags_board: false,
             close_price_board: false,
@@ -382,6 +395,7 @@
         methods: {
             getPrice(price){
                 this.selectedPrice = price.text;
+                this.selectedPriceId = price.value;
                 this.close_price_board = false;
             },
             price_board_show(){
@@ -392,6 +406,7 @@
             },
             getStation(station){
                 this.selectedStation = station.text;
+                this.selectedStationId = station.value;
                 this.close_station_board = false;
             },
             stations_board_show(){
@@ -408,6 +423,9 @@
                     this.selectedTag.pop(tag.text);
                     this.selectedTag.unshift(tag.text);
                 }
+                this.selectedTag1 = this.selectedTag[0];
+                this.selectedTag2 = this.selectedTag[1];
+                this.selectedTag3 = this.selectedTag[2];
             },
             tags_board_show(){
                 this.close_tags_board = !this.close_tags_board;
