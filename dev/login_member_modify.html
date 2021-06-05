@@ -1,18 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        @@include('layout/style.html')
-        <title>會員資料修改</title>
-    </head>
-    <body class="loginMemberPage_Body">
-        @@include('layout/header.html')
-        <div class="wrapper loginMemberPage_wrapper">
-            @@include('layout/login_member_modify.html')
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @@include('layout/style.html')
+    <title>會員資料修改</title>
+</head>
+
+<body class="loginMemberPage_Body">
+    @@include('layout/header.html')
+    <div class="wrapper loginMemberPage_wrapper">
+        <!-- 會員資料編輯 -->
+        <div id="app">
+            <div class="popUps memberInfo_edit" id="memberInfo_edit">
+                <form action="#資料傳送送的網址" method="" class="form memberInfo_edit_form">
+                    <h1 class="memberInfo_edit_title"> 會員資料 </h1>
+                    <div class="memberInfo_edit_inner">
+                        <!-- 左邊圖片區 -->
+                        <div class="memberInfo_edit_imgArea"></div>
+                        <!-- 右邊文字區 -->
+                        <div class="memberInfo_edit_textArea">
+                            <input_email></input_email>
+                            <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> 密碼</span>
+                                <input type="password" placeholder="1234566" value="1234566" id="myPassword" disabled />
+                                <!-- 查看密碼按鈕 scss寫在_btn -->
+                                <button class="showPassword"></button>
+                                <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_password"
+                                    @click="open_forgetPassword_verification"></button>
+                            </div>
+                            <input_name></input_name>
+                            <input_birthday></input_birthday>
+                            <input_phone></input_phone>
+                            <!-- 站點 -->
+                            <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> 最愛捷運站點</span>
+                                <input type="text" id="login_station_choice" class="input" v-model="selectedStation"
+                                    name="station_input" placeholder="選擇最愛站點" disabled>
+                                <button class="memberInfo_edit_editIcon" id="memberInfo_editIcon_station"
+                                    @click="stations_board_show">
+                                </button>
+                            </div>
+                            <!-- 喜好標籤 -->
+                            <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> 喜好標籤</span>
+                                <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_input"
+                                    v-model="selectedTag" />
+                                <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_tag"
+                                    @click="tags_board_show">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 單顆按鈕用這裡 -->
+                    <div class="btn">
+                        <a href="./index.html">
+                            <input type="" value="送出" class="btn_submit memberInfo_edit_submit" />
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <!-- 選站點彈窗 -->
+            <div class="form form_station_board_member_modify" v-show="close_station_board">
+                <button type="button" class="btn_close" @click="close_station_board_btn">
+                    <img src="./img/icon/icon_close.png" alt="" />
+                </button>
+                <div class="login_station_select" id="login_station_options">
+                    <span v-for="station in blueStation" @click="getStation(station)" class="b">{{station.text}}</span>
+                    <span v-for="station in redStation" @click="getStation(station)" class="r">{{station.text}}</span>
+                    <span v-for="station in greenStation" @click="getStation(station)" class="g">{{station.text}}</span>
+                    <span v-for="station in brownStation" @click="getStation(station)"
+                        class="br">{{station.text}}</span>
+                    <span v-for="station in yellowStation" @click="getStation(station)"
+                        class="y">{{station.text}}</span>
+                </div>
+            </div>
+            <!-- 選喜好彈窗 -->
+            <div class="form form_tag_board_member_modify login_tag_select" id="login_tag_select"
+                v-show="close_tags_board">
+                <button type="button" class="btn_close" @click="close_tags_board_btn">
+                    <img src="./img/icon/icon_close.png" alt="" />
+                </button>
+                <div class="login_station_select" id="login_station_options">
+                    <span v-for="tag in tags" @click="getTags(tag)">#{{tag.text}}</span>
+                </div>
+            </div>
+            <!-- 認證彈窗verification -->
+            <div class="popUps verification" v-show="forgetPassword_verification">
+                <form method="POST" action="../php/Frontend/API/loginCheck.php"
+                    class="form form_forgotpassword_membeer_modify">
+                    <!-- close button -->
+                    <button type="button" class="btn_close" @click="close_forgetPassword_verification">
+                        <img src="./img/icon/icon_close.png" alt="" />
+                    </button>
+                    <!-- logo -->
+                    <div class="verification_logo">
+                        <img src="./img/logo.png">
+                    </div>
+                    <h1>我們需要驗證您的身份</h1>
+                    <div>
+                        <!-- 輸入框欄位 -->
+                        <input v-model="email" type="email" placeholder="輸入原註冊E-mail" autocomplete="off" required />
+                        <p v-if="!email_login">信箱格式錯誤</p>
+                        <!-- 單顆按鈕用這裡 -->
+                        <div class="btn">
+                            <input type="submit" value="寄送認證" class="btn_submit ver_submit" />
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        @@include('layout/footer.html')
-        <script src="./js/login_member.js"></script>
-    </body>
+    </div>
+    @@include('layout/footer.html')
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                blueStation: [{
+                        text: '市政府',
+                        value: 17
+                    },
+                    {
+                        text: '忠孝敦化',
+                        value: 18
+                    },
+                    {
+                        text: '國父紀念館',
+                        value: 19
+                    },
+                    {
+                        text: '板橋',
+                        value: 20
+                    },
+                    {
+                        text: '新埔',
+                        value: 21
+                    },
+                    {
+                        text: '府中',
+                        value: 22
+                    },
+                    {
+                        text: '龍山寺',
+                        value: 23
+                    },
+                ],
+                redStation: [{
+                        text: '東門',
+                        value: 1
+                    },
+                    {
+                        text: '台北101',
+                        value: 2
+                    },
+                    {
+                        text: '劍潭',
+                        value: 3
+                    },
+                    {
+                        text: '淡水',
+                        value: 4
+                    },
+                    {
+                        text: '圓山',
+                        value: 5
+                    },
+                    {
+                        text: '台北車站',
+                        value: 6
+                    },
+                    {
+                        text: '信義安和',
+                        value: 7
+                    },
+                    {
+                        text: '大安森林公園',
+                        value: 8
+                    },
+                ],
+                greenStation: [{
+                        text: '景美',
+                        value: 9
+                    },
+                    {
+                        text: '公館',
+                        value: 10
+                    },
+                    {
+                        text: '台電大樓',
+                        value: 11
+                    },
+                    {
+                        text: '中正紀念堂',
+                        value: 12
+                    },
+                    {
+                        text: '中山',
+                        value: 13
+                    },
+                    {
+                        text: '南京復興',
+                        value: 14
+                    },
+                    {
+                        text: '南京三民',
+                        value: 15
+                    },
+                    {
+                        text: '松山',
+                        value: 16
+                    },
+                ],
+                brownStation: [{
+                        text: '東湖',
+                        value: 24
+                    },
+                    {
+                        text: '西湖',
+                        value: 25
+                    },
+                    {
+                        text: '港墘',
+                        value: 26
+                    },
+                    {
+                        text: '大直',
+                        value: 27
+                    },
+                    {
+                        text: '中山國中',
+                        value: 28
+                    },
+                    {
+                        text: '六張犁',
+                        value: 29
+                    },
+                    {
+                        text: '萬芳社區',
+                        value: 30
+                    },
+                ],
+                yellowStation: [{
+                        text: '頂溪',
+                        value: 31
+                    },
+                    {
+                        text: '南京松江',
+                        value: 32
+                    },
+                    {
+                        text: '忠孝新生',
+                        value: 33
+                    },
+                    {
+                        text: '台北橋',
+                        value: 34
+                    },
+                    {
+                        text: '徐匯中學',
+                        value: 35
+                    },
+                    {
+                        text: '新莊',
+                        value: 36
+                    },
+                ],
+                selectedStation: '',
+                station: '',
+                tags: [{
+                        text: '日式',
+                        value: 1
+                    },
+                    {
+                        text: '韓式',
+                        value: 2
+                    },
+                    {
+                        text: '美式',
+                        value: 3
+                    },
+                    {
+                        text: '義式',
+                        value: 4
+                    },
+                    {
+                        text: '台式',
+                        value: 5
+                    },
+                    {
+                        text: '法式',
+                        value: 6
+                    },
+                    {
+                        text: '中式',
+                        value: 7
+                    },
+                    {
+                        text: '聚餐',
+                        value: 8
+                    },
+                    {
+                        text: '簡餐',
+                        value: 9
+                    },
+                    {
+                        text: '銅板美食',
+                        value: 10
+                    },
+                    {
+                        text: '下午茶',
+                        value: 11
+                    },
+                    {
+                        text: '早午餐',
+                        value: 12
+                    },
+                    {
+                        text: '商業午餐',
+                        value: 13
+                    },
+                    {
+                        text: '夜市',
+                        value: 14
+                    },
+                    {
+                        text: '雞排',
+                        value: 15
+                    },
+                    {
+                        text: '咖哩',
+                        value: 16
+                    },
+                    {
+                        text: '火鍋',
+                        value: 17
+                    },
+                    {
+                        text: '牛排',
+                        value: 18
+                    },
+                    {
+                        text: '咖啡店',
+                        value: 19
+                    },
+                    {
+                        text: '甜點',
+                        value: 20
+                    },
+                    {
+                        text: '鐵板燒',
+                        value: 21
+                    },
+                    {
+                        text: '麵食',
+                        value: 22
+                    },
+                    {
+                        text: '鹽酥雞',
+                        value: 23
+                    },
+                    {
+                        text: '手搖飲',
+                        value: 24
+                    },
+                    {
+                        text: '餐酒館',
+                        value: 25
+                    },
+                    {
+                        text: '拉麵',
+                        value: 26
+                    },
+                ],
+                tag: '',
+                selectedTag: [],
+                close_station_board: false,
+                close_tags_board: false,
+                account: '',
+                password: '',
+                account_login: true,
+                password_login: true,
+                forgetPassword_verification: false,
+                email_login: true,
+                email: '',
+                account_register: '',
+                password_register: '',
+                account_register_msg: true,
+                password_register_msg: true,
+                disabled: true,
+            },
+            watch: {
+                account: function () {
+                    var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+                    if (!isText.test(this.account) && this.account.length > 10) {
+                        this.account_login = false;
+                    } else {
+                        this.account_login = true;
+                    }
+                },
+                password: function () {
+                    if (this.password.length < 6) {
+                        this.password_login = false;
+                    } else {
+                        this.password_login = true;
+                    }
+                },
+                email: function () {
+                    var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+                    if (!isText.test(this.email) && this.email.length > 10) {
+                        this.email_login = false;
+                    } else {
+                        this.email_login = true;
+                    }
+                },
+                account_register: function () {
+                    var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+                    if (!isText.test(this.account_register) && this.account_register.length > 10) {
+                        this.account_register_msg = false;
+                    } else {
+                        this.account_register_msg = true;
+                    }
+                },
+                password_register: function () {
+                    if (this.password_register.length < 6) {
+                        this.password_register_msg = false;
+                    } else {
+                        this.password_register_msg = true;
+                    }
+                },
+            },
+            methods: {
+                open_forgetPassword_verification() {
+                    this.forgetPassword_verification = !this.forgetPassword_verification;
+                },
+                close_forgetPassword_verification() {
+                    this.forgetPassword_verification = !this.forgetPassword_verification;
+                },
+                getStation(station) {
+                    this.selectedStation = station.text;
+                    this.close_station_board = false;
+                },
+                stations_board_show() {
+                    this.close_station_board = !this.close_station_board;
+                    this.close_tags_board = false;
+                },
+                close_station_board_btn() {
+                    this.close_station_board = !this.close_station_board;
+                },
+                getTags(tag) {
+                    if (this.selectedTag.includes(tag.text)) {
+                        return false
+                    }
+                    if (this.selectedTag.length >= 3) {
+                        this.selectedTag.pop(tag.text);
+                    }
+                    this.selectedTag.unshift(tag.text);
+                },
+                tags_board_show() {
+                    this.close_tags_board = !this.close_tags_board;
+                    this.close_station_board = false;
+                },
+                close_tags_board_btn() {
+                    this.close_tags_board = !this.close_tags_board;
+                },
+            },
+            computed: {},
+            components: {
+                input_email: {
+                    props: [],
+                    data() {
+                        return {}
+                    },
+                    template: `
+                            <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> e-mail </span>
+                                <input type="email" placeholder="tibame@gmail.com" value="tibame@gmail.com"
+                                    disabled="disabled" />
+                            </div>
+                        `,
+                    methods: {},
+                    computed: {},
+                },
+                input_name: {
+                    props: [],
+                    data() {
+                        return {
+                            disabled: 1,
+                        }
+                    },
+                    template: `
+                             <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> 暱稱</span>
+                                <input type="text" placeholder="南京林志玲" value="" name="" :disabled="disabled == 1"/>
+                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                                </button>
+                            </div>
+                        `,
+                    methods: {
+                        isTypeable() {
+                            this.$data.disabled = (this.$data.disabled + 1) % 2;
+                        },
+                    },
+                    computed: {},
+                },
+                input_birthday: {
+                    props: [],
+                    data() {
+                        return {
+                            disabled: 1,
+                        }
+                    },
+                    template: `
+                             <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> 生日 </span>
+                                <input type="num" placeholder="1999/09/09" value="" name="" :disabled="disabled == 1"/>
+                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                                </button>
+                            </div>
+                        `,
+                    methods: {
+                        isTypeable() {
+                            this.$data.disabled = (this.$data.disabled + 1) % 2;
+                        },
+                    },
+                    computed: {},
+                },
+                input_phone: {
+                    props: [],
+                    data() {
+                        return {
+                            disabled: 1,
+                        }
+                    },
+                    template: `
+                             <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> 電話 </span>
+                                <input type="num" placeholder="0919919978" value="" name="" :disabled="disabled == 1"/>
+                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                                </button>
+                            </div>
+                        `,
+                    methods: {
+                        isTypeable() {
+                            this.$data.disabled = (this.$data.disabled + 1) % 2;
+                        },
+                    },
+                    computed: {},
+                },
+            },
+        })
+    </script>
+    <script src="./js/login_member.js"></script>
+</body>
+
 </html>

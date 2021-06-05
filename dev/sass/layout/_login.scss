@@ -7,7 +7,8 @@
     background-repeat: no-repeat;
     background-position: 0%;
     // height: 90vh;
-    overflow: auto
+    overflow: auto;
+    background-attachment: fixed;
 }
 //註冊的表單
 .join_form{
@@ -17,17 +18,17 @@
 //登入與註冊
 .login{
     @include block_center();
-    padding-bottom: 15px;
+    padding-bottom: 23px;
     box-shadow: initial;
-    width: 510px;
-    overflow: auto;
+    // width: 510px;
+    // overflow: auto;
     @include rwd(largeMobile){
-        width: 300px;
-        padding: 25px;
+        // width: 300px;
+        // padding: 25px;
         }
     @include rwd(mobile){
         width: 300px;
-        padding: 25px;
+        padding: 15px;
         }
     // 頭像區塊
     .loginMemberPic{
@@ -183,14 +184,13 @@
 
 .memberInfo_edit{
     &_form{
+        padding: 30px 50px;
+        margin-left: initial;
+        transform: initial;
         // 電腦時，彈窗寬度1000
-        @include rwd(desktop){
+        @include rwd(desktop) {
             width: 1000px;
-            }
-            padding: 30px 50px;
-            margin-left: initial;
-            transform: initial;
-            // bottom: 490px;   //Chris 5/22 修改
+        }
     }
     // 內容區塊，
     &_inner{
@@ -313,6 +313,9 @@
 }
 // 編輯會員資料結束--------------------------
 
+.login_station_select span:hover{
+    background-color: $yellow;
+}
 
 .inner_block_area{
     p{
@@ -322,25 +325,117 @@
     }
 }
 
+// 忘記密碼彈窗
 .verification{
     p{
         margin: -10px 0 10px 0;
         font-size: 6px;
         color: red;
     }
+    // 登入／註冊頁面
+    .form_forgotpassword{
+        position: fixed;
+        top: 30px;
+        height: 380px;
+        @include rwd(desktop) {
+            // width: 1000px;
+        }
+    
+        @include rwd(desktopSmall) {
+         
+        }
+    
+        @include rwd(pad) {
+            
+        }
+    
+        @include rwd(largeMobile) {
+            top: 30px;
+            height: 370px;
+            width: 400px;
+        }
+    
+        @include rwd(mobile) {
+            position: fixed;
+            top: 90px;
+            left: 0px;
+            height: 260px;
+            width: 240px;
+            padding: 5px 20px 0px 20px;
+            .ver_submit{
+                position: relative;
+                bottom: 25px;
+            }
+            h1{
+                margin-bottom: 30px;
+                font-size: 15px;
+            }
+        }
+    }
+    // 修改會員資料
+    .form_forgotpassword_membeer_modify{
+        position: fixed;
+        top: 150px;
+        height: 380px;
+        @include rwd(desktop) {
+
+        }
+    
+        @include rwd(desktopSmall) {
+            left: 10px;
+            width: 330px;
+        }
+    
+        @include rwd(pad) {
+            left: 10px;
+            width: 330px;
+        }
+    
+        @include rwd(largeMobile) {
+            left: 10px;
+            width: 330px;
+        }
+    
+        @include rwd(mobile) {
+            position: fixed;
+            top: 280px;
+            left: 0px;
+            height: 260px;
+            width: 240px;
+            padding: 5px 20px 0px 20px;
+            .ver_submit{
+                position: relative;
+                bottom: 25px;
+            }
+            h1{
+                margin-bottom: 30px;
+                font-size: 15px;
+            }
+        }
+    }
 }
 
-.form_forgotpassword, .form_forgotpassword_membeer_modify{
+
+.form_station_board {
     position: fixed;
-    top: 30px;
-    height: 380px;
+    top: 50px;
+    left: 0;
 }
 
-.form_station_board, .form_tag_board, .form_tag_board_member_modify, .form_station_board_member_modify{
+.form_tag_board{
     position: fixed;
-    top: 60px;
+    top: 15px;
+    left: 0;
 }
 
-.login_station_select span:hover{
-    background-color: $yellow;
+.form_tag_board_member_modify{
+    position: fixed;
+    top: 100px;
+    left: 9px;
+}
+
+.form_station_board_member_modify{
+    position: fixed;
+    top: 100px;
+    left: 9px;
 }
