@@ -1,89 +1,114 @@
-
-//Chris的
 .develope_body{
     background: $bgc;
-    // overflow: hidden;  //加這一行
+    // overflow: hidden;  
 }
 
 .develope_wrapper{
-    height: 90vh;  //加這一行
+    height: 90vh;  
+    overflow: hidden;
+    @include rwd(desktop) {
+        height: 87vh;
+    }
+
+    @include rwd(desktopSmall) {
+        height: 87vh;
+    }
+
+    @include rwd(pad) {
+        height: 87vh;
+    }
+
+    @include rwd(largeMobile) {
+        height: 79vh;  
+    }
+
+    @include rwd(mobile) {
+        height: 74vh;  
+    }
 }
 
-.develope_bg_container{   //新增一個div放背景圖
+.develope_bg_container{   
     width: 85%;        
     margin: 0 auto;
-}
-
-.develope_bg{
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-
-}
-
-.develope_bg2{
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-}
-
-.develope_bg3{
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-}
-
-.develope_et1{
-    position: absolute;
-    width: 6%;
-    top: 62%;
-    left: 27%;
-    z-index: 2;
-    cursor: pointer;  
-}
-.develope_et2{
-    position: absolute;
-    width: 6%;
-    top: 70%;
-    left: 35%;
-    z-index: 2;
-    cursor: pointer;
-}
-
-.develope_et3{
-    position: absolute;
-    width: 6%;
-    top: 80%;
-    left: 43%;
-    z-index: 2;
-    cursor: pointer;
-}
-
-.develope_et4{
-    position: absolute;
-    width: 6%;
-    top: 80%;
-    left: 52%;
-    z-index: 2;
-    cursor: pointer;
-}
-
-.develope_et5{
-    position: absolute;
-    width: 6%;
-    top: 70%;
-    left: 59%;
-    z-index: 2;
-    cursor: pointer;
-}
-
-.develope_et6{
-    position: absolute;
-    width: 6%;
-    top: 62%;
-    left: 67%;
-    z-index: 2;
-    cursor: pointer;
+    .develope_bg{
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        @include rwd(desktop) {
+            display: block;
+        }
+    
+        @include rwd(desktopSmall) {
+            height: 100vh;
+            display: block;
+        }
+    
+        @include rwd(pad) {
+            display: none;
+        }
+    
+        @include rwd(largeMobile) {
+            display: none;
+        }
+    
+        @include rwd(mobile) {
+            display: none;
+        }
+    }
+    
+    .develope_bg2{
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        @include rwd(desktop) {
+            display: none;
+        }
+    
+        @include rwd(desktopSmall) {
+            display: none;
+        }
+    
+        @include rwd(pad) {
+            height: 100vh;
+            display: block;
+        }
+    
+        @include rwd(largeMobile) {
+            height: 80vh;
+            display: block;
+        }
+    
+        @include rwd(mobile) {
+            display: none;
+        }
+    }
+    
+    .develope_bg3{
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        @include rwd(desktop) {
+            display: none;
+        }
+    
+        @include rwd(desktopSmall) {
+            display: none;
+        }
+    
+        @include rwd(pad) {
+            display: none;
+        }
+    
+        @include rwd(largeMobile) {
+            display: none;
+        }
+    
+        @include rwd(mobile) {
+            height: 70vh;
+            display: block;
+            margin: 0 auto;
+        }
+    }
 }
 
 .White_planet{
@@ -97,328 +122,359 @@
     height: 70%;
     top: 10%;
     z-index: 1;
-    // outline: 1px red solid;
+    animation: fadein 3s;
 }
 
-//develope_form
+.etGroup{
+    .develope_et1{
+        position: absolute;
+        width: 6%;
+        top: 62%;
+        left: 27%;
+        z-index: 2;
+        cursor: pointer;
+        @include rwd(desktop) {
+            
+        }
+
+        @include rwd(desktopSmall) {
+            width: 6%;
+            top: 62%;
+            left: 21%;
+        }
+
+        @include rwd(pad) {
+            width: 8%;
+            top: 62%;
+            left: 21%;
+        }
+
+        @include rwd(largeMobile) {
+            width: 8%;
+            top: 62%;
+            left: 21%;
+        }
+
+        @include rwd(mobile) {
+            width: 8%;
+            top: 61%;
+            left: 21%;
+        }
+    }
+    .develope_et2{
+        position: absolute;
+        width: 6%;
+        top: 70%;
+        left: 35%;
+        z-index: 2;
+        cursor: pointer;
+        @include rwd(desktop) {
+         
+        }
+
+        @include rwd(desktopSmall) {
+            width: 6%;
+            top: 68%;
+            left: 30%;
+        }
+
+        @include rwd(pad) {
+            width: 8%;
+            top: 68%;
+            left: 30%;
+        }
+
+        @include rwd(largeMobile) {
+            width: 8%;
+            top: 71%;
+            left: 30%;
+        }
+
+        @include rwd(mobile) {
+            width: 8%;
+            top: 68%;
+            left: 30%;
+        }
+    }
+    
+    .develope_et3{
+        position: absolute;
+        width: 6%;
+        top: 80%;
+        left: 43%;
+        z-index: 2;
+        cursor: pointer;
+        @include rwd(desktop) {
+          
+        }
+
+        @include rwd(desktopSmall) {
+            width: 6%;
+            top: 79%;
+            left: 40%;
+        }
+
+        @include rwd(pad) {
+            width: 8%;
+            top: 79%;
+            left: 40%;
+        }
+
+        @include rwd(largeMobile) {
+            width: 8%;
+            top: 80%;
+            left: 40%;
+        }
+
+        @include rwd(mobile) {
+            width: 8%;
+            top: 73%;
+            left: 40%;
+        }
+    }
+    
+    .develope_et4{
+        position: absolute;
+        width: 6%;
+        top: 80%;
+        left: 52%;
+        z-index: 2;
+        cursor: pointer;
+        @include rwd(desktop) {
+         
+        }
+
+        @include rwd(desktopSmall) {
+            width: 6%;
+            top: 79%;
+            left: 53%;
+        }
+
+        @include rwd(pad) {
+            width: 8%;
+            top: 79%;
+            left: 53%;
+        }
+
+        @include rwd(largeMobile) {
+            width: 8%;
+            top: 80%;
+            left: 53%;
+        }
+
+        @include rwd(mobile) {
+            width: 8%;
+            top: 73%;
+            left: 53%;
+        }
+    }
+    
+    .develope_et5{
+        position: absolute;
+        width: 6%;
+        top: 70%;
+        left: 59%;
+        z-index: 2;
+        cursor: pointer;
+        @include rwd(desktop) {
+          
+        }
+
+        @include rwd(desktopSmall) {
+            width: 6%;
+            top: 68%;
+            left: 62%;
+        }
+
+        @include rwd(pad) {
+            width: 8%;
+            top: 68%;
+            left: 62%;
+        }
+
+        @include rwd(largeMobile) {
+            width: 8%;
+            top: 71%;
+            left: 62%;
+        }
+
+        @include rwd(mobile) {
+            width: 8%;
+            top: 68%;
+            left: 62%;
+        }
+    }
+    
+    .develope_et6{
+        position: absolute;
+        width: 6%;
+        top: 62%;
+        left: 67%;
+        z-index: 2;
+        cursor: pointer;
+        @include rwd(desktop) {
+           
+        }
+
+        @include rwd(desktopSmall) {
+            width: 6%;
+            top: 62%;
+            left: 71%;
+        }
+
+        @include rwd(pad) {
+            width: 8%;
+            top: 62%;
+            left: 71%;
+        }
+
+        @include rwd(largeMobile) {
+            width: 8%;
+            top: 64%;
+            left: 71%;
+        }
+
+        @include rwd(mobile) {
+            width: 8%;
+            top: 61%;
+            left: 71%;
+        }
+    }
+}
 
 .develope_form{
+    animation: fadein 5s;
     @include block_center();
     width: 33%;
     position: absolute;
-    top:35%;
+    top:31%;
     z-index: 10;
     text-align: center;
     // outline: 1px red solid;
+    @include rwd(desktop) {
+           
+    }
+
+    @include rwd(desktopSmall) {
+   
+    }
+
+    @include rwd(pad) {
+        
+    }
+
+    @include rwd(largeMobile) {
+        top: 26%;
+    }
+
+    @include rwd(mobile) {
+      
+    }
     h1{
         font-size: 48px;   
         margin: 10px 0;
-    }
-    li{
-        margin: 10px 0;
-    }
-}
+        @include rwd(desktop) {
+           
+        }
 
-.develope_form .btn_submit_develope{
-    margin: -20px;
-}
+        @include rwd(desktopSmall) {
+          
+        }
 
-@media all and (min-width: 1200px) {
-    .develope_bg{
-        display: block;
-        
-    }
-    .develope_bg2{
-        display: none;
-        
-    }
-    .develope_bg3{
-        display: none;
-       
-    }
-    .develope_blank{
-        display: none;
-    }
-}
+        @include rwd(pad) {
+          
+        }
 
-@media all and(max-width: 1199px) and (min-width: 992px) {
-    .develope_bg{
-        height: 100vh;
-        display: block;
-        
-    }
-    .develope_bg2{
-        display: none;
-        
-    }
-    .develope_bg3{
-        display: none;
-       
-    }
-    .develope_blank{
-        display: none;
-    }
+        @include rwd(largeMobile) {
+          font-size: 36px;
+          margin: 5px;
+        }
 
-}
-
-@media all and(max-width: 991px) and (min-width: 768px) {
-    .develope_bg{
-        display: none;
-    }
-    .develope_bg2{
-        height: 100vh;
-        display: block;
-    }
-    .develope_bg3{
-        display: none;
-    }
-    .develope_blank{
-        display: none;
-    }
-}
-
-@media all and(max-width: 767px) and (min-width: 576px) {
-    .develope_bg{
-        display: none;
-    }
-    .develope_bg2{
-        height: 80vh;
-        display: block;
-    }
-    .develope_bg3{
-        display: none;
-    }
-}
-
-@media all and (max-width: 575px) {
-    .develope_bg{
-        display: none;     
-    }
-    .develope_bg2{    
-        display: none;
-    }
-    .develope_bg3{
-        height: 70vh;
-        display: block;
-        margin: 0 auto;
-    }
-    
-}
-
-// ----------------------
-
-@include rwd(desktop){
-    // .White_planet{
-    //     width: 50%;
-    // }
-}
-
-@include rwd(desktopSmall){
-    // .White_planet{
-    //     width: 658px;
-    //     margin: 0% 0% 0% -6%;   
-    // }
-    .develope_et7{
-        width: 10%;
-        left: 31%;
-        top: 36%;
-    }
-    .etGroup{
-        width: 60%;
-    }
-    
-}
-
-@include rwd(pad){
-    // .White_planet{
-    //     width: 658px;
-    //     margin: 0% 0% 0% -10%;
-    // }
-    .develope_et1{
-        position: absolute;
-        width: 10%;
-        top: 53%;
-        left: 10%;
-        z-index: 2;
-    }
-    .develope_et2{
-        position: absolute;
-        width: 10%;
-        top: 67%;
-        left: 15%;
-        z-index: 2;
-    }
-    
-    .develope_et3{
-        position: absolute;
-        width: 10%;
-        top: 79%;
-        left: 23%;
-        z-index: 2;
-    }
-    
-    .develope_et4{
-        position: absolute;
-        width: 10%;
-        top: 65%;
-        left: 25%;
-        z-index: 2;
-    }
-    
-    .develope_et5{
-        position: absolute;
-        width: 10%;
-        top: 75%;
-        left: 40%;
-        z-index: 2;
-    }
-    
-    .develope_et6{
-        position: absolute;
-        width: 10%;
-        top: 79%;
-        left: 55%;
-        z-index: 2;
-    }
-    .develope_et7{
-        width: 10%;
-        left: 30%;
-        top: 36%;
-    }
-}
-
-@include rwd(largeMobile){
-    // .White_planet{
-    //     width: 90%;
-    //     margin: 0% 0% 50% 0%;
-    //     left: 5%;
-    //     top: 0%;
-    // }
-    .develope_et1{
-        position: absolute;
-        width: 10%;
-        top: 58%;
-        left: 5%;
-        z-index: 2;
-    }
-    .develope_et2{
-        position: absolute;
-        width: 10%;
-        top: 70%;
-        left: 15%;
-        z-index: 2;
-    }
-    
-    .develope_et3{
-        position: absolute;
-        width: 10%;
-        top: 78%;
-        left: 29%;
-        z-index: 2;
-    }
-    
-    .develope_et4{
-        position: absolute;
-        width: 10%;
-        top: 83%;
-        left: 10%;
-        z-index: 2;
-    }
-    
-    .develope_et5{
-        position: absolute;
-        width: 10%;
-        top: 85%;
-        left: 42%;
-        z-index: 2;
-    }
-    
-    .develope_et6{
-        position: absolute;
-        width: 11%;
-        top: 86%;
-        left: 56%;
-        z-index: 2;
-    }
-    .develope_et7{
-        width: 10%;
-        left: 27%;
-        top: 30%;
-    }    
-}    
-
-@include rwd(mobile){
-    // .White_planet{
-    //     width: 95%;
-    //     margin: 0% 0% 0% 0%;
-    //     top: 0%;
-    //     left: 5%;
-    // }
-    .develope_et1{
-        position: absolute;
-        width: 13%;
-        top: 69%;
-        left: 5%;
-        z-index: 2;
-    }
-    .develope_et2{
-        position: absolute;
-        width: 13%;
-        top: 87%;
-        left: 45%;
-        z-index: 2;
-    }
-    
-    .develope_et3{
-        position: absolute;
-        width: 13%;
-        top: 81%;
-        left: 30%;
-        z-index: 2;
-    }
-    
-    .develope_et4{
-        position: absolute;
-        width: 13%;
-        top: 76%;
-        left: 17%;
-        z-index: 2;
-    }
-    
-    .develope_et5{
-        position: absolute;
-        width: 13%;
-        top: 87%;
-        left: 62%;
-        z-index: 2;
-    }
-    
-    .develope_et6{
-        position: absolute;
-        width: 13%;
-        top:87%;
-        left: 78%;
-        z-index: 2;
-    }
-    .develope_et7{
-        width: 15%;
-        left: 22%;
-        top: 19%;
-    }
-    .develope_wrapper{
-        height: 80vh;  //加這一行
-    }
-    .develope_form{
-        h1{
+        @include rwd(mobile) {
             font-size: 24px;   
             margin: initial;
         }
-        h2{
+    }
+    h2{
+        
+        @include rwd(desktop) {
+           
+        }
+
+        @include rwd(desktopSmall) {
+          
+        }
+
+        @include rwd(pad) {
+          
+        }
+
+        @include rwd(largeMobile) {
+          
+        }
+
+        @include rwd(mobile) {
             font-size: 10px;
         }
-        li{
+    }
+    li{
+        margin: 10px 0;
+        @include rwd(desktop) {
+           
+        }
+
+        @include rwd(desktopSmall) {
+          
+        }
+
+        @include rwd(pad) {
+          
+        }
+
+        @include rwd(largeMobile) {
+          
+        }
+
+        @include rwd(mobile) {
             font-size: 8px;
             margin: initial;
+            margin: 5px 0;
         }
     }
+    .btn_submit_develope{
+        margin: -20px;
+        @include rwd(desktop) {
+           
+        }
+
+        @include rwd(desktopSmall) {
+          
+        }
+
+        @include rwd(pad) {
+          
+        }
+
+        @include rwd(largeMobile) {
+          
+        }
+
+        @include rwd(mobile) {
+            margin: -10px;
+            width: 39%;
+            line-height: 10px;
+            font-size: 10px;
+        }
+    }    
 }
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+

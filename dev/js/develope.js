@@ -131,35 +131,3 @@
             },
         })
 
-
-        //Vue animation
-        // new Vue({
-        //     el: '#app',
-        //     data: {
-        //         content: 'jamie',
-        //         show: true
-        //     },
-        //     mounted: function () {
-        //         var self = this;
-        //         setInterval(function () {
-        //             self.show = !self.show;
-        //         }, 1000);
-        //     },
-        //     methods: {
-                
-        //     },
-        //     computed: {
-
-        //     },
-        // })
-
-        // css
-        // .fade-enter-active, 
-        // .fade-leave-active {
-        // transition: opacity 1s;
-        // }
-
-        // .fade-enter, 
-        // .fade-leave-to {
-        // opacity: 0;
-        // }
