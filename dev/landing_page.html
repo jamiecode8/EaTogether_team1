@@ -5,21 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @@include('layout/style.html')
-    <title>前台後台首頁</title>
+    <title>外食EaT起來</title>
 </head>
-<body class="wrapper landing_page_wrapper">
- <div class="landing_page_wrapperwrapper">
-    @@include('layout/header.html')
-        <!-- <div class="landing_pageicon">
-            <img src="./img/mimi/landing_pageicon.svg" alt="">
-        </div> -->
-          <div class="landing_page_but">
-              <a href="./index.html"><img src="./img/mimi/landing_page_but.svg" alt="" class="hover-button"></a>
-          </div>
-          <div class="landing_page_but2">
-            <a href="./backend_member.html"><img src="./img/mimi/landing_page_but2.svg" alt="" class="hover-button"></a>
-        </div>
+<body class="landing">
+    <div class="wrapper landing_wrapper">
+        <ul class="main">
+            <li>
+                <a href="./index.html">
+                    <h1>前台</h1>
+                    <p>Front-End</p>
+                    <img class="alien" src="./img/story/storyAlien2.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./backend_member.html">
+                    <h1>後台</h1>
+                    <p>Back-End</p>
+                    <img class="alien" src="./img/story/storyAlien3.png" alt="">
+                </a>
+            </li>
+        </ul>
+        <img src="./img/story/storyAlien1.png" alt="">
     </div>
-    @@include('layout/footer.html')
 </body>
 </html>

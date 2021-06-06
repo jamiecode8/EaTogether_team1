@@ -1,107 +1,113 @@
-.landing_page_wrapper{
-    background: $bgc;
+.landing{
+    background-color: $bgc;
     overflow: hidden;
-.landing_page_wrapperwrapper{
-    width: 100%;
-    height: 92vh;
-}    
+}
 
-.landing_pageicon{
-    margin: 0% auto;
-    width: 90%;
-    height: 100%;
-    @include rwd(mobile){
-        margin: 0% auto;
-        width: 100%;
-        height: 100%;
+.landing_wrapper{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100vw;
+    height: 100vh;    
+    @keyframes shake {
+        0% {
+            transform: translateX(0)
+        }
+        25% {
+            transform: scale(1.03) translateX(-10px)
+        }
+        50% {
+            transform: scale(1.03) translateX(0px)
+        }
+        75% {
+            transform: scale(1.03) translateX(10px)
+        }
+        100% {
+            transform: translateX(0)
+        }
     }
     img{
-        width: 90%;
-        height: 100%;
-        margin: 0 auto;
-    }
-    @include rwd(mobile){
-        width: 100%;
-        height: 100%;
-        margin: 0 auto;
-    }
-}
-
-.landing_page_but{
-    position: absolute;
-    top: 40%;
-    left: 24%;
-    right: 0%;
-    bottom: 20%;
-    width: 20%;
-        @include rwd(desktop){
-        
-        }
-        @include rwd(desktopSmall){
-        
-        }
-        @include rwd(pad){
-        
-        }
-        @include rwd(largeMobile){
-        
-        }
-        @include rwd(mobile){
-            position: absolute;
-            top: 30%;
-            left: 30%;
-            right: 30%;
-            bottom: 20%;
-            width: 40%;
-        }
-}
-
-
-.landing_page_but2{
-    position: absolute;
-    top: 40%;
-    left: 55%;
-    right: 0%;
-    bottom: 20%;
-    width: 20%;
-    @include rwd(mobile){
         position: absolute;
-        top: 50%;
-        left: 30%;
-        right: 30%;
-        bottom: 10%;
-        width: 40%;
+        width: 200px;
+        bottom: -35vh;
     }
-}
+    .main{
+        display: flex;
+        li{
+            border-bottom:10px solid;
+            padding:100px;
+            h1{
+                font-size:100px;
+            }
+            p{
+                font-size:36px;
+                text-align: center;
+                padding-top: 50px;
+            }
+           
+            img{
+                width:200px;
+                position: absolute;
+                bottom:-35vh;
+            }
+            .effect{
+                width:450px;
+                top:-5vh;
+                left:-2vw;
+                z-index: -1;
+            }
+           
+        }
+        a:hover{
+            
+            h1{
+                color: $yellow;
+                transition: all 0.3s;
+            }
+            p{
+                color: $green;
+                transition: all 0.3s;
+                animation: shake 0.3s infinite;
 
-}
-
-@include rwd(desktop){
-    .landing_page_wrapper{
-        
-    }
-}
-
-@include rwd(desktopSmall){
-    .landing_page_wrapper{
-        
-    }
-}
-
-@include rwd(pad){
-    .landing_page_wrapper{
-        
-    }
-}
-
-@include rwd(largeMobile){
-    .landing_page_wrapper{
+            }
+            img{
+                transform: translateY(-20vh);
+                transition: all 0.3s;
+            }  
+        }
+       
        
     }
 }
-
-@include rwd(mobile){
-    .landing_page_wrapper{
-        
+@include rwd(pad){
+    .landing_wrapper{
+        .main{
+            li{
+                h1{
+                    font-size: 90px;
+                }
+            }
+        }
+    }
+   
+}
+@media all and (max-width: 767px){
+    .landing_wrapper{
+        img{
+            bottom: -40vh;
+        }
+        .main{
+            padding-top: 100px;
+            flex-direction: column;
+            li{
+                padding: 50px;
+                h1{
+                    font-size: 80px;
+                }
+                img{
+                    display: none;
+                }
+            }
+        }
     }
 }
