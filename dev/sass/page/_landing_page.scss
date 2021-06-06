@@ -8,7 +8,7 @@
     align-items: center;
     display: flex;
     width: 100vw;
-    height: 100vh;    
+    height: 100vh;      
     @keyframes shake {
         0% {
             transform: translateX(0)
@@ -29,7 +29,7 @@
     img{
         position: absolute;
         width: 200px;
-        bottom: -35vh;
+        bottom: -90px;
     }
     .main{
         display: flex;
@@ -94,10 +94,9 @@
 @media all and (max-width: 767px){
     .landing_wrapper{
         img{
-            bottom: -40vh;
+            bottom: -20vh;
         }
         .main{
-            padding-top: 100px;
             flex-direction: column;
             li{
                 padding: 50px;
