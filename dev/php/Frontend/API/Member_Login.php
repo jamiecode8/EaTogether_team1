@@ -1,8 +1,8 @@
 <?php
-    include("../../Lib/Util.php");	//與資料庫連線
+    include("../../Lib/Util.php");	
 
     //建立SQL
-    $sql = "SELECT * FROM member WHERE member_status = 1 and member_email = ? and member_password = ?";
+    $sql = "SELECT * FROM member WHERE member_status = 1 and member_email= ? and member_password = ?";
 
     //給值
     $statement = getPDO()->prepare($sql);
@@ -10,21 +10,22 @@
     $statement->bindValue(2, $_POST["member_password_input"]);
     $statement->execute();
     $data = $statement->fetchAll();
-
+    
+    $memberEmail = "";
     $memberID = "";
-    $memberName = "";
     foreach($data as $index => $row){
-        $memberID = $row["member_email"];
-        $memberName = $row["member_password"];
+        $memberEmail = $row["member_email"];
+        $memberID = $row["member_id"];
+       
     }
 
     //判斷是否有會員資料?
-    if($memberID != "" && $memberName != ""){   //如果都不是空值
+    if($memberEmail != "" && $memberID != ""){
 
         include("../../Lib/Member.php");        
     
         //將會員資訊寫入session
-        setMemberInfo($memberID, $memberName);
+        setMemberInfo($memberEmail, $memberID);
 
         //導回產品頁        
         echo "<script>alert('登入成功!'); location.href = '../../../index.html';</script>"; 
@@ -33,6 +34,5 @@
 
         //跳出提示停留在登入頁
         echo "<script>alert('帳號或密碼錯誤!'); location.href = '../../../login_member.html';</script>"; 
-        
     }
 ?>
