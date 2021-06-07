@@ -80,7 +80,7 @@
                     <div class="store_signUp_title">
                         <h2>進階資料</h2>
                     </div>
-                    <h2>客單價</h2>
+                    <h2 class="store_signUp_h2">客單價</h2>
                     <div class="login_price">
                         <input type="text" id="login_price_choice" placeholder="選擇價格區間" class="input" v-model="selectedPrice"/>
                         <!-- 隱藏欄位 -->
@@ -91,7 +91,7 @@
                         </ul>
                     </div>
 
-                    <h2>鄰近捷運站</h2>
+                    <h2 class="store_signUp_h2">鄰近捷運站</h2>
                     <div class="login_store_station">
                         <input type="text" id="login_station_choice" class="input" v-model="selectedStation" placeholder="選擇鄰近站點" disabled/>
                         <!-- 隱藏欄位 -->
@@ -100,7 +100,7 @@
                         <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="stations_board_show">
                     </div>
 
-                    <h2>選擇關鍵字(最多三個)</h2>
+                    <h2 class="store_signUp_h2">選擇關鍵字(最多三個)</h2>
                     <div class="login_tag">
                         <input type="text" placeholder="喜好標籤" disabled v-model="selectedTag" />
                         <!-- 隱藏欄位 -->
@@ -121,9 +121,9 @@
                     -->
                     <div class="store_imgArea">
                         <!-- 主標題 -->
-                        <p>檔案格式：JPG、JPEG、PNG</p>
-                        <p>檔案容量：3MB以下</p>
-                        <p>建議圖片尺寸：640px × 640px</p>
+                        <p class="store_imgArea_p">檔案格式：JPG、JPEG、PNG</p>
+                        <p class="store_imgArea_p">檔案容量：3MB以下</p>
+                        <p class="store_imgArea_p">建議圖片尺寸：640px × 640px</p>
             
                         <div class="store_imgArea_dropArea">
                             <div class="store_imgArea_picEdit">
