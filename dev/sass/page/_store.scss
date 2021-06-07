@@ -149,6 +149,7 @@ width: 100%;
 .mySwiper2{
     .swiper-button-next, .swiper-button-prev{
         color: $color;
+        text-shadow: 1px 1px 2px $bgc;
         opacity: 0.5;
         &:hover{
             opacity: 1; 
@@ -156,27 +157,9 @@ width: 100%;
     }
     .swiper-button-next{
         right: 0px;
-        // @include rwd(pad){
-        //     right: 0px;
-        //     }
-        // @include rwd(largeMobile){
-        //     right: 85px;
-        //     }
-        // @include rwd(mobile){
-        //     right: 0px;
-        //     }
     }
     .swiper-button-prev{
         left: 0px;
-        // @include rwd(pad){
-        //     left: 0px;
-        //     }
-        // @include rwd(largeMobile){
-        //     left: 85px;
-        //     }
-        // @include rwd(mobile){
-        //     left: 0px;
-        //     }
     }
     .swiper-button-next:after, .swiper-button-prev:after{
         font-size: $fontSize_Title;
@@ -267,7 +250,9 @@ width: 100%;
     &_infoWarn{
         background-image: url('../img/icon/icon_warn.png');
     }
-
+    &_infoLevel{
+        background-image: url('../img/icon/icon_mshrm.png');
+    }
 }
 
 
