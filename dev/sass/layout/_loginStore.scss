@@ -37,6 +37,7 @@
 }
 .storeLogin_signup{
     overflow: initial;
+    margin-bottom: 20px;
 	@include rwd(desktop){
     // display: none;
     width: 1000px;
@@ -97,7 +98,6 @@
 
 // 有編輯icon的小標
 .store_signUp{
-    margin-bottom: 20px;
     &_title{
         h2{
             display: inline-block;
