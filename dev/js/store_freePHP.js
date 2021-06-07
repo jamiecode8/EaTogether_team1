@@ -62,7 +62,7 @@ new Vue({
         })
 
         self.$nextTick(() => {
-        initChart();
+          initChart();
         })
       } 
     },

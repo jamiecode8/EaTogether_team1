@@ -114,7 +114,7 @@
     }
     &_finish{
         @include rwd(desktop){
-            height: 73vh;
+            height: 62vh;
         }
         @include rwd(desktopSmall){
             height: 60vh;
@@ -131,7 +131,8 @@
     }
     &_info{
         @include rwd(desktop){
-            height: 73vh;
+            height: 103vh;
+            // height: 630px;
         }
         @include rwd(desktopSmall){
             height: 60vh;
@@ -148,7 +149,8 @@
     }
     &_payment{
         @include rwd(desktop){
-            height: 73vh;
+            height: 93vh;
+            // height: 570px;
         }
         @include rwd(desktopSmall){
             height: 60vh;
