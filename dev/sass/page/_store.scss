@@ -91,13 +91,20 @@
         img {
             display: block;
             object-fit: cover;
+            max-width: 100%;;
+            max-width: 100%;;
         }
     }
     // ul外面那層
     &-container {
-        width: 100%;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+.store_photoArea{
+    .swiper-container{
+        width: 300px;
     }
 }
 
@@ -116,9 +123,6 @@ width: 100%;
     @include rwd(desktopSmall){
         width: 70%;
         }
-    // @include rwd(pad){
-    //     width: 100%;
-    //     }
     @include rwd(largeMobile){
         // display: block;
         }
@@ -129,6 +133,10 @@ width: 100%;
         width: 25%;
         height: 100%;
         opacity: 0.4;
+        img{
+            max-width: 100%;;
+            max-width: 100%;;
+        }
         }
     .swiper-slide-thumb-active {
         opacity: 1;
@@ -147,28 +155,28 @@ width: 100%;
         }
     }
     .swiper-button-next{
-        right: 70px;
-        @include rwd(pad){
-            right: 50px;
-            }
-        @include rwd(largeMobile){
-            right: 85px;
-            }
-        @include rwd(mobile){
-            right: 0px;
-            }
+        right: 0px;
+        // @include rwd(pad){
+        //     right: 0px;
+        //     }
+        // @include rwd(largeMobile){
+        //     right: 85px;
+        //     }
+        // @include rwd(mobile){
+        //     right: 0px;
+        //     }
     }
     .swiper-button-prev{
-        left: 70px;
-        @include rwd(pad){
-            left: 50px;
-            }
-        @include rwd(largeMobile){
-            left: 85px;
-            }
-        @include rwd(mobile){
-            left: 0px;
-            }
+        left: 0px;
+        // @include rwd(pad){
+        //     left: 0px;
+        //     }
+        // @include rwd(largeMobile){
+        //     left: 85px;
+        //     }
+        // @include rwd(mobile){
+        //     left: 0px;
+        //     }
     }
     .swiper-button-next:after, .swiper-button-prev:after{
         font-size: $fontSize_Title;
