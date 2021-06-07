@@ -1,245 +1,545 @@
-<script>
-    Vue.component('location',{
-        props: [''],
-        template: `
-        <p class="sectionIconInf">store.address</p>
-        `,
-        data(){
-            return {
-            };
-        },
-        mounted() {
-        },
-        methods: {
-            // getInf(){
-            //     this.$emit('storeinf-emit');
-            // },
-        },    
-    });
-    Vue.component('station',{
-        template: `
-        <p class="sectionIconInf" @click='getInf'>store.station</p>
-        `,
-    });
-    Vue.component('phone',{
-        template: `
-        <p class="sectionIconInf">store.phone</p>
-        `,
-    });
-    Vue.component('price',{
-        template: `
-        <p class="sectionIconInf">store.price</p>
-        `,
-    });
-    //search
-    new Vue({
-        el: '#app',
-        data: {
-            choices:[],//whatToEat答案
-            isSearchBoard:false,
-            isShowLine:false,
-            mrtLine:['板南線','淡水信義線','松山新店線','文湖線','中和新蘆線'],
-            searchLine:'',
-            findFood:'',
-            searchTags:'',
-            isShowTag:false,                                                                               						
-            tags:['#日式','#韓式','#美式','#義式','#台式','#法式','#中式','#夜市','#商業午餐','#早午餐','#下午茶','#銅板美食','#簡餐','#聚餐','#餐酒館','#咖啡店','#甜點','#麵食','#鹽酥雞','#雞排','#咖哩','#火鍋','#牛排','#拉麵','#鐵板燒'],
-            isTyped:false,
-            content:'',//question compoment
-            isSearchStores:false,
-            isStoreInf:false,
-            stores: [],//ajax
-            isSearchNothing:false,
-            isSearchReport:false,
-            heartGrayscale:1,
-            warnOpacity:0.5,
-            coupon:'領取優惠',
-            report:'',
-            inf:'',
-            infoOpacity:1,
-        },
-        methods: { 
-            //whatToEat
-            nextQ(){
-                this.content = String(parseInt(this.content)+1);
-            },
-            preQ(){
-                this.content = String(parseInt(this.content)-1);
-            },
-            answerQ(selected){
-                let index = parseInt(this.content)-1;
-                this.choices[index] = selected;
-                console.log(this.choices);
-            },
-            callAjaxQ(){
-                console.log(this.choices);
-                alert('send To Backend');
-                this.choices =['','','',''];
-            },
-            closeQ(){
-                this.content = '';
-                this.choices =['','','',''];
-            },
-            againQ(){
-                this.content = '1';
-                this.choices =['','','',''];
-            },
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>        
+        <script>
+            Vue.component('location', {
+                props: ['address'],
+                template: `
+                <p class="sectionIconInf">地址: {{address}}</p>
+                `,
+                data() {
+                    return {
+                    };
+                },
+                mounted() {
+                },
+                methods: {
+                    // getInf(){
+                    //     this.$emit('storeinf-emit');
+                    // },
+                },
+            });
+            Vue.component('station', {
+                props: ['station'],
+                template: `
+                <p class="sectionIconInf">捷運站: {{station}}</p>
+                `,
+            });
+            Vue.component('phone', {
+                props: ['phone',],
+                template: `
+                <p class="sectionIconInf">電話: {{phone}}</p>
+                `,
+            });
+            Vue.component('price', {
+                props: ['price'],
+                template: `
+                <p class="sectionIconInf">平均消費: {{price}}</p>
+                `,
+            });
             //search
-            closeSearch(number){
-                if(number == 1){
-                    this.isSearchBoard = false;
-                    this.searchLine = '';
-                    this.findFood = '';
-                    this.searchTags ='';
-                    this.isSearchNothing=false;
-                }else if(number == 2){
-                    this.isSearchStores = false;
-                    this.findFood = '';
-
-                }else if(number == 3){
-                    this.isStoreInf = false;
-                    this.findFood = '';
-                }else if(number == 4){
-                    this.isShowTag = false;
-                }else if(number == 5){
-                    this.isSearchReport = false;
-                    this.warnOpacity = 0.5;                   
-                }
-               
-            },
-            show(){
-                this.optionList = !this.optionList;  
-            },
-            //打開搜尋彈窗
-            searchIcon(){
-                this.isSearchBoard = !this.isSearchBoard;  
-            },
-            //捷運線選單
-            showLine(){
-                this.isShowLine = !this.isShowLine;
-            },
-            myline(line){
-                this.searchLine= line;
-                this.isShowLine = false;
-                this.isSearchNothing=false;
-            },
-            myTag(tag){
-                this.searchTags = tag;
-                this.isShowTag = false;
-            },
-            showTag(number){
-                if(number==3 && this.findFood==''){
-                    this.isShowTag = !this.isShowTag;
-                    this.isSearchNothing=false;
-                }
-                if(number==1){
-                    this.searchTags='';
-                    this.isSearchNothing=false;
-                }
-            },
-           
-            searchFood(){
-                if(this.findFood !=''||this.searchTags !=''||this.searchLine != ''){
-                    this.searchLine = '';
-                    this.findFood = '';
-                    this.searchTags ='';
-                    console.log(this.findFood,this.searchLine,this.searchTags);
-                    alert('Ajax send to backend');
-                    this.isSearchBoard = false;
-                    this.isSearchStores = true;
-                    this.isSearchNothing = false;                   
-                }else{
-                    this.isSearchNothing =true;                   
-                 }
-              
-            },
-            showStores(){
-                this.isSearchStores = true;
-            },
-            finalStoreInf(){
-                this.isSearchStores = false;
-                this.isStoreInf = true;
-            },
-            searchSomething(){
-                if( this.findFood != '' && this.findFood != '請輸入食物'){
-                    alert('Ajax send to backend');
-                    this.isStoreInf = false;
-                    this.isSearchStores = true;
-                    this.findFood = '';
-                }else{
-                    this.findFood = '請輸入食物';
-                }
-            },
-          
-            getStoreReported(){
-                this.isSearchReport = true;
-                this.warnOpacity = 1;                   
-            },
-            sendReport(){
-                alert('sent to backend');
-                console.log(this.report);
-                this.report='';
-                this.isSearchReport = false;
-                this.warnOpacity =0.5;
-            },
-            getCoupon(){
-                alert('Ajax send to backend');
-                this.coupon = "領取過了";   
-            },
-            toCollect(){
-                if(this.heartGrayscale == 0){
-                    this.heartGrayscale=1;
-                    alert('remove from collection')
-                }else{
-                    alert('send to backend  my collection');               
-                    console.log('{{this.store}}');
-                    this.heartGrayscale=0;
-                }
-            },
+            new Vue({
+                el: '#app',
+                data: {
+                    choices: [],//whatToEat答案
+                    whatToEat: '',
+                    isSearchBoard: false,
+                    isWhatToEat: true,
+                    isShowLine: false,
+                    mrtLine: ['板南線', '淡水信義線', '松山新店線', '文湖線', '中和新蘆線'],
+                    searchLine: '',
+                    findFood: '',
+                    searchTags: '',
+                    isShowTag: false,
+                    tags: ['日式', '韓式', '美式', '義式', '台式', '法式', '中式', '夜市', '商業午餐', '早午餐', '下午茶', '銅板美食', '簡餐', '聚餐', '餐酒館', '咖啡', '甜點', '麵食', '鹽酥雞', '雞排', '咖哩', '火鍋', '牛排', '拉麵', '鐵板燒','義大利麵'],
+                    isTyped: false,
+                    content: '',//question compoment
+                    isSearchStores: false,
+                    isStoreInf: false,
+                    stores: [],//ajax
+                    isSearchNothing: false,
+                    isSearchReport: false,
+                    heartGrayscale: 1,
+                    warnOpacity: 0.5,
+                    coupon: '領取優惠',
+                    report: '',
+                    inf: '',
+                    infoOpacity: 1,
+                    storeComments:[],
+                    storeDetail: null,
+                    member_id:null,
+                    couponContent:'EaT起來85折券',
+                },
+                methods: {
+                    //whatToEat
+                    nextQ() {
+                        this.content = String(parseInt(this.content) + 1);
+                    },
+                    preQ() {
+                        this.content = String(parseInt(this.content) - 1);
+                    },
+                    answerQ(selected) {
+                        let index = parseInt(this.content) - 1;
+                        this.choices[index] = selected;
+                    },
+                    getFoodQ() {
+                        this.choices[0] = this.choices[0][0];
+                        switch (this.choices[2]) {
+                            case '義大利':
+                                this.choices[2] = '義式';
+                                this.whatToEat = '義大利麵';
+                                break;
+                            case '美國':
+                                this.choices[2] = '美式';
+                                this.whatToEat = '牛排';
+                                break;
+                            case '留在台灣':
+                                this.choices[2] = '台式';
+                                this.whatToEat = '雞排';
+                                break;
+                            case '日本':
+                                this.choices[2] = '日式';
+                                this.whatToEat = '咖哩';
+                                break;
+                        }
+                        
+                    },
+                    closeQ() {
+                        this.content = '';
+                        this.choices = ['', '', '', ''];
+                    },
+                    againQ() {
+                        this.content = '1';
+                        this.choices = ['', '', '', ''];
+                    },
+    
+                    //search
+                    closeSearch(number) {
+                        if (number == 1) {
+                            this.isSearchBoard = false;
+                            this.searchLine = '';
+                            this.findFood = '';
+                            this.searchTags = '';
+                            this.isSearchNothing = false;
+                        } else if (number == 2) {
+                            this.isSearchStores = false;
+                            this.findFood = '';
+    
+                        } else if (number == 3) {
+                            this.isStoreInf = false;
+                            this.findFood = '';
+                        } else if (number == 4) {
+                            this.isShowTag = false;
+                        } else if (number == 5) {
+                            this.isSearchReport = false;
+                            this.warnOpacity = 0.5;
+                        }
+    
+                    },
+                    show() {
+                        this.optionList = !this.optionList;
+                    },
+                    closeSearchBoard() {
+                        if (this.content = 1) {
+                            this.isSearchBoard = false;
+                        }
+                    },
+                    //打開搜尋彈窗
+                    searchIcon() {
+                        this.isSearchBoard = !this.isSearchBoard;
+                        this.isSearchStores = false;
+                        this.isStoreInf = false;
+                        this.content = "";
+                    },
+                    //捷運線選單
+    
+                    showLine() {
+                        this.isShowLine = !this.isShowLine;
+                    },
+                    myline(line) {
+                        this.searchLine = line;
+                        this.isShowLine = false;
+                        this.isSearchNothing = false;
+                    },
+                    myTag(tag) {
+                        this.searchTags = tag;
+                        this.isShowTag = false;
+                    },
+                    showTag(number) {
+                        if (number == 3 && this.findFood == '') {
+                            this.isShowTag = !this.isShowTag;
+                            this.isSearchNothing = false;
+                        }
+                        if (number == 1) {
+                            this.searchTags = '';
+                            this.isSearchNothing = false;
+                        }
+                    },
+                    getMemberID(){
+                        var id = this;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/LoginCheck.php",
+                                data: {
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    // alert(response);
+                                    id.member_id = response;
+                                },
+                                error: function (exception) {
+                                    // alert("發生錯誤: " + exception.status);
+                                }
+                            });
         
-        },
-        computed:{
-            findFoodClass(){
-                return{
-                    noText: this.findFood.length === 0,                    
-                }
-            },
-            searchLineClass(){
-                return{
-                    noText: this.searchLine.length === 0,                    
-                }
-            },
-            searchTagsClass(){
-                return{
-                    noText: this.searchTags.length === 0,                    
-                }
-            },
-            collectionClass(){
-                return{
-                    filter:`grayscale(${this.heartGrayscale})`,
-                }
-            },
-            signOpacity(){
-                return{
-                    filter:`opacity(${this.warnOpacity})`,
-                }
-            },
-            storeInfOpacity(){
-                return{
-                    filter:`opacity(${this.infoOpacity})`,
-                }
+                    },
+                    searchFood() {
+                        if (this.findFood != '' || this.searchTags != '' || this.searchLine != '') {
+                            let data1 = this.findFood;
+                            let data2 = this.searchLine;
+                            let data3 = this.searchTags;
+    
+    
+                            this.searchLine = '';
+                            this.findFood = '';
+                            this.searchTags = '';
+                            this.isSearchBoard = false;
+                            this.isSearchStores = true;
+                            this.isSearchNothing = false;
+    
+                            var self = this;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/search.php",
+                                data: {
+                                    //php變數
+                                    searchItem: data1,
+                                    line_name: data2,
+                                    tag_name: data3,
+    
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    // alert(response);
+                                    self.stores = response;
+                                    
+                                },
+                                error: function (exception) {
+                                    alert("發生錯誤: " + exception.status);
+                                }
+                            });
+                        this.member_id=this.getMemberID();
+                        } else {
+                            this.isSearchNothing = true;
+                        }
+    
+                    },
+                    showStores() {
+                        var where = this;
+                        $.ajax({
+                            method: "POST",
+                            url: "./php/Frontend/API/whatToEat.php",
+                            data: {
+                                whatToEatColor: where.choices[0],
+                                whatToEatCountry: where.choices[2],
+                                whatToEat:where.whatToEat,
+                            },
+                            dataType: "json",
+                            success: function (response) {
+                                   where.stores=response
+                            },
+                            error: function (exception) {
+                                alert("數據載入失敗: " + exception.status);
+                            }
+                        });
+                        this.isSearchStores = true;
+    
+                    },
+                    finalStoreInf(store) {
+                        var self2 = this;
+                        $.ajax({
+                            method: "POST",
+                            url: "./php/Frontend/API/checkFavorite.php",
+                            data: {
+                                store_id: store.store_id,
+                                member_id: self2.member_id
+                            },
+                            dataType: "text",
+                            success: function (response) {
+                                if(response=="") {
+                                    //沒回傳值就是沒登入或沒收藏
+                                    self2.heartGrayscale = 1;
+                                } 
+                                else{
+                                    //有回傳值就是有登入且有收藏
+                                    self2.heartGrayscale = 0;
+                                }
+                            },
+                            error: function (exception) {
+                                alert("數據載入失敗: " + exception.status);
+                            }
+                        });
+                        $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/checkCoupon.php",
+                                data: {
+                                    memberID:self2.member_id,
+                                },
+                                dataType: "text",
+                                success: function (response) {
+                                    if (response == "") {
+                                        self2.coupon='領取優惠';
+                                    }
+                                    else{
+                                        self2.coupon='領取過了';
+                                    }
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/storeComments.php",
+                                data: {
+                                    storeID:store.store_id,
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    console.log(response);
+                                    self2.storeComments = response;
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });
+                            
+    
+                        this.isSearchStores = false;
+                        this.isStoreInf = true;
+                        this.storeDetail = store;
+                        this.$nextTick(() => {
+                            slick();
+                        })
+    
+                    },
+                    searchSomething() {
+                        if (this.findFood != '' && this.findFood != '請輸入食物 站別 店名') {
+                            let data1 = this.findFood;
+                            let data2 = this.searchLine;
+                            let data3 = this.searchTags;
+                            var self = this;
+                            // alert(data1);
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/search.php",
+                                data: {
+                                    //php變數
+                                    searchItem: data1,
+                                    line_name: data2,
+                                    tag_name: data3,
+    
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    // alert(response);
+    
+                                    self.stores = response;
+                                },
+                                error: function (exception) {
+                                    alert("發生錯誤: " + exception.status);
+                                }
+                            });
+    
+                            this.isStoreInf = false;
+                            this.isSearchStores = true;
+                            this.findFood = '';
+    
+    
+                        } else {
+                            this.findFood = '請輸入食物 站別 店名';
+                        }
+    
+                    },
+    
+                    getStoreReported() {
+                        this.isSearchReport = true;
+                        this.warnOpacity = 1;
+                    },
+                    sendReport() {
+                        console.log(this.report);
+                        this.report = '';
+                        this.isSearchReport = false;
+                        this.warnOpacity = 0.5;
+                    },
+                    getCoupon() {
+                            var get =this;
+                            let couponContent = this.couponContent;
+                            let couponMemberID = this.member_id;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/getCoupon.php",
+                                data: {
+                                    coupon:couponContent,
+                                    memberID:couponMemberID,
+                                },
+                                dataType: "text",
+                                success: function (response) {
+                                    if (response == "") {
+                                        get.coupon='領取過';
+                                    }else{
+                                        alert("今天已領取");
+                                    }
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });                    
+                        
+                    },
+                    toCollect() {
+                        if (this.heartGrayscale == 0) {
+                            this.heartGrayscale = 1;
+                            // console.log('{{this.store}}');
+                            let storeId = this.storeDetail.store_id;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/RemoveFavorite.php",
+                                data: {
+                                    favorite: storeId
+                                },
+                                dataType: "json",
+                            });
+                            alert("將從我的最愛移除");
+                        } else {
+                            // console.log('{{this.store}}');
+                            this.heartGrayscale = 0;
+                            let storeId = this.storeDetail.store_id;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/AddFavorite.php",
+                                data: {
+                                    //php變數
+                                    favorite: storeId
+                                },
+                                dataType: "json",
+                            });
+                            alert("新增到我的最愛");
+                        }
+                    },
+                    loginCheck(number) {
+                        if (number == 1) {
+                            var like = this;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/LoginCheck.php",
+                                data: {},
+                                dataType: "text",
+                                success: function (response) {
+                                    if (response == "") {
+                                        //尚未登入->前往Login.php
+                                        alert('請先登入，將前往登入頁');
+                                        location.href = 'login_member.html';
+                                    } else {
+                                        like.toCollect();
+                                    }
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });
+                        } else if (number == 2) {
+                            var coupon =this;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/LoginCheck.php",
+                                data: {},
+                                dataType: "text",
+                                success: function (response) {
+                                    if (response == "") {
+                                        //尚未登入->前往Login.php
+                                        alert('請先登入，將前往登入頁');
+                                        location.href = 'login_member.html';
+                                    } else {
+                                        coupon.getCoupon();
+                                    }
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });
+                        }
+                    },
+                    getDarkStars(lightStars) {
+                        if (lightStars == null) {
+                            return 5;
+                        } else {
+                            return 5 - lightStars;
+                        }
+                    },
+                    getStars(lightStars) {
+                            return parseInt(lightStars);
+                    },
+    
+    
+    
+    
+                },
+                computed: {
+                    findFoodClass() {
+                        return {
+                            noText: this.findFood.length === 0,
+                        }
+                    },
+                    searchLineClass() {
+                        return {
+                            noText: this.searchLine.length === 0,
+                        }
+                    },
+                    searchTagsClass() {
+                        return {
+                            noText: this.searchTags.length === 0,
+                        }
+                    },
+                    collectionClass() {
+                        //light =>0 dark=>1
+    
+                        return {
+                            filter: `grayscale(${this.heartGrayscale})`,
+                        }
+                    },
+                    signOpacity() {
+                        return {
+                            filter: `opacity(${this.warnOpacity})`,
+                        }
+                    },
+                    storeInfOpacity() {
+                        return {
+                            filter: `opacity(${this.infoOpacity})`,
+                        }
+                    },
+                },
+    
+            });
+            function slick() {
+                console.log($('.slider-for'));
+                console.log($('.slider-nav'));
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '.slider-nav',
+                });
+    
+                $('.slider-nav').slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    asNavFor: '.slider-for',
+                    focusOnSelect: true,
+                });
             }
-
-           
-            
-        },
-        //後端傳資料
-        // mounted() {
-        //     axios.get('stores的json檔')
-        //          .then(res => this.stores = res.data)  //成功時候的處理函數
-        //          .catch(error => console.log(error))
-        //     fetch('stores的json檔').then(res=>res.json()).then(res => this.stores=res);     
-        // },
-       
-    });
-</script>    
+    
+    
+    
+    
+        </script>

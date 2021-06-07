@@ -13,35 +13,35 @@
     <body class="store_storeBody">
         @@include('layout/header.html')
         <!-- 本頁內容 -->
-        <div class="wrapper store_wrap" id="store_wrap">
+        <div class="wrapper store_wrap" id="store_wrap"  v-if="memberData">
             <!-- 商家資訊區塊 -->
             <section class="store_storeInfoArea">
                 <!-- 左邊照片區 -->
-                <section class="store_photoArea">
+                <section class="store_photoArea" v-if="memberData">
                     <div class="swiper-container mySwiper2">
                     <!-- 上面大圖區 -->
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" v-if="memberData.image_img">
                                 <!-- <img src="./img/store/testfood1.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.image_img]" />
                             </div>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" v-if="memberData.store_img">
                                 <!-- <img src="./img/store/testfood2.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.store_img]" />
                             </div>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" v-if="memberData.menu_img">
                                 <!-- <img src="./img/store/testfood3.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.menu_img]" />
                             </div>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" v-if="memberData.food1_img">
                                 <!-- <img src="./img/store/testfood4.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.food1_img]" />
                             </div>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" v-if="memberData.food2_img">
                                 <!-- <img src="./img/store/testfood5.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.food2_img]" />
                             </div>
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" v-if="memberData.food3_img">
                                 <!-- <img src="./img/store/testfood6.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.food3_img]" />
                             </div>
@@ -53,35 +53,35 @@
                     <!-- 下面小圖區 -->
                     <div thumbsSlider="" class="swiper-container mySwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <!-- <img src="./img/store/testfood1.png" /> -->
-                                <img :src="[`./img/upload/food/`+ memberData.image_img]" />
-                            </div>
-                            <div class="swiper-slide">
-                                <!-- <img src="./img/store/testfood2.png" /> -->
-                                <img :src="[`./img/upload/food/`+ memberData.store_img]" />
-                            </div>
-                            <div class="swiper-slide">
-                                <!-- <img src="./img/store/testfood3.png" /> -->
-                                <img :src="[`./img/upload/food/`+ memberData.menu_img]" />
-                            </div>
-                            <div class="swiper-slide">
-                                <!-- <img src="./img/store/testfood4.png" /> -->
-                                <img :src="[`./img/upload/food/`+ memberData.food1_img]" />
-                            </div>
-                            <div class="swiper-slide">
-                                <!-- <img src="./img/store/testfood5.png" /> -->
-                                <img :src="[`./img/upload/food/`+ memberData.food2_img]" />
-                            </div>
-                            <div class="swiper-slide">
-                                <!-- <img src="./img/store/testfood6.png" /> -->
-                                <img :src="[`./img/upload/food/`+ memberData.food3_img]" />
-                            </div>
+                          <div class="swiper-slide" v-if="memberData.image_img">
+                            <!-- <img src="./img/store/testfood1.png" /> -->
+                            <img :src="[`./img/upload/food/`+ memberData.image_img]" />
+                          </div>
+                          <div class="swiper-slide" v-if="memberData.store_img">
+                            <!-- <img src="./img/store/testfood2.png" /> -->
+                            <img :src="[`./img/upload/food/`+ memberData.store_img]" />
+                          </div>
+                          <div class="swiper-slide" v-if="memberData.menu_img">
+                            <!-- <img src="./img/store/testfood3.png" /> -->
+                            <img :src="[`./img/upload/food/`+ memberData.menu_img]" />
+                          </div>
+                          <div class="swiper-slide" v-if="memberData.food1_img">
+                            <!-- <img src="./img/store/testfood4.png" /> -->
+                            <img :src="[`./img/upload/food/`+ memberData.food1_img]" />
+                          </div>
+                          <div class="swiper-slide" v-if="memberData.food2_img">
+                            <!-- <img src="./img/store/testfood5.png" /> -->
+                            <img :src="[`./img/upload/food/`+ memberData.food2_img]" />
+                          </div>
+                          <div class="swiper-slide" v-if="memberData.food3_img">
+                            <!-- <img src="./img/store/testfood6.png" /> -->
+                            <img :src="[`./img/upload/food/`+ memberData.food3_img]" />
+                          </div>
                         </div>
                     </div>
                 </section>
                 <!-- 右邊文字區 -->
-                <section class="store_storeInfo" id="store_storeInfo" >
+                <section class="store_storeInfo" id="store_storeInfo"  >
                     <div class="store_storeInfo_Name">
                         <h1>
                         {{memberData.store_name}}
@@ -111,6 +111,9 @@
                                 {{memberData.store_tag2}}
                                 {{memberData.store_tag3}}
                             </li>
+                            <li  class="store_infoList store_infoLevel">
+                                {{storeLevel[memberData.store_level]}}
+                             </li>
                             <li class="store_infoList store_infoWarn">
                                 {{storeStatus[memberData.store_submit]}}
                             </li>
@@ -119,10 +122,8 @@
                 </section>
             </section>
 
-            </section>
-
             <!-- 商家等級介紹區 -->
-            <section class="store_levelUpArea">
+            <section class="store_levelUpArea"  v-if="bottomArea == 1">
                 <h1>商家等級</h1>
                 <div class="store_level">
                     <!-- 菇菇等級區 -->
@@ -157,8 +158,9 @@
                         </div>
                         </div>
                         <div class="store_level_btn">
-                            <a href="/store_upgrade.html" class="store_level_link">
-                                <input type="submit" value="升級" class=" btn_submit btn-levelUp" />
+                            <a href="./store_upgrade.html" class="store_level_link">
+                                <button class="btn_submit btn-levelUp ">升級
+                                </button>
                             </a>
                         </div>
                     </div>
@@ -166,7 +168,7 @@
             </section>
 
             <!-- 廣告成效瀏覽區 -->
-            <section class="store_promotionArea">
+            <section class="store_promotionArea"  v-if="bottomArea == 2">
                 <h1>數據分析</h1>
                 <div class="store_promotionArea_inner">
                     <div class="store_promotionArea_like chart">

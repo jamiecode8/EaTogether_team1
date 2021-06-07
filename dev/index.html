@@ -212,48 +212,30 @@
                                 <img :src="[`./img/upload/food/`+storeDetail.menu_img]" alt="">
                             </div>
                         </div>
-
-                        <!-- <img class="storeInf_picMain" src="./img/index/storeMainPic.jpeg" alt="">
-                                <div class="storeInf_picSection"> -->
-                        <!-- <img src="./img/index/storePic2.jpeg" alt="">
-                                    <img src="./img/index/storePic2.jpeg" alt="">
-                                    <img src="./img/index/storePic3.jpeg" alt="">
-                                    <img src="./img/index/storePic3.jpeg" alt=""> -->
-                        <!-- <img :src="store.image1" alt="">
-                                    <img :src="store.image2" alt="">
-                                    <img :src="store.image3" alt="">
-                                    <img :src="store.image4" alt=""> -->
-                        <!-- </div> -->
-
-
                         <!-- 評論 -->
                         <div class="storeInf_comment">
                             <h2>評論</h2>
                             <div class="storeInf_comments">
-                                <!-- <div class="storeInf_comments" v-for="comment in comments"> -->
-                                <ul class="storeInf_commentMain">
+                                <ul class="storeInf_commentMain" v-for="comment in storeComments">
                                     <li class="commentMain_account">
                                         <img src="./img/index/account.png" alt="">
-                                        <!-- <img :src="store.commentMemberPic" alt=""> -->
-                                        <p>場面話魔人</p>
-                                        <!-- <p>{{store.commentMember}}</p> -->
+                                        <p>{{comment.member_name}}</p>
                                     </li>
-
+    
                                     <li class="commentMain_star">
-                                        <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt="">
+                                        <div v-for="star in getStars(comment.store_star)">
+                                            <img src="./img/icon/icon_star.png" alt="">
                                         </div>
-                                        <div v-for="darkStar in 1"><img
-                                                src="./img/icon/icon_star_default.png" alt=""></div>
-                                        <!-- <div v-for="star in store.commentStar"><img src="./img/icon/icon_star.png" alt=""></div>
-                                            <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
+                                        <div v-for="darkStar in 5 - getStars(comment.store_star)">
+                                            <img src="./img/icon/icon_star_default.png" alt="">
+                                        </div>
                                     </li>
-
+    
                                     <li class="commentMain_comment">
-                                        <p>CP值很棒老闆還幫我打折！</p>
-                                        <!-- <p>{{store.comment}}</p> -->
+                                        <p>{{comment.photo_text}}</p>
                                     </li>
                                 </ul>
-                                <ul class="storeInf_commentMain">
+                                 <ul class="storeInf_commentMain">
                                     <li class="commentMain_account">
                                         <img src="./img/index/account.png" alt="">
                                         <!-- <img :src="store.commentMemberPic" alt=""> -->
@@ -706,6 +688,7 @@
                     report: '',
                     inf: '',
                     infoOpacity: 1,
+                    storeComments:[],
                     storeDetail: null,
                     member_id:null,
                     couponContent:'EaT起來85折券',
@@ -938,6 +921,22 @@
                                     alert("數據載入失敗: " + exception.status);
                                 }
                             });
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/storeComments.php",
+                                data: {
+                                    storeID:store.store_id,
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    console.log(response);
+                                    self2.storeComments = response;
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });
+                            
     
                         this.isSearchStores = false;
                         this.isStoreInf = true;
@@ -1101,6 +1100,9 @@
                             return 5 - lightStars;
                         }
                     },
+                    getStars(lightStars) {
+                            return parseInt(lightStars);
+                    },
     
     
     
@@ -1143,6 +1145,8 @@
     
             });
             function slick() {
+                console.log($('.slider-for'));
+                console.log($('.slider-nav'));
                 $('.slider-for').slick({
                     slidesToShow: 1,
                     slidesToScroll: 1,

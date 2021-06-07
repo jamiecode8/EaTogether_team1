@@ -1,396 +1,270 @@
+<!-- ----------搜尋按鈕---------- -->
+<ul class="index_searchbtn" id="mySearchBtn">
+    <li class="search_btn_Search" @click='searchIcon'>
+        <img src="./img/index/search.png" alt="">
+        <p>美食搜尋</p>
+    </li>
+</ul>
 
-    
-              <!-- ----------搜尋按鈕---------- -->
-            <ul class="index_searchbtn" id="mySearchBtn">
-              
-                <li class="search_btn_Search" @click='searchIcon'>
-                    <img src="./img/index/search.png" alt="">
-                    <p>美食搜尋</p>
-                </li>
-            </ul>    
 
-            <!-- 搜尋彈窗 -->
-            <div class="popUps index_search_popup" v-show="isSearchBoard">
-                <form class="form getSearch" action="">
-                    <button type="button" class="getSearchClose btn_close" @click='closeSearch(1)'>
-                        <img src="./img/icon/icon_close_20.png" alt="">
-                    </button>
-                    <h1>Search</h1>
-                    <div class="searchFood text_search">
-                        <h2>搜尋美食</h2>
-                        <input :class="findFoodClass" type="text"  :disabled="isTyped" v-model="findFood" @click='showTag(1)'>
-                        <img src="./img/icon/icon_search.png" alt="">
-                    </div>
-                    <div class="searchFood mrt_search"> 
-                        <h2>捷運路線</h2>
-                        <input :class="searchLineClass"  type="text" disabled="disabled" v-model="searchLine" >
-                        <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="" @click='showLine'>
-                        <ul class="mrtLines" v-show="isShowLine">
-                            <li v-for="line in mrtLine" @click="myline(line)">{{line}}</li>
-                        </ul>
-                    </div>
-                    <div class="searchFood  keyword_search">
-                        <h2>標籤搜尋</h2>
-                        <input :class="searchTagsClass" type="text" disabled="disabled" v-model="searchTags"> 
-                        <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="" @click="showTag(3)">
-                    </div>
-                    <div class="searchWarn" v-show="isSearchNothing"><img src="./img/index/warn1.png" alt=""><p>Ｏpps!沒有完成搜尋</p></div>
+<!-- 搜尋彈窗 -->
+<div class="popUps index_search_popup" v-show="isSearchBoard">
+    <!-- <form class="form getSearch" method="post" action="./php/Frontend/API/search.php"> -->
+    <form class="form getSearch">
 
-                    <div class="SearchBtn btn">
-                        <input  value="出發探索" class="getSearchBtn btn_submit" @click='searchFood'>
-                    </div>
-              
-                </form>
+        <button type="button" class="getSearchClose btn_close" @click='closeSearch(1)'>
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <h1>Search</h1>
+        <div class="searchFood text_search">
+            <h2>搜尋美食</h2>
+            <input :class="findFoodClass" type="text" :disabled="isTyped" v-model="findFood"
+                @click='showTag(1)'>
+
+            <img src="./img/icon/icon_search.png" alt="">
+        </div>
+        <div class="searchFood mrt_search">
+            <h2>捷運路線</h2>
+            <input :class="searchLineClass" type="text" disabled="disabled" v-model="searchLine">
+            <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="" @click='showLine'
+                name="searchByLine">
+            <ul class="mrtLines" v-show="isShowLine">
+                <li v-for="line in mrtLine" @click="myline(line)">{{line}}</li>
+            </ul>
+        </div>
+        <div class="searchFood  keyword_search">
+            <h2>標籤搜尋</h2>
+            <input :class="searchTagsClass" type="text" disabled="disabled" v-model="searchTags"
+                name="searchByTag">
+            <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="" @click="showTag(3)">
+        </div>
+        <div class="searchWarn" v-show="isSearchNothing"><img src="./img/index/warn1.png" alt="">
+            <p>Ｏpps!沒有完成搜尋</p>
+        </div>
+
+
+        <div class="SearchBtn btn">
+            <input value="出發探索" class="getSearchBtn btn_submit" @click='searchFood()'>
+        </div>
+
+    </form>
+</div>
+<!-- 標籤彈窗     -->
+<div class="popUps tags_popUp" v-show="isShowTag" >
+    <form action="#資料傳送送的網址"  class="form getTags">
+        <button type="button" class="getSearchClose btn_close" @click="closeSearch(4)">
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <h2>請選擇標籤</h2>
+        <div class="searchTags">
+            <span v-for="tag in tags" @click="myTag(tag)">{{tag}}</span>
+        </div>
+    </form>
+</div>
+<!-- 搜尋結果彈窗 -->
+<div class="popUps index_store_popup" v-show="isSearchStores">
+    <form class="form getStore" action="">
+        <button type="button" class="getSearchClose btn_close" @click="closeSearch(2)">
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <div class="searchFood text_search">
+            <h1 class="text_search_title" @click='searchIcon'>搜尋美食</h1>
+            <input type="text" v-model="findFood">
+            <img src="./img/icon/icon_search.png" alt="" @click="searchSomething">
+        </div>
+        <!-- 店家名單 -->
+        <div class="getStoreInf_search">
+            <div class="getStoreInf" @click="finalStoreInf(store)" v-for="store in stores">
+                <ul class="getStoreInf_digital">
+                    <li class="getStoreInf_name">
+                        <h2>{{store.store_name}}</h2>
+                    </li>
+                            <li class="getStoreInf_star">
+                                <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
+                                <div v-for="darkStar in 1"><img src="./img/icon/icon_star_default.png"
+                                        alt=""></div>
+                            </li>
+                    <li class="getStoreInf_station">
+                        <p>捷運站:{{store.station_name}}站</p> <!--  判斷是哪一個站給他該線顏色 -->
+                        <!-- <span class="station_color">{{store.Station}}</span> -->
+
+                    </li>
+                    <li class="getStoreInf_tag">
+                        <span>{{store.store_tag1}}</span>
+                        <span>{{store.store_tag2}}</span>
+                        <span>{{store.store_tag3}}</span>
+
+
+                    </li>
+                </ul>
+                <img class="getStoreInf_pic" :src="[`./img/upload/food/`+store.store_img]" alt="">
             </div>
-            <!-- 標籤彈窗     -->
-            <div class="popUps tags_popUp" v-show="isShowTag" >
-                <form action="#資料傳送送的網址"  class="form getTags">
-                    <button type="button" class="getSearchClose btn_close" @click="closeSearch(4)">
-                        <img src="./img/icon/icon_close_20.png" alt="">
-                    </button>
-                    <h2>請選擇標籤</h2>
-                    <div class="searchTags">
-                        <span v-for="tag in tags" @click="myTag(tag)">{{tag}}</span>
+        </div> <!-- 後端要抓全部total筆數 -->
+        <p class="searchTotal">共 <span>{{stores.length}}</span> 筆</p>
+    </form>
+</div>
+<!-- 店家詳細資訊 -->
+<div class="popUps index_inf_popup" v-show="isStoreInf">
+    <form class="form getStoreDigitalInf" action="">
+        <button type="button" class="getSearchClose btn_close" @click="closeSearch(3)">
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <div class="searchFood text_search">
+            <h1 class="text_search_title">搜尋美食</h1>
+            <input type="text" v-model="findFood">
+            <img src="./img/icon/icon_search.png" alt="" @click="searchSomething">
+        </div>
+        <!-- 店家基本資訊 -->
+        <div class="storeInf" v-if="storeDetail">
+            <div class="storeInf_title">
+                <img class="storeInf_title_like" @click="loginCheck(1)" :style="collectionClass"
+                    src="./img/icon/icon_heart.png" alt="">
+                <div>
+                    <h2 class="storeInf_title_name">{{storeDetail.store_name}}</h2>
+                    <!-- <h2 class="storeInf_title_name">{{store.name}}</h2> -->
+                    <div class="getStoreInf_star">
+                        <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
+                        <div v-for="darkStar in 1"><img
+                                src="./img/icon/icon_star_default.png" alt=""></div>
+                        <!-- <div v-for="star in store.star"><img src="./img/icon/icon_star.png" alt=""></div>
+                            <div v-for="darkStar in store.star"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
                     </div>
-                </form>
+                    <div class="getStoreInf_tag">
+                        <span>{{storeDetail.store_tag1}}</span>
+                        <span>{{storeDetail.store_tag2}}</span>
+                        <span>{{storeDetail.store_tag3}}</span>
+
+                    </div>
+                </div>
+                <div class="storeInf_title_warn">
+                    <img class="storeInf_warnIcon" src="./img/icon/icon_warn.png" alt=""
+                        @click="getStoreReported" :style="signOpacity">
+                </div>
             </div>
-            <!-- 搜尋結果彈窗 -->
-            <div class="popUps index_store_popup" v-show="isSearchStores">
-                <form class="form getStore" action="">
-                    <button type="button" class="getSearchClose btn_close" @click="closeSearch(2)">
-                        <img src="./img/icon/icon_close_20.png" alt="">
-                    </button>
-                    <div class="searchFood text_search">
-                        <h1 class="text_search_title">搜尋美食</h1>
-                        <input type="text" v-model="findFood">
-                        <img src="./img/icon/icon_search.png" alt="" @click="searchSomething">
-                    </div>
-                    <!-- 店家名單 -->
-                    <div class="getStoreInf_search">
-                        <div class="getStoreInf" @click="finalStoreInf">
-                        <!-- <div class="getStoreInf" v-for="store in stores"> -->
-                            <ul class="getStoreInf_digital" >
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                    <!-- <h2>{{store.name}}}</h2> -->
-                                </li>
-                                <li class="getStoreInf_star">
-                                    <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
-                                    <!-- <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>     <!--  判斷是哪一個站給他該線顏色 -->
-                                    <span class="station_color">南京復興</span>
-                                    <!-- <span class="station_color">{{store.station}}}</span> -->
-
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#銅板美食</span>
-                                    <span>#咖啡店</span>
-                                    <span>#餐酒館</span>
-                                    <!-- <span>{{store.tag1}}}</span>
-                                    <span>{{store.tag2}}}</span>
-                                    <span>{{store.tag3}}}</span> -->
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                            <!-- <img class="getStoreInf_pic" :src="store.image"> -->
-
-                        </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star_default.png" alt="">
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                        </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                    <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                        </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star_default.png" alt="">
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                        </div>
-                        <div class="getStoreInf">
-                            <ul class="getStoreInf_digital">
-                                <li class="getStoreInf_name">
-                                    <h2>提八米咖啡廳</h2>
-                                </li>
-                                <li class="getStoreInf_star"> 
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star.png" alt="">
-                                  <img src="./img/icon/icon_star_default.png" alt="">
-                                </li>
-                                <li class="getStoreInf_station">
-                                    <p>捷運站:</p>
-                                    <span class="station_color">南京復興</span>
-                                </li>
-                                <li class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#甜點</span>
-                                </li>
-                            </ul>
-                            <img class="getStoreInf_pic" src="./img/index/storePic2.jpeg" alt="">
-                        </div>
-                   </div>   <!-- 後端要抓全部total筆數 -->
-                    <p class="searchTotal">共 <span>5</span> 筆</p>
-                    <!-- <p class="searchTotal" >共 <span>{{store.length}}</span> 筆</p>      -->
-                </form>
+            <!-- 基本資訊icon     -->
+            <div class="storeInf_section">
+                <ul class="storeInf_sectionIcon">
+                    <li class="sectionIcon sectionIcon_location" :class="{'on' : inf === 'location'}"><img
+                            src="./img/icon/icon_location.png" alt="" @click="inf='location'"></li>
+                    <li class="sectionIcon sectionIcon_mrt" :class="{'on' : inf === 'station'}"><img
+                            src="./img/icon/icon_mrt.png" alt="" @click="inf='station'"></li>
+                    <li class="sectionIcon sectionIcon_tel" :class="{'on' : inf === 'phone'}"><img
+                            src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
+                    <li class="sectionIcon sectionIcon_price" :class="{'on' : inf === 'price'}"><img
+                            src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
+                </ul>
+                <component :address='storeDetail.store_address' :station='storeDetail.station_name'
+                    :phone='storeDetail.store_tel' :price='storeDetail.price_interval' :is="inf"></component>
             </div>
-            <!-- 店家詳細資訊 -->
-            <div class="popUps index_inf_popup" v-show="isStoreInf">
-                <form class="form getStoreDigitalInf" action="">
-                    <button type="button" class="getSearchClose btn_close" @click="closeSearch(3)">
-                        <img src="./img/icon/icon_close_20.png" alt="">
-                    </button>
-                    <div class="searchFood text_search">
-                        <h1 class="text_search_title">搜尋美食</h1>
-                        <input type="text" v-model="findFood">
-                        <img src="./img/icon/icon_search.png" alt="" @click="searchSomething">
-                    </div>
-                    <!-- 店家基本資訊 -->
-                    <div class="storeInf">
-                        <div class="storeInf_title">
-                            <img class="storeInf_title_like" @click="toCollect" :style="collectionClass" src="./img/icon/icon_heart.png" alt="">
-                            <div>
-                                <h2 class="storeInf_title_name">提八米咖啡廳</h2>
-                                <!-- <h2 class="storeInf_title_name">{{store.name}}</h2> -->
-                                <div class="getStoreInf_star"> 
-                                    <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
-                                    <!-- <div v-for="star in store.star"><img src="./img/icon/icon_star.png" alt=""></div>
-                                    <div v-for="darkStar in store.star"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
-                                </div>
-                                <div class="getStoreInf_tag">
-                                    <span>#下午茶</span>
-                                    <span>#咖啡店</span>
-                                    <span>#銅板美食</span>
-                                      <!-- <span>{{store.tag1}}}</span>
-                                    <span>{{store.tag2}}}</span>
-                                    <span>{{store.tag3}}}</span> -->
-                                </div>
-                           </div>
-                           <div class="storeInf_title_warn">
-                                    <img class="storeInf_warnIcon" src="./img/icon/icon_warn.png" alt="" @click="getStoreReported" :style="signOpacity">
-                            </div>
-                        </div>
-                        <!-- 基本資訊icon     -->
-                        <div class="storeInf_section">
-                            <ul class="storeInf_sectionIcon">
-                                <li class="sectionIcon sectionIcon_location" :class="{'on' : inf === 'location'}"><img src="./img/icon/icon_location.png" alt=""  @click="inf='location'"></li>
-                                <li class="sectionIcon sectionIcon_mrt" :class="{'on' : inf === 'station'}"><img src="./img/icon/icon_mrt.png" alt="" @click="inf='station'"></li>
-                                <li class="sectionIcon sectionIcon_tel" :class="{'on' : inf === 'phone'}"><img src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
-                                <li class="sectionIcon sectionIcon_price" :class="{'on' : inf === 'price'}"><img src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
-                            </ul>
-                            <component :is="inf"></component>
-                        </div>
-                        <!-- 店家照片 -->
-                        <div class="storeInf_pic">
-                            <img class="storeInf_picMain" src="./img/index/storeMainPic.jpeg" alt="">
-                            <div class="storeInf_picSection">
-                                <img src="./img/index/storePic2.jpeg" alt="">
-                                <img src="./img/index/storePic2.jpeg" alt="">
-                                <img src="./img/index/storePic3.jpeg" alt="">
-                                <img src="./img/index/storePic3.jpeg" alt="">
-                                <!-- <img :src="store.image1" alt="">
-                                <img :src="store.image2" alt="">
-                                <img :src="store.image3" alt="">
-                                <img :src="store.image4" alt=""> -->
-                            </div>
-    
-                        </div>
-                        <!-- 評論 -->
-                        <div class="storeInf_comment">
-                            <h2>評論</h2>
-                            <div class="storeInf_comments">
-                            <!-- <div class="storeInf_comments" v-for="comment in comments"> -->
-
-                                <ul class="storeInf_commentMain">
-                                    <li class="commentMain_account">
-                                        <img src="./img/index/account.png" alt="">
-                                        <!-- <img :src="store.commentMemberPic" alt=""> -->
-                                        <p>MrRight</p>
-                                        <!-- <p>{{store.commentMember}}</p> -->
-                                    </li>
-                                    
-                                    <li class="commentMain_star">
-                                        <div v-for="star in 3"><img src="./img/icon/icon_star.png" alt=""></div>
-                                        <div v-for="darkStar in 2"><img src="./img/icon/icon_star_default.png" alt=""></div>
-                                        <!-- <div v-for="star in store.commentStar"><img src="./img/icon/icon_star.png" alt=""></div>
-                                        <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
-                                    </li>
-
-                                    <li class="commentMain_comment">
-                                        <p>東西好吃 想跟老闆結婚</p>
-                                        <!-- <p>{{store.comment}}</p> -->
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="storeInf_comments">
-                                <ul class="storeInf_commentMain">
-                                    <li class="commentMain_account">
-                                        <img src="./img/index/account.png" alt="">
-                                        <p>handsomeMan</p>
-                                    </li>
-                                    
-                                    <li class="commentMain_star">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                    </li>
-
-                                    <li class="commentMain_comment">
-                                        <p>ＣＰ值高 重點是老闆娘票釀</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="storeInf_comments">
-                                <ul class="storeInf_commentMain">
-                                    <li class="commentMain_account">
-                                        <img src="./img/index/account.png" alt="">
-                                        <p>LittlePrincess</p>
-                                    </li>
-                                    
-                                    <li class="commentMain_star">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                    </li>
-
-                                    <li class="commentMain_comment">
-                                        <p>本公主覺得好吃極了</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="storeInf_comments">
-                                <ul class="storeInf_commentMain">
-                                    <li class="commentMain_account">
-                                        <img src="./img/index/account.png" alt="">
-                                        <p>hahaMan</p>
-                                    </li>
-                                    
-                                    <li class="commentMain_star">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                    </li>
-
-                                    <li class="commentMain_comment">
-                                        <p>我覺得哈哈 普普通通</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="storeInf_comments">
-                                <ul class="storeInf_commentMain">
-                                    <li class="commentMain_account">
-                                        <img src="./img/index/account.png" alt="">
-                                        <p>SexFat</p>
-                                    </li>
-                                    
-                                    <li class="commentMain_star">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star.png" alt="">
-                                        <img src="./img/icon/icon_star_default.png" alt="">
-                                    </li>
-
-                                    <li class="commentMain_comment">
-                                        <p>我覺得很棒很好吃</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 優惠券 -->
-                    <div class="btn storeInf_btn">
-                        <input   v-model="coupon" class="getCouponBtn btn_submit" @click="getCoupon"/>
-                    </div>
-                    <br />
-                </form>
+            <!-- 店家照片 -->
+            <div class="storeInf_pic slider">
+                <div class="slider-for">
+                    <img :src="[`./img/upload/food/`+storeDetail.food1_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.food2_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.food3_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.menu_img]" alt="">
+                </div>
+                <div class="slider-nav">
+                    <img :src="[`./img/upload/food/`+storeDetail.food1_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.food2_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.food3_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.menu_img]" alt="">
+                </div>
             </div>
-            <!-- 檢舉店家彈窗 -->
-            <div class="popUps index_searcReport_popup" v-show="isSearchReport">
-                <form class="form getReport" action="">
-                    <button type="button" class="getReportClose btn_close" @click="closeSearch(5)">
-                        <img src="./img/icon/icon_close_20.png" alt="">
-                    </button>
-                    <h1>我要檢舉</h1>
-                    <div class="reportReason">
-                        <img src="./img/index/warn2.png" alt="">
-                        <h2>檢舉原因:</h2>
-                        <textarea class="reportReason_text" name="" id="" cols="30" rows="5" v-model="report" placeholder="請留下原因 管理員會盡快處理！"></textarea>
-                    </div>
-                    <div class="reportBtn btn">
-                        <input  @click='sendReport' value="檢舉" class="getReportBtn btn_submit" />
-                    </div>
-                    
-                </form>
+
+            <!-- 評論 -->
+            <div class="storeInf_comment">
+                <h2>評論</h2>
+                <div class="storeInf_comments">
+                    <ul class="storeInf_commentMain" v-for="comment in storeComments">
+                        <li class="commentMain_account">
+                            <img src="./img/index/account.png" alt="">
+                            <p>{{comment.member_name}}</p>
+                        </li>
+
+                        <li class="commentMain_star">
+                            <div v-for="star in getStars(comment.store_star)">
+                                <img src="./img/icon/icon_star.png" alt="">
+                            </div>
+                            <div v-for="darkStar in 5 - getStars(comment.store_star)">
+                                <img src="./img/icon/icon_star_default.png" alt="">
+                            </div>
+                        </li>
+
+                        <li class="commentMain_comment">
+                            <p>{{comment.photo_text}}</p>
+                        </li>
+                    </ul>
+                    <ul class="storeInf_commentMain">
+                        <li class="commentMain_account">
+                            <img src="./img/index/account.png" alt="">
+                            <!-- <img :src="store.commentMemberPic" alt=""> -->
+                            <p>挑惕小公主</p>
+                            <!-- <p>{{store.commentMember}}</p> -->
+                        </li>
+
+                        <li class="commentMain_star">
+                            <div v-for="star in 2"><img src="./img/icon/icon_star.png" alt="">
+                            </div>
+                            <div v-for="darkStar in 3"><img
+                                    src="./img/icon/icon_star_default.png" alt=""></div>
+                            <!-- <div v-for="star in store.commentStar"><img src="./img/icon/icon_star.png" alt=""></div>
+                                <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
+                        </li>
+
+                        <li class="commentMain_comment">
+                            <p>沒有金湯匙我不接受</p>
+                            <!-- <p>{{store.comment}}</p> -->
+                        </li>
+                    </ul>
+                    <ul class="storeInf_commentMain">
+                        <li class="commentMain_account">
+                            <img src="./img/index/account.png" alt="">
+                            <!-- <img :src="store.commentMemberPic" alt=""> -->
+                            <p>信義小辣椒</p>
+                            <!-- <p>{{store.commentMember}}</p> -->
+                        </li>
+
+                        <li class="commentMain_star">
+                            <div v-for="star in 5"><img src="./img/icon/icon_star.png" alt="">
+                            </div>
+                            <div v-for="darkStar in 0"><img
+                                    src="./img/icon/icon_star_default.png" alt=""></div>
+                            <!-- <div v-for="star in store.commentStar"><img src="./img/icon/icon_star.png" alt=""></div>
+                                <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
+                        </li>
+
+                        <li class="commentMain_comment">
+                            <p>抓住我的胃了</p>
+                            <!-- <p>{{store.comment}}</p> -->
+                        </li>
+                    </ul>
+                </div>
             </div>
-    
+        </div>
+        <!-- 優惠券 -->
+        <div class="btn storeInf_btn">
+            <input v-model="coupon" class="getCouponBtn btn_submit" @click="loginCheck(2)" />
+        </div>
+        <br />
+    </form>
+</div>
+<!-- 檢舉店家彈窗 -->
+<div class="popUps index_searcReport_popup" v-show="isSearchReport">
+    <form class="form getReport" action="">
+        <button type="button" class="getReportClose btn_close" @click="closeSearch(5)">
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <h1>我要檢舉</h1>
+        <div class="reportReason">
+            <img src="./img/index/warn2.png" alt="">
+            <h2>檢舉原因:</h2>
+            <textarea class="reportReason_text" name="" id="" cols="30" rows="5" v-model="report"
+                placeholder="請留下原因 管理員會盡快處理！"></textarea>
+        </div>
+        <div class="reportBtn btn">
+            <input @click='sendReport' value="檢舉" class="getReportBtn btn_submit" />
+        </div>
+
+    </form>
+</div>
