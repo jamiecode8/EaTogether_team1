@@ -101,6 +101,20 @@
 
 
 //編輯區 s2
+.pho_main{
+    .form{
+        margin: 0;
+        left:50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+
+    }
+    .login_tag_select span{
+        padding:0;
+        margin: 4px;
+    }
+}
+
 .pho_edit_s2{
     
 
@@ -111,10 +125,13 @@
     }
     .pho_edit_fullcontent{
         width: 82%;
-        margin: 0 auto;
+        margin:5% auto 0;
         padding: 30px;
         background-color: white;
         @include shadow();
+    }
+    h2{
+        padding: 0 0 2% 3%;
     }
 
     .pho_plug_in_area{
@@ -243,6 +260,16 @@
 
 }
 
+.pho_tag{
+    position: relative;
+    
+    .pho_tag_add{
+        position:absolute;
+        top:7px;
+        right:5px;
+    }
+}
+
 // s3
 .pho_edit_s3{
     display: flex;
@@ -252,12 +279,12 @@
     } 
 
 .pho_edit_s3 .btn_submit{
-    margin-right: 30%;
+    margin-right: 4%;
 }
 
 .pho_circleBtn_submit{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     // jamie改了這個
     // width: 4%;
     // height: 0;
@@ -412,7 +439,6 @@
     
 }
 
-.upgradeHeaderMyPhoto
 .upgradeHeaderMyPhoto_bg{
     width: 75px;
     height: 0;
