@@ -5,7 +5,8 @@ new Vue({
       memberData: null,
       storePrice: [0,"<150","151~500","501~1000"],
       storeStatus: [0,"審核通過","審核中"],
-      bottomArea: 1,
+      storeLevel: [0, "菇菇級", "松茸級"],
+      bottomArea: "",
     },
     mounted: function mounted() {
       var self = this;
@@ -49,15 +50,21 @@ new Vue({
         });
       } //顯示商家資料
   
-  
+    //不同等級出現不同內容
       function displayStore(response) {
         self.memberData = response[0];
-        console.log(self.memberData);
-       
-        // showMember();
-  
-      } //不同等級出現不同內容
-  
+        // console.log(self.memberData);
+        self.bottomArea = self.memberData.store_level;
+        console.log(self.bottomArea);
+
+        self.$nextTick(() => {
+          initSwiper();
+        })
+
+        self.$nextTick(() => {
+        initChart();
+        })
+      } 
     },
     methods: {}
   });
