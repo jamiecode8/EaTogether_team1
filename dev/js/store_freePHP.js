@@ -4,7 +4,8 @@ new Vue({
     data: {
       memberData: null,
       storePrice: [0,"<150","151~500","501~1000"],
-      storeStatus: [0,"審核通過","審核中"]
+      storeStatus: [0,"審核通過","審核中"],
+      bottomArea: 1,
     },
     mounted: function mounted() {
       var self = this;
