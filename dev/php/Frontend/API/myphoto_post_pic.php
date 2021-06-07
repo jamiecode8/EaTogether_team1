@@ -28,6 +28,9 @@
     // echo "大小：".$fileSize;
     // echo "<br/>";
     
+    include("switchdata.php");
+    $data = go($pdo);
+    //echo $data;
 
 
     //建立SQL
@@ -51,7 +54,7 @@
     
     // $statement->bindValue(1, $_POST["photo_id"]);
     // $statement->bindValue(2, $_POST["member_id"]);
-    $statement->bindValue(1, $_POST["store_id"]);
+    $statement->bindValue(1, $data);
     $statement->bindValue(2, $fileName);
     $statement->bindValue(3, $_POST["photo_text"]);
     // $statement->bindValue(4, $_POST["store_star"]);
