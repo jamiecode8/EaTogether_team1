@@ -16,25 +16,42 @@
      join station on store.station_id = station.station_id
      join MRT_line on MRT_line.line_id = station.MRT_line_line_id
      join price on price.price_id = store.price_id
-     join tag_associte on tag_associte.store_id = store.store_id
      WHERE  station_name like ? or 
      (store_name like ? {$str} line_name like ? {$str1} (store_tag1 = ? or store_tag2 = ? or store_tag3 = ?))
      GROUP BY store_name" ;
 
     // 全部需要的欄位
-    // SELECT tag.tag_name,member.member_name,photo.member_id,photo.photo_text,
-    // photo.store_star,price.price_interval,MRT_line.line_name,store.store_id,
-    // store.store_name,station.station_name,station.MRT_line_line_id,
-    // store.price_id,store.store_tel,store.store_address,
-    // store.store_img,store.menu_img,store.food1_img,store.food2_img,store.food3_img 
-    // FROM store 
-    // join station on store.station_id = station.station_id
-    // join MRT_line on MRT_line.line_id = station.MRT_line_line_id
-    // join price on price.price_id = store.price_id
-    // join photo on photo.store_id = store.store_id
-    // join member on member.member_id = photo.member_id
-    // join tag_associte on tag_associte.store_id = store.store_id
-    // join tag on tag.tag_id = tag_associte.tag_id
+//     $sql="SELECT
+//     store.store_tag1,
+//     store.store_tag2,
+//     store.store_tag3,
+//     member.member_name,
+//     photo.member_id,
+//     photo.photo_text,
+//     photo.store_star,
+//     price.price_interval,
+//     MRT_line.line_name,
+//     store.store_id,
+//     store.store_name,
+//     station.station_name,
+//     station.MRT_line_line_id,
+//     store.price_id,
+//     store.store_tel,
+//     store.store_address,
+//     store.store_img,
+//     store.menu_img,
+//     store.food1_img,
+//     store.food2_img,
+//     store.food3_img
+// FROM
+//     store
+// JOIN station ON store.station_id = station.station_id
+// JOIN MRT_line ON MRT_line.line_id = station.MRT_line_line_id
+// JOIN price ON price.price_id = store.price_id
+// JOIN photo ON photo.store_id = store.store_id
+// JOIN member ON member.member_id = photo.member_id
+// WHERE  station_name like ? or (store_name like ? {$str} line_name like ? {$str1} (store_tag1 = ? or store_tag2 = ? or store_tag3 = ?))
+// GROUP BY store_name" ;
 
     //給值
     $statement = getPDO()->prepare($sql);
@@ -45,7 +62,7 @@
     $statement->bindValue(5,$tag_name);
     $statement->bindValue(6,$tag_name);
     $statement->execute();
-    $data = $statement->fetchAll();
+    $data = $statement->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($data);
     
 ?>
