@@ -188,4 +188,68 @@ $('#more6').click(function () {
 })
 
 
+// -----------收藏店家彈窗內容-------------------
 
+var app = new Vue({
+  el:'#Favorites_app',
+  data:{
+    list:[
+      {
+        id: 1,
+        img:'https://image.flaticon.com/icons/png/128/4772/4772843.png',
+        name: '梯八米咖啡廳',
+        price: '',
+        count: 1,
+        checked: true
+      },
+      {
+        id: 2,
+        name: '梯八米鹹水雞',
+        price: '',
+        count: 1,
+        checked: true
+      },
+      {
+        id: 3,
+        name: '梯八米我不知道要寫啥',
+        price: '',
+        count: 1,
+        checked: true
+      }
+    ],
+    all: []
+    
+  },
+  methods:{
+    remove(idx){
+      this.list.splice(idx, 1);
+    },
+    add(idx){
+      this.list[idx].count++;
+    },
+    reduce(idx){
+      if(this.list[idx].count == 0){
+        return;
+      }
+      this.list[idx].count--;
+    },
+    toggleSelect(){
+      var select = this.selectAll;
+      this.list.forEach((item)=>{
+        
+        item.checked = !select;
+
+      });
+    }
+  },
+  computed:{
+
+    selectAll(){
+      var chooseAll =  this.list.every((item)=>{
+        return item.checked;
+      });
+      console.log(chooseAll);
+      return chooseAll;
+    }
+  }
+});

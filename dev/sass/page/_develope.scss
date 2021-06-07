@@ -1,35 +1,6 @@
 .develope_body{
     background: $bgc;
-    // overflow: hidden;  
-}
-
-.develope_wrapper{
-    height: 90vh;  
-    overflow: hidden;
-    @include rwd(desktop) {
-        height: 87vh;
-    }
-
-    @include rwd(desktopSmall) {
-        height: 87vh;
-    }
-
-    @include rwd(pad) {
-        height: 87vh;
-    }
-
-    @include rwd(largeMobile) {
-        height: 79vh;  
-    }
-
-    @include rwd(mobile) {
-        height: 74vh;  
-    }
-}
-
-.develope_bg_container{   
-    width: 85%;        
-    margin: 0 auto;
+    // overflow: hidden; 
     .develope_bg{
         width: 100%;
         height: 100%;
@@ -108,8 +79,36 @@
             display: block;
             margin: 0 auto;
         }
+    } 
+}
+
+.develope_wrapper{
+    height: 90vh;  
+    overflow: hidden;
+    @include rwd(desktop) {
+        height: 87vh;
+    }
+
+    @include rwd(desktopSmall) {
+        height: 87vh;
+    }
+
+    @include rwd(pad) {
+        height: 87vh;
+    }
+
+    @include rwd(largeMobile) {
+        height: 79vh;  
+    }
+
+    @include rwd(mobile) {
+        height: 74vh;  
     }
 }
+
+
+
+
 
 .White_planet{
     @include block_center();
@@ -118,11 +117,15 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    width: 70%;
+    width: 90%;
     height: 70%;
     top: 10%;
     z-index: 1;
     animation: fadein 3s;
+    @include rwd(pad) {
+        width: 80%;
+        top: 7%;
+    }
 }
 
 .etGroup{
@@ -180,7 +183,7 @@
 
         @include rwd(pad) {
             width: 8%;
-            top: 68%;
+            top: 70%;
             left: 30%;
         }
 
@@ -288,7 +291,7 @@
 
         @include rwd(pad) {
             width: 8%;
-            top: 68%;
+            top: 70%;
             left: 62%;
         }
 

@@ -75,6 +75,31 @@
     <button type="button" class="close_Favorites btn_close">
       <img src="./img/icon/icon_close.png" alt="" >
     </button>
+
+    <h2 class="Favorites_box_h2">我的最愛</h2>
+    
+    <div id="Favorites_app" class="Favorites_box">
+      <template v-if="list.length">
+          <tbody>
+            <div v-for="(item,idx) in list">
+              <div class="diglist_box" >
+              <div class="list_box">
+              <img src="./img/mimi/fr_b12.png" alt="" class="img_list_box">
+              <p class="Favorites_box_p">{{item.name}}</p>
+              <!-- <p>{{item.price}}</p> -->
+            </div>
+              <div class="list_box_light">
+              <a href="#" @click="remove(idx)"><img src="./img/icon/icon_delete.png" alt="" class="list_box_but"></a>
+            </div>
+            </div>
+            <hr class="hrr">
+          </tbody>
+      </template>
+      
+      <template v-else>
+       快去收藏你最愛的美食!
+      </template>
+    </div>
   
   </form>
   
@@ -90,7 +115,7 @@
        <button type="button" class="close_categor btn_close">
          <img src="./img/icon/icon_close.png" alt="" >
        </button>
-        <h1>選一個</h1>
+        <h1>小櫃子</h1>
        <!-- 主標題 -->
        <div class="categoricon"><img src="./img/mimi/category2.svg" alt="" class="categorimg"></div>
         <!-- 優惠券 -->
@@ -118,7 +143,7 @@
        <div class="couponicon"><img src="./img/mimi/couponicon.svg" alt="" ></div>
        <!-- 單顆按鈕用這裡 -->
        <div class="buttonArea">
-         <a href="#"><div class="buybtn" id="couponbut2">領取優惠券</div></a>
+         <a href="#"><div class="buybtn" id="couponbut2">兌換優惠券</div></a>
        </div>
      </form>
    </div>
@@ -147,7 +172,7 @@
        </button>
      
        <!-- 主標題 -->
-       <h1>
+       <h1 >
          每日任務 
        </h1>
        <div>
@@ -156,9 +181,9 @@
                <div class="Littleman"><img src="./img/mimi/Littleman.svg" alt="" ></div>
                <!-- --2---- -->
              <div class="progressmimi">
-               <p>每日小遊戲</p>
+               <p class="Smalltask_p">每日小遊戲</p>
                <div class="progress_bar">
-                 <progress max="100" value="0" class="more1"></progress>
+                 <!-- <progress max="100" value="0" class="more1"></progress> -->
                  
                  <button type="button" id="more1" class="myUFO_button buybtn1">兌換</button>
                  </div>
@@ -170,9 +195,9 @@
          <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBlue.png" alt="" ></div>
          <!-- --2---- -->
        <div class="progressmimi">
-         <p>藍線搜尋</p>
+         <p class="Smalltask_p">藍線搜尋一次</p>
          <div class="progress_bar">
-           <progress max="100" value="0" class="more2"></progress>
+           <!-- <progress max="100" value="0" class="more2"></progress> -->
            
          <button type="button" id="more2" class="myUFO_button buybtn2">兌換</button>
          </div>
@@ -184,9 +209,9 @@
        <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBrown.png" alt="" ></div>
        <!-- --2---- -->
      <div class="progressmimi">
-       <p>綜線搜尋</p>
+       <p class="Smalltask_p">綜線搜尋一次</p>
        <div class="progress_bar">
-         <progress max="100" value="0" class="more3"></progress>
+         <!-- <progress max="100" value="0" class="more3"></progress> -->
            
          <button type="button" id="more3" class="myUFO_button buybtn3">兌換</button>
        </div>
@@ -198,9 +223,9 @@
      <div class="mrtSmalltask"><img src="./img/icon/icon_mrtGreen.png" alt="" ></div>
      <!-- --2---- -->
    <div class="progressmimi">
-     <p>綠線搜尋</p>
+     <p class="Smalltask_p">綠線搜尋一次</p>
      <div class="progress_bar">
-       <progress max="100" value="0" class="more4"></progress>
+       <!-- <progress max="100" value="0" class="more4"></progress> -->
            
        <button type="button" id="more4" class="myUFO_button buybtn4">兌換</button>
      </div>
@@ -212,9 +237,9 @@
    <div class="mrtSmalltask"><img src="./img/icon/icon_mrtRed.png" alt="" ></div>
    <!-- --2---- -->
  <div class="progressmimi">
-   <p>紅線搜尋</p>
+   <p class="Smalltask_p">紅線搜尋一次</p>
    <div class="progress_bar">
-     <progress max="100" value="0" class="more5"></progress>
+     <!-- <progress max="100" value="0" class="more5"></progress> -->
          
      <button type="button" id="more5" class="myUFO_button buybtn5">兌換</button>
    </div>
@@ -226,9 +251,9 @@
  <div class="mrtSmalltask"><img src="./img/icon/icon_mrtYellow.png" alt="" ></div>
  <!-- --2---- -->
 <div class="progressmimi">
- <p>橘線搜尋</p>
+ <p class="Smalltask_p">橘線搜尋一次</p>
  <div class="progress_bar">
-   <progress max="100" value="0" class="more6"></progress>
+   <!-- <progress max="100" value="0" class="more6"></progress> -->
    <button type="button" id="more6" class="myUFO_button buybtn6">兌換</button>
  </div>
 </div>
@@ -294,7 +319,7 @@
            <button type="button" class="close_myUFOprogressbar btn_close">
              <img src="./img/icon/icon_close.png" alt="" >
            </button>
-            <h1>已領取點數10點!</h1>
+            <h1 class="categor_h1">已領取點數10點!</h1>
            
          </form>
          
