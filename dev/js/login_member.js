@@ -18,14 +18,14 @@ $('.showPassword').click(function () {
 $('#btn_signup').click(function () {
     $(this).addClass('areaShow');
     $('#btn_login').removeClass('areaShow');
-    $('#login_block').addClass('areaHide');
-    $('#signUp_block').removeClass('areaHide');
+    // $('#login_block').addClass('areaHide');
+    // $('#signUp_block').removeClass('areaHide');
 });
 
 $('#btn_login').click(function () {
     $(this).addClass('areaShow');
     $('#btn_signup').removeClass('areaShow');
-    $('#signUp_block').addClass('areaHide');
-    $('#login_block').removeClass('areaHide');
+    // $('#signUp_block').addClass('areaHide');
+    // $('#login_block').removeClass('areaHide');
 });
 
