@@ -91,7 +91,7 @@ function browser() {
 }
 
 // 開發用
-exports.default = series(imgs_dev, includeHTML, sassStyle, babel5, browser);
+exports.default = series(imgs_dev, includeHTML, sassStyle, babel5, php, browser);
 
 //先清除舊檔案，再同時執行其他的、再壓縮圖檔
 exports.prod = series(
