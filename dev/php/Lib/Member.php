@@ -51,7 +51,7 @@
         }
 
         //有登入session->回傳ID，無登入session->回傳空字串""
-        return isset($_SESSION["member_email_input"]) ? $_SESSION["member_email_input"] : ""; 
+        return isset($_SESSION["member_id"]) ? $_SESSION["member_id"] : ""; 
 
     }
 
@@ -64,26 +64,25 @@
         }
 
         //有登入session->回傳Name，無登入session->回傳空字串""
-        return isset($_SESSION["member_password_input"]) ? $_SESSION["member_password_input"] : ""; 
+        return isset($_SESSION["member_name"]) ? $_SESSION["member_name"] : ""; 
 
     }
 
     //寫入Session(前台專用)
-    function setMemberInfo($MemberID, $MemberName){
+    function setMemberInfo($MemberEmail, $MemberID){
 
         //先判斷session是否存在
         if(!isset($_SESSION)){
             session_start(); 
         }
 
-        //Table 'ec_member'裡的ID欄位值
-        $_SESSION["member_email_input"] = $MemberID; 
+        //Table 'member'裡的ID欄位值
+        $_SESSION["member_id"] = $MemberID; 
 
-        //Table 'ec_member'裡的Account欄位值
-        $_SESSION["member_password_input"] = $MemberName; 
+        //Table 'member'裡的Account欄位值
+        $_SESSION["member_email"] = $MemberEmail; 
         
     }
-    
     //--------------------------------------商家專用--------------------------------------
 
     //寫入Session(LoginStore.php)
