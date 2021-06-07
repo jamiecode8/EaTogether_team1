@@ -417,12 +417,13 @@
                 this.close_station_board = !this.close_station_board;
             },
             getTags(tag){
-                if(this.selectedTag.length < 3){
-                    this.selectedTag.unshift(tag.text);
-                }else{    
+                if(this.selectedTag.includes(tag.text)){
+                    return false
+                 }
+                if(this.selectedTag.length >= 3){
                     this.selectedTag.pop(tag.text);
-                    this.selectedTag.unshift(tag.text);
-                }
+                }                  
+                this.selectedTag.unshift(tag.text); 
                 this.selectedTag1 = this.selectedTag[0];
                 this.selectedTag2 = this.selectedTag[1];
                 this.selectedTag3 = this.selectedTag[2];
