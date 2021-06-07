@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        @@include('layout/style.html')
-        <title>新增拍立得</title>
-        <script src="js/myphoto_post_pic.js"></script>
-    </head>
-    <body class="pho_body">
-        @@include('layout/header.html')
-        <div class="wrapper phoPast_wrapper">
-            <main class="pho_main" id="pho_main">
-                <!-- 上面標題區 -->
-                @@include('layout/upgradeHeader_myphoto.html')
-                <!-- <section class="pho_edit_s1">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @@include('layout/style.html')
+    <title>新增拍立得</title>
+    <script src="js/myphoto_post_pic.js"></script>
+</head>
+
+<body class="pho_body">
+    @@include('layout/header.html')
+    <div class="wrapper phoPast_wrapper">
+        <main class="pho_main" id="pho_main">
+            <!-- 上面標題區 -->
+            @@include('layout/upgradeHeader_myphoto.html')
+            <!-- <section class="pho_edit_s1">
                     <ul>
                         <li >
                             <div class="pho_edit_step">
@@ -50,176 +52,365 @@
                         </li>
                     </ul>
                 </section>  -->
-                <section  class="pho_edit_s2">
-                    
+            <form method="POST" action="./php/Frontend/API/myphoto_post_pic.php" class="pho_postPic"
+                enctype="multipart/form-data">
+                <section class="pho_edit_s2">
+
                     <div class="pho_edit_fullcontent">
-                        <form method="POST" action="./php/Frontend/API/myphoto_post_pic.php" class="pho_postPic"  enctype="multipart/form-data" >
-                            <h2>選擇背景圖片 </h2>
-                            <div class="pho_plug_in_area">
-                                <img id="pho_image">
-                                <!-- <h5>請將檔案拖放置此</br>或</h5> -->
-                                <div class="btn_submit pho_picUpload" id="pho_btn_none">選擇檔案+</div>
-                                <input type="file" id="pho_theFile" class="btn_submit pho_input_change" value="選擇檔案+">
-                                
-                                <article class="pho_picForm">
-                                    <h6>檔案格式：JPG、JPEG、PNG</h6>
-                                    <h6>檔案容量：3MB以下</h6>
-                                    <h6>建議圖片尺寸：640px × 640px</h6>
-                                </article>
-                                
-                            </div>
-                            
-                            <div>
-                                <section>
-                                    <h5>商家名稱</h5>
-                                    <input type="text" placeholder="輸入餐廳名稱">
-                                </section>
 
-                                <section>
-                                    <h5>推薦指數</h5>
-                                    <div class="pho_star">@@include('layout/star.html')</div>
-                                </section>
+                        <h2>選擇背景圖片 </h2>
+                        <div class="pho_plug_in_area">
+                            <img id="pho_image">
+                            <!-- <h5>請將檔案拖放置此</br>或</h5> -->
+                            <div class="btn_submit pho_picUpload" id="pho_btn_none">選擇檔案+</div>
+                            <input type="file" name="file" id="pho_theFile" class="btn_submit pho_input_change" value="選擇檔案+">
 
-                                <section>
-                                    <h5>我想說</h5>
-                                    <textarea name="" id="" cols="30" rows="10" >這間餐廳很好吃...</textarea>
-                                </section>
+                            <article class="pho_picForm">
+                                <h6>檔案格式：JPG、JPEG、PNG</h6>
+                                <h6>檔案容量：3MB以下</h6>
+                                <h6>建議圖片尺寸：640px × 640px</h6>
+                            </article>
 
-                                <section>
-                                    <h5>新增標籤</h5>
-                                    <!-- <div class="pho_searchTags">@@include('layout/searchTags.html')</div> -->
-                                    <div class="pho_tag">
-                                        <input type="text" placeholder="喜好標籤" disabled v-model="selectedTag" />
-                                        <!-- 隱藏欄位 -->
-                                        <input type="hidden" placeholder="喜好標籤" name="tag_id1" v-model="selectedTag1" value="tag_id1"/>
-                                        <input type="hidden" placeholder="喜好標籤" name="tag_id2"v-model="selectedTag2" value="tag_id2" />
-                                        <input type="hidden" placeholder="喜好標籤" name="tag_id3" value="tag_id3" v-model="selectedTag3"/>
-                                        <img class="pho_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show">
-                                    </div>
-                                </section>
-                            </div>
                         </div>
-                    </section  > 
-                    <section class="pho_edit_s3">
-                        <button type="button" class="btn_submit">加入我的ET</button>
-                        
-                        <button type="button" class="pho_circleBtn_submit ">
-                            <img class="pho_circleBtn_submit_1" src="./img/tang/Icon enlarge.png" alt="">
-                        </button>
 
-                        <button type="button" class="pho_circleBtn_submit ">
-                            <img class="pho_circleBtn_submit_2" src="./img/tang/Icon reduce.png" alt="">
-                        </button>
-                        
-                        <button type="button" class="pho_circleBtn_submit pho_circleBtn_submit_3">
-                            <img class="pho_circleBtn_submit_3" src="./img/tang/Icon delete.png" alt="">
-                        </button>
-                    </section>
+                        <div>
+                            <section>
+                                <h5>商家名稱</h5>
+                                <input type="text" name="store_id" placeholder="輸入餐廳名稱">
+                            </section>
 
-                    <section class="pho_edit_s4">
-                        <button type="button" class="btn_cancel">取消</button>
-                        <button type="button" class="btn_submit">下一步</button>
-                    </section>
-                </form>
+                            <section>
+                                <h5>推薦指數</h5>
+                                <div class="pho_star" name="store_star">@@include('layout/star.html')</div>
+                            </section>
 
-                <!-- 選標籤彈窗 -->
-                <div class="form storeSignUpPopups login_tag_select" id="login_tag_select" v-show="close_tags_board">
-                    <button type="button" class="btn_close" @click="close_tags_board_btn">
-                        <img src="./img/icon/icon_close.png" alt="" />
-                    </button>
-                        <div class="login_station_select" id="login_station_options">                            
-                        <span v-for="tag in tags" @click="getTags(tag)">#{{tag.text}}</span>
+                            <section>
+                                <h5>我想說</h5>
+                                <textarea name="photo_text" id="" cols="30" rows="10">這間餐廳很好吃...</textarea>
+                            </section>
+
+                            <section>
+                                <h5>新增標籤</h5>
+                                
+                                <div class="pho_tag">
+                                    <input type="text" placeholder="喜好標籤" disabled v-model="selectedTag" />
+                                    <!-- 隱藏欄位 -->
+                                    <input type="hidden" placeholder="喜好標籤" name="tag1" v-model="selectedTag1"
+                                        value="tag_id1" v-model="selectedTagId"/>
+                                    <input type="hidden" placeholder="喜好標籤" name="tag2" v-model="selectedTag2"
+                                        value="tag_id2" v-model="selectedTagId"/>
+                                    <input type="hidden" placeholder="喜好標籤" name="tag3" value="tag_id3"
+                                        v-model="selectedTag3" v-model="selectedTagId"/>
+                                    <img class="pho_tag_add" src="./img/icon/icon_add_line.png" alt=""
+                                        @click="tags_board_show">
+                                </div>
+                            </section>
+                        </div>
                     </div>
+
+                </section>
+                <section class="pho_edit_s3">
+                    <button type="button" class="btn_submit">加入我的ET</button>
+
+                    <button type="button" class="pho_circleBtn_submit ">
+                        <img class="pho_circleBtn_submit_1" src="./img/tang/Icon enlarge.png" alt="">
+                    </button>
+
+                    <button type="button" class="pho_circleBtn_submit ">
+                        <img class="pho_circleBtn_submit_2" src="./img/tang/Icon reduce.png" alt="">
+                    </button>
+
+                    <button type="button" class="pho_circleBtn_submit pho_circleBtn_submit_3">
+                        <img class="pho_circleBtn_submit_3" src="./img/tang/Icon delete.png" alt="">
+                    </button>
+                </section>
+
+                <section class="pho_edit_s4">
+                    <button type="button" class="btn_cancel">取消</button>
+                    <!-- <button type="button" class="btn_submit">發文</button> -->
+                    <input type="submit" value="發文" class="btn_submit" />
+                </section>
+            </form>
+
+            <!-- 選標籤彈窗 -->
+            <div class="form storeSignUpPopups login_tag_select" id="login_tag_select" v-show="close_tags_board">
+                <button type="button" class="btn_close" @click="close_tags_board_btn">
+                    <img src="./img/icon/icon_close.png" alt="" />
+                </button>
+                <div class="login_station_select" id="login_station_options">
+                    <span v-for="tag in tags" @click="getTags(tag)">#{{tag.text}}</span>
                 </div>
-            </main>
-              
-        </div>
-        @@include('layout/footer.html')
-    </body>
+            </div>
+        </main>
+
+    </div>
+    @@include('layout/footer.html')
+</body>
+
 </html>
 <script>
     new Vue({
         el: '#pho_main',
         data: {
-            redStation: [
-                { text :'東門',value:1},
-                { text :'台北101', value:2},
-                { text :'劍潭', value:3},
-                { text :'淡水', value: 4},
-                { text :'圓山', value: 5},
-                { text :'台北車站', value: 6},
-                { text :'信義安和', value: 7},
-                { text :'大安森林公園', value: 8},
+            redStation: [{
+                    text: '東門',
+                    value: 1
+                },
+                {
+                    text: '台北101',
+                    value: 2
+                },
+                {
+                    text: '劍潭',
+                    value: 3
+                },
+                {
+                    text: '淡水',
+                    value: 4
+                },
+                {
+                    text: '圓山',
+                    value: 5
+                },
+                {
+                    text: '台北車站',
+                    value: 6
+                },
+                {
+                    text: '信義安和',
+                    value: 7
+                },
+                {
+                    text: '大安森林公園',
+                    value: 8
+                },
             ],
-            greenStation: [
-                { text :'景美',value:9},
-                { text :'公館', value:10},
-                { text :'台電大樓', value:11},
-                { text :'中正紀念堂', value: 12},
-                { text :'中山', value: 13},
-                { text :'南京復興', value: 14},
-                { text :'南京三民', value: 15},
-                { text :'松山', value: 16},
+            greenStation: [{
+                    text: '景美',
+                    value: 9
+                },
+                {
+                    text: '公館',
+                    value: 10
+                },
+                {
+                    text: '台電大樓',
+                    value: 11
+                },
+                {
+                    text: '中正紀念堂',
+                    value: 12
+                },
+                {
+                    text: '中山',
+                    value: 13
+                },
+                {
+                    text: '南京復興',
+                    value: 14
+                },
+                {
+                    text: '南京三民',
+                    value: 15
+                },
+                {
+                    text: '松山',
+                    value: 16
+                },
             ],
-            blueStation: [
-                { text :'市政府',value:17},
-                { text :'忠孝敦化', value:18},
-                { text :'國父紀念館', value:19},
-                { text :'板橋', value: 20},
-                { text :'新埔', value: 21},
-                { text :'府中', value: 22},
-                { text :'龍山寺', value: 23},
+            blueStation: [{
+                    text: '市政府',
+                    value: 17
+                },
+                {
+                    text: '忠孝敦化',
+                    value: 18
+                },
+                {
+                    text: '國父紀念館',
+                    value: 19
+                },
+                {
+                    text: '板橋',
+                    value: 20
+                },
+                {
+                    text: '新埔',
+                    value: 21
+                },
+                {
+                    text: '府中',
+                    value: 22
+                },
+                {
+                    text: '龍山寺',
+                    value: 23
+                },
             ],
-            brownStation: [
-                { text :'東湖',value: 24},
-                { text :'西湖', value: 25},
-                { text :'港墘', value: 26},
-                { text :'大直', value: 27},
-                { text :'中山國中', value: 28},
-                { text :'六張犁', value: 29},
-                { text :'萬芳社區', value: 30},
+            brownStation: [{
+                    text: '東湖',
+                    value: 24
+                },
+                {
+                    text: '西湖',
+                    value: 25
+                },
+                {
+                    text: '港墘',
+                    value: 26
+                },
+                {
+                    text: '大直',
+                    value: 27
+                },
+                {
+                    text: '中山國中',
+                    value: 28
+                },
+                {
+                    text: '六張犁',
+                    value: 29
+                },
+                {
+                    text: '萬芳社區',
+                    value: 30
+                },
             ],
-            yellowStation: [
-                { text :'頂溪',value: 31},
-                { text :'南京松江', value: 32},
-                { text :'忠孝新生', value: 33},
-                { text :'台北橋', value: 34},
-                { text :'徐匯中學', value: 35},
-                { text :'新莊', value: 36},
+            yellowStation: [{
+                    text: '頂溪',
+                    value: 31
+                },
+                {
+                    text: '南京松江',
+                    value: 32
+                },
+                {
+                    text: '忠孝新生',
+                    value: 33
+                },
+                {
+                    text: '台北橋',
+                    value: 34
+                },
+                {
+                    text: '徐匯中學',
+                    value: 35
+                },
+                {
+                    text: '新莊',
+                    value: 36
+                },
             ],
             selectedStation: '',
             selectedStationId: '',
             station: '',
-            tags:[
-            { text :'日式',value:1},
-            { text :'韓式', value:2},
-            { text :'美式', value:3},
-            { text :'義式', value: 4},
-            { text :'台式', value: 5},
-            { text :'法式', value: 6},
-            { text :'中式', value: 7},
-            { text :'聚餐', value: 8},  
-            { text :'簡餐',value:9},
-            { text :'銅板美食', value:10},
-            { text :'下午茶', value:11},
-            { text :'早午餐', value: 12},
-            { text :'商業午餐', value: 13},
-            { text :'夜市', value: 14},
-            { text :'雞排', value: 15},
-            { text :'咖哩', value: 16},  
-            { text :'火鍋',value:17},
-            { text :'牛排', value:18},
-            { text :'咖啡店', value:19},
-            { text :'甜點', value: 20},
-            { text :'鐵板燒', value: 21},
-            { text :'麵食', value: 22},
-            { text :'鹽酥雞', value: 23},
-            { text :'手搖飲',value: 24},
-            { text :'餐酒館', value: 25},
-            { text :'拉麵', value: 26},
+            tags: [{
+                    text: '日式',
+                    value: 1
+                },
+                {
+                    text: '韓式',
+                    value: 2
+                },
+                {
+                    text: '美式',
+                    value: 3
+                },
+                {
+                    text: '義式',
+                    value: 4
+                },
+                {
+                    text: '台式',
+                    value: 5
+                },
+                {
+                    text: '法式',
+                    value: 6
+                },
+                {
+                    text: '中式',
+                    value: 7
+                },
+                {
+                    text: '聚餐',
+                    value: 8
+                },
+                {
+                    text: '簡餐',
+                    value: 9
+                },
+                {
+                    text: '銅板美食',
+                    value: 10
+                },
+                {
+                    text: '下午茶',
+                    value: 11
+                },
+                {
+                    text: '早午餐',
+                    value: 12
+                },
+                {
+                    text: '商業午餐',
+                    value: 13
+                },
+                {
+                    text: '夜市',
+                    value: 14
+                },
+                {
+                    text: '雞排',
+                    value: 15
+                },
+                {
+                    text: '咖哩',
+                    value: 16
+                },
+                {
+                    text: '火鍋',
+                    value: 17
+                },
+                {
+                    text: '牛排',
+                    value: 18
+                },
+                {
+                    text: '咖啡店',
+                    value: 19
+                },
+                {
+                    text: '甜點',
+                    value: 20
+                },
+                {
+                    text: '鐵板燒',
+                    value: 21
+                },
+                {
+                    text: '麵食',
+                    value: 22
+                },
+                {
+                    text: '鹽酥雞',
+                    value: 23
+                },
+                {
+                    text: '手搖飲',
+                    value: 24
+                },
+                {
+                    text: '餐酒館',
+                    value: 25
+                },
+                {
+                    text: '拉麵',
+                    value: 26
+                },
             ],
             tag: '',
-            selectedTag:[],
+            selectedTag: [],
             selectedTag1: null,
             selectedTag2: null,
             selectedTag3: null,
@@ -236,47 +427,55 @@
             password_register: '',
             account_register_msg: true,
             password_register_msg: true,
+            selectedTagId: [],
+            selectedTag1: null,
+            selectedTag2: null,
+            selectedTag3: null,
         },
         methods: {
-            getPrice(price){
+            getPrice(price) {
                 this.selectedPrice = price.text;
                 this.selectedPriceId = price.value;
                 this.close_price_board = false;
             },
-            price_board_show(){
+            price_board_show() {
                 this.close_price_board = !this.close_price_board;
             },
-            close_price_board_btn(){
+            close_price_board_btn() {
                 this.close_price_board = !this.close_price_board;
             },
-            getStation(station){
+            getStation(station) {
                 this.selectedStation = station.text;
                 this.selectedStationId = station.value;
                 this.close_station_board = false;
             },
-            stations_board_show(){
+            stations_board_show() {
                 this.close_station_board = !this.close_station_board;
                 this.close_tags_board = false;
             },
-            close_station_board_btn(){
+            close_station_board_btn() {
                 this.close_station_board = !this.close_station_board;
             },
-            getTags(tag){
-                if(this.selectedTag.length < 3){
+            getTags(tag) {
+                    if (this.selectedTag.includes(tag.text)) {
+                        return false
+                    }
+                    if (this.selectedTag.length >= 3) {
+                        this.selectedTag.pop(tag.text);
+                        this.selectedTagId.pop(tag.value);
+                    }
                     this.selectedTag.unshift(tag.text);
-                }else{    
-                    this.selectedTag.pop(tag.text);
-                    this.selectedTag.unshift(tag.text);
-                }
-                this.selectedTag1 = this.selectedTag[0];
-                this.selectedTag2 = this.selectedTag[1];
-                this.selectedTag3 = this.selectedTag[2];
-            },
-            tags_board_show(){
+                    this.selectedTagId.unshift(tag.value);
+                    this.selectedTag1 = this.selectedTagId[0];
+                    this.selectedTag2 = this.selectedTagId[1];
+                    this.selectedTag3 = this.selectedTagId[2];
+                    console.log(this.selectedTag);
+                },
+            tags_board_show() {
                 this.close_tags_board = !this.close_tags_board;
                 this.close_station_board = false;
             },
-            close_tags_board_btn(){
+            close_tags_board_btn() {
                 this.close_tags_board = !this.close_tags_board;
             },
         },
@@ -284,44 +483,42 @@
     })
 </script>
 
-<!-- <script>
+<script>
     new Vue({
         el: '#ppho_main',
         data: {
             // 步驟切換
-            step:2,
+            step: 2,
             // selected: undefined,
             option: " ",
-            
-            
+
+
         },
-        computed: { 
-            greenCircle(){
+        computed: {
+            greenCircle() {
                 return {
                     upgradeHeaderMyPhoto_bg: true,
                     bgActive: this.step === 0,
                 };
             },
-            greenCircle1(){
+            greenCircle1() {
                 return {
                     upgradeHeaderMyPhoto_bg: true,
                     bgActive: this.step === 1,
                 };
             },
-            greenCircle2(){
+            greenCircle2() {
                 return {
                     upgradeHeaderMyPhoto_bg: true,
                     bgActive: this.step === 2,
                 };
             },
         },
-        methods:{
-            lastStep(){
+        methods: {
+            lastStep() {
                 this.step += 1;
                 // this.SendEmail = submit;
             },
         },
-    }); 
-    </script> -->
-
-
+    });
+</script>
