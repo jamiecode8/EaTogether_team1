@@ -28,10 +28,10 @@
          <img src="./img/mimi/window.svg" alt=""  />
      </div>
      <!--點數-->
-     <div class="Points1">
+     <!-- <div class="Points1">
      <img src="./img/mimi/Points.svg" alt="" />
      <p>8888</p>
-     </div>
+     </div> -->
   
 
      <!-- 燈 -->
@@ -56,16 +56,10 @@
        </div>
                   
      <!-- 外星人   -->
-     <div class="character"><a href="#"><img src="./img/mimi/alienTest.png" alt="" class="animated pulse infinite delay-4s"/></a></div>
-    <div class="myufo_searchbtn1">
-     <ul class="index_searchbtn myufo_searchbtn2">
-
-       <li class="search_btn_Search myufo_btn_Search">
-           <img src="./img/index/search.png" alt="">
-           <p>美食搜尋</p>
-       </li>
-   </ul>
- </div>   
+     <div class="Speech_circle" ><img src="./img/mimi/Speech_circle.svg" alt=""></div>
+     <div class="character" ><a href="#"><img src="./img/mimi/alienTest.png" alt="" class="animated pulse infinite delay-4s" style=" -webkit-filter: brightness(50%) grayscale(100%); "/></a></div>
+     
+ 
  
  <!-- --------收藏餐廳彈窗-------- -->
  <div class="popUps Favorites" id="myUFO_Favorites">
@@ -438,8 +432,10 @@
 	</div>
 
 	@@include('layout/footer.html')
+  <!-- @@include('layout/searchVue.html') -->
 
 	<script>
+    
 		new Vue({
 			el: '.MyCharacter',
 			data: {
