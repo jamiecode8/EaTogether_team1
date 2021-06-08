@@ -38,7 +38,9 @@
                             <div class="memberInfo_edit_area">
                                 <span class="memberInfo_edit_area_title"> 最愛捷運站點</span>
                                 <input type="text" id="login_station_choice" class="input" v-model="selectedStation"
-                                    name="station_input" placeholder="選擇最愛站點" disabled>
+                                    placeholder="選擇最愛站點" disabled>
+                                <!-- 隱藏欄位 -->
+                                <input type="hidden" value="station_id"  class="input" v-model="selectedStationId" name="station_id"/>
                                 <button class="memberInfo_edit_editIcon" id="memberInfo_editIcon_station"
                                     @click="stations_board_show">
                                 </button>
@@ -46,8 +48,12 @@
                             <!-- 喜好標籤 -->
                             <div class="memberInfo_edit_area">
                                 <span class="memberInfo_edit_area_title"> 喜好標籤</span>
-                                <input type="text" placeholder="喜好標籤" disabled="disabled" name="tag_input"
+                                <input type="text" placeholder="喜好標籤" disabled 
                                     v-model="selectedTag" />
+                                <!-- 隱藏欄位 -->
+                                <input type="hidden" placeholder="喜好標籤" name="tag_id1" v-model="selectedTag1" value="tag_id1" v-model="selectedTagId"/>
+                                <input type="hidden" placeholder="喜好標籤" name="tag_id2"v-model="selectedTag2" value="tag_id2" v-model="selectedTagId"/>
+                                <input type="hidden" placeholder="喜好標籤" name="tag_id3" value="tag_id3" v-model="selectedTag3"v-model="selectedTagId"/>    
                                 <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_tag"
                                     @click="tags_board_show">
                                 </button>
@@ -268,6 +274,7 @@
                     },
                 ],
                 selectedStation: '',
+                selectedStationId: '',
                 station: '',
                 tags: [{
                         text: '日式',
@@ -376,6 +383,10 @@
                 ],
                 tag: '',
                 selectedTag: [],
+                selectedTagId: [],
+                selectedTag1: null,
+                selectedTag2: null,
+                selectedTag3: null,
                 close_station_board: false,
                 close_tags_board: false,
                 account: '',
@@ -455,8 +466,14 @@
                     }
                     if (this.selectedTag.length >= 3) {
                         this.selectedTag.pop(tag.text);
+                        this.selectedTagId.pop(tag.value);
                     }
                     this.selectedTag.unshift(tag.text);
+                    this.selectedTagId.unshift(tag.value);
+                    this.selectedTag1 = this.selectedTagId[0];
+                    this.selectedTag2 = this.selectedTagId[1];
+                    this.selectedTag3 = this.selectedTagId[2];
+                    console.log(this.selectedTag);
                 },
                 tags_board_show() {
                     this.close_tags_board = !this.close_tags_board;
