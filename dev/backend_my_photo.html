@@ -51,7 +51,7 @@
                  <td>${row.member_id}</td>
                  <td>${status}</td>
                  <td><img onclick="myfunction(${row.photo_id})" class="Edit_action" src="./img/icon/icon_edit.png" alt="" /></td>
-                 <td><a href='php/Backend/API/backend_PhotoDelete.php?PID=${row.photo_report_id}' onclick=\"javascript:if(confirm('確定刪除?')){ return true; } else { return false; }\"><img class="del" src="./img/icon/icon_delete.png"  alt="" /></a></td>  
+                 <td><a href='php/Backend/API/backend_PhotoDelete.php?PID=${row.photo_report_id}' onclick=\"javascript:if(confirm('確定刪除?')){ return true; } else { return false; }\"><img class="delimg" src="./img/icon/icon_delete.png"  alt="" /></a></td>  
               `
               );    
         });
@@ -177,26 +177,24 @@
               <h1 class="backend_Audit">留言管理</h1>
             
               <!-- 輸入框欄位 -->
+              <!-- 主標題 -->
+              <h1 class="backend_Audit">發文管理</h1>
+            
+              <!-- 輸入框欄位 -->
               <div class="backend_pho_block">
                 <h3 class="backend_subtitle">拍立得編號</h3>
-                <div class="backend_pho_data1">pho0001</div>
+                <div id="photo_1" class="backend_pho_data1"></div>
               </div>
+          
               <div class="backend_pho_block">
-                <h3 class="backend_subtitle">檢舉編號</h3>
-                <div class="backend_pho_data2">rep0001</div>
+                <h3 class="backend_subtitle">被檢舉者編號</h3>
+                <div id="photo_2"class="backend_pho_data2"></div>
               </div>
-              <div class="backend_pho_block">
-                <h3 class="backend_subtitle">被檢舉人編號</h3>
-                <div class="backend_pho_data3">user0001</div>
-              </div>
-              <div class="backend_pho_block">
-                <h3 class="backend_subtitle">留言編號</h3>
-                <div class="backend_pho_data4">msg0001</div>
-              </div>
+              
               <div class="backend_pho_block">
                 <h3 class="backend_subtitle">留言</h3>
               </div>
-              <div class="backend_msg">想做得事情很多，但總是力不從心。</div>
+              <div id="photo_3" class="backend_msg"></div>
               <!-- 分隔線 -->
               <div class="backend_line"></div>
               
