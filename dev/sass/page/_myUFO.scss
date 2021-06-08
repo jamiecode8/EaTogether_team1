@@ -2619,6 +2619,60 @@ progress::-webkit-progress-value {
 	height: 50px
 }
 
+
+
+.Speech_circle{
+	position: absolute;
+	bottom: 2%;
+    right: 38%;
+    width: 25%;
+	z-index: 60;
+	img{
+		width: 100%;
+	}
+}
+
+@media all and (max-width:991px) and (min-width:768px) {
+
+	.Speech_circle{
+		position: absolute;
+		bottom: 3%;
+		right: 27%;
+		width: 50%;
+		z-index: 60;
+		img{
+			width: 100%;
+		}
+	}
+}
+
+@media all and (max-width:767px) and (min-width:576px) {
+
+	.Speech_circle{
+		position: absolute;
+		bottom: 2%;
+		right: 36%;
+		width: 30%;
+		z-index: 60;
+		img{
+			width: 100%;
+		}
+	}
+}
+
+@media all and (max-width:575px) {
+	.Speech_circle{
+		position: absolute;
+		top: 83%;
+		right: 17%;
+		width: 70%;
+		z-index: 60;
+		img{
+			width: 100%;
+		}
+	}
+}
+
 //----------靜瑩角色彈窗----------
 .MyCharacter {
     z-index: 1000;
