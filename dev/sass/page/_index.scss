@@ -369,6 +369,7 @@ body.index{
     .storeInf{
         //店家名稱 收藏 檢舉
         .storeInf_title{
+            width:300px;
             padding-bottom:10px;
             border-bottom:2px solid $color;
             display: flex;
@@ -407,6 +408,7 @@ body.index{
         //店家資訊按鈕
         .storeInf_section{
             border-bottom:2px solid $color;
+            width: 300px;
             .storeInf_sectionIcon{
                 display: flex;
                 justify-content: space-around;
@@ -429,9 +431,11 @@ body.index{
             border-bottom: 2px solid $color;
             margin: 0 auto;
             width: 300px;
+            border-radius: 5px;
             .slider-nav{
                 margin-bottom: 10px;
                 img{
+                    padding: 3px;
                     height:70px;
                     width: 70px;
                     display: block;
@@ -479,11 +483,13 @@ body.index{
                 padding:10px 5px 5px;
             }
             .storeInf_comments{
+                width: 300px;
                 .storeInf_commentMain{
                     background-color: $lightgreen;
                     border-radius: 5px;
                     padding:10px;
                     margin-bottom: 10px;
+                    width: 300px;
                 }
                 .commentMain_account{
                     display: flex;
