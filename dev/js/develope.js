@@ -86,9 +86,9 @@
                     <h1>蕭洛棠</h1>
                     <br>
                     <ul>
-                        <li>廠商專區頁面</li>
-                        <li>登入系統</li>
-                        <li>開發架構建置</li>
+                        <li>拍立得頁面</li>
+                        <li>拍立得發文系統</li>
+                        <li>插圖製作</li>
                     </ul>
                     <br>
                     <a href="https://bobo52400.github.io/Lakeside-Chalet/" target="_blank">
