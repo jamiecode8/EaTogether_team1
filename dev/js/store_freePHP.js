@@ -8,11 +8,11 @@ new Vue({
       storeLevel: [0, "菇菇級", "松茸級"],
       bottomArea: "",
     },
-    mounted: function mounted() {
+    mounted() {
       var self = this;
-      init(); //登入檢查
+      // init(); //登入檢查
   
-      function init() {
+      // function init() {
         $.ajax({
           method: "POST",
           url: "./php/Frontend/API/StoreLoginCheck.php",
@@ -31,9 +31,9 @@ new Vue({
             alert("數據載入失敗1: " + exception.status);
           }
         });
-      } // 撈商家資料
+      // } // 撈商家資料
   
-  
+
       function getStoreMember() {
         $.ajax({
           method: "POST",
@@ -41,6 +41,7 @@ new Vue({
           data: {},
           dataType: "json",
           success: function success(response) {
+            // setTimeout(displayStore(response), 1000); //等照片撈好再出現
             displayStore(response);
           },
           error: function error(exception) {
@@ -53,7 +54,7 @@ new Vue({
     //不同等級出現不同內容
       function displayStore(response) {
         self.memberData = response[0];
-        // console.log(self.memberData);
+        console.log(self.memberData);
         self.bottomArea = self.memberData.store_level;
         console.log(self.bottomArea);
 

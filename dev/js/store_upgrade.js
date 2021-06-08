@@ -141,137 +141,137 @@
 
 
 // vue 個人企業切換
-Vue.component('company',{
-  template: `
-  <div class="upgradeInfoConfirm_basic_co" id="upgradeInfo_co">
-    <form action="" method="" class="form upgradeInfoConfirm_formC" id="upgradeInfo_company_form">
-        <input type="text" placeholder="公司抬頭"/>
-        <input type="number" placeholder="統一編號" oninput="if(value.length>8)value=value.slice(0,8)"/>
-        <input type="text" placeholder="登記地址"/>
-        <input type="text" placeholder="聯絡人"/>
-        <input type="number" placeholder="聯絡電話"/>
-        <div class="upgradeOption_btnArea_option priceChoice ">
-              <p>月繳$399</p>
-              <!-- <p>{{option}}</p> -->
-        </div>
+// Vue.component('company',{
+//   template: `
+//   <div class="upgradeInfoConfirm_basic_co" id="upgradeInfo_co">
+//     <form action="" method="" class="form upgradeInfoConfirm_formC" id="upgradeInfo_company_form">
+//         <input type="text" placeholder="公司抬頭"/>
+//         <input type="number" placeholder="統一編號" oninput="if(value.length>8)value=value.slice(0,8)"/>
+//         <input type="text" placeholder="登記地址"/>
+//         <input type="text" placeholder="聯絡人"/>
+//         <input type="number" placeholder="聯絡電話"/>
+//         <div class="upgradeOption_btnArea_option priceChoice ">
+//               <p>月繳$399</p>
+//               <!-- <p>{{option}}</p> -->
+//         </div>
         
-        <!-- 2顆按鈕用這個 -->
-        <div class="upgradeInfoConfirm_buttonArea_outer">
-            <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                <a href="/store_upgrade_option.html">
-                    <input type="button" value="返回" class="btn_cancel" />
-                </a>
-                <input type="submit" value="下一步" class="btn_next btn_next_upgradeInfoConfirm_basic">
-            </div>
-        </div>
-    </form>
-  </div>
-  `,
-});
-Vue.component('personal',{
-    template: `
-        <div class="upgradeInfoConfirm_basic_personal" id="upgradeInfo_personal">
-            <form action="" method=" " class="form upgradeInfoConfirm_formP" id="upgradeInfo_personal_form">
-                <!-- 輸入框欄位 -->
-                <input type="text" placeholder="姓名"/>
-                <input type="text" placeholder="地址"/>
-                <input type="number" placeholder="聯絡電話"  maxlength="10" oninput="if(value.length>10)value=value.slice(0,10)"/>
-                <div class="priceChoice">
-                    <p>月繳$399</p>
-                    <!-- <p>{{option}}</p> -->
-                </div>
+//         <!-- 2顆按鈕用這個 -->
+//         <div class="upgradeInfoConfirm_buttonArea_outer">
+//             <div class="buttonArea upgradeInfoConfirm_buttonArea">
+//                 <a href="/store_upgrade_option.html">
+//                     <input type="button" value="返回" class="btn_cancel" />
+//                 </a>
+//                 <input type="submit" value="下一步" class="btn_next btn_next_upgradeInfoConfirm_basic">
+//             </div>
+//         </div>
+//     </form>
+//   </div>
+//   `,
+// });
+// Vue.component('personal',{
+//     template: `
+//         <div class="upgradeInfoConfirm_basic_personal" id="upgradeInfo_personal">
+//             <form action="" method=" " class="form upgradeInfoConfirm_formP" id="upgradeInfo_personal_form">
+//                 <!-- 輸入框欄位 -->
+//                 <input type="text" placeholder="姓名"/>
+//                 <input type="text" placeholder="地址"/>
+//                 <input type="number" placeholder="聯絡電話"  maxlength="10" oninput="if(value.length>10)value=value.slice(0,10)"/>
+//                 <div class="priceChoice">
+//                     <p>月繳$399</p>
+//                     <!-- <p>{{option}}</p> -->
+//                 </div>
                 
-                <div class="upgradeInfoConfirm_buttonArea_outer">
-                    <div class="buttonArea upgradeInfoConfirm_buttonArea">
-                        <a href="/store_upgrade_option.html">
-                            <input type="button" value="返回" class="btn_cancel" />
-                        </a>
-                        <input type="submit" value="下一步" class="btn_next btn_next_upgradeInfoConfirm_basic"/>
-                    </div>
-                </div>
-            </form>
-        </div>
-    `,
-});
+//                 <div class="upgradeInfoConfirm_buttonArea_outer">
+//                     <div class="buttonArea upgradeInfoConfirm_buttonArea">
+//                         <a href="/store_upgrade_option.html">
+//                             <input type="button" value="返回" class="btn_cancel" />
+//                         </a>
+//                         <input type="submit" value="下一步" class="btn_next btn_next_upgradeInfoConfirm_basic"/>
+//                     </div>
+//                 </div>
+//             </form>
+//         </div>
+//     `,
+// });
 
-new Vue({
-    el: '#upgradeInfoConfirm_basic',
-    data: {
-        content: 'company', 
-    },
-});
+// new Vue({
+//     el: '#upgradeInfoConfirm_basic',
+//     data: {
+//         content: 'company', 
+//     },
+// });
 
 
-// 信用卡轉帳切換
-Vue.component('card',{
-  template: `
-  <div class="upgradeInfoConfirm_payment_card">
-      <form action="" method=" " class="form upgradeInfoConfirm_formC" id="upgradeInfo_card_form">
-          <!-- 輸入框欄位 -->
-          <label for="card-number" class="card_label">信用卡號碼</label>
-          <input type="num" id="card-number" class="input-cart-number" maxlength="4" />
-          <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
-          <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
-          <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
-          <br>
+// // 信用卡轉帳切換
+// Vue.component('card',{
+//   template: `
+//   <div class="upgradeInfoConfirm_payment_card">
+//       <form action="" method=" " class="form upgradeInfoConfirm_formC" id="upgradeInfo_card_form">
+//           <!-- 輸入框欄位 -->
+//           <label for="card-number" class="card_label">信用卡號碼</label>
+//           <input type="num" id="card-number" class="input-cart-number" maxlength="4" />
+//           <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
+//           <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
+//           <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
+//           <br>
 
-          <label for="validDate" class="card_label">有效日期</label>
-          <input type="text" id="validDate" /><br>
-          <label for="cvv" class="card_label">安全碼</label>
-          <input type="number" maxlength="3" id="ccv" />
-          <div class="priceChoice">
-              <p>月繳$399</p>
-              <!-- <p>{{option}}</p> -->
-          </div>
+//           <label for="validDate" class="card_label">有效日期</label>
+//           <input type="text" id="validDate" /><br>
+//           <label for="cvv" class="card_label">安全碼</label>
+//           <input type="number" maxlength="3" id="ccv" />
+//           <div class="priceChoice">
+//               <p>月繳$399</p>
+//               <!-- <p>{{option}}</p> -->
+//           </div>
           
-          <!-- 2顆按鈕 -->
-          <div class="upgradeInfoConfirm_buttonArea_outer">
-              <div class="buttonArea upgradeInfoConfirm_buttonArea">
+//           <!-- 2顆按鈕 -->
+//           <div class="upgradeInfoConfirm_buttonArea_outer">
+//               <div class="buttonArea upgradeInfoConfirm_buttonArea">
                   
-                  <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
-                  <a href="/store_upgrade_complete.html">
-                      <input type="" value="下一步" class="btn_next" />
-                  </a>
-              </div>
-          </div>
-      </form>
-    </div>
-  `,
-});
-Vue.component('acc',{
-    template: `
-    <div class="upgradeInfoConfirm_payment_acc">
-        <form action="#資料傳送送的網址" method="" class="form upgradeInfoConfirm_formP">
-            <!-- 輸入框欄位 -->
-            <label for="bank" class="card_label">銀行</label>
-            <input type="text" value="台新銀行敦南分行" id="bank" class="trans_iput trans_iput_s"/><br>
-            <label for="bankAcc" class="card_label">銀行帳戶</label>
-            <input type="text" value="1010203040405" id="bankAcc" class="trans_iput"/><br>
-            <label for="accName" class="card_label">戶名</label>
-            <input type="text" value="外食一起來有限公司"  id="accName" class="trans_iput trans_iput_s"/><br>
-            <div class="priceChoice">
-                <p>月繳$399</p>
-                <!-- <p>{{option}}</p> -->
-            </div>
+//                   <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
+//                   <a href="/store_upgrade_complete.html">
+//                       <input type="" value="下一步" class="btn_next" />
+//                   </a>
+//               </div>
+//           </div>
+//       </form>
+//     </div>
+//   `,
+// });
+// Vue.component('acc',{
+//     template: `
+//     <div class="upgradeInfoConfirm_payment_acc">
+//         <form action="#資料傳送送的網址" method="" class="form upgradeInfoConfirm_formP">
+//             <!-- 輸入框欄位 -->
+//             <label for="bank" class="card_label">銀行</label>
+//             <input type="text" value="台新銀行敦南分行" id="bank" class="trans_iput trans_iput_s"/><br>
+//             <label for="bankAcc" class="card_label">銀行帳戶</label>
+//             <input type="text" value="1010203040405" id="bankAcc" class="trans_iput"/><br>
+//             <label for="accName" class="card_label">戶名</label>
+//             <input type="text" value="外食一起來有限公司"  id="accName" class="trans_iput trans_iput_s"/><br>
+//             <div class="priceChoice">
+//                 <p>月繳$399</p>
+//                 <!-- <p>{{option}}</p> -->
+//             </div>
             
-            <!-- 2顆按鈕 -->
-            <div class="upgradeInfoConfirm_buttonArea_outer">
-                <div class="buttonArea upgradeInfoConfirm_buttonArea">
+//             <!-- 2顆按鈕 -->
+//             <div class="upgradeInfoConfirm_buttonArea_outer">
+//                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
                     
-                    <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
-                    <a href="/store_upgrade_complete.html">
-                        <input type="" value="下一步" class="btn_next" />
-                    </a>
-                </div>
-            </div>
-        </form>
-    </div>
-    `,
-});
+//                     <button class="btn_pre btn_btn upgradeInfoConfirm_backTodetail">返回</button>
+//                     <a href="/store_upgrade_complete.html">
+//                         <input type="" value="下一步" class="btn_next" />
+//                     </a>
+//                 </div>
+//             </div>
+//         </form>
+//     </div>
+//     `,
+// });
 
-new Vue({
-    el: '#upgradeInfoConfirm_payment',
-    data: {
-        content: 'card', 
-    },
-});
+// new Vue({
+//     el: '#upgradeInfoConfirm_payment',
+//     data: {
+//         content: 'card', 
+//     },
+// });

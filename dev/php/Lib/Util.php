@@ -25,7 +25,7 @@
         $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
 
         //Apache根目錄之下的檔案存放路徑
-        $filePath = "/dist/img/upload/";
+        $filePath = "/img/upload/";
         
         return $ServerRoot.$filePath;
 

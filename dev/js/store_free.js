@@ -1,8 +1,8 @@
 // store_free.html chart.js //紅黃綜綠藍
 // 收藏次數
 function initChart(){
-    var ctx = document.getElementById('myChart_like');
-    var myChart = new Chart(ctx, {
+    var likeCount = document.getElementById('myChart_like');
+    var myChart = new Chart(likeCount, {
         type: 'bar',
         data: {
             labels: ['1-3', '4-6','7-9', '10-12', '13-15', '16-18', '19-21', '22-24', '25-27', '28-31'],
@@ -37,8 +37,8 @@ function initChart(){
     });
     
     // 點擊次數
-    var ctx = document.getElementById('myChart_click');
-    var myChart = new Chart(ctx, {
+    var clickCount = document.getElementById('myChart_click');
+    var myChart = new Chart(clickCount, {
         type: 'bar',
         data: {
             labels: ['1-3', '4-6','7-9', '10-12', '13-15', '16-18', '19-21', '22-24', '25-27', '28-31'],
