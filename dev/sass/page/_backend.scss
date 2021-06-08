@@ -128,7 +128,10 @@
             width: 100%;
             text-align: center;
         }
-
+        
+        .delimg{
+            margin: auto;
+        }
 //---------------------------會員管理彈窗-----------------------------
 
 
@@ -174,12 +177,22 @@
                 font-weight: bold;
                }
             
+            
             }
             .backend_line{
                 width: 100%;
                 border-top: solid 1px $green ;
                 margin: 30px 0;
             }
+            
+            .backend_top{
+                display: flex;
+                justify-content: space-between;
+                .backend_down{
+                    padding-top: 16px;
+                }
+            }
+
 
              // 按扭區域
             input {
@@ -199,14 +212,13 @@
 
         .backend_store_popUps{
             display: none;
-            position: absolute;
-            top: -920px;
+            position: fixed;
+            top: 150px;
             left: 10px;
-            text-align: center;
+
             @include block_center(); //區塊置中
             
             background-color: #fff;
-            position: relative;
             width: 1000px;
             padding: 0 40px 20px;
             @include shadow;
@@ -255,14 +267,14 @@
 .backend_my_photo_popUps{
 
     display: none;
-    position: absolute;
-    top: -900px;
+    position: fixed;
+    top: 150px;
     left: 10px;
 
     @include block_center(); //區塊置中
     
     background-color: #fff;
-    position: relative;
+
     width: 400px;
     padding: 50px;
     @include shadow;
