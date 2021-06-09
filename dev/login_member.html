@@ -66,6 +66,12 @@
                             <input v-model="password_register" type="password" placeholder="密碼" autocomplete="off"
                                 required name="member_password_input" />
                             <p v-if="!password_register_msg">密碼長度需高於6個字元</p>
+                            <input v-model="password_register" type="password" placeholder="再次輸入密碼" autocomplete="off"
+                            required />
+                            <!-- 暱稱 -->
+                            <div class="memberInfo_edit_area">
+                                <input type="text" placeholder="輸入暱稱" name="member_nickname_input"/>
+                            </div>
                             <!-- 常去站點 -->
                             <div class="login_station">
                                 <input type="text" id="login_station_choice" class="input" v-model="selectedStation"
