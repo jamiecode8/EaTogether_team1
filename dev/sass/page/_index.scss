@@ -2,7 +2,9 @@
 
 body.index{
     background-color:$bgc;
-    // overflow: hidden;
+    // *{
+    //     border: 1px solid;
+    // }
 
 }
 .index_wrapper{
@@ -18,6 +20,72 @@ body.index{
     justify-content: center;
     align-items: center;
     @include marginCenter();
+    .stationSite{
+        position: relative;
+        border:1px solid red;
+        width:533px;
+        height: 494px;
+        position: absolute;
+        .site{
+            width: 18px;
+            height: 18px;
+            z-index: 1000;
+            position: absolute;
+            clip: unset;
+        }
+        p{  
+            color: $green;
+            font-style: 14px;
+            z-index: 1001;
+        }
+        //紅線
+        .a{ top:16vh;   left: 12vw; }
+        .b{ top:40vh;   right:12vw;}
+        .c{ top:40.5vh; right:14vw;}
+        .d{ top:40.5vh; right:17vw;}
+        .e{ top:41vh;   right:20vw;}
+        .f{ top:37vh;   right:22vw;}
+        .g{ top:28vh;   right:22vw;}
+        .h{ top:24vh;   right:22vw;}
+
+        //綠線
+        .i{ bottom:20vh;   right:18vw;}
+        .j{ bottom:23vh;   right:18.5vw;}
+        .k{ bottom:26vh;   right:18.6vw;}
+        .l{ bottom:29vh;   right:19.5vw;}
+        .m{ bottom:33vh;   left:16vw;}
+        .n{ bottom:41.5vh; left:16vw;}
+        .o{ bottom:42.5vh; right:16vw;}
+        .p{ bottom:42.5vh; right:14.5vw;}
+        .r{ bottom:43vh;   right:13vw;}
+
+        //藍線
+        .s{ bottom:39.5vh; right:12vw;}
+        .t{ bottom:39.5vh; right:13.5vw;}
+        .u{ bottom:39vh;   right:15vw;}
+        .v{ bottom:36.5vh;   left:12vw;}
+        .w{ bottom:35vh;   left:11vw;}
+        .x{ bottom:32vh;   left:11.3vw;}
+        .y{ bottom:29vh;   left:11.5vw;}
+
+        //棕線
+        .z{ bottom:26vh;   right:12vw;}
+        .A{ bottom:29vh;   right:15vw;}
+        .B{ bottom:46vh;   right:16.5vw;}
+        .C{ bottom:49vh;   right:16.5vw;}
+        .D{ bottom:49.5vh;   right:15vw;}
+        .E{ bottom:50vh;   right:13vw;}
+        .F{ bottom:46vh;   right:11vw;}
+
+        //黃線
+        .G{ bottom:27vh;   left:16.5vw;}
+        .H{ bottom:39vh;   right:19.5vw;}
+        .I{ bottom:42vh;   right:19.5vw;}
+        .J{ top:31vh;   left:11vw;}
+        .K{ top:23vh;   left:9vw;}
+        .L{ top:35vh;   left:10vw;}
+    }
+  
     .map_slogan{
         width: 25vw;
         position: absolute;
@@ -25,7 +93,8 @@ body.index{
         top:10vh;
     }
     .map{
-        width: 40vw;
+        width:533px;
+        height: 494px;
         //   @include block_center();
     }
 }
@@ -561,7 +630,11 @@ body.index{
         // border: 1px solid violet;
         .index_map{
          
-          
+            .stationSite{
+                border:1px solid blue;
+                width: 47vw;
+                height: 45vw;
+            }
             .map{
                 width:47vw;
             }

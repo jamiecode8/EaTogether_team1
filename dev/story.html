@@ -1,67 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        @@include('layout/style.html')
-        <title>外食故事</title>
-    </head>
-    <body class="story">
-        @@include('layout/header.html')
-        <div class="wrapper story_wrapper" id="app">
 
-                <!-- 這裡面編輯 -->
-            <img class="story_Alien" src="./img/story/storyAlien1.png" alt="">
-            <img class="storyTitle" src="./img/index/slogan.png" alt="">
-            <img class="mrtAlien" src="./img/story/mrtAlien.png" alt="">  
-            <img class="story_map" src="./img/index/map.png" alt="">  
-            <img class="story_Alien2" src="./img/story/storyAlien3.png" alt="">
-            <div class="storySection">
-                <div class="sectionPart">
-                  <div class="paragraph">
-                    <h1>外食故事</h1>
-                    <p>是不是常常為了吃什麼煩惱呢？想嘗試沒有買過的店家，是不是害怕踩雷！
-                        這個是大家都有的煩惱，希望這個平台能夠達到資訊對等，透過我們的審核機制嚴選出優良店家，讓大家吃得安心，
-                        店家也可以透過這個平台獲得曝光率。
-                        <img class="mrtAlien_rwd" src="./img/story/mrtAlien.png" alt="">  
-                    </p>
-                  </div>
-                </div>
-            </div>
-            <div class="storySection">
-                <div class="sectionPart">
-                  <div class="paragraph">
-                    <h1>外食地圖</h1>
-                    <p>地圖範圍我們選取最貼近大家的交通工具捷運來做規劃。我們精選了各個站點的美食店家，透過搜尋的方式可以直接搜尋該站點，
-                        或者搜尋食物類別我們都會直接顯示出捷運站點，為大家帶來更便利的搜尋。                      
-                    </p>
-                    <img class="story_map_rwd" src="./img/index/map.png" alt="">  
-                  </div>
-                </div>
-            </div>
-            <div class="storySection">
-                <div class="sectionPart">
-                  <div class="paragraph">
-                    <h1>外食星人</h1>
-                    <p>外星人會為了新的能源離開原本的星球，而我們會為了新的美食而開始進行搜尋，我們可以在我的飛碟中創建自己的外食星人，另外還可以透過搜尋方式獲得點數，利用這些點數來添購小配件裝飾外食星人。                      
-                    </p>
-                  </div>
-                </div>
-            </div>
-            <div class="storyAliens_rwd">
-              <img src="./img/story/storyAlien1.png" alt="">
-              <img src="./img/story/storyAlien2.png" alt="">
-              <img src="./img/story/storyAlien3.png" alt="">
-            </div>
-            @@include('layout/search.html')
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  @@include('layout/style.html')
+  <title>外食故事</title>
+</head>
 
+<body class="story">
+  @@include('layout/header.html')
+  <div class="wrapper story_wrapper">
+
+    <div class="popUps myCollection_pop" id="app_collection">
+      <form class="form getMyCollection" action="">
+        <button class="getMyCollectionClose btn_close" >
+          <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <!-- 店家名單 -->
+        <div class="myStores">
+          <h1>收藏店家</h1>
+          <div class="getMyStores">
+            <img class="heartButton" src="./img/icon/icon_heart.png" alt="">
+            <ul class="getMyStoresInf">
+              <li class="myStoreName">
+                <h2>店家名稱</h2>
+              </li>
+              <li class="getStoreInf_star">
+                <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
+                <div v-for="darkStar in 1"><img src="./img/icon/icon_star_default.png" alt=""></div>
+              </li>
+              <li class="getStoreInf_station">
+                <p>捷運站:東門站</p>
+              </li>
+              <li class="getStoreInf_tag">
+                <span>咖啡</span>
+                <span>甜點</span>
+                <span>銅板美食</span>
+              </li>
+            </ul>
+            <img class="myStorePic" src="./img/upload/food/bistro_a2.png" alt="">
+          </div>
+          <div class="getMyStores">
+            <img class="heartButton" src="./img/icon/icon_heart.png" alt="">
+            <ul class="getMyStoresInf">
+              <li class="myStoreName">
+                <h2>店家名稱</h2>
+              </li>
+              <li class="getStoreInf_star">
+                <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
+                <div v-for="darkStar in 1"><img src="./img/icon/icon_star_default.png" alt=""></div>
+              </li>
+              <li class="getStoreInf_station">
+                <p>捷運站:東門站</p>
+              </li>
+              <li class="getStoreInf_tag">
+                <span>咖啡</span>
+                <span>甜點</span>
+                <span>銅板美食</span>
+              </li>
+            </ul>
+            <img class="myStorePic" src="./img/upload/food/bistro_a2.png" alt="">
+          </div>
+        </div> <!-- 後端要抓全部total筆數 -->
+        <p class="searchTotal">收藏<span> 5 </span>筆</p>
+      </form>
+    </div>
+    <!-- 這裡面編輯 -->
+    <img class="story_Alien" src="./img/story/storyAlien1.png" alt="">
+    <img class="storyTitle" src="./img/index/slogan.png" alt="">
+    <img class="mrtAlien" src="./img/story/mrtAlien.png" alt="">
+    <img class="story_map" src="./img/index/map.png" alt="">
+    <img class="story_Alien2" src="./img/story/storyAlien3.png" alt="">
+    <div class="storySection">
+      <div class="sectionPart">
+        <div class="paragraph">
+          <h1>外食故事</h1>
+          <p>是不是常常為了吃什麼煩惱呢？想嘗試沒有買過的店家，是不是害怕踩雷！
+            這個是大家都有的煩惱，希望這個平台能夠達到資訊對等，透過我們的審核機制嚴選出優良店家，讓大家吃得安心，
+            店家也可以透過這個平台獲得曝光率。
+            <img class="mrtAlien_rwd" src="./img/story/mrtAlien.png" alt="">
+          </p>
         </div>
+      </div>
+    </div>
+    <div class="storySection">
+      <div class="sectionPart">
+        <div class="paragraph">
+          <h1>外食地圖</h1>
+          <p>地圖範圍我們選取最貼近大家的交通工具捷運來做規劃。我們精選了各個站點的美食店家，透過搜尋的方式可以直接搜尋該站點，
+            或者搜尋食物類別我們都會直接顯示出捷運站點，為大家帶來更便利的搜尋。
+          </p>
+          <img class="story_map_rwd" src="./img/index/map.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="storySection">
+      <div class="sectionPart">
+        <div class="paragraph">
+          <h1>外食星人</h1>
+          <p>外星人會為了新的能源離開原本的星球，而我們會為了新的美食而開始進行搜尋，我們可以在我的飛碟中創建自己的外食星人，另外還可以透過搜尋方式獲得點數，利用這些點數來添購小配件裝飾外食星人。
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="storyAliens_rwd">
+      <img src="./img/story/storyAlien1.png" alt="">
+      <img src="./img/story/storyAlien2.png" alt="">
+      <img src="./img/story/storyAlien3.png" alt="">
+    </div>
 
-   
-        @@include('layout/footer.html')
-        @@include('layout/searchVue.html')
+  </div>
+
+  <div id="app">
+    @@include('layout/search.html')
+  </div>
+
+
+  @@include('layout/footer.html')
+  @@include('layout/searchVue.html')
+
+  <script>
     
-    </body>  
+
+
+    new Vue({
+      el: '#app_collection',
+      data: {
+        memberID: '',
+        myStores: [],
+        favoriteDigital: '',
+      },
+      methods: {
+        getFavoriteClose() {
+          this.isFavoriteStore = false;
+        }
+      },
+    });
+
+
+    $('.storyTitle').click(function () {
+      $('.myCollection_pop').fadeIn(100);
+    });
+    
+    $('.getMyCollectionClose').click(function () {
+      $('.myCollection_pop').fadeOut(100);
+    });
+    function getMyCollection(){
+      var get = this;
+      $.ajax({
+          method: "POST",
+          url: "./php/Frontend/API/getCollection.php",
+          data: {
+              memberID:str,
+          },
+          dataType: "json",
+          success: function (response) {
+              get.myStores = response;
+          },
+          error: function (exception) {
+              alert("數據載入失敗: " + exception.status);
+          }
+      });
+    }
+  </script>
+
+</body>
+
 
 </html>
