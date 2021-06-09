@@ -1,0 +1,66 @@
+.backendStore_pagination{
+    // margin: 0 auto;
+    @include block_center(); 
+    &_ul{
+        display: flex;
+        justify-content: space-between; 
+  }
+}
+
+.backend_store_table{
+  font-size: $fontSize_Title;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.backend_store{
+  &_list:nth-child(even) {
+      background: #FFF;
+  }
+  &_list:nth-child(odd) {
+      background: $lightgreen;
+  }
+  &_editForm{
+    position: absolute;
+    top: 65px;
+    @include block_center;
+    &_infoArea{
+      display: flex;
+    }
+  }
+  &_edit_form{
+      width: 1200px;
+      padding: 30px;
+  }
+  &_edit_table{
+     width: 330px;
+     .backend_store_td{
+      padding: initial;
+      padding-left: 10px;
+      height: 50px;
+      line-height: 50px;
+     }
+  }
+}
+
+// 照片區域
+.backend_store{
+  &_imgArea{
+      text-align: center;
+      padding: 0 40px 20px;
+      &_picEdit{
+          position: relative;
+          width: 250px;
+          height: 250px;
+          border: 1px solid $mrtGreen;
+          margin-right: 10px;
+      }
+  }
+}
+//  商家編輯區域
+.storeBack_arrow{
+  position: absolute;
+  top: 33px;
+  right: 10px;
+}
