@@ -2,7 +2,7 @@
     include("../../Lib/Util.php");
 
     //建立SQL
-    $sql = "SELECT * FROM photo_report ";
+    $sql = "SELECT * FROM photo_report";
     
     //執行
     $statement = getPDO()->prepare($sql);
