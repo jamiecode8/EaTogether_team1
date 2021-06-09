@@ -102,17 +102,65 @@
 
 // -----------------------商家管理-----------------------
 
-        // .backend_store{
-        //     background-color: #E2D295;
-        //     padding: 25px;  
-        // }
-
         .backend_store_table{
             font-size: $fontSize_Title;
             font-weight: bold;
             width: 100%;
             text-align: center;
         }
+
+        .backend_store{
+            &_list:nth-child(even) {
+                background: #FFF;
+            }
+            &_list:nth-child(odd) {
+                background: $lightgreen;
+            }
+            &_editForm{
+              position: absolute;
+              top: 65px;
+              @include block_center;
+              &_infoArea{
+                display: flex;
+              }
+            }
+            &_edit_form{
+                width: 1200px;
+                padding: 30px;
+            }
+            &_edit_table{
+               width: 330px;
+               .backend_store_td{
+                padding: initial;
+                padding-left: 10px;
+                height: 50px;
+                line-height: 50px;
+               }
+            }
+        }
+
+        // 照片區域
+        .backend_store{
+            &_imgArea{
+                text-align: center;
+                padding: 0 40px 20px;
+                &_picEdit{
+                    position: relative;
+                    width: 250px;
+                    height: 250px;
+                    border: 1px solid $mrtGreen;
+                    margin-right: 10px;
+                }
+            }
+        }
+        //  商家編輯區域
+        .storeBack_arrow{
+            position: absolute;
+            top: 33px;
+            right: 10px;
+        }
+
+
 
 
 // -----------------------拍立得管理-----------------------
@@ -210,57 +258,57 @@
 
 //---------------------------商家管理彈窗-----------------------------
 
-        .backend_store_popUps{
-            display: none;
-            position: fixed;
-            top: 150px;
-            left: 10px;
+        // .backend_store_popUps{
+        //     display: none;
+        //     position: fixed;
+        //     top: 150px;
+        //     left: 10px;
 
-            @include block_center(); //區塊置中
+        //     @include block_center(); //區塊置中
             
-            background-color: #fff;
-            width: 1000px;
-            padding: 0 40px 20px;
-            @include shadow;
-            @include border_r;
-            @include btn_close(".btn_close");
+        //     background-color: #fff;
+        //     width: 1000px;
+        //     padding: 0 40px 20px;
+        //     @include shadow;
+        //     @include border_r;
+        //     @include btn_close(".btn_close");
 
-             //h1
-            .backend_Audit{
-             text-align: center;
-             padding: 20px 0;
-        }
+        //      //h1
+        //     .backend_Audit{
+        //      text-align: center;
+        //      padding: 20px 0;
+        // }
 
-            .backend_store_pho_Audit{
-                display: flex;
-                justify-content: space-between;
-                margin: 20px 0;
+        //     .backend_store_pho_Audit{
+        //         display: flex;
+        //         justify-content: space-between;
+        //         margin: 20px 0;
 
-                // 照片上傳
-                .pho_Audit{
-                    width:300px;
-                    height:260px;
-                    background-color: lighten(#ccc, 15%) ;
-                    border: 1px solid $green;
-                    text-align: center;
-                    padding-top: 20%;
-                    @include btn('.btn_submit', $green, $tp);
-                }
-                .backend_subtitle{
-                    padding-bottom: 10px;
-                }
-                .Audit_img{
-                    width:300px;
-                    height:260px;
-                }
-        }  
+        //         // 照片上傳
+        //         .pho_Audit{
+        //             width:300px;
+        //             height:260px;
+        //             background-color: lighten(#ccc, 15%) ;
+        //             border: 1px solid $green;
+        //             text-align: center;
+        //             padding-top: 20%;
+        //             @include btn('.btn_submit', $green, $tp);
+        //         }
+        //         .backend_subtitle{
+        //             padding-bottom: 10px;
+        //         }
+        //         .Audit_img{
+        //             width:300px;
+        //             height:260px;
+        //         }
+        // }  
 
-             .btn,
-            .backend_buttonArea{
-                @include block_center();
-                width: max-content;
-            }
-        }
+        //      .btn,
+        //     .backend_buttonArea{
+        //         @include block_center();
+        //         width: max-content;
+        //     }
+        // }
 
 //---------------------------留言管理彈窗-----------------------------
 

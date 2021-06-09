@@ -85,7 +85,7 @@
                         <input type="text" id="login_price_choice" placeholder="選擇價格區間" class="input" v-model="selectedPrice"/>
                         <!-- 隱藏欄位 -->
                         <input type="hidden" name="price_id" v-model="selectedPriceId" value="price_id"/>
-                        <img class="login_price_arrow" src="./img/icon/icon_next_line.png" alt="" @click="price_board_show">
+                        <img class="login_price_arrow" src="./img/icon/icon_next_line.png" @click="price_board_show">
                         <ul class="login_price_select" v-show="close_price_board">
                             <li v-for="price in prices" @click="getPrice(price)" class="br"> {{price.text}} </li>
                         </ul>
@@ -129,7 +129,7 @@
                             <div class="store_imgArea_picEdit">
                                 <h3 class="store_imgArea_subtitle">形象海報</h3>
                                 <div id="dropZone1" class="store_imgArea_dropZone">
-                                    <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
+                                    <!-- <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p> -->
                                     <img id="store_image1" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload">
                                         <input type="file" id="theFile1" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
@@ -140,7 +140,7 @@
                             <div class="store_imgArea_picEdit">
                                 <h3 class="store_imgArea_subtitle">店景</h3>
                                 <div id="dropZone2" class="store_imgArea_dropZone">
-                                    <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
+                                    <!-- <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p> -->
                                     <img id="store_image2" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload2">
                                         <input type="file" id="theFile2" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
@@ -151,7 +151,7 @@
                             <div class="store_imgArea_picEdit">
                                 <h3 class="store_imgArea_subtitle">菜單</h3>
                                 <div id="dropZone3" class="store_imgArea_dropZone">
-                                    <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
+                                    <!-- <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p> -->
                                     <img id="store_image3" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload3">
                                         <input type="file" id="theFile3" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
@@ -165,7 +165,7 @@
                             <div class="store_imgArea_picEdit">
                                 <h3 class="store_imgArea_subtitle">餐點照</h3>
                                 <div id="dropZone4" class="store_imgArea_dropZone">
-                                    <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
+                                    <!-- <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p> -->
                                     <img id="store_image4" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload4">
                                         <input type="file" id="theFile4" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
@@ -176,7 +176,7 @@
                             <div class="store_imgArea_picEdit">
                                 <h3 class="store_imgArea_subtitle">餐點照</h3>
                                 <div id="dropZone5" class="store_imgArea_dropZone">
-                                    <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
+                                    <!-- <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p> -->
                                     <img id="store_image5" class="store_imgArea_image">
                                     <div class="picUpload" id="picUpload5">
                                         <input type="file" id="theFile5" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>

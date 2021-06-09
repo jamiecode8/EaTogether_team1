@@ -10,20 +10,19 @@
     <body class="backend_body">
 
         @@include('layout/header_backend.html')
-        <div class="wrapper backend_wrapper">
+        <div class="wrapper backend_wrapper" id="backendStoreWrapper">
 
           <div class="backend_top">
-
+          <!-- 選單列 -->
            <div class="backend_top_left">
-             
             <input class="backend_store_1" type="radio" name="x">
-            <span>商家照片審核</span>
+            <span>審核中</span>
             <input class="backend_store_2" type="radio" name="x">
-            <span>合作中的商家</span>
+            <span>啟用商家</span>
             <input class="backend_store_3" type="radio" name="x">
-            <span>停止合作的商家</span>
+            <span>停權商家</span>
           </div>
-  
+          <!-- 搜尋框 -->
             <div class="backend_top_right">
              <form class="backend_search"  action="#" method="post">       
               <input type="text" class="backend_search_text">
@@ -31,7 +30,7 @@
             </form>
          </div>
         </div> 
-    
+        <!-- 表單從這裡開始 -->
             <div class="backend_store">
              <table class="backend_store_table">
              <tr>
@@ -41,141 +40,254 @@
                <th>商家管理</th>
              </tr>
 
-             <tr class="odd">
-              <td>store0001</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>store0002</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-            </tr>
-            <tr class="odd">
-              <td>store0003</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>store0004</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-            </tr>
-            <tr class="odd">
-              <td>store0005</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>store0006</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-            </tr>
-            <tr class="odd">
-              <td>store0007</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>store0008</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-            </tr>
-          <tr class="odd">
-              <td>store0009</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-            </tr>
-            <tr>
-              <td>store0010</td>
-              <td>OOO</td>
-              <td>香菇</td>
-              <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
+             <tr v-for="store in stores" class="backend_store_list">
+              <td>{{store.storeId}}</td>
+              <td>{{store.storeName}}</td>
+              <td>{{store.StoreLevel}}</td>
+              <td @click="getStoreEdit"><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
             </tr>
 
            </table>
           </div> 
 
-            <!-- 商家照片彈窗 -->
-            <div class="backend_store_popUps">
-              <form action="#" method="post" class="backend_store_form">
-              <!-- close button -->
-              <button type="button" class="btn_close">
-                <img src="./img/icon/icon_close.png" alt="">
-              </button>
-              
-              <!-- 主標題 -->
-              <h1 class="backend_Audit">商家管理</h1>
-              <!-- <p>檔案格式：JPG、JPEG、PNG</p><br>
-              <p>檔案容量：3MB以下</p><br>
-              <p>建議圖片尺寸：640px × 640px</p> -->
-
-                <!-- 照片審核區   -->
-                <div class="backend_store_pho_Audit">
-                    
-                    <div>
-                      <h3 class="backend_subtitle">形象海報</h3>
-                        <!-- <div class="pho_Audit" id="pho_Audit_data1">
-                       </div> -->
-                      <!-- demo用 -->
-                      <img class="Audit_img" src="./img/upload/food/roman_b1.png" alt="">
-                    </div>
-                
-                    <div>
-                      <h3 class="backend_subtitle">菜單</h3>
-                      <!-- <div class="pho_Audit" id="pho_Audit_data2">
-                        </div> -->
-                        <img class="Audit_img" src="./img/upload/food/roman_b2.png" alt="">
-                    </div>
-                
-                    <div>
-                      <h3 class="backend_subtitle">店景</h3>
-                      <!-- <div class="pho_Audit" id="pho_Audit_data3">
-                        </div> -->
-                        <img class="Audit_img" src="./img/upload/food/roman_b3.png" alt="">
-                    </div>
+            <!-- 商家資料編輯彈窗 -->
+          <!-- <div class="popUps store_signUp blockNone" id="">藏起來時 -->
+          <div v-show="editStore" class="backend_store_editForm" id="">
+            <form method="" action="" class="form storeLogin_signup backend_store_edit_form">
+                <!-- close button -->
+                <button type="button" class="btn_close" @click="closeStoreEdit">
+                    <img src="./img/icon/icon_close.png" alt="" />
+                </button>
+                <!-- 資料區域 -->
+                <section class="backend_store_editForm_infoArea">
+                  <section>
+                    <h1 class="">商家資訊</h1>
+                    <table class="backend_store_edit_table">
+                      <tr>
+                        <td class="backend_store_td">餐廳編號</td>
+                        <td class="backend_store_td">{{editStoreId}}</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">餐廳名稱</td>
+                        <td class="backend_store_td">{{editStoreName}}</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">餐廳電話</td>
+                        <td class="backend_store_td">{{editStoreLevel}}</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">餐廳地址</td>
+                        <td class="backend_store_td">仁愛路4段109號</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">聯絡人</td>
+                        <td class="backend_store_td">聯絡人</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">聯絡電話</td>
+                        <td class="backend_store_td">聯絡電話</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">E-Mail</td>
+                        <td class="backend_store_td">E-Mail</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">客單價</td>
+                        <td class="backend_store_td">客單價</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">鄰近捷運站</td>
+                        <td class="backend_store_td">鄰近捷運站</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">喜好關鍵字1</td>
+                        <td class="backend_store_td">喜好關鍵字1</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">喜好關鍵字2</td>
+                        <td class="backend_store_td">喜好關鍵字2</td>
+                      </tr>
+                      <tr>
+                        <td class="backend_store_td">喜好關鍵字3</td>
+                        <td class="backend_store_td">喜好關鍵字3</td>
+                      </tr>
+                    </table>
+                  </section>
+                  <!-- 商家照片 -->
+                  <section>
+                      <h1>商家照片</h1>
+                      <!-- 照片區-->
+                      <div class="backend_store_imgArea">
+                          <!-- 主標題 -->
+                          <div class="store_imgArea_dropArea">
+                              <div class="backend_store_imgArea_picEdit">
+                                  <h3 class="store_imgArea_subtitle">形象海報</h3>
+                                  <div id="dropZone1" class="store_imgArea_dropZone">
+                                      <img id="store_image1" class="store_imgArea_image">
+                                      <div class="picUpload" id="picUpload">
+                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="backend_store_imgArea_picEdit">
+                                  <h3 class="store_imgArea_subtitle">店景</h3>
+                                  <div id="dropZone2" class="store_imgArea_dropZone">
+                                      <img id="store_image2" class="store_imgArea_image">
+                                      <div class="picUpload" id="picUpload2">
+                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="backend_store_imgArea_picEdit">
+                                  <h3 class="store_imgArea_subtitle">菜單</h3>
+                                  <div id="dropZone3" class="store_imgArea_dropZone">
+                                      <img id="store_image3" class="store_imgArea_image">
+                                      <div class="picUpload" id="picUpload3">
+                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+  
+                          <div class="store_imgArea_dropArea">
+                              <div class="backend_store_imgArea_picEdit">
+                                  <h3 class="store_imgArea_subtitle">餐點照</h3>
+                                  <div id="dropZone4" class="store_imgArea_dropZone">
+                                      <img id="store_image4" class="store_imgArea_image">
+                                      <div class="picUpload" id="picUpload4">
+                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="backend_store_imgArea_picEdit">
+                                  <h3 class="store_imgArea_subtitle">餐點照</h3>
+                                  <div id="dropZone5" class="store_imgArea_dropZone">
+                                      <img id="store_image5" class="store_imgArea_image">
+                                      <div class="picUpload" id="picUpload5">
+                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="backend_store_imgArea_picEdit">
+                                  <h3 class="store_imgArea_subtitle">餐點照</h3>
+                                  <div id="dropZone6" class="store_imgArea_dropZone">
+                                      <img id="store_image6" class="store_imgArea_image">
+                                      <div class="picUpload" id="picUpload6">
+                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              
+                          </div>
+                      </div>
+                  </section>
+                </section>
+                <section class="backend_store_editForm_editArea">
+                  <div class="login_price">
+                    <h2 class="store_signUp_h2">商家狀態</h2>
+                      <input type="text" placeholder="狀態" class="input" v-model="selectedStatus"/>
+                      <!-- 隱藏欄位 -->
+                      <!-- <input type="text" name="editStatus_id" v-model="selectedStatusId" value="editStatus_id"/> -->
+                      <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="status_board_show">
+                      <ul class="login_price_select" v-show="close_status_board">
+                          <li v-for="statusOption in statusOptions" @click="getStatus(status)" class="br"> {{statusOption.text}} </li>
+                      </ul>
                   </div>
-
-                    <div class="backend_store_pho_Audit">
-                 
-                      <div>
-                        <h3 class="backend_subtitle">餐點</h3>
-                        <!-- <div class="pho_Audit" id="pho_Audit_data4">
-                          </div> -->
-                          <img class="Audit_img" src="./img/upload/food/roman_b4.png" alt="">
-                      </div>
-                  
-                      <div>
-                        <h3 class="backend_subtitle">餐點</h3>
-                        <!-- <div class="pho_Audit" id="pho_Audit_data5">
-                          </div> -->
-                          <img class="Audit_img" src="./img/upload/food/roman_b5.png" alt="">
-                      </div>
-                  
-                      <div>
-                        <h3 class="backend_subtitle">餐點</h3>
-                        <!-- <div class="pho_Audit" id="pho_Audit_data6">
-                          </div> -->
-                          <img class="Audit_img" src="./img/upload/food/roman_b6.png" alt="">
-                      </div>
-                    </div>
-                <!-- 單顆按鈕用這裡 -->
-                  <div class="backend_buttonArea">
-                    <input type="submit" value="審核通過" class="btn_submit  backend_store_btn_submit">
+                  <div class="login_price">
+                    <h2 class="store_signUp_h2">商家審核</h2>
+                      <input type="text" placeholder="狀態" class="input" v-model="selectedSubmit"/>
+                      <!-- 隱藏欄位 -->
+                      <!-- <input type="text" name="editStatus_id" v-model="selectedSubmitId" value="editStatus_id"/> -->
+                      <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="submit_board_show">
+                      <ul class="login_price_select" v-show="close_submit_board">
+                          <li v-for="submitOption in submitOptions" @click="getSubmit(submit)" class="br"> {{submitOption.text}} </li>
+                      </ul>
                   </div>
-            </div>
-         </div> 
+                </section>
+                <!-- 2顆按鈕用這個 -->
+                <div class="buttonArea">
+                    <input type="" value="取消" class="btn_d btn_cancel" id="store_signUp_back"/>
+                    <input type="submit" value="送出" class="btn_submit" />
+                </div>
+            </form>
+          </div>
+        </div> 
     @@include('layout/footer.html')
 
     <script src="./js/backend.js"></script>
+    <script>
+      //載入商家資訊------------------------------------
+new Vue({
+    el: '#backendStoreWrapper',
+    data: {
+      stores:[
+        {storeId:1, storeName:"台灣鹽酥雞", StoreLevel:"姑姑級"},
+        {storeId:2, storeName:"提巴米鹽水雞", StoreLevel:"松茸級"},
+        {storeId:3, storeName:"提巴米豬排飯", StoreLevel:"姑姑級"},
+        {storeId:4, storeName:"提巴米牛排", StoreLevel:"松茸級"},
+        {storeId:5, storeName:"提巴米烤鴨", StoreLevel:"姑姑級"},
+        {storeId:6, storeName:"提巴米義大利麵", StoreLevel:"姑姑級"},
+        {storeId:7, storeName:"提巴米珍珠奶茶", StoreLevel:"松茸級"},
+      ],
+      editStoreId:1,
+      editStoreName:"台灣鹽酥雞",
+      editStoreLevel:"菇菇級",
+      editStore :true, //打開編輯
+      // editStore :false, //關閉編輯
+      statusOptions: [
+        { text :'啟用',value:1},
+        { text :'停權', value:2},           
+      ],
+      submitOptions: [
+        { text :'已審核',value:1},
+        { text :'審核中', value:2},           
+      ],
+      levelOptions: [
+        { text :'菇菇級',value:1},
+        { text :'松茸級', value:2},           
+      ],
+      selectedStatus: '',
+      selectedStatusId: '',
+      status: '',
+      selectedSubmit: '',
+      selectedSubmitId: '',
+      submit: '',
+      close_status_board: false,
+      close_submit_board: false,
+      // memberData: null,
+    },
+    methods: {
+      getStoreEdit() {
+          this.editStore = true;
+      },
+      closeStoreEdit(){
+          this.editStore = false;
+      },
+      getStatus(status){
+          this.selectedStatus = status.text;
+          this.selectedStatusId = status.value;
+          this.close_status_board = false;
+      },
+      status_board_show(){
+          this.close_status_board = !this.close_status_board;
+      },
+      // close_price_board_btn(){
+      //     this.close_status_board = !this.close_status_board;
+      // },
+      getSubmit(submit){
+          this.selectedSubmit = submit.text;
+          this.selectedSubmitId = submit.value;
+          this.close_submit_board = false;
+      },
+      submit_board_show(){
+          this.close_submit_board = !this.close_submit_board;
+      },
+      // close_submit_board_btn(){
+      //     this.close_submit_board = !this.close_submit_board;
+      // },
+    }
+  });
+
+    </script>
     </body>
 </html>
