@@ -4,24 +4,15 @@
 		<a href="./index.html" class="logo">
 			<img src="./img/logo.png" alt="" />
 		</a>
-		<!-- 會員頭像-->
+		<!-- 會員頭像 class="header" => el-->
 		<div id="header_popups_container" @click="header_toggle" class="header">
-			<div class="headerInner_login " id="headerInner_login">
-				<a class="headerInner_login_link" >
-				</a>
-				<!-- 登入後，會員頭像才會出現的彈窗 -->
+			<!-- headerInner_login => 頭像 -->
+			<div class="headerInner_login " id="headerInner_login" data-target="header_avatar">
+				<!-- 彈窗 -->
 				<div class="popUps popUpsLogout" id="header_popup" v-show="toggle">
-					<!-- <form action="" method="" class="form popUpsLogout_from">
-					<a href="./login_member_modify.html">
-						<p class="popUpsLogout_p">編輯會員資料</p>
-					</a>
-					<a href="./login_member.html">
-						<p class="popUpsLogout_p">登入/註冊</p>
-					</a>
-					<a href="./index.html">
-						<p class="popUpsLogout_p">登出</p>
-					</a>
-				</form> -->
+					<form action="" method="" class="form popUpsLogout_from" data-target="header_popup">
+				 
+					</form>
 				</div>
 			</div>
 		</div>
@@ -88,57 +79,53 @@
 		methods: {
 			header_toggle() {
 				this.toggle = !this.toggle;
-				this.loginCheck();
+				// this.loginCheck();
 			},
-			// 登入檢查 
-			loginCheck() {
-				$.ajax({
-					method: "POST",
-					url: "./php/Frontend/API/Member_Login_Check.php",
-					data: {},
-					dataType: "text",
-					success: function (response) {
-						if (response == "") {
-							//尚未登入->前往Login.php
-							alert('請先登入，將前往登入頁');
-							location.href = 'login_member.html';
-						} else {
-							
-						}
-					},
-					error: function (exception) {
-						alert("數據載入失敗: " + exception.status);
-					}
-				});
-				this.showMember();
-			},
-			 //顯示會員資訊
-			showMember(){
-				$.ajax({            
-					method: "POST",
-					url: "./php/Frontend/API/Member_Login.php",
-					data:{},            
-					dataType: "text",
-					success: function (response) {            
-						$("#header_popups_container").append(
-								`<div class="headerInner_login header" id="headerInner_login" style="background-image: url('./img/header_story.png');">`
-							);
-							$("#header_popup").html(
-								` <form action="" method="" class="form popUpsLogout_from">
-									<a href="./login_member_modify.html">
-										<p class="popUpsLogout_p">編輯會員資料</p>
-									</a>
-									<a href="./index.html">
-										<p class="popUpsLogout_p">登出</p>
-									</a>
-								</form>`
-							);
-					},
-					error: function(exception) {
-						alert("數據載入失敗: " + exception.status);
-					}
-				});
-			}  
 		},
 	});
+
+	(function (res) {
+		axios
+			.get("./php/Frontend/API/Member_Login_Check.php")
+			.then((res) => {
+				const data = res.data;
+				if(data != ''){
+					header_popup_login(data);
+					header_avatar(); 
+				}else{
+					header_popup_login_not(data);
+				};
+				// console.log(data);
+			})
+	})();
+
+	function header_popup_login(data) {
+		// console.log(data);
+		const header_popup = document.querySelector('[data-target="header_popup"]');
+		header_popup.innerHTML = `
+				<p class="popUpsLogout_p">${data}</p>
+				<a href="./login_member_modify.html">
+					<p class="popUpsLogout_p">修改會員資料</p>    
+				</a>
+				<a href='./php/Frontend/API/Member_Logout.php'>
+					<p class="popUpsLogout_p">登出</p>
+				</a>
+		`
+	};
+
+	function header_popup_login_not(data) {
+		console.log(data);
+		const header_popup = document.querySelector('[data-target="header_popup"]');
+		header_popup.innerHTML = `
+				<a href="./login_member.html">
+					<p class="popUpsLogout_p">登入/註冊</p>    
+				</a>
+		`
+	};
+
+	function header_avatar(){
+		$('[data-target="header_avatar"]').css('background-image', "url('./img/header_story.png')");
+	}
+
+
 </script>
