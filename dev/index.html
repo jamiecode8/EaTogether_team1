@@ -31,6 +31,50 @@
             </ul>
             <!------------地圖------------>
             <div class="index_map">
+                <!-- <div class="stationSite">
+                    <p class="a">{{station}}</p>
+                    <input class="site a" type="radio" name="station" v-model="station" value="淡水" > 
+                    <input class="site b" type="radio" name="station" v-model="station" value="101" >
+                    <input class="site c" type="radio" name="station" v-model="station" value="信義安和" >
+                    <input class="site d" type="radio" name="station" v-model="station" value="大安森林公園" >
+                    <input class="site e" type="radio" name="station" v-model="station" value="東門" >
+                    <input class="site f" type="radio" name="station" v-model="station" value="台北車站" >
+                    <input class="site g" type="radio" name="station" v-model="station" value="圓山" >
+                    <input class="site h" type="radio" name="station" v-model="station" value="劍潭" >
+                    
+                    <input class="site i" type="radio" name="station" v-model="station" value="新店" >
+                    <input class="site j" type="radio" name="station" v-model="station" value="景美" >
+                    <input class="site k" type="radio" name="station" v-model="station" value="公館" >
+                    <input class="site l" type="radio" name="station" v-model="station" value="台電大樓" >
+                    <input class="site m" type="radio" name="station" v-model="station" value=" 中正紀念堂" >
+                    <input class="site n" type="radio" name="station" v-model="station" value="中山" >
+                    <input class="site o" type="radio" name="station" v-model="station" value="南京復興" >
+                    <input class="site p" type="radio" name="station" v-model="station" value="南京三民" >
+                    <input class="site r" type="radio" name="station" v-model="station" value="松山" >
+
+                    <input class="site s" type="radio" name="station" v-model="station" value=" 市政府" >
+                    <input class="site t" type="radio" name="station" v-model="station" value=" 國父紀念館" >
+                    <input class="site u" type="radio" name="station" v-model="station" value="忠孝敦化" >
+                    <input class="site v" type="radio" name="station" v-model="station" value="龍山寺" >
+                    <input class="site w" type="radio" name="station" v-model="station" value="新埔" >
+                    <input class="site x" type="radio" name="station" v-model="station" value="板橋" >
+                    <input class="site y" type="radio" name="station" v-model="station" value="府中" >
+
+                    <input class="site z" type="radio" name="station" v-model="station" value="萬芳社區" >
+                    <input class="site A" type="radio" name="station" v-model="station" value="六張犁" >
+                    <input class="site B" type="radio" name="station" v-model="station" value="中山國中" >
+                    <input class="site C" type="radio" name="station" v-model="station" value="大直" >
+                    <input class="site D" type="radio" name="station" v-model="station" value="西湖" >
+                    <input class="site E" type="radio" name="station" v-model="station" value="港墘" >
+                    <input class="site F" type="radio" name="station" v-model="station" value="東湖" >
+
+                    <input class="site G" type="radio" name="station" v-model="station" value="頂溪" >
+                    <input class="site H" type="radio" name="station" v-model="station" value="忠孝新生" >
+                    <input class="site I" type="radio" name="station" v-model="station" value="松江南京" >
+                    <input class="site J" type="radio" name="station" v-model="station" value="台北橋" >
+                    <input class="site K" type="radio" name="station" v-model="station" value="徐匯中學" >
+                    <input class="site L" type="radio" name="station" v-model="station" value="新莊" >
+                </div> -->
                 <img class="map_slogan" src="./img/index/slogan.png" alt="">
                 <img class="map" src="./img/index/map.png" alt="" />
             </div>
@@ -692,6 +736,7 @@
                     storeDetail: null,
                     member_id:null,
                     couponContent:'EaT起來85折券',
+                    station:'',
                 },
                 methods: {
                     //whatToEat
