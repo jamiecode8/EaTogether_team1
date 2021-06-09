@@ -1092,6 +1092,7 @@
              position: fixed;
 			 top: 0%;
 			 left: 0%;
+			 color: wheat;
 			 background: $mrtBrown ;
 			}
 		}
@@ -1121,6 +1122,16 @@
 		top: 4px;
 		margin: initial;
 		z-index: 19;
+	}
+
+	.wardrobe_left .wardrobe_Speech_circle2{
+		width: 50%;
+		margin:80px auto;
+		z-index: 69;
+	
+		img{
+			width: 100%;
+		}
 	}
  
 
@@ -1202,6 +1213,15 @@
 			text-align: center;
 			margin:0 auto;
 		}
+		.wardrobe_left .wardrobe_Speech_circle2{
+			width: 50%;
+			margin:80px auto;
+			z-index: 69;
+		
+			img{
+				width: 100%;
+			}
+		}
 	}
 	@media all and (min-width:1200px) and (min-height:560px) and(max-height:580px) {
 		.mimitab{
@@ -1243,6 +1263,15 @@
 			left: 19.5%;
 			text-align: center;
 			margin:0 auto;
+		}
+		.wardrobe_left .wardrobe_Speech_circle2{
+			width: 50%;
+			margin:80px auto;
+			z-index: 69;
+		
+			img{
+				width: 100%;
+			}
 		}
 	}
 
@@ -1311,6 +1340,15 @@
 			margin: initial;
 			z-index: 19;
 		}
+		.wardrobe_left .wardrobe_Speech_circle2{
+			width: 50%;
+			margin:80px auto;
+			z-index: 69;
+		
+			img{
+				width: 100%;
+			}
+		}
 
 	}
 
@@ -1356,6 +1394,15 @@
 			margin: initial;
 			z-index: 25;
 		}
+		.wardrobe_left .wardrobe_Speech_circle2{
+			width: 50%;
+			margin:80px auto;
+			z-index: 69;
+		
+			img{
+				width: 100%;
+			}
+		}
 	
 
       }
@@ -1399,6 +1446,15 @@
 				top:610px;
 				margin: initial;
 				z-index: 25;
+			}
+			.wardrobe_left .wardrobe_Speech_circle2{
+				width: 70%;
+				margin: 300px auto;
+				z-index: 69;
+			
+				img{
+					width: 100%;
+				}
 			}   
 	}
 
@@ -1440,6 +1496,15 @@
 				top: 4px;
 				margin: initial;
 				z-index: 19;
+			}
+			.wardrobe_left .wardrobe_Speech_circle2{
+				width: 50%;
+				margin:10px auto;
+				z-index: 69;
+			
+				img{
+					width: 100%;
+				}
 			}   
 	}
 
@@ -1484,6 +1549,15 @@
 				text-align: center;
 				margin:0 auto;
 			   }
+			   .wardrobe_left .wardrobe_Speech_circle2{
+				width: 50%;
+				margin:80px auto;
+				z-index: 69;
+			
+				img{
+					width: 100%;
+				}
+			}
 	}
 
     @media all and (max-width:767px) and (min-width:576px){
@@ -1506,6 +1580,15 @@
 				text-align: center;
 				margin:0 auto;
 			   }
+			   .wardrobe_left .wardrobe_Speech_circle2{
+				width: 50%;
+				margin:80px auto;
+				z-index: 69;
+			
+				img{
+					width: 100%;
+				}
+			}
 	}
 
 	@media all and (max-width:767px) and (min-width:576px)and (min-height:500px) and(max-height:559px){
@@ -1547,6 +1630,15 @@
 				top: 4px;
 				margin: initial;
 				z-index: 19;
+			}
+			.wardrobe_left .wardrobe_Speech_circle2{
+				width: 50%;
+				margin:0px auto;
+				z-index: 69;
+			
+				img{
+					width: 100%;
+				}
 			}   
 	}
 
@@ -1589,6 +1681,15 @@
 				top: 4px;
 				margin: initial;
 				z-index: 19;
+			}
+			.wardrobe_left .wardrobe_Speech_circle2{
+				width: 50%;
+				margin: -100px auto;
+				z-index: 69;
+			
+				img{
+					width: 100%;
+				}
 			}   
 	}
 	@media all and (max-width:575px){
@@ -1631,6 +1732,15 @@
 				top: 4px;
 				margin: initial;
 				z-index: 19;
+			}
+			.wardrobe_left .wardrobe_Speech_circle2{
+				width: 70%;
+				margin:80px auto;
+				z-index: 69;
+			
+				img{
+					width: 100%;
+				}
 			}   
 	}
 	@media all and (max-width:575px)and (min-height:500px) and(max-height:559px){
@@ -1673,6 +1783,15 @@
 				top: 4px;
 				margin: initial;
 				z-index: 19;
+			}
+			.wardrobe_left .wardrobe_Speech_circle2{
+				width: 50%;
+				margin: 0px auto;
+				z-index: 69;
+			
+				img{
+					width: 100%;
+				}
 			}    
 	}
 	@media all and (max-width:575px)and (min-height:600px)and(max-height:667px){
@@ -1758,6 +1877,15 @@
 					top: 4px;
 					margin: initial;
 					z-index: 19;
+				}
+				.wardrobe_left .wardrobe_Speech_circle2{
+					width: 70%;
+					margin: 240px auto;
+					z-index: 69;
+				
+					img{
+						width: 100%;
+					}
 				}  
 	}
 
@@ -1803,6 +1931,15 @@
 					top: 4px;
 					margin: initial;
 					z-index: 19;
+				}
+				.wardrobe_left .wardrobe_Speech_circle2{
+					width: 50%;
+					margin: 2px auto;
+					z-index: 69;
+				
+					img{
+						width: 100%;
+					}
 				}    
 	}
 
@@ -1836,6 +1973,15 @@
 		text-align: center;
 		margin:0 auto;
 	   }
+	   .wardrobe_left .wardrobe_Speech_circle2{
+		width: 50%;
+		margin:80px auto;
+		z-index: 69;
+	
+		img{
+			width: 100%;
+		}
+	}
 }
 
 /*iphone5*/
@@ -1890,6 +2036,15 @@
 		text-align: center;
 		margin:0 auto;
 	   }
+	   .wardrobe_left .wardrobe_Speech_circle2{
+		width: 50%;
+		margin:80px auto;
+		z-index: 69;
+	
+		img{
+			width: 100%;
+		}
+	}
 }
 
 /*GALAXY FOLD*/
@@ -1945,5 +2100,15 @@
 			top: 4px;
 			margin: initial;
 			z-index: 19;
+		}
+		.wardrobe_left .wardrobe_Speech_circle2{
+			width: 70%;
+			margin: 220px auto;
+			z-index: 69;
+		
+			img{
+				width: 100%;
+			}
 		}     
 }
+
