@@ -11,21 +11,20 @@
     $statement->execute();
     $data = $statement->fetchAll();
     
-    $memberEmail = "";
     $memberID = "";
+    $memberEmail = "";
     foreach($data as $index => $row){
-        $memberEmail = $row["member_email"];
-        $memberID = $row["member_id"];
-       
+        $memberID = $row["member_email"];
+        $memberEmail = $row["member_id"];
     }
 
     //判斷是否有會員資料?
-    if($memberEmail != "" && $memberID != ""){
+    if($memberID != "" && $memberEmail != ""){
 
         include("../../Lib/Member.php");        
     
         //將會員資訊寫入session
-        setMemberInfo($memberEmail, $memberID);
+        setMemberInfo($memberID, $memberEmail);
 
         //導回產品頁        
         echo "<script>alert('登入成功!'); location.href = '../../../index.html';</script>"; 

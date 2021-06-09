@@ -47,11 +47,11 @@
 
         //先判斷session是否存在
         if(!isset($_SESSION)){
-            session_start(); 
+            session_start(); //內建函式，寫入session
         }
 
-        //有登入session->回傳ID，無登入session->回傳空字串""
-        return isset($_SESSION["member_id"]) ? $_SESSION["member_id"] : ""; 
+        //有登入session->回傳ID，無登入session->回傳空字串""  傳到member_login_check.php 的 $str
+        return isset($_SESSION["MemberID"]) ? $_SESSION["MemberID"] : ""; 
 
     }
 
@@ -64,7 +64,7 @@
         }
 
         //有登入session->回傳Name，無登入session->回傳空字串""
-        return isset($_SESSION["member_name"]) ? $_SESSION["member_name"] : ""; 
+        return isset($_SESSION["MemberEmail"]) ? $_SESSION["MemberEmail"] : ""; 
 
     }
 
@@ -77,10 +77,10 @@
         }
 
         //Table 'member'裡的ID欄位值
-        $_SESSION["member_id"] = $MemberID; 
+        $_SESSION["MemberID"] = $MemberID; 
 
         //Table 'member'裡的Account欄位值
-        $_SESSION["member_email"] = $MemberEmail; 
+        $_SESSION["MemberEmail"] = $MemberEmail; 
         
     }
     //--------------------------------------商家專用--------------------------------------
