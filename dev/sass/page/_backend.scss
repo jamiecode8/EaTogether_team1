@@ -139,7 +139,7 @@
 
             display: none;
             position: fixed;
-            // top: 150px;
+            top:  0px;
             left: 10px;
 
             @include block_center(); //區塊置中
@@ -213,7 +213,7 @@
         .backend_store_popUps{
             display: none;
             position: fixed;
-            top: 150px;
+            top:  150px;
             left: 10px;
 
             @include block_center(); //區塊置中
@@ -268,7 +268,7 @@
 
     display: none;
     position: fixed;
-    // top: 150px;
+    top:  0px;
     left: 10px;
 
     @include block_center(); //區塊置中
