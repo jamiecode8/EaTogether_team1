@@ -174,4 +174,56 @@
         }
     }
 }
-
+.myCollection_pop{
+    display: none;
+    position: absolute;
+    top: 10vh;
+    left: 50vw;
+    right: 50vw;
+    .getMyStores{
+        margin-bottom:10px;
+        background-color: $lightgreen;
+        width: 300px;
+        padding: 10px;
+        display: flex;
+        border-radius: 10px;
+        justify-content:space-around;
+            .getMyStoresInf{
+    
+                .getStoreInf_star{
+                    margin: 5px 0;
+                    display: flex;
+                    img{
+                        width:20px;
+                    }
+                }
+                .getStoreInf_station{
+                    padding: 5px;
+                }
+                .getStoreInf_tag{
+                    padding: 5px;
+                    font-size:14px;
+                    span{
+                        color:$mrtBlue;
+                    }
+                }
+               
+            }
+            .myStorePic{
+                width: 100px;
+                border-radius:50%;
+            }
+            .heartButton{
+                width: 30px;
+                height: 30px;
+            }
+    
+    }
+    .getMyStores:hover{
+        border:2px solid $yellow;
+    }
+    .searchTotal{
+        text-align: center;
+        padding: 5px;
+    }
+}
