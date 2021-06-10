@@ -11,42 +11,7 @@
 
 <body class="story">
   @@include('layout/header.html')
-  <div class="wrapper story_wrapper">
-
-    <div class="popUps myCollection_pop" id="app_collection">
-      <form class="form getMyCollection" action="">
-        <button class="getMyCollectionClose btn_close" >
-          <img src="./img/icon/icon_close_20.png" alt="">
-        </button>
-        <h1>收藏店家</h1>
-        <div class="myStores">
-          <div class="getMyStores" v-for="collection in myStores">
-            <img class="heartButton" src="./img/icon/icon_heart.png" alt="" @click="removFavorite(collection)">
-            <ul class="getMyStoresInf">
-              <li class="myStoreName">
-                <h2>{{collection.store_name}}</h2>
-              </li>
-              <li class="getStoreInf_star">
-                <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
-                <div v-for="darkStar in 1"><img src="./img/icon/icon_star_default.png" alt=""></div>
-              </li>
-              <li class="getStoreInf_station">
-                <p>捷運站:{{collection.station_name}}站</p>
-              </li>
-              <li class="getStoreInf_tag">
-                <span>{{collection.store_tag1}}</span>
-                <span>{{collection.store_tag2}}</span>
-                <span>{{collection.store_tag3}}</span>
-              </li>
-            </ul>
-            <img class="myStorePic" :src="[`./img/upload/food/`+collection.store_img]" alt="">
-          </div>
-   
-        </div> <!-- 後端要抓全部total筆數 -->
-        <!-- <p class="searchTotal">收藏<span> {{myStores.length}} </span>筆</p> -->
-      </form>
-    </div>
-    
+  <div class="wrapper story_wrapper"> 
     <!-- 這裡面編輯 -->
     <img class="story_Alien" src="./img/story/storyAlien1.png" alt="">
     <img class="storyTitle" src="./img/index/slogan.png" alt="">
@@ -101,90 +66,7 @@
   @@include('layout/footer.html')
   @@include('layout/searchVue.html')
 
-  <script>
-     var aVue= new Vue({
-      el: '#app_collection',
-      data: {
-        memberID:'',
-        myStores:[],
-        borderStore:null,
-      },
-        methods: {
-            removFavorite(collection){
-                aVue.borderStore= collection;
-                var like = this;
-                $.ajax({            
-                method: "POST",
-                url: "./php/Frontend/API/RemoveFavorite.php",
-                data:{
-                    favorite:aVue.borderStore.store_id,
-                },            
-                dataType: "text",
-                    success: function (response) {
-                            $('.heartButton').click(function () {
-                            $(this.parentNode).fadeOut(500);
-                    });
-                                    
-                    },
-                    error: function(exception) {
-                        alert("數據載入失敗: " + exception.status);
-                    }
-                });
-            },
-        }
-    });
-
-    $('.storyTitle').click(function () {
-        loginCheck();
-    });
-    
-    $('.getMyCollectionClose').click(function () {
-      $('.myCollection_pop').fadeOut(100);
-    });
-    var memberId2="";
-    function loginCheck(){    
-        $.ajax({            
-            method: "POST",
-            url: "./php/Frontend/API/LoginCheck.php",
-            data:{},            
-            dataType: "text",
-            success: function (response) {
-                if(response == ""){
-                    //尚未登入->前往Login.php
-                    alert('請先登入，將前往登入頁');
-                    location.href = 'login_member.html';
-                }else{
-                    memberId2=response;
-                    $('.myCollection_pop').fadeIn(100);
-                    getMyCollection();
-                }              
-            },
-            error: function(exception) {
-                alert("數據載入失敗: " + exception.status);
-            }
-        });
-    }
-
-    function getMyCollection(){
-      $.ajax({
-          method: "POST",
-          url: "./php/Frontend/API/getFavorite.php",
-          data: {
-              memberID:memberId2,
-          },
-          dataType: "json",
-          success: function (response) {
-              var myStore = response ;
-              aVue.myStores=myStore;
-              console.log(aVue);
-          },
-          error: function (exception) {
-              alert("數據載入失敗: " + exception.status);
-          }
-      });
-    }
-   
-  </script>
+ 
 
 </body>
 
