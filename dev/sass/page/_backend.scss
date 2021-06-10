@@ -96,9 +96,6 @@
             cursor: pointer;
         }
     
-        .odd{
-            background-color: #fff;
-        }
 
 // -----------------------拍立得管理-----------------------
 
@@ -123,14 +120,14 @@
         .backend_member_popUps{
 
             display: none;
-            position: fixed;
-            top:  0px;
+            position: absolute;
+            top:  100px;
             left: 10px;
 
             @include block_center(); //區塊置中
             
             background-color: #fff;
-            // position: relative;
+          
             width: 400px;
             padding: 50px;
             @include shadow;
@@ -258,8 +255,8 @@
 .backend_my_photo_popUps{
 
     display: none;
-    position: relative;
-    top:  -250px;
+    position: absolute;
+    top:  100px;
     left: 10px;
 
     @include block_center(); //區塊置中
@@ -326,6 +323,14 @@
     }
 
     #result{
+        tr{
+            &:nth-child(even):not(:first-child){
+                background: #fff;
+            }
+        }
+    }
+
+    #photoL{
         tr{
             &:nth-child(even):not(:first-child){
                 background: #fff;
