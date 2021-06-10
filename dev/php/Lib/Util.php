@@ -1,7 +1,11 @@
 <?php
 
-    //取得PDO物件
     function getPDO(){
+
+        // $db_host = "127.0.0.1";
+        // $db_user = "root";
+        // $db_pass =  "password";
+        // $db_select = "EaTogether";
 
         $db_host = "127.0.0.1";
         $db_user = "tibamefe_since2021";
@@ -17,6 +21,7 @@
         return $pdo;
         
     }
+
 
     //上傳檔案的放置位置(路徑)
     function getFilePath(){        

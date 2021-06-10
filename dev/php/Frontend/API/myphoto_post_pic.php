@@ -5,7 +5,7 @@
      $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
 
     //  //取得上傳的檔案資訊(陣列型態)=============================
-    $fileName = $_FILES["file"]["name"];    //檔案名稱含副檔名        
+        $fileName = $_FILES["file"]["name"];    //檔案名稱含副檔名        
         $filePath_Temp = $_FILES["file"]["tmp_name"];   //Server上的暫存檔路徑含檔名        
         $fileType = $_FILES["file"]["type"];    //檔案種類        
         $fileSize = $_FILES["file"]["size"];    //檔案尺寸
@@ -15,7 +15,11 @@
     $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
         
     //檔案最終存放位置
+    //$filePath = $ServerRoot."/tfd101/project/g1/img/upload/myphoto/".$fileName;
     $filePath = $ServerRoot."/img/upload/myphoto".$fileName;
+
+    //將暫存檔搬移到正確位置
+    //move_uploaded_file($filePath_Temp, $filePath);
 
     //將暫存檔搬移到正確位置
     getFilePath($filePath_Temp, $filePath);
@@ -35,15 +39,10 @@
 
     //建立SQL
     $sql = "INSERT INTO photo
-    (member_id, store_id, store_star, 
-    photo_img, photo_text, photo_like, photo_status, 
-    tag1, tag2, tag3, photo_time
-    )
+    (member_id, store_id, store_star, photo_img, photo_text, photo_like, photo_status, 
+    tag1, tag2, tag3, photo_time)
     VALUES 
-    (5, ?,4,
-    ?,?,30,1,
-    ?,?,?,NOW()
-    )";
+    (5, ?, 4, ?, ?, 30, 1, ?, ?, ?, NOW() )";
 
     // print_r($fileName_arr[0]);
     // exit();
@@ -65,7 +64,7 @@
     $statement->bindValue(4, $_POST["tag1"]);
     $statement->bindValue(5, $_POST["tag2"]);
     $statement->bindValue(6, $_POST["tag3"]);
-    // $statement->bindValue(12, $_POST["photo_time"]);
+   
     
 
     $statement->execute();
