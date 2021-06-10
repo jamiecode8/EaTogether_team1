@@ -355,13 +355,9 @@
 							</div>
               				<!-- 桌機版的button -->
 							<div class="btn getCharacterBtn_web">
-                <button onclick="screenshot()">
+                <button  class="btn_submit getMyCharacter" onclick="screenshot()">
                   送出
                 </button>
-									<!-- <a href="./myUFO_wardrobe.html" > -->
-										<!-- <input type="" value="送出" class="btn_submit getMyCharacter" disabled/> -->
-									<!-- </a> -->
-               
 							</div>
 						</div>
 						<div class="getCharacter_choice">
@@ -421,9 +417,9 @@
 					<div class="btn getCharacterBtn">
 						<!-- <button onclick="screenshot()"> -->
             <button >
-							<a href="/myUFO_wardrobe.html" onclick="screenshot()">
-								<input type="" value="送出" class="btn_submit getMyCharacter" disabled: disabled />
-							</a>
+						  <button  class="btn_submit getMyCharacter" onclick="screenshot()">
+                送出
+              </button>
 						<button>	
 					</div>	
 				</div>
@@ -468,12 +464,16 @@
 
     html2canvas(document.getElementById('MyCharacter_canvas'))
     .then(function(canvas) {
+      let el = document.getElementById('MyCharacter_canvas')
+      html2canvas(el,{backgroundColor:null}).then(canvas => {
+      document.body.appendChild(canvas)
       let a = canvas.toDataURL();
       let storage = localStorage;
       storage.clear();
       storage.setItem(`KEY ${1}`,`${a}`);
-      console.log(a);
-      location.href="./myUFO_wardrobe.html"
+      // console.log(a);
+      location.href="./myUFO_wardrobe.html"  
+    })
 
       // 下載圖片
       // var a = document.createElement('a');
