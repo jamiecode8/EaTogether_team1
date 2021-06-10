@@ -127,7 +127,7 @@ function member_status_update(){
             method: "POST",
             url: "php/Backend/API/MemberUpdate.php",
             data:{
-                  Status:$("#member_status").val()
+                  Status:$("#member_status").val(),
                   id:$("#result1").text()
             },            
             dataType: "text",
