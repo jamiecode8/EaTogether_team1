@@ -2822,8 +2822,8 @@ progress::-webkit-progress-value {
 
 				// 桌機版的 button
                 .getCharacterBtn_web {
-                    position: relative;
-                    bottom: 750px;
+                    // position: relative;
+                    // bottom: 750px;
 
                     @include rwd(desktopSmall) {
                         display: none;
@@ -2997,12 +2997,12 @@ progress::-webkit-progress-value {
 
 .wardrobe_character{
 	.getCharacter_own{
-		position: relative;
-		top: 519px;
-		left: -3px;
+		// position: relative;
+		// top: 519px;
+		// left: -3px;
 	}
 }
 
 #MyCharacter_canvas{
-	// position: absolute;
+	height: 360px;
 }

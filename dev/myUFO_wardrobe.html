@@ -33,7 +33,7 @@
      </div>
      <!-- 角色在這 -->
      <div class="wardrobe_character" data-target="wardrobe_character">
-       <img src="./img/mimi/alienTest.png" alt="">
+       <!-- <img src="./img/mimi/alienTest.png" alt="">/ -->
      </div>
 
 	 <div class="wardrobe_character">
@@ -345,7 +345,7 @@
   //取得角色
   function getRole(){
     let getCharacter = document.querySelector('[data-target="wardrobe_character"]');
-    console.log(getCharacter);
+    // console.log(getCharacter);
     // let role = JSON.parse(localStorage.getItem(1))
     let role =localStorage.getItem(`KEY ${1}`)
     getCharacter.innerHTML= `
@@ -353,7 +353,7 @@
     `;
     
     // getRold.innerHTML = this.role;
-    console.log(role);
+    // console.log(role);
   }; 
       
 </script>
