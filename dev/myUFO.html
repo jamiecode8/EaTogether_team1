@@ -62,41 +62,38 @@
  
  
  <!-- --------收藏餐廳彈窗-------- -->
- <div class="popUps Favorites" id="myUFO_Favorites">
-     
-  <form action="#資料傳送送的網址" method="post" class="form Favoritesform" >
-    <!-- close button -->
-    <button type="button" class="close_Favorites btn_close">
-      <img src="./img/icon/icon_close.png" alt="" >
+ <div class="popUps myCollection_pop" id="app_collection">
+  <form class="form getMyCollection" action="">
+    <button class="getMyCollectionClose btn_close" >
+      <img src="./img/icon/icon_close_20.png" alt="">
     </button>
+    <h1>收藏店家</h1>
+    <div class="myStores">
+      <div class="getMyStores" v-for="collection in myStores">
+        <img class="heartButton" src="./img/icon/icon_heart.png" alt="" @click="removFavorite(collection)">
+        <ul class="getMyStoresInf">
+          <li class="myStoreName">
+            <h2>{{collection.store_name}}</h2>
+          </li>
+          <li class="getStoreInf_star">
+            <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
+            <div v-for="darkStar in 1"><img src="./img/icon/icon_star_default.png" alt=""></div>
+          </li>
+          <li class="getStoreInf_station">
+            <p>捷運站:{{collection.station_name}}站</p>
+          </li>
+          <li class="getStoreInf_tag">
+            <span>{{collection.store_tag1}}</span>
+            <span>{{collection.store_tag2}}</span>
+            <span>{{collection.store_tag3}}</span>
+          </li>
+        </ul>
+        <img class="myStorePic" :src="[`./img/upload/food/`+collection.store_img]" alt="">
+      </div>
 
-    <h2 class="Favorites_box_h2">我的最愛</h2>
-    
-    <div id="Favorites_app" class="Favorites_box">
-      <template v-if="list.length">
-          <tbody>
-            <div v-for="(item,idx) in list">
-              <div class="diglist_box" >
-              <div class="list_box">
-              <img src="./img/mimi/fr_b12.png" alt="" class="img_list_box">
-              <p class="Favorites_box_p">{{item.name}}</p>
-              <!-- <p>{{item.price}}</p> -->
-            </div>
-              <div class="list_box_light">
-              <a href="#" @click="remove(idx)"><img src="./img/icon/icon_delete.png" alt="" class="list_box_but"></a>
-            </div>
-            </div>
-            <hr class="hrr">
-          </tbody>
-      </template>
-      
-      <template v-else>
-       快去收藏你最愛的美食!
-      </template>
-    </div>
-  
+    </div> <!-- 後端要抓全部total筆數 -->
+    <!-- <p class="searchTotal">收藏<span> {{myStores.length}} </span>筆</p> -->
   </form>
-  
 </div>
 
 

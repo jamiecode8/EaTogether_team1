@@ -67,15 +67,15 @@ $(".buybtn22").click(
 );
 
 // -------------收藏店家--------------
-$('#Favoritesbox').click(function () {
-  $('#myUFO_Favorites').css('display', 'block').fadeIn(100);
-  console.log('click ok');
-})
+// $('#Favoritesbox').click(function () {
+//   $('#myUFO_Favorites').css('display', 'block').fadeIn(100);
+//   console.log('click ok');
+// })
 
-// 關閉彈窗
-$('.btn_close').click(function () {
-  $('#myUFO_Favorites').fadeOut(200);
-});
+// // 關閉彈窗
+// $('.btn_close').click(function () {
+//   $('#myUFO_Favorites').fadeOut(200);
+// });
 
 //    -------------總分類-------------------
 $('#category').click(function () {
@@ -190,66 +190,148 @@ $('#more6').click(function () {
 
 // -----------收藏店家彈窗內容-------------------
 
-var app = new Vue({
-  el:'#Favorites_app',
-  data:{
-    list:[
-      {
-        id: 1,
-        img:'https://image.flaticon.com/icons/png/128/4772/4772843.png',
-        name: '梯八米咖啡廳',
-        price: '',
-        count: 1,
-        checked: true
-      },
-      {
-        id: 2,
-        name: '梯八米鹹水雞',
-        price: '',
-        count: 1,
-        checked: true
-      },
-      {
-        id: 3,
-        name: '梯八米我不知道要寫啥',
-        price: '',
-        count: 1,
-        checked: true
-      }
-    ],
-    all: []
+// var app = new Vue({
+//   el:'#Favorites_app',
+//   data:{
+//     list:[
+//       {
+//         id: 1,
+//         img:'https://image.flaticon.com/icons/png/128/4772/4772843.png',
+//         name: '梯八米咖啡廳',
+//         price: '',
+//         count: 1,
+//         checked: true
+//       },
+//       {
+//         id: 2,
+//         name: '梯八米鹹水雞',
+//         price: '',
+//         count: 1,
+//         checked: true
+//       },
+//       {
+//         id: 3,
+//         name: '梯八米我不知道要寫啥',
+//         price: '',
+//         count: 1,
+//         checked: true
+//       }
+//     ],
+//     all: []
     
-  },
-  methods:{
-    remove(idx){
-      this.list.splice(idx, 1);
-    },
-    add(idx){
-      this.list[idx].count++;
-    },
-    reduce(idx){
-      if(this.list[idx].count == 0){
-        return;
-      }
-      this.list[idx].count--;
-    },
-    toggleSelect(){
-      var select = this.selectAll;
-      this.list.forEach((item)=>{
+//   },
+//   methods:{
+//     remove(idx){
+//       this.list.splice(idx, 1);
+//     },
+//     add(idx){
+//       this.list[idx].count++;
+//     },
+//     reduce(idx){
+//       if(this.list[idx].count == 0){
+//         return;
+//       }
+//       this.list[idx].count--;
+//     },
+//     toggleSelect(){
+//       var select = this.selectAll;
+//       this.list.forEach((item)=>{
         
-        item.checked = !select;
+//         item.checked = !select;
 
+//       });
+//     }
+//   },
+//   computed:{
+
+//     selectAll(){
+//       var chooseAll =  this.list.every((item)=>{
+//         return item.checked;
+//       });
+//       console.log(chooseAll);
+//       return chooseAll;
+//     }
+//   }
+// });
+     var aVue= new Vue({
+      el: '#app_collection',
+      data: {
+        memberID:'',
+        myStores:[],
+        borderStore:null,
+      },
+        methods: {
+            removFavorite(collection){
+                aVue.borderStore= collection;
+                var like = this;
+                $.ajax({            
+                method: "POST",
+                url: "./php/Frontend/API/RemoveFavorite.php",
+                data:{
+                    favorite:aVue.borderStore.store_id,
+                },            
+                dataType: "text",
+                    success: function (response) {
+                            $('.heartButton').click(function () {
+                            $(this.parentNode).fadeOut(500);
+                    });
+                                    
+                    },
+                    error: function(exception) {
+                        alert("數據載入失敗: " + exception.status);
+                    }
+                });
+            },
+        }
+    });
+
+    $('#Favoritesbox').click(function () {
+        loginCheck();
+    });
+    
+    $('.getMyCollectionClose').click(function () {
+      $('.myCollection_pop').fadeOut(100);
+    });
+    var memberId2="";
+    function loginCheck(){    
+        $.ajax({            
+            method: "POST",
+            url: "./php/Frontend/API/LoginCheck.php",
+            data:{},            
+            dataType: "text",
+            success: function (response) {
+                if(response == ""){
+                    //尚未登入->前往Login.php
+                    alert('請先登入，將前往登入頁');
+                    location.href = 'login_member.html';
+                }else{
+                    memberId2=response;
+                    $('.myCollection_pop').fadeIn(100);
+                    getMyCollection();
+                }              
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    }
+
+    function getMyCollection(){
+      $.ajax({
+          method: "POST",
+          url: "./php/Frontend/API/getFavorite.php",
+          data: {
+              memberID:memberId2,
+          },
+          dataType: "json",
+          success: function (response) {
+              var myStore = response ;
+              aVue.myStores=myStore;
+              console.log(aVue);
+          },
+          error: function (exception) {
+              alert("數據載入失敗: " + exception.status);
+          }
       });
     }
-  },
-  computed:{
-
-    selectAll(){
-      var chooseAll =  this.list.every((item)=>{
-        return item.checked;
-      });
-      console.log(chooseAll);
-      return chooseAll;
-    }
-  }
-});
+   
