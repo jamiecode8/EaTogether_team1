@@ -126,7 +126,10 @@ function member_status_update(){
         $.ajax({            
             method: "POST",
             url: "php/Backend/API/MemberUpdate.php",
-            data:{Status:$("#member_status").val()},            
+            data:{
+                  Status:$("#member_status").val()
+                  id:$("#result1").text()
+            },            
             dataType: "text",
             success: function (response) {
                 //alert(response); 
@@ -168,6 +171,13 @@ function member_status_update(){
                 <th>會員狀態</th>
                 <th>會員管理</th>
             </tr>
+            <!-- <tr>
+                 <td>18</td>
+                 <td>6</td> 
+                 <td>公開</td> 
+                 <td><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td> 
+                 <td><img class="delimg" src="./img/icon/icon_delete.png" alt=""></td>  
+              </tr>  --> 
           </table>
             
       </div> 
