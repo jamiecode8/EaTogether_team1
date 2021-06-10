@@ -22,7 +22,7 @@
                 <div class="pho_top_content">
                     
                     <!-- 使用者ET頭像 -->
-                    <img class="pho_user_pic"src="././img/tang/ET_photo.png" alt="">
+                    <img class="pho_user_pic"src="././img/tang/ET008.png" alt="">
                     
                     <!-- 上方s1 -->
                     <div>
@@ -54,9 +54,10 @@
 
             <!-- 拍立得 -->
             
+
             <div class="pho_cards_wrapper">
                 <ul class="pho_store_cards_lists">
-                   
+                    
                    <!-- 1 -->
                     <li>
                         <!-- 照片連結 -->
@@ -65,7 +66,7 @@
                         <div class="pho_vender_thumb_message">
                             <!-- 商家連結 -->
                             <a href="#">@梯八咪雞肉飯</a>
-
+                            
                             <!-- 按讚&留言icon -->
                             <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
                             <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
@@ -81,7 +82,7 @@
                         <!-- 作者ET頭像 他人拍立得頁面連結 -->
                         <div class="pho_vender_profile">
                             
-                                <a href="#"><img src="./img/tang/ET_photo.png" alt=""></a>
+                                <a href="#"><img src="./img/tang/ET001.png" alt=""></a>
                                 <article>
                                     <p><a href="#" >tina888</a></p>
                                     <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
@@ -116,7 +117,7 @@
                         <!-- 作者ET頭像 他人拍立得頁面連結 -->
                         <div class="pho_vender_profile">
                             
-                            <a href="#"><img src="./img/tang/ET_photo.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/ET002.png" alt=""></a>
                             <article>
                                 <p><a href="#">tina888</a></p>
                                 <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
@@ -151,7 +152,7 @@
                         <!-- 作者ET頭像 他人拍立得頁面連結 -->
                         <div class="pho_vender_profile">
                             
-                            <a href="#"><img src="./img/tang/ET_photo.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/ET003.png" alt=""></a>
                             <article>
                                 <p><a href="#">tina888</a></p>
                                 <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
@@ -186,7 +187,7 @@
                         <!-- 作者ET頭像 他人拍立得頁面連結 -->
                         <div class="pho_vender_profile">
                             
-                            <a href="#"><img src="./img/tang/ET_photo.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/ET004.png" alt=""></a>
                             <article>
                                 <p><a href="#">tina888</a></p>
                                 <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
@@ -221,7 +222,7 @@
                         <!-- 作者ET頭像 他人拍立得頁面連結 -->
                         <div class="pho_vender_profile">
                             
-                            <a href="#"><img src="./img/tang/ET_photo.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/ET005.png" alt=""></a>
                             <article>
                                 <p><a href="#">tina888</a></p>
                                 <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
@@ -256,7 +257,7 @@
                         <!-- 作者ET頭像 他人拍立得頁面連結 -->
                         <div class="pho_vender_profile">
                             
-                            <a href="#"><img src="./img/tang/ET_photo.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/ET006.png" alt=""></a>
                             <article>
                                 <p><a href="#">tina888</a></p>
                                 <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
@@ -268,6 +269,7 @@
 
                     
                 </ul>
+               
             </div>
 
             <!------------- 拍立得內文彈窗 -------------->
@@ -292,7 +294,7 @@
                         <section class="pho_poppus_s2">
                             <article>
                                 <div class="pho_article_a1">
-                                    <img src="./img/tang/ET_photo.png" alt="">
+                                    <img src="./img/tang/ET008.png" alt="">
                                     <h2><a href="#">tina888</a></h2>
                                     <span><a href="#">追蹤</a></span>
                                     <a><img src="./img/tang/Icon more.png" alt=""></a>
@@ -366,6 +368,7 @@
         </main>
     </div>
     @@include('layout/search.html')
+    <my-component :mmb='mdata' ></my-component>
 
 </div>
 
@@ -375,6 +378,7 @@
     @@include('layout/searchVue.html')
 
 <script>
+    // 開啟 關閉 拍立得彈窗
     let pho_popup_closebtn_js = document.getElementById('pho_popup_closebtn');
     let pho_cards_pic_js = document.querySelectorAll('img.pho_cards_pic');
 
@@ -387,6 +391,28 @@
         pho_popup_closebtn_js.addEventListener("click",function(){
             this.closest('div.pho_popUps').classList.add('pho_disappear');
         });
+
+
+    // 產生new Vue
+    // new Vue({
+    //     el: '#app',
+    //     data: {
+    //        mdata:'測試內容', 
+    //     },
+    //     methods: {
+            
+    //     },
+    //     created(){
+
+    //     },
+
+    // });
+
+    // //產生Vue component
+    // Vue.component('my-component',{
+    //         template: `<h1 style="color:red;">測試內容</h1>`,
+    //         props:['mmb'],
+    // });
 
 
 
