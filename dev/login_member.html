@@ -83,7 +83,7 @@
                             </div>
                             <!-- 喜好標籤 -->
                             <div class="login_tag">
-                                <input type="text" placeholder="喜好標籤" disabled
+                                <input type="text" placeholder="喜好標籤(最多三個)" disabled
                                     v-model="selectedTag" />
                                 <!-- 隱藏欄位 -->
                                 <input type="hidden" placeholder="喜好標籤" name="tag_id1" v-model="selectedTag1" value="tag_id1" v-model="selectedTagId"/>
@@ -512,6 +512,7 @@
                     this.selectedTag1 = this.selectedTagId[0];
                     this.selectedTag2 = this.selectedTagId[1];
                     this.selectedTag3 = this.selectedTagId[2];
+                    // this.tags_board_show();
                     console.log(this.selectedTag);
                 },
                 tags_board_show() {
