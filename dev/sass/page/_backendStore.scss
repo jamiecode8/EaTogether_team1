@@ -1,3 +1,10 @@
+
+.backendStoreWrapper{
+  width: 1200px;
+  min-height: 92vh;
+  margin: 0 auto; 
+}
+
 .backendStore_pagination{
     // margin: 0 auto;
     @include block_center(); 
@@ -56,6 +63,10 @@
           border: 1px solid $mrtGreen;
           margin-right: 10px;
       }
+  }
+  &_img{
+    width: 250px;
+    height: 250px;
   }
 }
 //  商家編輯區域

@@ -10,15 +10,15 @@
   <body class="backend_body">
 
     @@include('layout/header_backend.html')
-        <div class="wrapper backend_wrapper" id="backendStoreWrapper">
+        <div class="wrapper backendStoreWrapper" id="backendStoreWrapper">
           <div class="backend_top">
           <!-- 選單列 -->
             <div class="backend_top_left">
-              <input class="backend_store_1" type="radio" name="x">
+              <input class="backend_store_1" type="radio" @click= "nav = 2" name="option">
               <span>審核中</span>
-              <input class="backend_store_2" type="radio" name="x">
+              <input class="backend_store_2" type="radio" @click= "nav = 0" name="option">
               <span>啟用商家</span>
-              <input class="backend_store_3" type="radio" name="x">
+              <input class="backend_store_3" type="radio" @click= "getStopStore" name="option">
               <span>停權商家</span>
             </div>
           <!-- 搜尋框 -->
@@ -30,24 +30,27 @@
             </div>
           </div> 
           <!-- 表單從這裡開始 -->
-          <div class="backend_store">
-            <table class="backend_store_table">
-              <tr>
-                <th>商家編號</th>
-                <th>商家名稱</th>
-                <th>商家等級</th>
-                <th>商家管理</th>
-              </tr>
-
-              <tr v-for="store in stores" class="backend_store_list">
-                <td>{{store.storeId}}</td>
-                <td>{{store.storeName}}</td>
-                <td>{{store.StoreLevel}}</td>
-                <td @click="getStoreEdit"><img class="Edit_action" src="./img/icon/icon_edit.png" alt=""></td>
-              </tr>
-            </table>
-            <!-- 分頁test -->
-             <!-- 頁碼 -->
+          <section v-if="nav === 0">
+            <div class="backend_store">
+              <table class="backend_store_table">
+                <tr>
+                  <th>商家編號</th>
+                  <th>商家名稱</th>
+                  <th>商家等級</th>
+                  <th>商家管理</th>
+                </tr>
+  
+                <tr v-for="store in stores.slice(pageStart , pageStart+countOfPage)" class="backend_store_list">
+                  <td>{{store.store_id}}</td>
+                  <td>{{store.store_name}}</td>
+                  <td>{{store.store_level}}</td>
+                  <td @click="getStoreEdit(store)">
+                    <img class="Edit_action" src="./img/icon/icon_edit.png" alt="">
+                  </td>
+                </tr>
+              </table>
+            </div> 
+            <!-- 頁碼 -->
             <div class="backendStore_pagination">
               <ul class="backendStore_pagination_ul">
                   <li @click="setPage(currentPage-1)" :class="{'disabled': (currentPage===1)}">
@@ -61,180 +64,184 @@
                   </li>
               </ul>
             </div>
-
-          </div> 
-
-          <!-- 商家資料編輯彈窗 -->
-          <!-- <div class="popUps store_signUp blockNone" id="">藏起來時 -->
-          <div v-show="editStore" class="backend_store_editForm" id="">
-            <form method="" action="" class="form storeLogin_signup backend_store_edit_form">
-                <!-- close button -->
-                <button type="button" class="btn_close" @click="closeStoreEdit">
-                    <img src="./img/icon/icon_close.png" alt="" />
-                </button>
-                <!-- 資料區域 -->
-                <section class="backend_store_editForm_infoArea">
-                  <section>
-                    <h1 class="">商家資訊</h1>
-                    <table class="backend_store_edit_table">
-                      <tr>
-                        <td class="backend_store_td">餐廳編號</td>
-                        <td class="backend_store_td">{{editStoreId}}</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">餐廳名稱</td>
-                        <td class="backend_store_td">{{editStoreName}}</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">餐廳電話</td>
-                        <td class="backend_store_td">{{editStoreLevel}}</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">餐廳地址</td>
-                        <td class="backend_store_td">仁愛路4段109號</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">聯絡人</td>
-                        <td class="backend_store_td">聯絡人</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">聯絡電話</td>
-                        <td class="backend_store_td">聯絡電話</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">E-Mail</td>
-                        <td class="backend_store_td">E-Mail</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">客單價</td>
-                        <td class="backend_store_td">客單價</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">鄰近捷運站</td>
-                        <td class="backend_store_td">鄰近捷運站</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">喜好關鍵字1</td>
-                        <td class="backend_store_td">喜好關鍵字1</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">喜好關鍵字2</td>
-                        <td class="backend_store_td">喜好關鍵字2</td>
-                      </tr>
-                      <tr>
-                        <td class="backend_store_td">喜好關鍵字3</td>
-                        <td class="backend_store_td">喜好關鍵字3</td>
-                      </tr>
-                    </table>
+            <!-- 商家資料編輯彈窗 -->
+            <div v-show="editStore" class="backend_store_editForm" id="">
+              <form method="post" action="./php/Backend/API/storeUpdate.php" class="form storeLogin_signup backend_store_edit_form" enctype="multipart/form-data">
+                  <!-- close button -->
+                  <button type="button" class="btn_close" @click="closeStoreEdit">
+                      <img src="./img/icon/icon_close.png" alt="" />
+                  </button>
+                  <!-- 資料區域 -->
+                  <section class="backend_store_editForm_infoArea">
+                    <section v-if="storeDetail">
+                      <h1 class="">商家資訊</h1>
+                      <table class="backend_store_edit_table">
+                        <tr>
+                          <td class="backend_store_td">餐廳編號</td>
+                          <td class="backend_store_td">{{storeDetail.store_id}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">餐廳名稱</td>
+                          <td class="backend_store_td">{{storeDetail.store_name}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">餐廳電話</td>
+                          <td class="backend_store_td">{{storeDetail.store_tel}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">餐廳地址</td>
+                          <td class="backend_store_td">{{storeDetail.store_address}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">聯絡人</td>
+                          <td class="backend_store_td">{{storeDetail.contact_name}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">聯絡電話</td>
+                          <td class="backend_store_td">{{storeDetail.contact_tel}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">E-Mail</td>
+                          <td class="backend_store_td">{{storeDetail.contact_email}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">客單價</td>
+                          <td class="backend_store_td">{{storeDetail.price_interval}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">鄰近捷運站</td>
+                          <td class="backend_store_td">{{storeDetail.station_name}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">關鍵字1</td>
+                          <td class="backend_store_td">{{storeDetail.store_tag1}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">關鍵字2</td>
+                          <td class="backend_store_td">{{storeDetail.store_tag2}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">關鍵字3</td>
+                          <td class="backend_store_td">{{storeDetail.store_tag3}}</td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">等級</td>
+                          <td class="backend_store_td">{{storeLevel[storeDetail.store_level]}}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">狀態</td>
+                          <td class="backend_store_td">{{storeStatus[storeDetail.store_status]}}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="backend_store_td">進度</td>
+                          <td class="backend_store_td">{{storeSubmit[storeDetail.store_submit]}}</td>
+                        </tr>
+                      </table>
+                    </section>
+                    <section>
+                        <h1>商家照片</h1>
+                        <div class="backend_store_imgArea">
+                            <div class="store_imgArea_dropArea">
+                                <div class="backend_store_imgArea_picEdit">
+                                    <h3 class="store_imgArea_subtitle">形象海報</h3>
+                                    <div class="store_imgArea_dropZone">
+                                        <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.image_img]"/>
+                                        <div class="picUpload" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backend_store_imgArea_picEdit">
+                                    <h3 class="store_imgArea_subtitle">店景</h3>
+                                    <div class="store_imgArea_dropZone">
+                                        <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.store_img]"/>
+                                        <div class="picUpload">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backend_store_imgArea_picEdit">
+                                    <h3 class="store_imgArea_subtitle">菜單</h3>
+                                    <div class="store_imgArea_dropZone">
+                                        <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.menu_img]"/>
+                                        <div class="picUpload" id="picUpload3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="store_imgArea_dropArea">
+                                <div class="backend_store_imgArea_picEdit">
+                                    <h3 class="store_imgArea_subtitle">餐點照</h3>
+                                    <div>
+                                      <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.food1_img]"/>
+                                        <div class="picUpload" id="picUpload4">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backend_store_imgArea_picEdit">
+                                    <h3 class="store_imgArea_subtitle">餐點照</h3>
+                                    <div>
+                                      <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.food2_img]"/>
+                                        <div class="picUpload" id="picUpload5">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="backend_store_imgArea_picEdit">
+                                    <h3 class="store_imgArea_subtitle">餐點照</h3>
+                                    <div>
+                                      <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.food3_img]"/>
+                                        <div class="picUpload" id="picUpload6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <section class="backend_store_editForm_editArea">
+                              <div class="login_price">
+                                <h2 class="store_signUp_h2">商家狀態</h2>
+                                  <input type="text" placeholder="狀態" class="input" v-model="selectedStatus"/>
+                                  <!-- 隱藏欄位 -->
+                                  <input type="hidden" name="editStatus_id" v-model="selectedStatusId" value="editStatus_id"/>
+                                  <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="status_board_show">
+                                  <ul class="login_price_select" v-show="close_status_board">
+                                      <li v-for="status in statuses" @click="getStatus(status)" class="br"> {{status.text}} </li>
+                                  </ul>
+                              </div>
+                              <div class="login_price">
+                                <h2 class="store_signUp_h2">商家審核</h2>
+                                  <input type="text" placeholder="狀態" class="input" v-model="selectedSubmit"/>
+                                  <!-- 隱藏欄位 -->
+                                  <input type="hidden" name="editSubmit_id" v-model="selectedSubmitId" value="editStatus_id"/>
+                                  <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="submit_board_show">
+                                  <ul class="login_price_select" v-show="close_submit_board">
+                                      <li v-for="submit in submits" @click="getSubmit(submit)" class="br"> {{submit.text}} </li>
+                                  </ul>
+                              </div>
+                              <div class="login_price">
+                                <h2 class="store_signUp_h2">商家等級</h2>
+                                  <input type="text" placeholder="狀態" class="input" v-model="selectedLevel"/>
+                                  <!-- 隱藏欄位 -->
+                                  <input type="hidden" name="editLevel_id" v-model="selectedLevelId" value="editStatus_id"/>
+                                  <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="level_board_show">
+                                  <ul class="login_price_select" v-show="close_level_board">
+                                      <li v-for="level in levels" @click="getLevel(level)" class="br"> {{level.text}} </li>
+                                  </ul>
+                              </div>
+                            </section>
+                        </div>
+                    </section>
                   </section>
-                  <!-- 商家照片 -->
-                  <section>
-                      <h1>商家照片</h1>
-                      <!-- 照片區-->
-                      <div class="backend_store_imgArea">
-                          <!-- 主標題 -->
-                          <div class="store_imgArea_dropArea">
-                              <div class="backend_store_imgArea_picEdit">
-                                  <h3 class="store_imgArea_subtitle">形象海報</h3>
-                                  <div id="dropZone1" class="store_imgArea_dropZone">
-                                      <img id="store_image1" class="store_imgArea_image">
-                                      <div class="picUpload" id="picUpload">
-                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="backend_store_imgArea_picEdit">
-                                  <h3 class="store_imgArea_subtitle">店景</h3>
-                                  <div id="dropZone2" class="store_imgArea_dropZone">
-                                      <img id="store_image2" class="store_imgArea_image">
-                                      <div class="picUpload" id="picUpload2">
-                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="backend_store_imgArea_picEdit">
-                                  <h3 class="store_imgArea_subtitle">菜單</h3>
-                                  <div id="dropZone3" class="store_imgArea_dropZone">
-                                      <img id="store_image3" class="store_imgArea_image">
-                                      <div class="picUpload" id="picUpload3">
-                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                  <div class="buttonArea">
+                      <input type="" value="取消" class="btn_d btn_cancel"/>
+                      <input type="submit" value="送出" class="btn_submit" />
+                  </div>
+              </form>
+            </div>
+          </section>
+          
+          <section v-if="nav === 1"></section>
+          <section v-if="nav === 2"></section>
 
-                          <div class="store_imgArea_dropArea">
-                              <div class="backend_store_imgArea_picEdit">
-                                  <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                  <div id="dropZone4" class="store_imgArea_dropZone">
-                                      <img id="store_image4" class="store_imgArea_image">
-                                      <div class="picUpload" id="picUpload4">
-                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="backend_store_imgArea_picEdit">
-                                  <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                  <div id="dropZone5" class="store_imgArea_dropZone">
-                                      <img id="store_image5" class="store_imgArea_image">
-                                      <div class="picUpload" id="picUpload5">
-                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="backend_store_imgArea_picEdit">
-                                  <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                  <div id="dropZone6" class="store_imgArea_dropZone">
-                                      <img id="store_image6" class="store_imgArea_image">
-                                      <div class="picUpload" id="picUpload6">
-                                          <button class="btn_submit btn_uploadCover ">隱藏照片</button>
-                                      </div>
-                                  </div>
-                              </div>
-                              
-                          </div>
-                      </div>
-                  </section>
-                </section>
-                <section class="backend_store_editForm_editArea">
-                  <div class="login_price">
-                    <h2 class="store_signUp_h2">商家狀態</h2>
-                      <input type="text" placeholder="狀態" class="input" v-model="selectedStatus"/>
-                      <!-- 隱藏欄位 -->
-                      <input type="hidden" name="editStatus_id" v-model="selectedStatusId" value="editStatus_id"/>
-                      <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="status_board_show">
-                      <ul class="login_price_select" v-show="close_status_board">
-                          <li v-for="status in statuses" @click="getStatus(status)" class="br"> {{status.text}} </li>
-                      </ul>
-                  </div>
-                  <div class="login_price">
-                    <h2 class="store_signUp_h2">商家審核</h2>
-                      <input type="text" placeholder="狀態" class="input" v-model="selectedSubmit"/>
-                      <!-- 隱藏欄位 -->
-                      <input type="hidden" name="editStatus_id" v-model="selectedSubmitId" value="editStatus_id"/>
-                      <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="submit_board_show">
-                      <ul class="login_price_select" v-show="close_submit_board">
-                          <li v-for="submit in submits" @click="getSubmit(submit)" class="br"> {{submit.text}} </li>
-                      </ul>
-                  </div>
-                  <div class="login_price">
-                    <h2 class="store_signUp_h2">商家審核</h2>
-                      <input type="text" placeholder="狀態" class="input" v-model="selectedLevel"/>
-                      <!-- 隱藏欄位 -->
-                      <input type="hidden" name="editStatus_id" v-model="selectedLevelId" value="editStatus_id"/>
-                      <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="level_board_show">
-                      <ul class="login_price_select" v-show="close_level_board">
-                          <li v-for="level in levels" @click="getLevel(level)" class="br"> {{level.text}} </li>
-                      </ul>
-                  </div>
-                </section>
-                <!-- 2顆按鈕用這個 -->
-                <div class="buttonArea">
-                    <input type="" value="取消" class="btn_d btn_cancel" id="store_signUp_back"/>
-                    <input type="submit" value="送出" class="btn_submit" />
-                </div>
-            </form>
-          </div>
+
         </div> 
     @@include('layout/footer.html')
 
@@ -274,9 +281,12 @@ new Vue({
         {storeId:27, storeName:"提巴米義大利麵", StoreLevel:"姑姑級"},
         {storeId:28, storeName:"提巴米珍珠奶茶", StoreLevel:"松茸級"},
       ],
-      editStoreId:1,
-      editStoreName:"台灣鹽酥雞",
-      editStoreLevel:"菇菇級",
+      // editStoreId:1,
+      // editStoreName:"台灣鹽酥雞",
+      // editStoreLevel:"菇菇級",
+      storeStatus: [0,"啟用","停權"],
+      storeLevel: [0, "菇菇級", "松茸級"],
+      storeSubmit: [0, "已審核", "審核中"],
       // editStore :true, //打開編輯
       editStore :false, //關閉編輯
       statuses: [
@@ -304,12 +314,15 @@ new Vue({
       close_submit_board: false,
       close_level_board: false,
       // stores:  [],//ajax撈來的所有商家 上線開
+      storeDetail: [], //單一店商資訊
       countOfPage: 10,
       currentPage: 1,
+      nav: 0,
     },
     methods: {
-      getStoreEdit() {
+      getStoreEdit(store) {
           this.editStore = true;
+          this.storeDetail = store;
       },
       closeStoreEdit(){
           this.editStore = false;
@@ -342,6 +355,15 @@ new Vue({
       setPage(page){
           this.currentPage = page;
       },
+      displayStore(response) {
+        self.stores = response;
+        console.log(self.stores);
+      }, 
+      getStopStore(){
+        this.nav = 1;
+        getStoreListStop();
+      },
+
     },
     computed: {
         // filteredRows(){}, //如果要過濾資料，可以使用這個方法
@@ -352,8 +374,8 @@ new Vue({
             return (this.currentPage - 1) * this.countOfPage;
         },
     },
-    // 去後台撈資料，上線在開
-  //   mounted() {
+    // 去後台撈資料，上線再開
+    // mounted() {
   //     var self = this;
   //     init(); //登入檢查
   //     function init() {

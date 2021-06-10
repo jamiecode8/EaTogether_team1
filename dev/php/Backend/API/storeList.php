@@ -2,16 +2,18 @@
    include("../../Lib/Util.php");
    include("../../Lib/Member.php");
 
-   //建立SQL
-   $sql = "SELECT *
-   FROM store r join station t on r.station_id = t.station_id
-   where store_status = 1";
-
-   //執行
-   $statement = getPDO()->prepare($sql);
-//    $statement->bindValue(1 , getStoreMemberID()); 
-   $statement->execute();
-   $data = $statement->fetchAll();
+    //建立SQL
+    $sql = "SELECT *
+    FROM store 
+    join station on store.station_id = station.station_id
+    join MRT_line on MRT_line.line_id = station.MRT_line_line_id
+    join price on price.price_id = store.price_id
+    WHERE store_status = 1";
+ 
+    //執行
+    $statement = getPDO()->prepare($sql);
+    $statement->execute();
+    $data = $statement->fetchAll();
 
 
    //回傳json
