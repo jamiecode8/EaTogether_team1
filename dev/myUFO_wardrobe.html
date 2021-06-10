@@ -215,52 +215,134 @@
  @@include('layout/footer.html')
 
  <script>
-    new Vue({
-      el:'#app_myufo_wardrobe',
-	  data: {
-		  wardrobe_character_cap: 1,
-		  wardrobe_character_clothe: 2,
-		  wardrobe_character_fitting: 2,
-	}
-      
-    })
+  function popup_announcement(word) {
+      $('#myUFO_wardrobe_popUps_car_less').css('display', 'block').fadeIn(100);
+      $('#announcement_content').html(word)
+      $('.cancel_announcement').click(function() {
+          $('#myUFO_wardrobe_popUps_car_less').css('display', 'none').fadeOut(100);
+      })
+  }
+  new Vue({
+      el: '#app_myufo_wardrobe',
+      data: {
+          wardrobe_character_clothe: 2,
+          wardrobe_character_cap: 2,
+          wardrobe_character_fitting: 2,
+      }
 
+  })
+  let point = 1988;
+  $("#total_point").html(point);
+  var equipment = new Map([
+      ["clothe1", 0],
+      ["clothe2", 1],
+      ["clothe3", 0],
+      ["clothe4", 0],
+      ["clothe5", 0],
+      ["cap1", 0],
+      ["cap2", 1],
+      ["cap3", 0],
+      ["cap4", 0],
+      ["cap5", 0],
+      ["fitting1", 0],
+      ["fitting2", 1],
+      ["fitting3", 0],
+      ["fitting4", 0],
+      ["fitting5", 0],
+  ]);
+
+  equipment.forEach(function(value, key) {
+      if (value == 0) {
+          $("#own_" + key).css('visibility', 'hidden');
+      }
+      $("#store_" + key).click(function() {
+          $('#myUFO_wardrobe_popUps_car').css('display', 'block').fadeIn(100);
+          $('#myUFO_wardrobe_popUps_car').attr('alt', key);
+          $('#confirm_payment').click(
+              function() {
+                  if ($('#myUFO_wardrobe_popUps_car').attr('alt') == key) {
+                      if (value === 1) {
+                          popup_announcement(key + "已經購買不得重複購買")
+                      }
+                      if (value === 0) {
+                          if (point > 600) {
+                              point -= 600;
+                              $("#total_point").html(point);
+                              $("#own_" + key).css('visibility', 'visible');
+                              popup_announcement("購買完成")
+                              value = 1;
+                              $("#own_" + key).css("opacity", "1");
+                          } else {
+                              popup_announcement("只剩" + point + "餘額不足")
+                          }
+                      }
+                  }
+              }
+          )
+      }); // 關閉彈窗
+  });
+
+  $('#cancel_payment').click(function() {
+      $('#myUFO_wardrobe_popUps_car').fadeOut(200);
+
+  });
+
+  $(".mimislide").css("cursor", "pointer");
 
   //  ---------------------------
- $('.contact').click(function (){
-          $('.contactInf').toggleClass('on');
-      });
-      
-      // chris 暫時取消
-      
-      /*mimi 加入衣櫃的btn*/
-      $('.tab-content_One .swiper-slide').click(function(){change()});
-      $('.tab-content_One   li').click(function(){change()});
-      $('.tab-content_three .swiper-slide').click(function(){change()});
-      $('.tab-content_three li').click(function(){change()});  
-      $('.tab-content_Fives  .swiper-slide').click(function(){change()}); 
-      $('.tab-content_Fives  li').click(function(){change()}); 
-   
-      /*=====*/
-      /*mimi 加入商城的btn*/
-      $('.tab-content_two   .swiper-slide').click(function(){addCar()});
-      $('.tab-content_two   li').click(function(){addCar()});
-      $('.tab-content_four .swiper-slide').click(function(){addCar()});
-      $('.tab-content_four li').click(function(){addCar()});  
-      $('.tab-content_six   .swiper-slide').click(function(){addCar()}); 
-      $('.tab-content_six   li').click(function(){addCar()}); 
-
-      // chris 暫時取消
-    
-      /*=====*/
-//     對話框關閉的按鈕
-      $('.myUFO_btn_close').click(function(){$('.tist_popUps').fadeOut(200)});
+  $('.contact').click(function() {
+      $('.contactInf').toggleClass('on');
+  });
 
 
-      
+  /*mimi 加入衣櫃的btn*/
+  $('.tab-content_One .swiper-slide').click(function() {
+      change()
+  });
+  $('.tab-content_One   li').click(function() {
+      change()
+  });
+  $('.tab-content_three .swiper-slide').click(function() {
+      change()
+  });
+  $('.tab-content_three li').click(function() {
+      change()
+  });
+  $('.tab-content_Fives  .swiper-slide').click(function() {
+      change()
+  });
+  $('.tab-content_Fives  li').click(function() {
+      change()
+  });
 
-     
- </script>
+  /*=====*/
+  /*mimi 加入商城的btn*/
+  $('.tab-content_two   .swiper-slide').click(function() {
+      addCar()
+  });
+  $('.tab-content_two   li').click(function() {
+      addCar()
+  });
+  $('.tab-content_four .swiper-slide').click(function() {
+      addCar()
+  });
+  $('.tab-content_four li').click(function() {
+      addCar()
+  });
+  $('.tab-content_six   .swiper-slide').click(function() {
+      addCar()
+  });
+  $('.tab-content_six   li').click(function() {
+      addCar()
+  });
+
+  /*=====*/
+  //     對話框關閉的按鈕
+  $('.myUFO_btn_close').click(function() {
+      $('.tist_popUps').fadeOut(200)
+  });
+</script>
+
  
 
   <!-- ----------------------------------------- -->

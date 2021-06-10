@@ -460,6 +460,24 @@
 			a.click();
 		});
 	}
+
+
+  $.ajax({
+        type :"GET",//呼叫模式
+        url  : "./php/Backend/API/storeList.php",//呼叫的網址
+        dataType: "json",//回傳的資料型態
+        success : function(data) {
+          for(var i=0 ;i<4;++i)
+          {
+            var ran=Math.floor(Math.random()*data.length);
+            console.log(i,ran);
+            console.log("/dist/img/upload/food/"+data[ran].menu_img);
+            $('#slideshow .slide:eq('+i+') img').attr("src","/dist/img/upload/food/"+data[ran].menu_img);     
+          }
+        }
+    })
+  
+
 	</script>
 
 	<script src="./js/myUFO.js"></script>
