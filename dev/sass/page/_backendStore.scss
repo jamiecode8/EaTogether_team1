@@ -1,16 +1,14 @@
 
 .backendStoreWrapper{
   width: 1200px;
-  min-height: 92vh;
+  min-height: 1130px;
   margin: 0 auto; 
 }
 
 .backendStore_pagination{
-    // margin: 0 auto;
-    @include block_center(); 
     &_ul{
         display: flex;
-        justify-content: space-between; 
+        justify-content: center; 
   }
 }
 
@@ -30,8 +28,9 @@
   }
   &_editForm{
     position: absolute;
+    // position: fixed;
     top: 65px;
-    @include block_center;
+    // @include block_center;
     &_infoArea{
       display: flex;
     }
@@ -75,3 +74,15 @@
   top: 33px;
   right: 10px;
 }
+
+.backendStore{
+  &_h2{
+    text-align: left;
+  }
+  &_li{
+    padding-left: 10px;
+    line-height: 36px;
+    text-align: left;
+  }
+}
+
