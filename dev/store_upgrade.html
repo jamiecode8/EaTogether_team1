@@ -164,7 +164,7 @@
                                 <label for="validDate" class="card_label">有效日期</label>
                                 <input type="text" id="validDate" /><br>
                                 <label for="cvv" class="card_label">安全碼</label>
-                                <input type="number" maxlength="3" id="ccv" />
+                                <input type="number" maxlength="3" id="ccv" v-model="ccv" />
                                 <div class="priceChoice">
                                     <p>{{option}}</p>
                                 </div>
@@ -265,6 +265,16 @@ new Vue({
         toMail: "",
         // SendEmail: "", 
         sendEmail: false,
+        ccv: "",
+    },
+    watch: {
+        ccv: function(){
+            if (this.ccv.length < 3) {
+                this.password_login = false;
+            } else {
+                this.password_login = true;
+            }
+        },
     },
     computed: { 
         greenCircle(){

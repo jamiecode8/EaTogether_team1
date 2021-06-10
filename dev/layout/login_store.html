@@ -21,8 +21,10 @@
             <form method="POST" action="./php/Frontend/API/LoginStore.php">
                 <div class="inner_block_area" id="login_block"> 
                     <!-- 輸入框欄位 -->
-                    <input type="text" placeholder="E-mail" name="storeEmail"/>
-                    <input type="text" placeholder="密碼" name="storeTel"/>
+                    <input v-model="email" type="email" placeholder="E-mail" name="storeEmail" autocomplete="off" required/>
+                    <p v-if="!email_login">信箱格式錯誤</p>
+                    <input v-model="password" type="password" placeholder="密碼" name="storeTel" autocomplete="off" required/>
+                    <p v-if="!password_login">密碼長度需高於6個字元</p>
                     
                     <!-- 無法登入 -->
                     <div class="forgetPassword">
@@ -353,14 +355,14 @@
             password_register_msg: true,
         },
         watch: {
-            account: function () {
-                var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
-                if (!isText.test(this.account) && this.account.length > 10) {
-                    this.account_login = false;
-                } else {
-                    this.account_login = true;
-                }
-            },
+            // account: function () {
+            //     var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+            //     if (!isText.test(this.account) && this.account.length > 10) {
+            //         this.account_login = false;
+            //     } else {
+            //         this.account_login = true;
+            //     }
+            // },
             password: function () {
                 if (this.password.length < 6) {
                     this.password_login = false;
@@ -376,14 +378,14 @@
                     this.email_login = true;
                 }
             },
-            account_register: function () {
-                var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
-                if (!isText.test(this.account_register) && this.account_register.length > 10) {
-                    this.account_register_msg = false;
-                } else {
-                    this.account_register_msg = true;
-                }
-            },
+            // account_register: function () {
+            //     var isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+            //     if (!isText.test(this.account_register) && this.account_register.length > 10) {
+            //         this.account_register_msg = false;
+            //     } else {
+            //         this.account_register_msg = true;
+            //     }
+            // },
             password_register: function () {
                 if (this.password_register.length < 6) {
                     this.password_register_msg = false;
