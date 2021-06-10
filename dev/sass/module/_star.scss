@@ -9,8 +9,10 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
-    background: url(../../img/icon/icon_star_group.png)
-      center top no-repeat;
+    // background: url(../../img/icon/icon_star_group.png)
+    //   center top no-repeat;
+      background-position: center top;
+      background-repeat: no-repeat;
   }
 
 input[type="radio"] {
