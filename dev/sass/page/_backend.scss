@@ -258,8 +258,8 @@
 .backend_my_photo_popUps{
 
     display: none;
-    position: fixed;
-    top:  0px;
+    position: relative;
+    top:  -250px;
     left: 10px;
 
     @include block_center(); //區塊置中
@@ -323,4 +323,12 @@
             width: max-content;
         }
 
+    }
+
+    #result{
+        tr{
+            &:nth-child(even):not(:first-child){
+                background: #fff;
+            }
+        }
     }
