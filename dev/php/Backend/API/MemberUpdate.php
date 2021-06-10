@@ -4,11 +4,11 @@
     
     //回傳session檢查結果
     
-    $member_id = 1;  // getSessionB();
+    // $member_id = 1;  // getSessionB();
     // exit();
     //取得POST過來的值
     // $CID = $_POST["CID"]; //PK
-    // $member_id =  $_POST["id"];
+    $member_id =  $_POST["id"];
     $Status = $_POST["Status"]; 
 
     //建立SQL
