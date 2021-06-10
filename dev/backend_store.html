@@ -197,33 +197,33 @@
                             </div>
                             <section class="backend_store_editForm_editArea">
                               <div class="login_price">
-                                <h2 class="store_signUp_h2">商家狀態</h2>
+                                <h2 class="backendStore_h2">商家狀態</h2>
                                   <input type="text" placeholder="狀態" class="input" v-model="selectedStatus"/>
                                   <!-- 隱藏欄位 -->
                                   <input type="hidden" name="editStatus_id" v-model="selectedStatusId" value="editStatus_id"/>
                                   <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="status_board_show">
                                   <ul class="login_price_select" v-show="close_status_board">
-                                      <li v-for="status in statuses" @click="getStatus(status)" class="br"> {{status.text}} </li>
+                                      <li v-for="status in statuses" @click="getStatus(status)" class="br backendStore_li"> {{status.text}} </li>
                                   </ul>
                               </div>
                               <div class="login_price">
-                                <h2 class="store_signUp_h2">商家審核</h2>
+                                <h2 class="backendStore_h2">商家審核</h2>
                                   <input type="text" placeholder="狀態" class="input" v-model="selectedSubmit"/>
                                   <!-- 隱藏欄位 -->
                                   <input type="hidden" name="editSubmit_id" v-model="selectedSubmitId" value="editStatus_id"/>
                                   <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="submit_board_show">
                                   <ul class="login_price_select" v-show="close_submit_board">
-                                      <li v-for="submit in submits" @click="getSubmit(submit)" class="br"> {{submit.text}} </li>
+                                      <li v-for="submit in submits" @click="getSubmit(submit)" class="br backendStore_li"> {{submit.text}} </li>
                                   </ul>
                               </div>
                               <div class="login_price">
-                                <h2 class="store_signUp_h2">商家等級</h2>
+                                <h2 class="backendStore_h2">商家等級</h2>
                                   <input type="text" placeholder="狀態" class="input" v-model="selectedLevel"/>
                                   <!-- 隱藏欄位 -->
                                   <input type="hidden" name="editLevel_id" v-model="selectedLevelId" value="editStatus_id"/>
                                   <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="level_board_show">
                                   <ul class="login_price_select" v-show="close_level_board">
-                                      <li v-for="level in levels" @click="getLevel(level)" class="br"> {{level.text}} </li>
+                                      <li v-for="level in levels" @click="getLevel(level)" class="br backendStore_li"> {{level.text}} </li>
                                   </ul>
                               </div>
                             </section>
@@ -243,8 +243,35 @@
 
 
         </div> 
-    @@include('layout/footer.html')
-
+        <footer class="myFooter footer_new">
+          <div class="footerLogo">
+            <a href="./index.html"><img src="./img/logo.png" alt=""></a> 
+          </div>
+          <div class="logoCopyright">
+              <img src="./img/index/slogan.png"alt="">
+              <p>tiabame@copyright</p>
+          </div>
+          <ul class="ourWeb">
+            <li class="contact">
+              <p>聯絡我們</p>
+              <img class="contactInf" src="./img/contact.png" alt="">
+            </li>
+            <li>
+              <a href="./login_store.html">加入地圖</a>
+            </li>
+            <li>
+              <a href="./develope.html">團隊介紹</a>
+            </li>
+            <li>
+              <a href="./myUFO_Q&A.html">常見問題</a>
+            </li>
+          </ul>
+        </footer>
+    <script>
+    $('.contact').click(function (){
+            $('.contactInf').toggleClass('on');
+        });
+    </script>
     <script src="./js/backend.js"></script>
     <script>
 
@@ -287,8 +314,8 @@ new Vue({
       storeStatus: [0,"啟用","停權"],
       storeLevel: [0, "菇菇級", "松茸級"],
       storeSubmit: [0, "已審核", "審核中"],
-      // editStore :true, //打開編輯
-      editStore :false, //關閉編輯
+      editStore :true, //打開編輯
+      // editStore :false, //關閉編輯
       statuses: [
         { text :'啟用',value:1},
         { text :'停權', value:2},           
