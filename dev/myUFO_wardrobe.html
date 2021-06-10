@@ -341,23 +341,22 @@
   $('.myUFO_btn_close').click(function() {
       $('.tist_popUps').fadeOut(200)
   });
-</script>
-//取得角色
-function getRole(){
-  let getCharacter = document.querySelector('[data-target="wardrobe_character"]');
-  console.log(getCharacter);
-  // let role = JSON.parse(localStorage.getItem(1))
-  let role =localStorage.getItem(`KEY ${1}`)
-  getCharacter.innerHTML= `
-  <img src="${role}" class="getCharacter_own"/>
-  `;
-  
-  // getRold.innerHTML = this.role;
-  console.log(role);
-}; 
-      
 
- 
+  //取得角色
+  function getRole(){
+    let getCharacter = document.querySelector('[data-target="wardrobe_character"]');
+    console.log(getCharacter);
+    // let role = JSON.parse(localStorage.getItem(1))
+    let role =localStorage.getItem(`KEY ${1}`)
+    getCharacter.innerHTML= `
+    <img src="${role}" class="getCharacter_own"/>
+    `;
+    
+    // getRold.innerHTML = this.role;
+    console.log(role);
+  }; 
+      
+</script>
 
   <!-- ----------------------------------------- -->
   <script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
