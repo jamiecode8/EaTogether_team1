@@ -1126,8 +1126,8 @@
 
 	.wardrobe_left .wardrobe_Speech_circle2{
 		width: 50%;
-		margin:80px auto;
-		z-index: 69;
+		margin:50px auto;
+		z-index: 88;
 	
 		img{
 			width: 100%;
@@ -1215,8 +1215,8 @@
 		}
 		.wardrobe_left .wardrobe_Speech_circle2{
 			width: 50%;
-			margin:80px auto;
-			z-index: 69;
+			margin:50px auto;
+			z-index: 88;
 		
 			img{
 				width: 100%;
@@ -1266,8 +1266,8 @@
 		}
 		.wardrobe_left .wardrobe_Speech_circle2{
 			width: 50%;
-			margin:80px auto;
-			z-index: 69;
+			margin:50px auto;
+			z-index: 88;
 		
 			img{
 				width: 100%;
@@ -1428,18 +1428,14 @@
 			z-index: 50;
 			}
 
-			.myUFO_wardrobe_popUps_info_but{
-				position: absolute;
-				bottom: 19%;
-				left: 10%;
-				text-align: center;
-				margin:0 auto;
-			   }
+			.double_confirm_popUps{
+				left: 29%;
+			}
 
 			.myUFO_wardrobe_popUps_info{
 				position: absolute;
 				bottom: 19%;
-				right: 25%;
+				left: 11%;
 				text-align: center;
 				margin:0 auto;
 			   }
@@ -1515,8 +1511,8 @@
 			}
 			.wardrobe_left .wardrobe_Speech_circle2{
 				width: 50%;
-				margin:10px auto;
-				z-index: 69;
+				margin-bottom: 0%;
+				z-index: 88;
 			
 				img{
 					width: 100%;
@@ -1721,22 +1717,20 @@
 			line-height: 24px;
 			z-index: 50;
 			}
-			.myUFO_wardrobe_popUps_info_but{
-				position: absolute;
-				bottom: 20%;
-				left: 60.5%;
-				right: 22.5%;
-				text-align: center;
-				margin:0 auto;
-			}
+
 			.myUFO_wardrobe_popUps_info{
 				position: absolute;
 				bottom: 20%;
 				// left: 60.5%;
-				right: 22.5%;
+				left: 16%;
 				text-align: center;
 				margin:0 auto;
 			   }
+
+			.double_confirm_popUps{
+				width: 200px;
+				left: 14%;
+			}   
 			   .wardrobe_character_cap{
 				position: relative;
 				top: 245px;
@@ -1883,7 +1877,7 @@
 				text-align: center;
 				margin:0 auto;
 			   }
-			   .myUFO_wardrobe_popUps_info_but {
+			   .wardrobe_popUps_info_but {
 				position: absolute;
 				bottom: 18%;
 				/* left: 60%; */
@@ -1914,7 +1908,11 @@
 				}
 				.wardrobe_left .wardrobe_Speech_circle2{
 					width: 70%;
-					margin: 240px auto;
+					// margin: 240px auto;
+					position: absolute;
+					top: 30%;
+					left: 15%;
+					right: 15%;
 					z-index: 69;
 				
 					img{
