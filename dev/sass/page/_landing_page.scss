@@ -26,10 +26,20 @@
             transform: translateX(0)
         }
     }
+ 
     img{
         position: absolute;
         width: 200px;
         bottom: -90px;
+    }
+    .tibame{
+        position: absolute;
+        bottom:0px;
+        font-weight: bold;
+    }
+    .logo{
+        position: absolute;
+        top:50px;
     }
     .main{
         display: flex;
@@ -39,7 +49,7 @@
             h1{
                 font-size:100px;
             }
-            p{
+            .end{
                 font-size:36px;
                 text-align: center;
                 padding-top: 50px;
@@ -50,12 +60,7 @@
                 position: absolute;
                 bottom:-35vh;
             }
-            .effect{
-                width:450px;
-                top:-5vh;
-                left:-2vw;
-                z-index: -1;
-            }
+          
            
         }
         a:hover{
@@ -64,7 +69,7 @@
                 color: $yellow;
                 transition: all 0.3s;
             }
-            p{
+            .end{
                 color: $green;
                 transition: all 0.3s;
                 animation: shake 0.3s infinite;
@@ -95,6 +100,9 @@
     .landing_wrapper{
         img{
             bottom: -20vh;
+        }
+        .logo{
+            display: none;
         }
         .main{
             flex-direction: column;
