@@ -86,15 +86,15 @@
     height: 90vh;  
     overflow: hidden;
     @include rwd(desktop) {
-        height: 87vh;
+        height: calc( 100vh - 96px);
     }
 
     @include rwd(desktopSmall) {
-        height: 87vh;
+        height: calc( 100vh - 96px);
     }
 
     @include rwd(pad) {
-        height: 87vh;
+        height: calc( 100vh - 96px);
     }
 
     @include rwd(largeMobile) {
@@ -102,7 +102,7 @@
     }
 
     @include rwd(mobile) {
-        height: 74vh;  
+        height: calc( 100vh - 138px);  
     }
 }
 
@@ -160,7 +160,7 @@
 
         @include rwd(mobile) {
             width: 8%;
-            top: 61%;
+            top: 65%;
             left: 21%;
         }
     }
@@ -195,7 +195,7 @@
 
         @include rwd(mobile) {
             width: 8%;
-            top: 68%;
+            top: 72%;
             left: 30%;
         }
     }
@@ -231,7 +231,7 @@
 
         @include rwd(mobile) {
             width: 8%;
-            top: 73%;
+            top: 77%;
             left: 40%;
         }
     }
@@ -267,7 +267,7 @@
 
         @include rwd(mobile) {
             width: 8%;
-            top: 73%;
+            top: 77%;
             left: 53%;
         }
     }
@@ -303,7 +303,7 @@
 
         @include rwd(mobile) {
             width: 8%;
-            top: 68%;
+            top: 72%;
             left: 62%;
         }
     }
@@ -339,7 +339,7 @@
 
         @include rwd(mobile) {
             width: 8%;
-            top: 61%;
+            top: 65%;
             left: 71%;
         }
     }
