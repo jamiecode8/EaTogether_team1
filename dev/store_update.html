@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        @@include('layout/style.html')
+        <title>商家編輯</title>
+    </head>
+    <body class="loginStorePage_Body">
+        @@include('layout/header.html')
+        <div class="wrapper loginStorePage_wrapper">
+            <img class="helloAlien" src="./img/story/helloAlien.png">
+            <img class="joinAlien" src="./img/story/joinAlien.png">
+
+            <div class="popUps store_signUp" id="storeEdit">
+                <form method="" action="" class="form storeLogin_signup" enctype="multipart/form-data" >
+                    <!-- close button -->
+                    <button type="button" class="btn_close" id="store_signUp_close">
+                        <a href="./store_free.html">
+                            <img src="./img/icon/icon_close.png" alt="" />
+                        </a>
+                    </button>
+            
+                    <h1 class="login_store_welcome">商家資訊</h1>
+            
+                    <div class="loginInner">
+                        <!-- 內容區域 -->
+                        <div>
+                            <!-- 基本資料 -->
+                            <section class="store_signUp_basicInfo">
+                                <div class="store_signUp_title">
+                                    <h2>基本資料</h2>
+                                    <!-- <button class="store_signUp_editIcon"> -->
+                                    </button>
+                                </div>
+                                <input type="text" name="store_name" :value="name" />
+                                <input type="text" name="store_tel"  :value="tel" />
+                                <input type="text" name="store_address"  :value="address" />
+                            </section>
+                            <!-- 聯絡資訊 -->
+                            <section class="store_signUp_basicInfo">
+                                <div class="store_signUp_title">
+                                    <h2>聯絡資訊</h2>
+                                </div>
+                                <input type="text" name="contact_name" :value="conName"/>
+                                <input type="text" name="contact_tel" :value="conTel" />
+                                <input type="text" name="contact_email" :value="conMail"/>
+                            </section>
+                            <!-- 進階資料 -->
+                            <!-- <section class="store_signUp_basicInfo">
+                                <div class="store_signUp_title">
+                                    <h2>進階資料</h2>
+                                </div>
+                                <h2 class="store_signUp_h2">客單價</h2>
+                                <div class="login_price">
+                                    <input type="text" id="login_price_choice" placeholder="選擇價格區間" class="input" v-model="selectedPrice"/>
+                                    隱藏欄位
+                                    <input type="hidden" name="price_id" v-model="selectedPriceId" value="price_id"/>
+                                    <img class="login_price_arrow" src="./img/icon/icon_next_line.png" @click="price_board_show">
+                                    <ul class="login_price_select" v-show="close_price_board">
+                                        <li v-for="price in prices" @click="getPrice(price)" class="br"> {{price.text}} </li>
+                                    </ul>
+                                </div>
+            
+                                <h2 class="store_signUp_h2">鄰近捷運站</h2>
+                                <div class="login_store_station">
+                                    <input type="text" id="login_station_choice" class="input" v-model="selectedStation" placeholder="選擇鄰近站點" disabled/>
+                                    隱藏欄位
+                                    <input type="hidden" value="station_id"  class="input" v-model="selectedStationId" name="station_id"/>
+                                    
+                                    <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="stations_board_show">
+                                </div>
+            
+                                <h2 class="store_signUp_h2">選擇關鍵字(最多三個)</h2>
+                                <div class="login_tag">
+                                    <input type="text" placeholder="喜好標籤" disabled v-model="selectedTag" />
+                                    隱藏欄位
+                                    <input type="hidden" placeholder="喜好標籤" name="tag_id1" v-model="selectedTag1" value="tag_id1"/>
+                                    <input type="hidden" placeholder="喜好標籤" name="tag_id2"v-model="selectedTag2" value="tag_id2" />
+                                    <input type="hidden" placeholder="喜好標籤" name="tag_id3" value="tag_id3" v-model="selectedTag3"/>
+                                    <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show">
+                                </div>
+                            </section> -->
+                            
+                            <!-- 商家照片 -->
+                            <!-- <section class="store_signUp_basicInfo">
+                                <div class="store_signUp_title">
+                                    <h2>商家照片</h2>
+                                </div>
+                                <div class="store_imgArea">
+                                    <p class="store_imgArea_p">檔案格式：JPG、JPEG、PNG</p>
+                                    <p class="store_imgArea_p">檔案容量：3MB以下</p>
+                                    <p class="store_imgArea_p">建議圖片尺寸：640px × 640px</p>
+                        
+                                    <div class="store_imgArea_dropArea">
+                                        <div class="store_imgArea_picEdit">
+                                            <h3 class="store_imgArea_subtitle">形象海報</h3>
+                                            <div id="dropZone1" class="store_imgArea_dropZone">
+                                                <img id="store_image1" class="store_imgArea_image">
+                                                <div class="picUpload" id="picUpload">
+                                                    <input type="file" id="theFile1" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
+                                                    <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="store_imgArea_picEdit">
+                                            <h3 class="store_imgArea_subtitle">店景</h3>
+                                            <div id="dropZone2" class="store_imgArea_dropZone">
+                                                <img id="store_image2" class="store_imgArea_image">
+                                                <div class="picUpload" id="picUpload2">
+                                                    <input type="file" id="theFile2" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
+                                                    <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="store_imgArea_picEdit">
+                                            <h3 class="store_imgArea_subtitle">菜單</h3>
+                                            <div id="dropZone3" class="store_imgArea_dropZone">
+                                                <img id="store_image3" class="store_imgArea_image">
+                                                <div class="picUpload" id="picUpload3">
+                                                    <input type="file" id="theFile3" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
+                                                    <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    <div class="store_imgArea_dropArea">
+                                        <div class="store_imgArea_picEdit">
+                                            <h3 class="store_imgArea_subtitle">餐點照</h3>
+                                            <div id="dropZone4" class="store_imgArea_dropZone">
+                                                <img id="store_image4" class="store_imgArea_image">
+                                                <div class="picUpload" id="picUpload4">
+                                                    <input type="file" id="theFile4" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
+                                                    <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="store_imgArea_picEdit">
+                                            <h3 class="store_imgArea_subtitle">餐點照</h3>
+                                            <div id="dropZone5" class="store_imgArea_dropZone">
+                                                <img id="store_image5" class="store_imgArea_image">
+                                                <div class="picUpload" id="picUpload5">
+                                                    <input type="file" id="theFile5" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
+                                                    <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="store_imgArea_picEdit">
+                                            <h3 class="store_imgArea_subtitle">餐點照</h3>
+                                            <div id="dropZone6" class="store_imgArea_dropZone">
+                                                <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
+                                                <img id="store_image6" class="store_imgArea_image">
+                                                <div class="picUpload" id="picUpload6">
+                                                    <input type="file" id="theFile6" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
+                                                    <button class="btn_submit btn_uploadCover ">選擇檔案</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </section> -->
+            
+                            <!-- 2顆按鈕用這個 -->
+                            <div class="buttonArea">
+                                <input type="" value="取消" class="btn_d btn_cancel" id="store_signUp_back"/>
+                                <input type="submit" value="送出" class="btn_submit" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- 選站點彈窗 -->
+                <div class="form storeSignUpPopups" v-show="close_station_board">
+                    <button type="button" class="btn_close" @click="close_station_board_btn">
+                        <img src="./img/icon/icon_close.png" alt="" />
+                    </button>
+                        <div class="login_station_select" id="login_station_options">                            
+                        <span v-for="station in redStation" @click="getStation(station)" class="r">
+                            {{station.text}}</span>
+                        <span v-for="station in greenStation" @click="getStation(station)" class="g">
+                            {{station.text}}</span>
+                        <span v-for="station in blueStation" @click="getStation(station)" class="b">
+                            {{station.text}}</span>
+                        <span v-for="station in brownStation" @click="getStation(station)" class="br">
+                            {{station.text}}</span>
+                        <span v-for="station in yellowStation" @click="getStation(station)" class="y">
+                            {{station.text}}</span>
+                    </div>
+                </div>
+                <!-- 選標籤彈窗 -->
+                <div class="form storeSignUpPopups login_tag_select" id="login_tag_select" v-show="close_tags_board">
+                    <button type="button" class="btn_close" @click="close_tags_board_btn">
+                        <img src="./img/icon/icon_close.png" alt="" />
+                    </button>
+                        <div class="login_station_select" id="login_station_options">                            
+                        <span v-for="tag in tags" @click="getTags(tag)">#{{tag.text}}</span>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        @@include('layout/footer.html', {
+            "classFtStore" : 'footerThisPage'
+          })
+        <script src="js/login_store.js"></script>
+        <script>
+                new Vue({
+        el: '#storeEdit',
+        data: {
+            memberData: null,
+            name: null,
+            tel:  null,
+            address:  null,
+            conName: null,
+            conTel: null,
+            conMail: null,
+            defPrice: null,
+            defStation: null,
+            defTags: null,
+            prices: [
+            { text :'<$150',value:1},
+            { text :'$151 ~ $500', value:2},
+            { text :'$501 ~ $1000', value:3},              
+            ],
+            selectedPrice: '',
+            selectedPriceId: '',
+            price: '',
+            redStation: [
+                { text :'東門',value:1},
+                { text :'台北101', value:2},
+                { text :'劍潭', value:3},
+                { text :'淡水', value: 4},
+                { text :'圓山', value: 5},
+                { text :'台北車站', value: 6},
+                { text :'信義安和', value: 7},
+                { text :'大安森林公園', value: 8},
+            ],
+            greenStation: [
+                { text :'景美',value:9},
+                { text :'公館', value:10},
+                { text :'台電大樓', value:11},
+                { text :'中正紀念堂', value: 12},
+                { text :'中山', value: 13},
+                { text :'南京復興', value: 14},
+                { text :'南京三民', value: 15},
+                { text :'松山', value: 16},
+            ],
+            blueStation: [
+                { text :'市政府',value:17},
+                { text :'忠孝敦化', value:18},
+                { text :'國父紀念館', value:19},
+                { text :'板橋', value: 20},
+                { text :'新埔', value: 21},
+                { text :'府中', value: 22},
+                { text :'龍山寺', value: 23},
+            ],
+            brownStation: [
+                { text :'東湖',value: 24},
+                { text :'西湖', value: 25},
+                { text :'港墘', value: 26},
+                { text :'大直', value: 27},
+                { text :'中山國中', value: 28},
+                { text :'六張犁', value: 29},
+                { text :'萬芳社區', value: 30},
+            ],
+            yellowStation: [
+                { text :'頂溪',value: 31},
+                { text :'南京松江', value: 32},
+                { text :'忠孝新生', value: 33},
+                { text :'台北橋', value: 34},
+                { text :'徐匯中學', value: 35},
+                { text :'新莊', value: 36},
+            ],
+            selectedStation: '',
+            selectedStationId: '',
+            station: '',
+            tags:[
+            { text :'日式',value:1},
+            { text :'韓式', value:2},
+            { text :'美式', value:3},
+            { text :'義式', value: 4},
+            { text :'台式', value: 5},
+            { text :'法式', value: 6},
+            { text :'中式', value: 7},
+            { text :'聚餐', value: 8},  
+            { text :'簡餐',value:9},
+            { text :'銅板美食', value:10},
+            { text :'下午茶', value:11},
+            { text :'早午餐', value: 12},
+            { text :'商業午餐', value: 13},
+            { text :'夜市', value: 14},
+            { text :'雞排', value: 15},
+            { text :'咖哩', value: 16},  
+            { text :'火鍋',value:17},
+            { text :'牛排', value:18},
+            { text :'咖啡店', value:19},
+            { text :'甜點', value: 20},
+            { text :'鐵板燒', value: 21},
+            { text :'麵食', value: 22},
+            { text :'鹽酥雞', value: 23},
+            { text :'手搖飲',value: 24},
+            { text :'餐酒館', value: 25},
+            { text :'拉麵', value: 26},
+            ],
+            tag: '',
+            selectedTag:[],
+            selectedTag1: null,
+            selectedTag2: null,
+            selectedTag3: null,
+            close_station_board: false,
+            close_tags_board: false,
+            close_price_board: false,
+        },
+        methods: {
+            getPrice(price){
+                this.selectedPrice = price.text;
+                this.selectedPriceId = price.value;
+                this.close_price_board = false;
+            },
+            price_board_show(){
+                this.close_price_board = !this.close_price_board;
+            },
+            close_price_board_btn(){
+                this.close_price_board = !this.close_price_board;
+            },
+            getStation(station){
+                this.selectedStation = station.text;
+                this.selectedStationId = station.value;
+                this.close_station_board = false;
+            },
+            stations_board_show(){
+                this.close_station_board = !this.close_station_board;
+                this.close_tags_board = false;
+            },
+            close_station_board_btn(){
+                this.close_station_board = !this.close_station_board;
+            },
+            getTags(tag){
+                if(this.selectedTag.includes(tag.text)){
+                    return false
+                 }
+                if(this.selectedTag.length >= 3){
+                    this.selectedTag.pop(tag.text);
+                }                  
+                this.selectedTag.unshift(tag.text); 
+                this.selectedTag1 = this.selectedTag[0];
+                this.selectedTag2 = this.selectedTag[1];
+                this.selectedTag3 = this.selectedTag[2];
+            },
+            tags_board_show(){
+                this.close_tags_board = !this.close_tags_board;
+                this.close_station_board = false;
+            },
+            close_tags_board_btn(){
+                this.close_tags_board = !this.close_tags_board;
+            },
+        },
+        mounted() {
+      var self = this;  
+      // function init() {
+        $.ajax({
+          method: "POST",
+          url: "./php/Frontend/API/StoreLoginCheck.php",
+          data: {},
+          dataType: "text",
+          success: function success(response) {
+            if (response == "") {
+              //尚未登入->前往Login.php
+              alert('請先登入，將前往登入頁');
+              location.href = 'login_store.html';
+            } else {
+              getStoreMember();
+            }
+          },
+          error: function error(exception) {
+            alert("數據載入失敗1: " + exception.status);
+          }
+        });
+      // } // 撈商家資料
+  
+
+      function getStoreMember() {
+        $.ajax({
+          method: "POST",
+          url: "./php/Frontend/API/storeMember.php",
+          data: {},
+          dataType: "json",
+          success: function success(response) {
+            // setTimeout(displayStore(response), 1000); //等照片撈好再出現
+            displayStore(response);
+          },
+          error: function error(exception) {
+            alert(exception.responseText);
+            alert("數據載入失敗2: " + exception.status);
+          }
+        });
+      } //顯示商家資料
+  
+    //不同等級出現不同內容
+      function displayStore(response) {
+        self.memberData = response[0];
+        console.log(self.memberData);
+        // self.bottomArea = self.memberData.store_level;
+        self.name = self.memberData.store_name;
+        self.tel = self.memberData.store_tel;
+        self.address = self.memberData.store_address;
+        self.conName = self.memberData.contact_name;
+        self.conTel = self.memberData.contact_tel;
+        self.conMail = self.memberData.contact_email;
+        self.defPrice = self.memberData.price_interval;
+        self.defStation = self.memberData.station_name;
+        self.defTags = self.memberData.store_tag1;
+
+      } 
+    },
+    })
+        </script>
+    </body>
+</html>
