@@ -20,7 +20,9 @@
 </head>
 
 <body class="myUFO_wardrobe_body" onload="getRole()">
-    @@include('layout/header.html')
+    @@include('layout/header.html', {
+        "classFO" : 'pageUFO'
+      })
 
   <!-- -----------------------------------===----- -->
   <div class="wrapper wardrobe_wrapper" id="app_myufo_wardrobe">

@@ -86,6 +86,7 @@ header{
     &:hover{
         background-image: url('../img/header_story.png');
     }
+    
 }
 
 
@@ -251,6 +252,18 @@ header{
             background-image: url(../img/header_story.png);     
         }
     } 
+
+.pageUFO{
+    background-image: url(../img/header_myUFO.png);
+}
+
+.pagePhoto{
+    background-image: url(../img/header_myPhoto.png);  
+}
+
+.pageUs{
+    background-image: url(../img/header_story.png); 
+}
 
 // 選單展開後-選單區
 .header_overlay.open {
