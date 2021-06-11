@@ -19,7 +19,7 @@
  
 </head>
 
-<body class="myUFO_wardrobe_body">
+<body class="myUFO_wardrobe_body" onload="getRole()">
     @@include('layout/header.html')
 
   <!-- -----------------------------------===----- -->
@@ -39,7 +39,7 @@
             <img src="./img/mimi/Speech_circle2.svg" alt="">
         </div>
 
-        <div class="wardrobe_character">
+        <div class="wardrobe_character" data-target="wardrobe_character">
             <img src="./img/mimi/alienTest.png" alt="">
         </div>
 
@@ -334,6 +334,17 @@
     $('.myUFO_btn_close').click(function() {
         $('.tist_popUps').fadeOut(200)
     });
+
+    // 取得角色
+    function getRole(){
+        getCharacter = document.querySelector('[data-target="wardrobe_character"]');
+        console.log(getCharacter);
+        let role = localStorage.getItem(`KEY${1}`);
+        getCharacter.innerHTML=`
+            <img src="${role}"/>
+        `
+        console.log(role);
+    }
 </script>
 
 
