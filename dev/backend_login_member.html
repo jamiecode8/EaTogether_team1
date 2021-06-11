@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        @@include('layout/style.html')
+        <title>後台登入</title>
+    </head>
+    <body class="backend_login_body">
+        <!-- @@include('layout/header_backend.html') -->
+        <div class="wrapper backend_login_wrapper">
+               <div class="backend_login">
+                    <form method="POST" action="./php/Backend/API/Backend_Login.php" class="form login">
+                        <!-- 後台頭像 -->
+                        <div class="loginMemberPic">
+                            <img src="./img/test_login_memberPic.png" alt="">
+                        </div>
+                        <div class="loginInner">
+                             <div>
+                               <h1 class="backend_login_title">外食管理員登入</h1>
+                            </div>  
+                            <!-- 內容區域 -->
+                            <div>
+                                    <form>
+                                        <!-- 輸入框欄位 -->
+                                        <input v-model="account" type="text" placeholder="帳號" autocomplete="off"
+                                            required name="backend_account_input" />
+                                        <input v-model="password" type="password" placeholder="密碼" autocomplete="off"
+                                            required name="backend_password_input" />
+                                        <!-- 單顆按鈕用這裡 -->
+                                        <div class="btn">
+                                            <a href="./index.html" class="loginMember_link">
+                                                <input type="submit" value="送出" class="btn_submit loginMember_link"
+                                                    id="backend_login_submit" />
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                          </div>
+                    </form>
+                 </div>
+              </div>
+        <!-- @@include('layout/footer.html') -->
+    </body>
+</html>
