@@ -260,28 +260,30 @@ $('#more6').click(function () {
         myStores:[],
         borderStore:null,
       },
-        methods: {
-            removFavorite(collection){
-                aVue.borderStore= collection;
-                var like = this;
-                $.ajax({            
-                method: "POST",
-                url: "./php/Frontend/API/RemoveFavorite.php",
-                data:{
-                    favorite:aVue.borderStore.store_id,
-                },            
-                dataType: "text",
-                    success: function (response) {
-                            $('.heartButton').click(function () {
-                            $(this.parentNode).fadeOut(500);
-                    });
-                                    
-                    },
-                    error: function(exception) {
-                        alert("數據載入失敗: " + exception.status);
-                    }
+      methods: {
+        removFavorite(collection,key) {
+          collection.show = false;
+          this.$forceUpdate();
+          aVue.borderStore = collection;
+          var like = this;
+          $.ajax({            
+            method: "POST",
+            url: "./php/Frontend/API/RemoveFavorite.php",
+            data:{
+                favorite:aVue.borderStore.store_id,
+            },            
+            dataType: "text",
+                success: function (response) {
+                        $('.heartButton').click(function () {
+                        $(this.parentNode).fadeOut(500);
                 });
-            },
+                                
+                },
+                error: function(exception) {
+                    alert("數據載入失敗: " + exception.status);
+                }
+            });
+          },
         }
     });
 

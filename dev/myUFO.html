@@ -68,31 +68,31 @@
       <img src="./img/icon/icon_close_20.png" alt="">
     </button>
     <h1>收藏店家</h1>
-    <div class="myStores">
-      <div class="getMyStores" v-for="collection in myStores">
-        <img class="heartButton" src="./img/icon/icon_heart.png" alt="" @click="removFavorite(collection)">
-        <ul class="getMyStoresInf">
-          <li class="myStoreName">
-            <h2>{{collection.store_name}}</h2>
-          </li>
-          <li class="getStoreInf_star">
-            <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
-            <div v-for="darkStar in 1"><img src="./img/icon/icon_star_default.png" alt=""></div>
-          </li>
-          <li class="getStoreInf_station">
-            <p>捷運站:{{collection.station_name}}站</p>
-          </li>
-          <li class="getStoreInf_tag">
-            <span>{{collection.store_tag1}}</span>
-            <span>{{collection.store_tag2}}</span>
-            <span>{{collection.store_tag3}}</span>
-          </li>
-        </ul>
-        <img class="myStorePic" :src="[`./img/upload/food/`+collection.store_img]" alt="">
+    <div class="myStores" v-if="myStores.length !==0">
+      <div class="getMyStores" v-for="(collection,key) in myStores" v-if="collection.show != false">
+        <img class="heartButton" src="./img/icon/icon_heart.png" alt="" @click="removFavorite(collection,key)">
+          <ul class="getMyStoresInf">
+            <li class="myStoreName">
+              <h2>{{collection.store_name}}</h2>
+            </li>
+            <li class="getStoreInf_star">
+              <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
+              <div v-for="darkStar in 1"><img src="./img/icon/icon_star_default.png" alt=""></div>
+            </li>
+            <li class="getStoreInf_station">
+              <p>捷運站:{{collection.station_name}}站</p>
+            </li>
+            <li class="getStoreInf_tag">
+              <span>{{collection.store_tag1}}</span>
+              <span>{{collection.store_tag2}}</span>
+              <span>{{collection.store_tag3}}</span>
+            </li>
+          </ul>
+          <img class="myStorePic" :src="[`./img/upload/food/`+collection.store_img]" alt="">
       </div>
 
-    </div> <!-- 後端要抓全部total筆數 -->
-    <!-- <p class="searchTotal">收藏<span> {{myStores.length}} </span>筆</p> -->
+    </div> 
+    <div class="searchTotal" v-else>目前尚未收藏商任何店家 <img src="./img/story/storyAlien1.png" alt=""></div>
   </form>
 </div>
 
