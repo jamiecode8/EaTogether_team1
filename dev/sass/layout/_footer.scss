@@ -130,6 +130,15 @@
 .footer_new{
     height: 90px;
 }
+
+
+.footerThisPage{
+    color: $mrtYellow;
+    a{
+        color: $mrtYellow;
+        font-weight: bold;
+    }
+}
 // @include rwd(desktop){
 //     footer{
 //         @include desktop ();

@@ -14,7 +14,9 @@
             <img class="joinAlien" src="./img/story/joinAlien.png">
             @@include('layout/login_store.html')
         </div>
-        @@include('layout/footer.html')
+        @@include('layout/footer.html', {
+            "classFtStore" : 'footerThisPage'
+          })
         <script src="js/login_store.js"></script>
     </body>
 </html>

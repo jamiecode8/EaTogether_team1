@@ -129,7 +129,9 @@
     </script>
     <body onload="getData()" class="backend_body">
       
-        @@include('layout/header_backend.html')
+      @@include('layout/header_backend.html', {
+        "classBeP" : 'backendThisPage'
+        })
         <div class="wrapper backend_wrapper">
           
           <div class="backend_top">

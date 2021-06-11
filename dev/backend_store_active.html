@@ -9,9 +9,13 @@
   </head>
   <body class="backend_body">
 
-    @@include('layout/header_backend.html')
+    @@include('layout/header_backend.html', {
+        "classBeS" : 'backendThisPage'
+        })
         <div class="wrapper backendStoreWrapper" id="backendStoreWrapper">
-            @@include('layout/backendStoreSubmenu.html')
+            @@include('layout/backendStoreSubmenu.html', {
+                "classA" : 'backStoreOn'
+            })
             <!-- 表單從這裡開始 -->
             <section>
                 <div class="backend_store">

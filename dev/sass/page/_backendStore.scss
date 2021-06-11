@@ -95,3 +95,19 @@
   }
 }
 
+.backStoreOn{
+  a{
+    font-size: $fontSize;
+    color: $mrtYellow;
+    font-weight: bold;
+}
+}
+
+.backendThisPage{
+  color: $mrtYellow;
+  a{
+      color: $mrtYellow;
+      font-weight: bold;
+  }
+}
+
