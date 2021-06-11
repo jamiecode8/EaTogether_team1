@@ -120,11 +120,16 @@
         .backend_member_popUps{
 
             display: none;
-            position: absolute;
-            top:  100px;
-            left: 10px;
+            position: fixed;
+            height: 65vh;
+            overflow: auto;
+            top: 0px;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
 
-            @include block_center(); //區塊置中
+            // @include block_center(); //區塊置中
             
             background-color: #fff;
           
@@ -257,12 +262,15 @@
 .backend_my_photo_popUps{
 
     display: none;
-    position: absolute;
-    top:  100px;
-    left: 10px;
+    position: fixed;
+    height: 65vh;
+    overflow: auto;
+    top: 0px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
 
-    @include block_center(); //區塊置中
-    
     background-color: #fff;
 
     width: 400px;
@@ -312,9 +320,8 @@
             display: flex;
             justify-content: space-between;
             .backend_down{
-                position: fixed;
-                top: 585px;
-                left: 294px;
+                // display: flex;
+                padding-top: 16px;
             }
         }
 
@@ -349,3 +356,18 @@
             }
         }
     }
+
+    // ---------------------後台登入--------------------------
+   
+    .backend_login_body{
+        background-color:#FEFDF2;
+    }
+    .backend_login{
+        @include marginCenter(); //物件垂直水置中
+        @include block_center(); //區塊水平置中
+    }
+
+    .backend_login_title{
+        padding-top: 20px;
+    }
+   
