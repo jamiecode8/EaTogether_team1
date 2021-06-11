@@ -2,13 +2,16 @@
 .QA_body{
   background-color: $bgc;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
   height: 43vh;
   font-size: 16px;
   background-image: url('../img/mimi/iPhoneX991.svg');
   background-position: center;
   background-size: Cover ;
   background-repeat: no-repeat;
+  background-attachment:fixed;
+  font-family: Arial !important; 
+  font-family: Noto Sans !important; 
   
 }
 
@@ -16,12 +19,13 @@
   .QA_body{
     background-color: $bgc;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     height: 43vh;
     background-image: url('../img/mimi/iPhoneX991.svg');
     background-position: center;
     background-size: Cover ;
     background-repeat: no-repeat;
+    background-attachment:fixed;
   }
 }
 
@@ -134,15 +138,15 @@
 
 
 .QA_wrapper{
-  margin: 10%;
+  margin: 5%;
 
 
 
 }
 
-.bigQA{
-  margin-top: 100px;
-}
+// .bigQA{
+//   margin-top: 100px;
+// }
 
 
 .fontmm{
@@ -220,6 +224,16 @@
     margin: 0 auto;
     margin-bottom: 20px;
     
+  }
+
+  .QA_h1{
+    background: #6C584C;
+    color: #FFF;
+    padding: 10px;
+    margin: 0px auto;
+    width: 80%;
+    text-align: center;
+    font-size: 16px;
   }
 
 
