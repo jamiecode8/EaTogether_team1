@@ -18,15 +18,15 @@
         $adminID = $row["admin_id"];
     }
 
-    //判斷是否有會員資料?
-    if($backendID != "" && $backendAccount != ""){
+    //判斷是否有管理員員資料?
+    if($adminID != "" && $adminAccount != ""){
 
         include("../../Lib/Member.php");        
     
-        //將會員資訊寫入session
+        //將管理員資訊寫入session
         setSessionA($adminAccount, $adminID);
 
-        //導回產品頁        
+        //導入會員管理頁面        
         echo "<script>alert('登入成功!'); location.href = '../../../backend_member.html';</script>"; 
 
     }else{
