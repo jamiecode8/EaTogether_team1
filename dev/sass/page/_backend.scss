@@ -176,10 +176,9 @@
                 display: flex;
                 justify-content: space-between;
                 .backend_down{
-                    position: fixed;
-                    top: 440px;
-                    left: 294px;
+                    padding-top: 16px;
                 }
+              
             }
 
 
@@ -320,7 +319,6 @@
             display: flex;
             justify-content: space-between;
             .backend_down{
-                // display: flex;
                 padding-top: 16px;
             }
         }
