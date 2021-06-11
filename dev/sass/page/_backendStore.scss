@@ -29,7 +29,7 @@
   &_editForm{
     position: absolute;
     // position: fixed;
-    top: 65px;
+    top: 25px;
     // @include block_center;
     &_infoArea{
       display: flex;
@@ -83,6 +83,16 @@
     padding-left: 10px;
     line-height: 36px;
     text-align: left;
+  }
+}
+
+// 子選單
+.backendStore_subMenu{
+  display: flex;
+  font-size: $fontSizeLink;
+  &_li{
+    margin-right: 20px;
+    height: 30px;
   }
 }
 
