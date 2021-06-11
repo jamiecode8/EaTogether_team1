@@ -26,7 +26,7 @@
                         <tr v-for="store in stores.slice(pageStart , pageStart+countOfPage)" class="backend_store_list">
                             <td>{{store.store_id}}</td>
                             <td>{{store.store_name}}</td>
-                            <td>{{store.store_level}}</td>
+                            <td>{{storeLevel[store.store_level]}}</td>
                             <td @click="getStoreEdit(store)">
                                 <img class="Edit_action" src="./img/icon/icon_edit.png" alt="">
                             </td>
@@ -48,8 +48,8 @@
                     </ul>
                 </div>
                 <!-- 商家資料編輯彈窗 -->
-                <div v-show="editStore" class="backend_store_editForm" id="">
-                    <form method="post" action="./php/Backend/API/storeUpdate.php" class="form storeLogin_signup backend_store_edit_form" enctype="multipart/form-data">
+                <div v-show="editStore" class="backend_store_editForm">
+                    <div class="form storeLogin_signup backend_store_edit_form" enctype="multipart/form-data">
                         <!-- close button -->
                         <button type="button" class="btn_close" @click="closeStoreEdit">
                             <img src="./img/icon/icon_close.png" alt="" />
@@ -129,66 +129,44 @@
                                     <div class="store_imgArea_dropArea">
                                         <div class="backend_store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">形象海報</h3>
-                                            <div class="store_imgArea_dropZone">
-                                                <!-- <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.image_img]"/> -->
-                                                <div class="picUpload" >
-                                                </div>
+                                            <div v-if="storeDetail">
+                                                <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.image_img]"/>=
                                             </div>
                                         </div>
                                         <div class="backend_store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">店景</h3>
-                                            <div class="store_imgArea_dropZone">
-                                                <!-- <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.store_img]"/> -->
-                                                <div class="picUpload">
-                                                </div>
+                                            <div v-if="storeDetail">
+                                                <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.store_img]"/>=
                                             </div>
                                         </div>
                                         <div class="backend_store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">菜單</h3>
-                                            <div class="store_imgArea_dropZone">
-                                                <!-- <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.menu_img]"/> -->
-                                                <div class="picUpload" id="picUpload3">
-                                                </div>
+                                            <div v-if="storeDetail">
+                                                <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.menu_img]"/>=
                                             </div>
                                         </div>
                                     </div>
                                     <div class="store_imgArea_dropArea">
                                         <div class="backend_store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                            <div>
-                                            <!-- <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.food1_img]"/> -->
-                                                <div class="picUpload" id="picUpload4">
-                                                </div>
+                                            <div v-if="storeDetail">
+                                            <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.food1_img]"/>=
                                             </div>
                                         </div>
                                         <div class="backend_store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                            <div>
-                                            <!-- <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.food2_img]"/> -->
-                                                <div class="picUpload" id="picUpload5">
-                                                </div>
+                                            <div v-if="storeDetail">
+                                            <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.food2_img]"/>=
                                             </div>
                                         </div>
                                         <div class="backend_store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                            <div>
-                                            <!-- <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.food3_img]"/> -->
-                                                <div class="picUpload" id="picUpload6">
-                                                </div>
+                                            <div v-if="storeDetail">
+                                            <img class="backend_store_img" :src="[`./img/upload/food/`+ storeDetail.food3_img]"/>
                                             </div>
                                         </div>
                                     </div>
                                     <section class="backend_store_editForm_editArea">
-                                    <div class="login_price">
-                                        <h2 class="backendStore_h2">商家狀態</h2>
-                                        <input type="text" placeholder="狀態" class="input" v-model="selectedStatus"/>
-                                        <!-- 隱藏欄位 -->
-                                        <input type="hidden" name="editStatus_id" v-model="selectedStatusId" value="editStatus_id"/>
-                                        <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="status_board_show">
-                                        <ul class="login_price_select" v-show="close_status_board">
-                                            <li v-for="status in statuses" @click="getStatus(status)" class="br backendStore_li"> {{status.text}} </li>
-                                        </ul>
-                                    </div>
                                     <div class="login_price">
                                         <h2 class="backendStore_h2">商家審核</h2>
                                         <input type="text" placeholder="狀態" class="input" v-model="selectedSubmit"/>
@@ -214,10 +192,14 @@
                             </section>
                         </section>
                         <div class="buttonArea">
-                            <input type="" value="取消" class="btn_d btn_cancel"/>
-                            <input type="submit" value="送出" class="btn_submit" />
+                            <button @click="closeStoreEdit" class="btn_cancel">
+                                取消
+                            </button>
+                            <button @click="editStoreDetail" class="btn_submit">
+                                送出
+                            </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <!-- 商家資料編輯彈窗結束 -->
             </section>
@@ -227,39 +209,9 @@
     <script>
 
 new Vue({
-    el: '#backendStoreWrapper',
+    el: '#backendStoreUnsubmitWrapper',
     data: {
-        stores:[
-        {storeId:1, storeName:"台灣鹽酥雞", StoreLevel:"姑姑級"},
-        {storeId:2, storeName:"提巴米鹽水雞", StoreLevel:"松茸級"},
-        {storeId:3, storeName:"提巴米豬排飯", StoreLevel:"姑姑級"},
-        {storeId:4, storeName:"提巴米牛排", StoreLevel:"松茸級"},
-        {storeId:5, storeName:"提巴米烤鴨", StoreLevel:"姑姑級"},
-        {storeId:6, storeName:"提巴米義大利麵", StoreLevel:"姑姑級"},
-        {storeId:7, storeName:"提巴米珍珠奶茶", StoreLevel:"松茸級"},
-        {storeId:8, storeName:"台灣鹽酥雞", StoreLevel:"姑姑級"},
-        {storeId:9, storeName:"提巴米鹽水雞", StoreLevel:"松茸級"},
-        {storeId:10, storeName:"提巴米豬排飯", StoreLevel:"姑姑級"},
-        {storeId:11, storeName:"提巴米牛排", StoreLevel:"松茸級"},
-        {storeId:12, storeName:"提巴米烤鴨", StoreLevel:"姑姑級"},
-        {storeId:13, storeName:"提巴米義大利麵", StoreLevel:"姑姑級"},
-        {storeId:14, storeName:"提巴米珍珠奶茶", StoreLevel:"松茸級"},
-        {storeId:15, storeName:"台灣鹽酥雞", StoreLevel:"姑姑級"},
-        {storeId:16, storeName:"提巴米鹽水雞", StoreLevel:"松茸級"},
-        {storeId:17, storeName:"提巴米豬排飯", StoreLevel:"姑姑級"},
-        {storeId:18, storeName:"提巴米牛排", StoreLevel:"松茸級"},
-        {storeId:19, storeName:"提巴米烤鴨", StoreLevel:"姑姑級"},
-        {storeId:20, storeName:"提巴米義大利麵", StoreLevel:"姑姑級"},
-        {storeId:21, storeName:"提巴米珍珠奶茶", StoreLevel:"松茸級"},
-        {storeId:22, storeName:"台灣鹽酥雞", StoreLevel:"姑姑級"},
-        {storeId:23, storeName:"提巴米鹽水雞", StoreLevel:"松茸級"},
-        {storeId:24, storeName:"提巴米豬排飯", StoreLevel:"姑姑級"},
-        {storeId:25, storeName:"提巴米牛排", StoreLevel:"松茸級"},
-        {storeId:26, storeName:"提巴米烤鴨", StoreLevel:"姑姑級"},
-        {storeId:27, storeName:"提巴米義大利麵", StoreLevel:"姑姑級"},
-        {storeId:28, storeName:"提巴米珍珠奶茶", StoreLevel:"松茸級"},
-      ],
-      storeStatus: [0,"啟用","停權"],
+       storeStatus: [0,"啟用","停權"],
       storeLevel: [0, "菇菇級", "松茸級"],
       storeSubmit: [0, "已審核", "審核中"],
     //   editStore :true, //打開編輯
@@ -288,16 +240,19 @@ new Vue({
       close_status_board: false,
       close_submit_board: false,
       close_level_board: false,
-      // stores:  [],//ajax撈來的所有商家 上線開
-      storeDetail: [], //單一店商資訊
+      stores:  [],//ajax撈來的所有商家
+      storeDetail: null, //單一店商資訊
+      stopStores: [],
       countOfPage: 10,
       currentPage: 1,
-      nav: 0,
     },
     methods: {
-      getStoreEdit(store) {
+        getStoreEdit(store) {
           this.editStore = true;
           this.storeDetail = store;
+          this.selectedStatusId = store.store_status;
+          this.selectedSubmitId = store.store_submit;
+          this.selectedLevelId = store.store_level;
       },
       closeStoreEdit(){
           this.editStore = false;
@@ -332,16 +287,35 @@ new Vue({
       },
       displayStore(response) {
         self.stores = response;
-        console.log(self.stores);
+        // console.log(self.stores);
       }, 
-      getStopStore(){
-        this.nav = 1;
-        getStoreListStop();
-      },
+      editStoreDetail(e){    
+        var self = this;
+        var storeId = this.storeDetail.store_id;
+        var editStatus = this.selectedStatusId;
+        var editSubmit = this.selectedSubmitId;
+        var editLevel = this.selectedLevelId;
+        $.ajax({            
+            method: "POST",
+            url: "./php/Backend/API/storeUpdate.php",
+            data:{ 
+            storeId,
+            editStatus,
+            editSubmit,
+            editLevel,
+            },            
+            success: function (response) {
+                self.editStore = false;
+                location.reload();
+            },
+            error: function(exception) {
+                console.log(exception);
+            }
+        });
+        },
 
     },
     computed: {
-        // filteredRows(){}, //如果要過濾資料，可以使用這個方法
         totalPage(){
             return Math.ceil(150 / this.countOfPage);
         },
@@ -349,56 +323,51 @@ new Vue({
             return (this.currentPage - 1) * this.countOfPage;
         },
     },
-    // 去後台撈資料，上線再開
-    // mounted() {
-  //     var self = this;
-  //     init(); //登入檢查
-  //     function init() {
-  //       $.ajax({
-  //         method: "POST",
-  //         url: "./php/Backend/API/BackendLoginCheck.php",
-  //         data: {},
-  //         dataType: "text",
-  //         success: function success(response) {
-  //           if (response == "") {
-  //             //尚未登入->前往Login.php
-  //             alert('請先登入，將前往登入頁');
-  //             location.href = 'login_store.html';
-  //           } else {
-  //             getStoreList();
-  //           }
-  //         },
-  //         error: function error(exception) {
-  //           alert("數據載入失敗1: " + exception.status);
-  //         }
-  //       });
-  //     } 
-  //     // 撈商家資料
-  //     function getStoreList(){    
-  //       $.ajax({            
-  //           method: "POST",
-  //           url: "./php/Backend/API/storeList.php",
-  //           data:{},            
-  //           dataType: "json",
-  //           success: function (response) {
-  //             displayStore(response);              
-  //           },
-  //           error: function(exception) {
-  //             alert(exception.responseText);
-  //               alert("數據載入失敗: " + exception.status);
-  //           }
-  //       });
-  //   }
-  //   //顯示商家資料
-  //     function displayStore(response) {
-  //       self.stores = response;
-  //       console.log(self.stores);
 
-  //       // self.bottomArea = self.memberData.store_level;
-  //       // console.log(self.bottomArea);
-  //       // setPage();
-  //     } 
-  //   },
+    mounted() {
+      var self = this;
+      init(); //登入檢查
+      function init() {
+        $.ajax({
+          method: "POST",
+          url: "./php/Backend/API/BackendLoginCheck.php",
+          data: {},
+          dataType: "text",
+          success: function success(response) {
+            if (response == "") {
+              alert('請先登入，將前往登入頁');
+              location.href = 'login_store.html';
+            } else {
+                getStoreListUnsubmit();
+            }
+          },
+          error: function error(exception) {
+            alert("數據載入失敗1: " + exception.status);
+          }
+        });
+      } 
+      // 撈商家資料
+      function getStoreListUnsubmit(){    
+        $.ajax({            
+            method: "POST",
+            url: "./php/Backend/API/storeUnsubmitList.php",
+            data:{},            
+            dataType: "json",
+            success: function (response) {
+              displayUnsubmitStore(response);              
+            },
+            error: function(exception) {
+              alert(exception.responseText);
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    }
+    //顯示商家資料
+      function displayUnsubmitStore(response) {
+        self.stores = response;
+        console.log(self.stores);
+      } 
+    },
   });
 
     </script>
