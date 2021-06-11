@@ -2,13 +2,17 @@
 .loginMemberPage_Body{
     padding-top: 75px;
     background-color: $bgc;
-    background-image: url('../../img/story/aliensBg.png');
+    background-image: url('../img/story/aliensBg.png');
     background-size:contain;
     background-repeat: no-repeat;
     background-position: 0%;
     // height: 90vh;
     overflow: auto;
     background-attachment: fixed;
+}
+
+.loginMemberPage_wrapper{
+    height: calc(100vh - 78px);
 }
 //註冊的表單
 .join_form{
