@@ -11,6 +11,7 @@
         $db_user = "tibamefe_since2021";
         $db_pass =  "vwRBSb.j&K#E";
         $db_select = "tibamefe_tfd101g1";
+        
 
         //建立資料庫連線物件
         $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
