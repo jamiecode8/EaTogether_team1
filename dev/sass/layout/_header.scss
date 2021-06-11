@@ -108,20 +108,29 @@ header{
     &_from{
         padding: 5px 0;
         line-height: 40px;
-        width: 250px;
+        width: 230px;
         @include rwd(largeMobile){
             width: 200px;
             }
         @include rwd(mobile){
             width: 200px;
             }
+            img{
+                width: 30%;
+                margin: 0 auto;
+            }    
     }
     &_p{
-        padding-left: 30px;
+        // padding-left: 30px;
         &:hover{
             background-color: $colorTp;
         }
+        span{
+            font-size: 30px;
+            font-weight: bold;
+        }
     }
+    
 }
 
     
@@ -399,5 +408,5 @@ header{
         }
     }
 
-
+    
 

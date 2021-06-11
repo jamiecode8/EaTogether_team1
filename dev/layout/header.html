@@ -10,9 +10,9 @@
 			<div class="headerInner_login " id="headerInner_login" data-target="header_avatar">
 				<!-- 彈窗 -->
 				<div class="popUps popUpsLogout" id="header_popup" v-show="toggle">
-					<form action="" method="" class="form popUpsLogout_from" data-target="header_popup">
-				 
-					</form>
+					<div class="form popUpsLogout_from" data-target="header_popup">
+						
+					</div>
 				</div>
 			</div>
 		</div>
@@ -103,13 +103,16 @@
 		// console.log(data);
 		const header_popup = document.querySelector('[data-target="header_popup"]');
 		header_popup.innerHTML = `
-				<p class="popUpsLogout_p">${data}</p>
-				<a href="./login_member_modify.html">
-					<p class="popUpsLogout_p">修改會員資料</p>    
-				</a>
-				<a href='./php/Frontend/API/Member_Logout.php'>
-					<p class="popUpsLogout_p">登出</p>
-				</a>
+				<img src="./img/tang/ET004.png">
+				<div>
+					<a><p class="popUpsLogout_p"><span>${data}</span></p></a>
+					<a href="./login_member_modify.html">
+						<p class="popUpsLogout_p">修改會員資料</p>    
+					</a>
+					<a href='./php/Frontend/API/Member_Logout.php'>
+						<p class="popUpsLogout_p">登出</p>
+					</a>
+				</div>
 		`
 	};
 
