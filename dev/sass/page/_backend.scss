@@ -363,9 +363,12 @@
         background-color:#FEFDF2;
     }
     .backend_login{
-        @include marginCenter(); //物件垂直水置中
-        @include block_center(); //區塊水平置中
+        .login2{
+            margin-top: 100px;
+        }
+        
     }
+    
 
     .backend_login_title{
         padding-top: 20px;
