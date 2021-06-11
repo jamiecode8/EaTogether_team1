@@ -15,8 +15,8 @@
 
     //--------------------------------------後台專用--------------------------------------
 
-    //取得Session(後台專用)
-    function getSessionB(){
+    //取得管理者ID(Session)(後台專用)
+    function  getAdminID(){
 
         //先判斷session是否存在
         if(!isset($_SESSION)){
@@ -24,19 +24,33 @@
         }
 
         //有登入session->回傳ID，無登入session->回傳空字串""
-        return isset($_SESSION["BackendUserID"]) ? $_SESSION["BackendUserID"] : "";             
-
+        return isset($_SESSION["AdminID"]) ? $_SESSION["AdminID"] : "";             
+    
     }
 
-    //寫入Session(後台專用)
-    function setSessionB($backendID, $backendAccount){
+    //取得管理者帳號(Session)(後台專用)
+    function  getAdminAccount(){
 
         //先判斷session是否存在
         if(!isset($_SESSION)){
             session_start(); 
         }
 
-        $_SESSION["BackendUserID"] = $UserID;
+        //有登入session->回傳ID，無登入session->回傳空字串""
+        return isset($_SESSION["AdminAccount"]) ? $_SESSION["AdminAccount"] : "";             
+    
+    }
+
+    //寫入Session(後台專用)
+    function setSessionA($adminID, $adminAccount){
+
+        //先判斷session是否存在
+        if(!isset($_SESSION)){
+            session_start(); 
+        }
+
+        $_SESSION["AdminID"] = $adminID;
+        $_SESSION["AdminAccount"] = $adminAccount;
 
     }
 
