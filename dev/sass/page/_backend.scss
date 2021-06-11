@@ -365,12 +365,24 @@
     .backend_login{
         .login2{
             margin-top: 100px;
+        }    
+        .backend_login_title{
+            padding-top: 20px;
         }
-        
-    }
-    
+        .backend_return{
+            font-size: $fontSizeSmall;
+            cursor: pointer;
+            position: fixed;
+            top: 330px;
+            left: 325px;
+        }
+        .backend_input{
+            margin: initial;
+        }
 
-    .backend_login_title{
-        padding-top: 20px;
     }
+
+   
+
+    
    
