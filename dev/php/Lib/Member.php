@@ -29,7 +29,7 @@
     }
 
     //寫入Session(後台專用)
-    function setSessionB($UserID){
+    function setSessionB($backendID, $backendAccount){
 
         //先判斷session是否存在
         if(!isset($_SESSION)){
