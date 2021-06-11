@@ -1,0 +1,73 @@
+<header>
+	<div class="headerInner">
+		<!-- Logo -->
+		<a href="./index.html" class="logo">
+			<img src="./img/logo.png" alt="" />
+		</a>
+		<!-- 會員頭像 class="header" => el-->
+		<div id="header_popups_container" @click="header_toggle" class="header">
+			<!-- headerInner_login => 頭像 -->
+			<div class="headerInner_login " id="headerInner_login" data-target="header_avatar">
+				<!-- 彈窗 -->
+				<!-- <div class="popUps popUpsLogout" id="header_popup" v-show="toggle">
+					<form action="" method="" class="form popUpsLogout_from" data-target="header_popup">
+				 
+					</form>
+				</div> -->
+			</div>
+		</div>
+		<!-- 漢堡圖 -->
+		<div class="ham" id="ham_icon">
+			<span class="ham_top"></span>
+			<span class="ham_middle"></span>
+			<span class="ham_bottom"></span>
+		</div>
+
+		<div class="header_overlay" id="header_overlay">
+			<nav class="header_overlay_menu">
+				<ul>
+					<li class="header_list header_inner_logo">
+						<a href="./index.html">
+						</a>
+					</li>
+					<li class="header_list header_inner_myUFO @@classFO">
+						<a href="./myUFO.html">
+							<span class="header_list_span">我的飛碟</span>
+						</a>
+					</li>
+					<li class="header_list header_inner_myPhoto @@classFP">
+						<a href="./myphoto.html">
+							<span class="header_list_span">美食拍立得</span>
+						</a>
+					</li>
+					<li class="header_list header_inner_aboutUs @@classFU">
+						<a href="./story.html">
+							<span class="header_list_span">外食故事</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<script>
+	// 打開漢堡
+	$('#ham_icon').click(function () {
+		$(this).toggleClass('active');
+		$('#header_overlay').toggleClass('open');
+	});
+
+	// 滑鼠往下滾，header就會出現底色
+	var prevScrollpos = window.pageYOffset;
+	window.onscroll = function () {
+		var currentScrollPos = window.pageYOffset;
+		if (prevScrollpos > currentScrollPos) {
+			$('header').css('background', 'transparent')
+		} else {
+			$('header').css('background', 'rgba(251,255,232,0.5)')
+		}
+		prevScrollpos = currentScrollPos;
+	}
+
+</script>
