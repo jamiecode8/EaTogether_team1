@@ -13,18 +13,20 @@
     
     $memberID = "";
     $memberEmail = "";
+    $memberName = "";
     foreach($data as $index => $row){
         $memberID = $row["member_email"];
         $memberEmail = $row["member_id"];
+        $memberName = $row["member_name"];
     }
 
     //判斷是否有會員資料?
-    if($memberID != "" && $memberEmail != ""){
+    if($memberID != "" && $memberEmail != "" && $memberName != ""){
 
         include("../../Lib/Member.php");        
     
         //將會員資訊寫入session
-        setMemberInfo($memberID, $memberEmail);
+        setMemberInfo($memberID, $memberEmail, $memberName);
 
         //導回產品頁        
         echo "<script>alert('登入成功!'); location.href = '../../../index.html';</script>"; 
