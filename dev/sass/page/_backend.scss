@@ -1,5 +1,5 @@
 //宏鈞的
-     
+    
     .backend_body{
         background-color:#FEFDF2;
     }
@@ -171,7 +171,9 @@
                 display: flex;
                 justify-content: space-between;
                 .backend_down{
-                    padding-top: 16px;
+                    position: fixed;
+                    top: 440px;
+                    left: 294px;
                 }
             }
 
@@ -250,7 +252,7 @@
         //     }
         // }
 
-//---------------------------留言管理彈窗-----------------------------
+//---------------------------拍立得管理彈窗-----------------------------
 
 .backend_my_photo_popUps{
 
@@ -304,6 +306,16 @@
             width: 100%;
             border-top: solid 1px $green ;
             margin: 30px 0;
+        }
+
+        .backend_top{
+            display: flex;
+            justify-content: space-between;
+            .backend_down{
+                position: fixed;
+                top: 585px;
+                left: 294px;
+            }
         }
 
         // 按扭區域
