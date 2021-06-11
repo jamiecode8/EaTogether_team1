@@ -2,7 +2,7 @@
     include("../../Lib/Util.php");	
 
     //建立SQL
-    $sql = "SELECT * FROM admin WHERE admin_id = ?";
+    $sql = "SELECT * FROM  admin WHERE admin_account = ? and admin_password = ?";
 
     //給值
     $statement = getPDO()->prepare($sql);
