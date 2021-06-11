@@ -12,7 +12,10 @@
 }
 
 .loginMemberPage_wrapper{
-    height: calc(100vh - 78px);
+    height: calc(100vh + 70px);
+}
+.loginMemberModifyPage_wrapper{
+    height: calc(100vh + 240px);
 }
 //註冊的表單
 .join_form{
