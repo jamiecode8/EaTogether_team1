@@ -66,8 +66,9 @@
                             <input v-model="password_register" type="password" placeholder="密碼" autocomplete="off"
                                 required name="member_password_input" />
                             <p v-if="!password_register_msg">密碼長度需高於6個字元</p>
-                            <input type="password" placeholder="再次輸入密碼" autocomplete="off"
+                            <input v-model="password_register_confirmed" type="password" placeholder="再次輸入密碼" autocomplete="off"
                             required />
+                            <p v-if="!password_register_msg_confirmed">請再次確認密碼</p>
                             <!-- 暱稱 -->
                             <div class="memberInfo_edit_area">
                                 <input type="text" placeholder="輸入暱稱" name="member_nickname_input"/>
@@ -438,6 +439,8 @@
                 password_register: '',
                 account_register_msg: true,
                 password_register_msg: true,
+                password_register_confirmed: '',
+                password_register_msg_confirmed: true,
             },
             watch: {
                 account: function () {
@@ -478,6 +481,13 @@
                         this.password_register_msg = true;
                     }
                 },
+                password_register_confirmed: function(){
+                    if(this.password_register_confirmed != this.password_register){
+                        this.password_register_msg_confirmed = false;
+                    } else {
+                        this.password_register_msg_confirmed = true;
+                    }
+                }
             },
             methods: {
                 open_forgetPassword_verification() {
