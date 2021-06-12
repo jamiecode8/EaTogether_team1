@@ -15,10 +15,10 @@
 <!-- ==================================下方開始編輯========================================== -->
     
 
-<div class="pho_wrapper wrapper" id="app">
+<div class="pho_wrapper wrapper">
     <!-- 背景圖 -->
-    <div class="pho_background">
-        <main class="pho_main">
+    <div class="pho_background"  id="app2">
+        <main class="pho_main" >
             <div class="pho_top_wrapper">
                 
                 <div class="pho_top_content">
@@ -30,7 +30,8 @@
                     <div>
                         <section class="pho_top_s1">
                             <!-- 使用者ID -->
-                            <h1>TINA123</h1>
+                            <h1>{{mdata}}</h1>
+                            <my-component :aaa = 'mdata'></my-component>
                         
                             <!-- 搜尋框 -->
                             <input class="pho_search_bar" type="text" id="pho_search" placeholder="Search">
@@ -60,215 +61,15 @@
             <div class="pho_cards_wrapper">
                 <ul class="pho_store_cards_lists">
                     
-                   <!-- 1 -->
-                    <li>
-                        <!-- 照片連結 -->
-                        <a href="#"><img class="pho_cards_pic"src="./img/tang/store_pic.png " alt=""></a>
-
-                        <div class="pho_vender_thumb_message">
-                            <!-- 商家連結 -->
-                            <a href="#">@梯八咪雞肉飯</a>
-                            
-                            <!-- 按讚&留言icon -->
-                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
-                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
-                        </div>
-
-                        <div class="pho_vender_feat_tag">
-                            <!-- 標籤連結 -->
-                            <a href="#"><p>#南京復興</p></a>
-                            <a href="#"><p>#小吃</p></a>
-                            <a href="#"><p>#銅板</p></a>
-                        </div>
-
-                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
-                        <div class="pho_vender_profile">
-                            
-                                <a href="#"><img src="./img/tang/ET001.png" alt=""></a>
-                                <article>
-                                    <p><a href="#" >tina888</a></p>
-                                    <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
-                                </article>
-                                <P>2021/04/17</P>
-                        </div>
-                        
-                    </li>
-
-
-                    <!-- 2 -->
-                    <li>
-                        <!-- 照片連結 -->
-                        <a href="#"><img class="pho_cards_pic" src="./img/tang/store_pic.png " alt=""></a>
-
-                        <div class="pho_vender_thumb_message">
-                            <!-- 商家連結 -->
-                            <a href="#">@梯八咪雞肉飯</a>
-
-                            <!-- 按讚&留言icon -->
-                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
-                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
-                        </div>
-
-                        <div class="pho_vender_feat_tag">
-                            <!-- 標籤連結 -->
-                            <a href="#"><p>#南京復興</p></a>
-                            <a href="#"><p>#小吃</p></a>
-                            <a href="#"><p>#銅板</p></a>
-                        </div>
-
-                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
-                        <div class="pho_vender_profile">
-                            
-                            <a href="#"><img src="./img/tang/ET002.png" alt=""></a>
-                            <article>
-                                <p><a href="#">tina888</a></p>
-                                <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
-                            </article>
-                            <P>2021/04/17</P>
-                    </div>
-                        
-                    </li>
-                    
-
-                    <!-- 3 -->
-                    <li>
-                        <!-- 照片連結 -->
-                        <a href="#"><img class="pho_cards_pic" src="./img/tang/store_pic.png " alt=""></a>
-
-                        <div class="pho_vender_thumb_message">
-                            <!-- 商家連結 -->
-                            <a href="#">@梯八咪雞肉飯</a>
-
-                            <!-- 按讚&留言icon -->
-                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
-                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
-                        </div>
-
-                        <div class="pho_vender_feat_tag">
-                            <!-- 標籤連結 -->
-                            <a href="#"><p>#南京復興</p></a>
-                            <a href="#"><p>#小吃</p></a>
-                            <a href="#"><p>#銅板</p></a>
-                        </div>
-
-                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
-                        <div class="pho_vender_profile">
-                            
-                            <a href="#"><img src="./img/tang/ET003.png" alt=""></a>
-                            <article>
-                                <p><a href="#">tina888</a></p>
-                                <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
-                            </article>
-                            <P>2021/04/17</P>
-                    </div>
-                        
-                    </li>
-
-
-                    <!-- 4 -->
-                    <li>
-                        <!-- 照片連結 -->
-                        <a href="#"><img class="pho_cards_pic"src="./img/tang/store_pic.png " alt=""></a>
-
-                        <div class="pho_vender_thumb_message">
-                            <!-- 商家連結 -->
-                            <a href="#">@梯八咪雞肉飯</a>
-
-                            <!-- 按讚&留言icon -->
-                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
-                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
-                        </div>
-
-                        <div class="pho_vender_feat_tag">
-                            <!-- 標籤連結 -->
-                            <a href="#"><p>#南京復興</p></a>
-                            <a href="#"><p>#小吃</p></a>
-                            <a href="#"><p>#銅板</p></a>
-                        </div>
-
-                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
-                        <div class="pho_vender_profile">
-                            
-                            <a href="#"><img src="./img/tang/ET004.png" alt=""></a>
-                            <article>
-                                <p><a href="#">tina888</a></p>
-                                <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
-                            </article>
-                            <P>2021/04/17</P>
-                    </div>
-                        
-                    </li>
-
-
-                    <!-- 5 -->
-                    <li>
-                        <!-- 照片連結 -->
-                        <a href="#"><img class="pho_cards_pic"src="./img/tang/store_pic.png " alt=""></a>
-
-                        <div class="pho_vender_thumb_message">
-                            <!-- 商家連結 -->
-                            <a href="#">@梯八咪雞肉飯</a>
-
-                            <!-- 按讚&留言icon -->
-                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
-                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
-                        </div>
-
-                        <div class="pho_vender_feat_tag">
-                            <!-- 標籤連結 -->
-                            <a href="#"><p>#南京復興</p></a>
-                            <a href="#"><p>#小吃</p></a>
-                            <a href="#"><p>#銅板</p></a>
-                        </div>
-
-                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
-                        <div class="pho_vender_profile">
-                            
-                            <a href="#"><img src="./img/tang/ET005.png" alt=""></a>
-                            <article>
-                                <p><a href="#">tina888</a></p>
-                                <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
-                            </article>
-                            <P>2021/04/17</P>
-                    </div>
-                        
-                    </li>
-
-
-                    <!-- 6 -->
-                    <li>
-                        <!-- 照片連結 -->
-                        <a href="#"><img class="pho_cards_pic" src="./img/tang/store_pic.png " alt=""></a>
-
-                        <div class="pho_vender_thumb_message">
-                            <!-- 商家連結 -->
-                            <a href="#">@梯八咪雞肉飯</a>
-
-                            <!-- 按讚&留言icon -->
-                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
-                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
-                        </div>
-
-                        <div class="pho_vender_feat_tag">
-                            <!-- 標籤連結 -->
-                            <a href="#"><p>#南京復興</p></a>
-                            <a href="#"><p>#小吃</p></a>
-                            <a href="#"><p>#銅板</p></a>
-                        </div>
-
-                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
-                        <div class="pho_vender_profile">
-                            
-                            <a href="#"><img src="./img/tang/ET006.png" alt=""></a>
-                            <article>
-                                <p><a href="#">tina888</a></p>
-                                <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
-                            </article>
-                            <P>2021/04/17</P>
-                    </div>
-                        
-                    </li>
-
+                    <my-card v-for='(itm,key) in mymember'
+                    :storename = 'itm.store_name'
+                    :storetag1 = 'itm.store_tag1'
+                    :storetag2 = 'itm.store_tag2'
+                    :storetag3 = 'itm.store_tag3'
+                    :phototime = 'itm.mdate'
+                    :membername = 'itm.member_name'
+                    :foodimg = 'itm.food1_img'
+                    ></my-card>                   
                     
                 </ul>
                
@@ -369,8 +170,12 @@
             </div>
         </main>
     </div>
-    @@include('layout/search.html')
-    <my-component :mmb='mdata' ></my-component>
+
+    <div  id="app">
+        @@include('layout/search.html')
+    </div>
+
+    
 
 </div>
 
@@ -395,28 +200,114 @@
         });
 
 
-    // 產生new Vue
-    // new Vue({
-    //     el: '#app',
-    //     data: {
-    //        mdata:'測試內容', 
-    //     },
-    //     methods: {
+    //產生new Vue
+    new Vue({
+        el: '#app3',
+        data: {
+           mdata:'隨便內容', 
+        },
+        methods: {
             
-    //     },
-    //     created(){
+        },
+        created(){
 
-    //     },
+        },
 
-    // });
+        components: {
+                
+                'my-component': { 
+                    template: `<h1 style="color:red;">{{aaa}}</h1>`,
+                    props:['aaa'],
+                },
 
-    // //產生Vue component
-    // Vue.component('my-component',{
-    //         template: `<h1 style="color:red;">測試內容</h1>`,
-    //         props:['mmb'],
-    // });
+            },
 
 
+    });
+
+    new Vue({
+            el: '#app2',
+            data: {
+                mymember:[],
+                
+            },
+            methods:{
+                
+                getmymemberdata(info){
+                    let self = this;
+
+                        $.ajax({
+                            type : "POST", 
+                            url : "./php/Frontend/API/M_apr_memberpeople.php",  
+                            data : {  
+                                MID : info,            //---透過 MID 去抓該筆會員資料
+                            }, 
+                            dataType : 'html' 
+                            }).done(function(data){    //---載入成功
+                                //console.log(data);
+                            self.mymember =  JSON.parse(data);
+                            console.log(self.mymember);
+                            console.log(self.mymember);
+
+                            }).fail(function(jqXHR){   //---載入失敗
+                            alert("res為ID數據載入失敗: " + jqXHR.status);
+                            });
+
+                    },
+             
+            },
+            created(){
+
+                axios.post("php/Frontend/API/M_getsession_MID.php").then((res)=>{
+                this.getmymemberdata(res.data)
+                });
+
+
+            },
+            
+            components: {
+                
+                'my-card': { 
+                    template:
+                     `<li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img class="pho_cards_pic" src= "./img/upload/food/ch_a4.png"
+                            alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@{{storename}}</a>
+                            
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>{{storetag1? '#' + storetag1 : ""}}</p></a>
+                            <a href="#"><p>{{storetag2? '#' + storetag2 : ""}}</p></a>
+                            <a href="#"><p>{{storetag3? '#' + storetag3 : ""}}</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div class="pho_vender_profile">
+                            
+                                <a href="#"><img src="./img/tang/ET001.png" alt=""></a>
+                                <article>
+                                    <p><a href="#" >{{membername}}</a></p>
+                                    <p><a href="#">追蹤</a></p><!-- 追蹤按鈕 -->
+                                </article>
+                                <P>{{phototime}}</P>
+                        </div>
+                    </li>`,
+                    props:['storename','storetag1','storetag2','storetag3','phototime','membername','foodimg'],
+                },
+
+            },
+
+
+        });
 
 </script>
 
