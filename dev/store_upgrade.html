@@ -17,7 +17,6 @@
                         <div class="upgradeHeader_text">費用方案
                         </div>
                     </div>
-                    <!-- <div class="upgradeHeader_bg"></div> -->
                     <div :class="greenCircle"></div>
                 </button>
                 <button class="upgradeHeader_areaList"  @click="step = 1">
@@ -26,7 +25,6 @@
                         <div class="upgradeHeader_text">基本資料
                         </div>
                     </div>
-                    <!-- <div class="upgradeHeader_bg"></div> -->
                     <div :class="greenCircle1"></div>
                 </button>
                 <button class="upgradeHeader_areaList" @click="step = 2">
@@ -44,7 +42,6 @@
                         <div class="upgradeHeader_text">升級完成
                         </div>
                     </div>
-                    <!-- <div class="upgradeHeader_bg"></div> -->
                     <div :class="greenCircle3"></div>
                 </button>
             </section>
@@ -93,22 +90,20 @@
                     <div class="upgradeInfoConfirm">
                         <!-- 選單 -->
                         <div class="upgradeInfoConfirm_menuArea">
-                            <h1 class="upgradeInfoConfirm_menu  upgradeInfoConfirm_menuL" @click="infoChoice = 1">企業
+                            <h1 :class="upgradeSubMenu" @click="infoChoice = 1" >企業
                             </h1>
-                            <h1 class="upgradeInfoConfirm_menu upgradeInfoConfirm_menuR" @click="infoChoice = 2" >個人</h1>
+                            <h1 :class="upgradeSubMenu1" @click="infoChoice = 2" >個人</h1>
                         </div>
                         <!-- 企業 -->
                         <form class="form upgradeInfoConfirm_formC" v-if="infoChoice == 1">
                             <input type="text" placeholder="公司抬頭" required/>
                             <input type="num" placeholder="統一編號" pattern="\d{8}" required/>
                             <input type="text" placeholder="登記地址" required/>
-                            <input type="text" placeholder="聯絡人" v-model="toName" required/>
-                            <input type="email" placeholder="電子信箱" v-model="toMail" required/>
+                            <input type="text" placeholder="聯絡人"  required/>
+                            <input type="email" placeholder="電子信箱"  required/>
                             <div class="upgradeOption_btnArea_option priceChoice ">
                                 <p>{{option}}</p>
                             </div>
-                            
-                            <!-- 2顆按鈕用這個 -->
                             <div class="upgradeInfoConfirm_buttonArea_outer">
                                 <div class="buttonArea upgradeInfoConfirm_buttonArea">
                                     <a href="/store_upgrade_option.html">
@@ -120,9 +115,9 @@
                         </form>
                         <!-- 個人 -->
                         <form class="form upgradeInfoConfirm_formP" id="upgradeInfo_personal_form"  v-if="infoChoice == 2" >
-                            <input type="text" placeholder="姓名" v-model="toName"/>
+                            <input type="text" placeholder="姓名" />
                             <input type="text" placeholder="地址" required/>
-                            <input type="email" placeholder="電子信箱" v-model="toMail"/>
+                            <input type="email" placeholder="電子信箱" />
                             <input type="number" placeholder="聯絡電話" oninput="if(value.length>10)value=value.slice(0,10)"/>
                             <div class="priceChoice">
                                 <p>{{option}}</p>
@@ -147,9 +142,9 @@
                     <div class="upgradeInfoConfirm">
                         <!-- 選擇欄位 -->
                         <div class="upgradeInfoConfirm_menuArea">
-                            <h1 class="upgradeInfoConfirm_menu upgradeInfoConfirm_menuL" @click="paymentChoice = 1">信用卡
+                            <h1 :class="upgradeSubMenu2" @click="paymentChoice = 1">信用卡
                             </h1>
-                            <h1 class="upgradeInfoConfirm_menu upgradeInfoConfirm_menuR" @click="paymentChoice = 2">轉帳</h1>
+                            <h1 :class="upgradeSubMenu3" @click="paymentChoice = 2">轉帳</h1>
                         </div>
                         <!-- 信用卡區 -->
                         <div v-if="paymentChoice == 1" >
@@ -205,25 +200,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- email test -->
-                <div v-show="sendEmail"  class="upgrade_mail">
-                    <!-- @@include('layout/email.html') -->
-                    <form id="formSand">
-                        <div class="field">
-                          <label for="to_name">to_name</label>
-                          <input type="text" name="to_name" id="to_name" :value="toName">
-                        </div>
-                        <div class="field">
-                          <label for="userMail">userMail</label>
-                          <input type="text" name="userMail" id="userMail" :value="toMail">
-                        </div>
-                      
-                        <!-- <input type="submit" id="button" value="Send Email" > -->
-                        <input type="submit" id="sendButton" value="Send Email" name="sendButton">
-                        <!-- <input type="submit" id="button" :value="SendEmail" > -->
-                    </form>
-
-                </div>
                 <!-- 升級完成 -->
                 <div v-if="step === 3" class="upgrade_finish">
                     <!-- 這邊放升級敘述的內容 -->
@@ -254,20 +230,12 @@
 new Vue({
     el: '#upgrade',
     data: {
-        // 步驟切換
-        step:0,
-        // 頁籤切換
-        paymentChoice: 1,
+        step:0, // 步驟切換
+        paymentChoice: 1, // 頁籤切換
         infoChoice: 1,
-        //方案選擇
-        // selected: undefined,
-        option: " ",
-        // email
-        toName: "",
-        toMail: "",
-        // SendEmail: "", 
-        sendEmail: false,
+        option: " ", //方案選擇
         ccv: "",
+        color: "black",
     },
     watch: {
         ccv: function(){
@@ -303,61 +271,44 @@ new Vue({
                 bgActive: this.step === 3,
             };
         },
+
+        upgradeSubMenu(){
+            return{
+                upgradeInfoConfirm_menu: true,
+                upgradeInfoConfirm_menuL: true,
+                onChoice: this.infoChoice === 1,
+            }
+        },
+        upgradeSubMenu1(){
+            return{
+                upgradeInfoConfirm_menu: true,
+                upgradeInfoConfirm_menuR: true,
+                onChoice: this.infoChoice === 2,
+            }
+        },
+        upgradeSubMenu2(){
+            return{
+                upgradeInfoConfirm_menu: true,
+                upgradeInfoConfirm_menuL: true,
+                onChoice: this.paymentChoice === 1,
+            }
+        },
+        upgradeSubMenu3(){
+            return{
+                upgradeInfoConfirm_menu: true,
+                upgradeInfoConfirm_menuR: true,
+                onChoice: this.paymentChoice === 2,
+            }
+        },
+
     },
     methods:{
+        
         lastStep(){
             this.step += 1;
-            // this.SendEmail = submit;
         },
     },
 }); 
-</script>
-
-<script>
-// mail.js
-//   var btn = document.getElementsByName("sendButton")[0].value;
-// console.log(btn);
-// console.log(btn.value);
-var formSand = document.getElementById('formSand');
-console.log(formSand);
-formSand.addEventListener('click', function(event) {
-            var btn = document.getElementById('sendButton');
-        event.preventDefault();
-        btn.value = 'Sending...';
-
-        const serviceID = 'default_service';
-        const templateID = 'template_d80sbh9';
-
-        emailjs.sendForm(serviceID, templateID, this)
-            .then(() => {
-            btn.value = 'Send Email';
-            alert('Sent!');
-            }, (err) => {
-            btn.value = 'Send Email';
-            alert(JSON.stringify(err));
-            });
-        });
-
-// document.getElementById('form').addEventListener('submit', function(event) {
-//             var btn = document.getElementById('sendButton');
-//         event.preventDefault();
-
-
-//         btn.value = 'Sending...';
-
-//         const serviceID = 'default_service';
-//         const templateID = 'template_d80sbh9';
-
-//         emailjs.sendForm(serviceID, templateID, this)
-//             .then(() => {
-//             btn.value = 'Send Email';
-//             alert('Sent!');
-//             }, (err) => {
-//             btn.value = 'Send Email';
-//             alert(JSON.stringify(err));
-//             });
-//         });
-
 </script>
     </body>
 </html>

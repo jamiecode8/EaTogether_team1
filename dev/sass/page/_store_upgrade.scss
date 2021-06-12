@@ -230,6 +230,7 @@
         cursor: pointer;
         font-size: $fontSize_Title;
         font-weight: bold;
+        color:$mrtBrown;
     }
     &_menuL{
         background-color: $yellow;
@@ -237,6 +238,10 @@
     &_menuR{
         background-color: $green;
     }
+}
+
+.upgradeInfoConfirm .onChoice{
+    color: $color;
 }
 
 // 信用卡號碼
@@ -277,12 +282,6 @@
         margin-left: 0;
         }
 }
-
-// 連絡電話，套cleave.js  目前好像無效
-// var cleave = new Cleave( ".upgradeCoTel", {
-//     phone: true, // 電話模式
-//     phoneRegionCode: "tw"
-// });
 
 // 轉帳
 form .trans_iput{
@@ -487,4 +486,3 @@ form .trans_iput{
     width: 100px;
     height: 50px;
 }
-
