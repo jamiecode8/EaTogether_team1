@@ -22,31 +22,25 @@
                     <!-- 上面大圖區 -->
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" v-if="memberData.image_img">
-                                <!-- <img src="./img/store/testfood1.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.image_img]" />
                             </div>
                             <div class="swiper-slide" v-if="memberData.store_img">
-                                <!-- <img src="./img/store/testfood2.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.store_img]" />
                             </div>
                             <div class="swiper-slide" v-if="memberData.menu_img">
-                                <!-- <img src="./img/store/testfood3.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.menu_img]" />
                             </div>
                             <div class="swiper-slide" v-if="memberData.food1_img">
-                                <!-- <img src="./img/store/testfood4.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.food1_img]" />
                             </div>
                             <div class="swiper-slide" v-if="memberData.food2_img">
-                                <!-- <img src="./img/store/testfood5.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.food2_img]" />
                             </div>
                             <div class="swiper-slide" v-if="memberData.food3_img">
-                                <!-- <img src="./img/store/testfood6.png" /> -->
                                 <img :src="[`./img/upload/food/`+ memberData.food3_img]" />
                             </div>
                         </div>
-                        <!-- 那2個箭頭 -->
+                        <!-- 2個箭頭 -->
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
@@ -54,27 +48,21 @@
                     <div thumbsSlider="" class="swiper-container mySwiper">
                         <div class="swiper-wrapper">
                           <div class="swiper-slide" v-if="memberData.image_img">
-                            <!-- <img src="./img/store/testfood1.png" /> -->
                             <img :src="[`./img/upload/food/`+ memberData.image_img]" />
                           </div>
                           <div class="swiper-slide" v-if="memberData.store_img">
-                            <!-- <img src="./img/store/testfood2.png" /> -->
                             <img :src="[`./img/upload/food/`+ memberData.store_img]" />
                           </div>
                           <div class="swiper-slide" v-if="memberData.menu_img">
-                            <!-- <img src="./img/store/testfood3.png" /> -->
                             <img :src="[`./img/upload/food/`+ memberData.menu_img]" />
                           </div>
                           <div class="swiper-slide" v-if="memberData.food1_img">
-                            <!-- <img src="./img/store/testfood4.png" /> -->
                             <img :src="[`./img/upload/food/`+ memberData.food1_img]" />
                           </div>
                           <div class="swiper-slide" v-if="memberData.food2_img">
-                            <!-- <img src="./img/store/testfood5.png" /> -->
                             <img :src="[`./img/upload/food/`+ memberData.food2_img]" />
                           </div>
                           <div class="swiper-slide" v-if="memberData.food3_img">
-                            <!-- <img src="./img/store/testfood6.png" /> -->
                             <img :src="[`./img/upload/food/`+ memberData.food3_img]" />
                           </div>
                         </div>
@@ -86,7 +74,7 @@
                         <h1>
                         {{memberData.store_name}}
                         </h1>
-                        <a href="./login_store.html">
+                        <a href="./store_update.html">
                             <button>
                                 <img src="./img/icon/icon_edit.png" alt="">
                             </button>

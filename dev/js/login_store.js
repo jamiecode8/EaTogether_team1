@@ -7,9 +7,6 @@
     $('#storeLogin_popups').removeClass('blockBlock').addClass('blockNone');
 });
 
-// 按忘記密碼，出現忘記密碼的彈窗，覆蓋住登入彈窗
-
-// 商家註冊(商家資訊)彈窗----------------------
 // 商家註冊頁面，按右上角XX, 回商家登入彈窗
 $('#store_signUp_close').click(function(){
     $('#store_signUp').removeClass('blockBlock').addClass('blockNone');

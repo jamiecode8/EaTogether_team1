@@ -12,7 +12,7 @@
     @@include('layout/header_backend.html', {
         "classBeS" : 'backendThisPage'
         })
-        <div class="wrapper backendStoreWrapper" id="backendStoreWrapper">
+        <div class="wrapper backendStoreWrapper" id="backendStoreStopWrapper">
             @@include('layout/backendStoreSubmenu.html', {
                 "classS" : 'backStoreOn'
             })
@@ -321,27 +321,29 @@ new Vue({
     // 去後台撈資料，上線再開
     mounted() {
       var self = this;
-      init(); //登入檢查
-      function init() {
-        $.ajax({
-          method: "POST",
-          url: "./php/Backend/API/BackendLoginCheck.php",
-          data: {},
-          dataType: "text",
-          success: function success(response) {
-            if (response == "") {
-              //尚未登入->前往Login.php
-              alert('請先登入，將前往登入頁');
-              location.href = 'backend_login_member.html';
-            } else {
-                getStoreListStop();
-            }
-          },
-          error: function error(exception) {
-            alert("數據載入失敗1: " + exception.status);
-          }
-        });
-      } 
+    //   init(); //登入檢查
+    getStoreListStop(); 
+    //   function init() {
+    //     $.ajax({
+    //       method: "POST",
+    //     //   url: "./php/Backend/API/BackendLoginCheck.php",
+    //       url: "./php/Frontend/API/StoreLoginCheck.php",
+    //       data: {},
+    //       dataType: "text",
+    //       success: function success(response) {
+    //         if (response == "") {
+    //           //尚未登入->前往Login.php
+    //           alert('請先登入，將前往登入頁');
+    //           location.href = 'backend_login_member.html';
+    //         } else {
+    //             getStoreListStop();
+    //         }
+    //       },
+    //       error: function error(exception) {
+    //         alert("數據載入失敗1: " + exception.status);
+    //       }
+    //     });
+    //   } 
       // 取得停權商家
       function getStoreListStop(){    
         $.ajax({            

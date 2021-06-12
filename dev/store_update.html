@@ -165,7 +165,11 @@
             
                             <!-- 2顆按鈕用這個 -->
                             <div class="buttonArea">
-                                <input type="" value="取消" class="btn_d btn_cancel" id="store_signUp_back"/>
+                                <a class="StoreUpdate_back_a" href="./store_free.html">
+                                    <button class="btn_cancel">
+                                        取消
+                                    </button>
+                                </a>
                                 <input type="submit" value="送出" class="btn_submit" />
                             </div>
                         </div>
@@ -204,7 +208,6 @@
         @@include('layout/footer.html', {
             "classFtStore" : 'footerThisPage'
           })
-        <script src="js/login_store.js"></script>
         <script>
                 new Vue({
         el: '#storeEdit',
