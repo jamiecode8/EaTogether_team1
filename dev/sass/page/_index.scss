@@ -23,7 +23,7 @@ body.index{
 //----------map背景----------
 .index_map{
     padding:5vh 0;
-    height: 85vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +39,7 @@ body.index{
             width: 110px;
             height: 110px;
             position: absolute;
-            z-index: 500;
+            z-index: 50;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -83,14 +83,9 @@ body.index{
             cursor: pointer;
             width: 18px;
             height: 18px;
-            z-index: 400;
+            z-index:50;
             position: absolute;
             clip: unset;
-        }
-        p{  
-            color:$green;
-            font-style: 14px;
-            z-index: 1001;
         }
     
         //紅線
