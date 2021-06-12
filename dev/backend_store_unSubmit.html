@@ -12,7 +12,7 @@
     @@include('layout/header_backend.html', {
         "classBeS" : 'backendThisPage'
         })
-        <div class="wrapper backendStoreWrapper" id="backendStoreWrapper">
+        <div class="wrapper backendStoreWrapper" id="backendStoreUnsubmitWrapper">
             @@include('layout/backendStoreSubmenu.html', {
                 "classU" : 'backStoreOn'
             })
@@ -330,26 +330,27 @@ new Vue({
 
     mounted() {
       var self = this;
-      init(); //登入檢查
-      function init() {
-        $.ajax({
-          method: "POST",
-          url: "./php/Backend/API/BackendLoginCheck.php",
-          data: {},
-          dataType: "text",
-          success: function success(response) {
-            if (response == "") {
-              alert('請先登入，將前往登入頁');
-              location.href = 'backend_login_member.html';
-            } else {
-                getStoreListUnsubmit();
-            }
-          },
-          error: function error(exception) {
-            alert("數據載入失敗1: " + exception.status);
-          }
-        });
-      } 
+    //   init(); //登入檢查
+    getStoreListUnsubmit(); 
+    //   function init() {
+    //     $.ajax({
+    //       method: "POST",
+    //       url: "./php/Frontend/API/StoreLoginCheck.php",
+    //       data: {},
+    //       dataType: "text",
+    //       success: function success(response) {
+    //         if (response == "") {
+    //           alert('請先登入，將前往登入頁');
+    //           location.href = 'backend_login_member.html';
+    //         } else {
+    //             getStoreListUnsubmit();
+    //         }
+    //       },
+    //       error: function error(exception) {
+    //         alert("數據載入失敗1: " + exception.status);
+    //       }
+    //     });
+    //   } 
       // 撈商家資料
       function getStoreListUnsubmit(){    
         $.ajax({            

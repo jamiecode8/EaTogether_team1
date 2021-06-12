@@ -9,7 +9,6 @@
 
    //執行
    $statement = getPDO()->prepare($sql);
-//    $statement->bindValue(1 , getStoreMemberID()); 
    $statement->execute();
    $data = $statement->fetchAll();
 
