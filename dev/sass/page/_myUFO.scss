@@ -3,6 +3,19 @@
 	background: #fffdd0;
 	overflow: hidden
 }
+// .myUFO_wrapper .myUFO_wrapper2 .Untitled{
+// 	// 這個屬性可以svg穿透點擊
+// 	pointer-events: none;
+	
+// 	position: absolute;
+// 	width: 100%;
+// 	height: 600px;
+// 	z-index: 88;
+// 	margin: 0 auto;
+//       img{
+//            width: 100%;
+// 	  }
+// }
 
 @media all and (min-width:1200px) {
 	.myUFO_wrapper {
@@ -2622,6 +2635,7 @@ progress::-webkit-progress-value {
 
 
 .Speech_circle{
+	pointer-events: none;
 	position: absolute;
 	bottom: 2%;
     right: 38%;

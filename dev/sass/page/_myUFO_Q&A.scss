@@ -12,6 +12,7 @@
   background-attachment:fixed;
   font-family: Arial !important; 
   font-family: Noto Sans !important; 
+
   
 }
 
@@ -187,17 +188,19 @@
     right: 25px;
     top: 38%;
     transition: all 0.2s ease-in-out;
-  
-    
     display: block;
     width: 8px;
     height: 8px;
     border-top: solid 4px #6c584c;
     border-right: solid 4px #6c584c;
-    
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
-    
+  }
+
+  @media all and (max-width:767px) and (min-width:300px){
+    .question:after {
+     display: none;
+    }
   }
   
   .question.open:after {
@@ -217,6 +220,10 @@
     line-height: initial;
   }
 
+  .QA_body .QA_wrapper .bigQA{
+    margin: 100px 0px 0px 0px;
+   
+  }
   // -----------------------------------------------------
 
   .couponicon{
