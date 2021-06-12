@@ -156,6 +156,10 @@
                 <component :address='storeDetail.store_address' :station='storeDetail.station_name'
                     :phone='storeDetail.store_tel' :price='storeDetail.price_interval' :is="inf"></component>
             </div>
+             <!-- 優惠券 -->
+            <div class="btn storeInf_btn">
+                <input v-model="coupon" class="getCouponBtn btn_submit" @click="loginCheck(2)" />
+            </div>
             <!-- 店家照片 -->
             <div class="storeInf_pic slider">
                 <div class="slider-for">
@@ -242,11 +246,7 @@
                 </div>
             </div>
         </div>
-        <!-- 優惠券 -->
-        <div class="btn storeInf_btn">
-            <input v-model="coupon" class="getCouponBtn btn_submit" @click="loginCheck(2)" />
-        </div>
-        <br />
+       
     </form>
 </div>
 <!-- 檢舉店家彈窗 -->

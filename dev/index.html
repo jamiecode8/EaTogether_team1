@@ -37,10 +37,10 @@
             <!------------地圖------------>
             <div class="index_map">
                 <div class="stationSite">
-                    <div class="stationName">
+                    <div class="stationName" @click="searchBystation">
                         <img class="stationLocation" src="./img/icon/icon_locationRed.png" alt="">
                         <h2 v-if="station!='' " class="stationColor">{{station}}</h2>
-                        <h2 v-else>點擊地圖</h2>
+                        <h2 v-else>今天去哪裡</h2>
                     </div>
 
                     <input class="site a" type="radio" name="station" v-model="station" value="淡水"> 
@@ -251,6 +251,10 @@
                             <component :address='storeDetail.store_address' :station='storeDetail.station_name'
                                 :phone='storeDetail.store_tel' :price='storeDetail.price_interval' :is="inf"></component>
                         </div>
+                         <!-- 優惠券 -->
+                        <div class="btn storeInf_btn">
+                            <input v-model="coupon" class="getCouponBtn btn_submit" @click="loginCheck(2)" />
+                        </div>
                         <!-- 店家照片 -->
                         <div class="storeInf_pic slider">
                             <div class="slider-for">
@@ -336,11 +340,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- 優惠券 -->
-                    <div class="btn storeInf_btn">
-                        <input v-model="coupon" class="getCouponBtn btn_submit" @click="loginCheck(2)" />
-                    </div>
-                    <br />
+                   
+                    <!-- <br /> -->
                 </form>
             </div>
             <!-- 檢舉店家彈窗 -->
@@ -911,6 +912,28 @@
                             this.isSearchNothing = true;
                         }
     
+                    },
+                    searchBystation(){
+                        if(this.station !==''){
+                            var site = this;
+                        $.ajax({
+                            method: "POST",
+                            url: "./php/Frontend/API/searchLocation.php",
+                            data: {
+                                station: site.station,
+                            },
+                            dataType: "json",
+                            success: function (response) {
+                                    site.stores=response;
+                            },
+                            error: function (exception) {
+                                alert("數據載入失敗: " + exception.status);
+                            }
+                        });
+                        this.isSearchStores = true;
+                        }else{
+                            alert('請點擊地圖站點！');
+                        }
                     },
                     showStores() {
                         var where = this;

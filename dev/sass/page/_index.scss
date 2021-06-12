@@ -499,11 +499,12 @@ body.index{
             justify-content: space-between;
           
             .storeInf_title_like{
-                  width: 30px;
-                  height: 30px;
-                  align-self: center;
-                  margin-left: 8px;
-                  filter: grayscale(1);      
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                align-self: center;
+                margin-left: 8px;
+                filter: grayscale(1);      
           }
             .getStoreInf_star{
                 margin: 5px 0;
@@ -521,6 +522,7 @@ body.index{
             .storeInf_title_warn{ 
               padding: 5px;
             .storeInf_warnIcon{
+                cursor: pointer;
                 width: 20px;
                 float: right;
                 margin-bottom: 5px;
@@ -537,6 +539,7 @@ body.index{
                 justify-content: space-around;
                 padding:15px 0 10px;
                 .sectionIcon{
+                    cursor: pointer;
                     filter: opacity(0.5);
                 }
                 .sectionIcon.on{
@@ -554,10 +557,10 @@ body.index{
             border-bottom: 2px solid $color;
             margin: 0 auto;
             width: 300px;
-            border-radius: 5px;
             .slider-nav{
                 margin-bottom: 10px;
                 img{
+                    border-radius: 5px;
                     padding: 3px;
                     height:70px;
                     width: 70px;
@@ -570,6 +573,7 @@ body.index{
                 height:300px;
                 margin: 10px auto;
                 img{
+                    border-radius: 5px;
                     height:300px;
                     width: 300px;
                     display: block;
@@ -577,31 +581,9 @@ body.index{
                 }
             }
         }
-        // .storeInf_pic{
-        //     border-bottom: 2px solid $color;
-        //     .storeInf_picMain{
-        //         margin-top:10px;
-        //         width: 300px;
-        //         height: 300px;
-        //     }
-        //     .storeInf_picSection{
-        //         margin-top: 10px;
-        //         margin-bottom: 10px;
-        //         display: flex;
-        //         justify-content: space-between;
-        //         img{
-        //             width:70px;
-        //         }
-        //     }
-           
-        // }
+   
         //店家評論
         .storeInf_comment{
-            // height: 160px;
-            // overflow:auto;
-            border-bottom: 2px solid $color;
-
-
             h2{
                 padding:10px 5px 5px;
             }
