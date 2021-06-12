@@ -4,16 +4,20 @@
 
     
     $collectedStore = $_POST["favorite"];
-    echo "<script> getMemberID()</script>" ;
+    
 
-    insertFavorite($collectedStore,getMemberID());
+    $MemberID = getMemberID();
+    echo  $collectedStore;
+    echo  $MemberID;
+    
+    insertFavorite($collectedStore,$MemberID);
 
-    function insertFavorite($collectedStore,$memberID){
+    function insertFavorite($collectedStore,$MemberID){
         $sql="INSERT INTO Favorites (store_id, member_id, favorites_date) VALUES (?,?, NOW())";
 
         $statement = getPDO()->prepare($sql);
         $statement->bindValue(1, $collectedStore);
-        $statement->bindValue(2, $memberID);
+        $statement->bindValue(2, $MemberID);
         $statement->execute();
     }
 
