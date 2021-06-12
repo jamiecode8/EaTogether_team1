@@ -32,9 +32,14 @@
             </ul>
             <!------------地圖------------>
             <div class="index_map">
-                <!-- <div class="stationSite">
-                    <p class="a">{{station}}</p>
-                    <input class="site a" type="radio" name="station" v-model="station" value="淡水" > 
+                <div class="stationSite">
+                    <div class="stationName">
+                        <img class="stationLocation" src="./img/icon/icon_locationRed.png" alt="">
+                        <h2 v-if="station!='' " class="stationColor">{{station}}</h2>
+                        <h2 v-else>點擊地圖</h2>
+                    </div>
+
+                    <input class="site a" type="radio" name="station" v-model="station" value="淡水"> 
                     <input class="site b" type="radio" name="station" v-model="station" value="101" >
                     <input class="site c" type="radio" name="station" v-model="station" value="信義安和" >
                     <input class="site d" type="radio" name="station" v-model="station" value="大安森林公園" >
@@ -75,7 +80,7 @@
                     <input class="site J" type="radio" name="station" v-model="station" value="台北橋" >
                     <input class="site K" type="radio" name="station" v-model="station" value="徐匯中學" >
                     <input class="site L" type="radio" name="station" v-model="station" value="新莊" >
-                </div> -->
+                </div>
                 <img class="map_slogan" src="./img/index/slogan.png" alt="">
                 <img class="map" src="./img/index/map.png" alt="" />
             </div>
@@ -1149,7 +1154,9 @@
                     getStars(lightStars) {
                             return parseInt(lightStars);
                     },
-    
+                    showStationName(){
+                        this.isStation_a=true;
+                    },
     
     
     
@@ -1187,6 +1194,11 @@
                             filter: `opacity(${this.infoOpacity})`,
                         }
                     },
+                    stationClass() {
+                        return{
+                            color:'red',
+                        }
+                    }
                 },
     
             });
@@ -1209,10 +1221,7 @@
                     focusOnSelect: true,
                 });
             }
-    
-    
-    
-    
+   
         </script>
     </body>
     

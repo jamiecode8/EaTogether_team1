@@ -15,75 +15,122 @@ body.index{
 //----------map背景----------
 .index_map{
     padding:5vh 0;
-    height: 90vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
     @include marginCenter();
     .stationSite{
         position: relative;
-        border:1px solid red;
         width:533px;
         height: 494px;
         position: absolute;
+        .stationName{
+            border-radius: 50%;
+            background-color:transparent;
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            z-index: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            right:150px;
+            .stationLocation{
+                width: 40px;
+                padding-bottom: 10px;
+            }
+          
+        }
+        @keyframes bounce {
+            0% {
+                transform: translateY(0)
+            }
+            25% {
+                transform: scale(1.03) translateY(-15px)
+            }
+            50% {
+                transform: scale(1.03) translateY(-5px)
+            }
+            75% {
+                transform: scale(1.03) translateY(15px)
+            }
+            100% {
+                transform: translateY(0)
+            }
+        }
+        .stationName:hover{
+            background-color:rgba(255,255,255,0.7);
+            cursor: pointer;
+            .stationLocation{
+                transition: all 0.3s;
+                animation: bounce 0.5s infinite;
+            }
+            h2{
+                color: $mrtRed;
+            }
+        }
         .site{
+            cursor: pointer;
             width: 18px;
             height: 18px;
-            z-index: 1000;
+            z-index: 400;
             position: absolute;
             clip: unset;
         }
         p{  
-            color: $green;
+            color:$green;
             font-style: 14px;
             z-index: 1001;
         }
+    
         //紅線
-        .a{ top:16vh;   left: 12vw; }
-        .b{ top:40vh;   right:12vw;}
-        .c{ top:40.5vh; right:14vw;}
-        .d{ top:40.5vh; right:17vw;}
-        .e{ top:41vh;   right:20vw;}
-        .f{ top:37vh;   right:22vw;}
-        .g{ top:28vh;   right:22vw;}
-        .h{ top:24vh;   right:22vw;}
+        .a{ top:105px;    left:155px; }
+        .b{ top:254px;    right:155px;}
+        .c{ top:255px;    right:180px;}
+        .d{ top:260px;    right:225px;}
+        .e{ top:256px;    right:255px;}
+        .f{ top:232px;    right:294px;}
+        .g{ top:170px;    right:292px;}
+        .h{ top:150px;    right:292px;}
 
         //綠線
-        .i{ bottom:20vh;   right:18vw;}
-        .j{ bottom:23vh;   right:18.5vw;}
-        .k{ bottom:26vh;   right:18.6vw;}
-        .l{ bottom:29vh;   right:19.5vw;}
-        .m{ bottom:33vh;   left:16vw;}
-        .n{ bottom:41.5vh; left:16vw;}
-        .o{ bottom:42.5vh; right:16vw;}
-        .p{ bottom:42.5vh; right:14.5vw;}
-        .r{ bottom:43vh;   right:13vw;}
+        .i{ bottom:120px; right:240px;}
+        .j{ bottom:140px; right:243px;}
+        .k{ bottom:160px; right:248px;}
+        .l{ bottom:180px; right:260px;}
+        .m{ bottom:205px; left:215px;}
+        .n{ bottom:258px; left:210px;}
+        .o{ bottom:270px; right:213px;}
+        .p{ bottom:270px; right:196px;}
+        .r{ bottom:270px; right:176px;}
 
         //藍線
-        .s{ bottom:39.5vh; right:12vw;}
-        .t{ bottom:39.5vh; right:13.5vw;}
-        .u{ bottom:39vh;   right:15vw;}
-        .v{ bottom:36.5vh;   left:12vw;}
-        .w{ bottom:35vh;   left:11vw;}
-        .x{ bottom:32vh;   left:11.3vw;}
-        .y{ bottom:29vh;   left:11.5vw;}
+        .s{ bottom:245px; right:160px;}
+        .t{ bottom:244px; right:178px;}
+        .u{ bottom:243px; right:195px;}
+        .v{ bottom:225px; left:150px;}
+        .w{ bottom:208px; left:151px;}
+        .x{ bottom:190px; left:153px;}
+        .y{ bottom:173px; left:155px;}
 
         //棕線
-        .z{ bottom:26vh;   right:12vw;}
-        .A{ bottom:29vh;   right:15vw;}
-        .B{ bottom:46vh;   right:16.5vw;}
-        .C{ bottom:49vh;   right:16.5vw;}
-        .D{ bottom:49.5vh;   right:15vw;}
-        .E{ bottom:50vh;   right:13vw;}
-        .F{ bottom:46vh;   right:11vw;}
+        .z{ bottom:168px; right:160px;}
+        .A{ bottom:190px; right:180px;}
+        .B{ bottom:290px; right:215px;}
+        .C{ bottom:308px; right:217px;}
+        .D{ bottom:315px; right:200px;}
+        .E{ bottom:317px; right:180px;}
+        .F{ bottom:280px; right:145px;}
 
         //黃線
-        .G{ bottom:27vh;   left:16.5vw;}
-        .H{ bottom:39vh;   right:19.5vw;}
-        .I{ bottom:42vh;   right:19.5vw;}
-        .J{ top:31vh;   left:11vw;}
-        .K{ top:23vh;   left:9vw;}
-        .L{ top:35vh;   left:10vw;}
+        .G{ bottom:160px; left:215px;}
+        .H{ bottom:240px; right:258px;}
+        .I{ bottom:260px; right:261px;}
+        .J{ top:200px;    left:145px;}
+        .K{ top:143px;    left:118px;}
+        .L{ top:220px;    left:128px;}
     }
   
     .map_slogan{
@@ -108,6 +155,7 @@ body.index{
 //----------map背景end----------
 //----------搜尋按鈕----------
 .index_searchbtn{
+    cursor: pointer;
     position:fixed;
     right:20px;
     bottom: 15%;
@@ -174,6 +222,7 @@ body.index{
             li{
                 padding-left: 10px;
                 line-height:36px;
+                cursor: pointer;
             }
             li:hover{
                 background-color: $lightgreen;
@@ -287,6 +336,7 @@ body.index{
             img{
                 width:50px;
                 padding-bottom: 5px;
+                cursor: pointer;
             }
             p{
                 color: $mrtRed;
@@ -348,6 +398,7 @@ body.index{
                 position: absolute;
                 right:10px;
                 top:50px;
+                cursor: pointer;
             }
         }
         h1{
@@ -630,13 +681,8 @@ body.index{
         // border: 1px solid violet;
         .index_map{
          
-            .stationSite{
-                border:1px solid blue;
-                width: 47vw;
-                height: 45vw;
-            }
             .map{
-                width:47vw;
+                // width:47vw;
             }
         }
         .et{
@@ -662,7 +708,7 @@ body.index{
                 display: none;
             }
             .map{
-                width:55vw;
+                // width:55vw;
             }
         }
         .et{
@@ -686,13 +732,19 @@ body.index{
     .index_wrapper{
         // border: 1px solid red;
         .index_map{
-            height: 80vh;
+                // width:400px;
+                // height: 380px;
             .map_slogan{
                 display: none;
 
             }
             .map{
-                width: 65vw;
+                width:400px;
+                height: 380px;
+                
+            }
+            .stationSite{
+                display: none;
             }
         }
         .et{
@@ -748,7 +800,11 @@ body.index{
 
             }
             .map{
-                width:80vw;
+                width:320px;
+                height: 300px;
+            }
+            .stationSite{
+                display: none;
             }
         }
         .et{
