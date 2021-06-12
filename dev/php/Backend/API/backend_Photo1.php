@@ -3,7 +3,7 @@
 
     //建立SQL
 
-     $sql = "SELECT * FROM photo_report NATURAL JOIN photo WHERE photo_id = ?";
+    $sql = "SELECT * FROM photo WHERE photo_id = ?";
     
     //執行
     $statement = getPDO()->prepare($sql);
