@@ -14,7 +14,7 @@
             <img class="joinAlien" src="./img/story/joinAlien.png">
 
             <div class="popUps store_signUp" id="storeEdit">
-                <form method="" action="" class="form storeLogin_signup" enctype="multipart/form-data" >
+                <div class="form storeLogin_signup" enctype="multipart/form-data" >
                     <!-- close button -->
                     <button type="button" class="btn_close" id="store_signUp_close">
                         <a href="./store_free.html">
@@ -34,28 +34,28 @@
                                     <!-- <button class="store_signUp_editIcon"> -->
                                     </button>
                                 </div>
-                                <input type="text" name="store_name" :value="name" />
-                                <input type="text" name="store_tel"  :value="tel" />
-                                <input type="text" name="store_address"  :value="address" />
+                                <input type="text" name="store_name" :value="name" @change="checkName"/>
+                                <input type="text" name="store_tel" :value="tel" @change="checkTel"/>
+                                <input type="text" name="store_address" :value="address" @change="checkAdd"/>
                             </section>
                             <!-- 聯絡資訊 -->
                             <section class="store_signUp_basicInfo">
                                 <div class="store_signUp_title">
                                     <h2>聯絡資訊</h2>
                                 </div>
-                                <input type="text" name="contact_name" :value="conName"/>
-                                <input type="text" name="contact_tel" :value="conTel" />
-                                <input type="text" name="contact_email" :value="conMail"/>
+                                <input type="text" name="contact_name" :value="conName" @change="checkConName"/>
+                                <input type="text" name="contact_tel" :value="conTel" @change="checkConAdd"/>
+                                <input type="text" name="contact_email" :value="conMail" @change="checkConMail"/>
                             </section>
                             <!-- 進階資料 -->
-                            <!-- <section class="store_signUp_basicInfo">
+                            <section class="store_signUp_basicInfo">
                                 <div class="store_signUp_title">
                                     <h2>進階資料</h2>
                                 </div>
                                 <h2 class="store_signUp_h2">客單價</h2>
                                 <div class="login_price">
-                                    <input type="text" id="login_price_choice" placeholder="選擇價格區間" class="input" v-model="selectedPrice"/>
-                                    隱藏欄位
+                                    <input type="text" :value="defPrice" class="input"/>
+                                    <!-- 隱藏欄位 -->
                                     <input type="hidden" name="price_id" v-model="selectedPriceId" value="price_id"/>
                                     <img class="login_price_arrow" src="./img/icon/icon_next_line.png" @click="price_board_show">
                                     <ul class="login_price_select" v-show="close_price_board">
@@ -65,8 +65,8 @@
             
                                 <h2 class="store_signUp_h2">鄰近捷運站</h2>
                                 <div class="login_store_station">
-                                    <input type="text" id="login_station_choice" class="input" v-model="selectedStation" placeholder="選擇鄰近站點" disabled/>
-                                    隱藏欄位
+                                    <input type="text" :value="defStation" class="input"/>
+                                    <!-- 隱藏欄位 -->
                                     <input type="hidden" value="station_id"  class="input" v-model="selectedStationId" name="station_id"/>
                                     
                                     <img class="login_station_arrow" src="./img/icon/icon_next_line.png" alt="" @click="stations_board_show">
@@ -74,17 +74,17 @@
             
                                 <h2 class="store_signUp_h2">選擇關鍵字(最多三個)</h2>
                                 <div class="login_tag">
-                                    <input type="text" placeholder="喜好標籤" disabled v-model="selectedTag" />
-                                    隱藏欄位
-                                    <input type="hidden" placeholder="喜好標籤" name="tag_id1" v-model="selectedTag1" value="tag_id1"/>
-                                    <input type="hidden" placeholder="喜好標籤" name="tag_id2"v-model="selectedTag2" value="tag_id2" />
-                                    <input type="hidden" placeholder="喜好標籤" name="tag_id3" value="tag_id3" v-model="selectedTag3"/>
+                                    <input type="text" :value="defTags"  />
+                                    <!-- 隱藏欄位 喜好標籤 -->
+                                    <input type="hidden" name="tag_id1" v-model="selectedTag1" value="tag_id1"/>
+                                    <input type="hidden" name="tag_id2"v-model="selectedTag2" value="tag_id2" />
+                                    <input type="hidden" name="tag_id3" value="tag_id3" v-model="selectedTag3"/>
                                     <img class="login_tag_add" src="./img/icon/icon_add_line.png" alt="" @click="tags_board_show">
                                 </div>
-                            </section> -->
+                            </section>
                             
                             <!-- 商家照片 -->
-                            <!-- <section class="store_signUp_basicInfo">
+                            <section class="store_signUp_basicInfo">
                                 <div class="store_signUp_title">
                                     <h2>商家照片</h2>
                                 </div>
@@ -96,30 +96,30 @@
                                     <div class="store_imgArea_dropArea">
                                         <div class="store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">形象海報</h3>
-                                            <div id="dropZone1" class="store_imgArea_dropZone">
-                                                <img id="store_image1" class="store_imgArea_image">
-                                                <div class="picUpload" id="picUpload">
-                                                    <input type="file" id="theFile1" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
+                                            <div class="store_imgArea_dropZone">
+                                                <img class="store_imgArea_image" :src="[`./img/upload/food/`+ memberData.image_img]">
+                                                <div class="picUpload">
+                                                    <input type="file" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
                                                     <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">店景</h3>
-                                            <div id="dropZone2" class="store_imgArea_dropZone">
-                                                <img id="store_image2" class="store_imgArea_image">
-                                                <div class="picUpload" id="picUpload2">
-                                                    <input type="file" id="theFile2" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
+                                            <div class="store_imgArea_dropZone">
+                                                <img class="store_imgArea_image" :src="[`./img/upload/food/`+ memberData.store_img]">
+                                                <div class="picUpload" >
+                                                    <input type="file" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案" name="file[]"/>
                                                     <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">菜單</h3>
-                                            <div id="dropZone3" class="store_imgArea_dropZone">
-                                                <img id="store_image3" class="store_imgArea_image">
-                                                <div class="picUpload" id="picUpload3">
-                                                    <input type="file" id="theFile3" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
+                                            <div class="store_imgArea_dropZone">
+                                                <img class="store_imgArea_image" :src="[`./img/upload/food/`+ memberData.menu_img]">
+                                                <div class="picUpload" >
+                                                    <input type="file" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
                                                     <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                                 </div>
                                             </div>
@@ -129,31 +129,31 @@
                                     <div class="store_imgArea_dropArea">
                                         <div class="store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                            <div id="dropZone4" class="store_imgArea_dropZone">
-                                                <img id="store_image4" class="store_imgArea_image">
-                                                <div class="picUpload" id="picUpload4">
-                                                    <input type="file" id="theFile4" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
+                                            <div class="store_imgArea_dropZone">
+                                                <img class="store_imgArea_image" :src="[`./img/upload/food/`+ memberData.food1_img]">
+                                                <div class="picUpload" >
+                                                    <input type="file" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
                                                     <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                            <div id="dropZone5" class="store_imgArea_dropZone">
-                                                <img id="store_image5" class="store_imgArea_image">
-                                                <div class="picUpload" id="picUpload5">
-                                                    <input type="file" id="theFile5" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
+                                            <div class="store_imgArea_dropZone">
+                                                <img class="store_imgArea_image" :src="[`./img/upload/food/`+ memberData.food2_img]">
+                                                <div class="picUpload" >
+                                                    <input type="file" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
                                                     <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="store_imgArea_picEdit">
                                             <h3 class="store_imgArea_subtitle">餐點照</h3>
-                                            <div id="dropZone6" class="store_imgArea_dropZone">
+                                            <div class="store_imgArea_dropZone">
                                                 <p class="store_imgArea_dropHere">請將檔案拖放置此</br>或</p>
-                                                <img id="store_image6" class="store_imgArea_image">
-                                                <div class="picUpload" id="picUpload6">
-                                                    <input type="file" id="theFile6" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
+                                                <img class="store_imgArea_image" :src="[`./img/upload/food/`+ memberData.food3_img]">
+                                                <div class="picUpload">
+                                                    <input type="file" class="btn_upload store_imgArea_uploadPicButton" value="選擇檔案"  name="file[]"/>
                                                     <button class="btn_submit btn_uploadCover ">選擇檔案</button>
                                                 </div>
                                             </div>
@@ -161,16 +161,18 @@
                                         
                                     </div>
                                 </div>
-                            </section> -->
+                            </section>
             
                             <!-- 2顆按鈕用這個 -->
                             <div class="buttonArea">
-                                <a class="StoreUpdate_back_a" href="./store_free.html">
+                                <a href="./store_free.html">
                                     <button class="btn_cancel">
                                         取消
                                     </button>
                                 </a>
-                                <input type="submit" value="送出" class="btn_submit" />
+                                <button @click="editStoreDetail" class="btn_submit">
+                                    送出
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -317,21 +319,29 @@
             close_price_board: false,
         },
         methods: {
-            getPrice(price){
-                this.selectedPrice = price.text;
-                this.selectedPriceId = price.value;
-                this.close_price_board = false;
+            checkName(e){
+                this.name = e.target.value;
+            },
+            checkTel(e){
+                this.tel = e.target.value;
+            },
+            checkAdd(e){
+                this.address = e.target.value;
+            },
+            checkConName(e){
+                this.conName = e.target.value;
+            },
+            checkConAdd(e){
+                this.conTel = e.target.value;
+            },
+            checkConMail(e){
+                this.conMail = e.target.value;
             },
             price_board_show(){
                 this.close_price_board = !this.close_price_board;
             },
             close_price_board_btn(){
                 this.close_price_board = !this.close_price_board;
-            },
-            getStation(station){
-                this.selectedStation = station.text;
-                this.selectedStationId = station.value;
-                this.close_station_board = false;
             },
             stations_board_show(){
                 this.close_station_board = !this.close_station_board;
@@ -340,18 +350,6 @@
             close_station_board_btn(){
                 this.close_station_board = !this.close_station_board;
             },
-            getTags(tag){
-                if(this.selectedTag.includes(tag.text)){
-                    return false
-                 }
-                if(this.selectedTag.length >= 3){
-                    this.selectedTag.pop(tag.text);
-                }                  
-                this.selectedTag.unshift(tag.text); 
-                this.selectedTag1 = this.selectedTag[0];
-                this.selectedTag2 = this.selectedTag[1];
-                this.selectedTag3 = this.selectedTag[2];
-            },
             tags_board_show(){
                 this.close_tags_board = !this.close_tags_board;
                 this.close_station_board = false;
@@ -359,10 +357,39 @@
             close_tags_board_btn(){
                 this.close_tags_board = !this.close_tags_board;
             },
+            editStoreDetail(e){    
+            var self = this;
+            var storeId = this.memberData.store_id;
+            var storeNameEdited = this.name;
+            var storeTelEdited = this.tel;
+            var storeAddressEdited = this.address;
+            var storeConNameEdited = this.conName;
+            var storeConTelEdited = this.conTel;
+            var storeConMailEdited = this.conMail;
+            $.ajax({            
+                method: "POST",
+                url: "./php/Frontend/API/storeUpdateFront.php",
+                data:{ 
+                    storeId,
+                    storeNameEdited, 
+                    storeTelEdited,
+                    storeAddressEdited,
+                    storeConNameEdited, 
+                    storeConTelEdited,
+                    storeConMailEdited, 
+                },            
+            success: function (response) {
+                alert('修改成功')
+                // location.reload();
+            },
+            error: function(exception) {
+                console.log(exception);
+            }
+        });
+        },
         },
         mounted() {
       var self = this;  
-      // function init() {
         $.ajax({
           method: "POST",
           url: "./php/Frontend/API/StoreLoginCheck.php",
@@ -381,8 +408,6 @@
             alert("數據載入失敗1: " + exception.status);
           }
         });
-      // } // 撈商家資料
-  
 
       function getStoreMember() {
         $.ajax({
@@ -391,7 +416,6 @@
           data: {},
           dataType: "json",
           success: function success(response) {
-            // setTimeout(displayStore(response), 1000); //等照片撈好再出現
             displayStore(response);
           },
           error: function error(exception) {
@@ -399,13 +423,11 @@
             alert("數據載入失敗2: " + exception.status);
           }
         });
-      } //顯示商家資料
+      } 
   
     //不同等級出現不同內容
       function displayStore(response) {
         self.memberData = response[0];
-        console.log(self.memberData);
-        // self.bottomArea = self.memberData.store_level;
         self.name = self.memberData.store_name;
         self.tel = self.memberData.store_tel;
         self.address = self.memberData.store_address;
