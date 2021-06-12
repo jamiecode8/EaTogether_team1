@@ -100,7 +100,7 @@
                         <!-- 企業 -->
                         <form class="form upgradeInfoConfirm_formC" v-if="infoChoice == 1">
                             <input type="text" placeholder="公司抬頭" required/>
-                            <input type="number" placeholder="統一編號" pattern="\d{8}" required/>
+                            <input type="num" placeholder="統一編號" pattern="\d{8}" required/>
                             <input type="text" placeholder="登記地址" required/>
                             <input type="text" placeholder="聯絡人" v-model="toName" required/>
                             <input type="email" placeholder="電子信箱" v-model="toMail" required/>
@@ -120,10 +120,10 @@
                         </form>
                         <!-- 個人 -->
                         <form class="form upgradeInfoConfirm_formP" id="upgradeInfo_personal_form"  v-if="infoChoice == 2" >
-                            <input type="text" placeholder="姓名" v-model="toName" required/>
+                            <input type="text" placeholder="姓名" v-model="toName"/>
                             <input type="text" placeholder="地址" required/>
-                            <input type="email" placeholder="電子信箱" v-model="toMail" required/>
-                            <input type="number" placeholder="聯絡電話" oninput="if(value.length>10)value=value.slice(0,10)" required/>
+                            <input type="email" placeholder="電子信箱" v-model="toMail"/>
+                            <input type="number" placeholder="聯絡電話" oninput="if(value.length>10)value=value.slice(0,10)"/>
                             <div class="priceChoice">
                                 <p>{{option}}</p>
                             </div>
@@ -162,9 +162,9 @@
                                 <br>
 
                                 <label for="validDate" class="card_label">有效日期</label>
-                                <input type="text" id="validDate" /><br>
-                                <label for="cvv" class="card_label">安全碼</label>
-                                <input type="number" maxlength="3" id="ccv" v-model="ccv" />
+                                <input type="num" id="validDate" pattern="\d{4}"/><br>
+                                <label for="cvv" class="card_label" >安全碼</label>
+                                <input type="num" maxlength="3" id="ccv" v-model="ccv" pattern="\d{3}"/>
                                 <div class="priceChoice">
                                     <p>{{option}}</p>
                                 </div>
