@@ -3,10 +3,11 @@
     include("../../Lib/Member.php");    
     
     //回傳session檢查結果
-    $photo_id = 1;  // getSessionB();
+    // $photo_id = 1;  // getSessionB();
     // exit();
     //取得POST過來的值
     // $CID = $_POST["CID"]; //PK
+    $photo_id =  $_POST["id"];
     $Status = $_POST["Status"]; 
 
     //建立SQL
