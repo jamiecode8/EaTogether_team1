@@ -67,8 +67,8 @@
             $("#photoL").append(
               `<tr>
                  <td>${row.photo_id}</td>
-                 <td>${row.member_id}</td>
-                 <td>${row.photo_img}</td>
+                 <td>${row.photo_username}</td>
+                 <td><img src='./img/upload/food/${row.photo_img}' width='100' height='100' /></td>
                  <td>${row.photo_time}</td>
                  <td>${status}</td>
                  <td><img onclick="myfunction(${row.photo_id})" class="Edit_action" src="./img/icon/icon_edit.png" alt="" /></td>
@@ -179,7 +179,7 @@
             <table id="photoL" class="backend_photo_table">
               <tr>
                 <th>拍立得編號</th>
-                <th>會員編號</th>
+                <th>會員名稱</th>
                 <th>拍立得</th>
                 <th>發文時間</th>
                 <th>發文狀態</th>
