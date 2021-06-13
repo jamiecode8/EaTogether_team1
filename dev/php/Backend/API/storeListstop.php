@@ -4,7 +4,9 @@
 
    //建立SQL
    $sql = "SELECT *
-   FROM store r join station t on r.station_id = t.station_id
+   FROM store 
+   join station on store.station_id = station.station_id
+   join price on price.price_id = store.price_id
    where store_status = 2";
 
    //執行

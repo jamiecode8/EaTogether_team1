@@ -173,7 +173,7 @@
                                     <section class="backend_store_editForm_editArea">
                                     <div class="login_price">
                                         <h2 class="backendStore_h2">商家審核</h2>
-                                        <input type="text" placeholder="狀態" class="input" v-model="selectedSubmit"/>
+                                        <input type="text" placeholder="審核狀態" class="input" v-model="selectedSubmit"/>
                                         <!-- 隱藏欄位 -->
                                         <input type="hidden" name="editSubmit_id" v-model="selectedSubmitId" value="editStatus_id"/>
                                         <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="submit_board_show">
@@ -183,7 +183,7 @@
                                     </div>
                                     <div class="login_price">
                                         <h2 class="backendStore_h2">商家等級</h2>
-                                        <input type="text" placeholder="狀態" class="input" v-model="selectedLevel"/>
+                                        <input type="text" placeholder="等級" class="input" v-model="selectedLevel"/>
                                         <!-- 隱藏欄位 -->
                                         <input type="hidden" name="editLevel_id" v-model="selectedLevelId" value="editStatus_id"/>
                                         <img class="storeBack_arrow" src="./img/icon/icon_next_line.png" @click="level_board_show">
@@ -321,7 +321,7 @@ new Vue({
     },
     computed: {
         totalPage(){
-            return Math.ceil(150 / this.countOfPage);
+            return Math.ceil(20 / this.countOfPage);
         },
         pageStart(){ //index: 0-7, 8-15, 16-23, 24...
             return (this.currentPage - 1) * this.countOfPage;

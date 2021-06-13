@@ -323,7 +323,7 @@ new Vue({
     },
     computed: {
         totalPage(){
-            return Math.ceil(120 / this.countOfPage);
+            return Math.ceil(130 / this.countOfPage);
         },
         pageStart(){ //index: 0-7, 8-15, 16-23, 24...
             return (this.currentPage - 1) * this.countOfPage;

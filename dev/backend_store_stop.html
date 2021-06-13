@@ -312,7 +312,7 @@ new Vue({
     computed: {
         // filteredRows(){}, //如果要過濾資料，可以使用這個方法
         totalPage(){
-            return Math.ceil(30 / this.countOfPage);
+            return Math.ceil(20 / this.countOfPage);
         },
         pageStart(){ //index: 0-7, 8-15, 16-23, 24...
             return (this.currentPage - 1) * this.countOfPage;
