@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   @@include('layout/style.html')
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <title>外食故事</title>
 </head>
 
@@ -15,14 +16,14 @@
   })
   <div class="wrapper story_wrapper"> 
     <!-- 這裡面編輯 -->
-    <img class="story_Alien" src="./img/story/storyAlien1.png" alt="">
-    <img class="storyTitle" src="./img/index/slogan.png" alt="">
-    <img class="mrtAlien" src="./img/story/mrtAlien.png" alt="">
-    <img class="story_map" src="./img/index/map.png" alt="">
-    <img class="story_Alien2" src="./img/story/storyAlien3.png" alt="">
-    <div class="storySection">
+    <img class="story_Alien" src="./img/story/storyAlien1.png" alt="" data-aos="fade-up" data-aos-offset="300">
+    <img class="storyTitle" src="./img/index/slogan.png" alt="" data-aos="fade-down" data-aos-offset="50" >
+    <img class="mrtAlien" src="./img/story/mrtAlien.png" alt="" data-aos="fade-right" data-aos-offset="300">
+    <img class="story_map" src="./img/index/map.png" alt="" data-aos="fade-left" data-aos-offset="300">
+    <img class="story_Alien2" src="./img/story/storyAlien3.png" alt="" >
+    <div class="storySection" >
       <div class="sectionPart">
-        <div class="paragraph">
+        <div class="paragraph" data-aos="fade-down" data-aos-offset="300">
           <h1>外食故事</h1>
           <p>是不是常常為了吃什麼煩惱呢？想嘗試沒有買過的店家，是不是害怕踩雷！
             這個是大家都有的煩惱，希望這個平台能夠達到資訊對等，透過我們的審核機制嚴選出優良店家，讓大家吃得安心，
@@ -34,7 +35,7 @@
     </div>
     <div class="storySection">
       <div class="sectionPart">
-        <div class="paragraph">
+        <div class="paragraph"  data-aos="fade-down" data-aos-offset="300">
           <h1>外食地圖</h1>
           <p>地圖範圍我們選取最貼近大家的交通工具捷運來做規劃。我們精選了各個站點的美食店家，透過搜尋的方式可以直接搜尋該站點，
             或者搜尋食物類別我們都會直接顯示出捷運站點，為大家帶來更便利的搜尋。
@@ -45,7 +46,7 @@
     </div>
     <div class="storySection">
       <div class="sectionPart">
-        <div class="paragraph">
+        <div class="paragraph"  data-aos="fade-down" data-aos-offset="300">
           <h1>外食星人</h1>
           <p>外星人會為了新的能源離開原本的星球，而我們會為了新的美食而開始進行搜尋，我們可以在我的飛碟中創建自己的外食星人，另外還可以透過搜尋方式獲得點數，利用這些點數來添購小配件裝飾外食星人。
           </p>
@@ -68,7 +69,10 @@
   @@include('layout/footer.html')
   @@include('layout/searchVue.html')
 
- 
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 </body>
 

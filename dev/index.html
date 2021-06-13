@@ -8,8 +8,7 @@
         <title>外食Eat起來</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" /> -->
-        <link rel="shortcut icon" href="./img/favioion.ico" />
-        <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     </head>
     <style>
    
@@ -35,8 +34,8 @@
                 </li>
             </ul>
             <!------------地圖------------>
-            <div class="index_map">
-                <div class="stationSite">
+            <div class="index_map" >
+                <div class="stationSite" data-aos="fade-down" data-aos-offset="100">
                     <div class="stationName" @click="searchBystation">
                         <img class="stationLocation" src="./img/icon/icon_locationRed.png" alt="">
                         <h2 v-if="station!='' " class="stationColor">{{station}}</h2>
@@ -86,12 +85,12 @@
                     <input class="site L" type="radio" name="station" v-model="station" value="新莊" >
                 </div>
                 <img class="map_slogan" src="./img/index/slogan.png" alt="">
-                <img class="map" src="./img/index/map.png" alt="" />
+                <img class="map" src="./img/index/map.png" alt=""  data-aos="zoom-in" data-aos-offset="200">
             </div>
     
     
             <!-- ----------裝飾外星人---------- -->
-            <img class="et" src="./img/index/et.svg" alt="">
+            <img class="et" src="./img/index/et.svg" alt=""  data-aos="zoom-in-right" data-aos-offset="100">
     
             <!-- ----------whatToEat彈窗---------- -->
             <!-- q1 -->
@@ -365,7 +364,11 @@
             </div>
         </div>
         @@include('layout/footer.html')
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>        
         <script>
             const bus = new Vue();
             Vue.component('popup-1', {
