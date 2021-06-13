@@ -46,7 +46,7 @@
                                 <li><a href="myphoto.html">推薦拍立得</a></li>
                                 <li><a href="myphoto_personal_page.html">我的拍立得</a></li>
                                 <li><a href="myphoto_post_pic.html">製作拍立得</a></li>
-                                <li><a href="#">我的追蹤</a></li>
+                                <li><a href="myphoto_follows.html">我的追蹤</a></li>
                             </ul>
                         </section>
                     </div>
@@ -271,7 +271,7 @@
                     template:
                      `<li>
                         <!-- 照片連結 -->
-                        <a href="#"><img class="pho_cards_pic" src= "./img/upload/food/ch_a4.png"
+                        <a href="#"><img class="pho_cards_pic"  :src="./img/upload/food/ {{foodimg}}"
                             alt=""></a>
 
                         <div class="pho_vender_thumb_message">
