@@ -10,11 +10,8 @@
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" /> -->
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     </head>
-    <style>
-   
-    </style>
-    <body class="index">
-        <div>
+    <body class="index" id="SKIP">
+        <div id="loading">
         <img src="./img/mimi/Animation.svg" alt="" class="Animation">
         <!-- <button type="button" onclick="">Click Me!</button> -->
         </div>
@@ -103,7 +100,6 @@
 
             <!-- 搜尋彈窗 -->
             <div class="popUps index_search_popup" v-show="isSearchBoard">
-                <!-- <form class="form getSearch" method="post" action="./php/Frontend/API/search.php"> -->
                 <form class="form getSearch">
 
                     <button type="button" class="getSearchClose btn_close" @click='closeSearch(1)'>
@@ -1251,7 +1247,12 @@
                     focusOnSelect: true,
                 });
             }
-   
+            let skip = document.getElementById('SKIP');
+            skip.addEventListener('click',function(){
+                $('#loading').css("display","none");
+            })
+           
+
         </script>
     </body>
     
