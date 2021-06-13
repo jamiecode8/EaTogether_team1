@@ -96,5 +96,24 @@ $('.btn_close').click(function () {
   $('#myUFO_wardrobe_popUps_car').fadeOut(200);
 });
 
+
+    function init(){
+          $.ajax({            
+            method: "POST",
+            url: "./php/Frontend/API/LoginCheck.php",
+            data:{},            
+            dataType: "text",
+            success: function (response) {
+                if(response == ""){
+                  alert('請先登入，將前往登入頁'); 
+                  location.href = 'login_member.html';                
+                }else{
+                  getData();
+                }
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            },
+        });
+      };  
     
-   

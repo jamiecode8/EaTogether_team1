@@ -363,8 +363,8 @@
        </button> -->
 
         <div>
-            <input type="button" value="取消購買" id="cancel_payment" class="btn_close  myUFO_wardrobebuy_btn wardrobebuy_btnbtn">
-            <input type="button" value="確認購買" id="confirm_payment" class="myUFO_btn_close btn_submit myUFO_wardrobebuy_btn">
+            <input type="button" value="取消購買" id="cancel_payment " class="btn_close  myUFO_wardrobebuy_btn wardrobebuy_btnbtn">
+            <input type="button" value="確認購買" id="confirm_payment" class="myUFO_btn_close btn_submit myUFO_wardrobebuy_btn" onload="init()">
         </div>
     </form>
 </div>
@@ -532,7 +532,7 @@ $("#return_btn").click(function() {
                             if (point > 600) {
                                 point -= 600;
                                 $("#total_point").html(point);
-                                    popup_announcement("購買完成，成功穿上" + key)
+                                    popup_announcement("購買完成，更換成功" + key)
                                     clickSetStatus(key);
                                 $("#own_" + key).css('visibility', 'visible');
                                 popup_announcement("購買完成")
@@ -546,7 +546,7 @@ $("#return_btn").click(function() {
             )
         }); // 關閉彈窗
         $("#own_" + key).click(function() {
-                popup_announcement("成功穿上" + key);
+                popup_announcement("更換成功");
                 clickSetStatus(key);
             });
     });
