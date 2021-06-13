@@ -22,38 +22,60 @@
                         <div class="memberInfo_edit_imgArea"></div>
                         <!-- 右邊文字區 -->
                         <div class="memberInfo_edit_textArea">
-                            <input_email></input_email>
+                            <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> e-mail </span>
+                                <input type="email":value="name" name="member_email" @change="checkName"
+                                    disabled="disabled" />
+                            </div>
                             <div class="memberInfo_edit_area">
                                 <span class="memberInfo_edit_area_title"> 密碼</span>
-                                <input type="password" placeholder="1234566" value="1234566" id="myPassword" disabled />
+                                <input type="password" :value="password" name="member_password" id="myPassword" @change="checkPassword" disabled />
                                 <!-- 查看密碼按鈕 scss寫在_btn -->
                                 <button class="showPassword"></button>
                                 <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_password"
                                     @click="open_forgetPassword_verification"></button>
                             </div>
-                            <input_name></input_name>
-                            <input_birthday></input_birthday>
-                            <input_phone></input_phone>
+                            <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> 暱稱</span>
+                                <input type="text" :value="nickname" name="member_name"  @change="checkNickname" :disabled="disabled == 1"/>
+                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                                </button>
+                            </div>
+                            <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> 生日 </span>
+                                <input type="num" placeholder="1900-01-31" :value="birthday" name="member_birthday"  @change="checkBirthday" :disabled="disabled == 1"/>
+                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                                </button>
+                            </div>
+                            <div class="memberInfo_edit_area">
+                                <span class="memberInfo_edit_area_title"> 電話 </span>
+                                <input type="num" :value="tel" name="member_phone" @change="checkTel" :disabled="disabled == 1"/>
+                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                                </button>
+                            </div>
                             <!-- 站點 -->
                             <div class="memberInfo_edit_area">
                                 <span class="memberInfo_edit_area_title"> 最愛捷運站點</span>
-                                <input type="text" id="login_station_choice" class="input" v-model="selectedStation"
-                                    placeholder="選擇最愛站點" disabled>
+                                <input type="text" id="login_station_choice" class="input"
+                                    :value="defStation" disabled>
                                 <!-- 隱藏欄位 -->
-                                <input type="hidden" value="station_id"  class="input" v-model="selectedStationId" name="station_id"/>
+                                <input type="hidden" value="station_id" class="input" v-model="selectedStationId"
+                                    name="station_id"/>
                                 <button class="memberInfo_edit_editIcon" id="memberInfo_editIcon_station"
                                     @click="stations_board_show">
                                 </button>
                             </div>
                             <!-- 喜好標籤 -->
                             <div class="memberInfo_edit_area">
-                                <span class="memberInfo_edit_area_title"> 喜好標籤</span>
-                                <input type="text" placeholder="喜好標籤" disabled 
-                                    v-model="selectedTag" />
+                                <span class="memberInfo_edit_area_title"> 喜好標籤(最多三個)</span>
+                                <input type="text" disabled :value="defTags" />
                                 <!-- 隱藏欄位 -->
-                                <input type="hidden" placeholder="喜好標籤" name="tag_id1" v-model="selectedTag1" value="tag_id1" v-model="selectedTagId"/>
-                                <input type="hidden" placeholder="喜好標籤" name="tag_id2"v-model="selectedTag2" value="tag_id2" v-model="selectedTagId"/>
-                                <input type="hidden" placeholder="喜好標籤" name="tag_id3" value="tag_id3" v-model="selectedTag3"v-model="selectedTagId"/>    
+                                <input type="hidden" name="tag_id1" v-model="selectedTag1"
+                                    value="tag_id1" />
+                                <input type="hidden" name="tag_id2" v-model="selectedTag2"
+                                    value="tag_id2" />
+                                <input type="hidden" name="tag_id3" value="tag_id3"
+                                    v-model="selectedTag3" />
                                 <button class="memberInfo_edit_editIcon memberInfo_edit_editIcon_tag"
                                     @click="tags_board_show">
                                 </button>
@@ -62,8 +84,8 @@
                     </div>
                     <!-- 單顆按鈕用這裡 -->
                     <div class="btn">
-                        <a href="./index.html">
-                            <input type="" value="送出" class="btn_submit memberInfo_edit_submit" />
+                        <a>
+                            <input @click="MemberModifyDetail" class="btn_submit memberInfo_edit_submit" placeholder="送出"/>
                         </a>
                     </div>
                 </form>
@@ -124,6 +146,14 @@
         new Vue({
             el: '#app',
             data: {
+                memberData: null,
+                name: null,
+                password:  null,
+                nickname:  null,
+                birthday: null,
+                tel: null,
+                defStation: null,
+                defTags: null,
                 blueStation: [{
                         text: '市政府',
                         value: 17
@@ -400,7 +430,8 @@
                 password_register: '',
                 account_register_msg: true,
                 password_register_msg: true,
-                disabled: true,
+                // disabled: true,
+                disabled: 1,
             },
             watch: {
                 account: function () {
@@ -443,6 +474,21 @@
                 },
             },
             methods: {
+                checkName(e){
+                this.name = e.target.value;
+                },
+                checkPassword(e){
+                    this.password = e.target.value;
+                },
+                checkNickname(e){
+                    this.nickname = e.target.value;
+                },
+                checkBirthday(e){
+                    this.birthday = e.target.value;
+                },
+                checkTel(e){
+                    this.tel = e.target.value;
+                },
                 open_forgetPassword_verification() {
                     this.forgetPassword_verification = !this.forgetPassword_verification;
                 },
@@ -482,90 +528,170 @@
                 close_tags_board_btn() {
                     this.close_tags_board = !this.close_tags_board;
                 },
+                isTypeable() {
+                    this.disabled = (this.disabled + 1) % 2;
+                },
+                MemberModifyDetail(e) {
+                    var self = this;
+                    var memberId = this.memberData.member_id;
+                    var memberNameEdited = this.name;
+                    var memberPasswordEdited = this.password;
+                    var memberNicknameEdited = this.nickname;
+                    var memberBirthdayEdited = this.birthday;
+                    var memberTelEdited = this.tel;
+                    $.ajax({
+                        method: "POST",
+                        url: "./php/Frontend/API/MemberUpdate.php",
+                        data: {
+                            memberId,
+                            memberNameEdited,
+                            memberPasswordEdited,
+                            memberNicknameEdited,
+                            memberBirthdayEdited,
+                            memberTelEdited,
+                        },
+                        success: function (response) {
+                            alert('修改成功')
+                            location.href = 'index.html'
+                        },
+                        error: function (exception) {
+                            console.log(exception);
+                        }
+                    });
+                },
+            },
+            mounted() {
+                var self = this;
+                $.ajax({
+                    method: "POST",
+                    url: "./php/Frontend/API/MemberModifyLoginCheck.php",
+                    data: {},
+                    dataType: "text",
+                    success: function success(response) {
+                        if (response == "") {
+                            //尚未登入->前往Login.php
+                            alert('請先登入，將前往登入頁');
+                            location.href = 'login_member.html';
+                        } else {
+                            getMember();
+                        }
+                    },
+                    error: function error(exception) {
+                        alert("數據載入失敗1: " + exception.status);
+                    }
+                });
+
+                function getMember() {
+                    $.ajax({
+                        method: "POST",
+                        url: "./php/Frontend/API/MemberModify.php",
+                        data: {},
+                        dataType: "json",
+                        success: function success(response) {
+                            displayStore(response);
+                        },
+                        error: function error(exception) {
+                            alert(exception.responseText);
+                            alert("數據載入失敗2: " + exception.status);
+                        }
+                    });
+                }
+
+                //不同等級出現不同內容
+                function displayStore(response) {
+                    self.memberData = response[0];
+                    self.name = self.memberData.member_email;
+                    self.password = self.memberData.member_password;
+                    self.nickname = self.memberData.member_name;
+                    self.birthday = self.memberData.member_birthday;
+                    self.tel = self.memberData.member_phone;
+                    self.defStation = self.memberData.station_name;
+                    self.defTags = self.memberData.tag_name;
+                }
             },
             computed: {},
             components: {
-                input_email: {
-                    props: [],
-                    data() {
-                        return {}
-                    },
-                    template: `
-                            <div class="memberInfo_edit_area">
-                                <span class="memberInfo_edit_area_title"> e-mail </span>
-                                <input type="email" placeholder="tibame@gmail.com" value="tibame@gmail.com"
-                                    disabled="disabled" />
-                            </div>
-                        `,
-                    methods: {},
-                    computed: {},
-                },
-                input_name: {
-                    props: [],
-                    data() {
-                        return {
-                            disabled: 1,
-                        }
-                    },
-                    template: `
-                             <div class="memberInfo_edit_area">
-                                <span class="memberInfo_edit_area_title"> 暱稱</span>
-                                <input type="text" placeholder="南京林志玲" value="" name="" :disabled="disabled == 1"/>
-                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
-                                </button>
-                            </div>
-                        `,
-                    methods: {
-                        isTypeable() {
-                            this.$data.disabled = (this.$data.disabled + 1) % 2;
-                        },
-                    },
-                    computed: {},
-                },
-                input_birthday: {
-                    props: [],
-                    data() {
-                        return {
-                            disabled: 1,
-                        }
-                    },
-                    template: `
-                             <div class="memberInfo_edit_area">
-                                <span class="memberInfo_edit_area_title"> 生日 </span>
-                                <input type="num" placeholder="1999/09/09" value="" name="" :disabled="disabled == 1"/>
-                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
-                                </button>
-                            </div>
-                        `,
-                    methods: {
-                        isTypeable() {
-                            this.$data.disabled = (this.$data.disabled + 1) % 2;
-                        },
-                    },
-                    computed: {},
-                },
-                input_phone: {
-                    props: [],
-                    data() {
-                        return {
-                            disabled: 1,
-                        }
-                    },
-                    template: `
-                             <div class="memberInfo_edit_area">
-                                <span class="memberInfo_edit_area_title"> 電話 </span>
-                                <input type="num" placeholder="0919919978" value="" name="" :disabled="disabled == 1"/>
-                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
-                                </button>
-                            </div>
-                        `,
-                    methods: {
-                        isTypeable() {
-                            this.$data.disabled = (this.$data.disabled + 1) % 2;
-                        },
-                    },
-                    computed: {},
-                },
+                // input_email: {
+                //     props: [],
+                //     data() {
+                //         return {}
+                //     },
+                //     template: `
+                //             <div class="memberInfo_edit_area">
+                //                 <span class="memberInfo_edit_area_title"> e-mail </span>
+                //                 <input type="email" placeholder="tibame@gmail.com" value="tibame@gmail.com"
+                //                     disabled="disabled" />
+                //             </div>
+                //         `,
+                //     methods: {},
+                //     computed: {},
+                // },
+                // input_name: {
+                //     props: [],
+                //     data() {
+                //         return {
+                //             disabled: 1,
+                //         }
+                //     },
+                //     template: `
+                //              <div class="memberInfo_edit_area">
+                //                 <span class="memberInfo_edit_area_title"> 暱稱</span>
+                //                 <input type="text" placeholder="南京林志玲" value="" name="" :disabled="disabled == 1"/>
+                //                 <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                //                 </button>
+                //             </div>
+                //         `,
+                //     methods: {
+                //         isTypeable() {
+                //             this.$data.disabled = (this.$data.disabled + 1) % 2;
+                //         },
+                //     },
+                //     computed: {},
+                // },
+                // input_birthday: {
+                //     props: [],
+                //     data() {
+                //         return {
+                //             disabled: 1,
+                //         }
+                //     },
+                //     template: `
+                //              <div class="memberInfo_edit_area">
+                //                 <span class="memberInfo_edit_area_title"> 生日 </span>
+                //                 <input type="num" placeholder="1999/09/09" value="" name="" :disabled="disabled == 1"/>
+                //                 <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                //                 </button>
+                //             </div>
+                //         `,
+                //     methods: {
+                //         isTypeable() {
+                //             this.$data.disabled = (this.$data.disabled + 1) % 2;
+                //         },
+                //     },
+                //     computed: {},
+                // },
+                // input_phone: {
+                //     props: [],
+                //     data() {
+                //         return {
+                //             disabled: 1,
+                //         }
+                //     },
+                //     template: `
+                //              <div class="memberInfo_edit_area">
+                //                 <span class="memberInfo_edit_area_title"> 電話 </span>
+                //                 <input type="num" placeholder="0919919978" value="" name="" :disabled="disabled == 1"/>
+                //                 <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                //                 </button>
+                //             </div>
+                //         `,
+                //     methods: {
+                //         isTypeable() {
+                //             this.$data.disabled = (this.$data.disabled + 1) % 2;
+                //         },
+                //     },
+                //     computed: {},
+                // },
             },
         })
     </script>
