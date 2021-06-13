@@ -9,16 +9,181 @@
       <!-- swiper CDN -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>    
-@@include('layout/style.html')
+<!-- 有要連的CDN放這裡，記得寫註解! -->
+<link rel="stylesheet" href="./css/style.css" />
+<!-- favicon -->
+<link rel="shortcut icon" href="./img/favioion.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
+<!-- 新增的js檔放這裡，記得寫註解! -->
+<!-- jQuery CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+<!-- 共用的js -->
+<script src="js/style.js" async></script>
+
+<!-- chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Vue.js CDN-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+
+<!-- email.js CDN -->
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+    emailjs.init("user_ReqEW2MXqgQehsAN6DYV5");
+    })();
+</script>
+<!-- smtp.js CDN -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<!-- slick CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+<!-- axios CDN -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- html2canvas -->
+<script src="https://unpkg.com/html2canvas@1.0.0-rc.7/dist/html2canvas.js"></script>
+
 
   <title>更衣間</title>
  
 </head>
 
 <body class="myUFO_wardrobe_body" onload="getRole()">
-    @@include('layout/header.html', {
-        "classFO" : 'pageUFO'
-      })
+    <header>
+	<div class="headerInner">
+		<!-- Logo -->
+		<a href="./index.html" class="logo">
+			<img src="./img/logo.png" alt="" />
+		</a>
+		<!-- 會員頭像 class="header" => el-->
+		<div id="header_popups_container" @click="header_toggle" class="header">
+			<!-- headerInner_login => 頭像 -->
+			<div class="headerInner_login " id="headerInner_login" data-target="header_avatar">
+				<!-- 彈窗 -->
+				<div class="popUps popUpsLogout" id="header_popup" v-show="toggle">
+					<div class="form popUpsLogout_from" data-target="header_popup">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 漢堡圖 -->
+		<div class="ham" id="ham_icon">
+			<span class="ham_top"></span>
+			<span class="ham_middle"></span>
+			<span class="ham_bottom"></span>
+		</div>
+
+		<div class="header_overlay" id="header_overlay">
+			<nav class="header_overlay_menu">
+				<ul>
+					<li class="header_list header_inner_logo">
+						<a href="./index.html">
+						</a>
+					</li>
+					<li class="header_list header_inner_myUFO pageUFO">
+						<a href="./myUFO.html">
+							<span class="header_list_span">我的飛碟</span>
+						</a>
+					</li>
+					<li class="header_list header_inner_myPhoto @@classFP">
+						<a href="./myphoto.html">
+							<span class="header_list_span">美食拍立得</span>
+						</a>
+					</li>
+					<li class="header_list header_inner_aboutUs @@classFU">
+						<a href="./story.html">
+							<span class="header_list_span">外食故事</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<script>
+	// 打開漢堡
+	$('#ham_icon').click(function () {
+		$(this).toggleClass('active');
+		$('#header_overlay').toggleClass('open');
+	});
+
+	// 滑鼠往下滾，header就會出現底色
+	var prevScrollpos = window.pageYOffset;
+	window.onscroll = function () {
+		var currentScrollPos = window.pageYOffset;
+		if (prevScrollpos > currentScrollPos) {
+			$('header').css('background', 'transparent')
+		} else {
+			$('header').css('background', 'rgba(251,255,232,0.5)')
+		}
+		prevScrollpos = currentScrollPos;
+	}
+
+	// 會員登出與修改資料的彈窗
+	new Vue({
+		el: '.header',
+		data: {
+			toggle: false,
+		},
+		methods: {
+			header_toggle() {
+				this.toggle = !this.toggle;
+				// this.loginCheck();
+			},
+		},
+	});
+
+	(function (res) {
+		axios
+			.get("./php/Frontend/API/Member_Login_Check.php")
+			.then((res) => {
+				const data = res.data;
+				if(data != ''){
+					header_popup_login(data);
+					header_avatar(); 
+				}else{
+					header_popup_login_not(data);
+				};
+				// console.log(data);
+			})
+	})();
+
+	function header_popup_login(data) {
+		// console.log(data);
+		const header_popup = document.querySelector('[data-target="header_popup"]');
+		header_popup.innerHTML = `
+				<img src="./img/tang/ET004.png">
+				<div>
+					<a><p class="popUpsLogout_p"><span>${data}</span></p></a>
+					<a href="./login_member_modify.html">
+						<p class="popUpsLogout_p">修改會員資料</p>    
+					</a>
+					<a href='./php/Frontend/API/Member_Logout.php'>
+						<p class="popUpsLogout_p">登出</p>
+					</a>
+				</div>
+		`
+	};
+
+	function header_popup_login_not(data) {
+		// console.log(data);
+		const header_popup = document.querySelector('[data-target="header_popup"]');
+		header_popup.innerHTML = `
+				<a href="./login_member.html">
+					<p class="popUpsLogout_p">登入/註冊</p>    
+				</a>
+		`
+	};
+
+	function header_avatar(){
+		$('[data-target="header_avatar"]').css('background-image', "url('./img/header_story.png')");
+	}
+
+
+</script>
+
 
   <!-- -----------------------------------===----- -->
   <div class="wrapper wardrobe_wrapper" id="app_myufo_wardrobe">
@@ -169,6 +334,7 @@
                     </div>
                 </div>
             </div>
+           
     </div>
     </section>
 </div>
@@ -202,7 +368,73 @@
     </form>
 </div>
 
-@@include('layout/footer.html')
+<footer class="myFooter">
+    <div class="footerLogo">
+       <a href="./index.html"><img src="./img/logo.png" alt=""></a> 
+    </div>
+    <div class="logoCopyright">
+         <img src="./img/index/slogan.png"alt="">
+        <p>tiabame@copyright</p>
+    </div>
+    <ul class="ourWeb">
+      <li class="contact">
+        <p>聯絡我們</p>
+        <img class="contactInf" src="./img/contact.png" alt="">
+      </li>
+      <li class="@@classFtStore">
+        <a href="./login_store.html">加入地圖</a>
+      </li>
+      <li class=" @@classFtTeam">
+        <a href="./develope.html">團隊介紹</a>
+      </li>
+      <li class="@@classFtFaq">
+        <a href="./myUFO_Q&A.html" >常見問題</a>
+      </li>
+    </ul>
+  </footer>
+  <script>
+  $('.contact').click(function (){
+          $('.contactInf').toggleClass('on');
+      });
+  </script>
+  
+<!-- <footer>
+    <div>
+        <ul class="footer_nav">
+            <li>
+                <a href="/login_store.html">加入地圖</a>
+            </li>
+            <li>
+                <a href="/develope.html"></a>
+            </li>
+            <li>
+                <a href="/myUFO_Q&A.html">常見問題</a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <ul class="ourInfo">
+            <li>
+                <img src="./img/icon/icon_tel.png" alt="" class="tel" />
+                <p>02-2888-888</p>
+            </li>
+            <li>
+                <img src="./img/icon/icon_mail.png" alt="" class="mail" />
+                <p>tibame@gmail.com</p>
+            </li>
+            <li>
+                <img src="./img/icon/icon_location.png" alt="" class="add" />
+                <p>南京東路三段219號</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="copyright">
+        <p>tiabame@copyright</p>
+    </div>
+</footer> -->
+
 <script>
     $('.contact').click(function() {
         $('.contactInf').toggleClass('on');
@@ -266,7 +498,7 @@
                                 value = 1;
                                 $("#own_" + key).css("opacity", "1");
                             } else {
-                                popup_announcement("只剩" + point + "<br><br>餘額不足<br><br>請加油!")
+                                popup_announcement("只剩" + point + "&nbsp;餘額不足<br><br>可以到常見問題查詢如何獲得點數")
                             }
                         }
                     }

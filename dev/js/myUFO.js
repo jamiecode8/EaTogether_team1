@@ -45,7 +45,7 @@ $('.btn_close').click(function () {
 
 $(".buybtn").click(
   function () {
-    $(this).text("已領取");
+    $(this).text("已兌換");
     $(this).addClass("buyed");
   }
 );

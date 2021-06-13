@@ -6,16 +6,181 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-	@@include('layout/style.html')
+	<!-- 有要連的CDN放這裡，記得寫註解! -->
+<link rel="stylesheet" href="./css/style.css" />
+<!-- favicon -->
+<link rel="shortcut icon" href="./img/favioion.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
+<!-- 新增的js檔放這裡，記得寫註解! -->
+<!-- jQuery CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+<!-- 共用的js -->
+<script src="js/style.js" async></script>
+
+<!-- chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Vue.js CDN-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+
+<!-- email.js CDN -->
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+    emailjs.init("user_ReqEW2MXqgQehsAN6DYV5");
+    })();
+</script>
+<!-- smtp.js CDN -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<!-- slick CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+<!-- axios CDN -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- html2canvas -->
+<script src="https://unpkg.com/html2canvas@1.0.0-rc.7/dist/html2canvas.js"></script>
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<title>我的飛碟</title>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 </head>
 <body class="myUFO_wrapper">
-	@@include('layout/header.html', {
-    "classFO" : 'pageUFO'
-  })
+	<header>
+	<div class="headerInner">
+		<!-- Logo -->
+		<a href="./index.html" class="logo">
+			<img src="./img/logo.png" alt="" />
+		</a>
+		<!-- 會員頭像 class="header" => el-->
+		<div id="header_popups_container" @click="header_toggle" class="header">
+			<!-- headerInner_login => 頭像 -->
+			<div class="headerInner_login " id="headerInner_login" data-target="header_avatar">
+				<!-- 彈窗 -->
+				<div class="popUps popUpsLogout" id="header_popup" v-show="toggle">
+					<div class="form popUpsLogout_from" data-target="header_popup">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 漢堡圖 -->
+		<div class="ham" id="ham_icon">
+			<span class="ham_top"></span>
+			<span class="ham_middle"></span>
+			<span class="ham_bottom"></span>
+		</div>
+
+		<div class="header_overlay" id="header_overlay">
+			<nav class="header_overlay_menu">
+				<ul>
+					<li class="header_list header_inner_logo">
+						<a href="./index.html">
+						</a>
+					</li>
+					<li class="header_list header_inner_myUFO pageUFO">
+						<a href="./myUFO.html">
+							<span class="header_list_span">我的飛碟</span>
+						</a>
+					</li>
+					<li class="header_list header_inner_myPhoto @@classFP">
+						<a href="./myphoto.html">
+							<span class="header_list_span">美食拍立得</span>
+						</a>
+					</li>
+					<li class="header_list header_inner_aboutUs @@classFU">
+						<a href="./story.html">
+							<span class="header_list_span">外食故事</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<script>
+	// 打開漢堡
+	$('#ham_icon').click(function () {
+		$(this).toggleClass('active');
+		$('#header_overlay').toggleClass('open');
+	});
+
+	// 滑鼠往下滾，header就會出現底色
+	var prevScrollpos = window.pageYOffset;
+	window.onscroll = function () {
+		var currentScrollPos = window.pageYOffset;
+		if (prevScrollpos > currentScrollPos) {
+			$('header').css('background', 'transparent')
+		} else {
+			$('header').css('background', 'rgba(251,255,232,0.5)')
+		}
+		prevScrollpos = currentScrollPos;
+	}
+
+	// 會員登出與修改資料的彈窗
+	new Vue({
+		el: '.header',
+		data: {
+			toggle: false,
+		},
+		methods: {
+			header_toggle() {
+				this.toggle = !this.toggle;
+				// this.loginCheck();
+			},
+		},
+	});
+
+	(function (res) {
+		axios
+			.get("./php/Frontend/API/Member_Login_Check.php")
+			.then((res) => {
+				const data = res.data;
+				if(data != ''){
+					header_popup_login(data);
+					header_avatar(); 
+				}else{
+					header_popup_login_not(data);
+				};
+				// console.log(data);
+			})
+	})();
+
+	function header_popup_login(data) {
+		// console.log(data);
+		const header_popup = document.querySelector('[data-target="header_popup"]');
+		header_popup.innerHTML = `
+				<img src="./img/tang/ET004.png">
+				<div>
+					<a><p class="popUpsLogout_p"><span>${data}</span></p></a>
+					<a href="./login_member_modify.html">
+						<p class="popUpsLogout_p">修改會員資料</p>    
+					</a>
+					<a href='./php/Frontend/API/Member_Logout.php'>
+						<p class="popUpsLogout_p">登出</p>
+					</a>
+				</div>
+		`
+	};
+
+	function header_popup_login_not(data) {
+		// console.log(data);
+		const header_popup = document.querySelector('[data-target="header_popup"]');
+		header_popup.innerHTML = `
+				<a href="./login_member.html">
+					<p class="popUpsLogout_p">登入/註冊</p>    
+				</a>
+		`
+	};
+
+	function header_avatar(){
+		$('[data-target="header_avatar"]').css('background-image', "url('./img/header_story.png')");
+	}
+
+
+</script>
+
 
   <div class="wrapper myUFO_wrapper2">
     <!-- <div class="Untitled">
@@ -128,9 +293,822 @@
    </div>
   <!-- ---------------------search---------------------  -->
   <div id="app">
-    @@include('layout/search.html')
+    <!-- ----------搜尋按鈕---------- -->
+<ul class="index_searchbtn" id="mySearchBtn">
+    <li class="search_btn_Search" @click='searchIcon'>
+        <img src="./img/index/search.png" alt="">
+        <p>美食搜尋</p>
+    </li>
+</ul>
+
+
+<!-- 搜尋彈窗 -->
+<div class="popUps index_search_popup" v-show="isSearchBoard">
+    <!-- <form class="form getSearch" method="post" action="./php/Frontend/API/search.php"> -->
+    <form class="form getSearch">
+
+        <button type="button" class="getSearchClose btn_close" @click='closeSearch(1)'>
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <h1>Search</h1>
+        <div class="searchFood text_search">
+            <h2>搜尋美食</h2>
+            <input :class="findFoodClass" type="text" :disabled="isTyped" v-model="findFood"
+                @click='showTag(1)'>
+
+            <img src="./img/icon/icon_search.png" alt="">
+        </div>
+        <div class="searchFood mrt_search">
+            <h2>捷運路線</h2>
+            <input :class="searchLineClass" type="text" disabled="disabled" v-model="searchLine">
+            <img class="mrt_search_icon" src="./img/icon/icon_next_line.png" alt="" @click='showLine'
+                name="searchByLine">
+            <ul class="mrtLines" v-show="isShowLine">
+                <li v-for="line in mrtLine" @click="myline(line)">{{line}}</li>
+            </ul>
+        </div>
+        <div class="searchFood  keyword_search">
+            <h2>標籤搜尋</h2>
+            <input :class="searchTagsClass" type="text" disabled="disabled" v-model="searchTags"
+                name="searchByTag">
+            <img class="keyword_search_icon" src="./img/icon/icon_add_line.png" alt="" @click="showTag(3)">
+        </div>
+        <div class="searchWarn" v-show="isSearchNothing"><img src="./img/index/warn1.png" alt="">
+            <p>Ｏpps!沒有完成搜尋</p>
+        </div>
+
+
+        <div class="SearchBtn btn">
+            <input value="出發探索" class="getSearchBtn btn_submit" @click='searchFood()'>
+        </div>
+
+    </form>
+</div>
+<!-- 標籤彈窗     -->
+<div class="popUps tags_popUp" v-show="isShowTag" >
+    <form action="#資料傳送送的網址"  class="form getTags">
+        <button type="button" class="getSearchClose btn_close" @click="closeSearch(4)">
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <h2>請選擇標籤</h2>
+        <div class="searchTags">
+            <span v-for="tag in tags" @click="myTag(tag)">{{tag}}</span>
+        </div>
+    </form>
+</div>
+<!-- 搜尋結果彈窗 -->
+<div class="popUps index_store_popup" v-show="isSearchStores">
+    <form class="form getStore" action="">
+        <button type="button" class="getSearchClose btn_close" @click="closeSearch(2)">
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <div class="searchFood text_search">
+            <h1 class="text_search_title" @click='searchIcon'>搜尋美食</h1>
+            <input type="text" v-model="findFood">
+            <img src="./img/icon/icon_search.png" alt="" @click="searchSomething">
+        </div>
+        <!-- 店家名單 -->
+        <div class="getStoreInf_search">
+            <div class="getStoreInf" @click="finalStoreInf(store)" v-for="store in stores">
+                <ul class="getStoreInf_digital">
+                    <li class="getStoreInf_name">
+                        <h2>{{store.store_name}}</h2>
+                    </li>
+                            <li class="getStoreInf_star">
+                                <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
+                                <div v-for="darkStar in 1"><img src="./img/icon/icon_star_default.png"
+                                        alt=""></div>
+                            </li>
+                    <li class="getStoreInf_station">
+                        <p>捷運站:{{store.station_name}}站</p> <!--  判斷是哪一個站給他該線顏色 -->
+                        <!-- <span class="station_color">{{store.Station}}</span> -->
+
+                    </li>
+                    <li class="getStoreInf_tag">
+                        <span>{{store.store_tag1}}</span>
+                        <span>{{store.store_tag2}}</span>
+                        <span>{{store.store_tag3}}</span>
+
+
+                    </li>
+                </ul>
+                <img class="getStoreInf_pic" :src="[`./img/upload/food/`+store.store_img]" alt="">
+            </div>
+        </div> <!-- 後端要抓全部total筆數 -->
+        <p class="searchTotal">共 <span>{{stores.length}}</span> 筆</p>
+    </form>
+</div>
+<!-- 店家詳細資訊 -->
+<div class="popUps index_inf_popup" v-show="isStoreInf">
+    <form class="form getStoreDigitalInf" action="">
+        <button type="button" class="getSearchClose btn_close" @click="closeSearch(3)">
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <div class="searchFood text_search">
+            <h1 class="text_search_title">搜尋美食</h1>
+            <input type="text" v-model="findFood">
+            <img src="./img/icon/icon_search.png" alt="" @click="searchSomething">
+        </div>
+        <!-- 店家基本資訊 -->
+        <div class="storeInf" v-if="storeDetail">
+            <div class="storeInf_title">
+                <img class="storeInf_title_like" @click="loginCheck(1)" :style="collectionClass"
+                    src="./img/icon/icon_heart.png" alt="">
+                <div>
+                    <h2 class="storeInf_title_name">{{storeDetail.store_name}}</h2>
+                    <!-- <h2 class="storeInf_title_name">{{store.name}}</h2> -->
+                    <div class="getStoreInf_star">
+                        <div v-for="star in 4"><img src="./img/icon/icon_star.png" alt=""></div>
+                        <div v-for="darkStar in 1"><img
+                                src="./img/icon/icon_star_default.png" alt=""></div>
+                        <!-- <div v-for="star in store.star"><img src="./img/icon/icon_star.png" alt=""></div>
+                            <div v-for="darkStar in store.star"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
+                    </div>
+                    <div class="getStoreInf_tag">
+                        <span>{{storeDetail.store_tag1}}</span>
+                        <span>{{storeDetail.store_tag2}}</span>
+                        <span>{{storeDetail.store_tag3}}</span>
+
+                    </div>
+                </div>
+                <div class="storeInf_title_warn">
+                    <img class="storeInf_warnIcon" src="./img/icon/icon_warn.png" alt=""
+                        @click="getStoreReported" :style="signOpacity">
+                </div>
+            </div>
+            <!-- 基本資訊icon     -->
+            <div class="storeInf_section">
+                <ul class="storeInf_sectionIcon">
+                    <li class="sectionIcon sectionIcon_location" :class="{'on' : inf === 'location'}"><img
+                            src="./img/icon/icon_location.png" alt="" @click="inf='location'"></li>
+                    <li class="sectionIcon sectionIcon_mrt" :class="{'on' : inf === 'station'}"><img
+                            src="./img/icon/icon_mrt.png" alt="" @click="inf='station'"></li>
+                    <li class="sectionIcon sectionIcon_tel" :class="{'on' : inf === 'phone'}"><img
+                            src="./img/icon/icon_tel.png" alt="" @click="inf='phone'"></li>
+                    <li class="sectionIcon sectionIcon_price" :class="{'on' : inf === 'price'}"><img
+                            src="./img/icon/icon_price.png" alt="" @click="inf='price'"></li>
+                </ul>
+                <component :address='storeDetail.store_address' :station='storeDetail.station_name'
+                    :phone='storeDetail.store_tel' :price='storeDetail.price_interval' :is="inf"></component>
+            </div>
+            <!-- 店家照片 -->
+            <div class="storeInf_pic slider">
+                <div class="slider-for">
+                    <img :src="[`./img/upload/food/`+storeDetail.food1_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.food2_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.food3_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.menu_img]" alt="">
+                </div>
+                <div class="slider-nav">
+                    <img :src="[`./img/upload/food/`+storeDetail.food1_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.food2_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.food3_img]" alt="">
+                    <img :src="[`./img/upload/food/`+storeDetail.menu_img]" alt="">
+                </div>
+            </div>
+
+            <!-- 評論 -->
+            <div class="storeInf_comment">
+                <h2>評論</h2>
+                <div class="storeInf_comments">
+                    <ul class="storeInf_commentMain" v-for="comment in storeComments">
+                        <li class="commentMain_account">
+                            <img src="./img/index/account.png" alt="">
+                            <p>{{comment.member_name}}</p>
+                        </li>
+
+                        <li class="commentMain_star">
+                            <div v-for="star in getStars(comment.store_star)">
+                                <img src="./img/icon/icon_star.png" alt="">
+                            </div>
+                            <div v-for="darkStar in 5 - getStars(comment.store_star)">
+                                <img src="./img/icon/icon_star_default.png" alt="">
+                            </div>
+                        </li>
+
+                        <li class="commentMain_comment">
+                            <p>{{comment.photo_text}}</p>
+                        </li>
+                    </ul>
+                    <ul class="storeInf_commentMain">
+                        <li class="commentMain_account">
+                            <img src="./img/index/account.png" alt="">
+                            <!-- <img :src="store.commentMemberPic" alt=""> -->
+                            <p>挑惕小公主</p>
+                            <!-- <p>{{store.commentMember}}</p> -->
+                        </li>
+
+                        <li class="commentMain_star">
+                            <div v-for="star in 2"><img src="./img/icon/icon_star.png" alt="">
+                            </div>
+                            <div v-for="darkStar in 3"><img
+                                    src="./img/icon/icon_star_default.png" alt=""></div>
+                            <!-- <div v-for="star in store.commentStar"><img src="./img/icon/icon_star.png" alt=""></div>
+                                <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
+                        </li>
+
+                        <li class="commentMain_comment">
+                            <p>沒有金湯匙我不接受</p>
+                            <!-- <p>{{store.comment}}</p> -->
+                        </li>
+                    </ul>
+                    <ul class="storeInf_commentMain">
+                        <li class="commentMain_account">
+                            <img src="./img/index/account.png" alt="">
+                            <!-- <img :src="store.commentMemberPic" alt=""> -->
+                            <p>信義小辣椒</p>
+                            <!-- <p>{{store.commentMember}}</p> -->
+                        </li>
+
+                        <li class="commentMain_star">
+                            <div v-for="star in 5"><img src="./img/icon/icon_star.png" alt="">
+                            </div>
+                            <div v-for="darkStar in 0"><img
+                                    src="./img/icon/icon_star_default.png" alt=""></div>
+                            <!-- <div v-for="star in store.commentStar"><img src="./img/icon/icon_star.png" alt=""></div>
+                                <div v-for="darkStar in 5-store.commentStar"><img src="./img/icon/icon_star_default.png" alt=""></div> -->
+                        </li>
+
+                        <li class="commentMain_comment">
+                            <p>抓住我的胃了</p>
+                            <!-- <p>{{store.comment}}</p> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 優惠券 -->
+        <div class="btn storeInf_btn">
+            <input v-model="coupon" class="getCouponBtn btn_submit" @click="loginCheck(2)" />
+        </div>
+        <br />
+    </form>
+</div>
+<!-- 檢舉店家彈窗 -->
+<div class="popUps index_searcReport_popup" v-show="isSearchReport">
+    <form class="form getReport" action="">
+        <button type="button" class="getReportClose btn_close" @click="closeSearch(5)">
+            <img src="./img/icon/icon_close_20.png" alt="">
+        </button>
+        <h1>我要檢舉</h1>
+        <div class="reportReason">
+            <img src="./img/index/warn2.png" alt="">
+            <h2>檢舉原因:</h2>
+            <textarea class="reportReason_text" name="" id="" cols="30" rows="5" v-model="report"
+                placeholder="請留下原因 管理員會盡快處理！"></textarea>
+        </div>
+        <div class="reportBtn btn">
+            <input @click='sendReport' value="檢舉" class="getReportBtn btn_submit" />
+        </div>
+
+    </form>
+</div>
   </div>
-  @@include('layout/searchVue.html')
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>        
+        <script>
+            Vue.component('location', {
+                props: ['address'],
+                template: `
+                <p class="sectionIconInf">地址: {{address}}</p>
+                `,
+                data() {
+                    return {
+                    };
+                },
+                mounted() {
+                },
+                methods: {
+                    // getInf(){
+                    //     this.$emit('storeinf-emit');
+                    // },
+                },
+            });
+            Vue.component('station', {
+                props: ['station'],
+                template: `
+                <p class="sectionIconInf">捷運站: {{station}}</p>
+                `,
+            });
+            Vue.component('phone', {
+                props: ['phone',],
+                template: `
+                <p class="sectionIconInf">電話: {{phone}}</p>
+                `,
+            });
+            Vue.component('price', {
+                props: ['price'],
+                template: `
+                <p class="sectionIconInf">平均消費: {{price}}</p>
+                `,
+            });
+            //search
+            new Vue({
+                el: '#app',
+                data: {
+                    choices: [],//whatToEat答案
+                    whatToEat: '',
+                    isSearchBoard: false,
+                    isWhatToEat: true,
+                    isShowLine: false,
+                    mrtLine: ['板南線', '淡水信義線', '松山新店線', '文湖線', '中和新蘆線'],
+                    searchLine: '',
+                    findFood: '',
+                    searchTags: '',
+                    isShowTag: false,
+                    tags: ['日式', '韓式', '美式', '義式', '台式', '法式', '中式', '夜市', '商業午餐', '早午餐', '下午茶', '銅板美食', '簡餐', '聚餐', '餐酒館', '咖啡', '甜點', '麵食', '鹽酥雞', '雞排', '咖哩', '火鍋', '牛排', '拉麵', '鐵板燒','義大利麵'],
+                    isTyped: false,
+                    content: '',//question compoment
+                    isSearchStores: false,
+                    isStoreInf: false,
+                    stores: [],//ajax
+                    isSearchNothing: false,
+                    isSearchReport: false,
+                    heartGrayscale: 1,
+                    warnOpacity: 0.5,
+                    coupon: '領取優惠',
+                    report: '',
+                    inf: '',
+                    infoOpacity: 1,
+                    storeComments:[],
+                    storeDetail: null,
+                    member_id:null,
+                    couponContent:'EaT起來85折券',
+                },
+                methods: {
+                    //whatToEat
+                    nextQ() {
+                        this.content = String(parseInt(this.content) + 1);
+                    },
+                    preQ() {
+                        this.content = String(parseInt(this.content) - 1);
+                    },
+                    answerQ(selected) {
+                        let index = parseInt(this.content) - 1;
+                        this.choices[index] = selected;
+                    },
+                    getFoodQ() {
+                        this.choices[0] = this.choices[0][0];
+                        switch (this.choices[2]) {
+                            case '義大利':
+                                this.choices[2] = '義式';
+                                this.whatToEat = '義大利麵';
+                                break;
+                            case '美國':
+                                this.choices[2] = '美式';
+                                this.whatToEat = '牛排';
+                                break;
+                            case '留在台灣':
+                                this.choices[2] = '台式';
+                                this.whatToEat = '雞排';
+                                break;
+                            case '日本':
+                                this.choices[2] = '日式';
+                                this.whatToEat = '咖哩';
+                                break;
+                        }
+                        
+                    },
+                    closeQ() {
+                        this.content = '';
+                        this.choices = ['', '', '', ''];
+                    },
+                    againQ() {
+                        this.content = '1';
+                        this.choices = ['', '', '', ''];
+                    },
+    
+                    //search
+                    closeSearch(number) {
+                        if (number == 1) {
+                            this.isSearchBoard = false;
+                            this.searchLine = '';
+                            this.findFood = '';
+                            this.searchTags = '';
+                            this.isSearchNothing = false;
+                        } else if (number == 2) {
+                            this.isSearchStores = false;
+                            this.findFood = '';
+    
+                        } else if (number == 3) {
+                            this.isStoreInf = false;
+                            this.findFood = '';
+                        } else if (number == 4) {
+                            this.isShowTag = false;
+                        } else if (number == 5) {
+                            this.isSearchReport = false;
+                            this.warnOpacity = 0.5;
+                        }
+    
+                    },
+                    show() {
+                        this.optionList = !this.optionList;
+                    },
+                    closeSearchBoard() {
+                        if (this.content = 1) {
+                            this.isSearchBoard = false;
+                        }
+                    },
+                    //打開搜尋彈窗
+                    searchIcon() {
+                        this.isSearchBoard = !this.isSearchBoard;
+                        this.isSearchStores = false;
+                        this.isStoreInf = false;
+                        this.content = "";
+                    },
+                    //捷運線選單
+    
+                    showLine() {
+                        this.isShowLine = !this.isShowLine;
+                    },
+                    myline(line) {
+                        this.searchLine = line;
+                        this.isShowLine = false;
+                        this.isSearchNothing = false;
+                    },
+                    myTag(tag) {
+                        this.searchTags = tag;
+                        this.isShowTag = false;
+                    },
+                    showTag(number) {
+                        if (number == 3 && this.findFood == '') {
+                            this.isShowTag = !this.isShowTag;
+                            this.isSearchNothing = false;
+                        }
+                        if (number == 1) {
+                            this.searchTags = '';
+                            this.isSearchNothing = false;
+                        }
+                    },
+                    getMemberID(){
+                        var id = this;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/LoginCheck.php",
+                                data: {
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    // alert(response);
+                                    id.member_id = response;
+                                },
+                                error: function (exception) {
+                                    // alert("發生錯誤: " + exception.status);
+                                }
+                            });
+        
+                    },
+                    searchFood() {
+                        if (this.findFood != '' || this.searchTags != '' || this.searchLine != '') {
+                            let data1 = this.findFood;
+                            let data2 = this.searchLine;
+                            let data3 = this.searchTags;
+    
+    
+                            this.searchLine = '';
+                            this.findFood = '';
+                            this.searchTags = '';
+                            this.isSearchBoard = false;
+                            this.isSearchStores = true;
+                            this.isSearchNothing = false;
+    
+                            var self = this;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/search.php",
+                                data: {
+                                    //php變數
+                                    searchItem: data1,
+                                    line_name: data2,
+                                    tag_name: data3,
+    
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    // alert(response);
+                                    self.stores = response;
+                                    
+                                },
+                                error: function (exception) {
+                                    alert("發生錯誤: " + exception.status);
+                                }
+                            });
+                        this.member_id=this.getMemberID();
+                        } else {
+                            this.isSearchNothing = true;
+                        }
+    
+                    },
+                    showStores() {
+                        var where = this;
+                        $.ajax({
+                            method: "POST",
+                            url: "./php/Frontend/API/whatToEat.php",
+                            data: {
+                                whatToEatColor: where.choices[0],
+                                whatToEatCountry: where.choices[2],
+                                whatToEat:where.whatToEat,
+                            },
+                            dataType: "json",
+                            success: function (response) {
+                                   where.stores=response
+                            },
+                            error: function (exception) {
+                                alert("數據載入失敗: " + exception.status);
+                            }
+                        });
+                        this.isSearchStores = true;
+    
+                    },
+                    finalStoreInf(store) {
+                        var self2 = this;
+                        $.ajax({
+                            method: "POST",
+                            url: "./php/Frontend/API/checkFavorite.php",
+                            data: {
+                                store_id: store.store_id,
+                                member_id: self2.member_id
+                            },
+                            dataType: "text",
+                            success: function (response) {
+                                if(response=="") {
+                                    //沒回傳值就是沒登入或沒收藏
+                                    self2.heartGrayscale = 1;
+                                } 
+                                else{
+                                    //有回傳值就是有登入且有收藏
+                                    self2.heartGrayscale = 0;
+                                }
+                            },
+                            error: function (exception) {
+                                alert("數據載入失敗: " + exception.status);
+                            }
+                        });
+                        $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/checkCoupon.php",
+                                data: {
+                                    memberID:self2.member_id,
+                                },
+                                dataType: "text",
+                                success: function (response) {
+                                    if (response == "") {
+                                        self2.coupon='領取優惠';
+                                    }
+                                    else{
+                                        self2.coupon='領取過了';
+                                    }
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/storeComments.php",
+                                data: {
+                                    storeID:store.store_id,
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    console.log(response);
+                                    self2.storeComments = response;
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });
+                            
+    
+                        this.isSearchStores = false;
+                        this.isStoreInf = true;
+                        this.storeDetail = store;
+                        this.$nextTick(() => {
+                            slick();
+                        })
+    
+                    },
+                    searchSomething() {
+                        if (this.findFood != '' && this.findFood != '請輸入食物 站別 店名') {
+                            let data1 = this.findFood;
+                            let data2 = this.searchLine;
+                            let data3 = this.searchTags;
+                            var self = this;
+                            // alert(data1);
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/search.php",
+                                data: {
+                                    //php變數
+                                    searchItem: data1,
+                                    line_name: data2,
+                                    tag_name: data3,
+    
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    // alert(response);
+    
+                                    self.stores = response;
+                                },
+                                error: function (exception) {
+                                    alert("發生錯誤: " + exception.status);
+                                }
+                            });
+    
+                            this.isStoreInf = false;
+                            this.isSearchStores = true;
+                            this.findFood = '';
+    
+    
+                        } else {
+                            this.findFood = '請輸入食物 站別 店名';
+                        }
+    
+                    },
+    
+                    getStoreReported() {
+                        this.isSearchReport = true;
+                        this.warnOpacity = 1;
+                    },
+                    sendReport() {
+                        console.log(this.report);
+                        this.report = '';
+                        this.isSearchReport = false;
+                        this.warnOpacity = 0.5;
+                    },
+                    getCoupon() {
+                            var get =this;
+                            let couponContent = this.couponContent;
+                            let couponMemberID = this.member_id;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/getCoupon.php",
+                                data: {
+                                    coupon:couponContent,
+                                    memberID:couponMemberID,
+                                },
+                                dataType: "text",
+                                success: function (response) {
+                                    if (response == "") {
+                                        get.coupon='領取過';
+                                    }else{
+                                        alert("今天已領取");
+                                    }
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });                    
+                        
+                    },
+                    toCollect() {
+                        if (this.heartGrayscale == 0) {
+                            this.heartGrayscale = 1;
+                            // console.log('{{this.store}}');
+                            let storeId = this.storeDetail.store_id;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/RemoveFavorite.php",
+                                data: {
+                                    favorite: storeId
+                                },
+                                dataType: "json",
+                            });
+                            alert("將從我的最愛移除");
+                        } else {
+                            // console.log('{{this.store}}');
+                            this.heartGrayscale = 0;
+                            let storeId = this.storeDetail.store_id;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/AddFavorite.php",
+                                data: {
+                                    //php變數
+                                    favorite: storeId
+                                },
+                                dataType: "json",
+                            });
+                            alert("新增到我的最愛");
+                        }
+                    },
+                    loginCheck(number) {
+                        if (number == 1) {
+                            var like = this;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/LoginCheck.php",
+                                data: {},
+                                dataType: "text",
+                                success: function (response) {
+                                    if (response == "") {
+                                        //尚未登入->前往Login.php
+                                        alert('請先登入，將前往登入頁');
+                                        location.href = 'login_member.html';
+                                    } else {
+                                        like.toCollect();
+                                    }
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });
+                        } else if (number == 2) {
+                            var coupon =this;
+                            $.ajax({
+                                method: "POST",
+                                url: "./php/Frontend/API/LoginCheck.php",
+                                data: {},
+                                dataType: "text",
+                                success: function (response) {
+                                    if (response == "") {
+                                        //尚未登入->前往Login.php
+                                        alert('請先登入，將前往登入頁');
+                                        location.href = 'login_member.html';
+                                    } else {
+                                        coupon.getCoupon();
+                                    }
+                                },
+                                error: function (exception) {
+                                    alert("數據載入失敗: " + exception.status);
+                                }
+                            });
+                        }
+                    },
+                    getDarkStars(lightStars) {
+                        if (lightStars == null) {
+                            return 5;
+                        } else {
+                            return 5 - lightStars;
+                        }
+                    },
+                    getStars(lightStars) {
+                            return parseInt(lightStars);
+                    },
+    
+    
+    
+    
+                },
+                computed: {
+                    findFoodClass() {
+                        return {
+                            noText: this.findFood.length === 0,
+                        }
+                    },
+                    searchLineClass() {
+                        return {
+                            noText: this.searchLine.length === 0,
+                        }
+                    },
+                    searchTagsClass() {
+                        return {
+                            noText: this.searchTags.length === 0,
+                        }
+                    },
+                    collectionClass() {
+                        //light =>0 dark=>1
+    
+                        return {
+                            filter: `grayscale(${this.heartGrayscale})`,
+                        }
+                    },
+                    signOpacity() {
+                        return {
+                            filter: `opacity(${this.warnOpacity})`,
+                        }
+                    },
+                    storeInfOpacity() {
+                        return {
+                            filter: `opacity(${this.infoOpacity})`,
+                        }
+                    },
+                },
+    
+            });
+            function slick() {
+                console.log($('.slider-for'));
+                console.log($('.slider-nav'));
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '.slider-nav',
+                });
+    
+                $('.slider-nav').slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    asNavFor: '.slider-for',
+                    focusOnSelect: true,
+                });
+            }
+    
+    
+    
+    
+        </script>
 
  <!-- -----------------------優惠券彈窗------------------------------------- -->  
  <div class="popUps" id="wardrobe_coupon">
@@ -437,8 +1415,74 @@
 		</div>
 	</div>
 
-	@@include('layout/footer.html')
-  <!-- @@include('layout/searchVue.html') -->
+	<footer class="myFooter">
+    <div class="footerLogo">
+       <a href="./index.html"><img src="./img/logo.png" alt=""></a> 
+    </div>
+    <div class="logoCopyright">
+         <img src="./img/index/slogan.png"alt="">
+        <p>tiabame@copyright</p>
+    </div>
+    <ul class="ourWeb">
+      <li class="contact">
+        <p>聯絡我們</p>
+        <img class="contactInf" src="./img/contact.png" alt="">
+      </li>
+      <li class="@@classFtStore">
+        <a href="./login_store.html">加入地圖</a>
+      </li>
+      <li class=" @@classFtTeam">
+        <a href="./develope.html">團隊介紹</a>
+      </li>
+      <li class="@@classFtFaq">
+        <a href="./myUFO_Q&A.html" >常見問題</a>
+      </li>
+    </ul>
+  </footer>
+  <script>
+  $('.contact').click(function (){
+          $('.contactInf').toggleClass('on');
+      });
+  </script>
+  
+<!-- <footer>
+    <div>
+        <ul class="footer_nav">
+            <li>
+                <a href="/login_store.html">加入地圖</a>
+            </li>
+            <li>
+                <a href="/develope.html"></a>
+            </li>
+            <li>
+                <a href="/myUFO_Q&A.html">常見問題</a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <ul class="ourInfo">
+            <li>
+                <img src="./img/icon/icon_tel.png" alt="" class="tel" />
+                <p>02-2888-888</p>
+            </li>
+            <li>
+                <img src="./img/icon/icon_mail.png" alt="" class="mail" />
+                <p>tibame@gmail.com</p>
+            </li>
+            <li>
+                <img src="./img/icon/icon_location.png" alt="" class="add" />
+                <p>南京東路三段219號</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="copyright">
+        <p>tiabame@copyright</p>
+    </div>
+</footer> -->
+
+  
 
 	<script>
     
