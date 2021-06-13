@@ -29,6 +29,11 @@ $sql = "SELECT food1_img, store_name, store_tag1, store_tag2, store_tag3, member
                tibamefe_tfd101g1.photo ph left join tibamefe_tfd101g1.member mb on
                ph.member_id = mb.member_id left join tibamefe_tfd101g1.store st on
                ph.store_id = st.store_id limit 6;";
+
+// $sql = "SELECT food1_img, store_name, store_tag1, store_tag2, store_tag3, member_img, member_name, date(photo_time) as mdate FROM
+//                EaTogether.photo ph left join EaTogether.member mb on
+//                ph.member_id = mb.member_id left join EaTogether.store st on
+//                ph.store_id = st.store_id limit 6;";
     
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     $statement = $pdo->prepare($sql);    
