@@ -271,7 +271,7 @@
                     template:
                      `<li>
                         <!-- 照片連結 -->
-                        <a href="#"><img class="pho_cards_pic"  :src="./img/upload/food/ {{foodimg}}"
+                        <a href="#"><img class="pho_cards_pic"  :src="imgsrc"
                             alt=""></a>
 
                         <div class="pho_vender_thumb_message">
@@ -302,6 +302,14 @@
                         </div>
                     </li>`,
                     props:['storename','storetag1','storetag2','storetag3','phototime','membername','foodimg'],
+                    data(){
+                        return{
+                            imgsrc:""
+                        };
+                    },
+                    mounted(){
+                        this.imgsrc = "./img/upload/food/" + this.foodimg
+                    },
                 },
 
             },
