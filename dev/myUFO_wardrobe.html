@@ -105,18 +105,6 @@
 <form action="./myUFO.html">
     <intput type="submit" id="return_btn">回到上一頁</intput>
 </form>
-<style>
-    #return_btn {
-        position: absolute;
-        cursor: pointer;
-        padding: 5px;
-        bottom: 10%;
-        left: 26%;
-        z-index: 100;
-        background-color: beige;
-        border-radius: 5px;
-    }
-</style>
 <script>
 	// 打開漢堡
 	$('#ham_icon').click(function () {
@@ -480,6 +468,7 @@ $("#return_btn").click(function() {
     localStorage.setItem('cap', current_status.cap);
     localStorage.setItem('fitting', current_status.fitting);
     window.document.location = './myUFO.html'
+    sessionStorage.setItem("key", value);
 });
     let point = 1988;
     $("#total_point").html(point);
@@ -499,6 +488,7 @@ $("#return_btn").click(function() {
         ["fitting3", 0],
         ["fitting4", 0],
         ["fitting5", 0],
+        
     ]);
     function clickSetStatus(key) {
             localStorage.setItem(key.slice(0, -1), parseInt(key.charAt(key.length - 1), 10));
@@ -513,6 +503,7 @@ $("#return_btn").click(function() {
                     current_status.fitting = parseInt(key.charAt(key.length - 1), 10);
                     break;
             }
+            
         }
 
     equipment.forEach(function(value, key) {
@@ -544,13 +535,16 @@ $("#return_btn").click(function() {
                     }
                 }
             )
+            
         }); // 關閉彈窗
         $("#own_" + key).click(function() {
                 popup_announcement("更換成功");
                 clickSetStatus(key);
             });
+            
     });
 
+     
     $('#cancel_payment').click(function() {
         $('#myUFO_wardrobe_popUps_car').fadeOut(200);
 
@@ -620,6 +614,10 @@ $("#return_btn").click(function() {
         `
         console.log(role);
     }
+    
+    sessionStorage.setItem("key", value);
+    localStorage.clear();    
+   
 </script>
 
 

@@ -1136,7 +1136,16 @@
 			width: 100%;
 		}
 	}
- 
+	#return_btn {
+        position: absolute;
+        cursor: pointer;
+        padding: 5px;
+        bottom: 10%;
+        left: 26%;
+        z-index: 100;
+        background-color: beige;
+        border-radius: 5px;
+    }
 
   	@media all and (min-width:1200px){
 		.mimitab{
@@ -1177,6 +1186,16 @@
 		}
 		.double_confirm_popUps{
 			left: 90%;
+		}
+		#return_btn {
+			position: absolute;
+			cursor: pointer;
+			padding: 5px;
+			bottom: 10%;
+			left: 26%;
+			z-index: 100;
+			background-color: beige;
+			border-radius: 5px;
 		}
 	}
 	@media all and (min-width:1200px)and (min-height:500px) and(max-height:559px){
@@ -1230,6 +1249,16 @@
 			img{
 				width: 100%;
 			}
+		}
+		#return_btn {
+			position: absolute;
+			cursor: pointer;
+			padding: 5px;
+			bottom: 10%;
+			left: 26%;
+			z-index: 100;
+			background-color: beige;
+			border-radius: 5px;
 		}
 	}
 	@media all and (min-width:1200px) and (min-height:560px) and(max-height:580px) {
@@ -1288,6 +1317,16 @@
 				width: 100%;
 			}
 		}
+		#return_btn {
+			position: absolute;
+			cursor: pointer;
+			padding: 5px;
+			bottom: 10%;
+			left: 26%;
+			z-index: 100;
+			background-color: beige;
+			border-radius: 5px;
+		}
 	}
 
 	@media all and (max-width:1199px) and (min-width:992px){
@@ -1310,6 +1349,16 @@
 			left: 14%;
 			text-align: center;
 			margin:0 auto;
+		}
+		#return_btn {
+			position: absolute;
+			cursor: pointer;
+			padding: 5px;
+			bottom: 10%;
+			left: 28%;
+			z-index: 100;
+			background-color: beige;
+			border-radius: 5px;
 		}
 
 	}
@@ -1374,6 +1423,16 @@
 
 	
 	@media all and (max-width:1199px) and (min-width:992px)and (min-height:560px) and(max-height:580px){
+	    #return_btn {
+			position: absolute;
+			cursor: pointer;
+			padding: 5px;
+			bottom: 10%;
+			left: 28%;
+			z-index: 100;
+			background-color: beige;
+			border-radius: 5px;
+		}
 		.mimitab{
 			position: absolute;
 			top: 25%;
@@ -1429,7 +1488,7 @@
 				width: 100%;
 			}
 		}
-	
+
 
       }
 
@@ -1486,6 +1545,16 @@
 				img{
 					width: 100%;
 				}
+			}
+			#return_btn {
+				position: absolute;
+				cursor: pointer;
+				padding: 5px;
+				bottom: 14%;
+                left: 22%;
+				z-index: 100;
+				background-color: beige;
+				border-radius: 5px;
 			}   
 	}
 
@@ -1601,6 +1670,16 @@
 					width: 100%;
 				}
 			}
+			#return_btn {
+				position: absolute;
+				cursor: pointer;
+				padding: 5px;
+				bottom: 14%;
+                left: 32%;
+				z-index: 100;
+				background-color: beige;
+				border-radius: 5px;
+			}
 	}
 
     @media all and (max-width:767px) and (min-width:576px){
@@ -1632,6 +1711,7 @@
 					width: 100%;
 				}
 			}
+			
 	}
 
 	@media all and (max-width:767px) and (min-width:576px)and (min-height:500px) and(max-height:559px){
@@ -1805,6 +1885,16 @@
 				img{
 					width: 100%;
 				}
+			}
+			#return_btn {
+				position: absolute;
+				cursor: pointer;
+				padding: 5px;
+				bottom: 14%;
+                left: 40%;
+				z-index: 100;
+				background-color: beige;
+				border-radius: 5px;
 			}  
 	}
 	@media all and (max-width:575px)and (min-height:500px) and(max-height:559px){

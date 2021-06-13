@@ -273,24 +273,30 @@
     </div>
     <script>
         var current_status = {
+            getRole:localStorage.getItem(`KEY1`),
             clothe: localStorage.getItem('clothe'),
             cap: localStorage.getItem('cap'),
             fitting: localStorage.getItem('fitting'),
-            getRole:localStorage.getItem(`KEY1`),
+            
         }
         if (localStorage.getItem('change_clothed')) {
                     $(".Speech_circle").css("visibility", "hidden")
                 }
+                     
         new Vue({
             el: '#app_myufo_wardrobe',
             data: {
+                wardrobe_character_getRole: current_status.getRole,
+                src:localStorage.getItem(`KEY1`),
                 wardrobe_character_clothe: current_status.clothe,
                 wardrobe_character_cap: current_status.cap,
                 wardrobe_character_fitting: current_status.fitting,
-                wardrobe_character_getRole: current_status.getRole,
-                src:localStorage.getItem(`KEY1`),
+                
+                
             }
         })
+
+        sessionStorage.setItem("key", value);
     </script>
     <!-- <style>
         .character_cap {
@@ -1618,8 +1624,7 @@
       // a.click();
     });
   }
-  
- 
+  localStorage.clear();   
 	</script>
 
 	<script src="./js/myUFO.js"></script>

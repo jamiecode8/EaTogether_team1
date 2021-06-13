@@ -1,7 +1,7 @@
 .myUFO_wrapper {
 	width: 100%;
 	background: #fffdd0;
-	overflow: hidden
+	overflow: hidden;
 }
 // .myUFO_wrapper .myUFO_wrapper2 .Untitled{
 // 	// 這個屬性可以svg穿透點擊
@@ -21,7 +21,7 @@
 	.myUFO_wrapper {
 		width: 100%;
 		background: #fffdd0;
-		overflow: hidden
+		overflow: hidden;
 	}
 }
 
@@ -796,7 +796,7 @@
 @media all and (max-width:991px) and (min-width:768px) {
 	.cabinet {
 		position: absolute;
-		bottom: 0;
+		bottom: -4%;
 		right: 8%;
 		margin: 0;
 		padding: 0;
@@ -1218,36 +1218,48 @@
 }
 
 .character img {
-	width: 100%
+	width: 100%;
+	position: absolute;
+    z-index: 50;
 }
 
 @media all and (min-width:1200px) {
 	.character img {
-		width: 100%
+		width: 100%;
+		position: absolute;
+		z-index: 50;
 	}
 }
 
 @media all and (max-width:1199px) and (min-width:992px) {
 	.character img {
-		width: 100%
+		width: 100%;
+		position: absolute;
+		z-index: 50;
 	}
 }
 
 @media all and (max-width:991px) and (min-width:768px) {
 	.character img {
-		width: 100%
+		width: 100%;
+		position: absolute;
+		z-index: 50;
 	}
 }
 
 @media all and (max-width:767px) and (min-width:576px) {
 	.character img {
-		width: 100%
+		width: 100%;
+		position: absolute;
+		z-index: 50;
 	}
 }
 
 @media all and (max-width:575px) {
 	.character img {
-		width: 100%
+		width: 100%;    
+		position: absolute;
+		z-index: 50;
 	}
 }
 
@@ -1974,7 +1986,7 @@
 
 @media all and (min-width:1200px) {
 	.myUFO_bg .figure {
-		height: 90vh;
+		height: 85vh;
 		display: block
 	}
 	.myUFO_bg .figure2 {
@@ -1990,7 +2002,7 @@
 
 @media all and (max-width:1199px) and (min-width:992px) {
 	.myUFO_bg .figure {
-		height: 90vh;
+		height: 85vh;
 		display: block
 	}
 	.myUFO_bg .figure2 {
@@ -2012,7 +2024,7 @@
 		display: none
 	}
 	.myUFO_bg .figure3 {
-		height: 90vh;
+		height: 85vh;
 		width: 100%;
 		display: block
 	}
@@ -2026,7 +2038,7 @@
 		display: none
 	}
 	.myUFO_bg .figure2 {
-		height: 90vh;
+		height: 85vh;
 		width: 100%;
 		display: block
 	}
@@ -3020,6 +3032,11 @@ progress::-webkit-progress-value {
 #MyCharacter_canvas{
 	height: 360px;
 }
+.MyUFOcharacter_clothe{
+	position: absolute;
+	z-index: 90;
+	top: 0px
+}
 
 .cap_1 {
 	position: absolute;
@@ -3065,48 +3082,6 @@ progress::-webkit-progress-value {
 }
 @media all and (min-width:1200px){
 	
-	.cap_1 {
-		position: absolute;
-		top: -20px;
-		right: 10px;
-	}
-	.myufocap_5{
-		position: absolute;
-		top: -10px;
-		right: 0px;
-	}
-	.clothe_1 {
-		position: absolute;
-		z-index: 2;
-		top: 0px
-	}
-	.clothe_2 {
-		position: absolute;
-		z-index: 2;
-		top: 0px;
-	}
-	.clothe_3 {
-		position: absolute;
-		z-index: 2;
-		top: -17%;
-	}
-	.clothe_4 {
-		position: absolute;
-		z-index: 2;
-		top: -4%;
-	}
-	.clothe_5 {
-		position: absolute;
-		z-index: 2;
-		top: 0%;
-	}
-	
-	
-	.fitting_1 {
-		position: absolute;
-		z-index: 1;
-		top: -1px;
-	}
 }
 @media all and (min-width:1200px)and (min-height:500px) and(max-height:559px){
 
