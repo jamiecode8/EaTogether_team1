@@ -1190,7 +1190,7 @@
 @media all and (max-width:575px)  {
 	.character {
 		position: absolute;
-		top: 50%;
+		top: 40%;
 		right: 20%;
 		left: 20%;
 		margin: 0;
@@ -2830,7 +2830,7 @@ progress::-webkit-progress-value {
                     }
 
                     @include rwd(mobile) {
-                        bottom: 530px;
+                        bottom: 540px;
                     }
                 }
 
@@ -3019,4 +3019,140 @@ progress::-webkit-progress-value {
 
 #MyCharacter_canvas{
 	height: 360px;
+}
+
+.cap_1 {
+	position: absolute;
+	top: -20px;
+	right: 10px;
+}
+.myufocap_5{
+	position: absolute;
+	top: -10px;
+	right: 0px;
+}
+.clothe_1 {
+	position: absolute;
+	z-index: 2;
+	top: 0px
+}
+.clothe_2 {
+	position: absolute;
+	z-index: 2;
+	top: 0px;
+}
+.clothe_3 {
+	position: absolute;
+	z-index: 2;
+	top: -17%;
+}
+.clothe_4 {
+	position: absolute;
+	z-index: 2;
+	top: -4%;
+}
+.clothe_5 {
+	position: absolute;
+	z-index: 2;
+	top: 0%;
+}
+
+
+.fitting_1 {
+	position: absolute;
+	z-index: 1;
+	top: -1px;
+}
+@media all and (min-width:1200px){
+	
+	.cap_1 {
+		position: absolute;
+		top: -20px;
+		right: 10px;
+	}
+	.myufocap_5{
+		position: absolute;
+		top: -10px;
+		right: 0px;
+	}
+	.clothe_1 {
+		position: absolute;
+		z-index: 2;
+		top: 0px
+	}
+	.clothe_2 {
+		position: absolute;
+		z-index: 2;
+		top: 0px;
+	}
+	.clothe_3 {
+		position: absolute;
+		z-index: 2;
+		top: -17%;
+	}
+	.clothe_4 {
+		position: absolute;
+		z-index: 2;
+		top: -4%;
+	}
+	.clothe_5 {
+		position: absolute;
+		z-index: 2;
+		top: 0%;
+	}
+	
+	
+	.fitting_1 {
+		position: absolute;
+		z-index: 1;
+		top: -1px;
+	}
+}
+@media all and (min-width:1200px)and (min-height:500px) and(max-height:559px){
+
+}
+@media all and (min-width:1200px) and (min-height:560px) and(max-height:580px) {
+
+}
+@media all and (max-width:1199px) and (min-width:992px){
+
+}
+@media all and (max-width:1199px) and (min-width:992px)and (min-height:500px) and(max-height:559px){
+
+}
+@media all and (max-width:1199px) and (min-width:992px)and (min-height:560px) and(max-height:580px){
+	
+}
+@media all and (max-width:991px) and (min-width:768px){
+
+}
+@media all and (max-width:991px) and (min-width:768px)and (min-height:500px) and(max-height:559px){
+
+}
+@media all and (max-width:991px) and (min-width:768px)and (min-height:560px) and(max-height:580px) {
+
+}
+@media all and (max-width:767px) and (min-width:576px){
+
+}
+@media all and (max-width:767px) and (min-width:576px)and (min-height:500px) and(max-height:559px){
+
+}
+@media all and (max-width:767px) and (min-width:576px)and (min-height:560px) and(max-height:580px){
+
+}
+@media all and (max-width:575px){
+
+}
+@media all and (max-width:575px)and (min-height:500px) and(max-height:559px){
+
+}
+@media all and (max-width:575px)and (min-height:600px)and(max-height:667px){
+	
+}
+@media all and (max-width:575px)and (min-height:668px)and(max-height:736px){
+	
+}
+@media all and (max-width:575px)and (min-height:560px) and(max-height:580px){
+	
 }

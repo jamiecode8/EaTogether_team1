@@ -45,7 +45,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 </head>
-<script>
+<!-- <script>
     function init(){
           $.ajax({            
             method: "POST",
@@ -65,8 +65,9 @@
             }
         });
       }  
-      </script>
-<body class="myUFO_wrapper" onload="init()">
+      </script> -->
+      
+<body class="myUFO_wrapper"  >
 	<header>
 	<div class="headerInner">
 		<!-- Logo -->
@@ -250,40 +251,48 @@
      <div class="Speech_circle" ><img src="./img/mimi/Speech_circle.svg" alt=""></div>
      <div class="character"  id="app_myufo_wardrobe">
          <a href="#">
-        <img class="character_clothe" v-if="wardrobe_character_clothe == 1" src="./img/mimi/character/clothe1.png" alt="">
-        <img class="character_clothe" v-if="wardrobe_character_clothe == 2" src="./img/mimi/character/clothe2.png" alt="">
-        <img class="character_clothe" v-if="wardrobe_character_clothe == 3" src="./img/mimi/character/clothe3.png" alt="">
-        <img class="character_clothe" v-if="wardrobe_character_clothe == 4" src="./img/mimi/character/clothe4.png" alt="">
-        <img class="character_clothe" v-if="wardrobe_character_clothe == 5" src="./img/mimi/character/clothe5.png" alt="">
-        <img class="character_cap" v-if="wardrobe_character_cap == 1" src="./img/mimi/character/cap1.png" alt="">
-        <img class="character_cap" v-if="wardrobe_character_cap == 2" src="./img/mimi/character/cap2.png" alt="">
-        <img class="character_cap" v-if="wardrobe_character_cap == 3" src="./img/mimi/character/cap3.png" alt="">
-        <img class="character_cap" v-if="wardrobe_character_cap == 4" src="./img/mimi/character/cap4.png" alt="">
-        <img class="character_cap" v-if="wardrobe_character_cap == 5" src="./img/mimi/character/cap5.png" alt="">
-        <img class="character_fitting" v-if="wardrobe_character_fitting == 1" src="./img/mimi/character/fitting1.png" alt="">
-        <img class="character_fitting" v-if="wardrobe_character_fitting == 2" src="./img/mimi/character/fitting2.png" alt="">
-        <img class="character_fitting" v-if="wardrobe_character_fitting == 3" src="./img/mimi/character/fitting3.png" alt="">
-        <img class="character_fitting" v-if="wardrobe_character_fitting == 4" src="./img/mimi/character/fitting4.png" alt="">
-        <img class="character_fitting" v-if="wardrobe_character_fitting == 5" src="./img/mimi/character/fitting5.png" alt="">
-        <img src="./img/mimi/alienTest.png" alt="" class="animated infinite delay-4s" />
-        </a>
+        <img class="MyUFOcharacter_clothe clothe_1" v-if="wardrobe_character_clothe == 1" src="./img/mimi/character/clothe1.png" alt="">
+        <img class="MyUFOcharacter_clothe clothe_2" v-if="wardrobe_character_clothe == 2" src="./img/mimi/character/clothe2.png" alt="">
+        <img class="MyUFOcharacter_clothe clothe_3" v-if="wardrobe_character_clothe == 3" src="./img/mimi/character/clothe3.png" alt="">
+        <img class="MyUFOcharacter_clothe clothe_4" v-if="wardrobe_character_clothe == 4" src="./img/mimi/character/clothe4.png" alt="">
+        <img class="MyUFOcharacter_clothe clothe_5" v-if="wardrobe_character_clothe == 5" src="./img/mimi/character/clothe5.png" alt="">
+        <img class="MyUFOcharacter_cap cap_1" v-if="wardrobe_character_cap == 1" src="./img/mimi/character/cap1.png" alt="">
+        <img class="MyUFOcharacter_cap cap_1" v-if="wardrobe_character_cap == 2" src="./img/mimi/character/cap2.png" alt="">
+        <img class="MyUFOcharacter_cap cap_1" v-if="wardrobe_character_cap == 3" src="./img/mimi/character/cap3.png" alt="">
+        <img class="MyUFOcharacter_cap cap_1" v-if="wardrobe_character_cap == 4" src="./img/mimi/character/cap4.png" alt="">
+        <img class="MyUFOcharacter_cap myufocap_5" v-if="wardrobe_character_cap == 5" src="./img/mimi/character/cap5.png" alt="">
+        <img class="MyUFOcharacter_fitting fitting_1" v-if="wardrobe_character_fitting == 1" src="./img/mimi/character/fitting1.png" alt="">
+        <img class="MyUFOcharacter_fitting fitting_1" v-if="wardrobe_character_fitting == 2" src="./img/mimi/character/fitting2.png" alt="">
+        <img class="MyUFOcharacter_fitting fitting_1" v-if="wardrobe_character_fitting == 3" src="./img/mimi/character/fitting3.png" alt="">
+        <img class="MyUFOcharacter_fitting fitting_1" v-if="wardrobe_character_fitting == 4" src="./img/mimi/character/fitting4.png" alt="">
+        <img class="MyUFOcharacter_fitting fitting_1" v-if="wardrobe_character_fitting == 5" src="./img/mimi/character/fitting5.png" alt="">
+        
+        <img :src="src" v-if="wardrobe_character_getRole" class="animated infinite delay-4s" />
+        <img v-else src="./img/mimi/alienTest.png" class="animated infinite delay-4s">    
+    </a>
     </div>
     <script>
         var current_status = {
             clothe: localStorage.getItem('clothe'),
             cap: localStorage.getItem('cap'),
-            fitting: localStorage.getItem('fitting')
+            fitting: localStorage.getItem('fitting'),
+            getRole:localStorage.getItem(`KEY1`),
         }
+        if (localStorage.getItem('change_clothed')) {
+                    $(".Speech_circle").css("visibility", "hidden")
+                }
         new Vue({
             el: '#app_myufo_wardrobe',
             data: {
                 wardrobe_character_clothe: current_status.clothe,
                 wardrobe_character_cap: current_status.cap,
                 wardrobe_character_fitting: current_status.fitting,
+                wardrobe_character_getRole: current_status.getRole,
+                src:localStorage.getItem(`KEY1`),
             }
         })
     </script>
-    <style>
+    <!-- <style>
         .character_cap {
             position: absolute;
             top: -75px;
@@ -301,7 +310,7 @@
             z-index: 1;
             top: -45px
         }
-    </style>
+    </style> -->
  
  
  <!-- --------收藏餐廳彈窗-------- -->
@@ -1609,6 +1618,7 @@
       // a.click();
     });
   }
+  
  
 	</script>
 
