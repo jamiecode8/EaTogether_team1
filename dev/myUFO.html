@@ -45,7 +45,28 @@
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 </head>
-<body class="myUFO_wrapper">
+<script>
+    function init(){
+          $.ajax({            
+            method: "POST",
+            url: "./php/Frontend/API/LoginCheck.php",
+            data:{},            
+            dataType: "text",
+            success: function (response) {
+                if(response == ""){
+                  alert('請先登入，將前往登入頁'); 
+                  location.href = 'login_member.html';                
+                }else{
+                  getData();
+                }
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+      }  
+      </script>
+<body class="myUFO_wrapper" onload="init()">
 	<header>
 	<div class="headerInner">
 		<!-- Logo -->
@@ -1561,8 +1582,8 @@
           {
             var ran=Math.floor(Math.random()*data.length);
             console.log(i,ran);
-            console.log("/img/upload/food/"+data[ran].image_img);
-            $('#slideshow .slide:eq('+i+') img').attr("src","/img/upload/food/"+data[ran].image_img);     
+            console.log("img/upload/food/"+data[ran].image_img);
+            $('#slideshow .slide:eq('+i+') img').attr("src","img/upload/food/"+data[ran].image_img);     
           }
         }
     })
