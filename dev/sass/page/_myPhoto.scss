@@ -204,7 +204,7 @@ div .pho_top_personal_page_s1{
 .pho_popUps{
     
     position: absolute; 
-    width:70%;
+    max-width:65%;
     position: fixed;
     z-index: 1000;
 
@@ -244,7 +244,8 @@ div .pho_top_personal_page_s1{
 .pho_poppus_s1 div{
     
     img{
-        width: 100%;
+        width: 91%;
+        margin: auto;
     }
 }
 
@@ -260,7 +261,7 @@ div .pho_top_personal_page_s1{
     flex-grow: 3.5;
 
     background-color: white;
-    padding:2%;
+    padding:3%;
 }
 
 .pho_article_a1{
@@ -332,6 +333,7 @@ div .pho_top_personal_page_s1{
 
 .pho_article_a4{
     padding: 2%;
+    height: 10vh;
     margin: 1% 0 5%;
     width:100%;
     background-color:$lightgreen;
@@ -547,6 +549,23 @@ div .pho_top_personal_page_s1{
     }
 }
 
+//毛玻璃
+.pho_bgcblur{
+    width: 100px;
+    height:100px;
+    filter: blur(3px);
+    transition: 3s;
+    
+    ul {
+        margin: 0;
+        padding-left: 0px;
+    }
+    
+    li {
+        list-style: none;
+    }
+}
+
 // -----------------myphoto rwd----------------- //
 .pho_main{
     @include rwd(desktop){
@@ -733,13 +752,17 @@ div .pho_top_personal_page_s1{
 // -------------------拍立得內文彈窗 RWD ------------------- //
 @include rwd(desktop){
     .pho_popUps {
-        width: 70%;       
+        width: 75%;       
     }
 }
 
 @include rwd(desktopSmall){
     .pho_popUps {
         width: 80%;
+    }
+
+    .pho_poppus_s1 div img {
+        width: 96%;
     }
 
     .pho_popUps_form .btn_close {
@@ -760,9 +783,13 @@ div .pho_top_personal_page_s1{
 
 @include rwd(pad){
     .pho_popUps {
-        width: 88%;
+        width: 90%;
     }
 
+    .pho_poppus_s1 div img {
+        width: 100%;
+    }
+    
     .pho_popUps_form .btn_close {
         width: 27px;
         height: 27px;
@@ -789,8 +816,9 @@ div .pho_top_personal_page_s1{
     
 @include rwd(largeMobile){
     .pho_popUps{
-        width:60%;
+        width:50%;
     }
+    
 
     .pho_popUps_form .btn_close {
         width: 30px;
@@ -802,7 +830,7 @@ div .pho_top_personal_page_s1{
     }
     .pho_poppus_s1 div{
         img{
-            width: 65%;
+            width: 45%;
         }
     }
 
@@ -857,7 +885,7 @@ div .pho_top_personal_page_s1{
         }
     }
     .pho_article_allcontent_a5 {
-        height: 22vh;
+        height: 15vh;
     }
 
     .pho_article_a5 img:first-child {
@@ -898,7 +926,7 @@ div .pho_top_personal_page_s1{
     }
     .pho_poppus_s1 div{
         img{
-            width: 100%;
+            width: 60%;
         }
     }
 
@@ -953,7 +981,7 @@ div .pho_top_personal_page_s1{
         }
     }
     .pho_article_allcontent_a5 {
-        height: 22vh;
+        height: 15vh;
     }
 
     .pho_article_a5 img:first-child {

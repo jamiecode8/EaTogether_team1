@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @@include('layout/style.html')
+    <title>美食拍立得</title>
+</head>
+<body class="pho_body">
+    
+    @@include('layout/header.html', {
+        "classFP" : 'pagePhoto'
+      })
+<!-- ==================================下方開始編輯========================================== -->
+    
+
+<div class="pho_wrapper wrapper" id="app">
+    <!-- 背景圖 -->
+    <div class="pho_background">
+        <main class="pho_main">
+            <div class="pho_top_wrapper">
+                
+                <div class="pho_top_content">
+                    
+                    <!-- 使用者ET頭像 -->
+                    <img class="pho_user_pic"src="././img/tang/ET008.png" alt="">
+                    
+                    <div>
+                        <!-- 上方s1 -->
+                        <section class="pho_top_s1 pho_top_personal_page_s1">
+                            <!-- 使用者ID -->
+                            <h1 class=".pho_top_personal_h1">TINA123</h1>
+                        
+                            <!-- 搜尋框 -->
+                            <input class="pho_search_bar" type="text" id="pho_search" placeholder="Search">
+                            <label for="pho_search"><img src="././img/icon/icon_search.png" alt=""></label>
+                        </section>
+
+                        <section class="pho_top_personal_page">
+                            <!-- 貼文數、粉絲、追蹤者 -->
+                            <ul>
+                                <li><a href="#"><span>66</span>貼文</a></li>
+                                <li><a class="pho_fans_openbtn" href="#"><span>88</span>位追蹤者</a></li>
+                                <li><a class="pho_follow_openbtn" href="#"><span>50</span>追蹤中</a></li>
+                            </ul>
+                        </section>
+
+
+                        <!-- 上方s2 -->
+                        <section class="pho_top_s2">
+
+                            <!-- 選單 -->
+                            <ul class="pho_menu">
+                                <li><a href="myphoto.html">推薦拍立得</a></li>
+                                <li class="pho_personal_page_btn"><a href="myphoto_personal_page.html">我的拍立得</a></li>
+                                <li><a href="myphoto_post_pic.html">製作拍立得</a></li>
+                                <li><a href="#">我的追蹤</a></li>
+                            </ul>
+                        </section>
+                    </div>
+
+                </div>
+                
+            </div>
+
+            <!-- 拍立得 -->
+            
+            <div class="pho_cards_wrapper">
+                <ul class="pho_store_cards_lists">
+                   
+                   <!-- 1 -->
+                    <li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img class="pho_cards_pic"src="./img/tang/pho01.png " alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@甜甜咖啡</a>
+
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>#法式</p></a>
+                            <a href="#"><p>#甜點</p></a>
+                            <a href="#"><p>#下午茶</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div class="pho_vender_profile">
+                            
+                                <a href="#"><img src="./img/tang/ET001.png" alt=""></a>
+                                <article>
+                                    <p><a href="#" >陳家豪</a></p>
+                                    <p><a href="#">查看</a></p><!-- 追蹤按鈕 -->
+                                </article>
+                                <P>2021/06/13</P>
+                        </div>
+                        
+                    </li>
+
+
+                    <!-- 2 -->
+                    <li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img class="pho_cards_pic" src="./img/tang/pho02.png " alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@義思義式</a>
+
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>#義式</p></a>
+                            <a href="#"><p>#聚餐</p></a>
+                            <a href="#"><p>#麵食</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div class="pho_vender_profile">
+                            
+                            <a href="#"><img src="./img/tang/ET002.png" alt=""></a>
+                            <article>
+                                <p><a href="#">小欣欣</a></p>
+                                <p><a href="#">查看</a></p><!-- 追蹤按鈕 -->
+                            </article>
+                            <P>2021/06/12</P>
+                    </div>
+                        
+                    </li>
+                    
+
+                    <!-- 3 -->
+                    <li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img class="pho_cards_pic" src="./img/tang/pho03.png " alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@黑白切小吃攤</a>
+
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>#夜市</p></a>
+                            <a href="#"><p>#小吃</p></a>
+                            <a href="#"><p>#銅板</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div class="pho_vender_profile">
+                            
+                            <a href="#"><img src="./img/tang/ET003.png" alt=""></a>
+                            <article>
+                                <p><a href="#">王曉明</a></p>
+                                <p><a href="#">查看</a></p><!-- 追蹤按鈕 -->
+                            </article>
+                            <P>2021/06/10</P>
+                    </div>
+                        
+                    </li>
+
+
+                    <!-- 4 -->
+                    <li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img class="pho_cards_pic"src="./img/tang/pho04.png " alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@錦上日式料理</a>
+
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>#日式</p></a>
+                            <a href="#"><p>#商業午餐</p></a>
+                            <a href="#"><p>#聚餐</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div class="pho_vender_profile">
+                            
+                            <a href="#"><img src="./img/tang/ET004.png" alt=""></a>
+                            <article>
+                                <p><a href="#">志明</a></p>
+                                <p><a href="#">查看</a></p><!-- 追蹤按鈕 -->
+                            </article>
+                            <P>2021/05/27</P>
+                    </div>
+                        
+                    </li>
+
+
+                    <!-- 5 -->
+                    <li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img class="pho_cards_pic"src="./img/tang/pho05.png " alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@鍋鍋神</a>
+
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>#火鍋</p></a>
+                            <a href="#"><p>#聚餐</p></a>
+                            <a href="#"><p>#台式</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div class="pho_vender_profile">
+                            
+                            <a href="#"><img src="./img/tang/ET005.png" alt=""></a>
+                            <article>
+                                <p><a href="#">淑芬</a></p>
+                                <p><a href="#">查看</a></p><!-- 追蹤按鈕 -->
+                            </article>
+                            <P>2021/05/11</P>
+                    </div>
+                        
+                    </li>
+
+
+                    <!-- 6 -->
+                    <li>
+                        <!-- 照片連結 -->
+                        <a href="#"><img class="pho_cards_pic" src="./img/tang/pho06.png " alt=""></a>
+
+                        <div class="pho_vender_thumb_message">
+                            <!-- 商家連結 -->
+                            <a href="#">@提香義大利麵</a>
+
+                            <!-- 按讚&留言icon -->
+                            <a href="#"><img src="./img/tang/Icon_thumbs-up.png" alt=""></a>
+                            <a href="#"><img src="./img/tang/Icon_message.png " alt=""></a>
+                        </div>
+
+                        <div class="pho_vender_feat_tag">
+                            <!-- 標籤連結 -->
+                            <a href="#"><p>#義式</p></a>
+                            <a href="#"><p>#簡餐</p></a>
+                            <a href="#"><p>#麵食</p></a>
+                        </div>
+
+                        <!-- 作者ET頭像 他人拍立得頁面連結 -->
+                        <div class="pho_vender_profile">
+                            
+                            <a href="#"><img src="./img/tang/ET006.png" alt=""></a>
+                            <article>
+                                <p><a href="#">王晴晴</a></p>
+                                <p><a href="#">查看</a></p><!-- 追蹤按鈕 -->
+                            </article>
+                            <P>2021/04/17</P>
+                    </div>
+                        
+                    </li>
+
+                    
+                </ul>
+            </div>
+
+            <!------------- 拍立得內文彈窗 -------------->
+            <div class="pho_popUps pho_disappear">
+                <form action="#資料傳送送的網址" method="post" class="pho_popUps_form">
+                    
+                    <!-- close button -->
+                    <button type="button" class="btn_close" id="pho_popup_closebtn">
+                        <img src="./img/icon/icon_close.png" alt="" />
+                    </button>
+                    
+
+                    <div class="pho_popUps_allcontent">
+                        <!-- s1 pic-->
+                        <section class="pho_poppus_s1">
+                            <div>
+                                <img src="./img/tang/food-1.jpg" alt="">
+                            </div>
+                        </section>
+                        
+                        <!-- s2 content-->
+                        <section class="pho_poppus_s2">
+                            <article>
+                                <div class="pho_article_a1">
+                                    <img src="./img/tang/ET_photo.png" alt="">
+                                    <h2><a href="#">tina888</a></h2>
+                                    <span><a href="#">追蹤</a></span>
+                                    <img src="./img/tang/Icon more.png" alt="">
+                                </div>
+            
+                                <div class="pho_article_a2">
+                                    <span><a href="#">@梯八咪雞肉飯</a></span>
+                                    <h2></h2>
+                                    <div class="pho_star">@@include('layout/star.html')</div>
+                                </div>
+            
+                                <div class="pho_line_p1"></div>
+                            
+                                <div class="pho_article_a3">
+                                    <span><a href="#">#南京復興</a></span>
+                                    <span><a href="#">#小吃</a></span>
+                                    <span><a href="#">#銅板</a></span>
+                                </div>
+    
+                                <div class="pho_article_a4">
+                                    <p>平價又好吃的銅板小吃，每天都想來吃。平價又好吃的銅板小吃，每天都想來吃。</p>
+                                </div>
+                            </article>
+                            
+                            <article class="pho_article_allcontent_a5">
+                                <div class="pho_article_a5">
+                                    <img src="./img/tang/ET_photo.png" alt="">   
+                                    <span><a href="#">tina888</a></span>
+                                    <span>看起來很好吃!!</span>
+                                    <img src="./img/tang/Icon material.png" alt="">
+                                </div>
+    
+                                <div class="pho_article_a5">
+                                    <img src="./img/tang/ET_photo.png" alt="">
+                                    <span><a href="#">tina888</a></span>
+                                    <span>看起來很好吃!!</span>
+                                    <img src="./img/tang/Icon material.png" alt="">
+                                </div>
+    
+                                <div class="pho_article_a5">
+                                    <img src="./img/tang/ET_photo.png" alt="">
+                                    <span><a href="#">tina888</a></span>
+                                    <span>看起來很好吃!!</span>
+                                    <img src="./img/tang/Icon material.png" alt="">
+                                </div>
+
+                                <div class="pho_article_a5">
+                                    <img src="./img/tang/ET_photo.png" alt="">
+                                    <span><a href="#">tina888</a></span>
+                                    <span>看起來很好吃!!</span>
+                                    <img src="./img/tang/Icon material.png" alt="">
+                                </div>
+
+                                <div class="pho_article_a5">
+                                    <img src="./img/tang/ET_photo.png" alt="">
+                                    <span><a href="#">tina888</a></span>
+                                    <span>看起來很好吃!!</span>
+                                    <img src="./img/tang/Icon material.png" alt="">
+                                </div>
+    
+                            </article>
+                                <div class="pho_article_a6">
+                                    <textarea name="" id="" cols="30" rows="10" placeholder="留言回應..."></textarea>
+                                    <button type="submit" class="">發佈</button>
+                                </div>
+    
+                        </section>
+                    </div>
+                 </form> 
+            </div>
+            
+            <!------------- 查看粉絲彈窗 -------------->
+            <div class="popUps pho_popUps_fans pho_fans" >
+                <form action="#資料傳送送的網址" method="post" class="form">
+                    <!-- close button -->
+                    <button type="button" class="btn_close pho_fans_closebtn">
+                        <img src="./img/icon/icon_close.png" alt="" />
+                    </button>
+            
+                    <!-- 主標題 -->
+                    <h1>粉絲</h1>
+                    
+                    <!-- <div class="pho_line_p1"></div> -->
+
+                    <article id="pho_scroll_style">
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+                    </article>
+                </form>
+            </div>
+
+            <!------------- 查看追蹤名單彈窗 -------------->
+            <div class="popUps pho_popUps_follow pho_follow">
+                <form action="#資料傳送送的網址" method="post" class="form">
+                    <!-- close button -->
+                    <button type="button" class="btn_close pho_follow_closebtn">
+                        <img src="./img/icon/icon_close.png" alt="" />
+                    </button>
+            
+                    <!-- 主標題 -->
+                    <h1>追蹤中</h1>
+                    
+                    <!-- <div class="pho_line_p1"></div> -->
+
+                    <article id="pho_scroll_style">
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+
+                        <div class="pho_article_a5">
+                            <img src="./img/tang/ET_photo.png" alt="">   
+                            <span><a href="#">tina888</a></span>
+                            <div class="btn">
+                                <input type="submit" value="刪除" class="btn_cancel" disabled:disabled />
+                            </div>
+                        </div>
+                    </article>
+                </form>
+            </div>
+        
+        </main>
+    </div>
+    @@include('layout/search.html')
+
+</div>
+
+@@include('layout/searchVue.html')
+
+<!-- ==================================上方開始編輯========================================== -->
+    @@include('layout/footer.html')
+
+<script>
+    // 開啟、關閉拍立得內文彈窗
+    let pho_popup_closebtn_js = document.getElementById('pho_popup_closebtn');
+    let pho_cards_pic_js = document.querySelectorAll('img.pho_cards_pic');
+
+    for(let i = 0 ; i<pho_cards_pic_js.length ;i++){
+        pho_cards_pic_js[i].addEventListener("click",function(){  //this
+            pho_popup_closebtn_js.closest('div.pho_popUps').classList.remove('pho_disappear');
+        });
+    }
+        pho_popup_closebtn_js.addEventListener("click",function(){
+            this.closest('div.pho_popUps').classList.add('pho_disappear');
+        });
+
+    // ----------查看粉絲彈窗----------
+    //打開彈窗
+    $('.pho_fans_openbtn').click(function (){
+        $('.pho_popUps_fans').fadeOut(100);
+        $('.pho_popUps_fans.pho_fans').fadeIn(50);
+    });
+
+    //關閉彈窗
+    $('.pho_fans_closebtn').click(function (){
+        $('.pho_popUps_fans').fadeOut(200);
+    });
+
+    // ----------追蹤名單彈窗----------
+    //打開彈窗
+    $('.pho_follow_openbtn').click(function(){
+        $('.pho_popUps_follow').fadeOut(100);
+        $('.pho_popUps_follow.pho_follow').fadeIn(50);
+    });
+
+    //關閉彈窗
+    $('.pho_follow_closebtn').click(function(){
+        $('.pho_popUps_follow').fadeOut(200);
+    });
+
+</script>
+
+</body>
+</html>
