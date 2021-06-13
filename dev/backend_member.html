@@ -22,7 +22,7 @@
                 alert('請先登入，將前往登入頁'); 
                 location.href = 'backend_login_member.html';                
               }else{
-                getData();
+                getData('');
               }
           },
           error: function(exception) {
@@ -31,11 +31,18 @@
       });
     }  
     
-  function getData(){    
+  function getData(action){
+
+      var keyword = '';
+      if(action == 'search'){
+        keyword = $("#keyword").val();
+        //alert(keyword);
+      }
+
       $.ajax({            
           method: "POST",
           url: "php/Backend/API/backend_member.php",
-          data:{},            
+          data:{keyword: keyword},            
           dataType: "json",
           success: function (response) {
               display(response);               
@@ -50,6 +57,18 @@
   let allData
 
   function display(response){
+
+      $("#result").empty();
+      $("#result").append(
+               `<tr>
+                <th>會員編號</th>
+                <th>會員暱稱</th>
+                <th>最近上站時間</th>
+                <th>會員狀態</th>
+                <th>會員管理</th>
+                </tr>`
+            );
+
       //更新html內容(透過jQuery跑迴圈取值)
       allData = response
       $.each(response, function(index, row) {
@@ -107,8 +126,8 @@ function getData_popup(member_id){
   function display_popup(response){
       $("#result1").empty();
       $("#result2").empty();
-      // $("#result3").empty();
-      // $("#result4").empty();
+      $("#result3").empty();
+      $("#result4").empty();
 
       //更新html內容(透過jQuery跑迴圈取值)
       allData = response
@@ -125,18 +144,17 @@ function getData_popup(member_id){
               <div>${row.member_email}</div>    
             `
           );
-          // $("#result3").append(
-          //   `
-          //     <div>${row.station}</div>    
-          //   `
-          // );
-          // $("#result4").append(
-          //   `
-          //     <div class="tagfood">${row.tag1}</div>
-          //     <div class="tagfood">${row.tag2}</div>
-          //     <div class="tagfood">${row.tag3}</div>    
-          //   `
-          // );
+          $("#result3").append(
+            `
+              <div>${row.station_name}</div>    
+            `
+          );
+          $("#result4").append(
+            `
+              <div class="tagfood">${row.tag_name}</div>
+
+            `
+          );
       });
   }
 // ---------------表單送出-------------------
@@ -178,21 +196,23 @@ function member_status_update(){
 
        <div class="backend_top_right">
         <form class="backend_search"  action="#" method="post"> 
-           <input type="text" class="backend_search_text">
-           <img class="backend_search_btn" src="./img/icon/icon_search.png" alt="">
+           <input type="text" id="keyword" class="backend_search_text">
+           <img class="backend_search_btn" src="./img/icon/icon_search.png" 
+           onclick="getData('search')" alt="">
+           
         </form>
        </div>
       </div>    
 
         <div class="backend_member">
           <table id="result" class="backend_member_table">
-              <tr>
+              <!-- <tr>
                 <th>會員編號</th>
                 <th>會員暱稱</th>
                 <th>最近上站時間</th>
                 <th>會員狀態</th>
                 <th>會員管理</th>
-            </tr>
+            </tr> -->
             <!-- <tr>
                  <td>18</td>
                  <td>6</td> 
