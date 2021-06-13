@@ -107,8 +107,8 @@ function getData_popup(member_id){
   function display_popup(response){
       $("#result1").empty();
       $("#result2").empty();
-      $("#result3").empty();
-      $("#result4").empty();
+      // $("#result3").empty();
+      // $("#result4").empty();
 
       //更新html內容(透過jQuery跑迴圈取值)
       allData = response
@@ -125,18 +125,18 @@ function getData_popup(member_id){
               <div>${row.member_email}</div>    
             `
           );
-          $("#result3").append(
-            `
-              <div>${row.station}</div>    
-            `
-          );
-          $("#result4").append(
-            `
-              <div class="tagfood">${row.tag1}</div>
-              <div class="tagfood">${row.tag2}</div>
-              <div class="tagfood">${row.tag3}</div>    
-            `
-          );
+          // $("#result3").append(
+          //   `
+          //     <div>${row.station}</div>    
+          //   `
+          // );
+          // $("#result4").append(
+          //   `
+          //     <div class="tagfood">${row.tag1}</div>
+          //     <div class="tagfood">${row.tag2}</div>
+          //     <div class="tagfood">${row.tag3}</div>    
+          //   `
+          // );
       });
   }
 // ---------------表單送出-------------------
@@ -226,14 +226,14 @@ function member_status_update(){
              <h3 class="backend_subtitle">會員帳號</h3>
              <div id="result2" class="backend_member_data2"></div>
            </div>
-           <div class="backend_member_block">
+           <!-- <div class="backend_member_block">
              <h3 class="backend_subtitle">捷運站點</h3>
              <div id="result3" class="backend_member_data3"></div>
            </div>
            <div class="backend_member_block">
              <h3 class="backend_subtitle">喜好標籤</h3>
              <div id="result4" class="backend_member_data4"></div>
-           </div>
+           </div> -->
            <!-- 分隔線 -->
            <div class="backend_line"></div>
           
