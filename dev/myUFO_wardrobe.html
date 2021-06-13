@@ -101,7 +101,21 @@
 		</div>
 	</div>
 </header>
-
+<form action="./myUFO.html">
+    <intput type="submit" id="return_btn">回到上一頁</intput>
+</form>
+<style>
+    #return_btn {
+        position: absolute;
+        cursor: pointer;
+        padding: 5px;
+        bottom: 10%;
+        left: 26%;
+        z-index: 100;
+        background-color: beige;
+        border-radius: 5px;
+    }
+</style>
 <script>
 	// 打開漢堡
 	$('#ham_icon').click(function () {
@@ -436,26 +450,35 @@
 </footer> -->
 
 <script>
-    $('.contact').click(function() {
-        $('.contactInf').toggleClass('on');
-    });
+var current_status = {
+    clothe: 2,
+    cap: 2,
+    fitting: 2
+}
 
-    function popup_announcement(word) {
-        $('#myUFO_wardrobe_popUps_car_less').css('display', 'block').fadeIn(100);
-        $('#announcement_content').html(word)
-        $('.cancel_announcement').click(function() {
-            $('#myUFO_wardrobe_popUps_car_less').css('display', 'none').fadeOut(100);
-        })
-    }
-    new Vue({
-        el: '#app_myufo_wardrobe',
-        data: {
-            wardrobe_character_clothe: 2,
-            wardrobe_character_cap: 2,
-            wardrobe_character_fitting: 2,
-        }
-
+function popup_announcement(word) {
+    $('#myUFO_wardrobe_popUps_car_less').css('display', 'block').fadeIn(100);
+    $('#announcement_content').html(word)
+    $('.cancel_announcement').click(function() {
+        $('#myUFO_wardrobe_popUps_car_less').css('display', 'none').fadeOut(100);
     })
+}
+new Vue({
+    el: '#app_myufo_wardrobe',
+    data: {
+        wardrobe_character_clothe: current_status.clothe,
+        wardrobe_character_cap: current_status.cap,
+        wardrobe_character_fitting: current_status.fitting,
+    }
+})
+
+
+$("#return_btn").click(function() {
+    localStorage.setItem('clothe', current_status.clothe);
+    localStorage.setItem('cap', current_status.cap);
+    localStorage.setItem('fitting', current_status.fitting);
+    window.document.location = './myUFO.html'
+});
     let point = 1988;
     $("#total_point").html(point);
     var equipment = new Map([
@@ -475,6 +498,20 @@
         ["fitting4", 0],
         ["fitting5", 0],
     ]);
+    function clickSetStatus(key) {
+            localStorage.setItem(key.slice(0, -1), parseInt(key.charAt(key.length - 1), 10));
+            switch (key.slice(0, -1)) {
+                case "clothe":
+                    current_status.clothe = parseInt(key.charAt(key.length - 1), 10);
+                    break;
+                case "cap":
+                    current_status.cap = parseInt(key.charAt(key.length - 1), 10);
+                    break;
+                case "fitting":
+                    current_status.fitting = parseInt(key.charAt(key.length - 1), 10);
+                    break;
+            }
+        }
 
     equipment.forEach(function(value, key) {
         if (value == 0) {
@@ -493,10 +530,11 @@
                             if (point > 600) {
                                 point -= 600;
                                 $("#total_point").html(point);
+                                    popup_announcement("購買完成，成功穿上" + key)
+                                    clickSetStatus(key);
                                 $("#own_" + key).css('visibility', 'visible');
                                 popup_announcement("購買完成")
                                 value = 1;
-                                $("#own_" + key).css("opacity", "1");
                             } else {
                                 popup_announcement("只剩" + point + "&nbsp;餘額不足<br><br>可以到常見問題查詢如何獲得點數")
                             }
@@ -505,6 +543,10 @@
                 }
             )
         }); // 關閉彈窗
+        $("#own_" + key).click(function() {
+                popup_announcement("成功穿上" + key);
+                clickSetStatus(key);
+            });
     });
 
     $('#cancel_payment').click(function() {
