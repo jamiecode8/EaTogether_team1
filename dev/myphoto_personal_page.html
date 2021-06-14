@@ -468,6 +468,8 @@
             el: '#app2',
             data: {
                 mymember:[],
+                testcon:"測試文章",
+                tagg:null,
                 
             },
             methods:{
@@ -486,19 +488,27 @@
                                 //console.log(data);
                             self.mymember =  JSON.parse(data);
                             console.log(self.mymember);
-                            console.log(self.mymember);
+                            
 
                             }).fail(function(jqXHR){   //---載入失敗
                             alert("res為ID數據載入失敗: " + jqXHR.status);
                             });
 
-                    },
+                },
+                gettagg(e){
+                    //this.tagg = e ;
+                    console.log(e);
+                },
              
             },
             created(){
 
                 axios.post("php/Frontend/API/M_personal_getsession.php").then((res)=>{
                 this.getmymemberdata(res.data)
+                });
+                axios.post("php/Frontend/API/M_get_tag.php").then((res) => {
+                this.gettagg(res.data);
+                //this.getmymemberdata(res.data);
                 });
 
 
@@ -539,7 +549,7 @@
                                 </article>
                                 <P>{{phototime}}</P>
                         </div>
-                        
+                        <testtag></testtag>
                     </li>`,
                     props:['photoimg','storeid', 'tag1','tag2','tag3','photousername','phototime'],
                     data(){
@@ -550,13 +560,18 @@
                     mounted(){
                         this.imgsrc = "./img/upload/myphoto/" + this.photoimg
                     },
+                    components:{
+                        'testtag': { 
+                            template:`<p></p>`
+                         },
+                         
+                    },
                 },
 
             },
 
 
         });
-
 
 </script>
 

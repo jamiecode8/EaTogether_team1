@@ -69,5 +69,5 @@
 
     $statement->execute();
 
-    echo "<script>alert('發文成功!'); location.href = '../../../myphoto.html';</script>";
+    echo "<script>alert('發文成功!'); location.href = '../../../myphoto_personal_page.html';</script>";
 ?>
