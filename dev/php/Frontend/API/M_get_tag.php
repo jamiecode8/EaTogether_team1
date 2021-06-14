@@ -25,8 +25,7 @@
 
 //============================= 引入資料 =====================================//
 
-$sql = "SELECT photo_img, store_id, tag1, tag2, tag3, photo_username ,photo_time FROM
-eatogether.photo order by photo_id desc limit 6;";
+$sql = "SELECT * FROM eatogether.tag;";
     
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     $statement = $pdo->prepare($sql);    
