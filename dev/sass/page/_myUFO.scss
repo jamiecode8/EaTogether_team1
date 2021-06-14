@@ -912,7 +912,7 @@
 	left: 37.5%;
 	margin: 0;
 	padding: 0;
-	width: 25%;
+	width: 24%;
 	height: 52%;
 	z-index: 55
 }
@@ -925,7 +925,7 @@
 		left: 37.5%;
 		margin: 0;
 		padding: 0;
-		width: 25%;
+		width: 24%;
 		height: 52%;
 		z-index: 55
 	}
@@ -939,7 +939,7 @@
 		left: 35%;
 		margin: 0;
 		padding: 0;
-		width: 32%;
+		width: 28%;
 		height: 52%;
 		z-index: 55
 	}
@@ -952,7 +952,7 @@
 		left: 35%;
 		margin: 0;
 		padding: 0;
-		width: 330px;
+		width: 310px;
 		height: 52%;
 		z-index: 55
 	}
@@ -1221,6 +1221,7 @@
 	width: 100%;
 	position: absolute;
     z-index: 50;
+	top: -1%;
 }
 
 @media all and (min-width:1200px) {
@@ -1228,6 +1229,7 @@
 		width: 100%;
 		position: absolute;
 		z-index: 50;
+		top: -1%;
 	}
 }
 
@@ -1236,6 +1238,7 @@
 		width: 100%;
 		position: absolute;
 		z-index: 50;
+		top: -1%;
 	}
 }
 
@@ -1244,6 +1247,7 @@
 		width: 100%;
 		position: absolute;
 		z-index: 50;
+		top: -1%;
 	}
 }
 
@@ -1252,6 +1256,7 @@
 		width: 100%;
 		position: absolute;
 		z-index: 50;
+		top: -1%;
 	}
 }
 
@@ -1260,6 +1265,7 @@
 		width: 100%;    
 		position: absolute;
 		z-index: 50;
+		top: -1%;
 	}
 }
 

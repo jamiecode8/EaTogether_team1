@@ -250,7 +250,10 @@
      <!-- 外星人   -->
      <div class="Speech_circle" ><img src="./img/mimi/Speech_circle.svg" alt=""></div>
      <div class="character"  id="app_myufo_wardrobe">
+        <img :src="src" v-if="wardrobe_character_getRole" class="animated infinite delay-4s" />
+        <img v-else src="./img/mimi/alienTest2.png" class="animated infinite delay-4s">   
          <a href="#">
+
         <img class="MyUFOcharacter_clothe clothe_1" v-if="wardrobe_character_clothe == 1" src="./img/mimi/character/clothe1.png" alt="">
         <img class="MyUFOcharacter_clothe clothe_2" v-if="wardrobe_character_clothe == 2" src="./img/mimi/character/clothe2.png" alt="">
         <img class="MyUFOcharacter_clothe clothe_3" v-if="wardrobe_character_clothe == 3" src="./img/mimi/character/clothe3.png" alt="">
@@ -267,8 +270,7 @@
         <img class="MyUFOcharacter_fitting fitting_1" v-if="wardrobe_character_fitting == 4" src="./img/mimi/character/fitting4.png" alt="">
         <img class="MyUFOcharacter_fitting fitting_1" v-if="wardrobe_character_fitting == 5" src="./img/mimi/character/fitting5.png" alt="">
         
-        <img :src="src" v-if="wardrobe_character_getRole" class="animated infinite delay-4s" />
-        <img v-else src="./img/mimi/alienTest.png" class="animated infinite delay-4s">    
+ 
     </a>
     </div>
     <script>
@@ -298,25 +300,26 @@
 
         sessionStorage.setItem("key", value);
     </script>
-    <!-- <style>
-        .character_cap {
+    <style>
+        .MyUFOcharacter_cap {
             position: absolute;
             top: -75px;
             right: 10px;
+            z-index: 100;
         }
         
-        .character_clothe {
+        .MyUFOcharacter_clothe {
             position: absolute;
-            z-index: 2;
+            z-index: 100;
             top: -60px
         }
         
-        .character_fitting {
+        .MyUFOcharacter_fitting {
             position: absolute;
-            z-index: 1;
+            z-index: 50;
             top: -45px
         }
-    </style> -->
+    </style>
  
  
  <!-- --------收藏餐廳彈窗-------- -->
@@ -1210,7 +1213,7 @@
        <div class="couponicon"><img src="./img/mimi/couponicon.svg" alt="" ></div>
        <!-- 單顆按鈕用這裡 -->
        <div class="buttonArea">
-         <a href="#"><div class="buybtn" id="couponbut2">兌換優惠券</div></a>
+         <a href="#"><div class="buybtn" id="couponbut2" @click="loginCheck(2)">兌換優惠券</div></a>
        </div>
      </form>
    </div>
@@ -1248,7 +1251,7 @@
                <div class="Littleman"><img src="./img/mimi/Littleman.svg" alt="" ></div>
                <!-- --2---- -->
              <div class="progressmimi">
-               <p class="Smalltask_p">每日小遊戲</p>
+               <p class="Smalltask_p">每日登入</p>
                <div class="progress_bar">
                  <!-- <progress max="100" value="0" class="more1"></progress> -->
                  
@@ -1262,7 +1265,7 @@
          <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBlue.png" alt="" ></div>
          <!-- --2---- -->
        <div class="progressmimi">
-         <p class="Smalltask_p">藍線搜尋一次</p>
+         <p class="Smalltask_p">新增收藏餐廳</p>
          <div class="progress_bar">
            <!-- <progress max="100" value="0" class="more2"></progress> -->
            
@@ -1276,7 +1279,7 @@
        <div class="mrtSmalltask"><img src="./img/icon/icon_mrtBrown.png" alt="" ></div>
        <!-- --2---- -->
      <div class="progressmimi">
-       <p class="Smalltask_p">綜線搜尋一次</p>
+       <p class="Smalltask_p">搜尋美食</p>
        <div class="progress_bar">
          <!-- <progress max="100" value="0" class="more3"></progress> -->
            
@@ -1290,7 +1293,7 @@
      <div class="mrtSmalltask"><img src="./img/icon/icon_mrtGreen.png" alt="" ></div>
      <!-- --2---- -->
    <div class="progressmimi">
-     <p class="Smalltask_p">綠線搜尋一次</p>
+     <p class="Smalltask_p">美食打卡</p>
      <div class="progress_bar">
        <!-- <progress max="100" value="0" class="more4"></progress> -->
            
@@ -1299,31 +1302,6 @@
    </div>
 
  </div>
- <div class="Smalltaskbox5">
-   <!-- --1-- -->
-   <div class="mrtSmalltask"><img src="./img/icon/icon_mrtRed.png" alt="" ></div>
-   <!-- --2---- -->
- <div class="progressmimi">
-   <p class="Smalltask_p">紅線搜尋一次</p>
-   <div class="progress_bar">
-     <!-- <progress max="100" value="0" class="more5"></progress> -->
-         
-     <button type="button" id="more5" class="myUFO_button buybtn5">兌換</button>
-   </div>
- </div>
-
-</div>
-<div class="Smalltaskbox6">
- <!-- --1-- -->
- <div class="mrtSmalltask"><img src="./img/icon/icon_mrtYellow.png" alt="" ></div>
- <!-- --2---- -->
-<div class="progressmimi">
- <p class="Smalltask_p">橘線搜尋一次</p>
- <div class="progress_bar">
-   <!-- <progress max="100" value="0" class="more6"></progress> -->
-   <button type="button" id="more6" class="myUFO_button buybtn6">兌換</button>
- </div>
-</div>
 
 </div>
        </div>   
@@ -1386,7 +1364,7 @@
            <button type="button" class="close_myUFOprogressbar btn_close">
              <img src="./img/icon/icon_close.png" alt="" >
            </button>
-            <h1 class="categor_h1">已領取點數10點!</h1>
+            <h1 class="categor_h1">已領取點數50點!</h1>
            
          </form>
          
