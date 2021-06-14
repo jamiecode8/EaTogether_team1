@@ -1,4 +1,3 @@
-
 <?php
    include("../../Lib/Util.php");
    include("../../Lib/Member.php");
@@ -7,7 +6,7 @@
    $sql = "SELECT *
    FROM store 
    join station on station.station_id = store.station_id
-   -- join MRT_line on MRT_line.line_id = station.MRT_line_line_id
+   join MRT_line on MRT_line.line_id = station.MRT_line_line_id
    join price on price.price_id = store.price_id
    where contact_tel = ?";
 
