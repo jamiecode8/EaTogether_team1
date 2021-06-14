@@ -332,28 +332,28 @@ new Vue({
 
     mounted() {
       var self = this;
-    //   init(); //登入檢查
-      getStoreList(); //登入沒做好，直接進頁面
-    //   function init() {
-    //     $.ajax({
-    //       method: "POST",
-    //     //   url: "./php/Backend/API/BackendLoginCheck.php",
-    //       url: "./php/Frontend/API/StoreLoginCheck.php",
-    //       data: {},
-    //       dataType: "text",
-    //       success: function success(response) {
-    //         if (response == "") {
-    //           alert('請先登入，將前往登入頁');
-    //           location.href = 'backend_login_member.html';
-    //         } else {
-    //           getStoreList();
-    //         }
-    //       },
-    //       error: function error(exception) {
-    //         alert("數據載入失敗1: " + exception.status);
-    //       }
-    //     });
-    //   } 
+      init(); //登入檢查
+    //   getStoreList(); //登入沒做好，直接進頁面
+      function init() {
+        $.ajax({
+          method: "POST",
+          url: "./php/Backend/API/Backend_LoginCheck.php",
+        //   url: "./php/Frontend/API/StoreLoginCheck.php",
+          data: {},
+          dataType: "text",
+          success: function success(response) {
+            if (response == "") {
+              alert('請先登入，將前往登入頁');
+              location.href = 'backend_login_member.html';
+            } else {
+              getStoreList();
+            }
+          },
+          error: function error(exception) {
+            alert("數據載入失敗1: " + exception.status);
+          }
+        });
+      } 
       // 撈商家資料
       function getStoreList(){    
         $.ajax({            

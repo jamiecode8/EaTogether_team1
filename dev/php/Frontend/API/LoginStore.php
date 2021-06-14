@@ -2,7 +2,8 @@
     include("../../Lib/Util.php");	
 
     //建立SQL
-    $sql = "SELECT * FROM store WHERE contact_email = ? and contact_tel = ?";
+    $sql = "SELECT * FROM store 
+    WHERE store_status = 1 and contact_email = ? and contact_tel = ? " ;
 
     //給值
     $statement = getPDO()->prepare($sql);
