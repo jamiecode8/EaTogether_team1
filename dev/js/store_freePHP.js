@@ -33,7 +33,6 @@ new Vue({
         });
       // } // 撈商家資料
   
-
       function getStoreMember() {
         $.ajax({
           method: "POST",
@@ -41,8 +40,8 @@ new Vue({
           data: {},
           dataType: "json",
           success: function success(response) {
-            // setTimeout(displayStore(response), 1000); //等照片撈好再出現
             displayStore(response);
+            console.log((response));
           },
           error: function error(exception) {
             alert(exception.responseText);

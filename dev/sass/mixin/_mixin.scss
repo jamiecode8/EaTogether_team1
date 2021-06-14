@@ -50,7 +50,8 @@
         @include border_r();
         &:hover {
             cursor: pointer;
-            color: darken($bgc, 20);
+            font-weight: bold;
+            border-color: darken($borderColor, 20);
         }
     }
 }
