@@ -21,9 +21,11 @@
             <form method="POST" action="./php/Frontend/API/LoginStore.php">
                 <div class="inner_block_area" id="login_block"> 
                     <!-- 輸入框欄位 -->
-                    <input v-model="email" type="email" placeholder="E-mail" name="storeEmail" autocomplete="off" required/>
-                    <input v-model="password" type="password" placeholder="密碼" name="storeTel" autocomplete="off" required/>
-                    
+                    <!-- <input v-model="email" type="email" placeholder="E-mail" name="storeEmail" autocomplete="off" required/>
+                    <input v-model="password" type="password" placeholder="密碼" name="storeTel" autocomplete="off" required/> -->
+                    <!-- 上線版 -->
+                    <input v-model="email" type="email" value="gonna888@tibaMe.com" name="storeEmail" autocomplete="off" required/>
+                    <input v-model="password" type="password" value="0965889977" name="storeTel" autocomplete="off" required/>
                     <!-- 無法登入 -->
                     <div class="forgetPassword">
                         <a href="">忘記密碼? </a>
