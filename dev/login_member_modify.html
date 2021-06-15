@@ -38,18 +38,18 @@
                             <div class="memberInfo_edit_area">
                                 <span class="memberInfo_edit_area_title"> 暱稱</span>
                                 <input type="text" :value="nickname" name="member_name"  @change="checkNickname" :disabled="disabled == 1"/>
-                                <button class="memberInfo_edit_editIcon" @click="isTypeable">
+                                <button class="memberInfo_edit_editIcon" @click="isTypeable" autocomplete="off">
                                 </button>
                             </div>
                             <div class="memberInfo_edit_area">
                                 <span class="memberInfo_edit_area_title"> 生日 </span>
-                                <input type="num" placeholder="1900-01-31" :value="birthday" name="member_birthday"  @change="checkBirthday" :disabled="disabled == 1"/>
+                                <input type="num" placeholder="1900-01-31" :value="birthday" name="member_birthday"  @change="checkBirthday" :disabled="disabled == 1" autocomplete="off"/>
                                 <button class="memberInfo_edit_editIcon" @click="isTypeable">
                                 </button>
                             </div>
                             <div class="memberInfo_edit_area">
                                 <span class="memberInfo_edit_area_title"> 電話 </span>
-                                <input type="num" :value="tel" name="member_phone" @change="checkTel" :disabled="disabled == 1"/>
+                                <input type="num" :value="tel" name="member_phone" @change="checkTel" :disabled="disabled == 1" autocomplete="off"/>
                                 <button class="memberInfo_edit_editIcon" @click="isTypeable">
                                 </button>
                             </div>
