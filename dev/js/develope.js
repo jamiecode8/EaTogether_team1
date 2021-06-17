@@ -68,7 +68,7 @@
                     <ul>
                         <li>後台頁面</li>
                         <li>資料庫設計</li>
-                        <li>資料庫整理</li>
+                        <li>資料庫創建</li>
                     </ul>
                     <br>
                     <a href="https://levisedwin.github.io/tdf10121/index.html" target="_blank">
